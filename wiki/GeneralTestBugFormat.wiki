@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary - General startup for test/triage group
 #labels Phase-QA
 
 = Introduction =
@@ -11,8 +11,15 @@ Essentially any basics that need filling in.
 Just list some ideas or post links so there is a general grasp of
 what a good way to start with is.
 
-
 P.S. Anyone can participate if they have any knowledge or prior 
 experience in the matter.
 
+= Updates =
+Will also need to discuss times when our sub groups can meet
+  This can be discussed here on the wiki or give phones numbers
+  and text or whatnot.
+
 = Details =
+
+Apple bug report format
+http://developer.apple.com/bugreporter/bugrptform.html
