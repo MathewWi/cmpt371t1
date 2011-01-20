@@ -1,0 +1,18 @@
+#summary One-sentence summary of this page.
+#labels Phase-QA
+
+= Introduction =
+
+To all in the test and triage (should they be together?)
+We need to come up with some basic formatting on how to present
+or fill in bug reports, error handling, test cases, and whatnot.
+Essentially any basics that need filling in.
+
+Just list some ideas or post links so there is a general grasp of
+what a good way to start with is.
+
+
+P.S. Anyone can participate if they have any knowledge or prior 
+experience in the matter.
+
+= Details =
