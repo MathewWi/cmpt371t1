@@ -23,3 +23,6 @@ Will also need to discuss times when our sub groups can meet
 
 Apple bug report format
 http://developer.apple.com/bugreporter/bugrptform.html
+
+This link might be helpful
+http://www.softwaretestinghelp.com/how-to-write-good-bug-report/
