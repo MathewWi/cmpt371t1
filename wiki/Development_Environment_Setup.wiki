@@ -15,10 +15,10 @@ Classic Eclipse should work fine.
 [http://developer.android.com/sdk/index.html]
 
 Within the AVD manager tool, you'll need to install at least the following for version 2.1 (API version 7) and maybe 2.2 (API version 8):
-*Android SDK
-*Android SDK Platform-tools
-*Documentation for Android SDK
-*SDK Platform
+* Android SDK
+* Android SDK Platform-tools
+* Documentation for Android SDK
+* SDK Platform
 
 Once those are installed, create an AVD.
 
