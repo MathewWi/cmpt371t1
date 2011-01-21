@@ -21,6 +21,9 @@ Will also need to discuss times when our sub groups can meet
 
 = Details =
 
+= Update = 
+Don't mind whats under details now. To issue bugs, google has it made for us. The testing team and triage team will need to have a small meeting to discuss the structure of the report. It is changeable in google.
+
 Apple bug report format
 http://developer.apple.com/bugreporter/bugrptform.html
 
