@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#MANDATORY READ
 
 = Introduction =
 This is extra incentive for people to come to meetings.
@@ -16,4 +16,3 @@ The recorded times will be done in the details section.
 = Read This =
 
 = Details =
-
