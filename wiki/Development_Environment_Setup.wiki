@@ -2,16 +2,16 @@
 
 = Introduction =
 
-Everyone should try to use the same development environment unless you have a good reason not to. You'll need Eclipse, the Android SDK, and the Eclipse ADT plugin.
+Everyone should try to use the same development environment unless you have a good reason not to. You'll need Eclipse, the Android SDK, the Eclipse TeamCity plugin, and the Eclipse ADT plugin.
 
 *TODO: fill in some additional information below.*
 
-= Eclipse =
+==Eclipse==
 [http://www.eclipse.org]
 
 Classic Eclipse should work fine.
 
-= Android SDK =
+==Android SDK==
 [http://developer.android.com/sdk/index.html]
 
 Within the AVD manager tool, you'll need to install at least the following for version 2.1 (API version 7) and maybe 2.2 (API version 8):
@@ -22,7 +22,12 @@ Within the AVD manager tool, you'll need to install at least the following for v
 
 Once those are installed, create an AVD.
 
-= ADT Plugin =
+==ADT Plugin==
 [http://developer.android.com/sdk/eclipse-adt.html]
 
 Point Eclipse to the directory you installed the SDK into. This is the Window menu.
+
+==TeamCity Plugin==
+In eclipse, go to "Help->Install New Software". Click "Add" to add a site to get updates from and use the address [http://pp00505600136c.usask.ca/update/eclipse] in the location field with the name TeamCity. Select the "JetBrains TeamCity Plugin", click next, and go through the dialogs that come up.
+
+Now that the plugin is installed, go to the menu "TeamCity->Login", use the address [http://pp00505600136c.usask.ca/] and enter your username/password. Don't use the "tc.zenja.ca" address here.
