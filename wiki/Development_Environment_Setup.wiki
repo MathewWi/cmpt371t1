@@ -1,11 +1,9 @@
 #summary Outline of how to set up the development environment.
 
 = Introduction =
-
 Everyone should try to use the same development environment unless you have a good reason not to. You'll need Eclipse, the Android SDK, the Eclipse !TeamCity plugin, and the Eclipse ADT plugin.
 
-*TODO: fill in some additional information below.*
-
+= Get the tools =
 ==Eclipse==
 [http://www.eclipse.org]
 
@@ -14,20 +12,25 @@ Classic Eclipse should work fine.
 ==Android SDK==
 [http://developer.android.com/sdk/index.html]
 
-Within the AVD manager tool, you'll need to install at least the following for version 2.1 (API version 7) and maybe 2.2 (API version 8):
+Within the AVD manager tool, which is a file called "android" (in Linux) found in the "tools" directory of the SDK, you'll need to install at least the following for version 2.1 (API version 7) and maybe 2.2 (API version 8):
   * Android SDK
   * Android SDK Platform-tools
   * Documentation for Android SDK
   * SDK Platform
 
-Once those are installed, create an AVD.
+Once those are installed, create an AVD. Use a flash size of something like 256MB.
 
 ==ADT Plugin==
 [http://developer.android.com/sdk/eclipse-adt.html]
 
-Point Eclipse to the directory you installed the SDK into. This is the Window menu.
+Point Eclipse to the directory you installed the SDK into. This is done in Window->Preferences->Android.
 
 ==!TeamCity Plugin==
-In eclipse, go to "Help->Install New Software". Click "Add" to add a site to get updates from and use the address [http://pp00505600136c.usask.ca/update/eclipse] in the location field with the name !TeamCity. Select the "!JetBrains !TeamCity Plugin", click next, and go through the dialogs that come up.
+In eclipse, go to Help->Install New Software. Click "Add" to add a site to get updates from and use the address [http://pp00505600136c.usask.ca/update/eclipse] in the location field. Select the "!JetBrains !TeamCity Plugin", click next, and go through the dialogs that come up.
 
 Now that the plugin is installed, go to the menu "!TeamCity->Login", use the address [http://pp00505600136c.usask.ca/] and enter your username/password. Don't use the "tc.zenja.ca" address here.
+
+= Configure Eclipse for TeamCity =
+After hours of frustration, it's become evident that TeamCity will not do all the SVN for you seamlessly. You need to make sure that Subversive is installed in Eclipse. I believe it's supposed to be installed by default, but Google about how to install it using the Eclipse update system if not. At some point you'll probably have to choose a "connector" for subversive - use the SVNKit 1.3.3 connector. My install was kind of messed up and getting this working was tedious, so I won't document it here.
+
+Now to get the project into Eclipse, you'll have to create a new project from SVN. Go to File->New->Other and under the SVN folder choose "Project from SVN". Create a new repository location using "https://cmpt371t1.googlecode.com/svn/" as the location, and use your Google username and password for authentication. Your password isn't the same as your email password. You can find it under your Google profile settings page which you can reach from the Google Code project page at the top right of the page. Click finish. Now choose the "Find projects in the children of the selected resource" option, click finish, and complete the rest of the screens, choosing to create the new project in the existing workspace, naming the project Luminance.
