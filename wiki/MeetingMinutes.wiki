@@ -1,0 +1,23 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Weekly meeting minutes.
+
+
+= January 21, 2011 =
+
+- Everyone should update their duties.  Go to "Project Home" -> People -> Update your duties.
+
+- A template for ALL our issues is setup in Google code and might be modified by Jeff in the future.  All issues posted should follow this.
+
+- Everyone should read the getting started on development wiki page and have their development environment setup by the next meeting.
+
+- Martina is our meeting manager now.  Her word rules.
+
+- The Triage team is in charge of accepting bugs and will discuss with the dev team who will fix it.
+
+- Design team will meet next and Stephen will bring a basic domain diagram for the first design team meeting.
+
+
+= Next meeting = 
