@@ -28,6 +28,6 @@ Once those are installed, create an AVD.
 Point Eclipse to the directory you installed the SDK into. This is the Window menu.
 
 ==TeamCity Plugin==
-In eclipse, go to Help->Install New Software. Click Add to add a site to get updates from and use the address [http://pp00505600136c.usask.ca/update/eclipse] in the location field with the name TeamCity. Select the "JetBrains TeamCity Plugin", click next, and go through the dialogs that come up.
+In eclipse, go to "Help->Install New Software". Click "Add" to add a site to get updates from and use the address [http://pp00505600136c.usask.ca/update/eclipse] in the location field with the name TeamCity. Select the "JetBrains TeamCity Plugin", click next, and go through the dialogs that come up.
 
 Now that the plugin is installed, go to the menu "TeamCity->Login", use the address [http://pp00505600136c.usask.ca/] and enter your username/password. Don't use the "tc.zenja.ca" address here.
