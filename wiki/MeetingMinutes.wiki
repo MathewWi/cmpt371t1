@@ -13,7 +13,7 @@ Weekly meeting minutes.
 
 - Everyone should read the getting started on development wiki page and have their development environment setup by the next meeting.
 
-- Martina is our meeting manager now.  Her word rules.
+- Martina is our meeting manager now.  Her word is rule.
 
 - The Triage team is in charge of accepting bugs and will discuss with the dev team who will fix it.
 
