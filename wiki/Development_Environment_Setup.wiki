@@ -1,0 +1,28 @@
+#summary Outline of how to set up the development environment.
+
+= Introduction =
+
+Everyone should try to use the same development environment unless you have a good reason not to. You'll need Eclipse, the Android SDK, and the Eclipse ADT plugin.
+
+*TODO: fill in some additional information below.*
+
+= Eclipse =
+[http://www.eclipse.org]
+
+Classic Eclipse should work fine.
+
+= Android SDK =
+[http://developer.android.com/sdk/index.html]
+
+Within the AVD manager tool, you'll need to install at least the following for version 2.1 (API version 7) and maybe 2.2 (API version 8):
+*Android SDK
+*Android SDK Platform-tools
+*Documentation for Android SDK
+*SDK Platform
+
+Once those are installed, create an AVD.
+
+= ADT Plugin =
+[http://developer.android.com/sdk/eclipse-adt.html]
+
+Point Eclipse to the directory you installed the SDK into. This is the Window menu.
