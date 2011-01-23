@@ -9,6 +9,12 @@ Everyone should try to use the same development environment unless you have a go
 
 Classic Eclipse should work fine.
 
+== Java JDK ==
+You must download the Java JDK:
+[http://www.oracle.com/technetwork/java/javase/downloads/index.html]
+
+ - If you download 64bit JDK sometimes the Android SDK installer won't recognize it.  Just install the 32bit JDK.
+
 ==Android SDK==
 [http://developer.android.com/sdk/index.html]
 
@@ -24,6 +30,8 @@ Once those are installed, create an AVD. Use a flash size of something like 256M
 [http://developer.android.com/sdk/eclipse-adt.html]
 
 Point Eclipse to the directory you installed the SDK into. This is done in Window->Preferences->Android.
+
+ - If Eclipse refuses to connect to the plugin URL a simple restart of eclipse seems to fix it.
 
 ==UML Diagram Plugin==
 *ObjectAid UML Explorer for Eclipse*
