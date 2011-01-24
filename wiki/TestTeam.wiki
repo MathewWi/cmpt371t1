@@ -16,10 +16,21 @@ Mondays after team meetings
 Tasks: 
 
 January 24, 2011
+   
+    Download eclipse
     Code Coverage: http://update.eclemma.org
 
     Make a Concept smoke test
     Due: by the end of the week or next meeting.
+  
+    Create ant script for smoke test,
+        -Make it so that it builds a project
+        -Upon rejection, don't commit/error
+        -Else, run some unit testing/smoke test
+ 
+    Learn how team city works
+    Eclipse Testing with TeamCity http://www.jetbrains.com/teamcity/features/continuous_integration.html#Remote_Build_Run_and_Pre-Tested_Commit
+
 
 Triage:
 Mondays after team meetings
