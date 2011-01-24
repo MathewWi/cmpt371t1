@@ -9,13 +9,17 @@ Please look beside your name for issues assigned to you.
 
 = Name:       Issue:   Status:    Date Issued: =
 = Zenja: =
+    2: Accepted: Jan24/11
+    3: Accepted: Jan24/11
 = Martina: =
 = Stephen: =
+    4: Accepted: Jan24/11
 = Sten: =
 = Jeff: =
 = Amara: =
 = Jiajing: =
 = Chet: =
 = Kumara: =
+    1: Accepted: Jan24/11
 = Kai: =
 = Jonny: =
