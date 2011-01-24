@@ -5,13 +5,8 @@
 
 Will be listing our todo's and to-done's!
 
-
-= Details =
-
-= Meeting Times: =
-Test Team:
+= Test Team: =
 Mondays after team meetings
-
 
 Tasks: 
 
@@ -34,7 +29,7 @@ January 24, 2011
     Eclipse Testing with TeamCity http://www.jetbrains.com/teamcity/features/continuous_integration.html#Remote_Build_Run_and_Pre-Tested_Commit
 
 
-Triage:
+= Triage: =
 Mondays after team meetings
 
 Tasks:
