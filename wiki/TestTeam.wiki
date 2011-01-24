@@ -1,5 +1,5 @@
+#summary Documentation for the Test Team
 #labels Phase-QA
-#Summary Documentation for the Test Team
 
 = Introduction =
 
