@@ -1,0 +1,13 @@
+#labels Phase-QA
+#Documentation for the Test Team
+
+= Introduction =
+
+Will be listing our todo's and to-done's!
+
+
+= Details =
+
+January 24, 2011
+    Make a Concept smoke test
+    Due: by the end of the week or next meeting.
