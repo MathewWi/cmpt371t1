@@ -1,0 +1,26 @@
+#summary Issues assigned to individual members
+
+= Introduction =
+
+Please look beside your name for issues assigned to you.
+
+
+= Details =
+
+= Name:       Issue   Status    Date Issued =
+= Zenja: =
+= Martina: =
+= Stephen: =
+= Sten: =
+= Jeff: =
+= Amara: =
+= Jiajing: =
+= Chet: =
+= Kumara: =
+= Kai: =
+= Jonny: =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
