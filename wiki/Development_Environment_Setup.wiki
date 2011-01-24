@@ -16,22 +16,36 @@ You must download the Java JDK:
  - If you download 64bit JDK sometimes the Android SDK installer won't recognize it.  Just install the 32bit JDK.
 
 ==Android SDK==
-[http://developer.android.com/sdk/index.html]
 
-Within the AVD manager tool, which is a file called "android" (in Linux) found in the "tools" directory of the SDK, you'll need to install at least the following for version 2.1 (API version 7) and maybe 2.2 (API version 8):
-  * Android SDK
-  * Android SDK Platform-tools
-  * Documentation for Android SDK
-  * SDK Platform
+===Downloading the Android SDK===
+  # Download the [http://developer.android.com/sdk/index.html Android SDK] for your particular platform.
+  # If you're on Windows, install the SDK by running the downloaded executable. If you are on Mac OS X or Linux, unarchive the package and resulting SDK in a safe place. Note the location.
 
-Once those are installed, create an AVD. Use a flash size of something like 256MB.
 
 ==ADT Plugin==
-[http://developer.android.com/sdk/eclipse-adt.html]
 
-Point Eclipse to the directory you installed the SDK into. This is done in Window->Preferences->Android.
+===Installation===
+  # Go to Eclipse's Help menu and select Install New Software...
+  # In the resulting window click on the Add... button and add this URL, https://dl-ssl.google.com/android/eclipse/, to the Location field. Name it whatever you want and click OK. Note: If Eclipse tells you that it's a duplicate location, you can skip this step.
+  # Make sure that the site you entered in the previous step is selected in the "Work with" field. If it isn't click on the down arrow at the end of the field and click on the site you added.
+  # You should now see a Developer Tools entry in the table in the center. You can click on the disclosure triangle to view the contents if you want, but we're going to install it all anyway. Just click on the checkbox beside "Developer Tools" and click Next. Follow the on-screen instructions and restart Eclipse when it prompts you to and you will have finished installing the ADT plugin for Eclipse.
 
- - If Eclipse refuses to connect to the plugin URL a simple restart of eclipse seems to fix it.
+===Configuration===
+  # Go to Eclipse's preferences and select in the left pane.
+  # By the SDK Location field, click on the Browse... button.
+  # Find the location that you location that you placed the Android SDK and select that.
+
+===Adding Platforms and Components===
+  # In Eclipse, go to Window > Android SDK and AVD Manager.
+  # In the left pane, select Available packages.
+  # Check off SDK Platform Android 2.1 and 2.2. Also check off "Android SDK Tools, revision 8", "Android SDK Platform-tools, revision 1" and "Documentation for Android SDK, API 9, revision 1"
+
+===Make AVD (Android Virtual Device)===
+  # Name the device whatever you want.
+  # Choose Android 2.1-update1 - API Level 7
+  # Leave the SD Card section blank
+  # For the "Built-in" choose Default (HVGA) and click Create AVD.
+
 
 ==UML Diagram Plugin==
 *ObjectAid UML Explorer for Eclipse*
