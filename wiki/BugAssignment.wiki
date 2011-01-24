@@ -7,7 +7,7 @@ Please look beside your name for issues assigned to you.
 
 = Details =
 
-= Name:       Issue   Status    Date Issued =
+= Name:       Issue:   Status:    Date Issued: =
 = Zenja: =
 = Martina: =
 = Stephen: =
