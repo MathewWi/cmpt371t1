@@ -1,5 +1,4 @@
-#summary One-sentence summary of this page.
-
+#summary Brief summary of weekly meetings
 = Introduction =
 
 Weekly meeting minutes.
