@@ -10,5 +10,6 @@ Will be listing our todo's and to-done's!
 
 January 24, 2011
     Code Coverage: http://update.eclemma.org
+
     Make a Concept smoke test
     Due: by the end of the week or next meeting.
