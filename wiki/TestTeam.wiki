@@ -25,7 +25,9 @@ January 24, 2011
   
     Create ant script for smoke test,
         -Make it so that it builds a project
+
         -Upon rejection, don't commit/error
+
         -Else, run some unit testing/smoke test
  
     Learn how team city works
