@@ -8,8 +8,22 @@ Will be listing our todo's and to-done's!
 
 = Details =
 
+= Meeting Times: =
+Test Team:
+Mondays after team meetings
+
+
+Tasks: 
+
 January 24, 2011
     Code Coverage: http://update.eclemma.org
 
     Make a Concept smoke test
     Due: by the end of the week or next meeting.
+
+Triage:
+Mondays after team meetings
+
+Tasks:
+  Format issue report form
+  Accept and assign issues
