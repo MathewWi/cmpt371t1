@@ -76,5 +76,13 @@ The project must be imported by adding it within Eclipse using Subversive. Do no
 ==Committing==
 When you're ready to commit changes, use the !TeamCity->Remote Run menu option. This will perform a test run. In this dialog, you can also choose to commit the code if the test is passed. Enable this when you intend to commit.
 
+
+= Configure Eclipse for !Development =
+ * Note: Most project specific settings are included in the eclipse project that is in the repository.
+
+== LogCat Window ==
+To view stdout and stderr from the Android emulator you need to enable LogCat.
+  # Go go Window -> Show View -> "Other..."
+  # In the "Show View" window that opens expand the "Android" folder select "LogCat"
 ----
 Page maintained by Zenja and Kumaran
