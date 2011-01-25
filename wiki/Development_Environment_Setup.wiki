@@ -5,20 +5,17 @@ Everyone should try to use the same development environment unless you have a go
 
 = Get the tools =
 ==Eclipse==
-[http://www.eclipse.org]
-
-Classic Eclipse should work fine.
+Download Eclipse Classic from [http://www.eclipse.org].
 
 == Java JDK ==
-You must download the Java JDK:
-[http://www.oracle.com/technetwork/java/javase/downloads/index.html]
+Download the Java JDK at [http://www.oracle.com/technetwork/java/javase/downloads/index.html]. _(I believe that Eclipse Classic should come with this already)_
 
- - If you download 64bit JDK sometimes the Android SDK installer won't recognize it.  Just install the 32bit JDK.
+If you download 64bit JDK sometimes the Android SDK installer won't recognize it.  Just install the 32bit JDK.
 
 ==Android SDK==
 
 ===Downloading the Android SDK===
-  # Download the [http://developer.android.com/sdk/index.html Android SDK] for your particular platform.
+  # Go to [http://developer.android.com/sdk/index.html] and download the  Android SDK for your particular platform.
   # If you're on Windows, install the SDK by running the downloaded executable. If you are on Mac OS X or Linux, unarchive the package and resulting SDK in a safe place. Note the location.
 
 
@@ -48,16 +45,17 @@ You must download the Java JDK:
 
 
 ==UML Diagram Plugin==
-*ObjectAid UML Explorer for Eclipse*
+*!ObjectAid UML Explorer for Eclipse*
 
-In eclipse, go to Help->Install New Software. Click "Add" to add a site to get updates from and use the address [http://www.objectaid.com].
-_This is the UML tool that I found easy to use, I would suggest this UML tool unless anyone has a better tools for this._
-
+  # In eclipse, go to Help->Install New Software
+  # Click "Add" to add a site to get updates from and use the address [http://www.objectaid.com] in the location field
+  # Select the plugin and go through the following dialogs to complete the installation
 
 ==!TeamCity Plugin==
-In eclipse, go to Help->Install New Software. Click "Add" to add a site to get updates from and use the address [http://pp00505600136c.usask.ca/update/eclipse] in the location field. Select the "!JetBrains !TeamCity Plugin", click next, and go through the dialogs that come up.
-
-Now that the plugin is installed, go to the menu "!TeamCity->Login", use the address [http://pp00505600136c.usask.ca/] and enter your username/password. Don't use the "tc.zenja.ca" address here.
+  # In eclipse, go to Help->Install New Software
+  # Click "Add" to add a site to get updates from and use the address [http://pp00505600136c.usask.ca/update/eclipse] in the location field
+  # Select the "!JetBrains !TeamCity Plugin", click next, and go through the following diagrams to finish installation
+  # After restarting Eclipse, go to !TeamCity->Login, use the address [http://pp00505600136c.usask.ca/] and enter your TeamCity username/password. Don't use the "tc.zenja.ca" address here.
 
 = Configure Eclipse for !TeamCity =
 ==Subversive==
@@ -77,3 +75,6 @@ The project must be imported by adding it within Eclipse using Subversive. Do no
 
 ==Committing==
 When you're ready to commit changes, use the !TeamCity->Remote Run menu option. This will perform a test run. In this dialog, you can also choose to commit the code if the test is passed. Enable this when you intend to commit.
+
+----
+Page maintained by Zenja and Kumaran
