@@ -77,7 +77,7 @@ The project must be imported by adding it within Eclipse using Subversive. Do no
 When you're ready to commit changes, use the !TeamCity->Remote Run menu option. This will perform a test run. In this dialog, you can also choose to commit the code if the test is passed. Enable this when you intend to commit.
 
 
-= Configure Eclipse for !Development =
+= Configure Eclipse for Development =
  * Note: Most project specific settings are included in the eclipse project that is in the repository.
 
 == LogCat Window ==
