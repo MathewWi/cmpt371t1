@@ -4,15 +4,18 @@
 Weekly meeting minutes.
 
 = January 26, 2011 =
-
+  # Whats done
   # Stephen: Working spinning box on the svn repo and basic architecture working.
   # Kai: UML Diagram is done with Visual Diagram
   # TestTeam: Bug assignment page now scrapped, the bug issuer spams e-mails.
   
+  # For next meeting
   # Sten: Looking at Check Style
   # Chet: Risk will be done by friday
   # Jonny: Input on touch screen
   # TestTeam: Still working on concept on ant build and smoke test
+
+  # Issue Tracking: Owner change to Fix status then Triage/Test Team change to Verified
   
 = January 24, 2011 =
 
