@@ -13,11 +13,8 @@ Download the Java JDK at [http://www.oracle.com/technetwork/java/javase/download
 If you download 64bit JDK sometimes the Android SDK installer won't recognize it.  Just install the 32bit JDK.
 
 ==Android SDK==
-
-===Downloading the Android SDK===
   # Go to [http://developer.android.com/sdk/index.html] and download the  Android SDK for your particular platform.
   # If you're on Windows, install the SDK by running the downloaded executable. If you are on Mac OS X or Linux, unarchive the package and resulting SDK in a safe place. Note the location.
-
 
 ==ADT Plugin==
 
@@ -80,9 +77,10 @@ When you're ready to commit changes, use the !TeamCity->Remote Run menu option. 
 = Configure Eclipse for Development =
  * Note: Most project specific settings are included in the eclipse project that is in the repository.
 
-== LogCat Window ==
+== !LogCat Window ==
 To view stdout and stderr from the Android emulator you need to enable LogCat.
   # Go go Window -> Show View -> "Other..."
-  # In the "Show View" window that opens expand the "Android" folder select "LogCat"
+  # In the "Show View" window that opens expand the "Android" folder and select "!LogCat"
+
 ----
 Page maintained by Zenja and Kumaran
