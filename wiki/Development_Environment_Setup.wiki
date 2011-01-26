@@ -1,5 +1,4 @@
-#summary Outline of how to set up the development environment.
-#labels Phase-Implementation
+#Summary Outline of how to set up the development environment.
 
 = Introduction =
 Everyone should try to use the same development environment unless you have a good reason not to. You'll need Eclipse, the Android SDK, the Eclipse !TeamCity plugin, and the Eclipse ADT plugin.
@@ -55,8 +54,14 @@ If you download 64bit JDK sometimes the Android SDK installer won't recognize it
   # Select the "!JetBrains !TeamCity Plugin", click next, and go through the following diagrams to finish installation
   # After restarting Eclipse, go to !TeamCity->Login, use the address [http://pp00505600136c.usask.ca/] and enter your TeamCity username/password. Don't use the "tc.zenja.ca" address here.
 
-= Configure Eclipse for !TeamCity =
-==Subversive==
+= !TeamCity =
+  # Make an account at [http://pp00505600136c.usask.ca/ TeamCity]
+  # In the main page of your account, click on My Settings & Tools in the upper right
+  # Click on Edit in the Version Control Username Settings
+  # Click 
+
+==Eclipse Setup==
+===Subversive===
 Subversive needs to be set up before you can work on the project through TeamCity.
   # Enable the Subversive update site. Go to Window->Preferences, go to the Updates section, and enable the site corresponding to the address below, if it isn't already enabled. Close the dialog box
   # Go to Help->Install New Software
@@ -65,14 +70,14 @@ Subversive needs to be set up before you can work on the project through TeamCit
   # Follow through the next dialogs to complete the installation
   # Restart Eclipse. When it starts again, you will be prompted for the connector you'd like to use. Choose SVN Kit 1.3.5.
 
-==Project check-out==
+===Project check-out===
 The project must be imported by adding it within Eclipse using Subversive. Do not use any previously manually checked out folders.
   # Go to File->New->Other
   # Choose SVN->Project from SVN
   # Use the URL [https://cmpt371t1.googlecode.com/svn/]. In the Authentication section, enter your Google Code username and password. To get your password, go to Google Code, go to your profile page by following the link on the upper right corner of the page, and going to the settings tab. *Note:* this Google Code password is not the same as your normal Google account password.
   # Click next and finish. You will then be prompted on how to check out the project. Choose "Find projects in the children of the selected resource" and click finish.
 
-==Committing==
+===Committing===
 When you're ready to commit changes, use the !TeamCity->Remote Run menu option. This will perform a test run. In this dialog, you can also choose to commit the code if the test is passed. Enable this when you intend to commit.
 
 
