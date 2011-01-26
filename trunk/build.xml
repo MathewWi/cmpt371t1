@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<project name="Luminance" default="compile">
+    
+    <property file="local.properties" />
+    <property file="build.properties" />
+    <property file="default.properties" />
+    
+    <!-- Path to android files. 
+    id - base of the path
+    part - the files to point to.  -->
+    <path id="android.antlibs">
+        <pathelement path="${sdk.dir}/tools/lib/anttasks.jar" />
+        <pathelement path="${sdk.dir}/tools/lib/sdklib.jar" />
+        <pathelement path="${sdk.dir}/tools/lib/androidprefs.jar" />
+        <pathelement path="${sdk.dir}/tools/lib/apkbuilder.jar" />
+        <pathelement path="${sdk.dir}/tools/lib/jarutils.jar" />
+    </path>
+ 
+    <!-- Define a task to deal with project target and import the proper things. 
+    name - name of the task.
+    classname - the name of the class that implents the task.
+    classpathref - where to look up classname -->
+    <taskdef name="setup"
+        classname="com.android.ant.SetupTask"
+        classpathref="android.antlibs" />
+        
+    <taskdef name="aaptexec"
+        classname="com.android.ant.AaptExecLoopTask"
+        classpathref="android.antlibs" />
+ 
+    <taskdef name="apkbuilder"
+        classname="com.android.ant.ApkBuilderTask"
+        classpathref="android.antlibs" />
+ 
+    <taskdef name="xpath"
+        classname="com.android.ant.XPathTask"
+        classpathref="android.antlibs" />
+ 
+    <!-- Targets. Written by Zenja, I believe.-->
+    <target name="clean" description="remove intermediate files">
+        <delete dir="classes"/>
+    </target>
+    <target name="clobber" depends="clean" description="remove all artifact files">
+        <delete file="luminance.jar"/>
+    </target>
+    <target name="compile" description="compile the Java source code to class files">
+        <mkdir dir="classes"/>
+        <javac srcdir="." destdir="classes"/>
+    </target>
+    <target name="jar" depends="compile" description="create a Jar file for the application">
+        <jar destfile="luminance.jar">
+            <fileset dir="classes" includes="**/*.class"/>
+            <manifest>
+                <attribute name="Main-Class" value="Luminance"/>
+            </manifest>
+        </jar>
+    </target>
+ 
+    <!-- Execute the Android Setup task that will setup some properties
+         specific to the target, and import the build rules files.  -->
+    <setup />
+    
+    <target name="dist-android">
+        <ant antfile="${sdk.dir}/platforms/android-7/templates/android_rules.xml"
+            target="debug" inheritall="true" inheritrefs="true" />
+    </target>
+ 
+</project>
