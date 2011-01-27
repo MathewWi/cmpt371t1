@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Luminance" default="help">
+<project name="Luminance" default="compile">
     
     <property file="local.properties" />
     <property file="build.properties" />
@@ -37,7 +37,7 @@
         classpathref="android.antlibs" />
  
     <!-- Targets. Written by Zenja, I believe.-->
-    <target name="clean" description="remove intermediate files">
+    <!-- <target name="clean" description="remove intermediate files">
         <delete dir="classes"/>
     </target>
     <target name="clobber" depends="clean" description="remove all artifact files">
@@ -54,7 +54,7 @@
                 <attribute name="Main-Class" value="Luminance"/>
             </manifest>
         </jar>
-    </target>
+    </target> -->
  
     <!-- Execute the Android Setup task that will setup some properties
          specific to the target, and import the build rules files.  -->
