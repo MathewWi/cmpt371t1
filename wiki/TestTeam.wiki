@@ -15,9 +15,9 @@ Tasks:
 January 27, 2011
 
   Research testing suites
-    Robotium - UI testing
-    JUnit - Core, smoke test
-    Anything else that you guys might think will be necessary
+    * Robotium - UI testing
+    * JUnit - Core, smoke test
+    * Anything else that you guys might think will be necessary
 
   If possible, any concept or example of such tests being run (Does not have to use the Luminance
   package) is good.
