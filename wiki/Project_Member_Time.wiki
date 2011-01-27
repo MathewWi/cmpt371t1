@@ -1,0 +1,11 @@
+= Project Meeting Times =
+Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
+
+
+= Member Responsibilities =
+
+== Kumaran Vijayan ==
+|| task || time spent so far ||
+
+== Zenja Ivkovic ==
+|| task || time spent so far ||
