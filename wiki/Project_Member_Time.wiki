@@ -5,8 +5,8 @@ Because meetings are attended by many or all members of the project, we account 
 = Member Responsibilities =
 
 == Kumaran Vijayan ==
-|| task || time spent so far ||
-|| task 2 || time spent so far ||
+|| Wiki Management || time spent so far ||
+|| Android Widget Toolkit || time spent so far ||
 
 == Zenja Ivkovic ==
 || task || time spent so far ||
