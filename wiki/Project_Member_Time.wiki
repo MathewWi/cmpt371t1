@@ -9,3 +9,24 @@ Because meetings are attended by many or all members of the project, we account 
 
 == Zenja Ivkovic ==
 || task || time spent so far ||
+
+== Stephen Damm ==
+|| task || time spent so far ||
+
+== Martina (Last name) ==
+|| task || time spent so far ||
+
+== Chet Collins ==
+|| task || time spent so far ||
+
+== Amara Daal ==
+|| task || time spent so far ||
+
+== Jiajang Wang ==
+|| task || time spent so far ||
+
+== Liang Huang ==
+|| task || time spent so far ||
+
+== Jonny ==
+|| task || time spent so far ||
