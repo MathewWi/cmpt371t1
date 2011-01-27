@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Luminance" default="compile">
+<project name="Luminance" default="help">
     
     <property file="local.properties" />
     <property file="build.properties" />
