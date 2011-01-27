@@ -3,6 +3,19 @@
 
 Weekly meeting minutes.
 
+= January 27, 2011=
+
+
+
+  # Mini Milestone list - Stephen
+  # Risk - Chet
+  # Source Code - Stephen
+  # Test documentation (What we have, what we do in future) - Test Team
+  # Documentation of Code Review - wait for clarification
+  # Wiki outline deliverable - Martina
+  # Documentation of Personal - Done
+
+
 = January 26, 2011 =
   # Whats done
   # Stephen: Working spinning box on the svn repo and basic architecture working.
