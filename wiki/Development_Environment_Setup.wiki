@@ -1,4 +1,5 @@
-#Summary Outline of how to set up the development environment.
+#summary Outline of how to set up the development environment.
+#labels Phase-Implementation
 
 = Introduction =
 Everyone should try to use the same development environment unless you have a good reason not to. You'll need Eclipse, the Android SDK, the Eclipse !TeamCity plugin, and the Eclipse ADT plugin.
@@ -74,8 +75,14 @@ Subversive needs to be set up before you can work on the project through TeamCit
 The project must be imported by adding it within Eclipse using Subversive. Do not use any previously manually checked out folders.
   # Go to File->New->Other
   # Choose SVN->Project from SVN
-  # Use the URL [https://cmpt371t1.googlecode.com/svn/]. In the Authentication section, enter your Google Code username and password. To get your password, go to Google Code, go to your profile page by following the link on the upper right corner of the page, and going to the settings tab. *Note:* this Google Code password is not the same as your normal Google account password.
-  # Click next and finish. You will then be prompted on how to check out the project. Choose "Find projects in the children of the selected resource" and click finish.
+  # Use the URL [https://cmpt371t1.googlecode.com/svn/trunk]. In the Authentication section, enter your Google Code username and password. To get your password, go to Google Code, go to your profile page by following the link on the upper right corner of the page, and going to the settings tab. *Note:* this Google Code password is not the same as your normal Google account password.
+  # Click next and finish. You will then be prompted on how to check out the project. Choose "Check out as a project with the name specified" and keep the name as Luminance, then click finish.
+
+===Configure local build settings===
+The project is now set up to use Ant to build itself, just like the TeamCity server is doing. Mostly everything should come set up straight out of the repository, except you need to create/modify the "local.properties" file in the project's root folder to point to the location of the Android SDK folder on your machine. For example:
+{{{
+sdk.dir=/home/zenja/android-sdk
+}}}
 
 ===Committing===
 When you're ready to commit changes, use the !TeamCity->Remote Run menu option. This will perform a test run. In this dialog, you can also choose to commit the code if the test is passed. Enable this when you intend to commit.
