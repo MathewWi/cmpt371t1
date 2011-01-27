@@ -5,16 +5,17 @@ Weekly meeting minutes.
 
 = January 27, 2011=
 
+  # Mini Milestone list - Stephen
+  # Risk - Chet
+  # Source Code - Stephen
+  # Test documentation (What we have, what we do in future) - Test Team
+  # Documentation of Code Review - wait for clarification
+  # Wiki outline deliverable - Martina
+  # Documentation of Personal - Done
+  # Activity Report - Kum
+  # Paper/Gui describing second deliverable - Design Team
 
-
-  * Mini Milestone list - Stephen
-  * Risk - Chet
-  * Source Code - Stephen
-  * Test documentation (What we have, what we do in future) - Test Team
-  * Documentation of Code Review - wait for clarification
-  * Wiki outline deliverable - Martina
-  * Documentation of Personal - Done
-
+Time: 
 
 = January 26, 2011 =
   # Whats done
@@ -30,6 +31,8 @@ Weekly meeting minutes.
 
   # Issue Tracking: Owner change to Fix status then Triage/Test Team change to Verified
   
+Time: 2 hours
+
 = January 24, 2011 =
 
   # Test team has a starting task.
@@ -40,6 +43,8 @@ Weekly meeting minutes.
 
   # Start breaking into respective groups and start working!
 
+Time: 2 hours
+
 = January 21, 2011 =
 
   # Everyone should update their duties.  Go to "Project Home" -> People -> Update your duties.
@@ -48,3 +53,5 @@ Weekly meeting minutes.
   # Martina is our meeting manager now.  Her word is rule.
   # The Triage team is in charge of accepting bugs and will discuss with the dev team who will fix it.
   # Design team will meet next and Stephen will bring a basic domain diagram for the first design team meeting.
+
+Time: 2 hours
