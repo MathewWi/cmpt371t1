@@ -1,0 +1,14 @@
+#This is used as a template for each deliverable.
+
+= Code=
+
+Add your content here.
+
+= Documentation =
+
+Test team: will do documentation on daily builds and smoke test
+Risk Report: Chet
+Risk List: Chet
+Requirements: to sure what this is
+Documentation of Personnel: on wiki already
+ - everybody needs to put their name and nSID on this page
