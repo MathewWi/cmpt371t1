@@ -7,13 +7,13 @@ Weekly meeting minutes.
 
 
 
-  # Mini Milestone list - Stephen
-  # Risk - Chet
-  # Source Code - Stephen
-  # Test documentation (What we have, what we do in future) - Test Team
-  # Documentation of Code Review - wait for clarification
-  # Wiki outline deliverable - Martina
-  # Documentation of Personal - Done
+  * Mini Milestone list - Stephen
+  * Risk - Chet
+  * Source Code - Stephen
+  * Test documentation (What we have, what we do in future) - Test Team
+  * Documentation of Code Review - wait for clarification
+  * Wiki outline deliverable - Martina
+  * Documentation of Personal - Done
 
 
 = January 26, 2011 =
