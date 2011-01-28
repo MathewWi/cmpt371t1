@@ -12,6 +12,10 @@ Friday, January 27, 2011 at spinks 342
 
 Tasks: 
 
+January 28, 2011
+  Ant Script Tutorial: http://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+  
+
 January 27, 2011
 
   Research testing suites
