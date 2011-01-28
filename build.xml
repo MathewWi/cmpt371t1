@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Luminance" default="compile">
+<project name="Luminance">
 
 <!-- The local.properties file is created and updated by the 'android'
      tool.
@@ -83,41 +83,10 @@
 
 </project>
 
-<!-- <project name="Luminance" default="compile">
-    
-    <property file="local.properties" />
-    <property file="build.properties" />
-    <property file="default.properties" />
-    
-    <path id="android.antlibs">
-        <pathelement path="${sdk.dir}/tools/lib/anttasks.jar" />
-        <pathelement path="${sdk.dir}/tools/lib/sdklib.jar" />
-        <pathelement path="${sdk.dir}/tools/lib/androidprefs.jar" />
-        <pathelement path="${sdk.dir}/tools/lib/apkbuilder.jar" />
-        <pathelement path="${sdk.dir}/tools/lib/jarutils.jar" />
-    </path>
- 
-    <taskdef name="setup"
-        classname="com.android.ant.SetupTask"
-        classpathref="android.antlibs" />
-        
-    <taskdef name="aaptexec"
-        classname="com.android.ant.AaptExecLoopTask"
-        classpathref="android.antlibs" />
- 
-    <taskdef name="apkbuilder"
-        classname="com.android.ant.ApkBuilderTask"
-        classpathref="android.antlibs" />
- 
-    <taskdef name="xpath"
-        classname="com.android.ant.XPathTask"
-        classpathref="android.antlibs" />
- 
-    <setup />
+<!--
     
     <target name="dist-android">
         <ant antfile="${sdk.dir}/platforms/android-7/templates/android_rules.xml"
             target="debug" inheritall="true" inheritrefs="true" />
     </target>
- 
-</project> -->
+-->
