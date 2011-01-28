@@ -68,7 +68,7 @@ Below are risks that are most important to this phase of the project:
 
 =Potential Risks=
 
-These are risks that we may face in the future, and need to be planed for:
+These are risks that we may face in the future, and need to be planned for:
 
 ----
 
