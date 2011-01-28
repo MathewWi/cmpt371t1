@@ -72,17 +72,17 @@ These are risks that we may face in the future, and need to be planned for:
 
 ----
 
-*Description:* Usability - Will touch support provide a good user experience?
+*Description:* Ensuring touch support for Android will provide a positive user experience.
 
-*Priority:* 
+*Priority:* 3
 
-*Rationale:* 
+*Rationale:* Since the original platform did not have touch support for its original input, it is crucial that the user experience is maintained in moving forward to the new platform.
 
-*Mitigation Plan:* 
+*Mitigation Plan:* We plan to thoroughly research the capabilities of Android touch APIs. In addition, we hope to find sample code to use as a reference to assist in the implementation.
 
-*Contingency Plan:* 
+*Contingency Plan:* Should our research into Android APIs be unsuccessful, we will attempt to find a 3rd party solution. It is likely that this is a solved problem already. To facilitate proper communication, we will publish our findings to the project wiki for easy access.
 
-*Status:* 
+*Status:* We have designated a member of our design team to research this issue, to ensure that it is solved before we encounter it.
 
 ----
 
