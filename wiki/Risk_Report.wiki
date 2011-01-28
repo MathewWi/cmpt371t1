@@ -51,7 +51,7 @@ Below are risks that are most important to this phase of the project:
 
 ----
 
-*Description:* Ensuring proper team communication
+*Description:* Ensuring proper team communication.
 
 *Priority:* 5
  
