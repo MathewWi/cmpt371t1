@@ -23,6 +23,7 @@ public class Engine
     private Engine()
     {
 	logger.debug("Engine()");
+	logger.debug("Zenja was here (testing)");
 	
 	_stateStack = new Stack<IState>();
     }
