@@ -13,8 +13,12 @@ Friday, January 27, 2011 at spinks 342
 Tasks: 
 
 January 28, 2011
-  Ant Script Tutorial: http://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
-  
+  Because the build server does not have Eclipse and teamcity uses ant scripts/builds, I believe these can help us understand how to make an automated smoke test and later, a fully automatic test suite.
+
+  * Ant Script Tutorial: http://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+  * Developing in other IDEs: http://developer.android.com/guide/developing/other-ide.html
+  * Testing in other IDEs: http://developer.android.com/guide/developing/testing/testing_otheride.html
+
 
 January 27, 2011
 
