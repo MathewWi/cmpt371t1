@@ -47,7 +47,7 @@ Below are risks that are most important to this phase of the project:
 
 *Contingency Plan:* If there are team members who are having issues setting up the standard development environment, we can delegate other team members who have been successful to help out those that are struggling.
 
-*Status:* Several team members have already set up their development environments already. In addition, we have published a page on our project wiki for the purpose of assisting those who have not yet completed the task. Therefore, this risk has been successfully managed.
+*Status:* Several team members have already set up their development environments. In addition, we have published a page on our project wiki for the purpose of assisting those who have not yet completed the task. Therefore, this risk has been successfully managed.
 
 ----
 
