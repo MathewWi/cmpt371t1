@@ -88,28 +88,28 @@ These are risks that we may face in the future, and need to be planned for:
 
 *Description:* Code re-write from old platform to Android
 
-*Priority:* 
+*Priority:* 4
 
-*Rationale:* 
+*Rationale:* This is the largest and most important task concerning this phase of the project. Re-writing the code for Android will be a time-consuming activity and is crucial for the project completion.
 
-*Mitigation Plan:* 
+*Mitigation Plan:* Our project lead has in-depth experience with the old system, since he was one of the original developers. We are hoping to use this prior knowledge to create a stub framework so that the implementation can be divided into work units.
 
-*Contingency Plan:* 
+*Contingency Plan:* If there are still issues getting the code re-write completed, developers can seek the assistance of our project lead, and the issue will likely be resolved from there.
 
-*Status:* 
+*Status:* We currently have a stub framework on our code repository and from there we plan to divide the development task into work units for developers to take on.
 
 ----
 
-*Description:* Investigate how / where project resources are stored on Android
+*Description:* Investigate how project resources are stored on Android
 
-*Priority:* 
+*Priority:* 3
 
-*Rationale:* 
+*Rationale:* Since our project will be using external resources (audio, textures, etc.) we must be aware of where these items are stored in the compiled application. Without knowing these details, we would not be able to reference the resources correctly. 
 
-*Mitigation Plan:* 
+*Mitigation Plan:* We have delegated a developer to begin research on this topic, and attempt to find documentation on the Android developer page. From there, we can post the relevant information to the project wiki.
 
-*Contingency Plan:* 
+*Contingency Plan:* If an individual developer working on this task is having issues, they will request assistance from another team member to work together until the task is completed.
 
-*Status:* 
+*Status:* This issue is currently being researched.
 
 ----
