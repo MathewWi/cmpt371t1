@@ -23,17 +23,17 @@ Below are risks that are most important to this phase of the project:
 
 ----
 
-*Description:* Setting up TeamCity to run a smoke test when code is committed.
+*Description:* Setting up !TeamCity to run a smoke test when code is committed.
 
 *Priority:* 5
 
-*Rationale:* Not having TeamCity properly set up is a serious risk because without it there would be nothing to prevent team members from committing code that may compromise the main build. It is also needed to run our smoke test which will attempt to prevent this from occurring. Ultimately, we will be unable to work efficiently on this project without TeamCity and our smoke test.
+*Rationale:* Not having !TeamCity properly set up is a serious risk because without it there would be nothing to prevent team members from committing code that may compromise the main build. It is also needed to run our smoke test which will attempt to prevent this from occurring. Ultimately, we will be unable to work efficiently on this project without !TeamCity and our smoke test.
 
 *Mitigation Plan:* We are confident that this issue can be resolved if the Build Master and the Test Team combine their knowledge to get both systems to work together.
 
 *Contingency Plan:* Should the issue not be resolved in a timely manner, we plan to designate more team members to work on the issue until it is resolved. Our research has indicated that TeamCity is the optimal choice for continuous integration, therefore other options will not be explored.
 
-*Status:* Currently, the project builds successfully on TeamCity and a simple smoke test is in place. Therefore, this risk is sufficiently avoided.
+*Status:* Currently, the project builds successfully on !TeamCity and a simple smoke test is in place. Therefore, this risk is sufficiently avoided.
 
 ----
 
