@@ -1,7 +1,15 @@
+_Outline of the requirements for Milestone 1_
+
+
 = Code Requirements =
 == Source Code Repository ==
+Source code for Luminance can be found here:
+[http://cmpt371t1.googlecode.com/svn/trunk/]
+
 == Daily Build ==
+A daily build is run on !TeamCity to ensure the continuing quality of the software.
 == Smoke Test ==
+TBA
 
 = Mini-Milestone List =
 
