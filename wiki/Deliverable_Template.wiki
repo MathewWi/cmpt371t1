@@ -1,23 +1,31 @@
 #This is used as a template for each deliverable.
 
-= Code=
+= Code Requirements =
+== Source Code Repository ==
+== Daily Build ==
+== Smoke Test ==
 
-Add your content here.
+= Mini-Milestone List =
 
-= Documentation =
+= Risk Analysis =
+== List of Risks ==
+== Risk Report ==
 
-Test team: will do documentation on daily builds and smoke test
-Risk Report: Chet
-Risk List: Chet
-Requirements: to sure what this is
-Documentation of Personnel: on wiki already
- - everybody needs to put their name and nSID on this page
-Documentation of code reviews
- - architecture of old system
-Activity report
- - wiki page (Kum) 
- - write down your tasks and how long it took
-Initial analysis
- - delivarable plan, we should include what we want to milestone 2
-Gui Prototypes
- - for second deliverable
+= Team Roles =
+
+= Testing and Hooks =
+== Test Results ==
+
+= Code Reviews =
+== Architecture of Old System ==
+
+= Requirements =
+== To incorporate a successful deliverable ==
+
+= GUI Prototype =
+
+= Activity Report =
+
+= Initial Analysis for Deliverable 2 =
+== Deliverable plan ==
+== Estimate of size and time ==
