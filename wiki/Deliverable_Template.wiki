@@ -17,8 +17,8 @@ TBA
 = Risk Analysis =
 The risk report can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Risk_Report]
 
-= Team Roles =
-The team roles can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Project_Member_Time]
+= Team Roles and Activity Log =
+The team roles and activity log can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Project_Member_Time]
 
 = Testing and Hooks =
 == Test Results ==
@@ -29,7 +29,8 @@ TBA - need to do some!
 
 = Requirements =
 == Functional ==
-- Development environment
+Development environment requirements can be viewed here: [https://code.google.com/p/cmpt371t1/wiki/Development_Environment_Setup]
+- anything else?
 == Non-functional == 
 - Performance criteria, stability needs, compatibility concerns etc
 - elaborate more!!
@@ -38,8 +39,6 @@ TBA
 
 = GUI Prototype =
 TBA
-
-= Activity Report =
 
 = Initial Analysis for Deliverable 2 =
 == Deliverable plan ==
