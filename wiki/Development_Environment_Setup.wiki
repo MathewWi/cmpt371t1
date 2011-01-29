@@ -46,7 +46,7 @@ If you download 64bit JDK sometimes the Android SDK installer won't recognize it
 *!ObjectAid UML Explorer for Eclipse*
 
   # In eclipse, go to Help->Install New Software
-  # Click "Add" to add a site to get updates from and use the address [http://www.objectaid.com] in the location field
+  # Click "Add" to add a site to get updates from and use the address [http://www.objectaid.com/update] in the location field
   # Select the plugin and go through the following dialogs to complete the installation
 
 ==!TeamCity Plugin==
