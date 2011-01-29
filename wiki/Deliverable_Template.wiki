@@ -25,10 +25,16 @@ The team roles can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Proje
 TBA?
 
 = Code Reviews =
-TBA
+TBA - need to do some!
 
 = Requirements =
-== To incorporate a successful deliverable ==
+== Functional ==
+- Development environment
+== Non-functional == 
+- Performance criteria, stability needs, compatibility concerns etc
+- elaborate more!!
+== For Successive Milestones ==
+TBA
 
 = GUI Prototype =
 TBA
