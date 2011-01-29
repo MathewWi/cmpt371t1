@@ -7,28 +7,31 @@ Source code for Luminance can be found here:
 [http://cmpt371t1.googlecode.com/svn/trunk/]
 
 == Daily Build ==
-A daily build is run on !TeamCity to ensure the continuing quality of the software.
+A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.
 == Smoke Test ==
 TBA
 
 = Mini-Milestone List =
+TBA
 
 = Risk Analysis =
-== List of Risks ==
-== Risk Report ==
+The risk report can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Risk_Report]
 
 = Team Roles =
+The team roles can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Project_Member_Time]
 
 = Testing and Hooks =
 == Test Results ==
+TBA?
 
 = Code Reviews =
-== Architecture of Old System ==
+TBA
 
 = Requirements =
 == To incorporate a successful deliverable ==
 
 = GUI Prototype =
+TBA
 
 = Activity Report =
 
