@@ -1,5 +1,3 @@
-#This is used as a template for each deliverable.
-
 = Code Requirements =
 == Source Code Repository ==
 == Daily Build ==
