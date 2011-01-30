@@ -2,6 +2,7 @@ package ca.sandstorm.luminance.state;
 
 import javax.microedition.khronos.opengles.GL10;
 
+
 public interface IState
 {
     public boolean isVisible();
