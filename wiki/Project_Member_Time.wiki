@@ -45,6 +45,6 @@ Because meetings are attended by many or all members of the project, we account 
 || task || time spent so far ||
 || task 2 || time spent so far ||
 
-== kangkai117 (Please replace this with full name) ==
+== Kai Kang ==
 || task || time spent so far ||
 || task 2 || time spent so far ||
