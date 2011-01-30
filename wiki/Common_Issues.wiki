@@ -3,7 +3,7 @@ _List of common issues, and how to solve them_
 = Javac compiler not found =
 
 *Syntax of error:*
-<projectFilepath>/build.xml:76: Unable to find a javac
+projectFilepath/build.xml:76: Unable to find a javac
 compiler;
 com.sun.tools.javac.Main is not on the classpath.
 Perhaps JAVA_HOME does not point to the JDK
