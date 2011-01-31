@@ -1,0 +1,13 @@
+#labels Phase-QA
+=Review schedule=
+Code reviews will be generally done when mini-milestones are completed. For example, if someone is assigned to develop an audio player system for the game as a mini-milestone, once their work is completed for the current phase, it will be subject to code review.
+
+=Review assignment=
+Once a member's code is subject to review, reviews will be assigned at the end of weekly meetings. Assignments will be done once normal meeting topics have been completed. Members will announce that their coding task is completed and they would like a review. Another person in the meeting will agree to take on the review.
+
+We will strive to have everyone involved in the review process. All code should be reviewed, and all members will be doing reviews in a generally round-robin pattern. Each member will perform a review on a peer's code before any member does another review themselves. This way everyone is ensured to participate and everyone should be doing the same number of reviews.
+
+=Technical issues=
+Since there are many conceptual domains involved in the project, such as sound, graphics, input, cross-platform capability, game mechanics, etc, the people responsible for their own area will have much more technical knowledge about it. By doing the reviews in a round-robin fashion, members will be exposed to areas outside their expertise. For example, someone will have to do reviews that involve OpenGL code when they might not know anything about OpenGL.
+
+This can be considered a good thing, since everyone will gain more knowledge on the various parts of the system, but it can inhibit the effectiveness of code reviews. However, regardless of expertise, many other aspects of code can be reviewed, such as basic coding mistakes, style issues, coupling/coherence problems, etc. If it proves to be too difficult to have reviewers keep up with learning enough outside their knowledge area to perform effective code reviews, we will reconsider the review assignment process.
