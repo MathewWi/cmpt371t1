@@ -7,7 +7,7 @@ Source code for Luminance can be found here:
 [http://cmpt371t1.googlecode.com/svn/trunk/]
 
 == Daily Build ==
-A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.
+A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
 == Smoke Test ==
 Test Team
 
@@ -50,21 +50,45 @@ The team roles and activity log can be viewed at: [https://code.google.com/p/cmp
 = Code Reviews =
 TBA - need to do some!
 
+- for bug prevention
+
+- reviews by peers, help identify bugs
+
+- different perspectives
+
+- everybody understands what you did
+
+- on code, comments, the manual, design specs, test plan, test cases
+
+- get started on immediately, instead of waiting for code,
+
 = Requirements =
 == Functional ==
 Development environment requirements can be viewed here: [https://code.google.com/p/cmpt371t1/wiki/Development_Environment_Setup]
+
 - anything else?
+
+- Android phone!
 == Non-functional == 
 - Performance criteria, stability needs, compatibility concerns etc
-- elaborate more!!
 == For Successive Milestones ==
-TBA
+Not sure what this means..
 
 = GUI Prototype =
 Design team
 
+- should we use the video as a representation of our prototype?
+
 = Initial Analysis for Deliverable 2 =
 == Deliverable plan ==
-Need to do
+
+- all project artifacts created or modified since the first milestone
+
+- new artifacts: 
+* updated risk analysis (including results of new scanning)
+* the version control strategy
+* the test strategy and testing done to date (including test results)
+* the latest measurements of software quality
+
 == Estimate of size and time ==
 Need to do
