@@ -5,9 +5,9 @@
 Add your content here.
 
 
-= Details =
+= Milestones =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Milestone 1 ==
+|| Wiki Management || time spent so far ||
+|| Android Widget Toolkit || time spent so far ||
+ === Mini milestone 1 ===
