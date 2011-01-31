@@ -38,8 +38,8 @@ Time: 2 hours
   # Test team has a starting task.
   # Triage team has a starting task.
   # Development Team: 
-      # Flush out the architecture 
-      # Draw a bunch of Class Diagrams
+      * Flush out the architecture 
+      * Draw a bunch of Class Diagrams
 
   # Start breaking into respective groups and start working!
 
