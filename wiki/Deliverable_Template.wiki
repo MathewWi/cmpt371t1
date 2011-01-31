@@ -85,10 +85,14 @@ Design team
 - all project artifacts created or modified since the first milestone
 
 - new artifacts: 
-* updated risk analysis (including results of new scanning)
-* the version control strategy
-* the test strategy and testing done to date (including test results)
-* the latest measurements of software quality
+
+    * updated risk analysis (including results of new scanning)
+
+    * the version control strategy
+
+    * the test strategy and testing done to date (including test results)
+
+    * the latest measurements of software quality
 
 == Estimate of size and time ==
 Need to do
