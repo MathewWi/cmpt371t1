@@ -1,8 +1,16 @@
 = Project Meeting Times =
-Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
+
+= Group Responsibilities =
+
+This is the time spent by each member, give or take an hour.
+
+|| Group Meetings || 5 hours a week ||
+|| Emails and Communication within the group || 1 hour a week ||
 
 
 = Member Responsibilities =
+
+Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
 
 == Kumaran Vijayan ==
 || Wiki Management || time spent so far ||
