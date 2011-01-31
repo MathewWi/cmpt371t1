@@ -3,24 +3,24 @@
 Testing plan
 
 Milestone 1: Documentation & Concept smoke test
-	The discussion and writing of this documentation and planning of smoke test.
-		Estimated: 2-3 hours
+	* The discussion and writing of this documentation and planning of smoke test.
+	* Estimated: 2-3 hours
 
 Milestone 2: Smoke test, All core tests done, paired up with developers
-	Division of labour, Working smoke test, Finished suite of core tests
-	Estimated: 40 hours
+	* Division of labour, Working smoke test, Finished suite of core tests
+	* Estimated: 40 hours
 
 Milestone 3: Test new features, User test
-Get feedback from real life testing on core game without features
-	Estimated: 35 hours
+        * Get feedback from real life testing on core game without features
+	* Estimated: 35 hours
 
 Milestone 4: User test, Test new features, Possible hardware test
-	Get feedback from real life testing on Milestone 3’s added features
-	Estimated: 35 hours
+	* Get feedback from real life testing on Milestone 3’s added features
+	* Estimated: 35 hours
 
 Milestone 5: Thorough Run-through of all tests, Flush out bugs
-	Make sure everything works
-		Estimated 15 hours
+	* Make sure everything works
+	* Estimated 15 hours
 
 	*Estimated are total spent by whole group
 
@@ -80,9 +80,9 @@ User Test Reports:
 A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics such as:
 Level:
 List the steps to reproduce the bug
-	1.
-	2.
-	3.
+	#
+	#
+	#
 Rating of Game:
 Ideas to help make the game better:
 Comments:
