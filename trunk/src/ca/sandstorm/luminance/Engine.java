@@ -43,7 +43,8 @@ public class Engine
 	_audioSystem = new AndroidSoundPlayer();
 	
 	// Temporary: play a sound to test sound system
-	_audioSystem.play("test.mp3", 0.9f);
+	//_audioSystem.load("test.mp3");
+	//_audioSystem.play("test.mp3", 0.9f);
     }
 
 

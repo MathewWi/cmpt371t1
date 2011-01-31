@@ -6,6 +6,10 @@ package ca.sandstorm.luminance.audio;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.Luminance;
 
 import android.content.res.AssetFileDescriptor;
@@ -61,11 +65,17 @@ public class AndroidSoundPlayer implements IAudioDriver
     {
 	// Load sound if it isn't already loaded
 	if (!mSoundMap.containsKey(fileName)) {
+	    logger.debug("Playing sound " + fileName + " that hasn't been preloaded");
 	    load(fileName);
 	}
 	
 	int soundId = mSoundMap.get(fileName);
 	int streamId = mSoundPool.play(soundId, volume, volume, 1, 0, 1.0f);
+	
+	if(streamId == 0) {
+	    // Playback failed
+	    throw new RuntimeException("Audio: failed to play sound " + fileName);
+	}
 	mStreamMap.put(soundId, streamId);
 	
 	return streamId;
@@ -113,4 +123,5 @@ public class AndroidSoundPlayer implements IAudioDriver
     private SoundPool mSoundPool;
     private HashMap<String, Integer> mSoundMap;
     private HashMap<Integer, Integer> mStreamMap;
+    private static final Logger logger = LoggerFactory.getLogger(AndroidSoundPlayer.class);
 }
