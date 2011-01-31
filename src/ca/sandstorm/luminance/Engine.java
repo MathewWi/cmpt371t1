@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import android.os.SystemClock;
 
+import ca.sandstorm.luminance.audio.AndroidSoundPlayer;
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.state.IState;
@@ -31,6 +32,7 @@ public class Engine
     private float _scaleY;
     
     private InputSystem _inputSystem;
+    private AndroidSoundPlayer _audioSystem;
 
     private Engine()
     {
@@ -38,6 +40,10 @@ public class Engine
 
 	_stateStack = new Stack<IState>();
 	_timer = new TimeSystem();
+	_audioSystem = new AndroidSoundPlayer();
+	
+	// Temporary: play a sound to test sound system
+	_audioSystem.play("test.mp3", 0.9f);
     }
 
 
@@ -110,6 +116,9 @@ public class Engine
 	for (IState s : _stateStack) {
 	    s.resume();
 	}
+	
+	// Resume all sounds
+	_audioSystem.resumeAll();
     }
 
 
@@ -120,6 +129,9 @@ public class Engine
 	for (IState s : _stateStack) {
 	    s.pause();
 	}
+	
+	// Pause all sounds
+	_audioSystem.pauseAll();
     }
 
 
