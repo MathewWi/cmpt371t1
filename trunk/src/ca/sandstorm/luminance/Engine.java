@@ -12,6 +12,9 @@ import android.os.SystemClock;
 import ca.sandstorm.luminance.audio.AndroidSoundPlayer;
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.input.InputSystem;
+import ca.sandstorm.luminance.input.MultiTouchFilter;
+import ca.sandstorm.luminance.input.SingleTouchFilter;
+import ca.sandstorm.luminance.input.TouchFilter;
 import ca.sandstorm.luminance.state.IState;
 import ca.sandstorm.luminance.time.TimeSystem;
 
@@ -22,17 +25,19 @@ public class Engine
 
     private static Engine _instance = null;
 
-    private TimeSystem _timer;
-    private long _lastTime;
     private Stack<IState> _stateStack;
 
     private int _width;
     private int _height;
     private float _scaleX;
     private float _scaleY;
-    
+
+    private TimeSystem _timer;
+    private long _lastTime;    
     private InputSystem _inputSystem;
     private AndroidSoundPlayer _audioSystem;
+    
+    private TouchFilter _touchFilter;
 
     private Engine()
     {
@@ -41,7 +46,9 @@ public class Engine
 	_stateStack = new Stack<IState>();
 	_timer = new TimeSystem();
 	_audioSystem = new AndroidSoundPlayer();
-	
+	_inputSystem = new InputSystem();
+	_touchFilter = new MultiTouchFilter();
+		
 	// Temporary: play a sound to test sound system
 	//_audioSystem.load("test.mp3");
 	//_audioSystem.play("test.mp3", 0.9f);
@@ -90,7 +97,25 @@ public class Engine
     {
 	return _scaleY;
     }
-
+    
+    public void setMultiTouchFilter(boolean b)
+    {
+	if (b)
+	{
+	    _touchFilter = new MultiTouchFilter();
+	}
+	else
+	{
+	    _touchFilter = new SingleTouchFilter();    
+	}
+    }
+    
+    
+    public TouchFilter getTouchFilter()
+    {
+	return _touchFilter;
+    }
+    
 
     public void pushState(IState state)
     {
