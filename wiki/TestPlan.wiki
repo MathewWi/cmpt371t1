@@ -32,19 +32,24 @@ Make sure everything works
 *Estimated: 15 hours*
 
 <br>
-*Note: Estimated are total spent by whole group*
+*Note: Estimates are total spent by whole group*
 
-Testing Concept:
-	The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
+-------------------------------------------------------------------
 
-Example:
-Test Suite	---- testGraphics 	---- testCube.java
-		        ---- testGameLogic	---- testAI.java
-		        ---- testHook		---- testSmoke.java
+== Testing Concept ==
+The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
 
-	This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
+eg
+<br>
+Test Suite --> testGraphics --> testCube.java
+<br>
+Test Suite --> testGameLogic --> testAI.java
+<br>
+Test Suite --> testHook --> testSmoke.java
 
-To note: Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
+This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
+
+*Note:* Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
 
 Division of Labour:
 It has been discussed that the team will divide up the major testing (unit test) portion into sub    categories. This is in coalition with the development group’s choice of dividing their work. This will keep each member’s knowledge of the project narrow but thoroughly understandable. Some will have more than one job depending on their ease of testing. Below is a table of division:
