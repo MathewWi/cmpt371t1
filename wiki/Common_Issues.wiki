@@ -16,7 +16,10 @@ In Windows:
   * Click Start, right-click on Computer and select Properties
   * Click Advanced System Settings, then Environment Variables in the window that pops up.
   * In the System Variables box, find the JAVA_HOME variable and click edit.  If there is not a variable named this, create a new one.
-  * Set the value to be the path to your JDK.  For example: C:/Program Files (x86)/Java/jdk1.6.0_23/bin
+  * Set the value to be the path to your JDK.  For example: 
+{{{
+C:/Program Files (x86)/Java/jdk1.6.0_23/bin
+}}}
 
 *Note:* The official Android development guide states the following:
 {{{
