@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -70,7 +72,42 @@ public class Luminance extends Activity
 
 	super.onResume();
 	mGLView.onResume();
+	
     }
+    
+    @Override
+    public boolean onTouchEvent(MotionEvent event)
+    {
+	logger.debug("onTouchEvent(" + event + ")");
+	
+	Engine.getInstance().getTouchFilter().updateTouch(event);
+	
+	return true;
+    }
+    
+    
+    @Override    
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+	logger.debug("onKeyDown(" + keyCode + ", " + event + ")");
+	
+        boolean result = false;
+
+        Engine.getInstance().getInputSystem().keyDown(keyCode);
+        
+        return result;
+    }
+    
+    
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+	logger.debug("onKeyUp(" + keyCode + ", " + event + ")");
+	
+        boolean result = false;
+
+        Engine.getInstance().getInputSystem().keyUp(keyCode);
+        
+        return result;
+    }    
 
 
     class ClearRenderer implements GLSurfaceView.Renderer
