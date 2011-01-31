@@ -18,21 +18,41 @@ Add your content here.
 == Milestone 1 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
 || Document development environment setup || 8 || Complete ||
-|| Document team city usage || 8 || Complete ||
-|| Android GUI POC || 4 || Complete ||
-|| Android Audio POC || 4 || Complete ||
-|| Android Touch Input POC || 6 || Complete ||
+|| Document team city usage || 8 || Incomplete ||
+|| Android GUI POC || 4 || Incomplete||
+|| Android Audio POC || 4 || Incomplete||
+|| Android Touch Input POC || 6 || Incomplete||
 || Ant build script basics || 4 || Complete ||
 
 
 == Mini-Milestone 2 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Alpha version of game || 24 || Incomplete ||
+|| GUI Test suite basics || 6 || Incomplete ||
+|| Android asset manager || 4 || Incomplete ||
+|| Game level file format analyzed || 2 || Incomplete ||
+
 == Milestone 2 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Game level format implemented  || 4 || Incomplete ||
+|| Game level editor || 4 || Incomplete ||
+|| jCoverage test suite || 12 || Incomplete ||
+|| jUnit test suite || 12 || Incomplete ||
 
 == Mini-Milestone 3 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+
 == Milestone 3 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
 
 == Mini-Milestone 4 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+
 == Milestone 4 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
 
 == Mini-Milestone 5 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+
 == Milestone 5 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
