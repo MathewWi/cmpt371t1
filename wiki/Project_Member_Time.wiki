@@ -42,8 +42,8 @@ Because meetings are attended by many or all members of the project, we account 
 || task 2 || time spent so far ||
 
 == Steven Indzeoski ==
-|| task || time spent so far ||
-|| task 2 || time spent so far ||
+|| Researching style checking || 1 hour ||
+|| Working on game music || 3 hours ||
 
 == Kai Kang ==
 || task || time spent so far ||
