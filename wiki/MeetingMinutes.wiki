@@ -52,7 +52,6 @@ Time: 2 hours
   # Development Team: 
       * Flush out the architecture 
       * Draw a bunch of Class Diagrams
-
   # Start breaking into respective groups and start working!
 
 Time: 2 hours
