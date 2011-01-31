@@ -39,20 +39,34 @@ Add your content here.
 || jCoverage test suite || 12 || Incomplete ||
 || jUnit test suite || 12 || Incomplete ||
 
+
 == Mini-Milestone 3 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
+|| Complete GUI Test suite || 12 || Incomplete ||
+|| Prototype new in game puzzle tools  || 12 || Incomplete ||
+|| Prototype new in game puzzle mechanics  || 12 || Incomplete ||
+
 
 == Milestone 3 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
+|| Design user evaluation questionnaire || 12 || Incomplete ||
+|| Finalize the in game object models || 12 || Incomplete ||
+|| Beta version of the game || 12 || Incomplete ||
 
 == Mini-Milestone 4 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
+|| Run user evaluation || 12 || Incomplete ||
+|| Discuss changes to game based on evaluation || 12 || Incomplete ||
 
 == Milestone 4 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
 
+
 == Mini-Milestone 5 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
+|| Prepare for code Freeze || 12 || Incomplete ||
+
 
 == Milestone 5 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
+|| Release version of game || 12 || Incomplete ||
