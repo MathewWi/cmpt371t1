@@ -3,6 +3,19 @@
 
 Weekly meeting minutes.
 
+= January 31, 2011 =
+  # Code Review - Zenja
+    * People from different teams review other team member's code
+    * Round robin
+  # Additions to Risk Report
+  # Basic use case scenarios
+  # Requirements wiki page
+    * User Requirements
+    * Functionality Requirements
+  # UI Prototype
+    * Paper prototype
+    * Video of old system
+
 = January 27, 2011=
 
   # Mini Milestone list - Stephen
