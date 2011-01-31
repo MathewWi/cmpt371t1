@@ -1,4 +1,6 @@
+#summary Code peer-review process plan
 #labels Phase-QA
+
 =Review schedule=
 Code reviews will be generally done when mini-milestones are completed. For example, if someone is assigned to develop an audio player system for the game as a mini-milestone, once their work is completed for the current phase, it will be subject to code review.
 
