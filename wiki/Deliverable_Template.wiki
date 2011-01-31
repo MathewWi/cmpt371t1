@@ -69,15 +69,18 @@ Development environment requirements can be viewed here: [https://code.google.co
 - anything else?
 
 - Android phone!
+
+Stephen
+
 == Non-functional == 
 - Performance criteria, stability needs, compatibility concerns etc
-== For Successive Milestones ==
-Not sure what this means..
+
+JaiJing
 
 = GUI Prototype =
 Design team
 
-- should we use the video as a representation of our prototype?
+- diagrams for functionality
 
 = Initial Analysis for Deliverable 2 =
 == Deliverable plan ==
