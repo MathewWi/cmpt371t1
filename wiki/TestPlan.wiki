@@ -1,0 +1,86 @@
+# Plan of action for testing
+
+Testing plan
+
+Milestone 1: Documentation & Concept smoke test
+	The discussion and writing of this documentation and planning of smoke test.
+		Estimated: 2-3 hours
+
+Milestone 2: Smoke test, All core tests done, paired up with developers
+	Division of labour, Working smoke test, Finished suite of core tests
+	Estimated: 40 hours
+
+Milestone 3: Test new features, User test
+Get feedback from real life testing on core game without features
+	Estimated: 35 hours
+
+Milestone 4: User test, Test new features, Possible hardware test
+	Get feedback from real life testing on Milestone 3’s added features
+	Estimated: 35 hours
+
+Milestone 5: Thorough Run-through of all tests, Flush out bugs
+	Make sure everything works
+		Estimated 15 hours
+
+	*Estimated are total spent by whole group
+
+Testing Concept:
+	The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
+
+Example:
+Test Suite	---- testGraphics 	---- testCube.java
+		        ---- testGameLogic	---- testAI.java
+		        ---- testHook		---- testSmoke.java
+
+	This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
+
+To note: Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
+
+Division of Labour:
+It has been discussed that the team will divide up the major testing (unit test) portion into sub    categories. This is in coalition with the development group’s choice of dividing their work. This will keep each member’s knowledge of the project narrow but thoroughly understandable. Some will have more than one job depending on their ease of testing. Below is a table of division:
+
+Name			|		Job
+-------------------------------------------------------------------
+Liang			|		to fill in
+Jiajing			|		same
+Kai			|		same
+Amara			|		same
+
+example categories: graphics, input, engine, logic
+
+Technologies Used
+Eclipse built-in Andriod JUnit package
+Robotium
+Google Code
+Ant Script
+Team City
+
+Smoke test: 
+	This has been determined to only cover basic method testing as discussion of a first level play through might take too long. There would be no point in waiting for a commit that takes 10 minutes long. This will take a bit longer to understand as Team City, Ant Script and Shell scripting are needed to run in collaboration with the Android Virtual Device. It will be built on the Team City server, check basic methods and menus and, depending on time taken, might play through first level.
+
+Black Box
+Using the class diagrams and function/method stubs, the test team will be making black box test cases for their respective parts. This will be made in parallel with the development team as asking them to wait will not bode well because time is an issue. Thus, the test will be ran when the section of code is committed. 
+
+White Box
+	Will be implemented after the Black Box Testing has been passed. It will include basics such as mutation testing and, if possible, path testing. This will run through from either a method or a whole run-through of a level(s).
+
+Unit Test:
+	Will be used in Eclipse IDE’s built-in to run the majority of the test suites. 
+
+Testing results format:
+What will eventually be printed out as a result of running tests.
+TestPackage | “Short description” | MethodName | Passed/Failed
+
+Defect/Bug Reports:
+	These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
+
+User Test Reports:
+A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics such as:
+Level:
+List the steps to reproduce the bug
+	1.
+	2.
+	3.
+Rating of Game:
+	Ideas to help make the game better:
+Comments:
