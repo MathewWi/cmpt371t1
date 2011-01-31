@@ -1,4 +1,10 @@
-# Plan of action for testing
+#labels Phase-QA
+=#summary Plan of action for testing
+
+= Past/Existing Tests =
+There are currently no existing tests made for the game Luminance.
+We will be making the tests from ground up as with the development team
+except there will be no bases to work on.
 
 = Testing plan =
 
@@ -51,51 +57,59 @@ This will make it easy for the daily build to just run inside the eclipse IDE an
 
 *Note:* Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
 
-Division of Labour:
+Furthermore, the ant build will have a file defined as a success scenario where a diff command will be used to test the output of the testHook package. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
+
+== Division of Labour: ==
 It has been discussed that the team will divide up the major testing (unit test) portion into sub    categories. This is in coalition with the development group’s choice of dividing their work. This will keep each member’s knowledge of the project narrow but thoroughly understandable. Some will have more than one job depending on their ease of testing. Below is a table of division:
 
-Name			|		Job
--------------------------------------------------------------------
-Liang			|		to fill in
-Jiajing			|		same
-Kai			|		same
-Amara			|		same
+||Name||Job||
+||Liang||n/a||
+||Jiajing||n/a||
+||Kai||n/a||
+||Amara||n/a||
 
 example categories: graphics, input, engine, logic
 
-Technologies Used
-Eclipse built-in Andriod JUnit package
-Robotium
-Google Code
-Ant Script
-Team City
+== Technologies Used ==
+  * Eclipse built-in Andriod JUnit package
+  * Robotium
+  * Google Code
+  * Ant Script
+  * Team City
 
-Smoke test: 
-	This has been determined to only cover basic method testing as discussion of a first level play through might take too long. There would be no point in waiting for a commit that takes 10 minutes long. This will take a bit longer to understand as Team City, Ant Script and Shell scripting are needed to run in collaboration with the Android Virtual Device. It will be built on the Team City server, check basic methods and menus and, depending on time taken, might play through first level.
+== Smoke test ==
+This has been determined to only cover basic method testing as discussion of a first level play through might take too long. There would be no point in waiting for a commit that takes 10 minutes long. This will take a bit longer to understand as Team City, Ant Script and Shell scripting are needed to run in collaboration with the Android Virtual Device. It will be built on the Team City server, check basic methods and menus and, depending on time taken, might play through first level.
 
-Black Box
+== Black Box ==
 Using the class diagrams and function/method stubs, the test team will be making black box test cases for their respective parts. This will be made in parallel with the development team as asking them to wait will not bode well because time is an issue. Thus, the test will be ran when the section of code is committed. 
 
-White Box
-	Will be implemented after the Black Box Testing has been passed. It will include basics such as mutation testing and, if possible, path testing. This will run through from either a method or a whole run-through of a level(s).
+== White Box ==
+Will be implemented after the Black Box Testing has been passed. It will include basics such as mutation testing and, if possible, path testing. This will run through from either a method or a whole run-through of a level(s).
 
-Unit Test:
-	Will be used in Eclipse IDE’s built-in to run the majority of the test suites. 
+== Unit Test: ==
+Will be used in Eclipse IDE’s built-in to run the majority of the test suites. 
 
-Testing results format:
+== Testing results format: ==
 What will eventually be printed out as a result of running tests.
 TestPackage | “Short description” | MethodName | Passed/Failed
 
-Defect/Bug Reports:
-	These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
+== Defect/Bug Reports: ==
+These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
 
-User Test Reports:
+== User Test Reports: ==
 A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics such as:
+
 Level:
-List the steps to reproduce the bug
-	1.
-	2.
-	3.
+List the steps to reproduce the bug:
+
+1
+
+2
+
+3
+
 Rating of Game:
-	Ideas to help make the game better:
+
+Ideas to help make the game better:
+
 Comments:
