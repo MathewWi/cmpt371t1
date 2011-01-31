@@ -1,3 +1,0 @@
-Requirements:
-
-Status report information that would be provided to give feedback to the team on the current situation of the project.  Examples would be the state of the project build, the what features are implemented and what has not been, STI/defect information (e.g. count of active STIs, number of priority 1 or 2 STIs)
