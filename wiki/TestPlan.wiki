@@ -7,6 +7,27 @@ There are currently no existing tests made for the game Luminance.
 We will be making the tests from ground up as with the development team
 except there will be no bases to work on.
 
+
+== Testing Concept ==
+The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
+
+eg
+<br>
+Test Suite --> testGraphics --> testCube.java
+<br>
+Test Suite --> testGameLogic --> testAI.java
+<br>
+Test Suite --> testHook --> testSmoke.java
+
+This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
+
+*Note:* Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
+
+Furthermore, the ant build will have a file defined as a success scenario where a diff command will be used to test the output of the testHook package. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
+
+== Daily Build ==
+The build master will run the test suite on eclipse and verify its success via the pop-up window status given in eclipse. Should a few errors occur, A bug report will be issued and taken up by the triage. Should the majority of the project fail then either an emergency meeting is in order or a very high alert report followed by an emergency e-mail to see the problem through thoroughly.
+
 = Testing plan =
 
 == Milestone 1: Documentation & Concept smoke test ==
@@ -42,24 +63,6 @@ Make sure everything works
 *Note: Estimates are total spent by whole group*
 
 -------------------------------------------------------------------
-
-== Testing Concept ==
-The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
-
-eg
-<br>
-Test Suite --> testGraphics --> testCube.java
-<br>
-Test Suite --> testGameLogic --> testAI.java
-<br>
-Test Suite --> testHook --> testSmoke.java
-
-This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
-
-*Note:* Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
-
-Furthermore, the ant build will have a file defined as a success scenario where a diff command will be used to test the output of the testHook package. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
-
 == Division of Labour: ==
 It has been discussed that the team will divide up the major testing (unit test) portion into sub    categories. This is in coalition with the development group’s choice of dividing their work. This will keep each member’s knowledge of the project narrow but thoroughly understandable. Some will have more than one job depending on their ease of testing. Below is a table of division:
 
