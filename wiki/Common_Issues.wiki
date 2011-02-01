@@ -1,4 +1,5 @@
-_List of common issues, and how to solve them_
+#summary List of common issues and how to solve them
+<wiki:toc max_depth="2" />
 
 = Javac compiler not found =
 
@@ -23,9 +24,14 @@ C:/Program Files (x86)/Java/jdk1.6.0_23/bin
 }}}
 
 *Note:* The official Android development guide states the following:
-{{{
-Note: When installing JDK on Windows, the default is to install in the "Program Files" directory. This location will cause ant to fail,  because of the space. To fix the problem, you can specify the JAVA_HOME  variable like this: set JAVA_HOME=c:\Progra~1\Java\<jdkdir>. The  easiest solution, however, is to install JDK in a non-space directory,  for example: c:\java\jdk1.6.0_02.
-}}}
+
+ Note: When installing JDK on Windows, the default is to install in the 
+ Program Files" directory. This location will cause ant to fail,  
+ because of the space. To fix the problem, you can specify the JAVA_HOME  
+ variable like this: `set JAVA_HOME=c:\Progra~1\Java\<jdkdir>`. The
+ easiest solution, however, is to install JDK in a non-space directory,
+ for example: `c:\java\jdk1.6.0_02`.
+
 
 So if the above doesn't work for you, try that.
 
