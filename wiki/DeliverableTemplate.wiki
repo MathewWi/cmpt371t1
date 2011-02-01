@@ -27,7 +27,7 @@ The code review process is documented at CodeReviewProcess.
 
 = Requirements =
 
-Requirements can be viewed at: Requirements
+Requirements can be viewed at: AllRequirements
 
 = GUI Prototype =
 A video of the previous implementation of the game can be viewed here: [http://code.google.com/p/cmpt371t1/]
