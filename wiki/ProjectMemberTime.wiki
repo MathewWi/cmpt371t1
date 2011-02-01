@@ -61,8 +61,9 @@ Because meetings are attended by many or all members of the project, we account 
 
 == Liang Huang ==
 || *Task* || *Hours spent so far* ||
-|| task || time spent so far ||
-|| task 2 || time spent so far ||
+|| Test Plan || 2 ||
+|| Learning Ant Script || 2 ||
+|| Learning Android Virtual Device || 2 ||
 
 == Jonny ==
 || *Task* || *Hours spent so far* ||
