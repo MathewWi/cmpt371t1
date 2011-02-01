@@ -22,7 +22,7 @@ Google Code's built-in code review functionality will be used. This allows membe
 =Technical issues=
 Since there are many conceptual domains involved in the project, such as sound, graphics, input, cross-platform capability, game mechanics, etc, the people responsible for their own area will have much more technical knowledge about it. By doing the reviews in a round-robin fashion, members will be exposed to areas outside their expertise. For example, someone will have to do reviews that involve OpenGL code when they might not know anything about OpenGL.
 
-This can be considered a good thing, since everyone will gain more knowledge on the various parts of the system, but it can inhibit the effectiveness of code reviews. However, regardless of expertise, many other aspects of code can be reviewed, such as basic coding mistakes, style issues, coupling/coherence problems, etc. If it proves to be too difficult to have reviewers keep up with learning enough outside their knowledge area to perform effective code reviews, we will reconsider the review assignment process.
+This can be considered a good thing, since everyone will gain more knowledge on the various parts of the system, but it can inhibit the effectiveness of code reviews. However, regardless of expertise, many other aspects of code can be reviewed, such as basic coding mistakes, style issues, coupling/coherence problems, etc. Another big advantage of this approach is having a fresh set of eyes that isn't already used to seeing that code or even topic. If it proves to be too difficult to have reviewers keep up with learning enough outside their knowledge area to perform effective code reviews, we will reconsider the review assignment process.
 
 ----
 <font size="-1">Author: Zenja</font>
