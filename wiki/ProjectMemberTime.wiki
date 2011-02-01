@@ -1,4 +1,5 @@
 = Project Meeting Times =
+<wiki:toc />
 
 = Group Responsibilities =
 
@@ -19,13 +20,14 @@ Because meetings are attended by many or all members of the project, we account 
 
 == Zenja Ivkovic ==
 || *Task* || *Hours spent so far* ||
-|| TeamCity setup/administration || time spent so far ||
-|| Eclipse environment setup || time spent so far ||
-|| Build script/system fixing and setup || ||
-|| Helping team with development environment || ||
-|| Wiki page creation and maintenance || ||
-|| Audio playback research and implementation || ||
-|| Graphics/model loading research || ||
+|| TeamCity setup/administration || 3 ||
+|| Eclipse environment setup || 3 ||
+|| Build script/system fixing and setup || 3 ||
+|| Helping team with development environment || 1.5 ||
+|| Wiki page creation and maintenance || 2.5 ||
+|| Audio playback research and implementation || 2.5 ||
+|| Graphics/model loading research || 1 ||
+|| CPM diagram || ||
 
 == Stephen Damm ==
 || *Task* || *Hours spent so far* ||
