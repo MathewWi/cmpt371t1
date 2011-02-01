@@ -1,0 +1,2 @@
+#summary Coding conventions for this project
+This is a wiki, BITCHES!!!!
