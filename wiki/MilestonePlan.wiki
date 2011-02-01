@@ -24,50 +24,55 @@
 
 == Mini-Milestone 2 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Alpha version of game || 24 || Incomplete ||
-|| GUI Test suite basics || 6 || Incomplete ||
+|| Touch input handling || 4 || Incomplete ||
+|| Audio playing (sfx and music) || 4 || Incomplete ||
 || Android asset manager || 4 || Incomplete ||
+|| GUI Test suite basics || 6 || Incomplete ||
 || Game level file format analyzed || 2 || Incomplete ||
 
 == Milestone 2 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Game level format implemented  || 4 || Incomplete ||
-|| Game level editor || 4 || Incomplete ||
+|| Alpha version of game || 24 || Incomplete ||
+|| Game menus || 4 || Incomplete ||
+|| Game level format implemented || 4 || Incomplete ||
 || jCoverage test suite || 8 || Incomplete ||
 || jUnit test suite || 8 || Incomplete ||
 
 
 == Mini-Milestone 3 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
+|| Game level editor || 4 || Incomplete ||
 || Complete GUI Test suite || 8 || Incomplete ||
-|| Prototype new in game puzzle tools  || 4 || Incomplete ||
-|| Prototype new in game puzzle mechanics  || 4 || Incomplete ||
+|| Design user evaluation questionnaire || 2 || Incomplete ||
 
 
 == Milestone 3 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Design user evaluation questionnaire || 2 || Incomplete ||
 || Finalize the in game object models || 6 || Incomplete ||
-|| Beta version of the game || 12 || Incomplete ||
+|| Implement random level generator || 12 || Incomplete ||
+|| Run user evaluation || _N/A_ || Incomplete ||
 
 
 == Mini-Milestone 4 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Run user evaluation || _N/A_ || Incomplete ||
 || Discuss changes to game based on evaluation || 4 || Incomplete ||
-|| Outline a  || 4 || Incomplete ||
+|| Prototype new in game puzzle tools  || 4 || Incomplete ||
+|| Prototype new in game puzzle mechanics  || 4 || Incomplete ||
 
 == Milestone 4 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Complete new changes from evaluation || 12 || Incomplete ||
+|| Implement new tools and mechanics || 12 || Incomplete ||
 || Each member designs 10 levels || 4 || Incomplete ||
+|| Beta version of the game || 12 || Incomplete ||
 
 
 == Mini-Milestone 5 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
 || Clear out all known bugs || _N/A_ || Incomplete ||
+|| Play test || _N/A_ || Incomplete ||
 
 == Milestone 5 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
 || Prepare for code Freeze || _N/A_ || Incomplete ||
 || Release version of game || 12 || Incomplete ||
+|| Push game through Q&A process || _N/A_ || Incomplete ||
