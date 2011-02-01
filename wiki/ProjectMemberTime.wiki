@@ -5,7 +5,7 @@
 This is the time spent by each member, give or take an hour.
 
 || Group Meetings || 5 hours a week ||
-|| Emails and Communication within the group || 1 hour a week ||
+|| Emails and Communication within the group || 2 hour a week ||
 
 
 = Member Responsibilities =
@@ -21,8 +21,12 @@ Because meetings are attended by many or all members of the project, we account 
 || task 2 || time spent so far ||
 
 == Stephen Damm ==
-|| task || time spent so far ||
-|| task 2 || time spent so far ||
+|| Setup VM for TeamCity  || 2 ||
+|| Project administration || 4 ||
+|| Stubbed new framework || 8 ||
+|| Implemented basic opengl demo using new framework || 4 ||
+|| Project milestone plan || 1 ||
+|| Implemented input system from replica island || 4 ||
 
 == Martina Nagy ==
 || Writing build script || time spent so far ||
