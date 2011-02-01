@@ -42,7 +42,7 @@ Test Team
 The Milestones we have set for this project can be viewed here: MilestonePlan
 
 = Risk Analysis =
-The risk report can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Risk_Report]
+The risk report can be viewed at: RiskReport
 
 = Team Roles and Activity Log =
 The team roles and activity log can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Project_Member_Time]
