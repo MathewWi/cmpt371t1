@@ -1,0 +1,22 @@
+= State of Project Build =
+
+Currently the project builds and runs a sample program.  The rest of the project code is currently stubbed out.
+
+= Features Implemented =
+
+Build completes.
+
+Sample program runs correctly.
+
+= Features To Be Implemented =
+
+Touch screen GUI.
+
+Enhanced graphics.
+
+Full game engine.
+
+= STI/Defect Information =
+
+Currently there are no STI's or defects within the code itself.
+Common problems of the development environment can be found here: CommonIssues
