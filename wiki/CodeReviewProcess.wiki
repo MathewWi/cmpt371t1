@@ -9,6 +9,11 @@ Once a member's code is subject to review, reviews will be assigned at the end o
 
 We will strive to have everyone involved in the review process. All code should be reviewed, and all members will be doing reviews in a generally round-robin pattern. Each member will perform a review on a peer's code before any member does another review themselves. This way everyone is ensured to participate and everyone should be doing the same number of reviews.
 
+Reviews may also be done impromptu, with a member requesting a review before a milestone deadline. This could be useful in case the member is unsure if they're going about the task in a good way.
+
+=Mechanism=
+Google Code's built-in code review functionality will be used. This allows members to easily comment on specific code and for the owner of the code to see feedback and tie it to specific areas. Any further clarifications or discussion can be had over the team mailing list or in person.
+
 =Technical issues=
 Since there are many conceptual domains involved in the project, such as sound, graphics, input, cross-platform capability, game mechanics, etc, the people responsible for their own area will have much more technical knowledge about it. By doing the reviews in a round-robin fashion, members will be exposed to areas outside their expertise. For example, someone will have to do reviews that involve OpenGL code when they might not know anything about OpenGL.
 
