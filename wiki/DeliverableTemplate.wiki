@@ -45,30 +45,26 @@ The Milestones we have set for this project can be viewed here: MilestonePlan
 The risk report can be viewed at: RiskReport
 
 = Team Roles and Activity Log =
-The team roles and activity log can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Project_Member_Time]
+The team roles and activity log can be viewed at: ProjectMemberTime
 
 = Code Reviews =
 The code review process is documented at CodeReviewProcess.
 
 = Requirements =
 == Functional ==
-Development environment requirements can be viewed here: [https://code.google.com/p/cmpt371t1/wiki/Development_Environment_Setup]
+Development environment requirements can be viewed here: DevelopmentEnvironmentSetup
 
-- anything else?
-
-- Android phone!
-
-Stephen
+Stephen will add more
 
 == Non-functional == 
-- Performance criteria, stability needs, compatibility concerns etc
-
-JaiJing
+User requirements can be viewed at: UserRequirements
 
 = GUI Prototype =
-Design team
+A video of the previous implementation of the game can be viewed here: [http://code.google.com/p/cmpt371t1/]
 
-- diagrams for functionality
+Our ported version is meant to mimic the user interface of this very closely.
+
+Here are some pictures of how our user interface will look with the touch screen functionality:
 
 = Initial Analysis for Deliverable 2 =
 == Deliverable plan ==
