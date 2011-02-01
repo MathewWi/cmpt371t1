@@ -9,11 +9,25 @@
 
   * Graphics
    The game should have decent graphics.  This includes some neat special effects (lighting, reflections, particles).  Not only is this a user requirement it is a selling point for any game.
+
   * Intuitive Input Interface
+   The input interface should be clean and utilize the perceived affordances people already have for touch screen input usage.  For users who do not enjoy a touch interface we can utilize the pointer and keyboard as well.
+
   * Effective sound effects
-  * responsive control
-  * not crash
-  * save, load
+   The sounds effects in the game should be minimal but effective.  Each important action should carry a unique sound effect.  Since we are on a phone we also need to make sure that without sound the game is still able to convey feedback information.
+
+  * Responsive control
+   The input interface should be very responsive.  There should be a minimal delay (<100ms) of processing the input a user makes and the user noticing the change.
+
+  * Graceful termination on exception
+   The application if encountering a critical error should attempt a graceful termination.  The users progress in the game should be preserved if possible.
+
+  * Never crash the phone
+   The game cannot bring the whole phone down.  This type of error cannot be allowed to persist.  The product will not pass Q&A if there is a way it can crash the phone.
+  
+  * Saving and Loading
+   Users will want to save their progress and load from where they left off.  A puzzle game such as this is expected to be played in small spurts.  The saving and loading process should be transparent.
+
   * potential networking stuff
 
 = Functional Requirements =
