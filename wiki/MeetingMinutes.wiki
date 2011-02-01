@@ -1,4 +1,6 @@
 #summary Brief summary of weekly meetings
+<wiki:toc max_depth="2" />
+
 = Introduction =
 
 Weekly meeting minutes.
