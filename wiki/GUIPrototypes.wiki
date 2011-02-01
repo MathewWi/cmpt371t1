@@ -1,3 +1,5 @@
+#summary GUI Prototypes for the Android device
+
 = Introduction =
 
 This page contains the paper GUI Prototypes for this project.
