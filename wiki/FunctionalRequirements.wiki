@@ -1,11 +1,6 @@
-= Functional Requirments =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Functional Requirements =
+ - Platform Compatibility (2.1 above)
+ - Must have touchscreen (at least initially, we plan to port it as much as we can)
+ - Might support keyboard
+ - Portability
+ - Distribution
