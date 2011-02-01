@@ -8,7 +8,7 @@
 == Mini-Milestone 1 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
 || Organize entire team || _N/A_ || Complete ||
-|| TeamCity Server setup || 8 || Complete ||
+|| !TeamCity Server setup || 8 || Complete ||
 || Review old systems architecture || 4 || Complete  ||
 || Android OpenGL POC || 4 || Complete ||
 
@@ -16,7 +16,7 @@
 || *Task* || *Estimate time (hours)* || *Status* ||
 || Document development environment setup || 8 || Complete ||
 || Document team city usage || 8 || Incomplete ||
-|| Android GUI POC || 4 || Incomplete||
+|| Android GUI POC || 4 || Complete ||
 || Android Audio POC || 4 || Incomplete||
 || Android Touch Input POC || 6 || Incomplete||
 || Ant build script basics || 4 || Complete ||
