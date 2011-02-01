@@ -49,8 +49,23 @@ Here are some pictures of how our user interface will look with the touch screen
 - new artifacts: 
   * updated risk analysis (including results of new scanning)
   * the version control strategy
-  * the test strategy and testing done to date (including test results)
+  * basic GUI test suite
+  * jUnit test suite
+  * jCoverage test suite
   * the latest measurements of software quality
+  * game level editor
+
+- game level format analyzed and implemented
+
+- alpha version of game completed
 
 == Estimate of size and time ==
-Need to do
+|| *Task* || *Estimate time (hours)* ||
+|| Alpha version of game || 24 ||
+|| GUI test suite basics || 6 ||
+|| Android asset manager || 4 ||
+|| Game level file format analyzed || 2 ||
+|| Game level file format implemented || 4 ||
+|| Game level editor || 4 ||
+|| jCoverage test suite || 8 ||
+|| jUnit test suite || 8 ||
