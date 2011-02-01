@@ -1,4 +1,4 @@
-= State of Project Build =
+== State of Project Build ==
 
 Currently the project builds a binary and runs a sample program. 
 
@@ -6,13 +6,13 @@ The application can be loaded onto an Android phone and run the same as on the A
 
 The rest of the project code is currently stubbed out.
 
-= Features Implemented =
+== Features Implemented ==
 
 Build completes.
 
 Sample program runs correctly.
 
-= Features To Be Implemented =
+== Features To Be Implemented ==
 
 Touch screen GUI.
 
@@ -26,7 +26,7 @@ Full game engine.
 
 Random level generator.
 
-= STI/Defect Information =
+== STI/Defect Information ==
 
 Currently there are no STI's or defects within the code itself, as everything is only stubbed out.
 
