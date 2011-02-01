@@ -41,7 +41,7 @@ Because meetings are attended by many or all members of the project, we account 
 || Implemented input system from replica island || 4 ||
 || Ported my openGL quaternion Camera to Java Android || 4 ||
 || Prototyped presentation for milestone 1 || 2 ||
-|| Outlined our requirements || 12||
+|| Outlined our requirements || 1 ||
 
 == Martina Nagy ==
 || *Task* || *Hours spent so far* ||
