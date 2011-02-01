@@ -92,7 +92,7 @@ Will be used in Eclipse IDE’s built-in to run the majority of the test suites.
 
 == Testing results format: ==
 What will eventually be printed out as a result of running tests.
-TestPackage | “Short description” | MethodName | Passed/Failed
+!TestPackage | “Short description” | !MethodName | Passed/Failed
 
 == Defect/Bug Reports: ==
 These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
