@@ -28,10 +28,6 @@ Furthermore, the ant build will have a file defined as a success scenario where 
 
 The main (and recommended) technologies to be used are Robotium and JUnit for Android. Robotium is essentially built for Android GUI testing and JUnit is recommended by Android's site.
 
-Links:
-  * Robotium  http://code.google.com/p/robotium/
-  * Android  http://developer.android.com/guide/developing/testing/testing_eclipse.html
-
 == Daily Build ==
 The build master will run the test suite on eclipse and verify its success via the pop-up window status given in eclipse. Should a few errors occur, A bug report will be issued and taken up by the triage. Should the majority of the project fail then either an emergency meeting is in order or a very high alert report followed by an emergency e-mail to see the problem through thoroughly.
 
@@ -92,14 +88,26 @@ It has been discussed that the team will divide up the major testing (unit test)
 
 
 example categories: graphics, input, engine, logic
+NOTE: Make better - Jeff reminder
 
 == Technologies Used ==
   * Android JUnit
+    Run Regression, Unit tests
   * Robotium
+    Run Gui based tests
   * Google Code
+    Code Base
   * Ant Script
+    Build script, Smoke test, Hooks
   * Team City
+    Smoke test, Hooks
   * Emma
+   Code Coverage
+
+Links:
+  * Robotium  http://code.google.com/p/robotium/
+  * Android  http://developer.android.com/guide/developing/testing/testing_eclipse.html
+  * Emma http://emma.sourceforge.net/
 
 == Test Summary ==
 === Smoke test ===
