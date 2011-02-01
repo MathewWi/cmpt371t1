@@ -2,15 +2,17 @@
 <wiki:toc />
 
 = Javac compiler not found =
-*Syntax of error:*
+Eclipse will give the following error when trying to build:
 {{{
 projectFilepath/build.xml:76: Unable to find a javac compiler;
 com.sun.tools.javac.Main is not on the classpath.
 Perhaps JAVA_HOME does not point to the JDK
 }}}
 
-==Fixes:==
-===Set the JAVA_HOME environment variable to point to the JDK on your machine===
+==Fixes==
+Use one of the two :
+
+===1. Set the JAVA_HOME environment variable to point to the JDK on your machine===
 ====In Windows====
   * Click Start, right-click on Computer and select Properties
   * Click Advanced System Settings, then Environment Variables in the window that pops up.
@@ -29,7 +31,6 @@ C:/Program Files (x86)/Java/jdk1.6.0_23/bin
  easiest solution, however, is to install JDK in a non-space directory,
  for example: `c:\java\jdk1.6.0_02`.
 
-
 So if the above doesn't work for you, try that.
 
 ====In Linux====
@@ -38,7 +39,7 @@ Open a terminal and execute the export command. For example:
 export JAVA_HOME=/usr/java/jdk1.5.0_07/bin/java
 }}}
 
-===Add tools.jar to classpath===
+===2. Add tools.jar to classpath===
 _Note that although this works, it has not been confirmed it's a legitimate, perfect fix._
     * In eclipse, click Window->Preferences. 
     * In the resulting window on the left hand side, click Ant->Runtime.
