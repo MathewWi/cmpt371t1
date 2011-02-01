@@ -1,7 +1,7 @@
 = State of Project Build =
 
 Currently the project builds a binary and runs a sample program. 
- 
+
 The application can be loaded onto an Android phone and run the same as on the AVD.  
 
 The rest of the project code is currently stubbed out.
