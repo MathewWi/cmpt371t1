@@ -1,4 +1,4 @@
-= Project Meeting Times =
+= Project Member Times =
 <wiki:toc />
 
 = Group Responsibilities =
@@ -37,6 +37,8 @@ Because meetings are attended by many or all members of the project, we account 
 || Implemented basic opengl demo using new framework || 4 ||
 || Project milestone plan || 1 ||
 || Implemented input system from replica island || 4 ||
+|| Ported my openGL quaternion Camera to Java Android || 4 ||
+|| Prototyped presentation for milestone 1 || 2 ||
 
 == Martina Nagy ==
 || *Task* || *Hours spent so far* ||
