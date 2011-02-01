@@ -1,4 +1,5 @@
 #summary A list of our tentative milestones and mini-milestones.
+<wiki:toc max_depth="2" />
 
 = Introduction =
 
