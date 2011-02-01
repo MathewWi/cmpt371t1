@@ -8,7 +8,7 @@ http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=
 
 == Level Menu ==
 
-http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=LevelMenu.png
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/LevelMenu.png?t=1296524866
 
 == Game View ==
 
