@@ -39,7 +39,7 @@ A video of the previous implementation of the game can be viewed here: [http://c
 
 Our ported version is meant to mimic the user interface of this very closely.
 
-Here are some pictures of how our user interface will look with the touch screen functionality: GUIPrototypes
+Here are some pictures of how our user interface will look with the touch screen functionality: GUIPrototypes 
 
 = Initial Analysis for Deliverable 2 =
 == Deliverable plan ==
