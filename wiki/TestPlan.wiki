@@ -87,11 +87,12 @@ It has been discussed that the team will divide up the major testing (unit test)
 example categories: graphics, input, engine, logic
 
 == Technologies Used ==
-  * Eclipse built-in Andriod JUnit package
+  * Android JUnit
   * Robotium
   * Google Code
   * Ant Script
   * Team City
+  * Emma
 
 == Test Summary ==
 === Smoke test ===
