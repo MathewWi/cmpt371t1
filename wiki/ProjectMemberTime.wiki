@@ -63,8 +63,10 @@ Because meetings are attended by many or all members of the project, we account 
 
 == Jiajing Wang ==
 || *Task* || *Hours spent so far* ||
-|| Learning Ant Script || 4 ||
-|| Learning basic test concepts || 2 ||
+|| Learning Ant Script || 2 ||
+|| Learning basic test concepts || 1 ||
+|| Learning Android test|| 3 ||
+
 
 == Liang Huang ==
 || *Task* || *Hours spent so far* ||
