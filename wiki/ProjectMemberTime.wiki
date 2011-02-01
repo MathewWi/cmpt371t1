@@ -3,9 +3,9 @@
 = Group Responsibilities =
 
 This is the time spent by each member, give or take an hour.
-
+|| *Task* || *Hours spent per week* ||
 || Group Meetings || 5 hours a week ||
-|| Emails and Communication within the group || 2 hour a week ||
+|| Emails and Communication within the group || 2 hours a week ||
 
 
 = Member Responsibilities =
@@ -13,14 +13,17 @@ This is the time spent by each member, give or take an hour.
 Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
 
 == Kumaran Vijayan ==
+|| *Task* || *Hours spent so far* ||
 || Wiki Management || time spent so far ||
 || Android Widget Toolkit || time spent so far ||
 
 == Zenja Ivkovic ==
+|| *Task* || *Hours spent so far* ||
 || task || time spent so far ||
 || task 2 || time spent so far ||
 
 == Stephen Damm ==
+|| *Task* || *Hours spent so far* ||
 || Setup VM for TeamCity  || 2 ||
 || Project administration || 4 ||
 || Stubbed new framework || 8 ||
@@ -29,34 +32,43 @@ Because meetings are attended by many or all members of the project, we account 
 || Implemented input system from replica island || 4 ||
 
 == Martina Nagy ==
-|| Writing build script || time spent so far ||
-|| Meeting manager || time spent so far ||
-|| Deliverable outline || time spent so far ||
+|| *Task* || *Hours spent so far* ||
+|| Writing/Debugging build script || 6 ||
+|| Deliverable outline || 3 ||
+|| Planning and organizing team meetings || 2 ||
+|| Running daily build || 1 ||
 
 == Chet Collins ==
-|| Risk Report || 3 hours ||
+|| *Task* || *Hours spent so far* ||
+|| Risk Report || 3 ||
 || task 2 || time spent so far ||
 
 == Amara Daal ==
+|| *Task* || *Hours spent so far* ||
 || task || time spent so far ||
 || task 2 || time spent so far ||
 
 == Jiajang Wang ==
+|| *Task* || *Hours spent so far* ||
 || task || time spent so far ||
 || task 2 || time spent so far ||
 
 == Liang Huang ==
+|| *Task* || *Hours spent so far* ||
 || task || time spent so far ||
 || task 2 || time spent so far ||
 
 == Jonny ==
+|| *Task* || *Hours spent so far* ||
 || task || time spent so far ||
 || task 2 || time spent so far ||
 
 == Steven Indzeoski ==
-|| Researching style checking || 1 hour ||
-|| Working on game music || 3 hours ||
+|| *Task* || *Hours spent so far* ||
+|| Researching style checking || 1 ||
+|| Working on game music || 3 ||
 
 == Kai Kang ==
+|| *Task* || *Hours spent so far* ||
 || task || time spent so far ||
 || task 2 || time spent so far ||
