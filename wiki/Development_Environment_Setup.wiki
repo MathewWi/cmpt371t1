@@ -1,5 +1,6 @@
 #summary Outline of how to set up the development environment.
 #labels Phase-Implementation
+<wiki:toc max_depth="2" />
 
 = Introduction =
 Everyone should try to use the same development environment unless you have a good reason not to. You'll need Eclipse, the Android SDK, the Eclipse !TeamCity plugin, and the Eclipse ADT plugin.
@@ -88,7 +89,7 @@ If your path has any spaces in it, follow the instructions below.
 If the path to your SDK directory contains spaces (for example, if it's in Program Files), and you're on Windows, you need to convert it to DOS short filenames. To find out the path on your machine, follow this process:
   # Open a command prompt
   # Change to the drive that your SDK is installed to (if other than C:)
-  # Type "dir /x" which will show you the short name for the files/folders in the current folder. Make note of the short name for the one that leads to the SDK
+  # Type `dir /x` which will show you the short name for the files/folders in the current folder. Make note of the short name for the one that leads to the SDK
   # Enter the directory that takes you one step closer to the SDK, and repeat step 3 until you have the full path to the SDK folder
   # Put the full short path in the local.properties file. It should look something like
 {{{
@@ -116,4 +117,4 @@ To view stdout and stderr from the Android emulator you need to enable LogCat.
   # In the "Show View" window that opens expand the "Android" folder and select "!LogCat"
 
 ----
-Page maintained by Zenja and Kumaran
+<font size = -1>Authors: Zenja and Kumaran</font>
