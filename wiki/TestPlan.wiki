@@ -39,6 +39,7 @@ The build master will run the test suite on eclipse and verify its success via t
 The discussion and writing of this documentation and planning of smoke test.
 === Tasks ===
   * Write-up of Documentation
+  * Divide up Test Components
 
 *Estimated: 2-3 hours*
 
