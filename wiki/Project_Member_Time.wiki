@@ -30,7 +30,7 @@ Because meetings are attended by many or all members of the project, we account 
 || Deliverable outline || time spent so far ||
 
 == Chet Collins ==
-|| task || time spent so far ||
+|| Risk Report || 3 hours ||
 || task 2 || time spent so far ||
 
 == Amara Daal ==
