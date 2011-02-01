@@ -4,7 +4,7 @@ This page contains the paper GUI Prototypes for this project.
 All prototype pictures draw by Jonny Jonny.
 
 == Main Menu ==
-http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=MainMenu.png
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/MainMenu.png?t=1296525123
 
 == Level Menu ==
 
@@ -12,16 +12,16 @@ http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/LevelMen
 
 == Game View ==
 
-[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=GameView.png]
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/GameView.png?t=1296525120
 
 == Level Complete Menu ==
 
-[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=LevelCompleteMenu.png]
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/LevelCompleteMenu.png?t=1296524879
 
 == Pinch ==
 
-[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=Pinch.png]
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/Pinch.png?t=1296525131
 
 == Touch, Hold, and Move ==
 
-[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=TouchHoldAndMove.png]
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/TouchHoldAndMove.png?t=1296525135
