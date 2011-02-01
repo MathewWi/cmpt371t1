@@ -1,15 +1,9 @@
-User Requirements Template:
+== User Requirements Template ==
 
-	have fun
-	
-	quick load time
-
-	graphics, good interface, awesome sounds
-
-	responsive control
-
-	not crash
-
-	save, load
-	
-	potential networking stuff
+  * have fun	
+  * quick load time
+  * graphics, good interface, awesome sounds
+  * responsive control
+  * not crash
+  * save, load
+  * potential networking stuff
