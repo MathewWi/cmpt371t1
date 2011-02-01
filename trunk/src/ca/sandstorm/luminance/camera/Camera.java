@@ -1,6 +1,10 @@
 package ca.sandstorm.luminance.camera;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.AxisAngle4f;
+import javax.vecmath.Matrix4f;
+import javax.vecmath.Quat4f;
+import javax.vecmath.Vector3f;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,12 +12,74 @@ import org.slf4j.LoggerFactory;
 import ca.sandstorm.luminance.Engine;
 
 import android.opengl.GLU;
+import android.opengl.Matrix;
 
 
 public class Camera
 {
     private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
+    private Vector3f _up;
+    private Vector3f _target;
+    private Vector3f _eye;
+       
+    float _matView[];
+    
+    private Quat4f _qRotation;
+    private Quat4f _qView;
+    private Quat4f _qNewView;   
+    private Quat4f _qConjugate;
+    
+    public Camera()
+    {
+	_up = new Vector3f(0, 1, 0);
+	_target = new Vector3f(0, 0, 0);
+	_eye = new Vector3f(0, 0, 0);
+		
+	_matView = new float[16];
+	
+	_qRotation = new Quat4f();
+	_qView = new Quat4f();
+	_qNewView = new Quat4f();
+	_qConjugate = new Quat4f();
+    }
+    
+    public void setEye(Vector3f v)
+    {
+	_eye = v;
+    }
+    
+    public void setEye(float x, float y, float z)
+    {
+	_eye.x = x;
+	_eye.y = y;
+	_eye.z = z;
+    }
+    
+    public void setTaret(Vector3f v)
+    {
+	_target = v;
+    }
+    
+    public void setTaret(float x, float y, float z)
+    {
+	_target.x = x;
+	_target.y = y;
+	_target.z = z;
+    }    
+    
+    public void setUp(Vector3f v)
+    {
+	_target = v;
+    }
+    
+    public void setUp(float x, float y, float z)
+    {
+	_up.x = x;
+	_up.y = y;
+	_up.z = z;
+    }     
+    
 
     public void setViewPort(GL10 gl, int x, int y, int w, int h)
     {
@@ -37,4 +103,60 @@ public class Camera
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glLoadIdentity();
     }
+    
+    public void updateViewMatrix(GL10 gl)
+    {
+	logger.debug("updateViewMatrix()");
+	
+	  // calculate the mdoel view matrix
+	
+	/*Matrix.setLookAtM (_matView, 0, 
+	                     _eye.x, _eye.y, _eye.z, 
+	                     _target.x, _target.y, _target.z, 
+	                     _up.x, _up.y, _up.z);*/
+	
+	gl.glMatrixMode(gl.GL_MODELVIEW);
+	gl.glLoadIdentity();
+	GLU.gluLookAt(gl, _eye.x, _eye.y, _eye.z, 
+	                     _target.x, _target.y, _target.z, 
+	                     _up.x, _up.y, _up.z);
+
+	  // push the new openGL matrix 	  
+	  //gl.glLoadMatrixf(_matView, 0);
+	
+	//gl.glPushMatrix();
+    }
+    
+    
+  //--------------------
+  //Rotate Camera along a angle
+  //Credit: Allen Sherrod
+  //--------------------
+  public void rotateCamera(float AngleDir, float xSpeed, float ySpeed, float zSpeed)
+  {  	
+     // Create the rotation quaternion based on the axis we are rotating on.  	
+  	_qRotation.set(new AxisAngle4f(xSpeed, ySpeed, zSpeed, AngleDir));
+
+     // Create the view quaternion.  This will be the direction of the view and position.
+  	_qView.x = _target.x - _eye.x;
+  	_qView.y = _target.y - _eye.y;
+  	_qView.z = _target.z - _eye.z;
+  	_qView.w = 0;
+
+     // Create the resulting quaternion by multiplying the rotation quat by the view quat
+     // then multiplying that by the conjugate of the rotation quat.
+  	// TODO: might have broken this during port
+  	_qConjugate.conjugate(_qRotation);
+  	
+  	_qRotation.mul(_qView);
+  	_qRotation.mul(_qConjugate);
+  	
+  	_qNewView = _qRotation;
+  	//qNewView = ((qRotation * qView) * qRotation.conjugate());
+
+  	// Update the view information by adding the position to the resulting quaternion.
+  	_target.x = _eye.x + _qNewView.x;
+  	_target.y = _eye.y + _qNewView.y;
+  	_target.z = _eye.z + _qNewView.z;
+  }    
 }

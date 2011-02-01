@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
+import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
 
 
@@ -28,6 +29,8 @@ public class GameState implements IState
 	logger.debug("GameState()");
 
 	_cam = new Camera();
+	_cam.setEye(0, 0, 5);
+	
 	_box = new Box();
     }
 
@@ -53,10 +56,32 @@ public class GameState implements IState
     {
 	gl.glClearColor(0.182f, 0.182f, 1, 1);
 	
-	if (Engine.getInstance().getInputSystem().getKeyboard().getKeys()[KeyEvent.KEYCODE_1].getPressed())
+	InputButton[] keys = Engine.getInstance().getInputSystem().getKeyboard().getKeys();
+	if (keys[KeyEvent.KEYCODE_1].getPressed())
 	{
 	    System.exit(-1);
 	}
+	
+	if (keys[KeyEvent.KEYCODE_W].getPressed())
+	{
+	   // _cam.setEye(0, 0, -10);    
+	}
+	
+	if (keys[KeyEvent.KEYCODE_S].getPressed())
+	{
+	    //_cam.setEye(0, 0, 10);   
+	}	
+	
+	if (keys[KeyEvent.KEYCODE_A].getPressed())
+	{
+	    _cam.rotateCamera(-0.01f, 0, 1, 0);    
+	}
+	
+	if (keys[KeyEvent.KEYCODE_D].getPressed())
+	{
+	    _cam.rotateCamera(0.01f, 0, 1, 0);    
+	}	
+
     }
 
 
@@ -68,12 +93,17 @@ public class GameState implements IState
     {
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
-	gl.glLoadIdentity();
+	_cam.updateViewMatrix(gl);
+	
+	gl.glPushMatrix();
+	//gl.glLoadIdentity();
 
 	gl.glTranslatef(0.0f, 0, -14.0f);
 	gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
 	_box.draw(gl);
 	rquad -= 0.45f;
+	
+	gl.glPopMatrix();
     }
 
 
