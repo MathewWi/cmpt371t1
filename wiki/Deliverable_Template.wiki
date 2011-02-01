@@ -39,7 +39,7 @@ Test Team
 
 = Mini-Milestone List =
 
-The Milestones we have set for this project can be viewed here: [http://code.google.com/p/cmpt371t1/wiki/MilestonePlan]
+The Milestones we have set for this project can be viewed here: MilestonePlan
 
 = Risk Analysis =
 The risk report can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Risk_Report]
