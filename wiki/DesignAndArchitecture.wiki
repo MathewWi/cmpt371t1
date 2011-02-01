@@ -1,4 +1,4 @@
 #summary One-sentence summary of this page.
 
 == Class Diagram ==
-http://cmpt371t1.googlecode.com/svn/wiki/Class%20Diagrams/Class%20Diagram1.jpg
+http://cmpt371t1.googlecode.com/svn/wiki/ClassDiagrams/Class%20Diagram1.jpg
