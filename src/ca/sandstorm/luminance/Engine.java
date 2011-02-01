@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import android.os.SystemClock;
 
 import ca.sandstorm.luminance.audio.AndroidSoundPlayer;
-import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
@@ -48,7 +47,8 @@ public class Engine
 	_audioSystem = new AndroidSoundPlayer();
 	_inputSystem = new InputSystem();
 	_touchFilter = new MultiTouchFilter();
-		
+	
+	
 	// Temporary: play a sound to test sound system
 	//_audioSystem.load("test.mp3");
 	//_audioSystem.play("test.mp3", 0.9f);

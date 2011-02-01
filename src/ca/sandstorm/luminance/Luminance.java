@@ -17,8 +17,6 @@ import android.os.Message;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.Window;
-import android.view.WindowManager;
 
 
 public class Luminance extends Activity
@@ -149,8 +147,7 @@ public class Luminance extends Activity
 	    // do not log...
 	    Message msg = new Message();
 	    Bundle b = new Bundle();
-	    b.putFloat("fps", Luminance.this.getWindowManager()
-		    .getDefaultDisplay().getRefreshRate());
+	    b.putFloat("fps", Engine.getInstance().getTimer().getFrameDelta());
 	    msg.setData(b);
 	    handler.sendMessage(msg);
 

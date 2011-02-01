@@ -9,11 +9,7 @@ import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ca.sandstorm.luminance.Engine;
-import ca.sandstorm.luminance.Luminance;
 
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
 import android.media.AudioManager;
 import android.media.SoundPool;
 
