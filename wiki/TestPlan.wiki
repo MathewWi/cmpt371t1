@@ -49,7 +49,11 @@ Division of labour, Working smoke test, Finished suite of core tests
 
 === Tasks ===
   * Know how to make an Ant Script
-  * 
+  * Write Milestone 2 black box tests simultaneously with development
+  * Write Milestone 2 white box tests after development of components
+  * Write Milestone 2 mutation tests for each component developed
+  * Write Milestone 2 GUI testing(Robotium)simultaneously with dev.
+  * Integrate black box, white box, mutation test into smoke test
 
 *Estimated: 40 hours*
 
