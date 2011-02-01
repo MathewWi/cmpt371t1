@@ -1,6 +1,6 @@
 #summary Requirements for this project to succeed
 
-= User Requirements =
+= Functional Requirements =
   * Fun factor
    Perhaps an obvious statement but a very important part of a game none the less.  Measuring fun is not easy and is beyond the scope of this project.  However through some user evaluation and general feedback we will determine the fun factor and do what we can to increase it.
 
@@ -30,9 +30,21 @@
 
   * potential networking stuff
 
-= Functional Requirements =
+= Derived Requirements =
   * Platform Compatibility (2.1 above)
-  * Must have touchscreen (at least initially, we plan to port it as much as we can)
-  * Might support keyboard
+   We need to pick a minimum and maximum platform on the Android to support.  Considering availability of Android phones and current proliferation of the Anroid OS 2.1 and up we have decided to support 2.1 and up.
+ 
   * Portability
+   The game is being developed for Android using the Android SDK and Java programming language.  Since we are using Java the majority of the code base is already portable.  So we have developed an architecture to allow a PC port to be compiled in the future.
+
+  * Performance 
+   A requirement implied with almost any game.  The game itself should not be a huge drain on the phone.  At all times the game should operate at or above 30 frames per second.  
+
+  * Memory Usage
+   With limited memory on the Android sandbox attention must be spent to how much we allocate for the game.  Memory pools and avoiding excessive use of allocations is very important.
+
+  * Resources
+   The games assets such as models, sound effects, textures and levels at some point during runtime will live in system memory (RAM).  Care has to be taken to guarantee that only what we need is loaded and that we never go over the sandbox RAM limit.
+
   * Distribution
+   Distribution of the game is a requirement of interest.  This will require us pushing the game through a quality assurance process.  To succeed in that we need to follow the guidelines set out by Google (http://developer.android.com/guide/index.html).
