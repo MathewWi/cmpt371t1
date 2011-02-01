@@ -1,6 +1,10 @@
 = State of Project Build =
 
-Currently the project builds and runs a sample program.  The rest of the project code is currently stubbed out.
+Currently the project builds a binary and runs a sample program. 
+ 
+The application can be loaded onto an Android phone and run the same as on the AVD.  
+
+The rest of the project code is currently stubbed out.
 
 = Features Implemented =
 
@@ -14,9 +18,16 @@ Touch screen GUI.
 
 Enhanced graphics.
 
+Full audio capabilities.
+
 Full game engine.
+
+100+ levels.
+
+Random level generator.
 
 = STI/Defect Information =
 
-Currently there are no STI's or defects within the code itself.
+Currently there are no STI's or defects within the code itself, as everything is only stubbed out.
+
 Common problems of the development environment can be found here: CommonIssues
