@@ -4,7 +4,7 @@ This page contains the paper GUI Prototypes for this project.
 All prototype pictures draw by Jonny Jonny.
 
 == Main Menu ==
-[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI Protoypes/?action=view&current=MainMenu.png]
+[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=MainMenu.png]
 
 == Level Menu ==
 
