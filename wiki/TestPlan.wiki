@@ -28,6 +28,14 @@ Furthermore, the ant build will have a file defined as a success scenario where 
 
 The main (and recommended) technologies to be used are Robotium and JUnit for Android. Robotium is essentially built for Android GUI testing and JUnit is recommended by Android's site.
 
+=== Work Schedule ===
+  Smoke test - high priority
+  Black box tests - high priority in concert with dev. team
+  White box tests - med priority
+  Unit test - med priority
+  
+  Note: add on - jeff
+
 == Daily Build ==
 The build master will run the test suite on eclipse and verify its success via the pop-up window status given in eclipse. Should a few errors occur, A bug report will be issued and taken up by the triage. Should the majority of the project fail then either an emergency meeting is in order or a very high alert report followed by an emergency e-mail to see the problem through thoroughly.
 
