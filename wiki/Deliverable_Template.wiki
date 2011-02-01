@@ -38,13 +38,13 @@ Test Team
     * things that drive the system through key elements of functionality, or that will do so
 
 = Mini-Milestone List =
-Stephen
+
+The Milestones we have set for this project can be viewed here: [http://code.google.com/p/cmpt371t1/wiki/MilestonePlan]
 
 = Risk Analysis =
 The risk report can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Risk_Report]
 
 = Team Roles and Activity Log =
-Kum
 The team roles and activity log can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Project_Member_Time]
 
 = Code Reviews =
