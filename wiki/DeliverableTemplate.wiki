@@ -8,34 +8,9 @@ Source code for Luminance can be found here:
 
 == Daily Build ==
 A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
-== Smoke Test ==
-Test Team
+== Smoke Test, Testing and Hooks ==
 
-- require code to pass smoke test before commit
-
-- tests written to ensure the basic functionality of the software will not be compromised with the updated code. 
-== Testing and Hooks ==
-- existing or planned tests
-
-- testability investments that currently exist or that are planned
-
-    * hooks
-
-    * use of specifications
-
-    * design-by-contract
-
-    * separation of concerns
-
-    * things that foster testability but are not tests
-
-- how the system is to be tested
-
-    * manual mechanism
-
-    * support for any mechanisms (test harnesses)
-
-    * things that drive the system through key elements of functionality, or that will do so
+All testing documentation can be viewed here: TestPlan
 
 = Mini-Milestone List =
 
