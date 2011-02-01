@@ -1,10 +1,10 @@
-_Outline of the requirements for Milestone 1_
-
+#summary Outline of the requirements for Milestone 1
+<wiki:toc max_depth="1" />
 
 = Code Requirements =
 == Source Code Repository ==
 Source code for Luminance can be found here:
-[http://cmpt371t1.googlecode.com/svn/trunk/]
+[http://code.google.com/p/cmpt371t1/source/checkout]
 
 == Daily Build ==
 A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
@@ -48,19 +48,7 @@ Kum
 The team roles and activity log can be viewed at: [https://code.google.com/p/cmpt371t1/wiki/Project_Member_Time]
 
 = Code Reviews =
-TBA - need to do some!
-
-- for bug prevention
-
-- reviews by peers, help identify bugs
-
-- different perspectives
-
-- everybody understands what you did
-
-- on code, comments, the manual, design specs, test plan, test cases
-
-- get started on immediately, instead of waiting for code,
+The code review process is documented at CodeReviewProcess.
 
 = Requirements =
 == Functional ==
@@ -88,14 +76,10 @@ Design team
 - all project artifacts created or modified since the first milestone
 
 - new artifacts: 
-
-    * updated risk analysis (including results of new scanning)
-
-    * the version control strategy
-
-    * the test strategy and testing done to date (including test results)
-
-    * the latest measurements of software quality
+  * updated risk analysis (including results of new scanning)
+  * the version control strategy
+  * the test strategy and testing done to date (including test results)
+  * the latest measurements of software quality
 
 == Estimate of size and time ==
 Need to do
