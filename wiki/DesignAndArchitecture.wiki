@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Basic class diagram and architecture diagrams
 
 == Class Diagram ==
 http://cmpt371t1.googlecode.com/svn/wiki/ClassDiagrams/Class%20Diagram1.jpg
