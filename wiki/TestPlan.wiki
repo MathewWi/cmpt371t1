@@ -64,10 +64,11 @@ Furthermore, the ant build will have a file defined as a success scenario where 
 It has been discussed that the team will divide up the major testing (unit test) portion into sub    categories. This is in coalition with the development group’s choice of dividing their work. This will keep each member’s knowledge of the project narrow but thoroughly understandable. Some will have more than one job depending on their ease of testing. Below is a table of division:
 
 ||Name||Job||
-||Liang||n/a||
-||Jiajing||n/a||
-||Kai||n/a||
-||Amara||n/a||
+||Liang||Engine||
+||Jiajing||Graphics||
+||Kai||Input||
+||Amara||Game Logic||
+||All||Smoke Test||
 
 example categories: graphics, input, engine, logic
 
