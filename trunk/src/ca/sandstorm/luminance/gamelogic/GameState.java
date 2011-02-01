@@ -5,6 +5,9 @@ import javax.microedition.khronos.opengles.GL10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.view.KeyEvent;
+
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.state.IState;
@@ -49,6 +52,11 @@ public class GameState implements IState
     public void update(GL10 gl)
     {
 	gl.glClearColor(0.182f, 0.182f, 1, 1);
+	
+	if (Engine.getInstance().getInputSystem().getKeyboard().getKeys()[KeyEvent.KEYCODE_1].getPressed())
+	{
+	    System.exit(-1);
+	}
     }
 
 

@@ -1,7 +1,5 @@
 package ca.sandstorm.luminance.camera;
 
-import java.nio.FloatBuffer;
-
 import javax.microedition.khronos.opengles.GL10;
 
 import org.slf4j.Logger;
@@ -10,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import ca.sandstorm.luminance.Engine;
 
 import android.opengl.GLU;
-import android.opengl.GLUtils;
 
 
 public class Camera
