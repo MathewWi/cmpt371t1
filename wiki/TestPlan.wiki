@@ -1,5 +1,6 @@
+#summary Plan of action for testing
 #labels Phase-QA
-=#summary Plan of action for testing
+<wiki:toc max_depth="3" />
 
 = Past/Existing Tests =
 There are currently no existing tests made for the game Luminance.
