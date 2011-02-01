@@ -4,13 +4,24 @@ This page contains the paper GUI Prototypes for this project.
 All prototype pictures draw by Jonny Jonny.
 
 == Main Menu ==
+[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI Protoypes/?action=view&current=MainMenu.png]
 
 == Level Menu ==
 
+[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=LevelMenu.png]
+
 == Game View ==
+
+[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=GameView.png]
 
 == Level Complete Menu ==
 
+[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=LevelCompleteMenu.png]
+
 == Pinch ==
 
+[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=Pinch.png]
+
 == Touch, Hold, and Move ==
+
+[http://s1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/?action=view&current=TouchHoldAndMove.png]
