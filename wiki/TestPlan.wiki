@@ -10,6 +10,7 @@ We will be making the tests from ground up as with the development team
 except there will be no bases to work on.
 
 == Testing Concept ==
+=== Test Suite ===
 The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
 
 eg
@@ -27,6 +28,14 @@ This will make it easy for the daily build to just run inside the eclipse IDE an
 Furthermore, the ant build will have a file defined as a success scenario where a diff command will be used to test the output of the testHook package. The output of a test, when invoked via command-line, will output to STDOUT. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
 
 The main (and recommended) technologies to be used are Robotium and JUnit for Android. Robotium is essentially built for Android GUI testing and JUnit is recommended by Android's site.
+
+=== User-Public ===
+  Within the end of the second Milestone, a working version of the game replicated on the Android phone should be up and running. With this, and hopefully a handful of Android phones, we will incorporate a testing facility with which non-group members from the public will play our game and give a feedback via form. This form (in its alpha) is at the end of this document. 
+
+  The public will get roughly half hour - full hour of gameplay within a break-out room on the Spinks 3rd floor. They will then fill out the sheet handed to them and the team will then process the results based on comments given by the public. Based on those results, bug reports will be posted upon the issues and any other comments such as functionality, coolness will be resolved respectfully.
+
+=== User-Member ===
+  Will be the same as the User-Public but will not need to fill out a form and have full access anytime to an Android phone. Discussion of the game will either be brought up through meetings, documentation on the wiki or a form as the same with the User-Public
 
 === Work Schedule ===
   Smoke test - high priority
