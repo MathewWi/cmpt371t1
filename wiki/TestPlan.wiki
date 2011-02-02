@@ -44,6 +44,9 @@ The discussion and writing of this documentation and planning of smoke test.
 === Tasks ===
   * Write-up of Documentation
   * Divide up Test Components
+  * Conceptualize test smoke test structure
+  * Set-up testing environments(tools)
+  
 
 *Estimated: 2-3 hours*
 
