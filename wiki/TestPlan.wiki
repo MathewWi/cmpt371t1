@@ -151,6 +151,15 @@ Links:
 
 == Defect/Bug Reports: ==
   These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
+  Defect Resolution Process: 
+   1. Tester or user discovers bug
+   2. Tester reports bug to issue tracker
+   3. Triage selects which bugs to handle
+   4. Bug is assigned to developer
+   5. Developer fixes bug marks the bug fixed
+   6. Triage assigns tester to retest
+   7. Tester tests and marks bug as verified
+   8. Triage archives bug
 
 == Usability Test Reports: ==
   A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics(see below. Bugs will be converted into official bug reports by testers and assigned to developer by Triage:
