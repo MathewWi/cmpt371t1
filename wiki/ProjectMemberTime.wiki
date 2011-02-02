@@ -46,7 +46,8 @@ Because meetings are attended by many or all members of the project, we account 
 == Martina Nagy ==
 || *Task* || *Hours spent so far* ||
 || Writing/Debugging build script || 6 ||
-|| Deliverable outline || 3 ||
+|| Deliverable outline || 4 ||
+|| CPM diagram || 3 ||
 || Planning and organizing team meetings || 2 ||
 || Running daily build || 1 ||
 || General Wiki maintainance || 1 ||
