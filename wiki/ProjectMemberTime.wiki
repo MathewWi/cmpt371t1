@@ -49,8 +49,8 @@
 || Deliverable outline || 4 ||
 || CPM diagram || 3 ||
 || Planning and organizing team meetings || 2 ||
+|| General Wiki maintenance || 2 ||
 || Running daily build || 1 ||
-|| General Wiki maintainance || 1 ||
 
 == Chet Collins ==
 || *Task* || *Hours spent so far* ||
