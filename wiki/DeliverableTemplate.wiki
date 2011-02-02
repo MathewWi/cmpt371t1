@@ -25,6 +25,7 @@ Requirements can be viewed at: [Requirements]
 
 = Team Roles and Activity Log =
 The team roles and activity log can be viewed at: ProjectMemberTime
+The team roles can be found at: http://code.google.com/p/cmpt371t1/people/list
 
 = Code Reviews =
 The code review process is documented at CodeReviewProcess.
