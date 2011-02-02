@@ -2,7 +2,7 @@
 #labels Phase-QA
 <wiki:toc max_depth="1" />
 =Review of existing system=
-The existing systems hasn't been peer reviewed thoroughly because the implementation won't be reused since the new code base will be rewritten. However, the design and architecture of the system has been evaluated by the whole group during one of the early meetings.
+The existing system hasn't been peer reviewed thoroughly because the implementation won't be reused since the new code base will be rewritten. However, the design and architecture of the system has been evaluated by the whole group during one of the early meetings.
 
 Stephen presented a class diagram and information about the previous system. This was scrutinized by the whole group and suggestions were made on how to improve the architecture and relationships between classes. We also discussed any thoughts on how to change the system for the rewrite. For instance, we discussed possibly doing sprite-based 2D graphics, or using real 3D models for game objects rather than hard-coded primitives. Any previous architectural concerns noticed by Stephen, such as the relationship between game objects and game state were reviewed.
 
