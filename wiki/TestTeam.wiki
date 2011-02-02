@@ -11,6 +11,7 @@ Friday, January 27, 2011 at spinks 342
 = Test Team: =
 
 Tasks: 
+
 February 1, 2011
  Since game testing is substantially different from any other software testing, decide between conventional testing vs user hands on testing. Inquire experienced persons(Prof. Stanley, Prof. Osgood) on the best approach to testing game mechanics. Implement ant script on local machine.
 
