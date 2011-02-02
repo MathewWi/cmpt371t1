@@ -12,7 +12,7 @@ Build completes.
 
 Sample program runs correctly.
 
-== Features To Be Implemented ==
+== Features to Be Implemented ==
 
 Touch screen GUI.
 
