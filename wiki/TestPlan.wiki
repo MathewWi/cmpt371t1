@@ -5,25 +5,24 @@
 
 
 == Past/Existing Tests ==
-  There are currently no existing tests made for the game Luminance.
-We will be making the tests from ground up as with the development team
+  There are currently no existing tests made for the game Luminance. We will be making the tests from ground up as with the development team
 except there will be no bases to work on.
 
 == Testing Concept ==
 === Test Suite ===
   The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
 
-eg
+  eg
 <br>
-Test Suite --> testGraphics --> testCube.java
+  Test Suite --> testGraphics --> testCube.java
 <br>
-Test Suite --> testGameLogic --> testAI.java
+  Test Suite --> testGameLogic --> testAI.java
 <br>
-Test Suite --> testHook --> testSmoke.java
+  Test Suite --> testHook --> testSmoke.java
 
   This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
 
-  *Note:* Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
+  * Note: Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
 
   Furthermore, the ant build will have a file defined as a success scenario where a diff command will be used to test the output of the testHook package. The output of a test, when invoked via command-line, will output to STDOUT. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
 
@@ -155,7 +154,7 @@ Links:
 == Usability Test Reports: ==
   A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics(see below. Bugs will be converted into official bug reports by testers and assigned to developer by Triage:
 
-
+-------------------------
 
 Level:
 List the steps to reproduce the bug:
@@ -185,3 +184,5 @@ New feature ideas to help make the game better:
 Old features you would like to see improved.(in what way):
 
 Comments:
+
+-------------------------
