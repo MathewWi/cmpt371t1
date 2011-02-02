@@ -13,6 +13,8 @@
 = Mini-Milestone List =
  The Milestones we have set for this project and the CPM diagram can be viewed here:  MilestonePlan
 
+ CPM Diagram: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
+
 = Risk Analysis =
  The risk report can be viewed at: RiskReport
 
