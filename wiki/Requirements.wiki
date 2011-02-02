@@ -8,7 +8,7 @@
    Always an important requirement to users.  This is exacerbated by the fact this will be running on a phone.  The user is going to expect the application to launch in a time comparable to other applications.
 
   ==Graphics==
-   The game should have decent graphics.  This includes some neat special effects (lighting, reflections, particles).  Not only is this a user requirement it is a selling point for any game.
+   The game should have decent graphics.  This includes some neat special effects (lighting, reflections, particles).  Not only is this a user requirement, it is a major selling point for any game.
 
   ==Intuitive Input Interface==
    The input interface should be clean and utilize the perceived affordances people already have for touch screen input usage.  For users who do not enjoy a touch interface we can utilize the pointer and keyboard as well.
