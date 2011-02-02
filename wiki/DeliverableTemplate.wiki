@@ -19,15 +19,15 @@ The Milestones we have set for this project can be viewed here: MilestonePlan
 = Risk Analysis =
 The risk report can be viewed at: RiskReport
 
+= Requirements =
+
+Requirements can be viewed at: [Requirements]
+
 = Team Roles and Activity Log =
 The team roles and activity log can be viewed at: ProjectMemberTime
 
 = Code Reviews =
 The code review process is documented at CodeReviewProcess.
-
-= Requirements =
-
-Requirements can be viewed at: [Requirements]
 
 = GUI Prototype =
 A video of the previous implementation of the game can be viewed here: [http://code.google.com/p/cmpt371t1/]
