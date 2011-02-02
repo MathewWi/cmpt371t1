@@ -78,3 +78,7 @@
 || Release version of game || 12 || Incomplete ||
 || Post Mort-um document || _N/A_ || Incomplete ||
 || Push game through Q&A process || _N/A_ || Incomplete ||
+
+
+= CPM Diagram =
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPMDiagram.jpg?t=1296619385
