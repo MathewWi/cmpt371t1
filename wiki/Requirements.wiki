@@ -8,7 +8,7 @@
    Quick load time is always an important requirement to users.  This is exacerbated by the fact this will be running on a phone.  The user is going to expect the application to launch in a time comparable to other applications.
 
   ==Graphics==
-   The game should have decent graphics.  This includes some neat special effects (lighting, reflections, particles).  Not only is this a user requirement, it is a major selling point for any game.
+   The game should have decent graphics.  This includes some neat special effects (lighting, reflections, and particles).  Not only is this a user requirement, it is a major selling point for any game.
 
   ==Intuitive Input Interface==
    The input interface should be clean and utilize the perceived affordances people already have for touch screen input usage.  For users who do not enjoy a touch interface we can utilize the pointer and keyboard as well.
@@ -33,10 +33,10 @@
 
 = Derived Requirements =
   ==Platform Compatibility==
-   We need to pick a minimum and maximum platform on the Android to support.  Considering availability of Android phones and current proliferation of the Anroid OS 2.1 and up we have decided to support 2.1 and up.
+   We need to pick a minimum and maximum platform on the Android to support.  Considering availability of Android phones and current proliferation of the Android OS 2.1 and up we have decided to support 2.1 and up.
  
   ==Portability==
-   The game is being developed for Android using the Android SDK and Java programming language.  Since we are using Java the majority of the code base is already portable.  So we have developed an architecture to allow a PC port to be compiled in the future.
+   The game is being developed for Android using the Android SDK and Java programming language.  Since we are using Java the majority of the code base is already portable.  So we have developed architecture to allow a PC port to be compiled in the future.
 
   ==Performance==
    A requirement implied with almost any game.  The game itself should not be a huge drain on the phone.  At all times the game should operate at or above 30 frames per second.  
