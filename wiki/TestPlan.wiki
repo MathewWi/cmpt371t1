@@ -10,7 +10,7 @@
 === Test Suite ===
   The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
 
-  eg
+  e.g.
 <br>
   Test Suite --> testGraphics --> testCube.java
 <br>
@@ -50,7 +50,7 @@
 *Estimated: 2-3 hours*
 
 <br>
-== Milestone 2: Smoke test, All core tests done, paired up with developers ==
+== Milestone 2: Smoke test, all core tests done, paired up with developers ==
   Division of labour, Working smoke test, Finished suite of core tests
 
 === Tasks ===
@@ -58,7 +58,7 @@
   * Write Milestone 2 black box tests simultaneously with development
   * Write Milestone 2 white box tests after development of components
   * Write Milestone 2 mutation tests for each component developed
-  * Write Milestone 2 GUI testing(Robotium)simultaneously with dev.
+  * Write Milestone 2 GUI testing (Robotium)simultaneously with dev.
   * Integrate black box, white box, mutation test into smoke test
 
 *Estimated: 40 hours*
@@ -71,7 +71,7 @@
 
 <br>
 == Milestone 4: User test, Test new features, Possible hardware test ==
-  Get feedback from real life testing on Milestone 3’s added features
+  Get feedbacks from real life testing on Milestone 3’s added features
 
 *Estimated: 35 hours*
 
@@ -124,24 +124,24 @@ Links:
   Using the class diagrams and function/method stubs, the test team will be making black box test cases for their respective parts. This will be made in parallel with the development team as asking them to wait will not bode well because time is an issue. Thus, the test will be ran when the section of code is committed. 
 
 === White Box ===
-  Will be implemented after the Black Box Testing has been passed. It will include basics such as mutation testing and, if possible, path testing. This will run through from either a method or a whole run-through of a level(s).
+  This will be implemented after the Black Box Testing has been passed. It will include basics such as mutation testing and if possible, path testing. This will run through from either a method or a whole run-through of a level(s).
 
 === Unit Test: ===
-  Will be used in Eclipse IDE’s built-in to run the majority of the test suites. Also using test coverage tool to find areas of a program not exercised by a set of test cases, creating additional test cases to increase coverage and determining a quantitative measure of code coverage, which is an indirect measure of quality. 
+  Unit test will be used in Eclipse IDE’s built-in to run the majority of the test suites. Also use test coverage tool to find areas of a program not exercised by a set of test cases, creating additional test cases to increase coverage and determining a quantitative measure of code coverage, which is an indirect measure of quality. 
 
 
 === GUI Test: ===
-  Android specific Robotium GUI tester will be used in accordance with a user use scenario. GUI test would performing a series of functions needed to pass the first level of the game. GUI test will be written and automated and run by testers.
+  Android specific Robotium GUI tester will be used in accordance with a user use scenario. GUI test would perform a series of functions needed to pass the first level of the game. GUI test will be written and automated and run by testers.
 
 === Activity Test ===
   Testing the conditions of the game
 ==== Initial Condition ====
-  Test whether or not the start-up of the game will be at some "playable" state,it also provides a confidence measure for subsequent tests. 
+  Test whether or not the start-up of the game will be at some "playable" state, it also provides a confidence measure for subsequent tests. 
 
 ==== User Interface ====
   Check whether or not the buttons/actions do what they do.
 ==== State Management ====
-  Checking whether if you've actually won a game when you have won a game.
+  Check whether if you've actually won a game when you have won a game.
 
 == Testing results format: ==
   What will eventually be printed out as a result of running tests.
@@ -169,7 +169,7 @@ Links:
 
 
 == Usability Test Reports: ==
-  A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics(see below. Bugs will be converted into official bug reports by testers and assigned to developer by Triage:
+  A sheet will be given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics (see below. Bugs will be converted into official bug reports by testers and assigned to developer by Triage:
 
 -------------------------
 
@@ -184,21 +184,21 @@ List the steps to reproduce the bug:
 
 Rating of Game:
 
-  Logic(game premise):
+  Logic (game premise):
 
-  Camera(viewing angle):
+  Camera (viewing angle):
 
-  Audio(music/effects):
+  Audio (music/effects):
 
-  Performance(responsiveness):
+  Performance (responsiveness):
 
-  Interface(looks):
+  Interface (looks):
 
   Overall:
 
 New feature ideas to help make the game better:
 
-Old features you would like to see improved.(in what way):
+Old features you would like to see improved. (in what way):
 
 Comments:
 
