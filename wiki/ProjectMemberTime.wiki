@@ -26,10 +26,10 @@ Because meetings are attended by many or all members of the project, we account 
 || Eclipse environment setup || 3 ||
 || Build script/system fixing and setup || 3 ||
 || Helping team with development environment || 1.5 ||
-|| Wiki page creation and maintenance || 2.5 ||
+|| Wiki page creation and maintenance || 3 ||
 || Audio playback research and implementation || 2.5 ||
-|| Graphics/model loading research || 1 ||
-|| CPM diagram || ||
+|| Graphics/model loading research || 1.5 ||
+|| CPM diagram || 3 ||
 
 == Stephen Damm ==
 || *Task* || *Hours spent so far* ||
