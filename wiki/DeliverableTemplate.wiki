@@ -11,7 +11,7 @@
   All testing documentation can be viewed here: TestPlan
 
 = Mini-Milestone List =
- The Milestones we have set for this project can be viewed here:  MilestonePlan
+ The Milestones we have set for this project and the CPM diagram can be viewed here:  MilestonePlan
 
 = Risk Analysis =
  The risk report can be viewed at: RiskReport
