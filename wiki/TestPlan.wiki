@@ -63,7 +63,7 @@ Division of labour, Working smoke test, Finished suite of core tests
 
 <br>
 == Milestone 3: Test new features, User test ==
-Get feedback from real life testing on core game without features
+Get usability reports from real life testing on core game without features.
 
 *Estimated: 35 hours*
 
