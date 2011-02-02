@@ -32,7 +32,3 @@ http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/Pinch.pn
 == Touch, Hold, and Move ==
 
 http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/TouchHoldAndMove.png?t=1296525135
-
-== Place Mirror ==
-
-http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/PlaceMirror.png?t=1296619385
