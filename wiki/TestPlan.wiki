@@ -141,7 +141,7 @@ What will eventually be printed out as a result of running tests.
 These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
 
 == Usability Test Reports: ==
-A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics such as:
+A sheet given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics(see below. Bugs will be converted into official bug reports by testers and assigned to developer by Triage:
 
 
 
