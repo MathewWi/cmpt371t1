@@ -1,5 +1,5 @@
 #summary GUI Prototypes for the Android device
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="2" />
 
 = Introduction =
 
