@@ -139,7 +139,8 @@ Links:
 === Activity Test ===
   Testing the conditions of the game
 ==== Initial Condition ====
-  Test whether or not the start-up of the game will be at some "playable" state.
+  Test whether or not the start-up of the game will be at some "playable" state,it also provides a confidence measure for subsequent tests. 
+
 ==== User Interface ====
   Check whether or not the buttons/actions do what they do.
 ==== State Management ====
