@@ -3,10 +3,8 @@
 <wiki:toc max_depth="3" />
 
 
-
 == Past/Existing Tests ==
-  There are currently no existing tests made for the game Luminance. We will be making the tests from ground up as with the development team
-except there will be no bases to work on.
+  There are currently no existing tests made for the game Luminance. We will be making the tests from the ground up along with the development team as they progress.  Since the code is being completely ported, we will have to write all these tests from scratch.
 
 == Testing Concept ==
 === Test Suite ===
@@ -20,18 +18,18 @@ except there will be no bases to work on.
 <br>
   Test Suite --> testHook --> testSmoke.java
 
-  This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
+  This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses an ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
 
-  * Note: Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
-
-  Furthermore, the ant build will have a file defined as a success scenario where a diff command will be used to test the output of the testHook package. The output of a test, when invoked via command-line, will output to STDOUT. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
+  Furthermore, the ant build will have a file that holds output from a successful run through the test suite.  The diff command will be used to test the output of the testHook package with this file to ensure that the tests have passed. The output of a test, when invoked via command-line, will output to STDOUT. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
 
   The main (and recommended) technologies to be used are Robotium and JUnit for Android. Robotium is essentially built for Android GUI testing and JUnit is recommended by Android's site.
 
-=== User-Public ===
-  Within the end of the second Milestone, a working version of the game replicated on the Android phone should be up and running. With this, and hopefully a handful of Android phones, we will incorporate a testing facility with which non-group members from the public will play our game and give a feedback via form. This form (in its alpha) is at the end of this document. 
+  * Note: Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
 
-  The public will get roughly half hour - full hour of gameplay within a break-out room on the Spinks 3rd floor. They will then fill out the sheet handed to them and the team will then process the results based on comments given by the public. Based on those results, bug reports will be posted upon the issues and any other comments such as functionality, coolness, etc will be resolved respectfully.
+=== User-Public ===
+  By the end of the second Milestone, a working version of the game replicated on the Android phone should be up and running. With this, and hopefully a handful of Android phones, we will incorporate a testing facility with which non-group members from the public will play our game and give a feedback via form. This form (in its alpha) is at the end of this document. 
+
+  The public will get roughly a half hour to full hour of gameplay within a break-out room on the Spinks 3rd floor. They will then fill out the sheet handed to them and the team will then process the results based on comments given by the public. Based on those results, bug reports will be posted upon the issues and any other comments such as functionality, coolness, etc will be resolved respectfully.
 
   The times at which these will take place will depend upon the status of the project. Hopefully, at least two full 
 
@@ -48,7 +46,6 @@ except there will be no bases to work on.
   * Divide up Test Components
   * Conceptualize test smoke test structure
   * Set-up testing environments(tools)
-  
 
 *Estimated: 2-3 hours*
 
