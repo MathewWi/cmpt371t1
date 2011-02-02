@@ -17,8 +17,8 @@ Because meetings are attended by many or all members of the project, we account 
 
 == Kumaran Vijayan ==
 || *Task* || *Hours spent so far* ||
-|| Wiki Management || time spent so far ||
-|| Android Widget Toolkit || time spent so far ||
+|| Wiki Management || 4 ||
+|| Android Widget Toolkit || 1 ||
 
 == Zenja Ivkovic ==
 || *Task* || *Hours spent so far* ||
