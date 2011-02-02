@@ -130,6 +130,9 @@ Will be implemented after the Black Box Testing has been passed. It will include
 === Unit Test: ===
 Will be used in Eclipse IDE’s built-in to run the majority of the test suites. 
 
+=== GUI Test: ===
+Android specific Robotium GUI tester will be used in accordance with a user use scenario. GUI test would performing a series of functions needed to pass the first level of the game. GUI test will be written and automated and run by testers.
+
 == Testing results format: ==
 What will eventually be printed out as a result of running tests.
 !TestPackage | “Short description” | !MethodName | Passed/Failed
