@@ -13,11 +13,11 @@ except there will be no bases to work on.
   The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
 
   eg
-
+<br>
   Test Suite --> testGraphics --> testCube.java
-
+<br>
   Test Suite --> testGameLogic --> testAI.java
-
+<br>
   Test Suite --> testHook --> testSmoke.java
 
   This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
@@ -130,7 +130,8 @@ Links:
   Will be implemented after the Black Box Testing has been passed. It will include basics such as mutation testing and, if possible, path testing. This will run through from either a method or a whole run-through of a level(s).
 
 === Unit Test: ===
-  Will be used in Eclipse IDE’s built-in to run the majority of the test suites. 
+  Will be used in Eclipse IDE’s built-in to run the majority of the test suites. Also using test coverage tool to find areas of a program not exercised by a set of test cases, creating additional test cases to increase coverage and determining a quantitative measure of code coverage, which is an indirect measure of quality. 
+
 
 === GUI Test: ===
   Android specific Robotium GUI tester will be used in accordance with a user use scenario. GUI test would performing a series of functions needed to pass the first level of the game. GUI test will be written and automated and run by testers.
