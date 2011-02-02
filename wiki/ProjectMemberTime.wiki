@@ -54,7 +54,6 @@ Because meetings are attended by many or all members of the project, we account 
 == Chet Collins ==
 || *Task* || *Hours spent so far* ||
 || Risk Report || 3 ||
-|| task 2 || time spent so far ||
 
 == Amara Daal ==
 || *Task* || *Hours spent so far* ||
