@@ -13,11 +13,11 @@ except there will be no bases to work on.
   The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
 
   eg
-<br>
+
   Test Suite --> testGraphics --> testCube.java
-<br>
+
   Test Suite --> testGameLogic --> testAI.java
-<br>
+
   Test Suite --> testHook --> testSmoke.java
 
   This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
