@@ -11,6 +11,12 @@ Friday, January 27, 2011 at spinks 342
 = Test Team: =
 
 Tasks: 
+February 1, 2011
+ Since game testing is substantially different from any other software testing, decide between conventional testing vs user hands on testing. Inquire experienced persons(Prof. Stanley, Prof. Osgood) on the best approach to testing game mechanics. Implement ant script on local machine.
+
+  * Ant Script Tutorial: http://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+  * Developing in other IDEs: http://developer.android.com/guide/developing/other-ide.html
+  * Testing in other IDEs: http://developer.android.com/guide/developing/testing/testing_otheride.html
 
 January 28, 2011
   Because the build server does not have Eclipse and teamcity uses ant scripts/builds, I believe these can help us understand how to make an automated smoke test and later, a fully automatic test suite.
