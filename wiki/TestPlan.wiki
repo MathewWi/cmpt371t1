@@ -155,11 +155,17 @@ List the steps to reproduce the bug:
 3
 
 Rating of Game:
+
   Logic(game premise):
+
   Camera(viewing angle):
+
   Audio(music/effects):
+
   Performance(responsiveness):
+
   Interface(looks):
+
   Overall:
 
 New feature ideas to help make the game better:
