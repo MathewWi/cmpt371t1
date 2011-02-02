@@ -151,7 +151,9 @@ Links:
 
 == Defect/Bug Reports: ==
   These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
+
   Defect Resolution Process: 
+
    1. Tester or user discovers bug
 
    2. Tester reports bug to issue tracker
