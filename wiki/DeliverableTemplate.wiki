@@ -39,20 +39,30 @@ Here are some pictures of how our user interface will look with the touch screen
 = Initial Analysis for Deliverable 2 =
 == Deliverable plan ==
 
-- all project artifacts created or modified since the first milestone
+Any project artifacts that were modified or created since the first milestone will be part of Deliverable 2.
 
-- new artifacts: 
-  * updated risk analysis (including results of new scanning)
-  * the version control strategy
-  * basic GUI test suite
-  * jUnit test suite
-  * jCoverage test suite
-  * the latest measurements of software quality
-  * game level editor
+The following new artifacts are anticipated:
 
-- game level format analyzed and implemented
+  * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
 
-- alpha version of game completed
+  * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build
+
+  * Basic GUI Test Suite - How we plan to test the GUI elements of the project
+
+  * jUnit Test Suite - The unit test suite
+
+  * jCoverage Test Suite - The code coverage test suite
+
+  * Software Quality - The latest measurements of quality
+
+  * Game Level Editor - A tool to create new game levels
+
+In addition, the following implementation-specific tasks are anticipated:
+
+  * Alpha Version Complete - A working alpha version of the game should be complete
+
+  * Level Format - The game level format will be analyzed and implemented
+
 
 == Estimate of size and time ==
 || *Task* || *Estimate time (hours)* ||
