@@ -5,7 +5,7 @@
 
 = Group Responsibilities =
 
-This is the time spent by each member, give or take an hour.
+ This is the time spent by each member, give or take an hour.
 || *Task* || *Hours spent per week* ||
 || Group Meetings || 5 hours a week ||
 || Emails and Communication within the group || 2 hours a week ||
@@ -13,7 +13,7 @@ This is the time spent by each member, give or take an hour.
 
 = Member Responsibilities =
 
-Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
+ Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
 
 == Kumaran Vijayan ==
 || *Task* || *Hours spent so far* ||
