@@ -36,7 +36,7 @@
 
 = Initial Analysis for Deliverable 2 =
  == Deliverable plan ==
-  Any project artifacts that were modified or created since the first milestone will be part of Deliverable 2.
+ Any project artifacts that were modified or created since the first milestone will be part of Deliverable 2.
 
   The following new artifacts are anticipated:
    * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
