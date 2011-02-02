@@ -3,7 +3,7 @@
 = Introduction =
 
 This page contains the paper GUI Prototypes for this project.
-All prototype pictures draw by Jonny.
+All prototype pictures drawn by Jonny.
 
 == Main Menu ==
 http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/MainMenu.png?t=1296525123
