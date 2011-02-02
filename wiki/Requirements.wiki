@@ -5,7 +5,7 @@
    Perhaps an obvious statement but a very important part of a game none the less.  Measuring fun is not easy and is beyond the scope of this project.  However through some user evaluation and general feedback we will determine the fun factor and do what we can to increase it.
 
   ==Quick load time==
-   Always an important requirement to users.  This is exacerbated by the fact this will be running on a phone.  The user is going to expect the application to launch in a time comparable to other applications.
+   Quick load time is always an important requirement to users.  This is exacerbated by the fact this will be running on a phone.  The user is going to expect the application to launch in a time comparable to other applications.
 
   ==Graphics==
    The game should have decent graphics.  This includes some neat special effects (lighting, reflections, particles).  Not only is this a user requirement, it is a major selling point for any game.
