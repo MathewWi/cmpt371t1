@@ -17,7 +17,7 @@
 || Android GUI POC || 4 || Complete ||
 || Android Audio POC || 4 || Incomplete||
 || Android Touch Input POC || 6 || Incomplete||
-|| Ant build script basics || 4 || Complete ||
+|| Ant build script basics || 6 || Complete ||
 
 
 == Mini-Milestone 2 ==
