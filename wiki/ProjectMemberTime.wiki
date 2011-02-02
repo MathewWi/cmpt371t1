@@ -55,6 +55,7 @@ Because meetings are attended by many or all members of the project, we account 
 || *Task* || *Hours spent so far* ||
 || Risk Report || 3 ||
 || Deliverable 2 Outline || 1 ||
+|| CPM Diagram || 3 || 
 
 == Amara Daal ==
 || *Task* || *Hours spent so far* ||
