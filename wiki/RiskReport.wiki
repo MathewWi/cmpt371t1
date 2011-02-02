@@ -55,7 +55,6 @@ Below are risks that are most important to this phase of the project:
 *Description:* Ensuring proper team communication.
 
 *Priority:* 5
- 
 
 *Rationale:* Without efficient communication, a project is susceptible to risk in many areas, including ones that are not yet known. It is important that all team members have access to current information about design, testing, group meetings, issue tracking, and any other issues that may come up.
 
@@ -69,7 +68,7 @@ Below are risks that are most important to this phase of the project:
 
 =Potential Risks=
 
-These are risks that we may face in the future, and need to be planned for:
+These are risks that we may face in the future and need to be planned for:
 
 ----
 
