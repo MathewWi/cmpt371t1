@@ -1,3 +1,17 @@
+/******************************************************************************
+-- Quaternion Camera Class --
+	A 6DOF Quaternion Camera
+
+This code is free to use and modify just so long any modifications are clearly
+documented.  Any use of this class in a commercial product is fine just so long
+the original author is clearly documented for having created the class.
+
+Copyright (C) 2010 
+	Stephen Damm
+
+*/
+
+
 package ca.sandstorm.luminance.camera;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -5,6 +19,7 @@ import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
+import javax.vecmath.Vector4f;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +37,10 @@ public class Camera
     private Vector3f _up;
     private Vector3f _target;
     private Vector3f _eye;
-       
+
+    private Vector3f _lookDirection;
+    private Vector3f _strafeDirection;
+    
     float _matView[];
     
     private Quat4f _qRotation;
@@ -35,6 +53,9 @@ public class Camera
 	_up = new Vector3f(0, 1, 0);
 	_target = new Vector3f(0, 0, 0);
 	_eye = new Vector3f(0, 0, 0);
+	
+	_lookDirection = new Vector3f();
+	_strafeDirection = new Vector3f();
 		
 	_matView = new float[16];
 	
@@ -126,6 +147,75 @@ public class Camera
 	
 	//gl.glPushMatrix();
     }
+    
+    
+  //--------------------
+  //Updates the Camera
+  // Last modified: 06.02.05 15:04 (Halsafar)
+  //--------------------
+  public void move(float distance, float xDir, float yDir, float zDir)
+  {
+     // Move the camera on the X and Z axis.  Don't do y to keep camera on the ground.
+      _eye.x += xDir * distance;
+      _eye.y += yDir * distance;
+      _eye.z += zDir * distance;
+
+     // Move the view along with the position
+      _target.x += xDir * distance;
+      _target.y += yDir * distance;
+      _target.z += zDir * distance;
+  }    
+    
+    
+    public void moveForward(float distance)
+    {
+	// The look direction is the view (where we are looking) minus the position (where we are).
+	_lookDirection.set(_target);
+	_lookDirection.sub(_eye);
+
+	// Normalize the direction.
+	_lookDirection.normalize();
+
+	// Call UpdateCamera to move our camera in the direction we want.
+	move(distance, _lookDirection.x, _lookDirection.y, _lookDirection.z);	
+    }
+    
+    
+    public void moveLeft(float distance)
+    {
+	// The look direction is the view (where we are looking) minus the position (where we are).
+	_lookDirection.set(_target);
+	_lookDirection.sub(_eye);
+
+	// Normalize the direction.
+	_lookDirection.normalize();
+
+
+	// Get the cross product of the direction we are looking and the up direction.
+	_strafeDirection.cross(_lookDirection, _up);
+	
+	move(distance, _strafeDirection.x, _strafeDirection.y, _strafeDirection.z);
+    }
+    
+    
+    public void moveUp(float distance)
+    {
+	// The look direction is the view (where we are looking) minus the position (where we are).
+	_lookDirection.set(_target);
+	_lookDirection.sub(_eye);
+
+	// Normalize the direction.
+	_lookDirection.normalize();
+
+
+	// Get the cross product of the direction we are looking and the up direction.
+	_strafeDirection.cross(_lookDirection, _up);
+	
+	// Calculate the up vector
+	_strafeDirection.cross(_strafeDirection, _lookDirection);
+	
+	move(distance, _strafeDirection.x, _strafeDirection.y, _strafeDirection.z);
+    }    
     
     
   //--------------------
