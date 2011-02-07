@@ -64,22 +64,36 @@ public class GameState implements IState
 	
 	if (keys[KeyEvent.KEYCODE_W].getPressed())
 	{
-	   // _cam.setEye(0, 0, -10);    
+	   _cam.moveForward(1.0f);    
 	}
 	
 	if (keys[KeyEvent.KEYCODE_S].getPressed())
 	{
-	    //_cam.setEye(0, 0, 10);   
+	    _cam.moveForward(-1.0f);       
 	}	
 	
 	if (keys[KeyEvent.KEYCODE_A].getPressed())
 	{
-	    _cam.rotateCamera(-0.01f, 0, 1, 0);    
+	    //_cam.rotateCamera(-0.01f, 0, 1, 0);
+	    _cam.moveLeft(-1.0f);
 	}
 	
 	if (keys[KeyEvent.KEYCODE_D].getPressed())
 	{
-	    _cam.rotateCamera(0.01f, 0, 1, 0);    
+	    //_cam.rotateCamera(0.01f, 0, 1, 0);
+	    _cam.moveLeft(1.0f);
+	}	
+	
+	if (keys[KeyEvent.KEYCODE_Q].getPressed())
+	{
+	    //_cam.rotateCamera(0.01f, 0, 1, 0);
+	    _cam.moveUp(1.0f);
+	}
+	
+	if (keys[KeyEvent.KEYCODE_E].getPressed())
+	{
+	    //_cam.rotateCamera(0.01f, 0, 1, 0);
+	    _cam.moveUp(-1.0f);
 	}	
 
     }
