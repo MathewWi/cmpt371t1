@@ -16,10 +16,8 @@ package ca.sandstorm.luminance.camera;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.AxisAngle4f;
-import javax.vecmath.Matrix4f;
 import javax.vecmath.Quat4f;
 import javax.vecmath.Vector3f;
-import javax.vecmath.Vector4f;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +25,6 @@ import org.slf4j.LoggerFactory;
 import ca.sandstorm.luminance.Engine;
 
 import android.opengl.GLU;
-import android.opengl.Matrix;
 
 
 public class Camera
@@ -136,7 +133,7 @@ public class Camera
 	                     _target.x, _target.y, _target.z, 
 	                     _up.x, _up.y, _up.z);*/
 	
-	gl.glMatrixMode(gl.GL_MODELVIEW);
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glLoadIdentity();
 	GLU.gluLookAt(gl, _eye.x, _eye.y, _eye.z, 
 	                     _target.x, _target.y, _target.z, 
