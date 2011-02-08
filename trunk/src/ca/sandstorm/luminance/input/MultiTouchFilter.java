@@ -23,15 +23,25 @@ public class MultiTouchFilter extends SingleTouchFilter
 	    if (actualEvent == MotionEvent.ACTION_POINTER_UP ||
 		actualEvent == MotionEvent.ACTION_UP ||
 		actualEvent == MotionEvent.ACTION_CANCEL) {
-		Engine.getInstance().getInputSystem()
+		Engine.getInstance()
+			.getInputSystem()
 			.touchUp(id,
-				 event.getX(x) * (1.0f / Engine.getInstance().getViewScaleX()),
-				 event.getY(x) * (1.0f / Engine.getInstance().getViewScaleY()));
+				 event.getX(x) *
+					 (1.0f / Engine.getInstance()
+						 .getViewScaleX()),
+				 event.getY(x) *
+					 (1.0f / Engine.getInstance()
+						 .getViewScaleY()));
 	    } else {
-		Engine.getInstance().getInputSystem()
-			.touchDown(id, event.getX(x) *
-				       (1.0f / Engine.getInstance().getViewScaleX()),
-				   event.getY(x) * (1.0f / Engine.getInstance().getViewScaleY()));
+		Engine.getInstance()
+			.getInputSystem()
+			.touchDown(id,
+				   event.getX(x) *
+					   (1.0f / Engine.getInstance()
+						   .getViewScaleX()),
+				   event.getY(x) *
+					   (1.0f / Engine.getInstance()
+						   .getViewScaleY()));
 	    }
 	}
     }

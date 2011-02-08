@@ -21,6 +21,7 @@ package ca.sandstorm.luminance.input;
 
 import ca.sandstorm.luminance.Engine;
 
+
 public class InputButton
 {
     private boolean mDown;

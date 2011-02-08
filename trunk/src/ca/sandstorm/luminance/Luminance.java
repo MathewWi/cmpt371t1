@@ -70,42 +70,45 @@ public class Luminance extends Activity
 
 	super.onResume();
 	mGLView.onResume();
-	
+
     }
-    
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
 	logger.debug("onTouchEvent(" + event + ")");
-	
+
 	Engine.getInstance().getTouchFilter().updateTouch(event);
-	
+
 	return true;
     }
-    
-    
-    @Override    
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-	logger.debug("onKeyDown(" + keyCode + ", " + event + ")");
-	
-        boolean result = false;
 
-        Engine.getInstance().getInputSystem().keyDown(keyCode);
-        
-        return result;
-    }
-    
-    
+
     @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-	logger.debug("onKeyUp(" + keyCode + ", " + event + ")");
-	
-        boolean result = false;
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+	logger.debug("onKeyDown(" + keyCode + ", " + event + ")");
 
-        Engine.getInstance().getInputSystem().keyUp(keyCode);
-        
-        return result;
-    }    
+	boolean result = false;
+
+	Engine.getInstance().getInputSystem().keyDown(keyCode);
+
+	return result;
+    }
+
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event)
+    {
+	logger.debug("onKeyUp(" + keyCode + ", " + event + ")");
+
+	boolean result = false;
+
+	Engine.getInstance().getInputSystem().keyUp(keyCode);
+
+	return result;
+    }
 
 
     class ClearRenderer implements GLSurfaceView.Renderer
@@ -128,17 +131,17 @@ public class Luminance extends Activity
 			 h + ")");
 
 	    Engine.getInstance().deviceChanged(gl, w, h);
-	    
+
 	    DisplayMetrics dm = new DisplayMetrics();
-	        getWindowManager().getDefaultDisplay().getMetrics(dm);
-	        
-	        int defaultWidth = 480;
-	        int defaultHeight = 320;
-	        if (dm.widthPixels != defaultWidth) {
-	                float ratio =((float)dm.widthPixels) / dm.heightPixels;
-	                defaultWidth = (int)(defaultHeight * ratio);
-	        }	   
-	        logger.debug("width:" + defaultWidth + "\theight: " + defaultHeight);
+	    getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+	    int defaultWidth = 480;
+	    int defaultHeight = 320;
+	    if (dm.widthPixels != defaultWidth) {
+		float ratio = ((float) dm.widthPixels) / dm.heightPixels;
+		defaultWidth = (int) (defaultHeight * ratio);
+	    }
+	    logger.debug("width:" + defaultWidth + "\theight: " + defaultHeight);
 	}
 
 
