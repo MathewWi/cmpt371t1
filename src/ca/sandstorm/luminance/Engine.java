@@ -32,11 +32,12 @@ public class Engine
     private float _scaleY;
 
     private TimeSystem _timer;
-    private long _lastTime;    
+    private long _lastTime;
     private InputSystem _inputSystem;
     private AndroidSoundPlayer _audioSystem;
-    
+
     private TouchFilter _touchFilter;
+
 
     private Engine()
     {
@@ -47,11 +48,10 @@ public class Engine
 	_audioSystem = new AndroidSoundPlayer();
 	_inputSystem = new InputSystem();
 	_touchFilter = new MultiTouchFilter();
-	
-	
+
 	// Temporary: play a sound to test sound system
-	//_audioSystem.load("test.mp3");
-	//_audioSystem.play("test.mp3", 0.9f);
+	// _audioSystem.load("test.mp3");
+	// _audioSystem.play("test.mp3", 0.9f);
     }
 
 
@@ -69,8 +69,8 @@ public class Engine
     {
 	return _timer;
     }
-    
-    
+
+
     public InputSystem getInputSystem()
     {
 	return _inputSystem;
@@ -87,35 +87,35 @@ public class Engine
     {
 	return _height;
     }
-    
+
+
     public float getViewScaleX()
     {
 	return _scaleX;
     }
-    
+
+
     public float getViewScaleY()
     {
 	return _scaleY;
     }
-    
+
+
     public void setMultiTouchFilter(boolean b)
     {
-	if (b)
-	{
+	if (b) {
 	    _touchFilter = new MultiTouchFilter();
-	}
-	else
-	{
-	    _touchFilter = new SingleTouchFilter();    
+	} else {
+	    _touchFilter = new SingleTouchFilter();
 	}
     }
-    
-    
+
+
     public TouchFilter getTouchFilter()
     {
 	return _touchFilter;
     }
-    
+
 
     public void pushState(IState state)
     {
@@ -142,7 +142,7 @@ public class Engine
 	for (IState s : _stateStack) {
 	    s.resume();
 	}
-	
+
 	// Resume all sounds
 	_audioSystem.resumeAll();
     }
@@ -155,7 +155,7 @@ public class Engine
 	for (IState s : _stateStack) {
 	    s.pause();
 	}
-	
+
 	// Pause all sounds
 	_audioSystem.pauseAll();
     }
@@ -168,10 +168,10 @@ public class Engine
 
 	_width = w;
 	_height = h;
-	
-	//_scaleX = (float)viewWidth / gameWidth;
-        //_scaleY = (float)viewHeight / gameHeight;	
-	
+
+	// _scaleX = (float)viewWidth / gameWidth;
+	// _scaleY = (float)viewHeight / gameHeight;
+
 	for (IState s : _stateStack) {
 	    s.deviceChanged(gl, _width, _height);
 	}

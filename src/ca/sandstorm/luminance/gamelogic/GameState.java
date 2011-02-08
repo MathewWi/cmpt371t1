@@ -30,7 +30,7 @@ public class GameState implements IState
 
 	_cam = new Camera();
 	_cam.setEye(0, 0, 5);
-	
+
 	_box = new Box();
     }
 
@@ -55,46 +55,40 @@ public class GameState implements IState
     public void update(GL10 gl)
     {
 	gl.glClearColor(0.182f, 0.182f, 1, 1);
-	
-	InputButton[] keys = Engine.getInstance().getInputSystem().getKeyboard().getKeys();
-	if (keys[KeyEvent.KEYCODE_1].getPressed())
-	{
+
+	InputButton[] keys = Engine.getInstance().getInputSystem()
+		.getKeyboard().getKeys();
+	if (keys[KeyEvent.KEYCODE_1].getPressed()) {
 	    System.exit(-1);
 	}
-	
-	if (keys[KeyEvent.KEYCODE_W].getPressed())
-	{
-	   _cam.moveForward(1.0f);    
+
+	if (keys[KeyEvent.KEYCODE_W].getPressed()) {
+	    _cam.moveForward(1.0f);
 	}
-	
-	if (keys[KeyEvent.KEYCODE_S].getPressed())
-	{
-	    _cam.moveForward(-1.0f);       
-	}	
-	
-	if (keys[KeyEvent.KEYCODE_A].getPressed())
-	{
-	    //_cam.rotateCamera(-0.01f, 0, 1, 0);
+
+	if (keys[KeyEvent.KEYCODE_S].getPressed()) {
+	    _cam.moveForward(-1.0f);
+	}
+
+	if (keys[KeyEvent.KEYCODE_A].getPressed()) {
+	    // _cam.rotateCamera(-0.01f, 0, 1, 0);
 	    _cam.moveLeft(-1.0f);
 	}
-	
-	if (keys[KeyEvent.KEYCODE_D].getPressed())
-	{
-	    //_cam.rotateCamera(0.01f, 0, 1, 0);
+
+	if (keys[KeyEvent.KEYCODE_D].getPressed()) {
+	    // _cam.rotateCamera(0.01f, 0, 1, 0);
 	    _cam.moveLeft(1.0f);
-	}	
-	
-	if (keys[KeyEvent.KEYCODE_Q].getPressed())
-	{
-	    //_cam.rotateCamera(0.01f, 0, 1, 0);
+	}
+
+	if (keys[KeyEvent.KEYCODE_Q].getPressed()) {
+	    // _cam.rotateCamera(0.01f, 0, 1, 0);
 	    _cam.moveUp(1.0f);
 	}
-	
-	if (keys[KeyEvent.KEYCODE_E].getPressed())
-	{
-	    //_cam.rotateCamera(0.01f, 0, 1, 0);
+
+	if (keys[KeyEvent.KEYCODE_E].getPressed()) {
+	    // _cam.rotateCamera(0.01f, 0, 1, 0);
 	    _cam.moveUp(-1.0f);
-	}	
+	}
 
     }
 
@@ -108,15 +102,15 @@ public class GameState implements IState
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
 	_cam.updateViewMatrix(gl);
-	
+
 	gl.glPushMatrix();
-	//gl.glLoadIdentity();
+	// gl.glLoadIdentity();
 
 	gl.glTranslatef(0.0f, 0, -14.0f);
 	gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
 	_box.draw(gl);
 	rquad -= 0.45f;
-	
+
 	gl.glPopMatrix();
     }
 
