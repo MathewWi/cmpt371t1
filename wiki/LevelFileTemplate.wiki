@@ -3,7 +3,6 @@
 = XML Level File Template =
 
 This probably won't be final yet, but it's just a rough template for a level file. If I forgot anything let me know. Also, the number values I've put in are arbitrary right now, as I wasn't sure at this point what the numbers would actually be.
-It looks like this wiki doesn't have any syntax highlighting, which is too bad.
 
 {{{
 <?xml version = "1.0"?>
