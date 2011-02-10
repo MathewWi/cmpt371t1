@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminance", "Luminance\Luminance.csproj", "{F3A62070-DB15-4403-AC66-0FDB4E9CD96A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B400A962-BEEA-43C3-B2CE-D594C0B954C7} = {B400A962-BEEA-43C3-B2CE-D594C0B954C7}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IlluminatrixEngine", "Engine\IlluminatrixEngine.csproj", "{B400A962-BEEA-43C3-B2CE-D594C0B954C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameAI", "GameAI\GameAI.csproj", "{9C139782-42ED-4081-8FAD-B1F28F24B6FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3A62070-DB15-4403-AC66-0FDB4E9CD96A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F3A62070-DB15-4403-AC66-0FDB4E9CD96A}.Debug|x86.ActiveCfg = Debug|x86
+		{F3A62070-DB15-4403-AC66-0FDB4E9CD96A}.Debug|x86.Build.0 = Debug|x86
+		{F3A62070-DB15-4403-AC66-0FDB4E9CD96A}.Release|Any CPU.ActiveCfg = Release|x86
+		{F3A62070-DB15-4403-AC66-0FDB4E9CD96A}.Release|x86.ActiveCfg = Release|x86
+		{F3A62070-DB15-4403-AC66-0FDB4E9CD96A}.Release|x86.Build.0 = Release|x86
+		{B400A962-BEEA-43C3-B2CE-D594C0B954C7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B400A962-BEEA-43C3-B2CE-D594C0B954C7}.Debug|x86.ActiveCfg = Debug|x86
+		{B400A962-BEEA-43C3-B2CE-D594C0B954C7}.Debug|x86.Build.0 = Debug|x86
+		{B400A962-BEEA-43C3-B2CE-D594C0B954C7}.Release|Any CPU.ActiveCfg = Release|x86
+		{B400A962-BEEA-43C3-B2CE-D594C0B954C7}.Release|x86.ActiveCfg = Release|x86
+		{B400A962-BEEA-43C3-B2CE-D594C0B954C7}.Release|x86.Build.0 = Release|x86
+		{738A261E-41E4-4FB6-9967-187631C8DFCF}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{738A261E-41E4-4FB6-9967-187631C8DFCF}.Debug|x86.ActiveCfg = Debug|x86
+		{738A261E-41E4-4FB6-9967-187631C8DFCF}.Release|Any CPU.ActiveCfg = Release|x86
+		{738A261E-41E4-4FB6-9967-187631C8DFCF}.Release|x86.ActiveCfg = Release|x86
+		{9C139782-42ED-4081-8FAD-B1F28F24B6FC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9C139782-42ED-4081-8FAD-B1F28F24B6FC}.Debug|x86.ActiveCfg = Debug|x86
+		{9C139782-42ED-4081-8FAD-B1F28F24B6FC}.Debug|x86.Build.0 = Debug|x86
+		{9C139782-42ED-4081-8FAD-B1F28F24B6FC}.Release|Any CPU.ActiveCfg = Release|x86
+		{9C139782-42ED-4081-8FAD-B1F28F24B6FC}.Release|x86.ActiveCfg = Release|x86
+		{9C139782-42ED-4081-8FAD-B1F28F24B6FC}.Release|x86.Build.0 = Release|x86
+		{7EFDE938-82BE-4FD8-AF85-939C69F18B68}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7EFDE938-82BE-4FD8-AF85-939C69F18B68}.Debug|x86.ActiveCfg = Debug|x86
+		{7EFDE938-82BE-4FD8-AF85-939C69F18B68}.Release|Any CPU.ActiveCfg = Release|x86
+		{7EFDE938-82BE-4FD8-AF85-939C69F18B68}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

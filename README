@@ -1,0 +1,21 @@
+--------------------
+Luminance 
+
+Authors:
+	Stephen Damm
+	Kyle Fisher
+	Greg Logan
+--------------------
+
+
+System Requirements
+==========
+- DirectX9.0 Capable video card
+- Shader Model 2.0
+
+
+
+Compiling Requirements
+==========
+- VS 2005/2008 (full or express compiler)
+- XNA Game Studio 3.0

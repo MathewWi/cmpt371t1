@@ -1,0 +1,16 @@
+LEVEL
+4 8
+TOOLS
+MIRROR 5
+PRISM 1
+EMITTER 180
+MAP
+2 0 0 0 
+0 0 1 0 
+0 4 0 0 
+0 0 0 0 
+0 5 0 0 
+0 0 0 0 
+0 6 0 0 
+0 0 0 1 
+END

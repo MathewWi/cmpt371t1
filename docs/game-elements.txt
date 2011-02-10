@@ -1,0 +1,5 @@
+mirrors (costing intensity)
+filter mirrors (RGB -> -B -> RG, also  costing intensity)
+prisms (costing intensity)
+fiberoptics (no cost, but only one use and only a given (short) length)
+boosters (increases intensity, but shifts color?)
