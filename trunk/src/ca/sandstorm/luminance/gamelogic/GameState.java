@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
+import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
 
@@ -22,6 +23,7 @@ public class GameState implements IState
     private Camera _cam;
 
     private Box _box;
+    private Grid _grid;
 
 
     public GameState()
@@ -32,6 +34,7 @@ public class GameState implements IState
 	_cam.setEye(0, 0, 5);
 
 	_box = new Box();
+	_grid = new Grid(10, 10, 1.0f, 1.0f);
     }
 
 
@@ -111,6 +114,11 @@ public class GameState implements IState
 	_box.draw(gl);
 	rquad -= 0.45f;
 
+	gl.glPopMatrix();
+	
+	gl.glPushMatrix();
+	gl.glTranslatef(0.0f, 0, -7.0f);
+	_grid.draw(gl);
 	gl.glPopMatrix();
     }
 
