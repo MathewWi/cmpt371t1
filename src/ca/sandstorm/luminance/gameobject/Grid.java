@@ -3,7 +3,6 @@ package ca.sandstorm.luminance.gameobject;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -12,6 +11,8 @@ public class Grid implements IGameObject
 {
     private FloatBuffer _vertexBuffer;
     private ShortBuffer _indexBuffer;
+    
+    private int _totalIndices;
     
     
     public Grid(int rows, int cols, float cellWidth, float cellHeight)
@@ -44,8 +45,10 @@ public class Grid implements IGameObject
 	_vertexBuffer.position(0);
 	
 	
-	// calculate indices 
-	short[] indices = new short[(rows+1) * cols * 2 * 2];
+	// calculate indices
+	_totalIndices = (rows+1) * cols * 2 * 2;
+	short[] indices = new short[_totalIndices];
+	
 	
 	// horizontal line indices
 	tmpIndex = 0;
@@ -57,6 +60,16 @@ public class Grid implements IGameObject
 		indices[tmpIndex++] = (short)( (j+1) + (i * (rows+1)) );
 	    }
 	}
+	
+	// vertical line indicesqq
+	for (int i = 0; i < rows; i++)
+	{
+	    for (int j = 0; j < cols+1; j++)
+	    {
+		indices[tmpIndex++] = (short)( j + (i * (rows+1)) );
+		indices[tmpIndex++] = (short)( (j) + ((i+1) * (rows+1)) );
+	    }
+	}	
 	
 	byteBuf = ByteBuffer.allocateDirect(indices.length * 2);
 	byteBuf.order(ByteOrder.nativeOrder());
@@ -86,7 +99,7 @@ public class Grid implements IGameObject
 	//gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 
 	// Draw the vertices as triangles, based on the Index Buffer information
-	gl.glDrawElements(GL10.GL_LINES, 48, GL10.GL_UNSIGNED_SHORT,
+	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,
 	                  _indexBuffer);
 
 	// Disable the client state before leaving
