@@ -73,8 +73,10 @@
 == Liang Huang ==
 || *Task* || *Hours spent so far* ||
 || Test Plan || 2 ||
-|| Learning Ant Script || 2 ||
-|| Learning Android Virtual Device || 2 ||
+|| Learning Ant Script || 5 ||
+|| Learning Android Virtual Device || 5 ||
+|| Meeting with Dr. Kevin Stanley || 1 ||
+|| Continuous Integration Script || 15 ||
 
 == Jonny ==
 || *Task* || *Hours spent so far* ||
