@@ -89,6 +89,7 @@
 || Researching style checking || 1 ||
 || Working on game music || 3 ||
 || Adding to project page/wiki || 1 ||
+|| Researching XML, creating level file template || 2 ||
 
 == Kai Kang ==
 || *Task* || *Hours spent so far* ||
