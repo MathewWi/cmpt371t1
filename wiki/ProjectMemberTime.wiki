@@ -39,9 +39,11 @@
 || Implemented basic opengl demo using new framework || 4 ||
 || Project milestone plan || 1 ||
 || Implemented input system from replica island || 4 ||
-|| Ported my openGL quaternion Camera to Java Android || 4 ||
+|| Wrote quaternion camera class || 4 ||
 || Prototyped presentation for milestone 1 || 2 ||
 || Outlined our requirements || 1 ||
+|| General code clean up and formatting || 1 ||
+|| Grid class basic || 4 ||
 
 == Martina Nagy ==
 || *Task* || *Hours spent so far* ||
