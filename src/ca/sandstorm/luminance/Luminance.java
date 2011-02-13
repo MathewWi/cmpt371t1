@@ -150,7 +150,7 @@ public class Luminance extends Activity
 	    // do not log...
 	    Message msg = new Message();
 	    Bundle b = new Bundle();
-	    b.putFloat("fps", Engine.getInstance().getTimer().getFrameDelta());
+	    b.putFloat("fps", Engine.getInstance().getTimer().getRealTimeFrameDelta());
 	    msg.setData(b);
 	    handler.sendMessage(msg);
 
