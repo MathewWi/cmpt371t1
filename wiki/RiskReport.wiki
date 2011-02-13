@@ -43,6 +43,8 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* Several team members have already set up their development environments. In addition, we have published a page on our project wiki for the purpose of assisting those who have not yet completed the task. Therefore, this risk has been successfully managed.
 
+ * *Update* 02/13/2011: At this point, all development and test team members have Eclipse setup and development has begun.
+
 ==Risk 3==
  * *Description:* Ensuring proper team communication.
 
@@ -58,13 +60,28 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* The project wiki is updated frequently with details concerning meeting minutes, individual tasks, and guides for setting up the systems needed to start development and testing. Therefore, this risk has been successfully managed.
 
+ * *Update* 02/13/2011: There have been issues with communication thus far, specifically between the development and test teams. To mitigate this risk we needed to make structural changes to increase the division of responsibilities. 
 
+==Risk 4==
+ * *Description:* Ensuring project success after losing group members.
+
+ * *Probability:* High
+
+ * *Severity:* High
+
+ * *Rationale:* Having lost two members from our test team, we needed to move developers into testing. This move will take manpower away from the development side, causing progress to be slower. In addition, there will be a learning curve for developers that have recently become testers. There will be some time needed to understand the code that is to be tested.
+
+ * *Mitigation Plan:* We plan to hold frequent developer / tester meetings to ensure that both teams understand what is being implemented, and what can be tested at any given time. In addition, developers are to create contracts for all methods / classes that are added and commit them to the repository immediately.
+
+ * *Contingency Plan:* If more specific assistance is needed, a test team member will contact the developer involved in the code being tested, and obtain some advice on how to properly test a given unit.
+
+ * *Status:* After a recent meeting on 02/11/2011 both the developers and testers are aware of what is to be implemented, and which units can be tested first.
 
 =Potential Risks=
 
  These are risks that we may face in the future and need to be planned for:
 
-==Risk 4==
+==Risk 5==
  * *Description:* Ensuring touch support for Android will provide a positive user experience.
 
  * *Probability:* Medium
@@ -79,8 +96,12 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* We have designated a member of our design team to research this issue, to ensure that it is solved before we encounter it.
 
-==Risk 5==
- * *Description:* Code re-write from old platform to Android
+ * *Update* 02/13/2011: At this point, developers have located touch input code to use as a basis from the open source Android game Replica Island http://replicaisland.net/
+
+
+
+==Risk 6==
+ * *Description:* Ensuring the success of a complete code rewrite
 
  * *Probability:* Medium
 
@@ -94,14 +115,17 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* We currently have a stub framework on our code repository and from there we plan to divide the development task into work units for developers to take on.
 
-==Risk 6==
- * *Description:* Investigate how project resources are stored on Android
+ * *Update* 02/13/2011: The general framework of our code base has been stubbed. We have delegated the initial work units to be implemented. These units are the initial priorities as reflected in the CPM Diagram.
+
+
+==Risk 7==
+ * *Description:* Ensuring that project resources are handled in a convenient way given the lower memory capabilities of a handheld device.
 
  * *Probability:* Low
 
  * *Severity:* Low
 
- * *Rationale:* Since our project will be using external resources (audio, textures, etc.) we must be aware of where these items are stored in the compiled application. Without knowing these details, we would not be able to reference the resources correctly. 
+ * *Rationale:* Since our project will be using external resources (audio, textures, etc.) we must be aware of where these items are stored in the compiled application. Without knowing these details, we would not be able to reference the resources correctly. In addition, we need to take into account that a hand held device has lower memory than the original platform.
 
  * *Mitigation Plan:* We have delegated a developer to begin research on this topic, and attempt to find documentation on the Android developer page. From there, we can post the relevant information to the project wiki.
 
@@ -109,7 +133,9 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* This issue is currently being researched.
 
-==Risk 7==
+ * *Update* 02/13/2011: At this point, we have delegated that a resource manager system be implemented to handle the efficient loading of audio and texture elements as needed.
+
+==Risk 8==
  * *Description:* Avoid performance problems when running on Android phone
 
  * *Probability:* Low
