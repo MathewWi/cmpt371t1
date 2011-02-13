@@ -9,6 +9,8 @@
   * Mitigation Plan - how we plan to prevent this risk from being realized
   * Contingency Plan - should the risk occur, what alternatives can be explored?
   * Status - has the issue been resolved or are there still potential risk issues?
+  * Updates - more information will be posted as risks change
+
 
 =Current Risks=
 Below are risks that are most important to this phase of the project:
