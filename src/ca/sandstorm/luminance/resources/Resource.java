@@ -24,7 +24,7 @@ public class Resource implements IResource
      * Get the resource name.
      * @return Name of the resource (normally its file path relative to assets directory)
      */
-    //@Override
+    @Override
     public String getName()
     {
 	return name;
@@ -34,7 +34,7 @@ public class Resource implements IResource
      * Get the memory footprint of this resource.
      * @return Memory footprint in bytes
      */
-    //@Override
+    @Override
     public int getMemorySize()
     {
 	return data.length;
@@ -44,7 +44,7 @@ public class Resource implements IResource
      * Get the resource raw data.
      * @return Data in byte-array form
      */
-    //@Override
+    @Override
     public byte[] getData()
     {
 	return data;
