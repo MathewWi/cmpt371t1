@@ -147,6 +147,20 @@ public class ResourceManager
     }
     
     /**
+     * Load a sound effect resource.
+     * @param filename Path to resource relative to assets directory
+     * @return The newly loaded resource, or an existing already loaded one
+     */
+    public SoundResource loadSoundResource(String filename)
+    {
+	//TODO: this method and all sound related resource loading
+	SoundResource res = new SoundResource(filename, 0);
+	
+	resources.put(filename, res);
+	return res;
+    }
+    
+    /**
      * Read byte array from a raw file.
      * @param filename Path to file in assets directory
      * @return Raw data in byte array
