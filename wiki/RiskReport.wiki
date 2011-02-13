@@ -3,7 +3,8 @@
 = Abstract=
  This is a report outlining the major sources of risk from our project. Each risk will be noted along with the following relevant information:
   * Description - information about the risk being discussed
-  * Priority - risks will be ranked on a scale of 1 to 5 (1 being the lowest risk, 5 being the highest)
+  * Probability - the likelihood that the risk will occur
+  * Severity - how severe the risk would be should it occur
   * Rationale - reasons why the issue is considered a risk
   * Mitigation Plan - how we plan to prevent this risk from being realized
   * Contingency Plan - should the risk occur, what alternatives can be explored?
@@ -15,7 +16,9 @@ Below are risks that are most important to this phase of the project:
 ==Risk 1==
  * *Description:* Setting up !TeamCity to run a smoke test when code is committed.
 
- * *Priority:* 5
+ * *Probability:* Low
+
+ * *Severity:* High
 
  * *Rationale:* Not having !TeamCity properly set up is a serious risk because without it there would be nothing to prevent team members from committing code that may compromise the main build. It is also needed to run our smoke test which will attempt to prevent this from occurring. Ultimately, we will be unable to work efficiently on this project without !TeamCity and our smoke test.
 
@@ -28,7 +31,9 @@ Below are risks that are most important to this phase of the project:
 ==Risk 2==
  * *Description:* Setting up a standard development environment for all developers.
 
- * *Priority:* 4
+ * *Probability:* Medium
+
+ * *Severity:* High
 
  * *Rationale:* It is crucial to have a standard development environment so that all users have an identical environment to ensure that errors do not result from 
 
@@ -41,7 +46,9 @@ Below are risks that are most important to this phase of the project:
 ==Risk 3==
  * *Description:* Ensuring proper team communication.
 
- * *Priority:* 5
+ * *Probability:* High
+
+ * *Severity:* High
 
  * *Rationale:* Without efficient communication, a project is susceptible to risk in many areas, including ones that are not yet known. It is important that all team members have access to current information about design, testing, group meetings, issue tracking, and any other issues that may come up.
 
@@ -60,7 +67,9 @@ Below are risks that are most important to this phase of the project:
 ==Risk 4==
  * *Description:* Ensuring touch support for Android will provide a positive user experience.
 
- * *Priority:* 3
+ * *Probability:* Medium
+
+ * *Severity:* Low
 
  * *Rationale:* Since the original platform did not have touch support for its original input, it is crucial that the user experience is maintained in moving forward to the new platform.
 
@@ -73,7 +82,9 @@ Below are risks that are most important to this phase of the project:
 ==Risk 5==
  * *Description:* Code re-write from old platform to Android
 
- * *Priority:* 4
+ * *Probability:* Medium
+
+ * *Severity:* High
 
  * *Rationale:* This is the largest and most important task concerning this phase of the project. Re-writing the code for Android will be a time-consuming activity and is crucial for the project completion.
 
@@ -86,7 +97,9 @@ Below are risks that are most important to this phase of the project:
 ==Risk 6==
  * *Description:* Investigate how project resources are stored on Android
 
- * *Priority:* 3
+ * *Probability:* Low
+
+ * *Severity:* Low
 
  * *Rationale:* Since our project will be using external resources (audio, textures, etc.) we must be aware of where these items are stored in the compiled application. Without knowing these details, we would not be able to reference the resources correctly. 
 
@@ -99,7 +112,9 @@ Below are risks that are most important to this phase of the project:
 ==Risk 7==
  * *Description:* Avoid performance problems when running on Android phone
 
- * *Priority:* 3
+ * *Probability:* Low
+
+ * *Severity:* High
 
  * *Rationale:* It is possible that a basic game session could run slowly, impacting the overall game experience. When a game suffers performance problems, it severely detracts from the game play regardless of how good it may be.
 
