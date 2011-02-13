@@ -4,12 +4,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 
+import javax.microedition.khronos.opengles.GL10;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import ca.sandstorm.luminance.Engine;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.opengl.GLUtils;
 
 /**
  * Luminance resource manager. Loads and stores resources such as sounds, images, and text files.
@@ -28,6 +33,17 @@ public class ResourceManager
     public ResourceManager() {
 	resources = new HashMap<String, IResource>();
 	assets = null;
+	logger.debug("ResourceManager created.");
+    }
+    
+    /**
+     * Retrieve a stored resource by name.
+     * @param name Name of the resource (normally its file path in assets directory)
+     * @return The resource
+     */
+    public IResource getResource(String name)
+    {
+	return resources.get(name);
     }
     
     /**
@@ -39,6 +55,7 @@ public class ResourceManager
 	if (assets == null)
 	    throw new RuntimeException("Attempting to assign null application context to resource manager!");
 	this.assets = assets;
+	logger.debug("Assets have been assigned to ResourceManager.");
     }
     
     /**
@@ -76,8 +93,8 @@ public class ResourceManager
 	// Read file
 	byte[] data = readFile(filename);    	
 	TextResource res = new TextResource(filename, data);
-	resources.put(filename, res);
 	
+	resources.put(filename, res);
 	return res;
     }
     
@@ -93,6 +110,39 @@ public class ResourceManager
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
 	ImageResource res = new ImageResource(filename, bitmap);
 	
+	resources.put(filename, res);
+	return res;
+    }
+    
+    /**
+     * Load a texture resource
+     * @param filename Path to resource relative to assets directory
+     * @param gl OpenGL context to use for texture creation
+     * @return The newly loaded resource, or an existing already loaded one
+     * @throws IOException
+     */
+    public TextureResource loadTextureResource(String filename, GL10 gl) throws IOException
+    {
+	// Load the image
+	InputStream stream = assets.open(filename);
+	Bitmap bitmap = BitmapFactory.decodeStream(stream);
+	
+	// Create a texture out of the image
+	int[] textures = new int[1];
+	gl.glGenTextures(1, textures, 0);  // one texture
+	gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
+	
+	// Texture parameters
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_REPEAT);
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT);
+	
+	// Use the Android GLUtils to specify a two-dimensional texture image from our bitmap
+	GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
+	TextureResource res = new TextureResource(filename, textures[0]);
+	
+	resources.put(filename, res);
 	return res;
     }
     

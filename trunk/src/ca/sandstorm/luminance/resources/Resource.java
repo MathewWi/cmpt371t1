@@ -10,7 +10,7 @@ public class Resource implements IResource
     protected String name;
     
     /**
-     * Constructor
+     * Constructor.
      * @param name Resource name
      * @param data Resource data
      */
