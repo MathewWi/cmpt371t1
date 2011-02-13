@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.resources;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -52,22 +51,10 @@ public class ResourceManager
 	if (resources.containsKey(filename))
 	    return (Resource)resources.get(filename);
 	
-	Resource res;
-	
 	// Read file
-	try {
-	    InputStream stream = assets.open(filename);
-	    int size = stream.available();  // an official Android sample states that available() guarantees returning the whole file size
-	    byte[] buffer = new byte[size];
-	    stream.read(buffer);
-	    stream.close();
-    	
-	    res = new Resource(filename, buffer);
-	    resources.put(filename, res);
-	} catch(FileNotFoundException e) {
-	    logger.error("Failed to open text resource '" + filename + "'!");
-	    return null;
-	}
+	byte[] data = readFile(filename);    	
+	Resource res = new Resource(filename, data);
+	resources.put(filename, res);
 	
 	return res;
     }
@@ -80,7 +67,36 @@ public class ResourceManager
      */
     public TextResource loadTextResource(String filename) throws IOException
     {
-	return (TextResource)loadResource(filename);
+	// Check if the resource is already loaded
+	if (resources.containsKey(filename))
+	    return (TextResource)resources.get(filename);
+		
+	// Read file
+	byte[] data = readFile(filename);    	
+	TextResource res = new TextResource(filename, data);
+	resources.put(filename, res);
+	
+	return res;
+    }
+    
+    /**
+     * Read byte array from a raw file.
+     * @param filename Path to file in assets directory
+     * @return Raw data in byte array
+     * @throws IOException
+     */
+    public byte[] readFile(String filename) throws IOException
+    {
+	InputStream stream = assets.open(filename);
+	int size = stream.available();  // an official Android sample states that available() guarantees returning the whole file size
+	if (size == -1)
+	    return null;
+	
+	byte[] buffer = new byte[size];
+	stream.read(buffer);
+	stream.close();
+	    
+	return buffer;
     }
     
     /**

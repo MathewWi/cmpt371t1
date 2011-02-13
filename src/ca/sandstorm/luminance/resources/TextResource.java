@@ -4,7 +4,7 @@ package ca.sandstorm.luminance.resources;
  * Text file resource.
  * @author zenja.
  */
-public class TextResource extends Resource implements IResource
+public class TextResource extends Resource
 {
     /**
      * Constructor.
@@ -14,6 +14,11 @@ public class TextResource extends Resource implements IResource
     public TextResource(String name, byte[] data)
     {
 	super(name, data);
+    }
+    
+    public TextResource(Resource res)
+    {
+	super(res.name, res.data);
     }
 
     /**
