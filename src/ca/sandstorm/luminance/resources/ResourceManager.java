@@ -9,8 +9,6 @@ import javax.microedition.khronos.opengles.GL10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ca.sandstorm.luminance.Engine;
-
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

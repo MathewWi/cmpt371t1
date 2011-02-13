@@ -16,7 +16,6 @@ import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
 import ca.sandstorm.luminance.input.TouchFilter;
-import ca.sandstorm.luminance.resources.Resource;
 import ca.sandstorm.luminance.resources.ResourceManager;
 import ca.sandstorm.luminance.resources.TextResource;
 import ca.sandstorm.luminance.state.IState;
@@ -56,10 +55,6 @@ public class Engine
 	_audioSystem = new AndroidSoundPlayer();
 	_inputSystem = new InputSystem();
 	_touchFilter = new MultiTouchFilter();
-
-	// TEMP: play a sound to test sound system
-	// _audioSystem.load("test.mp3");
-	// _audioSystem.play("test.mp3", 0.9f);
     }
 
 
@@ -76,6 +71,7 @@ public class Engine
     /**
      * Sets the engine's Android application context.
      * @param context Application context
+     * @author zenja
      */
     public void setContext(Context context)
     {
@@ -83,18 +79,15 @@ public class Engine
 	_resourceManager.setAssets(_context.getAssets());
 	
 	listDirectoryFiles("");
-	listDirectoryFiles("/");
-	listDirectoryFiles("/assets");
-	listDirectoryFiles("text/");
 	
 	//TEMP: test reading from text file
-	printFileContents("me.txt");
 	printFileContents("text/text.txt");
     }
     
     /**
      * Get application context.
      * @return Application context
+     * @author zenja
      */
     public Context getContext()
     {
@@ -250,6 +243,7 @@ public class Engine
     /**
      * List all the files in a given directory.
      * @param path Directory path
+     * @author zenja
      */
     private void listDirectoryFiles(String path)
     {
@@ -268,6 +262,7 @@ public class Engine
     /**
      * Print contents of a text file through the debugger
      * @param path Path to text file in assets
+     * @author zenja
      */
     private void printFileContents(String path)
     {
