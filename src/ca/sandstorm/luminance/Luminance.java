@@ -21,8 +21,7 @@ import android.view.MotionEvent;
 
 public class Luminance extends Activity
 {
-    private static final Logger logger = LoggerFactory
-	    .getLogger(Luminance.class);
+    private static final Logger logger = LoggerFactory.getLogger("Luminance");
 
     private GLSurfaceView mGLView;
 
@@ -41,6 +40,9 @@ public class Luminance extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
 	logger.debug("onCreate()");
+	
+	// Assign the engine's application context
+	Engine.getInstance().setContext(getApplicationContext());
 
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
