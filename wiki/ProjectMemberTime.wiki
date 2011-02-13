@@ -56,9 +56,10 @@
 
 == Chet Collins ==
 || *Task* || *Hours spent so far* ||
-|| Risk Report || 3 ||
+|| Risk Report || 5 ||
 || Deliverable 2 Outline || 1 ||
 || CPM Diagram || 3 || 
+|| Analysis of code for test cases || 1 ||
 
 == Amara Daal ==
 || *Task* || *Hours spent so far* ||
