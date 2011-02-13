@@ -16,6 +16,7 @@ import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
 import ca.sandstorm.luminance.input.TouchFilter;
+import ca.sandstorm.luminance.resources.Resource;
 import ca.sandstorm.luminance.resources.ResourceManager;
 import ca.sandstorm.luminance.resources.TextResource;
 import ca.sandstorm.luminance.state.IState;
@@ -87,8 +88,8 @@ public class Engine
 	listDirectoryFiles("text/");
 	
 	//TEMP: test reading from text file
-	//printFileContents("me.txt");
-	//printFileContents("text/text.txt");
+	printFileContents("me.txt");
+	printFileContents("text/text.txt");
     }
     
     /**
