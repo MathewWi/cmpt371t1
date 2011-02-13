@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 /**
  * Luminance resource manager. Loads and stores resources such as sounds, images, and text files.
@@ -80,6 +82,21 @@ public class ResourceManager
     }
     
     /**
+     * Load an image resource.
+     * @param filename Path to resource relative to assets directory
+     * @return The newly loaded resource, or an existing already loaded one
+     * @throws IOException
+     */
+    public ImageResource loadImageResource(String filename) throws IOException
+    {
+	InputStream stream = assets.open(filename);
+	Bitmap bitmap = BitmapFactory.decodeStream(stream);
+	ImageResource res = new ImageResource(filename, bitmap);
+	
+	return res;
+    }
+    
+    /**
      * Read byte array from a raw file.
      * @param filename Path to file in assets directory
      * @return Raw data in byte array
@@ -87,8 +104,9 @@ public class ResourceManager
      */
     public byte[] readFile(String filename) throws IOException
     {
+	// An official Android sample states that available() guarantees returning the whole file size
 	InputStream stream = assets.open(filename);
-	int size = stream.available();  // an official Android sample states that available() guarantees returning the whole file size
+	int size = stream.available();
 	if (size == -1)
 	    return null;
 	

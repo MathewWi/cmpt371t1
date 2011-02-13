@@ -44,7 +44,6 @@ public class Resource implements IResource
      * Get the resource raw data.
      * @return Data in byte-array form
      */
-    @Override
     public byte[] getData()
     {
 	return data;
