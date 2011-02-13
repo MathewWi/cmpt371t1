@@ -46,6 +46,7 @@ public class TextureResource implements IResource
     @Override
     public int getMemorySize()
     {
+	//TODO
 	return 0;
     }
 
@@ -55,6 +56,6 @@ public class TextureResource implements IResource
     @Override
     public void dispose()
     {
-	
+	//TODO
     }
 }
