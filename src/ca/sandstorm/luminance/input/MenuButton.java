@@ -6,13 +6,15 @@ public class MenuButton
     private float y;
     private float width;
     private float height;
+    private InputXY input;
     
-    public MenuButton(float x, float y, float width, float height)
+    public MenuButton(float x, float y, float width, float height, InputXY input)
     {
 	this.x = x;
 	this.y = y;
 	this.width = width;
 	this.height = height;
+	this.input = input;
     }
     
     public float getX()
@@ -53,5 +55,10 @@ public class MenuButton
     public void setHeight(float height)
     {
 	this.height = height;
+    }
+    
+    public InputXY getInput()
+    {
+	return input;
     }
 }
