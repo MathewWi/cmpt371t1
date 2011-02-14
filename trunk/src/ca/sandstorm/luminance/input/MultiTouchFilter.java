@@ -44,6 +44,7 @@ public class MultiTouchFilter extends SingleTouchFilter
 						   .getViewScaleY()));
 	    }
 	}
+	Engine.getInstance().getInputSystem().getTouchScreen().setTouchEvent(event);
     }
 
 

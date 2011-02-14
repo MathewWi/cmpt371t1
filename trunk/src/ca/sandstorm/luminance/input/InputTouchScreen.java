@@ -2,6 +2,8 @@ package ca.sandstorm.luminance.input;
 
 import javax.vecmath.Vector2f;
 
+import android.view.MotionEvent;
+
 
 public class InputTouchScreen
 {
@@ -9,7 +11,8 @@ public class InputTouchScreen
     private int MAX_TOUCH_POINTS = 5;
     private InputXY mTouchPoints[];
 
-
+    private MotionEvent touchEvent;
+    
     public InputTouchScreen()
     {
 	mTouchPoints = new InputXY[MAX_TOUCH_POINTS];
@@ -144,4 +147,12 @@ public class InputTouchScreen
 	return triggered;
     }
 
+    public void setTouchEvent(MotionEvent touchEvent){
+	this.touchEvent = touchEvent;
+    }
+    
+    public MotionEvent getTouchEvent(){
+	return touchEvent;
+    }
+    
 }
