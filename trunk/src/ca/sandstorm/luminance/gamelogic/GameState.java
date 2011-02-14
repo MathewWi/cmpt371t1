@@ -57,14 +57,13 @@ public class GameState implements IState
     {
 	logger.debug("resume()");
 
+	Engine.getInstance().getTimer().reset();
     }
 
 
     @Override
     public void update(GL10 gl)
     {
-	gl.glClearColor(0.182f, 0.182f, 1, 1);
-
 	InputButton[] keys = Engine.getInstance().getInputSystem()
 		.getKeyboard().getKeys();
 	if (keys[KeyEvent.KEYCODE_1].getPressed()) {
@@ -201,7 +200,7 @@ public class GameState implements IState
 	logger.debug("deviceChanged(" + gl + ", " + w + ", " + h + ")");
 
 	gl.glShadeModel(GL10.GL_SMOOTH); // Enable Smooth Shading
-	gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f); // Black Background
+	gl.glClearColor(0.182f, 0.182f, 1, 1);	// Error blue
 	gl.glClearDepthf(1.0f); // Depth Buffer Setup
 	gl.glEnable(GL10.GL_DEPTH_TEST); // Enables Depth Testing
 	gl.glDepthFunc(GL10.GL_LEQUAL); // The Type Of Depth Testing To Do
