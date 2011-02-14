@@ -28,6 +28,9 @@ public class GameState implements IState
 
     private float initialX = 0.0f;
     private float initialY = 0.0f;
+    private static final int DRAG = 0;
+    private static final int ZOOM = 1;
+    private int touchMode;
 
     public GameState()
     {
@@ -96,6 +99,16 @@ public class GameState implements IState
 	    _cam.moveUp(-1.0f);
 	}
 
+	if (Engine.getInstance().getInputSystem().getTouchScreen().getPressed(0)){
+	    logger.debug("from rp: " + Float.toString(Engine.getInstance()
+	                               .getInputSystem().getTouchScreen().getX(0)));
+	    
+	    logger.debug("from motion event: " + Float.toString(Engine.getInstance()
+	       	                               .getInputSystem().getTouchScreen()
+	       	                               .getTouchEvent().getX()));
+	}
+	
+	
 	// use touch screen to move the camera
 	// 
 	// not using replica island coordinates
@@ -109,36 +122,47 @@ public class GameState implements IState
 		case MotionEvent.ACTION_DOWN:
 		    initialX = touchEvent.getX();
 		    initialY = touchEvent.getY();
+		    touchMode = DRAG;
+		case MotionEvent.ACTION_POINTER_DOWN:
+		    touchMode = ZOOM;
+		case MotionEvent.ACTION_POINTER_UP:
+		    touchMode = DRAG;
 		case MotionEvent.ACTION_MOVE:
-		    float newX = touchEvent.getX();
-		    float newY = touchEvent.getY();
-		    
-		    float moveX = newX - initialX;
-		    float moveY = newY - initialY;
-		    
-		    if(moveX > 0){
-			// Left to right
-			_cam.moveLeft(-moveX*0.2f);
-			logger.debug("Left to right: " + Float.toString(-moveX));
-				
-		    } else if (moveX < 0){
-			// Right to left
-			_cam.moveLeft(-moveX*0.2f);
-			logger.debug("Right to left: " + Float.toString(-moveX));
-				
-		    } else if (moveY > 0){
-			// up to down
-			_cam.moveUp(moveY*0.2f);
-			logger.debug("Up to down: " + Float.toString(moveY));
-				
-		    } else if (moveY < 0){
-			// Down to up
-			_cam.moveUp(moveY*0.2f);
-			logger.debug("Down to up: " + Float.toString(moveY));
-		
+		    if (touchMode == DRAG){
+			float newX = touchEvent.getX();
+			    float newY = touchEvent.getY();
+			    
+			    float moveX = newX - initialX;
+			    float moveY = newY - initialY;
+			    
+			    if(moveX > 0){
+				// Left to right
+				_cam.moveLeft(-moveX*0.2f);
+				logger.debug("Left to right: " + Float.toString(-moveX));
+					
+			    } else if (moveX < 0){
+				// Right to left
+				_cam.moveLeft(-moveX*0.2f);
+				logger.debug("Right to left: " + Float.toString(-moveX));
+					
+			    } else if (moveY > 0){
+				// up to down
+				_cam.moveUp(moveY*0.2f);
+				logger.debug("Up to down: " + Float.toString(moveY));
+					
+			    } else if (moveY < 0){
+				// Down to up
+				_cam.moveUp(moveY*0.2f);
+				logger.debug("Down to up: " + Float.toString(moveY));
+			
+			    }
+			    initialX = touchEvent.getX();
+			    initialY = touchEvent.getY();
 		    }
-		    initialX = touchEvent.getX();
-		    initialY = touchEvent.getY();
+		    else if (touchMode == ZOOM){
+			// need an android phone to test it.
+		    }
+		    
 	    }
 	}
     }
