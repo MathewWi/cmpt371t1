@@ -6,12 +6,31 @@ import ca.sandstorm.luminance.Engine;
 public class InputManager
 {
 
-    private InputTouchScreen touchScreen;
+    private int MAX_BUTTON_COUNT = 10;
+    
+    private int numberOfButtons;
+    private InputTouchScreen _touchScreen;
     private MenuButton buttons[];
     
     public InputManager()
     {
-	touchScreen = Engine.getInstance().getInputSystem().getTouchScreen();
+	_touchScreen = Engine.getInstance().getInputSystem().getTouchScreen();
+	buttons = new MenuButton[MAX_BUTTON_COUNT];
+	numberOfButtons = 0;
+    }
+    
+    /*
+     * Add a button to be managed by the InputManager
+     * returns true if successful, false otherwise
+     */
+    public boolean addButton(MenuButton button)
+    {
+	if (numberOfButtons == MAX_BUTTON_COUNT) {
+	    return false;
+	} else {
+	    buttons[numberOfButtons] = button;
+	    return true;
+	}
     }
     
     /* 
@@ -19,12 +38,12 @@ public class InputManager
      * out IF IT STARTED inside a button. Recommended for taps. For
      * other kinds of touches, use touchOccured(float, float).
      */
-    public void touchOccured(MotionEvent event)
+    public MenuButton touchOccured(MotionEvent event)
     {
 	float xPosition = event.getX();
 	float yPosition = event.getY();
 	
-	this.touchOccured(xPosition, yPosition);
+	return this.touchOccured(xPosition, yPosition);
     }
     
     /*
@@ -32,7 +51,25 @@ public class InputManager
      */
     public MenuButton touchOccured(float x, float y)
     {
+	MenuButton tappedButton = null;
 	
-	return null;
+	/* 
+	 * Searches through the array of buttons and compares each one
+	 * 
+	 */
+	
+	for (int i = 0; i < numberOfButtons; i++) {
+	    MenuButton button = buttons[i];
+	    InputXY input = _touchScreen.findPointerInRegion(button.getX(), 
+	                                     button.getY(), 
+	                                     button.getWidth(), 
+	                                     button.getHeight());
+	    if (button.getInput() == input) {
+		tappedButton = button;
+		break;
+	    }
+	}
+	
+	return tappedButton;
     }
 }
