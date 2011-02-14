@@ -2,6 +2,7 @@ package ca.sandstorm.luminance.input;
 
 import javax.vecmath.Vector2f;
 
+import android.util.FloatMath;
 import android.view.MotionEvent;
 
 
@@ -147,12 +148,27 @@ public class InputTouchScreen
 	return triggered;
     }
 
+    /**
+     * Set the current movement event's object
+     * @param touchEvent store the current object of movement event
+     */
     public void setTouchEvent(MotionEvent touchEvent){
 	this.touchEvent = touchEvent;
     }
     
+    /**
+     * Get the current movement event's object
+     * @return Object used to report movement event
+     */
     public MotionEvent getTouchEvent(){
 	return touchEvent;
     }
     
+    /* for later use in pinch gesture
+    public float getPinchDistance(){
+	float x = touchEvent.getX(0) - touchEvent.getX(1);
+	float y = touchEvent.getY(0) - touchEvent.getY(1);
+	return FloatMath.sqrt(x * x + y * y);
+    }
+   */ 
 }
