@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
@@ -25,6 +26,8 @@ public class GameState implements IState
     private Box _box;
     private Grid _grid;
 
+    private float initialX = 0.0f;
+    private float initialY = 0.0f;
 
     public GameState()
     {
@@ -93,6 +96,51 @@ public class GameState implements IState
 	    _cam.moveUp(-1.0f);
 	}
 
+	// use touch screen to move the camera
+	// 
+	// not using replica island coordinates
+	if(Engine.getInstance().getInputSystem()
+		.getTouchScreen().getTouchEvent() != null){    
+
+	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
+					.getTouchScreen().getTouchEvent();
+	    
+	    switch(touchEvent.getAction()){
+		case MotionEvent.ACTION_DOWN:
+		    initialX = touchEvent.getX();
+		    initialY = touchEvent.getY();
+		case MotionEvent.ACTION_MOVE:
+		    float newX = touchEvent.getX();
+		    float newY = touchEvent.getY();
+		    
+		    float moveX = newX - initialX;
+		    float moveY = newY - initialY;
+		    
+		    if(moveX > 0){
+			// Left to right
+			_cam.moveLeft(-moveX*0.2f);
+			logger.debug("Left to right: " + Float.toString(-moveX));
+				
+		    } else if (moveX < 0){
+			// Right to left
+			_cam.moveLeft(-moveX*0.2f);
+			logger.debug("Right to left: " + Float.toString(-moveX));
+				
+		    } else if (moveY > 0){
+			// up to down
+			_cam.moveUp(moveY*0.2f);
+			logger.debug("Up to down: " + Float.toString(moveY));
+				
+		    } else if (moveY < 0){
+			// Down to up
+			_cam.moveUp(moveY*0.2f);
+			logger.debug("Down to up: " + Float.toString(moveY));
+		
+		    }
+		    initialX = touchEvent.getX();
+		    initialY = touchEvent.getY();
+	    }
+	}
     }
 
 
