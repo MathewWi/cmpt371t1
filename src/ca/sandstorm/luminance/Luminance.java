@@ -62,6 +62,8 @@ public class Luminance extends Activity
 
 	super.onPause();
 	mGLView.onPause();
+	
+	Engine.getInstance().pause();
     }
 
 
@@ -73,6 +75,7 @@ public class Luminance extends Activity
 	super.onResume();
 	mGLView.onResume();
 
+	Engine.getInstance().resume();
     }
 
 
@@ -152,7 +155,7 @@ public class Luminance extends Activity
 	    // do not log...
 	    Message msg = new Message();
 	    Bundle b = new Bundle();
-	    b.putFloat("fps", Engine.getInstance().getTimer().getRealTimeFrameDelta());
+	    b.putFloat("fps", Engine.getInstance().getTimer().getFrameDelta());
 	    msg.setData(b);
 	    handler.sendMessage(msg);
 

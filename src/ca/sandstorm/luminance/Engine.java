@@ -55,6 +55,12 @@ public class Engine
 	_audioSystem = new AndroidSoundPlayer();
 	_inputSystem = new InputSystem();
 	_touchFilter = new MultiTouchFilter();
+
+	_lastTime = SystemClock.uptimeMillis();
+	
+	// TEMP: play a sound to test sound system
+	// _audioSystem.load("test.mp3");
+	// _audioSystem.play("test.mp3", 0.9f);
     }
 
 
@@ -153,8 +159,8 @@ public class Engine
     {
 	return _touchFilter;
     }
-
-
+    
+    
     public void pushState(IState state)
     {
 	logger.debug("pushState(" + state + ")");
@@ -220,8 +226,9 @@ public class Engine
     {
 	long time = SystemClock.uptimeMillis();
 	long timeDelta = time - _lastTime;
-
-	_timer.update(timeDelta);
+	float secondsDelta = (time - _lastTime) * 0.001f;
+	_timer.update(secondsDelta);
+	_lastTime = time;
 
 	for (IState s : _stateStack) {
 	    if (s.isActive()) {

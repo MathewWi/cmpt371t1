@@ -6,6 +6,7 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
 public class Grid implements IGameObject
 {
@@ -13,6 +14,15 @@ public class Grid implements IGameObject
     private ShortBuffer _indexBuffer;
     
     private int _totalIndices;
+    
+    private Vector3f _vCenter;
+    
+    private int _cols;
+    private int _rows;
+    
+    private float _cellWidth;
+    private float _cellHeight;
+    
     
     
     public Grid(int rows, int cols, float cellWidth, float cellHeight)
@@ -61,7 +71,7 @@ public class Grid implements IGameObject
 	    }
 	}
 	
-	// vertical line indicesqq
+	// vertical line indices
 	for (int i = 0; i < rows; i++)
 	{
 	    for (int j = 0; j < cols+1; j++)
@@ -75,13 +85,65 @@ public class Grid implements IGameObject
 	byteBuf.order(ByteOrder.nativeOrder());
 	_indexBuffer = byteBuf.asShortBuffer();
 	_indexBuffer.put(indices);
-	_indexBuffer.position(0);	
+	_indexBuffer.position(0);
+	
+	// store / precalc some important values
+	_cellWidth = cellWidth;
+	_cellHeight = cellHeight;
+	
+	_rows = rows;
+	_cols = cols;
+	
+	_vCenter = new Vector3f();
+	_vCenter.set( (_cols * _cellWidth), 0, (_rows * _cellHeight) );
+    }
+    
+    
+    public int getColumnCount()
+    {
+	return _cols;
+    }
+    
+    
+    public int getRowCount()
+    {
+	return _rows;
+    }
+    
+    
+    public float getCellWidth()
+    {
+	return _cellWidth;
+    }
+    
+    
+    public float getCellHeight()
+    {
+	return _cellHeight;
+    }
+    
+    
+    public float getTotalWidth()
+    {
+	return (_cellWidth * getColumnCount());
+    }
+    
+    
+    public float getTotalHeight()
+    {
+	return (_cellHeight * getRowCount());
+    }    
+        
+    
+    public Vector3f getCenter()
+    {
+	return _vCenter;
     }
     
     
     public void update(GL10 gl)
     {
-	
+	// TODO: Does grid update?
     }
     
     
