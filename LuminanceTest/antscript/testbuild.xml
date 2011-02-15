@@ -74,10 +74,10 @@
 		    <!-- If android rules are used for a test project, its classpath should include
 		         tested project's location -->
 		    <condition property="extensible.classpath"
-		                       value="${tested.project.absolute.dir}/out/classes/ca/sandstorm/luminance" else=".">
+		                       value="${tested.project.absolute.dir}/bin/classes/ca/sandstorm/luminance" else=".">
 		        <isset property="tested.project.absolute.dir" />
 		    </condition>
-		    <javac encoding="ascii" target="1.5" debug="true" extdirs=""
+		    <javac encoding="ascii" target="1.6" debug="true" extdirs=""
 		            destdir="${out.classes.absolute.dir}"
 		            bootclasspathref="android.target.classpath"
 		            classpath="${extensible.classpath}">

@@ -94,12 +94,7 @@
 	<echo message="Running smoke.test"/>
 	<ant target="smoke.test"/>
 	<sleep seconds="1"/>
-<!--
-	<echo message="Clean-UP"/>
-	<ant target="uninstall.project"/>
-	<ant target="uninstall.test"/>
-	<ant target="clean"/>
--->
+
 	<sleep seconds="1"/>
 	<echo message="ALL DONE!"/>
 
@@ -183,5 +178,70 @@
 	<delete file="${path.test.project}/proguard.cfg"/>
 -->
 </target>
+
+<target name="adb.install.test">
+	<exec executable="${path.android.platform.tools}/adb">
+		<arg value="install"/>
+		<arg value="${path.test.apk.aligned}"/>
+	</exec>
+</target>
+
+<target name="adb.install.project">
+	<exec executable="${path.android.platform.tools}/adb">
+		<arg value="install"/>
+		<arg value="${path.project.apk.aligned}"/>
+	</exec>
+</target>
+
+<target name="zipalign.test">
+	<exec executable="${path.android.tools}/zipalign">
+		<arg value="-v"/>
+		<arg value="4"/>
+		<arg value="-f"/>
+		<arg value="${path.test.apk}"/>
+		<arg value="${path.test.apk.aligned}"/>
+	</exec>
+</target>
+
+<target name="zipalign.project">
+	<exec executable="${path.android.tools}/zipalign">
+		<arg value="-v"/>
+		<arg value="4"/>
+		<arg value="-f"/>
+		<arg value="${path.project.apk}"/>
+		<arg value="${path.project.apk.aligned}"/>
+	</exec>
+</target>
+
+<target name="clean2">
+	<delete includeemptydirs="true">
+            <fileset dir="${path.project}/out" includes="**/*" />
+            <fileset dir="${path.test.project}/bin" includes="**/*" />
+        </delete>
+</target>
+
+<target name="debug.test">
+	<echo message="Installing Test Package"/>
+	<ant dir="${path.test.project}" target="debug"/>
+</target>
+
+<target name="debug.project">
+	<echo message="Installing Project Package"/>
+	<ant dir="${path.project}" target="debug"/>
+</target>
+
+<target name="test" depends="clean2, debug.test, debug.project">
+        <exec executable="${path.android.platform.tools}/adb" failonerror="true">
+            <arg line="install -r ${path.project.apk}" />
+        </exec>
+        <exec executable="${path.android.platform.tools}/adb" failonerror="true">
+            <arg line="install -r ${path.test.apk}" />
+        </exec>	
+
+	<ant target="smoke.test"/>
+</target>
+
+
+
 
 </project>
