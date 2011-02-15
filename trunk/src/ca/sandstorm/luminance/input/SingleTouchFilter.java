@@ -30,8 +30,9 @@ public class SingleTouchFilter extends TouchFilter
 				       (1.0f / Engine.getInstance()
 					       .getViewScaleY()));
 	}
-	
-	Engine.getInstance().getInputSystem().getTouchScreen().setTouchEvent(event);
+
+	Engine.getInstance().getInputSystem().getTouchScreen()
+		.setTouchEvent(event);
     }
 
 

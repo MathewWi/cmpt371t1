@@ -40,7 +40,7 @@ public class Luminance extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
 	logger.debug("onCreate()");
-	
+
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
 
@@ -62,7 +62,7 @@ public class Luminance extends Activity
 
 	super.onPause();
 	mGLView.onPause();
-	
+
 	Engine.getInstance().pause();
     }
 

@@ -131,8 +131,8 @@ public class Camera
 
     public void updateViewMatrix(GL10 gl)
     {
-	//This was being spammed on every frame so I commented it out -Zenja
-	//logger.debug("updateViewMatrix()");
+	// This was being spammed on every frame so I commented it out -Zenja
+	// logger.debug("updateViewMatrix()");
 
 	// calculate the mdoel view matrix
 
