@@ -30,6 +30,7 @@
 || Audio playback research and implementation || 2.5 ||
 || Graphics/model loading research || 1.5 ||
 || CPM diagram || 3 ||
+
 ====Milestone 2====
 || Helping figure out test project setup || 1.5 ||
 || Resource manager || ||
