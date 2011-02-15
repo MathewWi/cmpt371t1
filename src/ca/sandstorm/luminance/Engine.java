@@ -12,6 +12,7 @@ import android.content.Context;
 import android.os.SystemClock;
 
 import ca.sandstorm.luminance.audio.AndroidSoundPlayer;
+import ca.sandstorm.luminance.graphics.GLRenderer;
 import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
@@ -42,6 +43,7 @@ public class Engine
     private InputSystem _inputSystem;
     private AndroidSoundPlayer _audioSystem;
     private ResourceManager _resourceManager;
+    private GLRenderer _renderer;
 
     private TouchFilter _touchFilter;
 
@@ -56,6 +58,7 @@ public class Engine
 	_audioSystem = new AndroidSoundPlayer();
 	_inputSystem = new InputSystem();
 	_touchFilter = new MultiTouchFilter();
+	_renderer = new GLRenderer();
 
 	_lastTime = SystemClock.uptimeMillis();
 
@@ -108,6 +111,12 @@ public class Engine
 	return _context;
     }
 
+    
+    public GLRenderer getRenderer()
+    {
+	return _renderer;
+    }
+    
 
     public TimeSystem getTimer()
     {
