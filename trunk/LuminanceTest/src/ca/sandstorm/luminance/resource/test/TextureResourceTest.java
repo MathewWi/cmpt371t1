@@ -1,22 +1,22 @@
-import ca.sandstorm.luminance.resources.ImageResource;
+package ca.sandstorm.luminance.resource.test;
+import ca.sandstorm.luminance.resources.TextureResource;
 import android.test.AndroidTestCase;
 
 /**
- * Testing of the SoundResource class
+ * Testing of the TextureResource class
  * @author Chet W Collins
  *
  */
-public class SoundResourceTest extends AndroidTestCase
+public class TextureResourceTest extends AndroidTestCase
 {
-
-    private SoundResource soundResource;
+    private TextureResource texResource;
 
     /**
      * Set up an instance to test with
      */
     protected void setUp() throws Exception {
 	super.setUp();
-	soundResource = new SoundResource("soundRes", 1);
+	texResource = new TextureResource("texture1", 1);
     }
     
     /**
@@ -25,18 +25,18 @@ public class SoundResourceTest extends AndroidTestCase
      */
     public void testGetName() throws Exception {
 	
-	assertTrue(soundResource.getName().equals("soundRes"));
-	assertFalse(soundResource.getName().equals(""));
-	assertFalse(soundResource.getName() == null);
+	assertTrue(texResource.getName().equals("texture1"));
+	assertFalse(texResource.getName().equals(""));
+	assertFalse(texResource.getName() == null);
      }
     
     /**
-     * Test the getSound() method
+     * Test the getTexture() method
      * @throws Exception
      */
     public void testGetSound() throws Exception {
 	
-	assertTrue(soundResource.getSound() == 1);
+	assertTrue(texResource.getTexture() == 1);
      }
     
     /**
@@ -45,6 +45,6 @@ public class SoundResourceTest extends AndroidTestCase
     protected void tearDown() throws Exception
     {
 	super.tearDown();
-	soundResource.dispose();
+	texResource.dispose();
     }
 }
