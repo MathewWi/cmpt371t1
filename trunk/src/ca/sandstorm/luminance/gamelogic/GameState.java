@@ -146,24 +146,24 @@ public class GameState implements IState
 
 			if (moveX > 0) {
 			    // Left to right
-			    _cam.moveLeft(-moveX * TOUCH_SENSIVITY);
+			    _cam.moveLeft(-TOUCH_SENSIVITY);
 			    logger.debug("Left to right: " +
 					 Float.toString(-moveX));
 
 			} else if (moveX < 0) {
 			    // Right to left
-			    _cam.moveLeft(-moveX * TOUCH_SENSIVITY);
+			    _cam.moveLeft(TOUCH_SENSIVITY);
 			    logger.debug("Right to left: " +
 					 Float.toString(-moveX));
 
 			} else if (moveY > 0) {
 			    // up to down
-			    _cam.moveUp(moveY * TOUCH_SENSIVITY);
+			    _cam.moveUp(TOUCH_SENSIVITY);
 			    logger.debug("Up to down: " + Float.toString(moveY));
 
 			} else if (moveY < 0) {
 			    // Down to up
-			    _cam.moveUp(moveY * TOUCH_SENSIVITY);
+			    _cam.moveUp(-TOUCH_SENSIVITY);
 			    logger.debug("Down to up: " + Float.toString(moveY));
 
 			}
