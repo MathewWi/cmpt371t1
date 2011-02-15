@@ -135,8 +135,6 @@ public class Luminance extends Activity
 	    logger.debug("onSurfaceChanged(" + gl.toString() + ", " + w + ", " +
 			 h + ")");
 
-	    Engine.getInstance().deviceChanged(gl, w, h);
-
 	    DisplayMetrics dm = new DisplayMetrics();
 	    getWindowManager().getDefaultDisplay().getMetrics(dm);
 
@@ -146,6 +144,9 @@ public class Luminance extends Activity
 		float ratio = ((float) dm.widthPixels) / dm.heightPixels;
 		defaultWidth = (int) (defaultHeight * ratio);
 	    }
+	    
+	    Engine.getInstance().deviceChanged(gl, w, h, dm.widthPixels,
+	                                       dm.heightPixels);
 	    logger.debug("width:" + defaultWidth + "\theight: " + defaultHeight);
 	}
 

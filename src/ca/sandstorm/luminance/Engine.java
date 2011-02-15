@@ -220,7 +220,7 @@ public class Engine
     }
 
 
-    public void deviceChanged(GL10 gl, int w, int h)
+    public void deviceChanged(GL10 gl, int w, int h, int viewWidth, int viewHeight)
     {
 	logger.debug("deviceChanged(" + gl.toString() + ", " + w + ", " + h +
 		     ")");
@@ -228,8 +228,8 @@ public class Engine
 	_width = w;
 	_height = h;
 
-	// _scaleX = (float)viewWidth / gameWidth;
-	// _scaleY = (float)viewHeight / gameHeight;
+	 _scaleX = (float)viewWidth / _width;
+	 _scaleY = (float)viewHeight / _height;
 
 	for (IState s : _stateStack) {
 	    s.deviceChanged(gl, _width, _height);
