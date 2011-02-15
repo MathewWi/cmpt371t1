@@ -17,7 +17,7 @@ public class ImageResourceTest extends AndroidTestCase
      */
     protected void setUp() throws Exception {
 	super.setUp();
-	imResource = new ImageResource("image1", (new Bitmap()));
+	imResource = new ImageResource("imageRes", (new Bitmap()));
     }
     
     /**
@@ -26,7 +26,7 @@ public class ImageResourceTest extends AndroidTestCase
      */
     public void testGetName() throws Exception {
 	
-	assertTrue(imResource.getName().equals("image1"));
+	assertTrue(imResource.getName().equals("imageRes"));
 	assertFalse(imResource.getName().equals(""));
 	assertFalse(imResource.getName() == null);
      }
@@ -39,4 +39,13 @@ public class ImageResourceTest extends AndroidTestCase
 	
 	assertTrue(imResource.getMemorySize() == 0);
      }
+    
+    /**
+     * Dispose of the created resource
+     */
+    protected void tearDown() throws Exception
+    {
+	super.tearDown();
+	imResource.dispose();
+    }
 }
