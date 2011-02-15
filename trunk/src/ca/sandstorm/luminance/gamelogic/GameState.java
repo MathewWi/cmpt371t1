@@ -1,6 +1,7 @@
 package ca.sandstorm.luminance.gamelogic;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -183,9 +184,29 @@ public class GameState implements IState
 	gl.glPushMatrix();
 	// gl.glLoadIdentity();
 
-	gl.glTranslatef(0.0f, 0, -14.0f);
-	gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
-	_box.draw(gl);
+	// Testing out some drawing functions -Zenja
+	//gl.glTranslatef(0.0f, 0, -14.0f);
+	//gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
+	//_box.draw(gl);
+	Engine.getInstance().getRenderer().draw(Engine.getInstance().getRenderer().getBox(),
+	                                        new Vector3f(0f, 0f, -10f),
+	                                        new Vector3f(0f, 0f, 0f),
+	                                        new Vector3f(2f, 2f, 2f),
+	                                        new Vector3f(1.0f, 0.0f, 0.5f),
+	                                        gl);
+	Engine.getInstance().getRenderer().draw(Engine.getInstance().getRenderer().getBox(),
+	                                        new Vector3f(-3f, 0f, -10f),
+	                                        new Vector3f(0f, 0f, 0f),
+	                                        new Vector3f(2f, 2f, 2f),
+	                                        new Vector3f(1.0f, 0.0f, 0.0f),
+	                                        gl);
+	Engine.getInstance().getRenderer().draw(Engine.getInstance().getRenderer().getSphere(),
+	                                        new Vector3f(3.0f, 0f, -10.0f),
+	                                        new Vector3f(0f, 0f, 0f),
+	                                        new Vector3f(2.0f, 2.0f, 2.0f),
+	                                        new Vector3f(1.0f, 0.5f, 0.0f),
+	                                        gl);
+	
 	rquad -= 0.45f;
 
 	gl.glPopMatrix();
