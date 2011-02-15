@@ -6,6 +6,7 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.opengl.GLU;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
@@ -13,6 +14,7 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Grid;
+import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
 
@@ -26,6 +28,7 @@ public class GameState implements IState
 
     private Box _box;
     private Grid _grid;
+    private Skybox _sky;
 
     private float initialX = 0.0f;
     private float initialY = 0.0f;
@@ -44,6 +47,7 @@ public class GameState implements IState
 
 	_box = new Box();
 	_grid = new Grid(10, 10, 1.0f, 1.0f);
+	_sky = new Skybox();
     }
 
 
@@ -185,35 +189,20 @@ public class GameState implements IState
 	_cam.updateViewMatrix(gl);
 
 	gl.glPushMatrix();
-	// gl.glLoadIdentity();
-
-	// Testing out some drawing functions -Zenja
-	//gl.glTranslatef(0.0f, 0, -14.0f);
-	//gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
-	//_box.draw(gl);
-	Engine.getInstance().getRenderer().draw(Engine.getInstance().getRenderer().getBox(),
-	                                        new Vector3f(0f, 0f, -10f),
-	                                        new Vector3f(0f, 0f, 0f),
-	                                        new Vector3f(2f, 2f, 2f),
-	                                        new Vector3f(1.0f, 0.0f, 0.5f),
-	                                        gl);
-	Engine.getInstance().getRenderer().draw(Engine.getInstance().getRenderer().getBox(),
-	                                        new Vector3f(-3f, 0f, -10f),
-	                                        new Vector3f(0f, 0f, 0f),
-	                                        new Vector3f(2f, 2f, 2f),
-	                                        new Vector3f(1.0f, 0.0f, 0.0f),
-	                                        gl);
-	Engine.getInstance().getRenderer().draw(Engine.getInstance().getRenderer().getSphere(),
-	                                        new Vector3f(3.0f, 0f, -10.0f),
-	                                        new Vector3f(0f, 0f, 0f),
-	                                        new Vector3f(2.0f, 2.0f, 2.0f),
-	                                        new Vector3f(1.0f, 0.5f, 0.0f),
-	                                        gl);
-	
-	rquad -= 0.45f;
-
+	gl.glLoadIdentity();
+	GLU.gluLookAt(gl, 0, 0, 0, 0, 0, -14, 0, 1, 0);
+	gl.glDisable(GL10.GL_DEPTH_TEST);
+	_sky.draw(gl);
+	gl.glEnable(GL10.GL_DEPTH_TEST);
 	gl.glPopMatrix();
 
+	gl.glPushMatrix();
+	gl.glTranslatef(0.0f, 0, -14.0f);
+	gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
+	_box.draw(gl);
+	rquad -= 0.45f;
+	gl.glPopMatrix();
+	
 	gl.glPushMatrix();
 	gl.glTranslatef(0.0f, 0, -7.0f);
 	_grid.draw(gl);
