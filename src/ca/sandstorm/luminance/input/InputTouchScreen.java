@@ -13,7 +13,8 @@ public class InputTouchScreen
     private InputXY mTouchPoints[];
 
     private MotionEvent touchEvent;
-    
+
+
     public InputTouchScreen()
     {
 	mTouchPoints = new InputXY[MAX_TOUCH_POINTS];
@@ -148,27 +149,32 @@ public class InputTouchScreen
 	return triggered;
     }
 
+
     /**
      * Set the current movement event's object
-     * @param touchEvent store the current object of movement event
+     * 
+     * @param touchEvent
+     *            store the current object of movement event
      */
-    public void setTouchEvent(MotionEvent touchEvent){
+    public void setTouchEvent(MotionEvent touchEvent)
+    {
 	this.touchEvent = touchEvent;
     }
-    
+
+
     /**
      * Get the current movement event's object
+     * 
      * @return Object used to report movement event
      */
-    public MotionEvent getTouchEvent(){
+    public MotionEvent getTouchEvent()
+    {
 	return touchEvent;
     }
-    
-    /* for later use in pinch gesture
-    public float getPinchDistance(){
-	float x = touchEvent.getX(0) - touchEvent.getX(1);
-	float y = touchEvent.getY(0) - touchEvent.getY(1);
-	return FloatMath.sqrt(x * x + y * y);
-    }
-   */ 
+
+    /*
+     * for later use in pinch gesture public float getPinchDistance(){ float x =
+     * touchEvent.getX(0) - touchEvent.getX(1); float y = touchEvent.getY(0) -
+     * touchEvent.getY(1); return FloatMath.sqrt(x * x + y * y); }
+     */
 }

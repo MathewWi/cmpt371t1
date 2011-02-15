@@ -24,7 +24,8 @@ import ca.sandstorm.luminance.time.TimeSystem;
 
 public class Engine
 {
-    private static final Logger logger = LoggerFactory.getLogger("Luminance.Engine");
+    private static final Logger logger = LoggerFactory
+	    .getLogger("Luminance.Engine");
 
     private static Engine _instance = null;
     private Context _context = null;
@@ -57,7 +58,7 @@ public class Engine
 	_touchFilter = new MultiTouchFilter();
 
 	_lastTime = SystemClock.uptimeMillis();
-	
+
 	// TEMP: play a sound to test sound system
 	// _audioSystem.load("test.mp3");
 	// _audioSystem.play("test.mp3", 0.9f);
@@ -72,33 +73,38 @@ public class Engine
 
 	return _instance;
     }
-    
-    
+
+
     /**
      * Sets the engine's Android application context.
-     * @param context Application context
+     * 
+     * @param context
+     *            Application context
      * @author zenja
      */
     public void setContext(Context context)
     {
 	_context = context;
 	_resourceManager.setAssets(_context.getAssets());
-	
+
 	listDirectoryFiles("");
-	
-	//TEMP: test reading from text file
+
+	// TEMP: test reading from text file
 	printFileContents("text/text.txt");
     }
-    
+
+
     /**
      * Get application context.
+     * 
      * @return Application context
      * @author zenja
      */
     public Context getContext()
     {
-	if(_context == null)
-	    throw new RuntimeException("Attempting to access Engine's application context but it hasn't been assigned!");
+	if (_context == null)
+	    throw new RuntimeException(
+		    "Attempting to access Engine's application context but it hasn't been assigned!");
 	return _context;
     }
 
@@ -113,8 +119,8 @@ public class Engine
     {
 	return _inputSystem;
     }
-    
-    
+
+
     public ResourceManager getResourceManager()
     {
 	return _resourceManager;
@@ -159,8 +165,8 @@ public class Engine
     {
 	return _touchFilter;
     }
-    
-    
+
+
     public void pushState(IState state)
     {
 	logger.debug("pushState(" + state + ")");
@@ -246,10 +252,13 @@ public class Engine
 	    }
 	}
     }
-    
+
+
     /**
      * List all the files in a given directory.
-     * @param path Directory path
+     * 
+     * @param path
+     *            Directory path
      * @author zenja
      */
     private void listDirectoryFiles(String path)
@@ -263,12 +272,15 @@ public class Engine
 	} catch (IOException e1) {
 	    logger.error("Failed to retrieve file listing!");
 	    e1.printStackTrace();
-	} 
+	}
     }
-    
+
+
     /**
      * Print contents of a text file through the debugger
-     * @param path Path to text file in assets
+     * 
+     * @param path
+     *            Path to text file in assets
      * @author zenja
      */
     private void printFileContents(String path)
@@ -276,7 +288,7 @@ public class Engine
 	try {
 	    logger.info("Contents of '" + path + "'");
 	    TextResource res = _resourceManager.loadTextResource(path);
-	    if(res != null)
+	    if (res != null)
 		logger.info(res.getText());
 	} catch (IOException e) {
 	    logger.error("Failed to load file '" + path + "' for printing!");

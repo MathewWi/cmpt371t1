@@ -9,8 +9,10 @@ import org.slf4j.LoggerFactory;
 import android.media.AudioManager;
 import android.media.SoundPool;
 
+
 /**
  * Android sound player manager.
+ * 
  * @author Zenja
  */
 public class AndroidSoundPlayer implements IAudioDriver
@@ -19,7 +21,9 @@ public class AndroidSoundPlayer implements IAudioDriver
     private SoundPool mSoundPool;
     private HashMap<String, Integer> mSoundMap;
     private HashMap<Integer, Integer> mStreamMap;
-    private static final Logger logger = LoggerFactory.getLogger("Luminance.AndroidSoundPlayer");
+    private static final Logger logger = LoggerFactory
+	    .getLogger("Luminance.AndroidSoundPlayer");
+
 
     /**
      * Initialize the Android audio player manager.
@@ -39,7 +43,8 @@ public class AndroidSoundPlayer implements IAudioDriver
     /**
      * Load a sound file for future playback.
      * 
-     * @param fileName Name of the file, relative to the audio resources directory
+     * @param fileName
+     *            Name of the file, relative to the audio resources directory
      * @throws IOException
      */
     public void load(String fileName)
@@ -84,6 +89,7 @@ public class AndroidSoundPlayer implements IAudioDriver
 	return streamId;
     }
 
+
     /**
      * Stop a playing stream.
      * 
@@ -95,6 +101,7 @@ public class AndroidSoundPlayer implements IAudioDriver
 	mSoundPool.stop(stream);
     }
 
+
     /**
      * Pause all sounds that are currently playing.
      */
@@ -105,6 +112,7 @@ public class AndroidSoundPlayer implements IAudioDriver
 	}
     }
 
+
     /**
      * Resume all paused sounds.
      */
@@ -114,6 +122,7 @@ public class AndroidSoundPlayer implements IAudioDriver
 	    mSoundPool.resume(stream);
 	}
     }
+
 
     /**
      * Release (free) all loaded sounds.
