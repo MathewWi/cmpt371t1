@@ -92,6 +92,19 @@ public class ResourceManager
 
 	return res;
     }
+    
+    /**
+     * Remove a loaded resource.
+     * @param name Name of resource to unload
+     */
+    public void unloadResource(String name)
+    {
+	if (!resources.containsKey(name))
+	    return;
+	
+	resources.get(name).dispose();
+	resources.remove(name);
+    }
 
 
     /**
@@ -149,6 +162,7 @@ public class ResourceManager
     public TextureResource loadTextureResource(String filename, GL10 gl)
 	    throws IOException
     {
+	//TODO: should this be in the resource manager?
 	// Load the image
 	InputStream stream = assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);

@@ -4,8 +4,13 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+/**
+ * A primitive box using an index buffer.
+ * @author zenja
+ */
 public class PrimitiveBox implements IRenderable
 {
+    // Vertex coordinates
     private static float[] vertices =
     {
 	-0.5f, -0.5f, -0.5f,
@@ -18,6 +23,7 @@ public class PrimitiveBox implements IRenderable
 	-0.5f, 0.5f, 0.5f
     };
     
+    // Indices
     private static byte[] indices =
     {
 	0, 4, 5, 0, 5, 1, 1, 5, 6, 1, 6, 2, 2, 6, 7, 2, 7, 3,
@@ -27,6 +33,10 @@ public class PrimitiveBox implements IRenderable
     private FloatBuffer vertexBuffer;
     private ByteBuffer indexBuffer;
     
+    /**
+     * Constructor.
+     * Create the buffers from the data.
+     */
     public PrimitiveBox()
     {
 	// Create vertex buffer
@@ -42,18 +52,31 @@ public class PrimitiveBox implements IRenderable
 	indexBuffer.position(0);
     }
     
+    /**
+     * Get the vertex buffer.
+     * @return Vertex buffer
+     */
     @Override
     public FloatBuffer getVertexBuffer()
     {
 	return vertexBuffer;
     }
 
+    /**
+     * Get the index buffer.
+     * @return Index buffer
+     */
     @Override
     public ByteBuffer getIndexBuffer()
     {
 	return indexBuffer;
     }
     
+    /**
+     * Get the normal buffer.
+     * Currently unused for this object.
+     * @return Normal buffer
+     */
     @Override
     public FloatBuffer getNormalBuffer()
     {
