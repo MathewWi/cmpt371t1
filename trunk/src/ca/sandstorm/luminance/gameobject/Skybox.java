@@ -87,13 +87,20 @@ public class Skybox implements IGameObject
 	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
 	gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
 	
+	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);	
+	
 	for(int side = 0; side < 6; side++)
 	{
 		//[textures[side] bind];
 	    	_indexBuffer.position(index);
-		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_BYTE, _indexBuffer);
+		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, _indexBuffer);
 
 		index += 6;
 	}	
+	
+	// Disable the client state before leaving
+	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+	gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);	
     }
 }
