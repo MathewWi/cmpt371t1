@@ -125,6 +125,8 @@ public class GameState implements IState
 		    initialX = touchEvent.getX();
 		    initialY = touchEvent.getY();
 		    touchMode = DRAG;
+		case MotionEvent.ACTION_UP:
+		    // Check whether user released tap on top of button
 		case MotionEvent.ACTION_POINTER_DOWN:
 		    touchMode = ZOOM;
 		case MotionEvent.ACTION_POINTER_UP:
