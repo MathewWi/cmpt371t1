@@ -40,9 +40,8 @@
 
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
- Any project artifacts that were modified or created since the first milestone will be part of Deliverable 3.
+ Any project artifacts that were modified or created since the first two milestones will be part of Deliverable 3:
 
-  The following new artifacts are anticipated:
    * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
    * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build.
    * GUI Test Suite - Continuing work with Robotium.
@@ -54,7 +53,7 @@
    * Alpha Version Complete - A working alpha version of the game should be complete.
    * Level Format - The game level format will be analyzed and implemented.
    * Sounds, special effects, lighting complete.
-   * Multiple levels.
+   * Multiple playable levels.
    * Random level generator.
    * Game Level Editor - A tool to create new game levels.
 
@@ -64,3 +63,9 @@
 || Full Alpha version of game || 24 ||
 || Continuing Robotium test suite || 8 ||
 || Continuing jUnit test suite || 8 ||
+|| jCoverage test suite || 8 ||
+|| Code Reviews || 6 ||
+|| Level Format || 8 ||
+|| Sounds, special effects, lighting || 10 ||
+|| Multiple levels || 8 ||
+|| Random Level Generator || 12 ||
