@@ -1,5 +1,10 @@
 package ca.sandstorm.luminance.level;
 
+/**
+ * Class for level objects: bricks, goals.
+ * @author Steven Indzeoski
+ * 
+ */
 public class XmlLevelObject 
 {
 	private String _type;
@@ -32,18 +37,9 @@ public class XmlLevelObject
 	 */
 	public boolean isValidType(String type) 
 	{
-		if (type.equals("brick")) 
-		{
-		    return true;
-		}
-		else if (type.equals("goal"))
-		{
-		    return true;
-		}
-		else 
-		{
-		    return false;
-		}
+		if (type.equals("brick")) return true;
+		else if (type.equals("goal")) return true;
+		else return false;
 	}
 	
 	/**
@@ -53,22 +49,10 @@ public class XmlLevelObject
 	 */
 	public boolean isValidColour(String colour) 
 	{
-		if (colour.equals("white")) 
-		{
-		    return true;
-		}
-		else if (colour.equals("red")) 
-		{
-		    return true;
-		}
-		else if (colour.equals("blue")) 
-		{
-		    return true;
-		}
-		else if (colour.equals("green")) 
-		{
-		    return true;
-		}
+		if (colour.equals("white")) return true;
+		else if (colour.equals("red")) return true;
+		else if (colour.equals("blue")) return true;
+		else if (colour.equals("green")) return true;
 		return false;
 	}
 	
