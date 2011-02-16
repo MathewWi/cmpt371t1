@@ -19,7 +19,7 @@
  The updated risk report can be viewed at: RiskReport
 
 = Requirements =
- Requirements can be viewed at: [Requirements]
+ Updated requirements can be viewed at: [Requirements]
 
 = Team Roles and Activity Log =
  The team roles can be found at: http://code.google.com/p/cmpt371t1/people/list
@@ -31,16 +31,9 @@
  
  Code reviews are documented at CodeReviews.
 
-= GUI Prototype =
- A video of the previous implementation of the game can be viewed here: [http://code.google.com/p/cmpt371t1/]
-
- Our ported version is meant to mimic the user interface of this very closely.
-
- Here are some pictures of how our user interface will look with the touch screen functionality: [GUIPrototypes]
-
-= Initial Analysis for Deliverable 2 =
+= Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
- Any project artifacts that were modified or created since the first milestone will be part of Deliverable 2.
+ Any project artifacts that were modified or created since the first milestone will be part of Deliverable 3.
 
   The following new artifacts are anticipated:
    * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
