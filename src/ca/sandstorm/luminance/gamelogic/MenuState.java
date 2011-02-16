@@ -2,6 +2,8 @@ package ca.sandstorm.luminance.gamelogic;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import android.widget.Button;
+
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.state.IState;
 
@@ -10,9 +12,19 @@ public class MenuState implements IState
 {
     private GUIManager _guiManager;
 
+    public MenuState()
+    {
+	_guiManager = new GUIManager();
+    }
+    
     public GUIManager getGUIManager()
     {
 	return _guiManager;
+    }
+    
+    public boolean addButton(ca.sandstorm.luminance.gui.Button button)
+    {
+	return _guiManager.addButton(button);
     }
     
     @Override

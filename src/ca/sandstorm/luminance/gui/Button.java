@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gui;
 
+import javax.microedition.khronos.opengles.GL10;
+
 import ca.sandstorm.luminance.input.InputXY;
 
 public class Button implements IWidget
@@ -72,5 +74,11 @@ public class Button implements IWidget
     public void setHeight(float height)
     {
 	this.height = height;
+    }
+    
+    @Override
+    public void draw(GL10 gl)
+    {
+	// Drawing code goes here.
     }
 }
