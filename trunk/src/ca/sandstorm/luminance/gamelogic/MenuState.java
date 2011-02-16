@@ -90,4 +90,12 @@ public class MenuState implements IState
 	return true;
     }
 
+
+    @Override
+    public void init(GL10 gl)
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
 }

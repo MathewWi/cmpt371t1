@@ -1,5 +1,6 @@
 package ca.sandstorm.luminance.gamelogic;
 
+import java.io.IOException;
 import java.util.LinkedList;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -49,9 +50,6 @@ public class GameState implements IState
     public GameState()
     {
 	logger.debug("GameState()");
-
-	_cam = new Camera();
-	_cam.setEye(0, 0, 5);
 	
 	objects = new LinkedList<IGameObject>();
 
@@ -61,6 +59,15 @@ public class GameState implements IState
 	Engine.getInstance().getRenderer().addRenderable(testBox);
 	
 	_grid = new Grid(10, 10, 1.0f, 1.0f);
+	
+	float maxSize = Math.max(_grid.getTotalWidth(), _grid.getTotalHeight());
+	float camY = 1.15f * (maxSize / (float)(Math.tan((Math.PI / 6.0))));
+	
+	_cam = new Camera();	
+	_cam.setEye(_grid.getTotalWidth() / 2.0f, camY, _grid.getTotalHeight() / 2.0f);
+	_cam.setTarget(_grid.getTotalWidth() / 2.0f, 0, _grid.getTotalHeight() / 2.0f);
+	_cam.rotateCamera(0.01f, 1, 0, 0);
+	
 	_sky = new Skybox();
 	objects.add(_grid);
 	objects.add(_sky);
@@ -81,6 +88,21 @@ public class GameState implements IState
 	logger.debug("resume()");
 
 	Engine.getInstance().getTimer().reset();
+    }
+    
+    @Override
+    public void init(GL10 gl)
+    {
+	logger.debug("init()");
+	
+	try
+	{
+	    _sky.init(gl);
+	}
+	catch (IOException e)
+	{
+	    
+	}
     }
 
 
@@ -112,13 +134,13 @@ public class GameState implements IState
 	}
 
 	if (keys[KeyEvent.KEYCODE_Q].getPressed()) {
-	    // _cam.rotateCamera(0.01f, 0, 1, 0);
-	    _cam.moveUp(1.0f);
+	    _cam.rotateCamera(0.01f, 1, 0, 0);
+	    //_cam.moveUp(1.0f);
 	}
 
 	if (keys[KeyEvent.KEYCODE_E].getPressed()) {
-	    // _cam.rotateCamera(0.01f, 0, 1, 0);
-	    _cam.moveUp(-1.0f);
+	     _cam.rotateCamera(-0.01f, 1, 0, 0);
+	    //_cam.moveUp(-1.0f);
 	}
 
 	if (Engine.getInstance().getInputSystem().getTouchScreen()
@@ -207,7 +229,10 @@ public class GameState implements IState
 
 	gl.glPushMatrix();
 	gl.glLoadIdentity();
-	GLU.gluLookAt(gl, 0, 0, 0, 0, 0, -14, 0, 1, 0);
+	GLU.gluLookAt(gl, 
+	              0, 0, 0, 
+	              _cam.getTarget().x, _cam.getTarget().y, _cam.getTarget().z, 
+	              0, 1, 0);
 	gl.glDisable(GL10.GL_DEPTH_TEST);
 	gl.glColor4f(0.2f, 0.2f, 0.2f, 1.0f);
 	_sky.draw(gl);
@@ -218,7 +243,7 @@ public class GameState implements IState
 	Engine.getInstance().getRenderer().drawObjects(gl);
 	
 	gl.glPushMatrix();
-	gl.glTranslatef(0.0f, 0, -7.0f);
+	gl.glTranslatef(0.0f, 0, 0f);
 	_grid.draw(gl);
 	gl.glPopMatrix();
 	

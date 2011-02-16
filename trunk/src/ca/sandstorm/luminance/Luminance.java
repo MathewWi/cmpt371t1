@@ -40,18 +40,18 @@ public class Luminance extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
 	logger.debug("onCreate()");
-
+	
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
+	
+	// init the engine and add our states
+	Engine.getInstance().pushState(new GameState());	
 
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
 	mGLView = new GLSurfaceView(this);
 	mGLView.setRenderer(new ClearRenderer());
 	setContentView(mGLView);
-
-	// init the engine and add our states
-	Engine.getInstance().pushState(new GameState());
     }
 
 
@@ -126,7 +126,8 @@ public class Luminance extends Activity
 	    logger.debug("onSurfaceCreated(" + gl.toString() + ", " +
 			 config.toString() + ")");
 
-	    // Engine.getInstance().init();
+	    
+	    Engine.getInstance().init(gl);
 	}
 
 

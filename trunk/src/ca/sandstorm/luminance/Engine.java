@@ -61,7 +61,7 @@ public class Engine
 	_touchFilter = new MultiTouchFilter();
 
 	_lastTime = SystemClock.uptimeMillis();
-
+	
 	// TEMP: play a sound to test sound system
 	// _audioSystem.load("test.mp3");
 	// _audioSystem.play("test.mp3", 0.9f);
@@ -233,6 +233,16 @@ public class Engine
 
 	for (IState s : _stateStack) {
 	    s.deviceChanged(gl, _width, _height);
+	}
+    }
+    
+    
+    public void init(GL10 gl)
+    {
+	for (IState s : _stateStack) {
+	    if (s.isActive()) {
+		s.init(gl);
+	    }
 	}
     }
 

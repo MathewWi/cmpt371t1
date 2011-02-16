@@ -61,8 +61,20 @@ public class Camera
 	_qNewView = new Quat4f();
 	_qConjugate = new Quat4f();
     }
-
-
+    
+    
+    public Vector3f getEye()
+    {
+	return _eye;
+    }
+    
+    
+    public Vector3f getTarget()
+    {
+	return _target;
+    }    
+    
+    
     public void setEye(Vector3f v)
     {
 	_eye = v;
@@ -83,7 +95,7 @@ public class Camera
     }
 
 
-    public void setTaret(float x, float y, float z)
+    public void setTarget(float x, float y, float z)
     {
 	_target.x = x;
 	_target.y = y;

@@ -27,4 +27,7 @@ public interface IState
 
 
     public void draw(GL10 gl);
+    
+    
+    public void init(GL10 gl);
 }
