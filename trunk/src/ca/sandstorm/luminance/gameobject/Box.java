@@ -15,7 +15,7 @@ public class Box implements IRenderableObject
     
     public Box(Vector3f position)
     {
-	this.position = position;
+	this.position = new Vector3f(position);
 	rotation = new Vector4f(1.0f, 1.0f, 1.0f, 0f);
 	model = Engine.getInstance().getRenderer().getBox();
     }
