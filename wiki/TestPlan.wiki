@@ -15,16 +15,12 @@
   Test Suite --> testGraphics --> testCube.java
 <br>
   Test Suite --> testGameLogic --> testAI.java
-<br>
-  Test Suite --> testHook --> testSmoke.java
 
   This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses an ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
 
   Furthermore, the ant build will have a file that holds output from a successful run through the test suite.  The diff command will be used to test the output of the testHook package with this file to ensure that the tests have passed. The output of a test, when invoked via command-line, will output to STDOUT. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
 
   The main (and recommended) technologies to be used are Robotium and JUnit for Android. Robotium is essentially built for Android GUI testing and JUnit is recommended by Android's site.
-
-  * Note: Because Robotium is unknown to us at this moment, it is unsure of whether or not it can be included into the package.
 
 === User-Public ===
   By the end of the second Milestone, a working version of the game replicated on the Android phone should be up and running. With this, and hopefully a handful of Android phones, we will incorporate a testing facility with which non-group members from the public will play our game and give a feedback via form. This form (in its alpha) is at the end of this document. 
