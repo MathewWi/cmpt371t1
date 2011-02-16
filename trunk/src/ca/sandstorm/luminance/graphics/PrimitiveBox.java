@@ -5,6 +5,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
 /**
  * A primitive box using an index buffer.
@@ -13,24 +14,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class PrimitiveBox implements IRenderable
 {
     // Vertex coordinates
-    private static float[] vertices =
-    {
-	-0.5f, -0.5f, -0.5f,
-	0.5f, -0.5f, -0.5f,
-	0.5f, 0.5f, -0.5f,
-	-0.5f, 0.5f, -0.5f,
-	-0.5f, -0.5f, 0.5f,
-	0.5f, -0.5f, 0.5f,
-	0.5f, 0.5f, 0.5f,
-	-0.5f, 0.5f, 0.5f
-    };
+    private static float[] vertices;
     
     // Indices
-    private static byte[] indices =
-    {
-	0, 4, 5, 0, 5, 1, 1, 5, 6, 1, 6, 2, 2, 6, 7, 2, 7, 3,
-	3, 7, 4, 3, 4, 0, 4, 7, 6, 4, 6, 5, 3, 0, 1, 3, 1, 2 
-    };
+    private static byte[] indices;
     
     private FloatBuffer vertexBuffer;
     private ByteBuffer indexBuffer;
@@ -39,8 +26,26 @@ public class PrimitiveBox implements IRenderable
      * Constructor.
      * Create the buffers from the data.
      */
-    public PrimitiveBox()
+    public PrimitiveBox(Vector3f min, Vector3f max)
     {
+	vertices = new float[]	                    
+	                    {
+	                	min.x, min.y, min.z,
+	                	max.x, min.y, min.z,
+	                	max.x, max.y, min.z,
+	                	min.x, max.y, min.z,
+	                	min.x, min.y, max.z,
+	                	max.x, min.y, max.z,
+	                	max.x, max.y, max.z,
+	                	min.x, max.y, max.z
+	                    };	 
+	
+	indices = new byte[]
+	                    {
+				0, 4, 5, 0, 5, 1, 1, 5, 6, 1, 6, 2, 2, 6, 7, 2, 7, 3,
+				3, 7, 4, 3, 4, 0, 4, 7, 6, 4, 6, 5, 3, 0, 1, 3, 1, 2 		    
+	                    };
+	
 	// Create vertex buffer
 	ByteBuffer byteBuf = ByteBuffer.allocateDirect(vertices.length * 4);
 	byteBuf.order(ByteOrder.nativeOrder());

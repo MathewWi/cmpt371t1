@@ -53,12 +53,14 @@ public class GameState implements IState
 	
 	objects = new LinkedList<IGameObject>();
 
-	// Temporary box for testing -zenja
-	testBox = new Box(new Vector3f(0f, 0f, 0f));
-	objects.add(testBox);
-	Engine.getInstance().getRenderer().addRenderable(testBox);
-	
 	_grid = new Grid(10, 10, 1.0f, 1.0f);
+	
+	// Temporary box for testing
+	Vector3f center = _grid.getCellCenter(5, 5);
+	testBox = new Box(center);
+
+	objects.add(testBox);
+	Engine.getInstance().getRenderer().addRenderable(testBox);	
 	
 	float maxSize = Math.max(_grid.getTotalWidth(), _grid.getTotalHeight());
 	float camY = 1.15f * (maxSize / (float)(Math.tan((Math.PI / 6.0))));

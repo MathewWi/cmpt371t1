@@ -19,6 +19,7 @@ public class Grid implements IGameObject
 
     private Vector3f _vCenter;
     private Vector3f _tmpCenter;
+    private Vector3f _tmpCellCenter;
 
     private int _cols;
     private int _rows;
@@ -92,6 +93,7 @@ public class Grid implements IGameObject
 	_vCenter.set((_cols * _cellWidth), 0, (_rows * _cellHeight));
 
 	_tmpCenter = new Vector3f(0, 0, 0);
+	_tmpCellCenter = new Vector3f(0, 0, 0);
     }
 
 
@@ -134,6 +136,21 @@ public class Grid implements IGameObject
     public Vector3f getCenter()
     {
 	return _vCenter;
+    }
+    
+    
+    public Vector3f getCellCenter(int row, int col)
+    {
+	float xOffset = 0.0f;
+	float zOffset = 0.0f;
+	
+	float x = xOffset + (col * _cellWidth);
+	float y = 0.0f;
+	float z = zOffset + (row * _cellHeight);
+	
+	_tmpCellCenter.set(x, y, z);
+	
+	return _tmpCellCenter;
     }
 
 
