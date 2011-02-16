@@ -12,6 +12,7 @@
 
   ==Intuitive Input Interface==
    The input interface should be clean and utilize the perceived affordances people already have for touch screen input usage.  For users who do not enjoy a touch interface we can utilize the pointer and keyboard as well.
+   We would also like to make the interface playable regardless of whether the user is holding the phone vertically or horizontally. 
 
   ==Effective sound effects==
    The sounds effects in the game should be minimal but effective.  Each important action should carry a unique sound effect.  Since we are on a phone we also need to make sure that without sound the game is still able to convey feedback information.
