@@ -1,15 +1,21 @@
 package ca.sandstorm.luminance.gamelogic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.microedition.khronos.opengles.GL10;
 
+import android.view.MotionEvent;
 import android.widget.Button;
 
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.state.IState;
 
 
 public class MenuState implements IState
 {
+    private static final Logger logger = LoggerFactory.getLogger(MenuState.class);
     private GUIManager _guiManager;
 
     public MenuState()
@@ -54,8 +60,19 @@ public class MenuState implements IState
     @Override
     public void update(GL10 gl)
     {
+	System.out.println("update(GL10)");
 	// TODO Auto-generated method stub
-
+	if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchEvent() != null) {
+	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
+	    				.getTouchScreen().getTouchEvent();
+	    
+	    if (touchEvent.getAction() == MotionEvent.ACTION_UP) {
+		logger.debug("Menu has been touched");
+		if (_guiManager.touchOccured(touchEvent) != null) {
+		    logger.debug("button has been tapped");
+		}
+	    }
+	}
     }
 
 
@@ -63,7 +80,7 @@ public class MenuState implements IState
     public void draw(GL10 gl)
     {
 	// TODO Auto-generated method stub
-
+	logger.debug("draw(GL10)");
     }
 
 
