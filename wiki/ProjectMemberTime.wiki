@@ -62,7 +62,11 @@
 || Running daily build || 1 ||
 
 === Milestone 2 ===
-|| Helping figure out test project setup || 1.5 ||
+|| *Task* || *Hours spent so far* ||
+|| Helping figure out test project setup || 2 ||
+|| Setup of test build configuration || 2 ||
+|| Organizing team || 3 ||
+|| Preparing Wiki for deliverable || 2.5 ||
 
 == Chet Collins ==
 || *Task* || *Hours spent so far* ||
