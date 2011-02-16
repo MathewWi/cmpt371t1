@@ -1,188 +1,146 @@
-<class-diagram version="0.9.86" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="true" nesting-relationships="true">  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance" project="Luminance" 
+<class-diagram version="1.0.0" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
+  <package id="1" language="java" name="ca.sandstorm.luminance" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance" binary="false">    
     <position x="648" y="44" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.audio" project="Luminance" 
+  <package id="2" language="java" name="ca.sandstorm.luminance.audio" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/audio" binary="false">    
     <position x="1089" y="37" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.camera" project="Luminance" 
+  <package id="3" language="java" name="ca.sandstorm.luminance.camera" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/camera" binary="false">    
     <position x="752" y="390" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gamelogic" project="Luminance" 
+  <package id="4" language="java" name="ca.sandstorm.luminance.gamelogic" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/gamelogic" binary="false">    
     <position x="551" y="482" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject" project="Luminance" 
+  <package id="5" language="java" name="ca.sandstorm.luminance.gameobject" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/gameobject" binary="false">    
     <position x="1072" y="541" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.graphics" project="Luminance" 
+  <package id="6" language="java" name="ca.sandstorm.luminance.graphics" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/graphics" binary="false">    
     <position x="968" y="266" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gui" project="Luminance" 
+  <package id="7" language="java" name="ca.sandstorm.luminance.gui" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/gui" binary="false">    
     <position x="299" y="306" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.input" project="Luminance" 
+  <package id="8" language="java" name="ca.sandstorm.luminance.input" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/input" binary="false">    
-    <position x="345" y="122" width="-1" height="-1"/>  
+    <position x="360" y="122" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.level" project="Luminance" 
+  <package id="9" language="java" name="ca.sandstorm.luminance.level" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/level" binary="false">    
     <position x="550" y="562" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.math" project="Luminance" 
+  <package id="10" language="java" name="ca.sandstorm.luminance.math" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/math" binary="false">    
     <position x="119" y="193" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources" project="Luminance" 
+  <package id="11" language="java" name="ca.sandstorm.luminance.resources" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/resources" binary="false">    
     <position x="1078" y="190" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.state" project="Luminance" 
+  <package id="12" language="java" name="ca.sandstorm.luminance.state" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/state" binary="false">    
     <position x="540" y="262" width="-1" height="-1"/>  
   </package>  
-  <package corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.time" project="Luminance" 
+  <package id="13" language="java" name="ca.sandstorm.luminance.time" project="Luminance" 
     file="/Luminance/src/ca/sandstorm/luminance/time" binary="false">    
     <position x="124" y="51" width="-1" height="-1"/>  
   </package>  
   <dependency>    
     <bendpoint x="935" y="84"/>    
-    <source project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.resources" 
-      file="/Luminance/src/ca/sandstorm/luminance/resources" binary="false"/>  
+    <end type="SOURCE" nodeId="1"/>    
+    <end type="TARGET" nodeId="11"/>  
   </dependency>  
   <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.input" file="/Luminance/src/ca/sandstorm/luminance/input" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>  
+    <end type="SOURCE" nodeId="4"/>    
+    <end type="TARGET" nodeId="7"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="7"/>    
+    <end type="TARGET" nodeId="1"/>  
   </dependency>  
   <dependency>    
     <bendpoint x="302" y="80"/>    
-    <source project="Luminance" name="ca.sandstorm.luminance.input" file="/Luminance/src/ca/sandstorm/luminance/input" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.time" file="/Luminance/src/ca/sandstorm/luminance/time" 
-      binary="false"/>  
+    <end type="SOURCE" nodeId="8"/>    
+    <end type="TARGET" nodeId="13"/>  
   </dependency>  
   <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.graphics" 
-      file="/Luminance/src/ca/sandstorm/luminance/graphics" binary="false"/>  
+    <end type="SOURCE" nodeId="4"/>    
+    <end type="TARGET" nodeId="5"/>  
   </dependency>  
   <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gui" file="/Luminance/src/ca/sandstorm/luminance/gui" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>  
+    <bendpoint x="857" y="315"/>    
+    <end type="SOURCE" nodeId="5"/>    
+    <end type="TARGET" nodeId="1"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="1"/>    
+    <end type="TARGET" nodeId="13"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="1"/>    
+    <end type="TARGET" nodeId="6"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="1"/>    
+    <end type="TARGET" nodeId="12"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="2"/>    
+    <end type="TARGET" nodeId="11"/>  
+  </dependency>  
+  <dependency>    
+    <bendpoint x="666" y="294"/>    
+    <end type="SOURCE" nodeId="4"/>    
+    <end type="TARGET" nodeId="1"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="13"/>    
+    <end type="TARGET" nodeId="10"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="5"/>    
+    <end type="TARGET" nodeId="11"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="4"/>    
+    <end type="TARGET" nodeId="3"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="4"/>    
+    <end type="TARGET" nodeId="12"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="3"/>    
+    <end type="TARGET" nodeId="1"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="1"/>    
+    <end type="TARGET" nodeId="2"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="7"/>    
+    <end type="TARGET" nodeId="8"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="8"/>    
+    <end type="TARGET" nodeId="1"/>  
   </dependency>  
   <dependency>    
     <bendpoint x="123" y="406"/>    
     <bendpoint x="125" y="352"/>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic" 
-      file="/Luminance/src/ca/sandstorm/luminance/gamelogic" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.input" file="/Luminance/src/ca/sandstorm/luminance/input" 
-      binary="false"/>  
+    <end type="SOURCE" nodeId="4"/>    
+    <end type="TARGET" nodeId="8"/>  
   </dependency>  
   <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic" 
-      file="/Luminance/src/ca/sandstorm/luminance/gamelogic" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.camera" file="/Luminance/src/ca/sandstorm/luminance/camera" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.camera" file="/Luminance/src/ca/sandstorm/luminance/camera" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.time" file="/Luminance/src/ca/sandstorm/luminance/time" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.math" file="/Luminance/src/ca/sandstorm/luminance/math" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <bendpoint x="666" y="294"/>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic" 
-      file="/Luminance/src/ca/sandstorm/luminance/gamelogic" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.audio" file="/Luminance/src/ca/sandstorm/luminance/audio" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <bendpoint x="857" y="315"/>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gameobject" 
-      file="/Luminance/src/ca/sandstorm/luminance/gameobject" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic" 
-      file="/Luminance/src/ca/sandstorm/luminance/gamelogic" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.gui" file="/Luminance/src/ca/sandstorm/luminance/gui" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.graphics" 
-      file="/Luminance/src/ca/sandstorm/luminance/graphics" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.gameobject" 
-      file="/Luminance/src/ca/sandstorm/luminance/gameobject" binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.state" file="/Luminance/src/ca/sandstorm/luminance/state" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance" file="/Luminance/src/ca/sandstorm/luminance" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.time" file="/Luminance/src/ca/sandstorm/luminance/time" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.audio" file="/Luminance/src/ca/sandstorm/luminance/audio" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.resources" 
-      file="/Luminance/src/ca/sandstorm/luminance/resources" binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic" 
-      file="/Luminance/src/ca/sandstorm/luminance/gamelogic" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.state" file="/Luminance/src/ca/sandstorm/luminance/state" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gui" file="/Luminance/src/ca/sandstorm/luminance/gui" 
-      binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.input" file="/Luminance/src/ca/sandstorm/luminance/input" 
-      binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic" 
-      file="/Luminance/src/ca/sandstorm/luminance/gamelogic" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.gameobject" 
-      file="/Luminance/src/ca/sandstorm/luminance/gameobject" binary="false"/>  
-  </dependency>  
-  <dependency>    
-    <source project="Luminance" name="ca.sandstorm.luminance.gameobject" 
-      file="/Luminance/src/ca/sandstorm/luminance/gameobject" binary="false"/>    
-    <target project="Luminance" name="ca.sandstorm.luminance.resources" 
-      file="/Luminance/src/ca/sandstorm/luminance/resources" binary="false"/>  
+    <end type="SOURCE" nodeId="6"/>    
+    <end type="TARGET" nodeId="5"/>  
   </dependency>  
   <classifier-display autosize="false" package="true" initial-value="false" signature="true" visibility="true">    
     <attributes public="false" package="true" protected="false" private="false"/>    
