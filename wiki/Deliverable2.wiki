@@ -9,7 +9,7 @@
  == Version Control Strategy ==
   Our version control strategy has esstentially remained the same throughout this milestone from the last.  We have been using !TeamCity as an issue tracker, along with a google code repository set up on a VM on campus.
 
-  Developers are to commit their classes with stubbed out methods - including pre-conditions, post-conditions, parameter explanations, etc - before doing any hardcore development.  In this fashion, the test team is then able to start writing unit tests on this stubbed out code, therefore making out whole software development process more efficient.
+   Developers are to commit their classes with stubbed out methods - including pre-conditions, post-conditions, parameter explanations, etc - before doing any hardcore development.  In this fashion, the test team is then able to start writing unit tests on this stubbed out code, therefore making out whole software development process more efficient.
 
  == Daily Build ==
   A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
