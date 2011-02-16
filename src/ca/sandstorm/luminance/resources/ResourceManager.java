@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.SoundPool;
 import android.opengl.GLUtils;
 
 
@@ -162,7 +163,6 @@ public class ResourceManager
     public TextureResource loadTextureResource(String filename, GL10 gl)
 	    throws IOException
     {
-	//TODO: should this be in the resource manager?
 	// Load the image
 	InputStream stream = assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
@@ -173,14 +173,14 @@ public class ResourceManager
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
 
 	// Texture parameters
-	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER,
-			   GL10.GL_NEAREST);
-	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER,
-			   GL10.GL_LINEAR);
-	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S,
-			   GL10.GL_REPEAT);
-	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T,
-			   GL10.GL_REPEAT);
+//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER,
+//			   GL10.GL_NEAREST);
+//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER,
+//			   GL10.GL_LINEAR);
+//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S,
+//			   GL10.GL_REPEAT);
+//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T,
+//			   GL10.GL_REPEAT);
 
 	// Use the Android GLUtils to specify a two-dimensional texture image
 	// from our bitmap
@@ -195,14 +195,15 @@ public class ResourceManager
     /**
      * Load a sound effect resource.
      * 
+     * @param pool Android SoundPool to use
      * @param filename
      *            Path to resource relative to assets directory
      * @return The newly loaded resource, or an existing already loaded one
      */
-    public SoundResource loadSoundResource(String filename)
+    public SoundResource loadSoundResource(SoundPool pool, String filename)
     {
-	// TODO: this method and all sound related resource loading
-	SoundResource res = new SoundResource(filename, 0);
+	int soundId = pool.load(filename, 1);
+	SoundResource res = new SoundResource(filename, soundId);
 
 	resources.put(filename, res);
 	return res;

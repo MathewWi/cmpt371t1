@@ -161,6 +161,9 @@ public class Grid implements IGameObject
 	// Enable the vertex and color state
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 	// gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
+	
+	// Set color
+	gl.glColor4f(1f, 1f, 1f, 1f);
 
 	// Draw the vertices as triangles, based on the Index Buffer information
 	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,

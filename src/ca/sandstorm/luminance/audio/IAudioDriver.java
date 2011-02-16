@@ -1,11 +1,10 @@
 package ca.sandstorm.luminance.audio;
 
+import ca.sandstorm.luminance.resources.SoundResource;
+
 public interface IAudioDriver
 {
-    void load(String fileName);
-
-
-    int play(String fileName, float volume);
+    int play(SoundResource sound, float volume);
 
 
     void stop(int stream);

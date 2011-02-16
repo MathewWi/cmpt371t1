@@ -18,6 +18,7 @@ import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
 import ca.sandstorm.luminance.input.TouchFilter;
 import ca.sandstorm.luminance.resources.ResourceManager;
+import ca.sandstorm.luminance.resources.SoundResource;
 import ca.sandstorm.luminance.resources.TextResource;
 import ca.sandstorm.luminance.state.IState;
 import ca.sandstorm.luminance.time.TimeSystem;
@@ -46,6 +47,8 @@ public class Engine
     private GLRenderer _renderer;
 
     private TouchFilter _touchFilter;
+    
+    SoundResource testSound;
 
 
     private Engine()
@@ -63,8 +66,8 @@ public class Engine
 	_lastTime = SystemClock.uptimeMillis();
 	
 	// TEMP: play a sound to test sound system
-	// _audioSystem.load("test.mp3");
-	// _audioSystem.play("test.mp3", 0.9f);
+	testSound = _resourceManager.loadSoundResource(_audioSystem.getPool(), "sounds/sample.ogg");
+	_audioSystem.play(testSound, 0.9f);
     }
 
 
@@ -204,6 +207,7 @@ public class Engine
 
 	// Resume all sounds
 	_audioSystem.resumeAll();
+	_audioSystem.play(testSound, 0.9f);
     }
 
 
