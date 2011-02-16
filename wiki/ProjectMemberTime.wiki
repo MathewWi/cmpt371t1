@@ -98,7 +98,9 @@
 || Learning Ant Script || 4 ||
 || Learning Android Virtual Device || 4 ||
 || Meeting with Dr. Kevin Stanley || 1 ||
-|| Continuous Integration Script || 15 ||
+|| Continuous Integration Script || 30 ||
+|| SVN TestSuite || 1 ||
+|| SVN TestSmoke || 1 ||
 
 == Jonny ==
 || *Task* || *Hours spent so far* ||
