@@ -80,10 +80,18 @@ The project must be imported by adding it within Eclipse using Subversive. Do no
 
 ===Project Check-out for LuminanceTestSuite===
   # Same as in Project check-out
-  # Use the URL of https://cmpt371t1.googlecode.com/svn/branches/LuminanceTestSuite instead
+  # Use the URL of https://cmpt371t1.googlecode.com/svn/trunk/TestSuite instead
   # Give name and code:password
   # It should then be auto-filled same as a project and be named LuminanceTestSuite for the last step
   # Right click-Runas-Android JUnit
+  # NOTE: Please leave the folder as is when checking out the Luminance Project itself as that won't be recognized as a test project. You need to check it out seperately
+
+===Project Check-out for LuminanceSmokeTest===
+* Command-line
+  # Use this line [svn co https://cmpt371t1.googlecode.com/svn/branches/LuminanceSmokeTest LuminanceSmokeTest --username your.Gmail.name]
+  # To run, please either check the README under antscript folder inside  or change the filepaths of the build.properties file and have ant on your machine and invoke [ant] on the command-line. 
+  # Make sure the filepaths are right! Use absolute paths. 
+  # ie. on Mac, invoke pwd and thats the path you use.
 
 
 ==Configure local build settings==
