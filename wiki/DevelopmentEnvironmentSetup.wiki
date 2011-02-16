@@ -78,6 +78,14 @@ The project must be imported by adding it within Eclipse using Subversive. Do no
   # Use the URL [https://cmpt371t1.googlecode.com/svn/trunk]. In the Authentication section, enter your Google Code username and password. To get your password, go to Google Code, go to your profile page by following the link on the upper right corner of the page, and going to the settings tab. *Note:* this Google Code password is not the same as your normal Google account password.
   # Click next and finish. You will then be prompted on how to check out the project. Choose "Check out as a project with the name specified" and keep the name as Luminance, then click finish.
 
+===Project Check-out for LuminanceTestSuite===
+  # Same as in Project check-out
+  # Use the URL of https://cmpt371t1.googlecode.com/svn/branches/LuminanceTestSuite instead
+  # Give name and code:password
+  # It should then be auto-filled same as a project and be named LuminanceTestSuite for the last step
+  # Right click-Runas-Android JUnit
+
+
 ==Configure local build settings==
 The project is now set up to use Ant to build itself, just like the !TeamCity server is doing. Mostly everything should come set up straight out of the repository, except you need to create a "local.properties" file in the project's root folder (where build.properties, etc are) to point to the location of the Android SDK folder on your machine. The file should contain a single line, such as this:
 {{{
