@@ -56,4 +56,8 @@ _Note that although this works, it has not been confirmed it's a legitimate, per
     If not, then create it using touch .bash_profile
     Then add in the command from #1 and it should use that command each time
      a new terminal is opened so you don't have to redo it all the time.
+
+====In Linux====
+  Essentially the same as mac except the file is a bashrc.
+    Not positive, a confirmation is needed.
       
