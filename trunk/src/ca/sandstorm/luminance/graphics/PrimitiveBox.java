@@ -5,7 +5,6 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
-import javax.vecmath.Vector3f;
 
 /**
  * A primitive box using an index buffer.

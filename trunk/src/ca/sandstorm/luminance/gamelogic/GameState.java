@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gamelogic;
 
+import java.util.LinkedList;
+
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 
@@ -14,6 +16,7 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Grid;
+import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
@@ -27,6 +30,7 @@ public class GameState implements IState
     private Camera _cam;
 
     private Box testBox;
+    
     private Grid _grid;
     private Skybox _sky;
 
@@ -36,6 +40,10 @@ public class GameState implements IState
     private static final int ZOOM = 1;
     private static final float TOUCH_SENSIVITY = 0.2f;
     private int touchMode;
+    
+    // Container of game objects.
+    //TODO: Implement functions for manipulating this
+    private LinkedList<IGameObject> objects;
 
 
     public GameState()
@@ -44,13 +52,18 @@ public class GameState implements IState
 
 	_cam = new Camera();
 	_cam.setEye(0, 0, 5);
+	
+	objects = new LinkedList<IGameObject>();
 
 	// Temporary box for testing
 	testBox = new Box(new Vector3f(0f, 0f, -14f));
+	objects.add(testBox);
 	Engine.getInstance().getRenderer().addRenderable(testBox);
 	
 	_grid = new Grid(10, 10, 1.0f, 1.0f);
 	_sky = new Skybox();
+	objects.add(_grid);
+	objects.add(_sky);
     }
 
 
@@ -178,11 +191,12 @@ public class GameState implements IState
 
 	    }
 	}
+	
+	// Update game objects -zenja
+	for (IGameObject object : objects) {
+	    object.update();
+	}
     }
-
-
-    private float rquad = 0.0f;
-
 
     @Override
     public void draw(GL10 gl)
@@ -199,15 +213,8 @@ public class GameState implements IState
 	_sky.draw(gl);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
 	gl.glPopMatrix();
-
-//	gl.glPushMatrix();
-//	gl.glTranslatef(0.0f, 0, -14.0f);
-	gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
-//	_box.draw(gl);
-	rquad -= 0.45f;
-//	gl.glPopMatrix();
 	
-	// Get renderer to draw everything on its renderable list
+	// Get renderer to draw everything on its renderable list -zenja
 	Engine.getInstance().getRenderer().drawObjects(gl);
 	
 	gl.glPushMatrix();
