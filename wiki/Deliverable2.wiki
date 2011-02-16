@@ -29,6 +29,14 @@
  
  Code reviews are documented at CodeReviews.
 
+= Version Control Strategy =
+ The code review process is documented at CodeReviewProcess.
+ 
+= Software Development Process =
+ Wordswordswrods
+
+= =
+
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
  Any project artifacts that were modified or created since the first milestone will be part of Deliverable 3.
