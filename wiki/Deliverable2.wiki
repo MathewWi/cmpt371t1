@@ -34,7 +34,8 @@
  Code reviews are documented at CodeReviews.
  
 = Refinement of our Software Development Process =
- Given what our group has gone through, we have worked hard to improve our downfalls in the following ways:
+ Our group has hit quite a large issue within the past milestone.  This issue was we had our Project Manager taking on the role of Development Lead as well  This lead to a variety of problems.  In addition to that, we also had two of our test team leave the group.  Both of these caused us to get side-tracked, since we had to refactor our group positions quite significantly.  This has lead us to refine our software engineering processes in the following ways:
+
  * Enhanced communication.
   * Discuss as a group what changes are going to be made.
   * More open discussion in group meetings, rather than one person leading the whole thing
