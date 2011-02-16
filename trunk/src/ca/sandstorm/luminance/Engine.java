@@ -24,33 +24,50 @@ import ca.sandstorm.luminance.state.IState;
 import ca.sandstorm.luminance.time.TimeSystem;
 
 
+/**
+ * Application runtime controller class
+ * @author halsafar - shinhalsafar@gmail.com
+ *
+ */
 public class Engine
 {
     private static final Logger logger = LoggerFactory
 	    .getLogger("Luminance.Engine");
 
+    // singleton instance
     private static Engine _instance = null;
+    
+    // android context
     private Context _context = null;
 
+    // state stack for updating/rendering
     private Stack<IState> _stateStack;
 
+    // stored screen vars
     private int _width;
     private int _height;
     private float _scaleX;
     private float _scaleY;
 
+    // subsystem instances
     private TimeSystem _timer;
-    private long _lastTime;
     private InputSystem _inputSystem;
     private AndroidSoundPlayer _audioSystem;
     private ResourceManager _resourceManager;
     private GLRenderer _renderer;
-
     private TouchFilter _touchFilter;
+    
+    // last update step, used to calculate frame time delta
+    private long _lastTime;
     
     SoundResource testSound;
 
 
+    /**
+     * Constructor.
+     * 
+     * Initializes all engine content and sub systems.
+     */
     private Engine()
     {
 	logger.debug("Engine()");
@@ -71,6 +88,10 @@ public class Engine
     }
 
 
+    /**
+     * Singleton method.
+     * @return instance to the Engine
+     */
     public static Engine getInstance()
     {
 	if (_instance == null) {
@@ -115,54 +136,91 @@ public class Engine
     }
 
     
+    /**
+     * Returns the renderer used for this game.
+     * @return
+     */
     public GLRenderer getRenderer()
     {
 	return _renderer;
     }
     
 
+    /**
+     * Returns the timer system.
+     * @return
+     */
     public TimeSystem getTimer()
     {
 	return _timer;
     }
 
 
+    /**
+     * Returns the input system.
+     * @return
+     */
     public InputSystem getInputSystem()
     {
 	return _inputSystem;
     }
 
 
+    /**
+     * Returns the resource manager.
+     * @return
+     */
     public ResourceManager getResourceManager()
     {
 	return _resourceManager;
     }
 
 
+    /**
+     * Get the view port width in pixels.
+     * @return
+     */
     public int getViewWidth()
     {
 	return _width;
     }
 
 
+    /**
+     * Get the view port height in pixels.
+     * @return
+     */
     public int getViewHeight()
     {
 	return _height;
     }
 
 
+    /**
+     * Get the view port X scaling.  This is the x:y ratio.
+     * @return
+     */
     public float getViewScaleX()
     {
 	return _scaleX;
     }
 
 
+    /**
+     * Get the view port Y scaling.  This is the x:y ratio.
+     * @return
+     */
     public float getViewScaleY()
     {
 	return _scaleY;
     }
 
 
+    /**
+     * Sets the filter to MultiTouch.
+     * The default is to use SingleTouch.
+     * @param b true to set multitouch filter
+     */
     public void setMultiTouchFilter(boolean b)
     {
 	if (b) {
@@ -173,12 +231,20 @@ public class Engine
     }
 
 
+    /**
+     * Returns the current touch filter instance.
+     * @return
+     */
     public TouchFilter getTouchFilter()
     {
 	return _touchFilter;
     }
 
 
+    /**
+     * Push a state onto the engine state stack.
+     * @param state - An instance of a state for the engine to update.
+     */
     public void pushState(IState state)
     {
 	logger.debug("pushState(" + state + ")");
@@ -187,14 +253,22 @@ public class Engine
     }
 
 
-    public void popState()
+
+    /**
+     * Pops a state off the state stack.     
+     * @return the state popped off
+     */
+    public IState popState()
     {
 	logger.debug("popState()");
 
-	_stateStack.pop();
+	return _stateStack.pop();
     }
 
 
+    /**
+     * Informs all states that the rendering has resumed.
+     */
     public void resume()
     {
 	logger.debug("resume()");
@@ -211,6 +285,9 @@ public class Engine
     }
 
 
+    /**
+     * Inform all states that the rendering has paused.
+     */
     public void pause()
     {
 	logger.debug("pause()");
@@ -224,6 +301,16 @@ public class Engine
     }
 
 
+    /**
+     * The device information has changed.  
+     * This function is called by the graphics API.  In most cases
+     * the Android events let us know or the JOGL API.
+     * @param gl Instance of GL10, not valid after the function ends.
+     * @param w New width of the device
+     * @param h New height of the device
+     * @param viewWidth 
+     * @param viewHeight
+     */
     public void deviceChanged(GL10 gl, int w, int h, int viewWidth, int viewHeight)
     {
 	logger.debug("deviceChanged(" + gl.toString() + ", " + w + ", " + h +
@@ -241,6 +328,12 @@ public class Engine
     }
     
     
+    /**
+     * Init code path.  Since the GL10 instance is only valid at certains times
+     * this code path is used to allow states, objects, etc to init anything they
+     * require an OpenGL context for.
+     * @param gl OpenGL context, local scope.
+     */
     public void init(GL10 gl)
     {
 	for (IState s : _stateStack) {
@@ -251,6 +344,11 @@ public class Engine
     }
 
 
+    /**
+     * Update code path.  Used to process the update step of the game.
+     * This would include physics for example.
+     * @param gl OpenGL context, local scope.
+     */
     public void update(GL10 gl)
     {
 	long time = SystemClock.uptimeMillis();
@@ -267,6 +365,10 @@ public class Engine
     }
 
 
+    /**
+     * Drawing code path.  Used to draw all visible on screen objects.
+     * @param gl OpenGL context, local scope.
+     */
     public void draw(GL10 gl)
     {
 	for (IState s : _stateStack) {
