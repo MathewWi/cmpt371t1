@@ -63,13 +63,18 @@
 = Current State of the System =
  * Resource Manager.
   * Capable of loading and managing most resources.
-  * Sound.
+  * Sound is fully implemented.
+
  * Input.
-  * Touch, Drag.
+  * Touch and drag inputs are currently stable.
+
  * Graphics.
   * Basic primitives (sphere, box, etc.).
+  * Full grid, background and general play space implemented.
+
  * Game.
-  *Draws a grid and loads a level.
+  * Currently draws a grid and loads a pre-defined level.
+  * Does not have any playable functionality.
 
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
