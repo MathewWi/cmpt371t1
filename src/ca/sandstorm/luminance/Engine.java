@@ -66,7 +66,7 @@ public class Engine
 	_lastTime = SystemClock.uptimeMillis();
 	
 	// TEMP: play a sound to test sound system
-	testSound = _resourceManager.loadSoundResource(_audioSystem.getPool(), "sounds/sample.ogg");
+	testSound = _resourceManager.loadSound(_audioSystem.getPool(), "sounds/sample.ogg");
 	_audioSystem.play(testSound, 0.9f);
     }
 
@@ -310,7 +310,7 @@ public class Engine
     {
 	try {
 	    logger.info("Contents of '" + path + "'");
-	    TextResource res = _resourceManager.loadTextResource(path);
+	    TextResource res = _resourceManager.loadText(path);
 	    if (res != null)
 		logger.info(res.getText());
 	} catch (IOException e) {

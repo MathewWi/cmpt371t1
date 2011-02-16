@@ -42,7 +42,7 @@ public class GameState implements IState
     private static final float TOUCH_SENSIVITY = 0.2f;
     private int touchMode;
     
-    // Container of game objects.
+    // Container of game objects -zenja
     //TODO: Implement functions for manipulating this
     private LinkedList<IGameObject> objects;
 
@@ -53,8 +53,8 @@ public class GameState implements IState
 	
 	objects = new LinkedList<IGameObject>();
 
-	// Temporary box for testing
-	testBox = new Box(new Vector3f(0f, 0f, -14f));
+	// Temporary box for testing -zenja
+	testBox = new Box(new Vector3f(0f, 0f, 0f));
 	objects.add(testBox);
 	Engine.getInstance().getRenderer().addRenderable(testBox);
 	

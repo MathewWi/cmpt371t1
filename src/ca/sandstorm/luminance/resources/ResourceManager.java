@@ -116,7 +116,7 @@ public class ResourceManager
      * @return The newly loaded resource, or a previously loaded one
      * @throws IOException
      */
-    public TextResource loadTextResource(String filename) throws IOException
+    public TextResource loadText(String filename) throws IOException
     {
 	// Check if the resource is already loaded
 	if (resources.containsKey(filename))
@@ -139,7 +139,7 @@ public class ResourceManager
      * @return The newly loaded resource, or an existing already loaded one
      * @throws IOException
      */
-    public ImageResource loadImageResource(String filename) throws IOException
+    public ImageResource loadImage(String filename) throws IOException
     {
 	InputStream stream = assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
@@ -152,15 +152,15 @@ public class ResourceManager
 
     /**
      * Load a texture resource
-     * 
-     * @param filename
-     *            Path to resource relative to assets directory
      * @param gl
      *            OpenGL context to use for texture creation
+     * @param filename
+     *            Path to resource relative to assets directory
+     * 
      * @return The newly loaded resource, or an existing already loaded one
      * @throws IOException
      */
-    public TextureResource loadTextureResource(String filename, GL10 gl)
+    public TextureResource loadTexture(GL10 gl, String filename)
 	    throws IOException
     {
 	// Load the image
@@ -200,7 +200,7 @@ public class ResourceManager
      *            Path to resource relative to assets directory
      * @return The newly loaded resource, or an existing already loaded one
      */
-    public SoundResource loadSoundResource(SoundPool pool, String filename)
+    public SoundResource loadSound(SoundPool pool, String filename)
     {
 	int soundId = pool.load(filename, 1);
 	SoundResource res = new SoundResource(filename, soundId);
