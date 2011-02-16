@@ -21,6 +21,7 @@
 || Android Widget Toolkit || 1 ||
 
 == Zenja Ivkovic ==
+===Milestone 0===
 || *Task* || *Hours spent so far* ||
 || TeamCity setup/administration || 3 ||
 || Eclipse environment setup || 3 ||
@@ -31,12 +32,14 @@
 || Graphics/model loading research || 1.5 ||
 || CPM diagram || 3 ||
 
-===Milestone 2===
+===Milestone 1===
 || Helping figure out test project setup || 1.5 ||
-|| Resource manager || ||
-|| Audio system || ||
-|| Graphics renderer || ||
-|| Model loading research || ||
+|| Resource manager || 4 ||
+|| Audio system || 1 ||
+|| Graphics renderer || 3 ||
+|| Game object system || 2 ||
+|| Model loading research || 2 ||
+|| Build master duties || 1 ||
 
 == Stephen Damm ==
 || *Task* || *Hours spent so far* ||
@@ -53,6 +56,7 @@
 || Grid class basic || 4 ||
 
 == Martina Nagy ==
+=== Milestone 0 ===
 || *Task* || *Hours spent so far* ||
 || Writing/Debugging build script || 6 ||
 || Deliverable outline || 4 ||
@@ -61,7 +65,7 @@
 || General Wiki maintenance || 2 ||
 || Running daily build || 1 ||
 
-=== Milestone 2 ===
+=== Milestone 1 ===
 || *Task* || *Hours spent so far* ||
 || Helping figure out test project setup || 2 ||
 || Setup of test build configuration || 2 ||
