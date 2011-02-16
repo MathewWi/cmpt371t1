@@ -37,15 +37,25 @@
  Given what our group has gone through, we have worked hard to improve our downfalls in the following ways:
  * Enhanced communication.
   * Discuss as a group what changes are going to be made.
+  * More open discussion in group meetings, rather than one person leading the whole thing
+  * Overall whole group more readily available to communication while developing (i.e. working together, being on instant messaging or cell phones etc.)
   
  * Enhanced collaboration.
-  * Separate team meetings for specific discussions, then regroup.
+  * Separate team meetings for specific discussions.
+  * Collaborate as a whole group to solve integration and system issues.
+  * Communicate with outside parties (i.e. TA's, professors, etc.) for additional help where required.
 
  * Improved division of labour.
   * No longer relying on one person to do it all.
+  * Have a development lead that is separate from project manager.
 
  * Improved chain of command.
   * More defined developer lead position and project manager positions.
+   * Project manager runs overall project development
+   * Development lead divides development tasks between the development team.
+   * Test Team lead divides up testing tasks to their team.
+   * Odd jobs divided up during meetings, so one person doesn't have to do them all.
+  
 
  * Game oriented testing.
   * Challenges of game testing.
