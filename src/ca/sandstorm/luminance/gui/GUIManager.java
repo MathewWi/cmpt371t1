@@ -13,13 +13,13 @@ public class GUIManager
 
     private int numberOfButtons;
     private InputTouchScreen _touchScreen;
-    private MenuButton buttons[];
+    private Button buttons[];
 
 
     public GUIManager()
     {
 	_touchScreen = Engine.getInstance().getInputSystem().getTouchScreen();
-	buttons = new MenuButton[MAX_BUTTON_COUNT];
+	buttons = new Button[MAX_BUTTON_COUNT];
 	numberOfButtons = 0;
     }
 
@@ -28,7 +28,7 @@ public class GUIManager
      * Add a button to be managed by the InputManager returns true if
      * successful, false otherwise
      */
-    public boolean addButton(MenuButton button)
+    public boolean addButton(Button button)
     {
 	if (numberOfButtons == MAX_BUTTON_COUNT) {
 	    return false;
@@ -44,7 +44,7 @@ public class GUIManager
      * STARTED inside a button. Recommended for taps. For other kinds of
      * touches, use touchOccured(float, float).
      */
-    public MenuButton touchOccured(MotionEvent event)
+    public Button touchOccured(MotionEvent event)
     {
 	float xPosition = event.getX();
 	float yPosition = event.getY();
@@ -56,25 +56,19 @@ public class GUIManager
     /*
      * Will figure out if a touch, given x and y, falls into button-space.
      */
-    public MenuButton touchOccured(float x, float y)
+    public Button touchOccured(float x, float y)
     {
-	MenuButton tappedButton = null;
-
 	/*
 	 * Searches through the array of buttons and compares each one
 	 */
-
 	for (int i = 0; i < numberOfButtons; i++) {
-	    MenuButton button = buttons[i];
-	    InputXY input = _touchScreen
-		    .findPointerInRegion(button.getX(), button.getY(),
-					 button.getWidth(), button.getHeight());
-	    if (button.getInput() == input) {
-		tappedButton = button;
-		break;
+	    Button button = buttons[i];
+	    if (x > button.getX() && x < button.getX() + button.getWidth() &&
+		y > button.getY() && y < button.getY() + button.getHeight()) {
+		return button;
 	    }
 	}
 
-	return tappedButton;
+	return null;
     }
 }

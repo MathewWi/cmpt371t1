@@ -2,12 +2,19 @@ package ca.sandstorm.luminance.gamelogic;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.state.IState;
 
 
 public class MenuState implements IState
 {
+    private GUIManager _guiManager;
 
+    public GUIManager getGUIManager()
+    {
+	return _guiManager;
+    }
+    
     @Override
     public void deviceChanged(GL10 gl, int w, int h)
     {
