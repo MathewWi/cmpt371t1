@@ -5,6 +5,13 @@
 
 Will be listing our tasks
 
+== Updates ==
+=== Milestone 2 ===
+  * Two members have gone from the team. Chet has agreed to testing. Its now Jeff, Amara, and Chet
+  * Jeff is focusing on Smoke Tests, JUnit
+  * Amara is focusing on Robotium, Use-case scenarios, User Scenario Play Test
+  * Chet is focusing on JUnit
+
 == Meeting Times ==
 Friday, January 27, 2011 at spinks 342
 
@@ -21,6 +28,8 @@ February 16, 2011
   * Jeff
     # Ant Script
     # Smoke Test
+  * ALL
+    # Peer/Code review the packages under test.
 
 February 1, 2011
  Since game testing is substantially different from any other software testing, decide between conventional testing vs user hands on testing. Inquire experienced persons(Prof. Stanley, Prof. Osgood) on the best approach to testing game mechanics. Implement ant script on local machine.
@@ -74,6 +83,8 @@ January 24, 2011
 = Triage: =
 
 Tasks:
+February 16, 2011
+  Regulate issues
 
 January 24, 2011
   Format issue report form
