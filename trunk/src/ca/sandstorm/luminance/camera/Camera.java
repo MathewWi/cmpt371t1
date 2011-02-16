@@ -26,25 +26,42 @@ import ca.sandstorm.luminance.Engine;
 import android.opengl.GLU;
 
 
+/**
+ * 6DOF Camera class.  View matrix is represented by eye, target, up vectors.
+ * eye is the position of the camera.
+ * target is the line of the sight of the eye.
+ * up is the vector used to define what up is in terms of the camera matrix.
+ * 
+ * The class uses Quaternions to represent rotations.
+ * @author halsafar
+ *
+ */
 public class Camera
 {
     private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
+    // vectors for each axis of the camera
     private Vector3f _up;
     private Vector3f _target;
     private Vector3f _eye;
 
+    // vectors to store these directions, avoiding allocs during runtime
     private Vector3f _lookDirection;
     private Vector3f _strafeDirection;
 
+    // view matrix
     float _matView[];
 
+    // quaternion instances, avoids allocs during runtime
     private Quat4f _qRotation;
     private Quat4f _qView;
     private Quat4f _qNewView;
     private Quat4f _qConjugate;
 
 
+    /**
+     * Basic Constructor.  Initializes all variables.
+     */
     public Camera()
     {
 	_up = new Vector3f(0, 1, 0);
@@ -63,24 +80,42 @@ public class Camera
     }
     
     
+    /**
+     * Return the current eye of the camera.
+     * @return
+     */
     public Vector3f getEye()
     {
 	return _eye;
     }
     
     
+    /**
+     * Return the current target of the camera.
+     * @return
+     */
     public Vector3f getTarget()
     {
 	return _target;
     }    
     
     
+    /**
+     * Sets the eye.
+     * @param v - Vector to set the eye to
+     */
     public void setEye(Vector3f v)
     {
-	_eye = v;
+	_eye = new Vector3f(v);
     }
 
 
+    /**
+     * Sets the eye.
+     * @param x x pos of the eye.
+     * @param y y pos of the eye.
+     * @param z z pos of the eye.
+     */
     public void setEye(float x, float y, float z)
     {
 	_eye.x = x;
@@ -89,12 +124,22 @@ public class Camera
     }
 
 
+    /**
+     * Sets the target for the eye.
+     * @param v - Vector to set the target to
+     */
     public void setTaret(Vector3f v)
     {
-	_target = v;
+	_target = new Vector3f(v);
     }
 
 
+    /**
+     * Sets the target.
+     * @param x x pos of the target.
+     * @param y y pos of the target.
+     * @param z z pos of the target.
+     */
     public void setTarget(float x, float y, float z)
     {
 	_target.x = x;
@@ -103,12 +148,22 @@ public class Camera
     }
 
 
+    /**
+     * Sets the up axis for the eye.
+     * @param v - Vector to set the up axis to
+     */
     public void setUp(Vector3f v)
     {
 	_target = v;
     }
 
 
+    /**
+     * Sets the up axis.
+     * @param x x val of the up axis.
+     * @param y y val of the up axis.
+     * @param z z val of the up axis.
+     */    
     public void setUp(float x, float y, float z)
     {
 	_up.x = x;
@@ -117,6 +172,15 @@ public class Camera
     }
 
 
+    /**
+     * Sets the OpenGL view port.  This is controlled by the camera so multiple
+     * viewports are easily possible.
+     * @param gl OpenGL context, local scope.
+     * @param x x pos of the screen
+     * @param y y pos of the screen
+     * @param w width of the screen
+     * @param h height of the screen
+     */
     public void setViewPort(GL10 gl, int x, int y, int w, int h)
     {
 	logger.debug("setViewPort(" + x + ", " + y + ", " + w + ", " + h + ")");
@@ -125,6 +189,14 @@ public class Camera
     }
 
 
+    /**
+     * Set the perspective matrix for opengl.
+     * @param gl OpenGL context, local scope.
+     * @param fov field of view for the projection
+     * @param aspect aspect ratio (example: 16:9 vs 4:3)
+     * @param zNear near clipping plane
+     * @param zFar far clipping plane
+     */
     public void setPerspective(GL10 gl, float fov, float aspect, float zNear,
 	    float zFar)
     {
@@ -141,27 +213,18 @@ public class Camera
     }
 
 
+    /**
+     * Update the view matrix.  
+     * Use this to set the camera up before rendering objects.
+     * @param gl OpenGL context, local scope.
+     */
     public void updateViewMatrix(GL10 gl)
     {
-	// This was being spammed on every frame so I commented it out -Zenja
-	// logger.debug("updateViewMatrix()");
-
 	// calculate the mdoel view matrix
-
-	/*
-	 * Matrix.setLookAtM (_matView, 0, _eye.x, _eye.y, _eye.z, _target.x,
-	 * _target.y, _target.z, _up.x, _up.y, _up.z);
-	 */
-
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glLoadIdentity();
 	GLU.gluLookAt(gl, _eye.x, _eye.y, _eye.z, _target.x, _target.y,
 		      _target.z, _up.x, _up.y, _up.z);
-
-	// push the new openGL matrix
-	// gl.glLoadMatrixf(_matView, 0);
-
-	// gl.glPushMatrix();
     }
 
 
