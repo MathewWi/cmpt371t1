@@ -1,5 +1,6 @@
 package ca.sandstorm.luminance.gameobject;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -9,12 +10,17 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
+import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.resources.TextureResource;
+
 
 public class Skybox implements IGameObject
 {
     private FloatBuffer _vertexBuffer;
     private FloatBuffer _texCoordBuffer;
     private ShortBuffer _indexBuffer;
+    
+    private TextureResource[] _textures;
 
 
     public Skybox()
@@ -71,7 +77,21 @@ public class Skybox implements IGameObject
 	byteBuf.order(ByteOrder.nativeOrder());
 	_indexBuffer = byteBuf.asShortBuffer();
 	_indexBuffer.put(indices);
-	_indexBuffer.position(0);		
+	_indexBuffer.position(0);
+    }
+    
+    
+    public void init(GL10 gl) throws IOException
+    {
+	_textures = new TextureResource[6];
+	
+	// load the assets for this object
+	_textures[0] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyFront.jpg", gl);
+	_textures[1] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyBack.jpg", gl);
+	_textures[2] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyLeft.jpg", gl);
+	_textures[3] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyRight.jpg", gl);
+	_textures[4] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyTop.jpg", gl);
+	_textures[5] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyBottom.jpg", gl);
     }
 
 
@@ -92,9 +112,11 @@ public class Skybox implements IGameObject
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 		
+	gl.glEnable(GL10.GL_TEXTURE_2D);
+	
 	for(int side = 0; side < 6; side++)
 	{
-		//[textures[side] bind];
+		gl.glBindTexture(GL10.GL_TEXTURE0, _textures[side].getTexture());
 	    	_indexBuffer.position(index);
 		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, _indexBuffer);
 
@@ -103,7 +125,9 @@ public class Skybox implements IGameObject
 	
 	// Disable the client state before leaving
 	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-	gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);	
+	gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+	
+	gl.glDisable(GL10.GL_TEXTURE_2D);
     }
 
 
