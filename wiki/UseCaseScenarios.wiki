@@ -1,0 +1,200 @@
+#summary A walk through of game play and use scenarios.
+
+= Introduction =
+
+*First Level Walk-through*
+   New player walks through the first level of game
+*Use Case Name* First Level Walk-through
+*Scope* Luminance
+
+*Level* user-goal
+
+*Primary Actor* New player
+
+*Stakeholders and Interests*
+
+_New Player:_ Wants to learn how to play the game decides to walkthrough the 
+            tutorial.
+_Tester:_ Wants to run the new player script for playing the first level of 
+            the game to check for possible issues.
+_Developer:_ Wants to run the new player script to see what functionalities
+            of the game can be improved.
+
+
+*Preconditions:*
+	Walkthrough map is created e.g. Luminance video 1:03.
+		Map(level 1) rules: 
+			*1 light beam
+                        *3 differing colored circles
+                        *At least one wall obstacle impeding direct accessto              
+                           circle
+                        *Top wall, bottom wall
+			*A solution
+			*Only 1 prism
+			*Background music plays
+			*On completion success music plays
+			*Multiple instances of mirrors, based on difficulty
+                        *Infinite erasers
+		        *Able to change orientation, camera focuses on
+                           centre
+
+B: brick,  (R): red circle,  (B): blue circle,  (G): green circle,   
+/P\: prism,  (W):emitter M/: right-down mirror 
+/M: left-up mirror,  \M: left-down mirror,  M\: right-up mirror,  
+
+_Phase 0:_
+	1	2	3	4	5	6
+1			B	(W)	B	B
+2	B					
+3	(B)		B		B	
+4		B	B		B	(G)
+5						
+6			(R)			
+7						
+8						
+--------------------------------------------------
+
+Phase 1: 
+	1	2	3	4	5	6
+1			B	(W)	B	B
+2	B					
+3	(B)		B		B	
+4		B	B		B	(G)
+5						
+6			(*R)	/P\		
+7						
+8						
+---------------------------------------------------				
+
+_Phase 2:_
+	1	2	3	4	5	6
+1			B	(W)	B	B
+2	B					
+3	(B)		B		B	
+4		B	B		B	
+5					(*G)	
+6			(*R)	/P\		
+7						
+8				M\	/M	
+----------------------------------------------------
+
+_Phase 3:_ 
+	1	2	3	4	5	6
+1			B	(W)	B	B
+2	B					
+3	(*B)		B		B	
+4		B	B		B	
+5					(*G)	
+6			(*R)	/P\		\M
+7	M\					/M
+8				M\	/M	
+----------------------------------------------------
+B: brick,  (R): red circle,  (B): blue circle,  (G): green circle,   
+/P\: prism,  (W):emitter M/: right-down mirror 
+/M: left-up mirror,  \M: left-down mirror,  M\: right-up mirror,   
+
+
+*Success Guarantee*
+The player splits the beam of white light into primary colors and redirects them into the primary colors and redirects them into colored goals using mirrors. Success music plays and the user is given the option menu and their time of completion. 
+		
+
+*Main Success Scenario*
+	1. They open the program
+        2. The player chooses ->Start Game from main menu
+	3. Single taps the tools prism
+	4. Double taps at (6, 4) the prism is placed
+
+	5. Single taps the tools mirror
+	6. Double taps at (8, 4) the mirror is placed
+	7. Single taps until  M\
+
+	8. Single taps the tools mirror
+        9. Double taps at (8, 5) mirror is placed
+
+	10. Single taps the mirror
+	11. Double tap at (6, 6) mirror placed
+	12. Single taps until \M
+
+	13. Single taps the mirror
+	14. Double tap at (6, 7) mirror placed
+
+	15. Single taps the tools mirror
+	16. Double tap at (7, 1) mirror placed
+	17. Single taps until M\
+		18. First level complete
+   *Extensions*
+        1. They open the program
+        2. The player chooses ->Start Game from main menu
+	        i) Level 1 loaded
+	        ii) background music plays
+	        2.1) Double taps on each tool cycles through
+	3. Single taps the tools prism
+		i) prism shown as chosen
+		3.1) Double taps at (5,4)  the prism was placed incorrectly
+		3.2) Single taps the tools eraser
+		3.3) Single taps the prism at (5, 4)
+			i) prism at (5, 4) is erased
+	4. Double taps at (6, 4) the prism is placed
+		i) white light is split into RGB
+		ii) red circle is linked
+
+	5. Single taps the tools mirror
+		i) the mirror is shown as chosen
+		ii) the mirror count reduces
+		5.1) Double taps at (8, 3) the mirror is placed incorrectly
+		5.2) Single taps the tools eraser
+		5.3) Single taps the mirror at (8, 3)
+			i)mirror at (8, 3) is erased
+	6. Double taps at (8, 4) the mirror is placed
+	7. Single taps until  M\
+		i) mirror is flipped
+
+	8. Single taps the tools mirror
+		i) the mirror is shown as chosen
+		ii) the mirror count reduces
+        9. Double taps at (8, 5) mirror is placed
+	i) green circle is linked
+
+	10. Single taps the tools mirror
+		i) the mirror is shown as chosen
+		ii) the mirror count reduces
+	11. Double tap at (6, 6) mirror placed
+	12. Single taps until \M
+		i) the mirror is flipped
+	
+	13. Single taps the mirror
+		i) the mirror is shown as chosen
+		ii) the mirror count reduces
+	14. Double tap at (6, 7) mirror placed
+
+	15. Single taps the tools mirror
+		i) the mirror is shown as chosen
+		ii) the mirror count reduces
+	16. Double tap at (7, 1) mirror placed
+	17. Single taps until M\
+		i) the mirror is flipped
+		ii) blue ring is linked
+		iii) menu opens
+		18. First level complete
+			i) victory music plays
+Special Requirements
+  -No special requirements
+
+Technology and Data Variations List
+  -No technology or data variations
+
+Frequency of Occurrence
+  -frequent all players will play through the first level.
+
+Miscellaneous
+
+
+Add your content here.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
