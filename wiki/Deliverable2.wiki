@@ -51,11 +51,6 @@
 
  == Estimate of size and time ==
 || *Task* || *Estimate time (hours)* ||
-|| Alpha version of game || 24 ||
-|| GUI test suite basics || 6 ||
-|| Android asset manager || 4 ||
-|| Game level file format analyzed || 2 ||
-|| Game level file format implemented || 4 ||
-|| Game level editor || 4 ||
-|| jCoverage test suite || 8 ||
-|| jUnit test suite || 8 ||
+|| Full Alpha version of game || 24 ||
+|| Robotium test suite || 8 ||
+|| Continuing jUnit test suite || 8 ||
