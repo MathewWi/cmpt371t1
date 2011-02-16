@@ -7,7 +7,7 @@
   [http://code.google.com/p/cmpt371t1/source/checkout]
 
  == Version Control Strategy ==
- Our version control strategy has remained the same throughout this milestone from the last.  Developers are to commit their classes with stubbed out methods - including pre-conditions, post-conditions, parameter explanations, etc - before doing any hardcore development.  In this fashion, the test team is then able to start writing unit tests on this stubbed out code, therefore making out whole software development process more efficient.
+  Our version control strategy has esstentially remained the same throughout this milestone from the last.  Developers are to commit their classes with stubbed out methods - including pre-conditions, post-conditions, parameter explanations, etc - before doing any hardcore development.  In this fashion, the test team is then able to start writing unit tests on this stubbed out code, therefore making out whole software development process more efficient.
 
  == Daily Build ==
   A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
@@ -34,7 +34,23 @@
  Code reviews are documented at CodeReviews.
  
 = Refinement of our Software Development Process =
- Wordswordswrods
+ Given what our group has gone through, we have worked hard to improve our downfalls in the following ways:
+ * Enhanced communication.
+  * Discuss as a group what changes are going to be made.
+  
+ * Enhanced collaboration.
+  * Separate team meetings for specific discussions, then regroup.
+
+ * Improved division of labour.
+  * No longer relying on one person to do it all.
+
+ * Improved chain of command.
+  * More defined developer lead position and project manager positions.
+
+ * Game oriented testing.
+  * Challenges of game testing.
+  * Focus is on black box / play testing.
+  * Tests written as code stubs are created.
 
 = Current State of the System =
  MOARWORDSWORDSWORDS
