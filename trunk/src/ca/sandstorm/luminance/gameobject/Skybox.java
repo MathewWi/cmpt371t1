@@ -86,12 +86,12 @@ public class Skybox implements IGameObject
 	_textures = new TextureResource[6];
 	
 	// load the assets for this object
-	_textures[0] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyFront.jpg", gl);
-	_textures[1] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyBack.jpg", gl);
-	_textures[2] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyLeft.jpg", gl);
-	_textures[3] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyRight.jpg", gl);
-	_textures[4] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyTop.jpg", gl);
-	_textures[5] = Engine.getInstance().getResourceManager().loadTextureResource("textures/skyBottom.jpg", gl);
+	_textures[0] = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/skyFront.jpg");
+	_textures[1] = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/skyBack.jpg");
+	_textures[2] = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/skyLeft.jpg");
+	_textures[3] = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/skyRight.jpg");
+	_textures[4] = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/skyTop.jpg");
+	_textures[5] = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/skyBottom.jpg");
     }
 
 
