@@ -44,20 +44,23 @@
 
   The following new artifacts are anticipated:
    * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
-   * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build
-   * Basic GUI Test Suite - How we plan to test the GUI elements of the project
-   * jUnit Test Suite - The unit test suite
-   * jCoverage Test Suite - The code coverage test suite
-   * Software Quality - The latest measurements of quality
-   * Game Level Editor - A tool to create new game levels
+   * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build.
+   * GUI Test Suite - Continuing work with Robotium.
+   * jUnit Test Suite - Continuing work with the unit test suite.
+   * jCoverage Test Suite - The code coverage test suite.
+   * Software Quality - The latest measurements of quality using code reviews.
 
   In addition, the following implementation-specific tasks are anticipated:
-   * Alpha Version Complete - A working alpha version of the game should be complete
-   * Level Format - The game level format will be analyzed and implemented
+   * Alpha Version Complete - A working alpha version of the game should be complete.
+   * Level Format - The game level format will be analyzed and implemented.
+   * Sounds, special effects, lighting complete.
+   * Multiple levels.
+   * Random level generator.
+   * Game Level Editor - A tool to create new game levels.
 
 
  == Estimate of size and time ==
 || *Task* || *Estimate time (hours)* ||
 || Full Alpha version of game || 24 ||
-|| Robotium test suite || 8 ||
+|| Continuing Robotium test suite || 8 ||
 || Continuing jUnit test suite || 8 ||
