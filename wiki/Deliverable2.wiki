@@ -53,7 +53,15 @@
   * Tests written as code stubs are created.
 
 = Current State of the System =
- MOARWORDSWORDSWORDS
+ * Resource Manager.
+  * Capable of loading and managing most resources.
+  * Sound.
+ * Input.
+  * Touch, Drag.
+ * Graphics.
+  * Basic primitives (sphere, box, etc.).
+ * Game.
+  *Draws a grid and loads a level.
 
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
