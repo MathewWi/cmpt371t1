@@ -28,7 +28,8 @@
 
 = Code Reviews =
  The code review process is documented at CodeReviewProcess.
- Code reviews is documented at CodeReviews.
+ 
+ Code reviews are documented at CodeReviews.
 
 = GUI Prototype =
  A video of the previous implementation of the game can be viewed here: [http://code.google.com/p/cmpt371t1/]
