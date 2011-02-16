@@ -32,10 +32,10 @@
 = Version Control Strategy =
  The code review process is documented at CodeReviewProcess.
  
-= Software Development Process =
+= Refinement of our Software Development Process =
  Wordswordswrods
 
-= Current State =
+= Current State of the System =
  MOARWORDSWORDSWORDS
 
 = Initial Analysis for Deliverable 3 =
@@ -49,13 +49,13 @@
    * jCoverage Test Suite - The code coverage test suite.
    * Software Quality - The latest measurements of quality using code reviews.
 
-  In addition, the following implementation-specific tasks are anticipated:
-   * Alpha Version Complete - A working alpha version of the game should be complete.
-   * Level Format - The game level format will be analyzed and implemented.
-   * Sounds, special effects, lighting complete.
-   * Multiple playable levels.
-   * Random level generator.
-   * Game Level Editor - A tool to create new game levels.
+ In addition, the following implementation-specific tasks are anticipated:
+  * Alpha Version Complete - A working alpha version of the game should be complete.
+  * Level Format - The game level format will be analyzed and implemented.
+  * Sounds, special effects, lighting complete.
+  * Multiple playable levels.
+  * Random level generator.
+  * Game Level Editor - A tool to create new game levels.
 
 
  == Estimate of size and time ==
