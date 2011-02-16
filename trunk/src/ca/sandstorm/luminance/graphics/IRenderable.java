@@ -1,11 +1,8 @@
 package ca.sandstorm.luminance.graphics;
 
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
+import javax.microedition.khronos.opengles.GL10;
 
 public interface IRenderable
 {
-    FloatBuffer getVertexBuffer();
-    FloatBuffer getNormalBuffer();
-    ByteBuffer getIndexBuffer();
+    void draw(GL10 gl);
 }

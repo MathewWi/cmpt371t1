@@ -4,6 +4,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+import javax.microedition.khronos.opengles.GL10;
+
 /**
  * A primitive box using an index buffer.
  * @author zenja
@@ -1836,34 +1838,25 @@ public class PrimitiveSphere implements IRenderable
 	vertexBuffer.position(0);
     }
     
-    /**
-     * Get the vertex buffer.
-     * @return Vertex buffer
-     */
     @Override
-    public FloatBuffer getVertexBuffer()
+    public void draw(GL10 gl)
     {
-	return vertexBuffer;
-    }
+	// Set the face rotation
+	gl.glFrontFace(GL10.GL_CW);
+	
+	// Point to the vertex buffer
+	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
+	
+	// Use a normal buffer
+	gl.glEnableClientState(GL10.GL_NORMAL_ARRAY);
+	gl.glNormalPointer(GL10.GL_FLOAT, 0, normalBuffer);
+	
+	// Use index buffer to draw
+	gl.glDrawArrays(GL10.GL_TRIANGLES, 0, vertexBuffer.limit() / 3);
 
-    /**
-     * Get the index buffer.
-     * Unused for this object.
-     * @return Index buffer
-     */
-    @Override
-    public ByteBuffer getIndexBuffer()
-    {
-	return null;
-    }
-    
-    /**
-     * Get the normal buffer.
-     * @return Normal buffer
-     */
-    @Override
-    public FloatBuffer getNormalBuffer()
-    {
-        return normalBuffer;
+	// Restore state
+	gl.glDisableClientState(GL10.GL_NORMAL_ARRAY);
+	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);        
     }
 }

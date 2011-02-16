@@ -51,6 +51,7 @@ public class Engine
     private Engine()
     {
 	logger.debug("Engine()");
+	_renderer = new GLRenderer();
 
 	_stateStack = new Stack<IState>();
 	_timer = new TimeSystem();
@@ -58,7 +59,6 @@ public class Engine
 	_audioSystem = new AndroidSoundPlayer();
 	_inputSystem = new InputSystem();
 	_touchFilter = new MultiTouchFilter();
-	_renderer = new GLRenderer();
 
 	_lastTime = SystemClock.uptimeMillis();
 

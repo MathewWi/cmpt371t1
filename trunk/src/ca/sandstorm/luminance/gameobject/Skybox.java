@@ -6,6 +6,7 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
 
 public class Skybox implements IGameObject
@@ -88,8 +89,8 @@ public class Skybox implements IGameObject
 	gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
 	
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);	
-	
+	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+		
 	for(int side = 0; side < 6; side++)
 	{
 		//[textures[side] bind];
@@ -102,5 +103,36 @@ public class Skybox implements IGameObject
 	// Disable the client state before leaving
 	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
 	gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);	
+    }
+
+
+    @Override
+    public Vector3f getPosition()
+    {
+	return null;
+    }
+
+
+    @Override
+    public void initialize()
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
+
+    @Override
+    public void update()
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
+
+    @Override
+    public void destroy()
+    {
+	// TODO Auto-generated method stub
+	
     }
 }
