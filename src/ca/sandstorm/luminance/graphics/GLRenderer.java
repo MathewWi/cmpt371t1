@@ -32,7 +32,7 @@ public class GLRenderer
     public GLRenderer()
     {
 	renderableObjects = new LinkedList<IRenderableObject>();
-	box = new PrimitiveBox();
+	box = new PrimitiveBox(new Vector3f(-1, -1, -1), new Vector3f(1, 1, 1));
 	sphere = new PrimitiveSphere();
 	
 	logger.debug("GLRenderer created.");

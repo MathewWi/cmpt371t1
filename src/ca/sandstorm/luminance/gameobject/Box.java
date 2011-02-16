@@ -46,8 +46,7 @@ public class Box implements IRenderableObject
     @Override
     public void update()
     {
-	// Box rotates, for now
-	rotation.w -= 0.45f;
+
     }
 
     @Override
