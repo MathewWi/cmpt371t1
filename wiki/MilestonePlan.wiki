@@ -13,27 +13,27 @@
 == Milestone 1 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
 || Document development environment setup || 8 || Complete ||
-|| Document team city usage || 8 || Incomplete ||
+|| Document team city usage || 8 || Ongoing, but currently complete||
 || Android GUI POC || 4 || Complete ||
-|| Android Audio POC || 4 || Incomplete||
-|| Android Touch Input POC || 6 || Incomplete||
+|| Android Audio POC || 4 || Complete||
+|| Android Touch Input POC || 6 || Complete||
 || Ant build script basics || 8 || Complete ||
 
 
 == Mini-Milestone 2 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Touch input handling || 4 || Incomplete ||
-|| Audio playing (sfx and music) || 4 || Incomplete ||
-|| Android asset manager || 4 || Incomplete ||
-|| GUI Test suite basics || 6 || Incomplete ||
-|| Game level file format analyzed || 2 || Incomplete ||
+|| Touch input handling || 6 || Complete||
+|| Audio playing (sfx and music) || 4 || Incomplete||
+|| Android asset manager || 4 || Complete ||
+|| GUI Test suite basics || 6 || Complete ||
+|| Game level file format analyzed || 2 || Complete ||
 
 == Milestone 2 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Alpha version of game || 24 || Incomplete ||
+|| First version of game || 12 || Incomplete ||
 || Game menus || 4 || Incomplete ||
 || Game level format implemented || 4 || Incomplete ||
-|| jCoverage test suite || 8 || Incomplete ||
+|| Robotium test suite || 8 || Incomplete ||
 || jUnit test suite || 8 || Incomplete ||
 
 
@@ -43,6 +43,7 @@
 || Complete GUI Test suite || 8 || Incomplete ||
 || Design user evaluation questionnaire || 2 || Incomplete ||
 || Finalize the in game object models || 6 || Incomplete ||
+|| jCoverage test suite || 8 || Incomplete ||
 
 == Milestone 3 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
@@ -50,6 +51,7 @@
 || Add sound effects for all actions || 4 || Incomplete ||
 || Implement random level generator || 12 || Incomplete ||
 || Run user evaluation || _N/A_ || Incomplete ||
+|| Alpha version of the game || 12 || Incomplete ||
 
 
 == Mini-Milestone 4 ==
