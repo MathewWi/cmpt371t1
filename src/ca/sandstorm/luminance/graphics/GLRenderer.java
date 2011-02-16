@@ -1,15 +1,14 @@
 package ca.sandstorm.luminance.graphics;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
+import javax.vecmath.Vector4f;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
 
 /**
@@ -35,6 +34,8 @@ public class GLRenderer
 	renderableObjects = new LinkedList<IRenderableObject>();
 	box = new PrimitiveBox();
 	sphere = new PrimitiveSphere();
+	
+	logger.debug("GLRenderer created.");
     }
     
     public void addRenderable(IRenderableObject object)
@@ -64,16 +65,24 @@ public class GLRenderer
     {
 	return sphere;
     }
-    
+        
     public void drawObjects(GL10 gl)
     {
 	for (IRenderableObject object : renderableObjects) {
 	    gl.glPushMatrix();
 	    gl.glColor4f(1.0f, 0.5f, 0.5f, 1.0f);
-	    
+	    	    
+	    // Position object
 	    Vector3f position = object.getPosition();
 	    gl.glTranslatef(position.x, position.y, position.z);
-	    gl.glScalef(1f, 1f, 1f);
+	    
+	    // Rotate object
+	    Vector4f rotation = object.getRotation();
+	    if (rotation != null) {
+		gl.glRotatef(rotation.w, rotation.x, rotation.y, rotation.z);
+	    }
+	    
+	    // Draw
 	    object.getRenderable().draw(gl);
 	    
 	    gl.glPopMatrix();

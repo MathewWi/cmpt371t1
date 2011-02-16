@@ -1,6 +1,7 @@
 package ca.sandstorm.luminance.gameobject;
 
 import javax.vecmath.Vector3f;
+import javax.vecmath.Vector4f;
 
 public interface IGameObject
 {
@@ -8,4 +9,5 @@ public interface IGameObject
     void update();
     void destroy();
     Vector3f getPosition();
+    Vector4f getRotation();
 }

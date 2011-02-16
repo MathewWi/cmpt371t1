@@ -7,6 +7,7 @@ import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
+import javax.vecmath.Vector4f;
 
 
 public class Grid implements IGameObject
@@ -177,6 +178,11 @@ public class Grid implements IGameObject
 	return _vCenter;
     }
 
+    @Override
+    public Vector4f getRotation()
+    {
+        return null;
+    }
 
     @Override
     public void initialize()
