@@ -3,7 +3,7 @@
 
 = Code Requirements =
  == Source Code Repository ==
-  Source code for Luminance can be found here:
+  Source code for Luminance for this milestone can be found here:
   [http://code.google.com/p/cmpt371t1/source/checkout]
  == Daily Build ==
   A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
@@ -16,7 +16,7 @@
  CPM Diagram: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
 
 = Risk Analysis =
- The risk report can be viewed at: RiskReport
+ The updated risk report can be viewed at: RiskReport
 
 = Requirements =
  Requirements can be viewed at: [Requirements]
