@@ -56,11 +56,9 @@
    * Test Team lead divides up testing tasks to their team.
    * Odd jobs divided up during meetings, so one person doesn't have to do them all.
   
-
  * Game oriented testing.
-  * Challenges of game testing.
+  * Graphics testing has proven to be a task too impractical to do robustly.
   * Focus is on black box / play testing.
-  * Tests written as code stubs are created.
 
 = Current State of the System =
  * Resource Manager.
