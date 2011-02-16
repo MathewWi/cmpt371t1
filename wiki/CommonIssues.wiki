@@ -44,3 +44,16 @@ _Note that although this works, it has not been confirmed it's a legitimate, per
     * In eclipse, click Window->Preferences. 
     * In the resulting window on the left hand side, click Ant->Runtime.
     * Add an external JAR. Add <your JDK directory>/lib/tools.jar
+
+===3. Adding Android SDK to PATH===
+====In Mac====
+  # Open Terminal and execute export command
+  export PATH=${PATH}:path.to.your.tools
+    path.to.your.tools could be /Users/derp/android-sdk/tools
+      where tools could contain android, adb, emulator, etc functions
+
+  # Open Terminal and check on your home dir if you have a .bash_profile
+    If not, then create it using touch .bash_profile
+    Then add in the command from #1 and it should use that command each time
+     a new terminal is opened so you don't have to redo it all the time.
+      
