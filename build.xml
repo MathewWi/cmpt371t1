@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Luminance">
+<project name="LuminanceTest" default="help">
 
 <!-- The local.properties file is created and updated by the 'android'
      tool.
      It contains the path to the SDK. It should *NOT* be checked into
      Version Control Systems. -->
-    <property file="local.properties" />	
+    <property file="local.properties" />
 
     <!-- The build.properties file can be created by you and is never touched
          by the 'android' tool. This is the place to change some of the
@@ -82,11 +82,3 @@
     <setup />
 
 </project>
-
-<!--
-    
-    <target name="dist-android">
-        <ant antfile="${sdk.dir}/platforms/android-7/templates/android_rules.xml"
-            target="debug" inheritall="true" inheritrefs="true" />
-    </target>
--->
