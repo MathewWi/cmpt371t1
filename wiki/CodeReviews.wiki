@@ -29,7 +29,7 @@ Should be a container for renderable objects, will manage matrix multiplications
 
 Should use a sphere generation algorithm (this is a classic 3D problem and task given to students). Here is a long OpenGL version I wrote for my summer work last year in IMG Lab. Convert to OpenGL ES fairly easily. Although it uses QUAD_STRIPS which are a bit slower (TRIANGLE_STRIP is the fastest by far). The hardest part of these algorithms is making sure texture coords wrap properly.
 
-void drawSphere(double r, int lats, int longs)
+`void drawSphere(double r, int lats, int longs)`
 {
 int i, j;
 for(i = 0; i <= lats; i++)
