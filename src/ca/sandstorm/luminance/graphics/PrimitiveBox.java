@@ -4,6 +4,9 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
+
 /**
  * A primitive box using an index buffer.
  * @author zenja
@@ -52,34 +55,20 @@ public class PrimitiveBox implements IRenderable
 	indexBuffer.position(0);
     }
     
-    /**
-     * Get the vertex buffer.
-     * @return Vertex buffer
-     */
     @Override
-    public FloatBuffer getVertexBuffer()
+    public void draw(GL10 gl)
     {
-	return vertexBuffer;
-    }
+	// Set the face rotation
+	gl.glFrontFace(GL10.GL_CW);
+	
+	// Point to the vertex buffer
+	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
+	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+	
+	// Use index buffer if available, or just draw the vertices if not
+	gl.glDrawElements(GL10.GL_TRIANGLES, indexBuffer.limit(), GL10.GL_UNSIGNED_BYTE, indexBuffer);
 
-    /**
-     * Get the index buffer.
-     * @return Index buffer
-     */
-    @Override
-    public ByteBuffer getIndexBuffer()
-    {
-	return indexBuffer;
-    }
-    
-    /**
-     * Get the normal buffer.
-     * Currently unused for this object.
-     * @return Normal buffer
-     */
-    @Override
-    public FloatBuffer getNormalBuffer()
-    {
-        return null;
+	// Restore state
+	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
     }
 }

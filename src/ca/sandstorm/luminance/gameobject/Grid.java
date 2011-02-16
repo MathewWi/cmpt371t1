@@ -169,4 +169,35 @@ public class Grid implements IGameObject
 	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
 	// gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
     }
+
+
+    @Override
+    public Vector3f getPosition()
+    {
+	return _vCenter;
+    }
+
+
+    @Override
+    public void initialize()
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
+
+    @Override
+    public void update()
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
+
+    @Override
+    public void destroy()
+    {
+	// TODO Auto-generated method stub
+	
+    }
 }

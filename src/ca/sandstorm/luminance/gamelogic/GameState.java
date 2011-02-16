@@ -26,7 +26,7 @@ public class GameState implements IState
 
     private Camera _cam;
 
-    private Box _box;
+    private Box testBox;
     private Grid _grid;
     private Skybox _sky;
 
@@ -45,7 +45,10 @@ public class GameState implements IState
 	_cam = new Camera();
 	_cam.setEye(0, 0, 5);
 
-	_box = new Box();
+	// Temporary box for testing
+	testBox = new Box(new Vector3f(0f, 0f, -14f));
+	Engine.getInstance().getRenderer().addRenderable(testBox);
+	
 	_grid = new Grid(10, 10, 1.0f, 1.0f);
 	_sky = new Skybox();
     }
@@ -192,21 +195,26 @@ public class GameState implements IState
 	gl.glLoadIdentity();
 	GLU.gluLookAt(gl, 0, 0, 0, 0, 0, -14, 0, 1, 0);
 	gl.glDisable(GL10.GL_DEPTH_TEST);
+	gl.glColor4f(0.2f, 0.2f, 0.2f, 1.0f);
 	_sky.draw(gl);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
 	gl.glPopMatrix();
 
-	gl.glPushMatrix();
-	gl.glTranslatef(0.0f, 0, -14.0f);
+//	gl.glPushMatrix();
+//	gl.glTranslatef(0.0f, 0, -14.0f);
 	gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f);
-	_box.draw(gl);
+//	_box.draw(gl);
 	rquad -= 0.45f;
-	gl.glPopMatrix();
+//	gl.glPopMatrix();
+	
+	// Get renderer to draw everything on its renderable list
+	Engine.getInstance().getRenderer().drawObjects(gl);
 	
 	gl.glPushMatrix();
 	gl.glTranslatef(0.0f, 0, -7.0f);
 	_grid.draw(gl);
 	gl.glPopMatrix();
+	
     }
 
 
