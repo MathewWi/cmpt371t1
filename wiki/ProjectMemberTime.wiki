@@ -31,7 +31,7 @@
 || Graphics/model loading research || 1.5 ||
 || CPM diagram || 3 ||
 
-====Milestone 2====
+===Milestone 2===
 || Helping figure out test project setup || 1.5 ||
 || Resource manager || ||
 || Audio system || ||
@@ -60,6 +60,9 @@
 || Planning and organizing team meetings || 2 ||
 || General Wiki maintenance || 2 ||
 || Running daily build || 1 ||
+
+=== Milestone 2 ===
+|| Helping figure out test project setup || 1.5 ||
 
 == Chet Collins ==
 || *Task* || *Hours spent so far* ||
