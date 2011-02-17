@@ -16,9 +16,14 @@
  Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
 
 == Kumaran Vijayan ==
+===Milestone 0===
 || *Task* || *Hours spent so far* ||
 || Wiki Management || 4 ||
-|| Android Widget Toolkit || 1 ||
+
+===Milestone 1===
+|| Learning Codebase || 4 ||
+|| Android Widget Toolkit || 2 ||
+|| OpenGL Widget Toolkit || 2 ||
 
 == Zenja Ivkovic ==
 ===Milestone 0===
