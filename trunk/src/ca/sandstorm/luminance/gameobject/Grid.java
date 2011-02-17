@@ -204,6 +204,12 @@ public class Grid implements IGameObject
         return null;
     }
 
+	@Override
+	public Vector3f getScale()
+	{
+		return null;
+	}
+
     @Override
     public void initialize()
     {

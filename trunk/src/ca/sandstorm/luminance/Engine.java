@@ -336,6 +336,7 @@ public class Engine
      */
     public void init(GL10 gl)
     {
+
 	for (IState s : _stateStack) {
 	    if (s.isActive()) {
 		s.init(gl);
