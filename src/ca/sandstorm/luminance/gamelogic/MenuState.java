@@ -5,11 +5,14 @@ import org.slf4j.LoggerFactory;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import android.opengl.GLU;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.Button;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gui.GUIManager;
+import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
 
 
@@ -36,8 +39,27 @@ public class MenuState implements IState
     @Override
     public void deviceChanged(GL10 gl, int w, int h)
     {
-	// TODO Auto-generated method stub
+	gl.glShadeModel(GL10.GL_SMOOTH); // Enable Smooth Shading
+	gl.glClearColor(0.182f, 0.182f, 1, 1); // Error blue
+	gl.glClearDepthf(1.0f); // Depth Buffer Setup
+	gl.glEnable(GL10.GL_DEPTH_TEST); // Enables Depth Testing
+	gl.glDepthFunc(GL10.GL_LEQUAL); // The Type Of Depth Testing To Do
 
+	// Really Nice Perspective Calculations
+	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
+
+	// prevent divide by zero.
+	// @HACK - Forgiven since h == 0 means the game window is probably
+	// hidden.
+	if (h == 0) {
+	    h = 1;
+	}
+
+	gl.glViewport(0,0,800,600);
+	gl.glMatrixMode(GL10.GL_PROJECTION);
+	gl.glLoadIdentity();
+	GLU.gluOrtho2D(gl, 0, w, 0, h);
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
     }
 
 
@@ -72,6 +94,11 @@ public class MenuState implements IState
 		    logger.debug("button has been tapped");
 		}
 	    }
+	}
+	
+	InputButton[] keys = Engine.getInstance().getInputSystem().getKeyboard().getKeys();
+	if (keys[KeyEvent.KEYCODE_1].getPressed()) {
+	    Engine.getInstance().popState();
 	}
     }
 
