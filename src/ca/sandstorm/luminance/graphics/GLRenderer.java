@@ -88,15 +88,19 @@ public class GLRenderer
 	    }
 	    
 	    // Texture
-	    //gl.glColor4f(1.0f, 0.5f, 0.5f, 1.0f);
-	    //gl.glBindTexture(GL10.GL_TEXTURE_2D, object.getTexture());
-	    
+	    int texture = object.getTexture();
+	    if (texture > 0) {  // 0 = no texture
+		gl.glEnable(GL10.GL_TEXTURE_2D);
+		gl.glBindTexture(GL10.GL_TEXTURE_2D, object.getTexture());
+	    } else {
+		gl.glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
+	    }
+
 	    // Draw
-	    gl.glEnable(GL10.GL_TEXTURE_2D);
-	    gl.glBindTexture(GL10.GL_TEXTURE0, object.getTexture());
 	    object.getRenderable().draw(gl);
-	    gl.glDisable(GL10.GL_TEXTURE_2D);
 	    
+	    // Reset state
+	    gl.glDisable(GL10.GL_TEXTURE_2D);
 	    gl.glPopMatrix();
 	}
     }

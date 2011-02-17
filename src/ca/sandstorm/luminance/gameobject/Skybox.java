@@ -116,7 +116,7 @@ public class Skybox implements IGameObject
 	
 	for(int side = 0; side < 6; side++)
 	{
-	    gl.glBindTexture(GL10.GL_TEXTURE0, _textures[side].getTexture());
+	    gl.glBindTexture(GL10.GL_TEXTURE_2D, _textures[side].getTexture());
 	    _indexBuffer.position(index);
 	    gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, _indexBuffer);
 
