@@ -1,3 +1,7 @@
+#summary Use cases to be translated into test scripts
+
+= Use Cases =
+
 *Use Case Name* First Level Walk-through
 
 New player walks through the first level of game
@@ -113,144 +117,77 @@ The player splits the beam of white light into primary colors and redirects them
 
 *Main Success Scenario*
 
-            1. They open the program
-
-2. The player chooses ->Start Game from main menu
-
-            3. Single taps the tools prism
-
-            4. Double taps at (6, 4) the prism is placed
-
-            5. Single taps the tools mirror
-
-            6. Double taps at (8, 4) the mirror is placed
-
-            7. Single taps until  M\
-
-            8. Single taps the tools mirror
-
-9. Double taps at (8, 5) mirror is placed
-
-            10. Single taps the mirror
-
-            11. Double tap at (6, 6) mirror placed
-
-            12. Single taps until \M
-
-            13. Single taps the mirror
-
-            14. Double tap at (6, 7) mirror placed
-
-            15. Single taps the tools mirror
-
-            16. Double tap at (7, 1) mirror placed
-
-            17. Single taps until M\
-
-            18. First level complete
+            # They open the program
+            # The player chooses ->Start Game from main menu
+            # Single taps the tools prism
+            # Double taps at (6, 4) the prism is placed
+            # Single taps the tools mirror
+            # Double taps at (8, 4) the mirror is placed
+            # Single taps until  M\
+            # Single taps the tools mirror
+            # Double taps at (8, 5) mirror is placed
+            # Single taps the mirror
+            # Double tap at (6, 6) mirror placed
+            # Single taps until \M
+            # Single taps the mirror
+            # Double tap at (6, 7) mirror placed
+            # Single taps the tools mirror
+            # Double tap at (7, 1) mirror placed
+            # Single taps until M\
+            # First level complete
 
 *Extensions*
 
-            1. They open the program
-
-            2. The player chooses ->Start Game from main menu
-
-            i) Level 1 loaded
-
-            ii) background music plays
-
-            2.1) Double taps on each tool cycles through
-
-            3. Single taps the tools prism
-
-                        i) prism shown as chosen
-
-                        3.1) Double taps at (5,4)  the prism was placed incorrectly
-
-                        3.2) Single taps the tools eraser
-
-                        3.3) Single taps the prism at (5, 4)
-
-                                    i) prism at (5, 4) is erased
-
-            4. Double taps at (6, 4) the prism is placed
-
-                        i) white light is split into RGB
-
-                        ii) red circle is linked
-
-            5. Single taps the tools mirror
-
-                        i) the mirror is shown as chosen
-
-                        ii) the mirror count reduces
-
-                        5.1) Double taps at (8, 3) the mirror is placed incorrectly
-
-                        5.2) Single taps the tools eraser
-
-                        5.3) Single taps the mirror at (8, 3)
-
-                                    i)mirror at (8, 3) is erased
-
-            6. Double taps at (8, 4) the mirror is placed
-
-            7. Single taps until  M\
-
-                        i) mirror is flipped
-
-            8. Single taps the tools mirror
-
-                        i) the mirror is shown as chosen
-
-                        ii) the mirror count reduces
-
-            9. Double taps at (8, 5) mirror is placed
-
-                        i) green circle is linked
-
-            10. Single taps the tools mirror
-
-                        i) the mirror is shown as chosen
-
-                        ii) the mirror count reduces
-
-            11. Double tap at (6, 6) mirror placed
-
-            12. Single taps until \M
-
-                        i) the mirror is flipped
-
-           
-
-            13. Single taps the mirror
-
-                        i) the mirror is shown as chosen
-
-                        ii) the mirror count reduces
-
-            14. Double tap at (6, 7) mirror placed
-
-            15. Single taps the tools mirror
-
-                        i) the mirror is shown as chosen
-
-                        ii) the mirror count reduces
-
-            16. Double tap at (7, 1) mirror placed
-
-            17. Single taps until M\
-
-                        i) the mirror is flipped
-
-                        ii) blue ring is linked
-
-                        iii) menu opens
-
-            18. First level complete
-
-                        i) victory music plays
-
+            #. They open the program
+            #. The player chooses ->Start Game from main menu
+                        * Level 1 loaded
+                        * background music plays
+                   #) Double taps on each tool cycles through
+            #. Single taps the tools prism
+                        * prism shown as chosen
+                   #) Double taps at (5,4)  the prism was placed incorrectly
+                   #) Single taps the tools eraser
+                   #) Single taps the prism at (5, 4)
+                                    * prism at (5, 4) is erased
+            #. Double taps at (6, 4) the prism is placed
+                        * white light is split into RGB
+                        * red circle is linked
+            #. Single taps the tools mirror
+                        * the mirror is shown as chosen
+                        * the mirror count reduces
+                        #) Double taps at (8, 3) the mirror is placed incorrectly
+                        #) Single taps the tools eraser
+                        #) Single taps the mirror at (8, 3)
+                                    *mirror at (8, 3) is erased
+            #. Double taps at (8, 4) the mirror is placed
+            #. Single taps until  M\
+                        * mirror is flipped
+            #. Single taps the tools mirror
+                        * the mirror is shown as chosen
+                        * the mirror count reduces
+            #. Double taps at (8, 5) mirror is placed
+                        * green circle is linked
+            #. Single taps the tools mirror
+                        * the mirror is shown as chosen
+                        * the mirror count reduces
+            #. Double tap at (6, 6) mirror placed
+            #. Single taps until \M
+                        * the mirror is flipped
+            #. Single taps the mirror
+                        * the mirror is shown as chosen
+                        * the mirror count reduces
+            #. Double tap at (6, 7) mirror placed
+            #. Single taps the tools mirror
+                        * the mirror is shown as chosen
+                        * the mirror count reduces
+            #. Double tap at (7, 1) mirror placed
+            #. Single taps until M\
+                        * the mirror is flipped
+                        * blue ring is linked
+                        * menu opens
+            #. First level complete
+                        * victory music plays
+						
 *Special Requirements*
 
   -No special requirements
