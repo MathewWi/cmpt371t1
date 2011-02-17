@@ -5,16 +5,24 @@ import javax.microedition.khronos.opengles.GL10;
 public class Label implements IWidget
 {
 
-    String title;
+    private String _title;
     
+    /**
+     * Constructor for creating a Label.
+     * @param title String to use for the Label.
+     */
     public Label(String title)
     {
-	this.title = title;
+	_title = title;
     }
     
+    /**
+     * Get the String title for the label.
+     * @return the String that is being used for the content of the Label.
+     */
     public String getTitle()
     {
-	return title;
+	return _title;
     }
     
     @Override
