@@ -6,8 +6,12 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import ca.sandstorm.luminance.input.InputXY;
-
+/**
+ * Standard Button widget.
+ * 
+ * @author Kumaran Vijayan
+ *
+ */
 public class Button implements IWidget
 {
     private float _x;

@@ -2,6 +2,12 @@ package ca.sandstorm.luminance.gui;
 
 import javax.microedition.khronos.opengles.GL10;
 
+/**
+ * Standard label for showing static text.
+ * 
+ * @author Kumaran Vijayan
+ *
+ */
 public class Label implements IWidget
 {
 
