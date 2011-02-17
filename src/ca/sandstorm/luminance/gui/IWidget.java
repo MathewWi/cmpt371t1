@@ -2,6 +2,11 @@ package ca.sandstorm.luminance.gui;
 
 import javax.microedition.khronos.opengles.GL10;
 
+/**
+ * User interface Widget interface
+ * @author Kumaran Vijayan
+ *
+ */
 public interface IWidget
 {
     // Standard x,y coordinates and width,height dimensions
