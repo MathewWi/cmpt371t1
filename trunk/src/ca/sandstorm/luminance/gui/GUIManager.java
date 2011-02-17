@@ -25,10 +25,12 @@ public class GUIManager
 	numberOfButtons = 0;
     }
 
-
-    /*
-     * Add a button to be managed by the InputManager returns true if
-     * successful, false otherwise
+    /**
+     * Add a button to be managed by this GUIManager. If the GUIManager has
+     * already hit its maximum number of buttons it can hold, then it won't add
+     * the button and return false.
+     * @param button The button to be added to, and managed by, this GUIManager
+     * @return false if the button wasn't added to the GUIManager, true otherwise
      */
     public boolean addButton(Button button)
     {
@@ -41,10 +43,13 @@ public class GUIManager
     }
 
 
-    /*
-     * Convenience method. Pass in a MotionEvent and it will figure out IF IT
-     * STARTED inside a button. Recommended for taps. For other kinds of
-     * touches, use touchOccured(float, float).
+    /**
+     * Convenience method. Does the same thing as touchOccured(float, float)
+     * except it uses the MotionEvent instance passed in. Checks the X and Y
+     * coordinates of event to see if they fall in to any of the button's
+     * space.
+     * @param event The MotionEvent that represents the touch
+     * @return the Button that was tapped.
      */
     public Button touchOccured(MotionEvent event)
     {
@@ -55,8 +60,10 @@ public class GUIManager
     }
 
 
-    /*
-     * Will figure out if a touch, given x and y, falls into button-space.
+    /**
+     * @param x The X coordinate of the touch
+     * @param y The Y coorindate of the touch
+     * @return the Button that was tapped.
      */
     public Button touchOccured(float x, float y)
     {

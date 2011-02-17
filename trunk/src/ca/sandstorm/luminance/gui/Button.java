@@ -10,21 +10,32 @@ import ca.sandstorm.luminance.input.InputXY;
 
 public class Button implements IWidget
 {
-    private float x;
-    private float y;
-    private float width;
-    private float height;
+    private float _x;
+    private float _y;
+    private float _width;
+    private float _height;
     
     // static because all quads only need one of these, just change textures
     private static FloatBuffer _vertexBuffer;
     private static float[] _vertices;
+    
+    private String _title;
 
-    public Button(float x, float y, float width, float height, InputXY input)
+    /**
+     * Constructor for creating a Button.
+     * @param x X coordinate of the button.
+     * @param y Y coordinate of the button.
+     * @param width Width of the button.
+     * @param height Height of the button.
+     * @param title String to be used for the buton title.
+     */
+    public Button(float x, float y, float width, float height, String title)
     {
-	this.x = x;
-	this.y = y;
-	this.width = width;
-	this.height = height;
+	this._x = x;
+	this._y = y;
+	this._width = width;
+	this._height = height;
+	_title = title;
 	
 	// allocate these only once
 	if (_vertices == null || _vertexBuffer == null)
@@ -46,68 +57,69 @@ public class Button implements IWidget
     }
 
 
-    @Override
     public float getX()
     {
-	return x;
+	return _x;
     }
 
 
-    @Override
     public void setX(float x)
     {
-	this.x = x;
+	_x = x;
     }
 
 
-    @Override
     public float getY()
     {
-	return y;
+	return _y;
     }
 
 
-    @Override
     public void setY(float y)
     {
-	this.y = y;
+	_y = y;
     }
 
 
-    @Override
     public float getWidth()
     {
-	return width;
+	return _width;
     }
 
 
-    @Override
     public void setWidth(float width)
     {
-	this.width = width;
+	_width = width;
     }
 
 
-    @Override
     public float getHeight()
     {
-	return height;
+	return _height;
     }
 
 
-    @Override
     public void setHeight(float height)
     {
-	this.height = height;
+	_height = height;
     }
     
-    @Override
+    public String getTitle()
+    {
+	return _title;
+    }
+    
+    public void setTitle(String title)
+    {
+	_title = title;
+    }
+    
     public void draw(GL10 gl)
     {
 	gl.glPushMatrix();
 	
 	//gl.glScalef(this.width, this.height, 1.0f);
-	gl.glTranslatef(this.x, this.y, 0);
+	gl.glTranslatef(this._x, this._y, 0);
 	
 	gl.glFrontFace(GL10.GL_CW);
 	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);

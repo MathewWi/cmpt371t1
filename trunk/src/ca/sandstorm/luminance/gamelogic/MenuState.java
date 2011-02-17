@@ -24,16 +24,18 @@ public class MenuState implements IState
     {
 	_guiManager = new GUIManager();
 	
-	Button b = new Button(10, 10, 100, 100, null);
+	Button b = new Button(10, 10, 100, 100, "Play");
 	_guiManager.addButton(b);
     }
     
+    /**
+     * Get the GUIManager being used by this MenuState.
+     * @return the GUIManager being by the MenuState.
+     */
     public GUIManager getGUIManager()
     {
 	return _guiManager;
     }
-    
-
     
     @Override
     public void deviceChanged(GL10 gl, int w, int h)
