@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gamelogic.GameState;
+import ca.sandstorm.luminance.gamelogic.MenuState;
 
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
@@ -45,8 +46,9 @@ public class Luminance extends Activity
 	Engine.getInstance().setContext(getApplicationContext());
 	
 	// init the engine and add our states
-	Engine.getInstance().pushState(new GameState());	
-
+	Engine.getInstance().pushState(new GameState());
+	Engine.getInstance().pushState(new MenuState());
+		
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
 	mGLView = new GLSurfaceView(this);
