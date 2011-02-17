@@ -63,7 +63,8 @@
 || Sky box || 3 ||
 || Independent code reviews || 6 ||
 || Prepared basic demo || 3 ||
-|| Rendering GUI examples || 1 ||
+|| Rendering GUI examples || 3 ||
+|| Presentation 2 ppt || 2 ||
 
 == Martina Nagy ==
 === Milestone 0 ===
