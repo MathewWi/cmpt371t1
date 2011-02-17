@@ -173,14 +173,14 @@ public class ResourceManager
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[0]);
 
 	// Texture parameters
-//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER,
-//			   GL10.GL_NEAREST);
-//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER,
-//			   GL10.GL_LINEAR);
-//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S,
-//			   GL10.GL_REPEAT);
-//	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T,
-//			   GL10.GL_REPEAT);
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER,
+			   GL10.GL_NEAREST);
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER,
+			   GL10.GL_LINEAR);
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S,
+			   GL10.GL_REPEAT);
+	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T,
+			   GL10.GL_REPEAT);
 
 	// Use the Android GLUtils to specify a two-dimensional texture image
 	// from our bitmap
@@ -188,6 +188,7 @@ public class ResourceManager
 	TextureResource res = new TextureResource(filename, textures[0]);
 
 	resources.put(filename, res);
+	logger.debug("Generated texture: " + filename + " = " + Integer.toString(textures[0]));
 	return res;
     }
 

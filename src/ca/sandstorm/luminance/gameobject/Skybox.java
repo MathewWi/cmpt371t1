@@ -116,11 +116,11 @@ public class Skybox implements IGameObject
 	
 	for(int side = 0; side < 6; side++)
 	{
-		gl.glBindTexture(GL10.GL_TEXTURE0, _textures[side].getTexture());
-	    	_indexBuffer.position(index);
-		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, _indexBuffer);
+	    gl.glBindTexture(GL10.GL_TEXTURE0, _textures[side].getTexture());
+	    _indexBuffer.position(index);
+	    gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, _indexBuffer);
 
-		index += 6;
+	    index += 6;
 	}	
 	
 	// Disable the client state before leaving

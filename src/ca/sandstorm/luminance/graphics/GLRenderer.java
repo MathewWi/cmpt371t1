@@ -32,7 +32,7 @@ public class GLRenderer
     public GLRenderer()
     {
 	renderableObjects = new LinkedList<IRenderableObject>();
-	box = new PrimitiveBox(new Vector3f(-1, -1, -1), new Vector3f(1, 1, 1));
+	box = new PrimitiveBox();
 	sphere = new PrimitiveSphere();
 	
 	logger.debug("GLRenderer created.");
@@ -70,11 +70,6 @@ public class GLRenderer
     {
 	for (IRenderableObject object : renderableObjects) {
 	    gl.glPushMatrix();
-
-		// Texture
-	    gl.glColor4f(1.0f, 0.5f, 0.5f, 1.0f);
-		gl.glEnable(GL10.GL_TEXTURE_2D);
-		gl.glBindTexture(GL10.GL_TEXTURE0, object.getTexture());
 	    	    
 	    // Position object
 	    Vector3f position = object.getPosition();
@@ -86,14 +81,22 @@ public class GLRenderer
 		gl.glRotatef(rotation.w, rotation.x, rotation.y, rotation.z);
 	    }
 
-		// Scale
-		Vector3f scale = object.getScale();
+	    // Scale
+	    Vector3f scale = object.getScale();
+	    if (scale != null) {
 		gl.glScalef(scale.x, scale.y, scale.z);
+	    }
+	    
+	    // Texture
+	    //gl.glColor4f(1.0f, 0.5f, 0.5f, 1.0f);
+	    //gl.glBindTexture(GL10.GL_TEXTURE_2D, object.getTexture());
 	    
 	    // Draw
+	    gl.glEnable(GL10.GL_TEXTURE_2D);
+	    gl.glBindTexture(GL10.GL_TEXTURE0, object.getTexture());
 	    object.getRenderable().draw(gl);
+	    gl.glDisable(GL10.GL_TEXTURE_2D);
 	    
-		gl.glDisable(GL10.GL_TEXTURE_2D);
 	    gl.glPopMatrix();
 	}
     }

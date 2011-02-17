@@ -57,7 +57,7 @@ public class GameState implements IState
 	
 	// Temporary box for testing
 	Vector3f center = _grid.getCellCenter(5, 5);
-	testBox = new Box(center);
+	testBox = new Box(center, new Vector3f(2f, 2f, 2f));
 
 	objects.add(testBox);
 	Engine.getInstance().getRenderer().addRenderable(testBox);	
@@ -96,13 +96,18 @@ public class GameState implements IState
     public void init(GL10 gl)
     {
 	logger.debug("init()");
-		// Load textures
-		try {
-			Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
-		} catch(IOException e) {
-			//TODO: improve this
-			throw new RuntimeException("Unable to load a required texture!");
-		}
+	// Load textures
+	try {
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
+	} catch(IOException e) {
+	    //TODO: improve this
+	    throw new RuntimeException("Unable to load a required texture!");
+	}
+	
+	// Initialize objects
+	for (IGameObject object : objects) {
+	    object.initialize();
+	}
 	
 	try
 	{
