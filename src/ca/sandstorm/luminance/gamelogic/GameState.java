@@ -96,6 +96,13 @@ public class GameState implements IState
     public void init(GL10 gl)
     {
 	logger.debug("init()");
+		// Load textures
+		try {
+			Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
+		} catch(IOException e) {
+			//TODO: improve this
+			throw new RuntimeException("Unable to load a required texture!");
+		}
 	
 	try
 	{

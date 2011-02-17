@@ -70,7 +70,11 @@ public class GLRenderer
     {
 	for (IRenderableObject object : renderableObjects) {
 	    gl.glPushMatrix();
+
+		// Texture
 	    gl.glColor4f(1.0f, 0.5f, 0.5f, 1.0f);
+		gl.glEnable(GL10.GL_TEXTURE_2D);
+		gl.glBindTexture(GL10.GL_TEXTURE0, object.getTexture());
 	    	    
 	    // Position object
 	    Vector3f position = object.getPosition();
@@ -81,10 +85,15 @@ public class GLRenderer
 	    if (rotation != null) {
 		gl.glRotatef(rotation.w, rotation.x, rotation.y, rotation.z);
 	    }
+
+		// Scale
+		Vector3f scale = object.getScale();
+		gl.glScalef(scale.x, scale.y, scale.z);
 	    
 	    // Draw
 	    object.getRenderable().draw(gl);
 	    
+		gl.glDisable(GL10.GL_TEXTURE_2D);
 	    gl.glPopMatrix();
 	}
     }

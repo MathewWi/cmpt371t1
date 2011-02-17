@@ -10,4 +10,5 @@ public interface IGameObject
     void destroy();
     Vector3f getPosition();
     Vector4f getRotation();
+	Vector3f getScale();
 }
