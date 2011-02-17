@@ -47,7 +47,9 @@ public class Luminance extends Activity
 	
 	// init the engine and add our states
 	Engine.getInstance().pushState(new GameState());
-	Engine.getInstance().pushState(new MenuState());
+	
+	// UNCOMMENT TO START IN MENU STATE
+	//Engine.getInstance().pushState(new MenuState());
 		
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);

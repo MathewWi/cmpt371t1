@@ -5,12 +5,11 @@ import org.slf4j.LoggerFactory;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.opengl.GLU;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.widget.Button;
 
 import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
@@ -24,6 +23,9 @@ public class MenuState implements IState
     public MenuState()
     {
 	_guiManager = new GUIManager();
+	
+	Button b = new Button(10, 10, 100, 100, null);
+	_guiManager.addButton(b);
     }
     
     public GUIManager getGUIManager()
@@ -31,10 +33,7 @@ public class MenuState implements IState
 	return _guiManager;
     }
     
-    public boolean addButton(ca.sandstorm.luminance.gui.Button button)
-    {
-	return _guiManager.addButton(button);
-    }
+
     
     @Override
     public void deviceChanged(GL10 gl, int w, int h)
@@ -55,11 +54,13 @@ public class MenuState implements IState
 	    h = 1;
 	}
 
-	gl.glViewport(0,0,800,600);
+	// setup 2D ortho mode with 0,0 top left
+	gl.glViewport(0,0,w,h);
 	gl.glMatrixMode(GL10.GL_PROJECTION);
 	gl.glLoadIdentity();
-	GLU.gluOrtho2D(gl, 0, w, 0, h);
+	gl.glOrthof(0, w, h, 0, -1.0f, 1.0f);
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
+	//gl.glLoadIdentity();
     }
 
 
@@ -106,8 +107,17 @@ public class MenuState implements IState
     @Override
     public void draw(GL10 gl)
     {
-	// TODO Auto-generated method stub
-	logger.debug("draw(GL10)");
+	gl.glViewport(0,0,Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
+	gl.glMatrixMode(GL10.GL_PROJECTION);
+	gl.glLoadIdentity();
+	gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
+	gl.glMatrixMode(GL10.GL_MODELVIEW);	
+	gl.glLoadIdentity();
+	
+	gl.glClearColor(0, 0, 0, 1);
+	gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		
+	_guiManager.draw(gl);
     }
 
 
