@@ -114,10 +114,17 @@
 || SVN TestSmoke || 1 ||
 
 == Jonny ==
+=== Milestone 0 ===
 || *Task* || *Hours spent so far* ||
 || Android touch input research || 4 ||
 || GUI prototype design || 4 ||
 || Final deliverable 1 spell check || 1 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| Touch input implementation || 10 ||
+|| Presentation slide preparation || 1 ||
+|| Updating class diagram || 1 ||
 
 == Steven Indzeoski ==
 || *Task* || *Hours spent so far* ||
