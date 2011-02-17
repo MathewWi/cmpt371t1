@@ -12,8 +12,8 @@ public class InputTouchScreen
     private int MAX_TOUCH_POINTS = 5;
     private InputXY mTouchPoints[];
 
-    private MotionEvent touchEvent;
-
+    private MotionEvent _touchEvent;
+    private boolean _onTouch = false;
 
     public InputTouchScreen()
     {
@@ -158,7 +158,12 @@ public class InputTouchScreen
      */
     public void setTouchEvent(MotionEvent touchEvent)
     {
-	this.touchEvent = touchEvent;
+	this._touchEvent = touchEvent;
+	if (_touchEvent.getAction() == MotionEvent.ACTION_UP){
+	    _onTouch = false;
+	} else {
+	    _onTouch = true;
+	}
     }
 
 
@@ -169,12 +174,19 @@ public class InputTouchScreen
      */
     public MotionEvent getTouchEvent()
     {
-	return touchEvent;
+	return _touchEvent;
     }
 
-    /*
-     * for later use in pinch gesture public float getPinchDistance(){ float x =
-     * touchEvent.getX(0) - touchEvent.getX(1); float y = touchEvent.getY(0) -
-     * touchEvent.getY(1); return FloatMath.sqrt(x * x + y * y); }
+    /**
+     * Calculate the space distance between two fingers.
+     * 
+     * @return float distance of the two fingers.
      */
+    public float getPinchDistance()
+    {
+	float x = _touchEvent.getX(0) - _touchEvent.getX(1);
+	float y = _touchEvent.getY(0) - _touchEvent.getY(1);
+	return FloatMath.sqrt(x * x + y * y);
+    }
+    
 }

@@ -31,45 +31,50 @@ public class GameState implements IState
     private Camera _cam;
 
     private Box testBox;
-    
+
     private Grid _grid;
     private Skybox _sky;
 
-    private float initialX = 0.0f;
-    private float initialY = 0.0f;
-    private static final int DRAG = 0;
-    private static final int ZOOM = 1;
-    private static final float TOUCH_SENSIVITY = 0.2f;
-    private int touchMode;
-    
+    private float _initialX = 0.0f;
+    private float _initialY = 0.0f;
+    private float _pinchDist = 0.0f;
+    private static final int NONE = 0;
+    private static final int DRAG = 1;
+    private static final int ZOOM = 2;
+    private static final float TOUCH_CAMERA_SPEED = 45.0f;
+    private static final float TOUCH_SENSITIVITY = 3.0f;
+    private int _touchMode;
+
     // Container of game objects -zenja
-    //TODO: Implement functions for manipulating this
+    // TODO: Implement functions for manipulating this
     private LinkedList<IGameObject> objects;
 
 
     public GameState()
     {
 	logger.debug("GameState()");
-	
+
 	objects = new LinkedList<IGameObject>();
 
 	_grid = new Grid(10, 10, 1.0f, 1.0f);
-	
+
 	// Temporary box for testing
 	Vector3f center = _grid.getCellCenter(5, 5);
 	testBox = new Box(center, new Vector3f(1f, 1f, 1f));
 
 	objects.add(testBox);
-	Engine.getInstance().getRenderer().addRenderable(testBox);	
-	
+	Engine.getInstance().getRenderer().addRenderable(testBox);
+
 	float maxSize = Math.max(_grid.getTotalWidth(), _grid.getTotalHeight());
-	float camY = 1.15f * (maxSize / (float)(Math.tan((Math.PI / 6.0))));
-	
-	_cam = new Camera();	
-	_cam.setEye(_grid.getTotalWidth() / 2.0f, camY, _grid.getTotalHeight() / 2.0f);
-	_cam.setTarget(_grid.getTotalWidth() / 2.0f, 0, _grid.getTotalHeight() / 2.0f);
+	float camY = 1.15f * (maxSize / (float) (Math.tan((Math.PI / 6.0))));
+
+	_cam = new Camera();
+	_cam.setEye(_grid.getTotalWidth() / 2.0f, camY,
+		    _grid.getTotalHeight() / 2.0f);
+	_cam.setTarget(_grid.getTotalWidth() / 2.0f, 0,
+		       _grid.getTotalHeight() / 2.0f);
 	_cam.rotateCamera(0.01f, 1, 0, 0);
-	
+
 	_sky = new Skybox();
 	objects.add(_grid);
 	objects.add(_sky);
@@ -91,31 +96,30 @@ public class GameState implements IState
 
 	Engine.getInstance().getTimer().reset();
     }
-    
+
+
     @Override
     public void init(GL10 gl)
     {
 	logger.debug("init()");
 	// Load textures
 	try {
-	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
-	} catch(IOException e) {
-	    //TODO: improve this
+	    Engine.getInstance().getResourceManager()
+		    .loadTexture(gl, "textures/wallBrick.jpg");
+	} catch (IOException e) {
+	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
 	}
-	
+
 	// Initialize objects
 	for (IGameObject object : objects) {
 	    object.initialize();
 	}
-	
-	try
-	{
+
+	try {
 	    _sky.init(gl);
-	}
-	catch (IOException e)
-	{
-	    
+	} catch (IOException e) {
+
 	}
     }
 
@@ -149,12 +153,12 @@ public class GameState implements IState
 
 	if (keys[KeyEvent.KEYCODE_Q].getPressed()) {
 	    _cam.rotateCamera(0.01f, 1, 0, 0);
-	    //_cam.moveUp(1.0f);
+	    // _cam.moveUp(1.0f);
 	}
 
 	if (keys[KeyEvent.KEYCODE_E].getPressed()) {
-	     _cam.rotateCamera(-0.01f, 1, 0, 0);
-	    //_cam.moveUp(-1.0f);
+	    _cam.rotateCamera(-0.01f, 1, 0, 0);
+	    // _cam.moveUp(-1.0f);
 	}
 
 	if (Engine.getInstance().getInputSystem().getTouchScreen()
@@ -179,60 +183,91 @@ public class GameState implements IState
 
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-		    initialX = touchEvent.getX();
-		    initialY = touchEvent.getY();
-		    touchMode = DRAG;
+		    _initialX = touchEvent.getX();
+		    _initialY = touchEvent.getY();
+		    _touchMode = DRAG;
 		case MotionEvent.ACTION_UP:
 		    // Check whether user released tap on top of button
+		    _touchMode = NONE;
 		case MotionEvent.ACTION_POINTER_DOWN:
-		    touchMode = ZOOM;
+		    //for some reason the action_pointer_down kept triggered
+		    // even thought only using 1 finger to touch.
+		    _touchMode = ZOOM;
+		    _pinchDist = Engine.getInstance().getInputSystem()
+					.getTouchScreen().getPinchDistance();
+		    //logger.debug("pinch Mode");
 		case MotionEvent.ACTION_POINTER_UP:
-		    touchMode = DRAG;
+		    _touchMode = DRAG;
 		case MotionEvent.ACTION_MOVE:
-		    if (touchMode == DRAG) {
+		    if (_touchMode == DRAG) {
 			float newX = touchEvent.getX();
 			float newY = touchEvent.getY();
 
-			float moveX = newX - initialX;
-			float moveY = newY - initialY;
+			float moveX = newX - _initialX;
+			float moveY = newY - _initialY;
+			_initialX = newX;
+			_initialY = newY;
 
-			if (moveX > 0) {
-			    // Left to right
-			    _cam.moveLeft(-TOUCH_SENSIVITY);
-			    logger.debug("Left to right: " +
-					 Float.toString(-moveX));
+			if (Math.abs(moveX) > TOUCH_SENSITIVITY || Math.abs(moveY) > TOUCH_SENSITIVITY)
+			{
+			    if (Math.abs(moveX) > Math.abs(moveY)) {
+				    if (moveX > 0) {
+					    // Left to right
+					    _cam.moveLeft(-TOUCH_CAMERA_SPEED);
+					    logger.debug("Left to right: " +
+							 Float.toString(-moveX));
 
-			} else if (moveX < 0) {
-			    // Right to left
-			    _cam.moveLeft(TOUCH_SENSIVITY);
-			    logger.debug("Right to left: " +
-					 Float.toString(-moveX));
+				    } else if (moveX < 0) {
+					// Right to left
+					_cam.moveLeft(TOUCH_CAMERA_SPEED);
+					logger.debug("Right to left: " +
+					             Float.toString(-moveX));
+				    }
+				    
+				} else {
+					if (moveY > 0) {
+					    // up to down
+					    _cam.moveUp(TOUCH_CAMERA_SPEED);
+					    logger.debug("Up to down: " +
+							 Float.toString(moveY));
 
-			} else if (moveY > 0) {
-			    // up to down
-			    _cam.moveUp(TOUCH_SENSIVITY);
-			    logger.debug("Up to down: " + Float.toString(moveY));
+					} else if (moveY < 0) {
+					    // Down to up
+					    _cam.moveUp(-TOUCH_CAMERA_SPEED);
+					    logger.debug("Down to up: " +
+							 Float.toString(moveY));
+					}
+				}
 
-			} else if (moveY < 0) {
-			    // Down to up
-			    _cam.moveUp(-TOUCH_SENSIVITY);
-			    logger.debug("Down to up: " + Float.toString(moveY));
-
+			    } else if (_touchMode == ZOOM) {
+				// pinch gesture for zooming
+				logger.debug("ZOOMINGGGG");
+				float newPinchDist = Engine.getInstance().getInputSystem()
+				    			.getTouchScreen().getPinchDistance();
+				    
+				if (newPinchDist > _pinchDist){
+				    _cam.moveForward(1.0f);
+				    logger.debug("pinch out: " +
+				                 Float.toString(_pinchDist) +
+				                 ", " + Float.toString(newPinchDist));
+					
+				} else {
+				    _cam.moveForward(-1.0f);
+				    logger.debug("pinch in: " +
+				                 Float.toString(_pinchDist) +
+							  ", " + Float.toString(newPinchDist));
+				}
+			    }
 			}
-			initialX = touchEvent.getX();
-			initialY = touchEvent.getY();
-		    } else if (touchMode == ZOOM) {
-			// need an android phone to test it.
-		    }
-
 	    }
+
 	}
-	
 	// Update game objects -zenja
 	for (IGameObject object : objects) {
 	    object.update();
 	}
     }
+
 
     @Override
     public void draw(GL10 gl)
@@ -243,19 +278,17 @@ public class GameState implements IState
 
 	gl.glPushMatrix();
 	gl.glLoadIdentity();
-	GLU.gluLookAt(gl, 
-	              0, 0, 0, 
-	              _cam.getTarget().x, _cam.getTarget().y, _cam.getTarget().z, 
-	              0, 1, 0);
+	GLU.gluLookAt(gl, 0, 0, 0, _cam.getTarget().x, _cam.getTarget().y,
+		      _cam.getTarget().z, 0, 1, 0);
 	gl.glDisable(GL10.GL_DEPTH_TEST);
 	gl.glColor4f(0.2f, 0.2f, 0.2f, 1.0f);
 	_sky.draw(gl);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
 	gl.glPopMatrix();
-	
+
 	// Get renderer to draw everything on its renderable list -zenja
 	Engine.getInstance().getRenderer().drawObjects(gl);
-	
+
 	gl.glPushMatrix();
 	gl.glTranslatef(0.0f, 0, 0f);
 	_grid.draw(gl);
