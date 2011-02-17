@@ -34,9 +34,9 @@
 
 ===Milestone 1===
 || Helping figure out test project setup || 1.5 ||
-|| Resource manager || 4 ||
-|| Audio system || 1 ||
-|| Graphics renderer || 3 ||
+|| Resource manager || 5 ||
+|| Audio system updates || 1 ||
+|| Graphics renderer || 6 ||
 || Game object system || 2 ||
 || Model loading research || 2 ||
 || Build master duties || 1 ||
