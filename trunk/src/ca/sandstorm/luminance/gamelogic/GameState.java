@@ -57,7 +57,7 @@ public class GameState implements IState
 	
 	// Temporary box for testing
 	Vector3f center = _grid.getCellCenter(5, 5);
-	testBox = new Box(center, new Vector3f(2f, 2f, 2f));
+	testBox = new Box(center, new Vector3f(1f, 1f, 1f));
 
 	objects.add(testBox);
 	Engine.getInstance().getRenderer().addRenderable(testBox);	
@@ -260,7 +260,6 @@ public class GameState implements IState
 	gl.glTranslatef(0.0f, 0, 0f);
 	_grid.draw(gl);
 	gl.glPopMatrix();
-	
     }
 
 
