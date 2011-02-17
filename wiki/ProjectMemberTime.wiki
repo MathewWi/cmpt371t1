@@ -53,6 +53,7 @@
 || Wrote quaternion camera class || 4 ||
 || Prototyped presentation for milestone 1 || 2 ||
 || Outlined our requirements || 1 ||
+
 === Milestone 1 ===
 || *Task* || *Hours spent so far* ||
 || General code clean up and formatting || 1 ||
