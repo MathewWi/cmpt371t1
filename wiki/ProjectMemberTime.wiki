@@ -42,6 +42,7 @@
 || Build master duties || 1 ||
 
 == Stephen Damm ==
+=== Milestone 0 ===
 || *Task* || *Hours spent so far* ||
 || Setup VM for TeamCity  || 2 ||
 || Project administration || 4 ||
@@ -52,8 +53,16 @@
 || Wrote quaternion camera class || 4 ||
 || Prototyped presentation for milestone 1 || 2 ||
 || Outlined our requirements || 1 ||
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
 || General code clean up and formatting || 1 ||
+|| OpenGL Tutorial || 1 ||
 || Grid class basic || 4 ||
+|| Grid class advanced || 4 ||
+|| Sky box || 3 ||
+|| Independent code reviews || 6 ||
+|| Prepared basic demo || 3 ||
+|| Rendering GUI examples || 1 ||
 
 == Martina Nagy ==
 === Milestone 0 ===
