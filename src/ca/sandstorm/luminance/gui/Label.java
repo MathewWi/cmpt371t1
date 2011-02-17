@@ -11,24 +11,26 @@ import javax.microedition.khronos.opengles.GL10;
 public class Label implements IWidget
 {
 
-    private String _title;
+    private String _text;
     
     /**
      * Constructor for creating a Label.
-     * @param title String to use for the Label.
+     * @param text String to use for the Label.
+     * @precond n/a
+     * @postcond this.getText() == text
      */
-    public Label(String title)
+    public Label(String text)
     {
-	_title = title;
+	_text = text;
     }
     
     /**
      * Get the String title for the label.
      * @return the String that is being used for the content of the Label.
      */
-    public String getTitle()
+    public String getText()
     {
-	return _title;
+	return _text;
     }
     
     @Override
