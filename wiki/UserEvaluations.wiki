@@ -16,7 +16,7 @@
 
 		   Assert the software we are making is the software that the user wants.
 
-		   Assert the way we are implementing the project is full fills the user wants.
+		   Assert the way we are implementing the project is fulfills the user wants.
 
 		   Measure the real world usability versus potential usability in ideal conditions.
 
@@ -95,7 +95,7 @@
 
 *THANK YOU! :* Welcome to the team!.
 
-We hope you will have so much fun playing our game, if not tell us why, we will do all we can so you will enjoy our game to its maximum potential.
+We hope you will have so much fun playing our game!  If not, tell us why.  We will do all we can so you will enjoy our game to its maximum potential.
 
 												-Luminance team
 
@@ -110,7 +110,7 @@ We hope you will have so much fun playing our game, if not tell us why, we will 
 
 		Feel free to elaborate on any and all points.
 
-*Game Aspects:* (out of 10) 1: Sucks! 5: Average 10: Good
+*Game Aspects:* (out of 10) 1: Sucks! 5: Average 10: Awesome!
 			
 			*	Logic (game premise) (exp):
 			*	Ease of Use (game controls) (exp):
