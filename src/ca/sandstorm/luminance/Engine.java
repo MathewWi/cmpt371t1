@@ -60,7 +60,7 @@ public class Engine
     // last update step, used to calculate frame time delta
     private long _lastTime;
     
-    SoundResource testSound;
+    //SoundResource testSound;
 
 
     /**
@@ -83,8 +83,8 @@ public class Engine
 	_lastTime = SystemClock.uptimeMillis();
 	
 	// TEMP: play a sound to test sound system
-	testSound = _resourceManager.loadSound(_audioSystem.getPool(), "sounds/sample.ogg");
-	_audioSystem.play(testSound, 0.9f);
+	//testSound = _resourceManager.loadSound(_audioSystem.getPool(), "sounds/sample.ogg");
+	//_audioSystem.play(testSound, 0.9f);
     }
 
 
@@ -281,7 +281,6 @@ public class Engine
 
 	// Resume all sounds
 	_audioSystem.resumeAll();
-	_audioSystem.play(testSound, 0.9f);
     }
 
 

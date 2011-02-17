@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gui;
 
+import javax.microedition.khronos.opengles.GL10;
+
 import android.view.MotionEvent;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.input.InputTouchScreen;
@@ -33,7 +35,7 @@ public class GUIManager
 	if (numberOfButtons == MAX_BUTTON_COUNT) {
 	    return false;
 	} else {
-	    buttons[numberOfButtons] = button;
+	    buttons[numberOfButtons++] = button;
 	    return true;
 	}
     }
@@ -71,4 +73,19 @@ public class GUIManager
 
 	return null;
     }
+    
+    
+    public void update(GL10 gl)
+    {
+	
+    }
+    
+    
+    public void draw(GL10 gl)
+    {
+	for (int i = 0; i < numberOfButtons; i++) {
+	    buttons[i].draw(gl);
+	}	
+    }
+    
 }
