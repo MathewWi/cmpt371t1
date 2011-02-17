@@ -92,9 +92,18 @@
 || Testing || 2 ||
 
 == Amara Daal ==
+=== Milestone 0 ===
 || *Task* || *Hours spent so far* ||
 || Learning Ant Script || 2 ||
 || Learning Android test set up || 2 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| User scenario(walk-through) || 2 ||
+|| Testing Input package || 4 ||
+|| GUI Testing Robotium || 2 ||
+|| User evaluations || 3 ||
+|| Usability test template  || 2 ||
 
 == Jiajing Wang ==
 || *Task* || *Hours spent so far* ||
