@@ -89,3 +89,63 @@
 				Groups c) and d) are tested
 		
 
+
+
+==Usability Test Report(User level)==
+
+*THANK YOU! :* Welcome to the team!.
+
+We hope you will have so much fun playing our game, if not tell us why, we will do all we can so you will enjoy our game to its maximum potential.
+
+												-Luminance team
+
+*User Information* (Before Starting): If you don’t know skip the question.
+
+			#.	Do you like puzzle games?
+			#.	Have you ever played a mobile or touch game before?
+			#.	Realistically how long a time period would you give for learning to play a new mobile game before you abandon it?
+			#.	What would be you boredom level (1: most bored – 10: fun ) before playing a mobile game:
+
+*Game Rating*: (When you're finished):
+
+		Feel free to elaborate on any and all points.
+
+*Game Aspects:* (out of 10) 1: Sucks! 5: Average 10: Good
+			
+			*	Logic (game premise) (exp):
+			*	Ease of Use (game controls) (exp):
+			*	Camera (viewing angle):
+			*	Audio (music/effects):
+			*	Performance (responsiveness):
+			*	Interface (looks):
+			*	Overall Game Rating (be honest) (exp):
+				*	As a Real Game:
+				*	As a game in development:
+
+*Like/Dislike:*
+
+		#.	(exp) How long did it take you to learn this game or want to keep playing it:
+		#.	Complete the statements:
+				*	The game was:
+				*	Because:
+				*	The game needed:
+				*	I like this game( circle):  yes or no
+				*	I would play this game(circle): yes or no
+		#.	_LIKED_ about this game:
+		#.	_DISLIKED_ about this game:
+
+*Game Ideas:* (write all over this section)**
+
+		New features: (ideas to help make the game better)
+
+		Old features: (you would like to see improved, in what way)
+
+		Comments:
+
+*Bugs/Errors:* (more bugs the better)
+
+		#	When/Where did the bug occur:
+			*	Effects/What happened:
+			*	What actions led to the bug:
+			*
+		# .. (feel free to continue on the back)
