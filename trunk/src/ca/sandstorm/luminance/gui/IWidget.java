@@ -4,12 +4,12 @@ import javax.microedition.khronos.opengles.GL10;
 
 /**
  * User interface Widget interface
+ * 
  * @author Kumaran Vijayan
  *
  */
 public interface IWidget
 {
-    // Standard x,y coordinates and width,height dimensions
     /**
      * Get the X position of the button.
      * @return the X position of the button.
@@ -19,6 +19,8 @@ public interface IWidget
     /**
      * Set the X position of the button
      * @param x The new X position
+     * @precond x >= 0
+     * @postcond this.getX() == x
      */
     public void setX(float x);
     
@@ -31,6 +33,8 @@ public interface IWidget
     /**
      * Set the Y position of the button
      * @param y The new Y position
+     * @precond y >= negative
+     * @postcond this.getY() == y
      */
     public void setY(float y);
     
@@ -43,6 +47,8 @@ public interface IWidget
     /**
      * Set the Width of the button
      * @param width The new width
+     * @precond width >= negative
+     * @postcond this.getWidth() == width
      */
     public void setWidth(float width);
     
@@ -55,6 +61,8 @@ public interface IWidget
     /**
      * Set the height of the button
      * @param height The new height
+     * @precond height >= negative
+     * @postcond this.getHeight() == height
      */
     public void setHeight(float height);
     

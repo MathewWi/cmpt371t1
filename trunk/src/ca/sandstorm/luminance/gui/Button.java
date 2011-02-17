@@ -32,6 +32,9 @@ public class Button implements IWidget
      * @param width Width of the button.
      * @param height Height of the button.
      * @param title String to be used for the buton title.
+     * @precond x >= 0, y >= 0, width >= 0, height >= 0
+     * @postcond this.getX() == x, this.getY() == y, this.getWidth() == width,
+     * this.getHeight() == height
      */
     public Button(float x, float y, float width, float height, String title)
     {
@@ -108,11 +111,21 @@ public class Button implements IWidget
 	_height = height;
     }
     
+    /**
+     * Get the title for the button.
+     * @return the title used for the button
+     */
     public String getTitle()
     {
 	return _title;
     }
     
+    /**
+     * Set the title for the button.
+     * @param title The title used for the button.
+     * @precond n/a
+     * @postcond this.getTitle() == title
+     */
     public void setTitle(String title)
     {
 	_title = title;

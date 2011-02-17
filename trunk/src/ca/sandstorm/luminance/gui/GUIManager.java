@@ -13,16 +13,16 @@ public class GUIManager
 
     private int MAX_BUTTON_COUNT = 10;
 
-    private int numberOfButtons;
+    private int _numberOfButtons;
     private InputTouchScreen _touchScreen;
-    private Button buttons[];
+    private Button _buttons[];
 
 
     public GUIManager()
     {
 	_touchScreen = Engine.getInstance().getInputSystem().getTouchScreen();
-	buttons = new Button[MAX_BUTTON_COUNT];
-	numberOfButtons = 0;
+	_buttons = new Button[MAX_BUTTON_COUNT];
+	_numberOfButtons = 0;
     }
 
     /**
@@ -31,13 +31,15 @@ public class GUIManager
      * the button and return false.
      * @param button The button to be added to, and managed by, this GUIManager
      * @return false if the button wasn't added to the GUIManager, true otherwise
+     * @precond button != null
+     * @postcond _buttons.length <= 5
      */
     public boolean addButton(Button button)
     {
-	if (numberOfButtons == MAX_BUTTON_COUNT) {
+	if (_numberOfButtons == MAX_BUTTON_COUNT) {
 	    return false;
 	} else {
-	    buttons[numberOfButtons++] = button;
+	    _buttons[_numberOfButtons++] = button;
 	    return true;
 	}
     }
@@ -50,6 +52,8 @@ public class GUIManager
      * space.
      * @param event The MotionEvent that represents the touch
      * @return the Button that was tapped.
+     * @precond event != null
+     * @postcond n/a
      */
     public Button touchOccured(MotionEvent event)
     {
@@ -64,14 +68,16 @@ public class GUIManager
      * @param x The X coordinate of the touch
      * @param y The Y coorindate of the touch
      * @return the Button that was tapped.
+     * @precond x and y can't be negative
+     * @postcond n/a
      */
     public Button touchOccured(float x, float y)
     {
 	/*
 	 * Searches through the array of buttons and compares each one
 	 */
-	for (int i = 0; i < numberOfButtons; i++) {
-	    Button button = buttons[i];
+	for (int i = 0; i < _numberOfButtons; i++) {
+	    Button button = _buttons[i];
 	    if (x > button.getX() && x < button.getX() + button.getWidth() &&
 		y > button.getY() && y < button.getY() + button.getHeight()) {
 		return button;
@@ -90,8 +96,8 @@ public class GUIManager
     
     public void draw(GL10 gl)
     {
-	for (int i = 0; i < numberOfButtons; i++) {
-	    buttons[i].draw(gl);
+	for (int i = 0; i < _numberOfButtons; i++) {
+	    _buttons[i].draw(gl);
 	}	
     }
     
