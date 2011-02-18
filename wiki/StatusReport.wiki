@@ -73,7 +73,7 @@ Common problems of the development environment can be found here: CommonIssues
     * The build script needs to access artifacts such as the android virtual device, and all its relative components.
     * Unable to solve this problem within the time limit.
   * It has "three thumbs up" tests currently.
-   * Tests suite includes ResourceManager and Input classes.
+   * Tests suite includes Resource Manager and Input classes.
 
  == GUI Testing ==
   * Use of Robotium.
