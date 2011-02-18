@@ -1,0 +1,23 @@
+#summary Documentation for the Development Team.
+
+#summary Documentation for the Test Team
+
+= Introduction =
+
+This is where the development team will be listing their tasks and roles.
+
+== Updates ==
+=== Milestone 2 ===
+  * Two members have gone from the team. 
+  * Chet is not longer part of the development team.
+  * Stephen now development lead.
+
+== Significant Meeting Times ==
+*Tuesday, February 15, 2011 in S372*
+
+  * Looked through entire code base as a group peer review.
+  * Discussed team roles and how everybody was doing.  Solved issues verbally with suggestions and help.
+
+*Wednesday, February 2, 2011 in S371*
+
+  * Stephen performed the OpenGL tutorial for all the group members.
