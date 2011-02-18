@@ -58,11 +58,24 @@
   * Integrate black box, white box, mutation test into smoke test
 
 *Estimated: 40 hours*
-
+== Post Milestone Comments ==
+ Much difficulty in setting up the emulator to work on TeamCity.
+ As a consequence Android Junit tests were not integrated into Smoke tests.
+ JUnit tests has been postponed to next milestone.
+ See TestTeam wiki for details
+ 
 <br>
+= Current Milestone (Test Plan) =
 == Milestone 3: Test new features, User test ==
-features.
 
+== Pre Milestone Comments ==
+ After speaking with Prof. Stanley we re-evaluated our testing plans  
+ to concentrate more on core testing, e.g. black box, automated gui testing
+ white box testing, user evaluations.
+ We have decided to delay Jcoverage testing with Emma until our 
+ core tests are fully integrated to work with the emulator
+
+===Tasks===
   * Translate User scenarios into GUI testing scripts
   * Write all black box tests simultaneously with development
   * Write all white box tests after development of components
@@ -139,7 +152,9 @@ Links:
 === Unit Test: ===
   Unit test will be used in Eclipse IDE’s built-in to run the majority of the test suites. Also use test coverage tool to find areas of a program not exercised by a set of test cases, creating additional test cases to increase coverage and determining a quantitative measure of code coverage, which is an indirect measure of quality. 
 
-
+=== JCoverage Test: ===
+  We are delaying Jcoverage testing (Emma) in order to concentrate on automated daily build tests working remotely on the emulator
+  
 === GUI Test: ===
   Android specific Robotium GUI tester will be used in accordance with a user use scenario. GUI test would perform a series of functions needed to pass the first level of the game. GUI test will be written and automated and run by testers.
 
@@ -182,34 +197,4 @@ Links:
   A sheet will be given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics (see below. Bugs will be converted into official bug reports by testers and assigned to developer by Triage:
 
 -------------------------
-
-Level:
-List the steps to reproduce the bug:
-
-1
-
-2
-
-3
-
-Rating of Game:
-
-  Logic (game premise):
-
-  Camera (viewing angle):
-
-  Audio (music/effects):
-
-  Performance (responsiveness):
-
-  Interface (looks):
-
-  Overall:
-
-New feature ideas to help make the game better:
-
-Old features you would like to see improved. (in what way):
-
-Comments:
-
--------------------------
+(see UserEvaluations wiki for updated Usability test reports)
