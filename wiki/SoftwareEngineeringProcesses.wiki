@@ -1,0 +1,34 @@
+#summary The processes we have been adhering to while developing.
+
+ Our group has hit quite a large issue within the past milestone.  This issue was we had our Project Manager taking on the role of Development Lead as well  This lead to a variety of problems.  In addition to that, we also had two of our test team leave the group.  Both of these caused us to get side-tracked, since we had to refactor our group positions quite significantly.  This has lead us to refine our software engineering processes in the following ways:
+
+ * Enhanced communication.
+  * Discuss as a group what changes are going to be made.
+  * More open discussion in group meetings, rather than one person leading the whole thing
+  * Overall whole group more readily available to communication while developing (i.e. working together, being on instant messaging or cell phones etc.)
+  
+ * Enhanced collaboration.
+  * Separate team meetings for specific discussions.
+  * Collaborate as a whole group to solve integration and system issues.
+  * Communicate with outside parties (i.e. TA's, professors, etc.) for additional help where required.
+
+ * Improved division of labour.
+  * No longer relying on one person to do it all.
+  * Have a development lead that is separate from project manager.
+
+ * Improved chain of command.
+  * More defined developer lead position and project manager positions.
+   * Project manager runs overall project development
+   * Development lead divides development tasks between the development team.
+   * Test Team lead divides up testing tasks to their team.
+   * Odd jobs divided up during meetings, so one person doesn't have to do them all.
+  
+ * Game oriented testing.
+  * Graphics testing has proven to be a task too impractical to do robustly.
+  * Focus is on black box / play testing.
+
+ == Version Control Strategy ==
+  Our version control strategy has esstentially remained the same throughout this milestone from the last.  We have been using !TeamCity as an issue tracker, along with a google code repository set up on a VM on campus.  Developers are to commit their classes with stubbed out methods - including pre-conditions, post-conditions, parameter explanations, etc - before doing any hardcore development.  In this fashion, the test team is then able to start writing unit tests on this stubbed out code, therefore making out whole software development process more efficient.
+
+ == Daily Build ==
+  A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
