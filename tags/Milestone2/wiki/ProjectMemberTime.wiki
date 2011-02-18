@@ -1,0 +1,166 @@
+#summary Project member workload with times
+
+= Project Member Times =
+<wiki:toc />
+
+= Group Responsibilities =
+
+ This is the time spent by each member, give or take an hour.
+|| *Task* || *Hours spent per week* ||
+|| Group Meetings || 5 hours a week ||
+|| Emails and Communication within the group || 2 hours a week ||
+
+
+= Member Responsibilities =
+
+ Because meetings are attended by many or all members of the project, we account for this time separately from the responsibilities taken by the individual members.
+
+== Kumaran Vijayan ==
+===Milestone 0===
+|| *Task* || *Hours spent so far* ||
+|| Wiki Management || 4 ||
+
+===Milestone 1===
+|| Learning Codebase || 4 ||
+|| Android Widget Toolkit || 2 ||
+|| OpenGL Widget Toolkit || 2 ||
+|| GUI System || 8 ||
+
+== Zenja Ivkovic ==
+===Milestone 0===
+|| *Task* || *Hours spent so far* ||
+|| TeamCity setup/administration || 3 ||
+|| Eclipse environment setup || 3 ||
+|| Build script/system fixing and setup || 3 ||
+|| Helping team with development environment || 1.5 ||
+|| Wiki page creation and maintenance || 3 ||
+|| Audio playback research and implementation || 2.5 ||
+|| Graphics/model loading research || 1.5 ||
+|| CPM diagram || 3 ||
+
+===Milestone 1===
+|| Helping figure out test project setup || 1.5 ||
+|| Resource manager || 5 ||
+|| Audio system updates || 1 ||
+|| Graphics renderer || 6 ||
+|| Game object system || 2.5 ||
+|| Model loading research || 2 ||
+|| Helping with GUI drawing || 1 ||
+|| Modifying smoke test scripts to work for TeamCity || 4 ||
+|| Misc. build master duties || 1 ||
+
+== Stephen Damm ==
+=== Milestone 0 ===
+|| *Task* || *Hours spent so far* ||
+|| Setup VM for TeamCity  || 2 ||
+|| Project administration || 4 ||
+|| Stubbed new framework || 8 ||
+|| Implemented basic opengl demo using new framework || 4 ||
+|| Project milestone plan || 1 ||
+|| Implemented input system from replica island || 4 ||
+|| Wrote quaternion camera class || 4 ||
+|| Prototyped presentation for milestone 1 || 2 ||
+|| Outlined our requirements || 1 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| General code clean up and formatting || 1 ||
+|| OpenGL Tutorial || 1 ||
+|| Grid class basic || 4 ||
+|| Grid class advanced || 4 ||
+|| Sky box || 3 ||
+|| Independent code reviews || 6 ||
+|| Prepared basic demo || 3 ||
+|| Rendering GUI examples || 3 ||
+|| Presentation 2 ppt || 2 ||
+
+== Martina Nagy ==
+=== Milestone 0 ===
+|| *Task* || *Hours spent so far* ||
+|| Writing/Debugging build script || 6 ||
+|| Deliverable outline || 4 ||
+|| CPM diagram || 3 ||
+|| Planning and organizing team meetings || 2 ||
+|| General Wiki maintenance || 2 ||
+|| Running daily build || 1 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| Helping figure out test project setup || 2 ||
+|| Initial setup of test build configuration || 1 ||
+|| Organizing team || 4 ||
+|| Preparing Wiki for deliverable || 7.5 ||
+|| Helping group members with various tasks || 3.5 ||
+
+== Chet Collins ==
+===Milestone 0===
+|| *Task* || *Hours spent so far* ||
+|| Risk Report || 3 ||
+|| Deliverable 2 Outline || 1 ||
+|| CPM Diagram || 3 || 
+
+===Milestone 1===
+|| *Task* || *Hours spent so far* ||
+|| Risk Report || 2.5 ||
+|| Analysis of code for test cases || 2 ||
+|| Testing || 4 ||
+
+== Amara Daal ==
+=== Milestone 0 ===
+|| *Task* || *Hours spent so far* ||
+|| Learning Ant Script || 2 ||
+|| Learning Android test set up || 2 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| User scenario(walk-through) || 2 ||
+|| Testing Input package || 4 ||
+|| GUI Testing Robotium || 2 ||
+|| User evaluations || 3 ||
+|| Usability test template  || 2 ||
+
+== Liang Huang ==
+=== MIlestone 0 ===
+|| *Tasks* || *Hours spent so far* ||
+|| Test Plan || 2 ||
+|| Learning Ant Script || 4 ||
+|| Learning Android Virtual Device || 4 ||
+|| Documentation || 5 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| Ant Script || 4 ||
+|| Android Virtual Device || 4 ||
+|| Meeting with Dr. Kevin Stanley || 1 ||
+|| Continuous Integration Script || 30 ||
+|| SVN TestSuite || 1 ||
+|| SVN TestSmoke || 1 ||
+|| Team City Smoketest Help || 4 ||
+
+== Jonny ==
+=== Milestone 0 ===
+|| *Task* || *Hours spent so far* ||
+|| Android touch input research || 4 ||
+|| GUI prototype design || 4 ||
+|| Final deliverable 1 spell check || 1 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| Touch input implementation || 15 ||
+|| Presentation slide preparation || 1 ||
+|| Updating class diagram || 1 ||
+
+== Steven Indzeoski ==
+=== Milestone 0 ===
+|| *Task* || *Hours spent so far* ||
+|| Researching style checking || 1 ||
+|| Working on game music || 3 ||
+|| Adding to project page/wiki || 1 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| Researching XML, creating level file template || 2 ||
+|| Researching XML parsing in Java || 2 ||
+|| Creating XML parser for levels || 5 ||
+|| Creating classes associated with loading levels || 3 ||
+|| Checking code documentation || 1 ||

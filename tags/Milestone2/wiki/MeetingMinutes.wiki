@@ -1,0 +1,70 @@
+#summary Brief summary of weekly meetings
+<wiki:toc max_depth="2" />
+
+= Introduction =
+
+Weekly meeting minutes.
+
+= January 31, 2011 =
+  # Code Review - Zenja
+    * People from different teams review other team member's code
+    * Round robin
+  # Additions to Risk Report
+  # Basic use case scenarios
+  # Requirements wiki page
+    * User Requirements
+    * Functionality Requirements
+  # UI Prototype
+    * Paper prototype
+    * Video of old system
+
+= January 27, 2011=
+
+  # Mini Milestone list - Stephen
+  # Risk - Chet
+  # Source Code - Stephen
+  # Test documentation (What we have, what we do in future) - Test Team
+  # Documentation of Code Review - wait for clarification
+  # Wiki outline deliverable - Martina
+  # Documentation of Personal - Done
+  # Activity Report - Kum
+  # Paper/GUI describing second deliverable - Design Team
+
+Time: 
+
+= January 26, 2011 =
+  # What's done
+  # Stephen: Working spinning box on the svn repo and basic architecture working.
+  # Kai: UML Diagram is done with Visual Diagram
+  # TestTeam: Bug assignment page now scrapped, the bug issuer spam's e-mails.
+  
+  # For next meeting
+  # Sten: Looking at Check Style
+  # Chet: Risk will be done by Friday
+  # Jonny: Input on touch screen
+  # TestTeam: Still working on concept on ant build and smoke test
+  # Issue Tracking: Owner change to Fix status then Triage/Test Team change to Verified
+  
+Time: 2 hours
+
+= January 24, 2011 =
+
+  # Test team has a starting task.
+  # Triage team has a starting task.
+  # Development Team: 
+      * Flush out the architecture 
+      * Draw a bunch of Class Diagrams
+  # Start breaking into respective groups and start working!
+
+Time: 2 hours
+
+= January 21, 2011 =
+
+  # Everyone should update their duties.  Go to "Project Home" -> People -> Update your duties.
+  # A template for ALL our issues is setup in Google code and might be modified by Jeff in the future.  All     issues posted should follow this.
+  # Everyone should read the getting started on development wiki page and have their development environment setup by the next meeting.
+  # Martina is our meeting manager now.  Her word is rule.
+  # The Triage team is in charge of accepting bugs and will discuss with the dev team who will fix it.
+  # Design team will meet next and Stephen will bring a basic domain diagram for the first design team meeting.
+
+Time: 2 hours

@@ -1,0 +1,4 @@
+#summary The class diagram for our project after this milestone.
+
+= Class Diagram = 
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/Milestone2.png?t=1298068329
