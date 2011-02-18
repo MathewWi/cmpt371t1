@@ -15,7 +15,9 @@
   Use cases that have been written so far can be viewed here: UseCaseScenarios
 
 = Mini-Milestone List =
- The updated project plan we have set and the CPM diagram can be viewed here:  MilestonePlan
+ The updated project plan we have set can be viewed here:  MilestonePlan
+
+ CPM Diagram: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
 
 = Risk Analysis =
  The updated risk report can be viewed at: RiskReport
@@ -40,7 +42,8 @@
 = Current State of the System =
 
  The status report can be viewed here: StatusReport
- The class diagram from this prototype can be viewed here: [https://cmpt371t1.googlecode.com/svn/trunk/Milestone2.PNG]
+
+ The class diagram from this prototype can be viewed here: [http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/Milestone2.png?t=1298068329]
 
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
