@@ -10,17 +10,26 @@ import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
 
+/**
+ * Grid class
+ * @author halsafar
+ *
+ */
 public class Grid implements IGameObject
 {
+    // vertex and index buffers
     private FloatBuffer _vertexBuffer;
     private ShortBuffer _indexBuffer;
 
+    // total indice count for rendering
     private int _totalIndices;
 
+    // temp vectors to avoid mallocs
     private Vector3f _vCenter;
     private Vector3f _tmpCenter;
     private Vector3f _tmpCellCenter;
 
+    // grid properties
     private int _cols;
     private int _rows;
 
@@ -28,6 +37,16 @@ public class Grid implements IGameObject
     private float _cellHeight;
 
 
+    /**
+     * Constructor.
+     * @param rows The number rows in the grid
+     * @param cols The number cols in the grid
+     * @param cellWidth The width of each grid cell
+     * @param cellHeight The height of each grid cell
+     * @precon rows != 0, cols != 0, cellWidth != 0, cellHeight != 0
+     * @precon (rows+1)*cols*2*2 <= 65535
+     * @postcon _vertexBuffer != null, _indexBuffer != null, _totalIndices > 0
+     */
     public Grid(int rows, int cols, float cellWidth, float cellHeight)
     {
 	// calculate vertices
@@ -97,48 +116,84 @@ public class Grid implements IGameObject
     }
 
 
+    /**
+     * GetColumnCount()
+     * @return
+     */
     public int getColumnCount()
     {
 	return _cols;
     }
 
 
+    /**
+     * GetRowCount()
+     * @return
+     */
     public int getRowCount()
     {
 	return _rows;
     }
 
 
+    /**
+     * Get the cell width.
+     * @return
+     */
     public float getCellWidth()
     {
 	return _cellWidth;
     }
 
 
+    /**
+     * Get the cell height.
+     * @return
+     */
     public float getCellHeight()
     {
 	return _cellHeight;
     }
 
 
+    /**
+     * Derives the total grid width
+     * @return
+     */
     public float getTotalWidth()
     {
 	return (_cellWidth * getColumnCount());
     }
 
 
+    /**
+     * Derives the total grid height
+     * @return
+     */
     public float getTotalHeight()
     {
 	return (_cellHeight * getRowCount());
     }
 
 
+    /**
+     * Gets the center of the entire grid in world space.
+     * @return
+     */
     public Vector3f getCenter()
     {
 	return _vCenter;
     }
     
     
+    /**
+     * Get the center of a cell in world space.
+     * @param row The row index to center on.
+     * @param col The column index to center on.
+     * @return The world position for the center of that particular cell.
+     * @precon row >= 0 && row < _rows, col >= 0 && col < _cols
+     * @postcon _tmpCellCenter != null
+     */
     public Vector3f getCellCenter(int row, int col)
     {
 	float xOffset = 0.0f;
@@ -151,12 +206,6 @@ public class Grid implements IGameObject
 	_tmpCellCenter.set(x, y, z);
 	
 	return _tmpCellCenter;
-    }
-
-
-    public Vector3f getCellCenterPosition()
-    {
-	return _tmpCenter;
     }
 
 
