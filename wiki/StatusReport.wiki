@@ -35,7 +35,7 @@ Random level generator.
 
 == STI/Defect Information ==
 
-Currently there are no STI's or defects within the code itself, as everything is only stubbed out.
+Currently there are no known STI's or defects within the code.  The test environment was not complete up until this point.  When more tests are implemented, defects and STI's will become more apparent.
 
 Common problems of the development environment can be found here: CommonIssues
 
