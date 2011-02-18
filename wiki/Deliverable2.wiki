@@ -1,5 +1,5 @@
 #summary Outline of the requirements for Milestone 2
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="2" />
 
 = Source Code Repository =
   Source code for Luminance for this milestone can be found here:
@@ -71,22 +71,7 @@
 
 = Current State of the System =
 
- A high level status report can be viewed here: StatusReport
-
- * Resource Manager.
-  * Capable of loading and managing most resources.
-  * Sound is fully implemented.
-
- * Input.
-  * Touch and drag inputs are currently stable.
-
- * Graphics.
-  * Basic primitives (sphere, box, etc.).
-  * Full grid, background and general play space implemented.
-
- * Game.
-  * Currently draws a grid and loads a pre-defined level.
-  * Does not have any playable functionality.
+ The status report can be viewed here: StatusReport
 
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
