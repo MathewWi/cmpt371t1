@@ -1835,9 +1835,9 @@ public class PrimitiveSphere implements IRenderable
 	// Create normal buffer
 	ByteBuffer byteBufNorm = ByteBuffer.allocateDirect(_normals.length * 4);
 	byteBufNorm.order(ByteOrder.nativeOrder());
-	_vertexBuffer = byteBufNorm.asFloatBuffer();
-	_vertexBuffer.put(_normals);
-	_vertexBuffer.position(0);
+	_normalBuffer = byteBufNorm.asFloatBuffer();
+	_normalBuffer.put(_normals);
+	_normalBuffer.position(0);
     }
     
     /**

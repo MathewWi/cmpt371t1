@@ -18,6 +18,7 @@ import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
+import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
@@ -30,7 +31,8 @@ public class GameState implements IState
 
     private Camera _cam;
 
-    private Box testBox;
+    private Box _testBox;
+    private Receptor _testReceptor;
 
     private Grid _grid;
     private Skybox _sky;
@@ -58,12 +60,15 @@ public class GameState implements IState
 
 	_grid = new Grid(10, 10, 1.0f, 1.0f);
 
-	// Temporary box for testing
+	// Temporary box and receptor for testing
 	Vector3f center = _grid.getCellCenter(5, 5);
-	testBox = new Box(center, new Vector3f(1f, 1f, 1f));
+	_testBox = new Box(center, new Vector3f(1f, 1f, 1f));
+	_testReceptor = new Receptor(new Vector3f(0f, 0f, 0f), new Vector3f(1f, 1f, 1f));
 
-	objects.add(testBox);
-	Engine.getInstance().getRenderer().addRenderable(testBox);
+	objects.add(_testBox);
+	objects.add(_testReceptor);
+	Engine.getInstance().getRenderer().addRenderable(_testBox);
+	Engine.getInstance().getRenderer().addRenderable(_testReceptor);
 
 	float maxSize = Math.max(_grid.getTotalWidth(), _grid.getTotalHeight());
 	float camY = 1.15f * (maxSize / (float) (Math.tan((Math.PI / 6.0))));
