@@ -166,17 +166,6 @@ public class GameState implements IState
 	    // _cam.moveUp(-1.0f);
 	}
 
-	if (Engine.getInstance().getInputSystem().getTouchScreen()
-		.getPressed(0)) {
-	    logger.debug("from rp: " +
-			 Float.toString(Engine.getInstance().getInputSystem()
-				 .getTouchScreen().getX(0)));
-
-	    logger.debug("from motion event: " +
-			 Float.toString(Engine.getInstance().getInputSystem()
-				 .getTouchScreen().getTouchEvent().getX()));
-	}
-
 	// use touch screen to move the camera
 	//
 	// not using replica island coordinates
@@ -191,18 +180,22 @@ public class GameState implements IState
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();
 		    _touchMode = DRAG;
-		case MotionEvent.ACTION_UP:
-		    // Check whether user released tap on top of button
-		    _touchMode = NONE;
+		    break;
 		case MotionEvent.ACTION_POINTER_DOWN:
-		    //for some reason the action_pointer_down kept triggered
-		    // even thought only using 1 finger to touch.
+		    // FIX: for some reason the system sometimes cannot catch
+		    // the second finger correctly.
 		    _touchMode = ZOOM;
 		    _pinchDist = Engine.getInstance().getInputSystem()
 					.getTouchScreen().getPinchDistance();
-		    //logger.debug("pinch Mode");
+		    logger.debug("pinch Mode");
+		    break;
+		case MotionEvent.ACTION_UP:
+		    // Check whether user released tap on top of button
+		    _touchMode = NONE;
+		    break;
 		case MotionEvent.ACTION_POINTER_UP:
 		    _touchMode = DRAG;
+		    break;
 		case MotionEvent.ACTION_MOVE:
 		    if (_touchMode == DRAG) {
 			float newX = touchEvent.getX();
@@ -213,59 +206,58 @@ public class GameState implements IState
 			_initialX = newX;
 			_initialY = newY;
 
-			if (Math.abs(moveX) > TOUCH_SENSITIVITY || Math.abs(moveY) > TOUCH_SENSITIVITY)
-			{
+			if (Math.abs(moveX) > TOUCH_SENSITIVITY ||
+				Math.abs(moveY) > TOUCH_SENSITIVITY) {
 			    if (Math.abs(moveX) > Math.abs(moveY)) {
-				    if (moveX > 0) {
-					    // Left to right
-					    _cam.moveLeft(-TOUCH_CAMERA_SPEED);
-					    logger.debug("Left to right: " +
-							 Float.toString(-moveX));
+				if (moveX > 0) {
+				    // Left to right
+				    _cam.moveLeft(-TOUCH_CAMERA_SPEED);
+				    logger.debug("Left to right: " +
+				                 Float.toString(-moveX));
 
-				    } else if (moveX < 0) {
-					// Right to left
-					_cam.moveLeft(TOUCH_CAMERA_SPEED);
-					logger.debug("Right to left: " +
-					             Float.toString(-moveX));
-				    }
-				    
-				} else {
-					if (moveY > 0) {
-					    // up to down
-					    _cam.moveUp(TOUCH_CAMERA_SPEED);
-					    logger.debug("Up to down: " +
-							 Float.toString(moveY));
-
-					} else if (moveY < 0) {
-					    // Down to up
-					    _cam.moveUp(-TOUCH_CAMERA_SPEED);
-					    logger.debug("Down to up: " +
-							 Float.toString(moveY));
-					}
+				} else if (moveX < 0) {
+				    // Right to left
+				    _cam.moveLeft(TOUCH_CAMERA_SPEED);
+				    logger.debug("Right to left: " +
+				                 Float.toString(-moveX));
 				}
-
-			    } else if (_touchMode == ZOOM) {
-				// pinch gesture for zooming
-				logger.debug("ZOOMINGGGG");
-				float newPinchDist = Engine.getInstance().getInputSystem()
-				    			.getTouchScreen().getPinchDistance();
 				    
-				if (newPinchDist > _pinchDist){
-				    _cam.moveForward(1.0f);
-				    logger.debug("pinch out: " +
-				                 Float.toString(_pinchDist) +
-				                 ", " + Float.toString(newPinchDist));
-					
-				} else {
-				    _cam.moveForward(-1.0f);
-				    logger.debug("pinch in: " +
-				                 Float.toString(_pinchDist) +
-							  ", " + Float.toString(newPinchDist));
+			    } else {
+				if (moveY > 0) {
+				    // up to down
+				    _cam.moveUp(TOUCH_CAMERA_SPEED);
+				    logger.debug("Up to down: " +
+				                 Float.toString(moveY));
+
+				} else if (moveY < 0) {
+				    // Down to up
+				    _cam.moveUp(-TOUCH_CAMERA_SPEED);
+				    logger.debug("Down to up: " +
+				                 Float.toString(moveY));
 				}
 			    }
 			}
+		    }else if (_touchMode == ZOOM) {
+			// pinch gesture for zooming
+			logger.debug("ZOOMINGGGG");
+			float newPinchDist = Engine.getInstance().getInputSystem()
+				  		.getTouchScreen().getPinchDistance();
+		
+			if (newPinchDist > _pinchDist){
+			    _cam.moveForward(1.0f);
+			    logger.debug("pinch out: " +
+			                 Float.toString(_pinchDist) +
+			                 ", " + Float.toString(newPinchDist));
+			} else {
+			    _cam.moveForward(-1.0f);
+			    logger.debug("pinch in: " +
+			                 Float.toString(_pinchDist) +
+			                 ", " + Float.toString(newPinchDist));
+			}
+			_pinchDist = newPinchDist;
+		    }
+		    //break;    
 	    }
-
 	}
 	// Update game objects -zenja
 	for (IGameObject object : objects) {
