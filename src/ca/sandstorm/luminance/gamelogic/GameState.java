@@ -39,6 +39,9 @@ public class GameState implements IState
 
     private float _initialX = 0.0f;
     private float _initialY = 0.0f;
+    // the second finger/pointer coordinates
+    private float _initialSecondX = 0.0f;
+    private float _initialSecondY = 0.0f;
     private float _pinchDist = 0.0f;
     private static final int NONE = 0;
     private static final int DRAG = 1;
@@ -165,7 +168,25 @@ public class GameState implements IState
 	    _cam.rotateCamera(-0.01f, 1, 0, 0);
 	    // _cam.moveUp(-1.0f);
 	}
+	
+	if (Engine.getInstance().getInputSystem()
+		.getTouchScreen().getPressed(1)) {
+	    // use to identify the zoom gesture
+	    _touchMode = ZOOM;
+	    _initialSecondX = Engine.getInstance().getInputSystem()
+	    			.getTouchScreen().getTouchEvent().getX(1);
+	    _initialSecondY = Engine.getInstance().getInputSystem()
+				.getTouchScreen().getTouchEvent().getY(1);
+	} else {
+	    _touchMode = DRAG;
+	}
 
+	if (!Engine.getInstance().getInputSystem()
+		.getTouchScreen().getPressed(0)) {
+	    // set touchMode to NONE if screen is not pressed
+	    _touchMode = NONE;
+	}
+	
 	// use touch screen to move the camera
 	//
 	// not using replica island coordinates
@@ -180,22 +201,6 @@ public class GameState implements IState
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();
 		    _touchMode = DRAG;
-		    break;
-		case MotionEvent.ACTION_POINTER_DOWN:
-		    // FIX: for some reason the system sometimes cannot catch
-		    // the second finger correctly.
-		    _touchMode = ZOOM;
-		    _pinchDist = Engine.getInstance().getInputSystem()
-					.getTouchScreen().getPinchDistance();
-		    logger.debug("pinch Mode");
-		    break;
-		case MotionEvent.ACTION_UP:
-		    // Check whether user released tap on top of button
-		    _touchMode = NONE;
-		    break;
-		case MotionEvent.ACTION_POINTER_UP:
-		    _touchMode = DRAG;
-		    break;
 		case MotionEvent.ACTION_MOVE:
 		    if (_touchMode == DRAG) {
 			float newX = touchEvent.getX();
@@ -239,26 +244,49 @@ public class GameState implements IState
 			}
 		    }else if (_touchMode == ZOOM) {
 			// pinch gesture for zooming
-			logger.debug("ZOOMINGGGG");
 			float newPinchDist = Engine.getInstance().getInputSystem()
-				  		.getTouchScreen().getPinchDistance();
+	  					.getTouchScreen().getPinchDistance();
+
+			float newX = touchEvent.getX();
+			float newY = touchEvent.getY();
+			float newSecondX = touchEvent.getX(1);
+			float newSecondY = touchEvent.getY(1);
+
+			float moveX = newX - _initialX;
+			float moveY = newY - _initialY;
+			float moveSecondX = newSecondX - _initialSecondX;
+			float moveSecondY = newSecondY - _initialSecondY;
+			
+			_initialX = newX;
+			_initialY = newY;
+			_initialSecondX = newSecondX;
+			_initialSecondY = newSecondY;
+			if (Math.abs(moveX) > TOUCH_SENSITIVITY ||
+				Math.abs(moveY) > TOUCH_SENSITIVITY ||
+				Math.abs(moveSecondX) > TOUCH_SENSITIVITY ||
+					Math.abs(moveSecondY) > TOUCH_SENSITIVITY) {
+			
+			    logger.debug("ZOOMING");
 		
-			if (newPinchDist > _pinchDist){
-			    _cam.moveForward(1.0f);
-			    logger.debug("pinch out: " +
-			                 Float.toString(_pinchDist) +
-			                 ", " + Float.toString(newPinchDist));
-			} else {
-			    _cam.moveForward(-1.0f);
-			    logger.debug("pinch in: " +
-			                 Float.toString(_pinchDist) +
-			                 ", " + Float.toString(newPinchDist));
+			    if (newPinchDist > _pinchDist){
+				_cam.moveForward(1.0f);
+				logger.debug("pinch out: " +
+				             Float.toString(_pinchDist) +
+				             ", " + Float.toString(newPinchDist));
+			    } else {
+				_cam.moveForward(-1.0f);
+				logger.debug("pinch in: " +
+				             Float.toString(_pinchDist) +
+				             ", " + Float.toString(newPinchDist));
+			    }
+			    
 			}
 			_pinchDist = newPinchDist;
+		    break;
 		    }
-		    //break;    
 	    }
 	}
+	
 	// Update game objects -zenja
 	for (IGameObject object : objects) {
 	    object.update();
