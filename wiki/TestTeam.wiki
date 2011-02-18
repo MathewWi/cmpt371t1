@@ -13,6 +13,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
       * Jeff is focusing on Smoke Tests, JUnit
       * Amara is focusing on Robotium, Use-case scenarios, User Scenario Play Test
       * Chet is focusing on JUnit
+      * Guide on how to get/use LuminanceTestSuite and LuminanceSmokeTest are up on the environment set-up guide
     
     ==== Tasks Completed ====
       * Smoke test ( Three Thumbs Up!)
@@ -25,7 +26,6 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
     ==== Tasks Uncompleted ====
       * Tests not all implemented
-
 
     ==== Estimated Time ====
       40 hours
