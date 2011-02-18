@@ -24,6 +24,7 @@
 || Learning Codebase || 4 ||
 || Android Widget Toolkit || 2 ||
 || OpenGL Widget Toolkit || 2 ||
+|| GUI System || 8 ||
 
 == Zenja Ivkovic ==
 ===Milestone 0===
