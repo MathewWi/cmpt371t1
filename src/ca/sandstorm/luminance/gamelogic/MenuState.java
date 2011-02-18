@@ -37,6 +37,14 @@ public class MenuState implements IState
 	return _guiManager;
     }
     
+    
+    /**
+     * Engine has informed the state the device has changed.
+     * @param gl OpenGL context
+     * @param w The new width value
+     * @param h The new height value
+     * @precond We do not control the values here.  w > 0 && h > 0 would be optimal.
+     */    
     @Override
     public void deviceChanged(GL10 gl, int w, int h)
     {
@@ -64,8 +72,27 @@ public class MenuState implements IState
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	//gl.glLoadIdentity();
     }
+    
+    
+    /**
+     * init()
+     * Engine has informed this state can init any openGL 
+     * required resources.
+     * @param gl OpenGL context
+     */
+    @Override
+    public void init(GL10 gl)
+    {
+	// TODO Auto-generated method stub
+	
+    }    
 
 
+    /**
+     * pause()
+     * Engine has requested this state be paused.
+     * This is different from ingame pausing.
+     */    
     @Override
     public void pause()
     {
@@ -74,6 +101,10 @@ public class MenuState implements IState
     }
 
 
+    /**
+     * resume()
+     * Engine has requested this state to resume.
+     */    
     @Override
     public void resume()
     {
@@ -82,6 +113,10 @@ public class MenuState implements IState
     }
 
 
+    /**
+     * Engine has requested this state update itself.
+     * @param OpenGL context
+     */
     @Override
     public void update(GL10 gl)
     {
@@ -106,6 +141,10 @@ public class MenuState implements IState
     }
 
 
+    /**
+     * Engine has requested this state draw itself.
+     * @param OpenGL context
+     */
     @Override
     public void draw(GL10 gl)
     {
@@ -146,12 +185,5 @@ public class MenuState implements IState
 	return true;
     }
 
-
-    @Override
-    public void init(GL10 gl)
-    {
-	// TODO Auto-generated method stub
-	
-    }
 
 }

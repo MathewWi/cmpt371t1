@@ -24,19 +24,32 @@ import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.state.IState;
 
 
+/**
+ * GameState
+ * Application logic class.
+ * Controls the game.
+ * 
+ * @author halsafar
+ *
+ */
 public class GameState implements IState
 {
     private static final Logger logger = LoggerFactory
 	    .getLogger(GameState.class);
 
+    // camera for the view matrix
     private Camera _cam;
 
     private Box _testBox;
     private Receptor _testReceptor;
 
+    // game grid
     private Grid _grid;
+    
+    // game skybox
     private Skybox _sky;
 
+    // input handling properties
     private float _initialX = 0.0f;
     private float _initialY = 0.0f;
     // the second finger/pointer coordinates
@@ -55,6 +68,11 @@ public class GameState implements IState
     private LinkedList<IGameObject> objects;
 
 
+    /**
+     * Constructor()
+     * 
+     * Sets up a basic test world.
+     */
     public GameState()
     {
 	logger.debug("GameState()");
@@ -89,6 +107,11 @@ public class GameState implements IState
     }
 
 
+    /**
+     * pause()
+     * Engine has requested this state be paused.
+     * This is different from ingame pausing.
+     */    
     @Override
     public void pause()
     {
@@ -97,6 +120,10 @@ public class GameState implements IState
     }
 
 
+    /**
+     * resume()
+     * Engine has requested this state to resume.
+     */
     @Override
     public void resume()
     {
@@ -106,6 +133,12 @@ public class GameState implements IState
     }
 
 
+    /**
+     * init()
+     * Engine has informed this state can init any openGL 
+     * required resources.
+     * @param gl OpenGL context
+     */
     @Override
     public void init(GL10 gl)
     {
@@ -132,6 +165,11 @@ public class GameState implements IState
     }
 
 
+    /**
+     * update()
+     * Engine has requested this state update itself.
+     * @param gl OpenGL context
+     */
     @Override
     public void update(GL10 gl)
     {
@@ -286,14 +324,18 @@ public class GameState implements IState
 		    }
 	    }
 	}
-	
-	// Update game objects -zenja
+
+	// Update game objects
 	for (IGameObject object : objects) {
 	    object.update();
 	}
     }
 
 
+    /**
+     * Engine has requested this state draw itself.
+     * @param OpenGL context
+     */
     @Override
     public void draw(GL10 gl)
     {
@@ -321,6 +363,12 @@ public class GameState implements IState
     }
 
 
+    /**
+     * Engine has informed the state the device has changed.
+     * @param gl OpenGL context
+     * @param w The new width value
+     * @param h The new height value
+     */
     @Override
     public void deviceChanged(GL10 gl, int w, int h)
     {
