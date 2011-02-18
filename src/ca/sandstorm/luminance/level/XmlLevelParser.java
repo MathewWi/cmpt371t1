@@ -37,7 +37,7 @@ public class XmlLevelParser
 	/**
 	 * Parse the level file.
 	 */
-	public void parse()
+	public XmlLevel parse()
 	{
 		try
 		{
@@ -57,21 +57,19 @@ public class XmlLevelParser
 			// Get the level name.
 			Element nameElement = (Element)doc.getElementsByTagName("name").item(0);
 			String name = ((Node)nameElement.getChildNodes().item(0)).getNodeValue();
-			//System.out.println("Name: " + name);
 
 			// Get the difficulty.
 			Element difficultyElement = (Element)doc.getElementsByTagName("difficulty").item(0);
 			String difficulty = ((Node)difficultyElement.getChildNodes().item(0)).getNodeValue();
-			//System.out.println("Difficulty: " + difficulty);
 
 			// Get the dimensions of the level.
 			Element gridElement = (Element)doc.getElementsByTagName("grid_size").item(0);
 			Element xElement = (Element)gridElement.getElementsByTagName("x").item(0);
 			String x = ((Node)xElement.getChildNodes().item(0)).getNodeValue();
-			//System.out.println("x: " + x);
+			int xString = Integer.parseInt(x);
 			Element yElement = (Element)gridElement.getElementsByTagName("y").item(0);
 			String y = ((Node)yElement.getChildNodes().item(0)).getNodeValue();
-			//System.out.println("y: " + y);
+			int yString = Integer.parseInt(y);
 
 			// Get level objects.
 			LinkedList<XmlLevelObject> objectList = new LinkedList<XmlLevelObject>();
@@ -89,7 +87,6 @@ public class XmlLevelParser
 					Element typeElement = (Element)typeNodeList.item(0);
 					NodeList type = typeElement.getChildNodes();
 					String typeString = ((Node)type.item(0)).getNodeValue();
-					//System.out.println("Type: " + typeString);
 
 					// Get the colour if object is a goal
 					String colourString = null;
@@ -155,10 +152,14 @@ public class XmlLevelParser
 					}
 
 					// Create the object for the level
-					XmlLevelObject xmlLevelObject = new XmlLevelObject(typeString);
-					if (xmlLevelObject.getType().equals("goal"))
+					XmlLevelObject xmlLevelObject = null;
+					if (typeString.equals("brick"))
 					{
-						xmlLevelObject.setColour(colourString);
+						xmlLevelObject = new XmlLevelBrick();
+					}
+					else if (typeString.equals("goal"))
+					{
+						xmlLevelObject = new XmlLevelGoal(colourString);
 					}
 					xmlLevelObject.setPosition(objectXFloat, objectYFloat);
 					xmlLevelObject.setRotation(rotationFloat);
@@ -170,6 +171,7 @@ public class XmlLevelParser
 			
 			// Get tools
 			NodeList toolNodeList = doc.getElementsByTagName("tool");
+			LinkedList<XmlLevelTool> toolList = new LinkedList<XmlLevelTool>();
 			for (int i = 0; i < toolNodeList.getLength(); i++)
 			{
 				Node node = toolNodeList.item(i);
@@ -183,7 +185,6 @@ public class XmlLevelParser
 					Element typeElement = (Element)typeNodeList.item(0);
 					NodeList type = typeElement.getChildNodes();
 					String typeString = ((Node)type.item(0)).getNodeValue();
-					System.out.println("Type: " + typeString);
 					
 					// Get the count
 					NodeList countNodeList = element.getElementsByTagName("count");
@@ -191,19 +192,35 @@ public class XmlLevelParser
 					NodeList count = countElement.getChildNodes();
 					String countString = ((Node)count.item(0)).getNodeValue();
 					int countInt = Integer.parseInt(countString);
-					System.out.println("Count: " + countInt);
+					
+					// Create the XmlLevelTool and add to list.
+					XmlLevelTool xmlLevelTool = null;
+					if (typeString.equals("mirror"))
+					{
+						xmlLevelTool = new XmlLevelMirror(countInt);
+					}
+					else if (typeString.equals("prism"))
+					{
+						xmlLevelTool = new XmlLevelPrism(countInt);
+					}
+					toolList.add(xmlLevelTool);
 				}
 			}
+			
+			// Create and return level object.
+			XmlLevel xmlLevel = new XmlLevel(name, difficulty, xString, yString, objectList, toolList);	
+			return xmlLevel;
 		}
 		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	public static void main(String args[])
 	{
 		XmlLevelParser parser = new XmlLevelParser("template.xml");
-		parser.parse();
+		System.out.println(parser.parse().toString());
 	}
 }

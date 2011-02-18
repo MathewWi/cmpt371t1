@@ -8,7 +8,6 @@ package ca.sandstorm.luminance.level;
 public class XmlLevelObject 
 {
 	private String _type;
-	private String _colour;
 	private float _positionX;
 	private float _positionY;
 	private float _rotation;
@@ -43,59 +42,12 @@ public class XmlLevelObject
 	}
 	
 	/**
-	 * Checks to see if a colour given is valid.
-	 * @param colour The given colour, should be white, red, blue, or green.
-	 * @return True if the colour is valid, false otherwise.
-	 */
-	public boolean isValidColour(String colour) 
-	{
-		if (colour.equals("white")) return true;
-		else if (colour.equals("red")) return true;
-		else if (colour.equals("blue")) return true;
-		else if (colour.equals("green")) return true;
-		return false;
-	}
-	
-	/**
 	 * Getter method for type.
 	 * @return The type of the object.
 	 */
 	public String getType()
 	{
 		return _type;
-	}
-	
-	/**
-	 * Setter method for colour when object is a goal.
-	 * @param colour The colour of the goal.
-	 */
-	public void setColour(String colour)
-	{
-		if (!getType().equals("goal")) 
-		{
-			throw new IllegalStateException("Trying to set colour of non-goal object.");
-		}
-		else if (isValidColour(colour))
-		{
-			_colour = colour;
-		}
-		else
-		{
-			throw new IllegalArgumentException("The colour given is invalid.");
-		}
-	}
-	
-	/**
-	 * Getter method for colour when object is a goal.
-	 * @return The colour of the goal.
-	 */
-	public String getColour()
-	{
-		if (!getType().equals("goal")) 
-		{
-			throw new IllegalStateException("Trying to get colour of non-goal object.");
-		}
-		return _colour;
 	}
 	
 	/**
@@ -143,5 +95,15 @@ public class XmlLevelObject
 	public float getRotation()
 	{
 		return _rotation;
+	}
+	
+	/**
+	 * Returns a string representation of the XmlLevelObject.
+	 */
+	public String toString()
+	{
+		return ("\nType: " + getType() + 
+				"\nPosition: " + getPositionX() + " x " + getPositionY() + 
+				"\nRotation: " + getRotation());
 	}
 }
