@@ -12,13 +12,10 @@
  == Daily Build ==
   A daily build is run on !TeamCity to ensure the continuing quality of the software.  It sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build.  This is riding on the notion of fixing bugs on existing functionality before continuing development.
  == Smoke Test, Testing, User Evaluations and Use Case Scenarios ==
-  The plan for testing can be viewed here: TestPlan
-
-  Documentation for the test team can be viewed here: TeamTeamDocumentation
-
-  The user evaluation plan can be viewed here: UserEvaluations
-
-  User cases that have been written so far can be viewed here: UseCaseScenarios
+  The plan for testing can be viewed here: TestPlan <br>
+  Documentation for the test team can be viewed here: TeamTeam<br>
+  The user evaluation plan can be viewed here: UserEvaluations<br>
+  Use cases that have been written so far can be viewed here: UseCaseScenarios
 
 = Mini-Milestone List =
  The updated project plan we have set and the CPM diagram can be viewed here:  MilestonePlan
