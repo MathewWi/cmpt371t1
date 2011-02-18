@@ -92,7 +92,7 @@
 
 <target name="update.project">
 	<echo message="Updating project"/>
-	<exec executable="${path.android.tools}/Android">
+	<exec executable="${path.android.tools}/android">
 		<arg value="update"/>
 		<arg value="project"/>
 		<arg value="--target"/>
@@ -105,7 +105,7 @@
 <target name="update.test">
 	<echo message="Updating test project"/>
 
-	<exec executable="${path.android.tools}/Android">
+	<exec executable="${path.android.tools}/android">
 		<arg value="update"/>
 		<arg value="test-project"/>
 		<arg value="-m"/>
