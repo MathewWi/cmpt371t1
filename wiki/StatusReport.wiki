@@ -5,7 +5,7 @@
 
 == State of Project Build ==
 
-Currently the project builds a binary and runs a sample program. 
+Currently the project builds a binary and runs a simple version of our game. 
 
 The application can be loaded onto an Android phone and run the same as on the AVD.  
 
@@ -69,11 +69,7 @@ Common problems of the development environment can be found here: CommonIssues
   * Does not have any playable functionality.
 
  == Smoke Test == 
-  * Currently runs on the command line, but is not implemented on the !TeamCity server.
-  * Issue with file paths.
-    * !TeamCity only recognizes the path within SVN.
-    * The build script needs to access artifacts such as the android virtual device, and all its relative components.
-    * Unable to solve this problem within the time limit.
+  * Currently runs on the !TeamCity server.
   * It has "three thumbs up" tests currently.
    * Tests suite includes Resource Manager and Input classes.
 
