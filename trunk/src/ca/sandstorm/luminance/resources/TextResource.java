@@ -23,7 +23,7 @@ public class TextResource extends Resource
 
     public TextResource(Resource res)
     {
-	super(res.name, res.data);
+	super(res._name, res._data);
     }
 
 
@@ -34,6 +34,6 @@ public class TextResource extends Resource
      */
     public String getText()
     {
-	return new String(data);
+	return new String(_data);
     }
 }

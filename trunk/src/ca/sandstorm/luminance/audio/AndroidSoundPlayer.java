@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.audio;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
@@ -22,9 +21,9 @@ public class AndroidSoundPlayer implements IAudioDriver
     // TODO: Remove sound streams from map when they're done
     private static final int MAX_STREAMS = 0;
 
-    private SoundPool mSoundPool;
-    private HashMap<Integer, Integer> mStreamMap;
-    private static final Logger logger = LoggerFactory
+    private SoundPool _soundPool;
+    private HashMap<Integer, Integer> _streamMap;
+    private static final Logger _logger = LoggerFactory
 	    .getLogger("Luminance.AndroidSoundPlayer");
 
 
@@ -33,12 +32,12 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public AndroidSoundPlayer()
     {
-	mSoundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
-	if (mSoundPool == null) {
+	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
+	if (_soundPool == null) {
 	    throw new RuntimeException("Audio: failed to create SoundPool");
 	}
 
-	mStreamMap = new HashMap<Integer, Integer>();
+	_streamMap = new HashMap<Integer, Integer>();
     }
     
     /**
@@ -47,7 +46,7 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public SoundPool getPool()
     {
-	return mSoundPool;
+	return _soundPool;
     }
 
     /**
@@ -61,8 +60,8 @@ public class AndroidSoundPlayer implements IAudioDriver
     {
 	assert sound != null;
 	int soundId = sound.getSound();
-	int streamId = mSoundPool.play(soundId, volume, volume, 1, 0, 1.0f);
-	mStreamMap.put(soundId, streamId);
+	int streamId = _soundPool.play(soundId, volume, volume, 1, 0, 1.0f);
+	_streamMap.put(soundId, streamId);
 
 	return streamId;
     }
@@ -76,8 +75,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void stop(int stream)
     {
-	mSoundPool.stop(stream);
-	mStreamMap.remove(stream);
+	_soundPool.stop(stream);
+	_streamMap.remove(stream);
     }
 
 
@@ -86,8 +85,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void pauseAll()
     {
-	for (int stream : mStreamMap.values()) {
-	    mSoundPool.pause(stream);
+	for (int stream : _streamMap.values()) {
+	    _soundPool.pause(stream);
 	}
     }
 
@@ -97,8 +96,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void resumeAll()
     {
-	for (int stream : mStreamMap.values()) {
-	    mSoundPool.resume(stream);
+	for (int stream : _streamMap.values()) {
+	    _soundPool.resume(stream);
 	}
     }
 
@@ -108,8 +107,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void unloadAll()
     {
-	mStreamMap.clear();
-	mSoundPool.release();
-	mSoundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
+	_streamMap.clear();
+	_soundPool.release();
+	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
     }
 }

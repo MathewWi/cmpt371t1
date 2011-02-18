@@ -7,8 +7,8 @@ package ca.sandstorm.luminance.resources;
  */
 public class SoundResource implements IResource
 {
-    private String name;
-    private int sound;
+    private String _name;
+    private int _sound;
 
 
     /**
@@ -21,8 +21,8 @@ public class SoundResource implements IResource
      */
     public SoundResource(String name, int sound)
     {
-	this.name = name;
-	this.sound = sound;
+	_name = name;
+	_sound = sound;
     }
 
 
@@ -33,7 +33,7 @@ public class SoundResource implements IResource
      */
     public int getSound()
     {
-	return sound;
+	return _sound;
     }
 
 
@@ -45,7 +45,7 @@ public class SoundResource implements IResource
     @Override
     public String getName()
     {
-	return name;
+	return _name;
     }
 
 

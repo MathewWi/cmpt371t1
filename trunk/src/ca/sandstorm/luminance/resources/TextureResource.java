@@ -7,8 +7,8 @@ package ca.sandstorm.luminance.resources;
  */
 public class TextureResource implements IResource
 {
-    private String name;
-    private int glTexturePtr;
+    private String _name;
+    private int _glTexturePtr;
 
 
     /**
@@ -21,8 +21,8 @@ public class TextureResource implements IResource
      */
     public TextureResource(String name, int texture)
     {
-	this.name = name;
-	this.glTexturePtr = texture;
+	_name = name;
+	_glTexturePtr = texture;
     }
 
 
@@ -33,7 +33,7 @@ public class TextureResource implements IResource
      */
     public int getTexture()
     {
-	return glTexturePtr;
+	return _glTexturePtr;
     }
 
 
@@ -45,7 +45,7 @@ public class TextureResource implements IResource
     @Override
     public String getName()
     {
-	return name;
+	return _name;
     }
 
 

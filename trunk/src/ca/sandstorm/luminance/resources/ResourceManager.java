@@ -24,11 +24,11 @@ import android.opengl.GLUtils;
  */
 public class ResourceManager
 {
-    private static final Logger logger = LoggerFactory
+    private static final Logger _logger = LoggerFactory
 	    .getLogger("Luminance.ResourceManager");
 
-    private AssetManager assets;
-    private HashMap<String, IResource> resources;
+    private AssetManager _assets;
+    private HashMap<String, IResource> _resources;
 
 
     /**
@@ -36,9 +36,9 @@ public class ResourceManager
      */
     public ResourceManager()
     {
-	resources = new HashMap<String, IResource>();
-	assets = null;
-	logger.debug("ResourceManager created.");
+	_resources = new HashMap<String, IResource>();
+	_assets = null;
+	_logger.debug("ResourceManager created.");
     }
 
 
@@ -52,7 +52,7 @@ public class ResourceManager
      */
     public IResource getResource(String name)
     {
-	return resources.get(name);
+	return _resources.get(name);
     }
 
 
@@ -67,8 +67,8 @@ public class ResourceManager
 	if (assets == null)
 	    throw new RuntimeException(
 		    "Attempting to assign null application context to resource manager!");
-	this.assets = assets;
-	logger.debug("Assets have been assigned to ResourceManager.");
+	this._assets = assets;
+	_logger.debug("Assets have been assigned to ResourceManager.");
     }
 
 
@@ -83,13 +83,13 @@ public class ResourceManager
     public Resource loadResource(String filename) throws IOException
     {
 	// Check if the resource is already loaded
-	if (resources.containsKey(filename))
-	    return (Resource) resources.get(filename);
+	if (_resources.containsKey(filename))
+	    return (Resource) _resources.get(filename);
 
 	// Read file
 	byte[] data = readFile(filename);
 	Resource res = new Resource(filename, data);
-	resources.put(filename, res);
+	_resources.put(filename, res);
 
 	return res;
     }
@@ -100,11 +100,11 @@ public class ResourceManager
      */
     public void unloadResource(String name)
     {
-	if (!resources.containsKey(name))
+	if (!_resources.containsKey(name))
 	    return;
 	
-	resources.get(name).dispose();
-	resources.remove(name);
+	_resources.get(name).dispose();
+	_resources.remove(name);
     }
 
 
@@ -119,14 +119,14 @@ public class ResourceManager
     public TextResource loadText(String filename) throws IOException
     {
 	// Check if the resource is already loaded
-	if (resources.containsKey(filename))
-	    return (TextResource) resources.get(filename);
+	if (_resources.containsKey(filename))
+	    return (TextResource) _resources.get(filename);
 
 	// Read file
 	byte[] data = readFile(filename);
 	TextResource res = new TextResource(filename, data);
 
-	resources.put(filename, res);
+	_resources.put(filename, res);
 	return res;
     }
 
@@ -141,11 +141,11 @@ public class ResourceManager
      */
     public ImageResource loadImage(String filename) throws IOException
     {
-	InputStream stream = assets.open(filename);
+	InputStream stream = _assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
 	ImageResource res = new ImageResource(filename, bitmap);
 
-	resources.put(filename, res);
+	_resources.put(filename, res);
 	return res;
     }
 
@@ -164,7 +164,7 @@ public class ResourceManager
 	    throws IOException
     {
 	// Load the image
-	InputStream stream = assets.open(filename);
+	InputStream stream = _assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
 
 	// Create a texture out of the image
@@ -187,8 +187,8 @@ public class ResourceManager
 	GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
 	TextureResource res = new TextureResource(filename, textures[0]);
 
-	resources.put(filename, res);
-	logger.debug("Generated texture: " + filename + " = " + Integer.toString(textures[0]));
+	_resources.put(filename, res);
+	_logger.debug("Generated texture: " + filename + " = " + Integer.toString(textures[0]));
 	return res;
     }
 
@@ -206,7 +206,7 @@ public class ResourceManager
 	int soundId = pool.load(filename, 1);
 	SoundResource res = new SoundResource(filename, soundId);
 
-	resources.put(filename, res);
+	_resources.put(filename, res);
 	return res;
     }
 
@@ -223,7 +223,7 @@ public class ResourceManager
     {
 	// An official Android sample states that available() guarantees
 	// returning the whole file size
-	InputStream stream = assets.open(filename);
+	InputStream stream = _assets.open(filename);
 	int size = stream.available();
 	if (size == -1)
 	    return null;
@@ -244,9 +244,9 @@ public class ResourceManager
      */
     public void unloadResource(IResource res)
     {
-	if (resources.containsKey(res.getName())) {
+	if (_resources.containsKey(res.getName())) {
 	    res.dispose();
-	    resources.remove(res.getName());
+	    _resources.remove(res.getName());
 	}
     }
 
@@ -259,9 +259,9 @@ public class ResourceManager
      */
     public String[] getFileListing(String path) throws IOException
     {
-	if (assets == null)
+	if (_assets == null)
 	    throw new RuntimeException(
 		    "Trying to access null asset manager in getFileListing()!");
-	return assets.list(path);
+	return _assets.list(path);
     }
 }

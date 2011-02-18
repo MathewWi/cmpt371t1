@@ -10,8 +10,8 @@ import android.graphics.Bitmap;
  */
 public class ImageResource implements IResource
 {
-    private String name;
-    private Bitmap bitmap;
+    private String _name;
+    private Bitmap _bitmap;
 
 
     /**
@@ -24,8 +24,8 @@ public class ImageResource implements IResource
      */
     public ImageResource(String name, Bitmap bitmap)
     {
-	this.name = name;
-	this.bitmap = bitmap;
+	_name = name;
+	_bitmap = bitmap;
     }
 
 
@@ -37,7 +37,7 @@ public class ImageResource implements IResource
     @Override
     public String getName()
     {
-	return name;
+	return _name;
     }
 
 
@@ -60,7 +60,7 @@ public class ImageResource implements IResource
     @Override
     public void dispose()
     {
-	bitmap.recycle();
-	bitmap = null;
+	_bitmap.recycle();
+	_bitmap = null;
     }
 }

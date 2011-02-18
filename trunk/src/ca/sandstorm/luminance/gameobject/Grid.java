@@ -160,12 +160,6 @@ public class Grid implements IGameObject
     }
 
 
-    public void update(GL10 gl)
-    {
-	// TODO: Does grid update?
-    }
-
-
     public void draw(GL10 gl)
     {
 	// Set the face rotation
@@ -191,25 +185,42 @@ public class Grid implements IGameObject
 	// gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
     }
 
-
+    /**
+     * Get the object's position.
+     * @return Object position
+     */
     @Override
     public Vector3f getPosition()
     {
 	return _vCenter;
     }
 
+    /**
+     * Get the object's rotation.
+     * Unused.
+     * @return Object rotation
+     */
     @Override
     public Vector4f getRotation()
     {
         return null;
     }
 
-	@Override
-	public Vector3f getScale()
-	{
-		return null;
-	}
-
+    /**
+     * Get the object's scale.
+     * Unused.
+     * @return Object scale
+     */
+    @Override
+    public Vector3f getScale()
+    {
+	return null;
+    }
+    
+    /**
+     * Initialize the object.
+     * Unused.
+     */
     @Override
     public void initialize()
     {
@@ -217,7 +228,10 @@ public class Grid implements IGameObject
 	
     }
 
-
+    /**
+     * Update the object state.
+     * Unused.
+     */
     @Override
     public void update()
     {
@@ -225,7 +239,10 @@ public class Grid implements IGameObject
 	
     }
 
-
+    /**
+     * Destroy the object.
+     * Unused.
+     */
     @Override
     public void destroy()
     {

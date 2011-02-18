@@ -17,13 +17,13 @@ import ca.sandstorm.luminance.gameobject.IRenderableObject;
  */
 public class GLRenderer
 {
-    private static final Logger logger = LoggerFactory.getLogger("Luminance.GLRenderer");
+    private static final Logger _logger = LoggerFactory.getLogger("Luminance.GLRenderer");
     
     // Primitives to be reused in draws
-    private PrimitiveBox box;
-    private PrimitiveSphere sphere;
+    private PrimitiveBox _box;
+    private PrimitiveSphere _sphere;
     
-    private LinkedList<IRenderableObject> renderableObjects;
+    private LinkedList<IRenderableObject> _renderableObjects;
     
     /**
      * Constructor.
@@ -31,21 +31,29 @@ public class GLRenderer
      */
     public GLRenderer()
     {
-	renderableObjects = new LinkedList<IRenderableObject>();
-	box = new PrimitiveBox();
-	sphere = new PrimitiveSphere();
+	_renderableObjects = new LinkedList<IRenderableObject>();
+	_box = new PrimitiveBox();
+	_sphere = new PrimitiveSphere();
 	
-	logger.debug("GLRenderer created.");
+	_logger.debug("GLRenderer created.");
     }
     
+    /**
+     * Add a new object to be drawn on every frame render.
+     * @param object Renderable object to be added.
+     */
     public void addRenderable(IRenderableObject object)
     {
-	renderableObjects.add(object);
+	_renderableObjects.add(object);
     }
     
+    /**
+     * Remove an object from the automatic draw list.
+     * @param object Renderable object to remove.
+     */
     public void removeRenderable(IRenderableObject object)
     {
-	renderableObjects.remove(object);
+	_renderableObjects.remove(object);
     }
     
     /**
@@ -54,7 +62,7 @@ public class GLRenderer
      */
     public PrimitiveBox getBox()
     {
-	return box;
+	return _box;
     }
     
     /**
@@ -63,12 +71,16 @@ public class GLRenderer
      */
     public PrimitiveSphere getSphere()
     {
-	return sphere;
+	return _sphere;
     }
-        
+    
+    /**
+     * Render all objects that are being tracked by the renderer.
+     * @param gl OpenGL context to render with
+     */
     public void drawObjects(GL10 gl)
     {
-	for (IRenderableObject object : renderableObjects) {
+	for (IRenderableObject object : _renderableObjects) {
 	    gl.glPushMatrix();
 	    	    
 	    // Position object
@@ -91,6 +103,7 @@ public class GLRenderer
 	    int texture = object.getTexture();
 	    if (texture > 0) {  // 0 = no texture
 		gl.glEnable(GL10.GL_TEXTURE_2D);
+		gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		gl.glBindTexture(GL10.GL_TEXTURE_2D, object.getTexture());
 	    } else {
 		gl.glColor4f(1.0f, 0.2f, 0.2f, 1.0f);

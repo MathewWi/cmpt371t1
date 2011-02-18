@@ -7,8 +7,8 @@ package ca.sandstorm.luminance.resources;
  */
 public class Resource implements IResource
 {
-    protected byte[] data;
-    protected String name;
+    protected byte[] _data;
+    protected String _name;
 
 
     /**
@@ -21,8 +21,8 @@ public class Resource implements IResource
      */
     public Resource(String name, byte[] data)
     {
-	this.name = name;
-	this.data = data;
+	_name = name;
+	_data = data;
     }
 
 
@@ -35,7 +35,7 @@ public class Resource implements IResource
     @Override
     public String getName()
     {
-	return name;
+	return _name;
     }
 
 
@@ -47,7 +47,7 @@ public class Resource implements IResource
     @Override
     public int getMemorySize()
     {
-	return data.length;
+	return _data.length;
     }
 
 
@@ -58,7 +58,7 @@ public class Resource implements IResource
      */
     public byte[] getData()
     {
-	return data;
+	return _data;
     }
 
 
@@ -68,7 +68,7 @@ public class Resource implements IResource
     @Override
     public void dispose()
     {
-	data = null;
-	name = null;
+	_data = null;
+	_name = null;
     }
 }
