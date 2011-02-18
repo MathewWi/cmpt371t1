@@ -32,7 +32,7 @@ Since the past milestone, we have worked on improving the things that causes us 
 
  == Version Control Strategy ==
   * Remained the same throughout this milestone from the last.  
-   * !TeamCity as an issue tracker, along with a google code repository set up on a VM on campus. 
+   * !TeamCity for continuous integration and as a build server, along with a google code repository set up on a VM on campus. 
   * Developers are to commit their classes with stubbed out methods and javadoc comments.
   * T est team is then able to start writing unit tests on this stubbed out code, therefore making out whole software development process more efficient.
 
