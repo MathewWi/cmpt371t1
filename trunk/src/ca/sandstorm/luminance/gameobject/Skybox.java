@@ -14,15 +14,28 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.resources.TextureResource;
 
 
+/**
+ * Skybox class
+ * - Renders a typical skybox (cube) with a texture for each face.
+ * @author halsafar
+ *
+ */
 public class Skybox implements IGameObject
 {
+    // rendering buffers
     private FloatBuffer _vertexBuffer;
     private FloatBuffer _texCoordBuffer;
     private ShortBuffer _indexBuffer;
     
+    // loaded texture array
     private TextureResource[] _textures;
 
 
+    /**
+     * Constructor()
+     * Constructs all the vertices, indices and texture coordinate buffers.
+     * @postcon _vertexBuffer != null, _texCoordBuffer != null, _indexBuffer != null
+     */
     public Skybox()
     {
 	// define the squares vertices
@@ -81,6 +94,11 @@ public class Skybox implements IGameObject
     }
     
     
+    /**
+     * Initialize all the textures required for this object.
+     * @param gl OpenGL context
+     * @throws IOException If an invalid file is specified.
+     */
     public void init(GL10 gl) throws IOException
     {
 	_textures = new TextureResource[6];
@@ -95,6 +113,10 @@ public class Skybox implements IGameObject
     }
 
 
+    /**
+     * Draw the skybox.
+     * @param gl OpenGL context
+     */
     public void draw(GL10 gl)
     {
 	int index = 0;
