@@ -20,12 +20,22 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 
+/**
+ * ANDROID MAIN CLASS
+ * - The activity for our App (essentially the entry point)
+ * - Everything is passed into the Engine.  This is essentially
+ * a bridge between Android and our Engine.
+ * @author halsafar
+ *
+ */
 public class Luminance extends Activity
 {
     private static final Logger logger = LoggerFactory.getLogger("Luminance");
 
+    // openGL view
     private GLSurfaceView mGLView;
 
+    // a handler for updating the ui thread from the android thread
     private final Handler handler = new Handler()
     {
 	public void handleMessage(Message msg)
@@ -37,6 +47,9 @@ public class Luminance extends Activity
     };
 
 
+    /**
+     * Android Activity OnCreate()
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -59,6 +72,9 @@ public class Luminance extends Activity
     }
 
 
+    /**
+     * Android Activity has been paused.
+     */
     @Override
     protected void onPause()
     {
@@ -71,6 +87,9 @@ public class Luminance extends Activity
     }
 
 
+    /**
+     * Android activity has been resumed.
+     */
     @Override
     protected void onResume()
     {
@@ -83,6 +102,9 @@ public class Luminance extends Activity
     }
 
 
+    /**
+     * Android received a touch even.
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
@@ -94,6 +116,9 @@ public class Luminance extends Activity
     }
 
 
+    /**
+     * Android received a keydown event.
+     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
@@ -107,6 +132,9 @@ public class Luminance extends Activity
     }
 
 
+    /**
+     * Android received a keyup event.
+     */
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event)
     {
@@ -120,11 +148,18 @@ public class Luminance extends Activity
     }
 
 
+    /**
+     * Inline class to handle opengl rendering.
+     * Passes off all work to the Engine singleton.
+     * @author halsafar
+     *
+     */
     class ClearRenderer implements GLSurfaceView.Renderer
     {
-	// private static final Logger logger = LoggerFactory
-	// .getLogger(ClearRenderer.class);
-
+	
+	/**
+	 * OpenGL surface first created.
+	 */
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{
 	    logger.debug("onSurfaceCreated(" + gl.toString() + ", " +
@@ -135,6 +170,9 @@ public class Luminance extends Activity
 	}
 
 
+	/**
+	 * OpenGL surface has changed.
+	 */
 	public void onSurfaceChanged(GL10 gl, int w, int h)
 	{
 	    logger.debug("onSurfaceChanged(" + gl.toString() + ", " + w + ", " +
@@ -156,6 +194,10 @@ public class Luminance extends Activity
 	}
 
 
+	/**
+	 * OpenGL Surface has finished swapping.
+	 * Ready for a new frame.
+	 */
 	public void onDrawFrame(GL10 gl)
 	{
 	    // do not log...
