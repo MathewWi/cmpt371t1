@@ -40,7 +40,7 @@
 = Current State of the System =
 
  The status report can be viewed here: StatusReport
- The class diagram from this prototype can be viewed here: https://cmpt371t1.googlecode.com/svn/trunk/Milestone2.PNG
+ The class diagram from this prototype can be viewed here: [https://cmpt371t1.googlecode.com/svn/trunk/Milestone2.PNG]
 
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
