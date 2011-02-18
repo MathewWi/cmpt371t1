@@ -98,7 +98,7 @@
 ===Milestone 1===
 || *Task* || *Hours spent so far* ||
 || Risk Report || 2.5 ||
-|| Analysis of code for test cases || 1 ||
+|| Analysis of code for test cases || 2 ||
 || Testing || 4 ||
 
 == Amara Daal ==
