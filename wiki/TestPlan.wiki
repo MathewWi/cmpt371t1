@@ -83,7 +83,8 @@
   * Integrate GUI tests into daily builds
   * Integrate black box, white box, mutation test into smoke test
   * Carry out user evaluations and revise project
- 
+  * Plan out position grid testing by speaking with Level Builder, 
+       GUI developer
 
 *Estimated: 35 hours*
 
