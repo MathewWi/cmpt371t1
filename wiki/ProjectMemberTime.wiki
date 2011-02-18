@@ -155,6 +155,7 @@
 || Adding to project page/wiki || 1 ||
 
 === Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
 || Researching XML, creating level file template || 2 ||
 || Researching XML parsing in Java || 2 ||
 || Creating XML parser for levels || 5 ||
