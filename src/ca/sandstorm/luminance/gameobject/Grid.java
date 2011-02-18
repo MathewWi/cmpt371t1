@@ -209,6 +209,11 @@ public class Grid implements IGameObject
     }
 
 
+
+    /**
+     * Draw the grid.
+     * @param gl OpenGL context
+     */
     public void draw(GL10 gl)
     {
 	// Set the face rotation
