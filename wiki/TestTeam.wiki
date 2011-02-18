@@ -35,6 +35,11 @@ Will be listing our tasks and now as well as our future plans and Milestone task
     ===== Comments =====
       Although the tests are not fully implemented, I believe with Amara's scenarios and research into Robotium will help greatly in the coming Milestone 3. Also, with the main smoke test not running, resources (Me and Chet) can fully get into implementing the full suite of tests and will now be maintenance. The estimated time might've been actual if not for the fact of over-estimating the learning curve and integration of the new technologies. As of this Milestone (2); the test team is a little behind in the tests but I believe it shouldn't take more than a day or two of work to get a good coverage of tests, relative to the dev team's work, implemented. 
 
+    ===== Reasons =====
+      The reason LuminanceTestSuite and LuminanceSmokeTest are in two different parts of the svn are as follows:
+        * LuminanceTestSuite must be in the same as the main project so that it may be invoked on the eclipse IDE
+        * LuminanceSmokeTest is not part of the Main project and, therefore, serves no purpose to be in the same directory and has no need to be invoked by the Eclipse IDE. The Ant script, IDE, Android SDK all trying to change files/links within the SmokeTest and TestSuite somehow affect their paths and was one of the major blockages that held back the implementation of a Smoke Test. This is so that both the SmokeTest and TestSuite are as separate as possible. It will be more work to add core tests from the TestSuite but it will also ensure a clear seperation of what basic testing is compared to a full fledged test suite. Ant and ADB from the android can invoke certain packages, classes, or even methods from the test suite and an ant script is possible to be made that invoke what are supposed to be in a smoke test. But this can give cause to reading a text of an ant script rather than to the possibilites of a nice GUI representation of a SmokeTest, of which, the GUI will be a nice representation of the test as a whole. Also, much better management, even with more work and space consumption. -- Sorry for the rant --
+
 == Meeting Times ==
   * Friday, February 18, 2011 at Spinks 342
   * Wednesday, February 16, 2011 at Spinks 342
