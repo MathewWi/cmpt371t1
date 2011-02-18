@@ -155,6 +155,10 @@ public class InputTouchScreen
      * 
      * @param touchEvent
      *            store the current object of movement event
+     * @precond touchEvent != null
+     * @postcond set this to represent touchEvent
+     * 
+     * @author Jonny
      */
     public void setTouchEvent(MotionEvent touchEvent)
     {
@@ -171,6 +175,10 @@ public class InputTouchScreen
      * Get the current movement event's object
      * 
      * @return Object used to report movement event
+     * @precond None
+     * @postcond return the MotionEvent object.
+     * 
+     * @author Jonny
      */
     public MotionEvent getTouchEvent()
     {
@@ -181,6 +189,10 @@ public class InputTouchScreen
      * Calculate the space distance between two fingers.
      * 
      * @return float distance of the two fingers.
+     * @precond None
+     * @postcond return distance between two fingers. distance >= 0.
+     * 
+     * @author Jonny
      */
     public float getPinchDistance()
     {
