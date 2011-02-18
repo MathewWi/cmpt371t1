@@ -89,10 +89,15 @@
 || Preparing Wiki for deliverable || 5.5 ||
 
 == Chet Collins ==
+===Milestone 0===
 || *Task* || *Hours spent so far* ||
-|| Risk Report || 5 ||
+|| Risk Report || 3 ||
 || Deliverable 2 Outline || 1 ||
 || CPM Diagram || 3 || 
+
+===Milestone 1===
+|| *Task* || *Hours spent so far* ||
+|| Risk Report || 2.5 ||
 || Analysis of code for test cases || 1 ||
 || Testing || 2 ||
 
