@@ -9,7 +9,7 @@
 -->
 <target name="run.script">
 	<parallel>
-		<ant target="run.emulator"/>
+		<!-- <ant target="run.emulator"/> -->
 		<ant target="run.install"/>
 	</parallel>
 </target>
@@ -91,7 +91,7 @@
 
 <target name="update.project">
 	<echo message="Updating project"/>
-	<exec executable="${path.android.tools}/android">
+	<exec executable="${path.android.tools}/android.bat">
 		<arg value="update"/>
 		<arg value="project"/>
 		<arg value="--target"/>
@@ -104,7 +104,7 @@
 <target name="update.test">
 	<echo message="Updating test project"/>
 
-	<exec executable="${path.android.tools}/android">
+	<exec executable="${path.android.tools}/android.bat">
 		<arg value="update"/>
 		<arg value="test-project"/>
 		<arg value="-m"/>
