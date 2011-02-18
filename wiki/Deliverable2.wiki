@@ -6,6 +6,7 @@
   [http://code.google.com/p/cmpt371t1/source/checkout]
 
 = Development =
+  Documentation for the development team can be viewed here: DevTeam
 
 = Testing =
   The plan for testing can be viewed here: TestPlan <br>
@@ -69,6 +70,9 @@
 
 
 = Current State of the System =
+
+ A high level status report can be viewed here: StatusReport
+
  * Resource Manager.
   * Capable of loading and managing most resources.
   * Sound is fully implemented.
