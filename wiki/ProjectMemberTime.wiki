@@ -85,9 +85,10 @@
 === Milestone 1 ===
 || *Task* || *Hours spent so far* ||
 || Helping figure out test project setup || 2 ||
-|| Setup of test build configuration || 2 ||
+|| Initial setup of test build configuration || 1 ||
 || Organizing team || 4 ||
-|| Preparing Wiki for deliverable || 5.5 ||
+|| Preparing Wiki for deliverable || 7.5 ||
+|| Helping group members with various tasks || 3.5 ||
 
 == Chet Collins ==
 ===Milestone 0===
