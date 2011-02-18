@@ -103,4 +103,3 @@
 || Level Format || 8 ||
 || Sounds, special effects, lighting || 10 ||
 || Multiple levels || 8 ||
-|| Random Level Generator || 12 ||
