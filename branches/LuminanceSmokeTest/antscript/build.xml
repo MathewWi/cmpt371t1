@@ -22,7 +22,7 @@
 	<echo message="Starting emulator"/>
 	<echo message="Timeout limit set at 3 minutes"/>
         <exec executable="${path.emulator}" timeout="${timeout.emulator}">
-                <arg value="-avd "/>
+                <arg value="-avd"/>
                 <arg value="${name.android.emulator}"/>
         </exec>
 </target>
