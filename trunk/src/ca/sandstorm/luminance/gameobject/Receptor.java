@@ -9,6 +9,10 @@ import org.slf4j.LoggerFactory;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
 
+/**
+ * Light receptor game object.
+ * @author zenja
+ */
 public class Receptor implements IRenderableObject
 {
     private static final Logger _logger = LoggerFactory.getLogger("Luminance.Sphere");
