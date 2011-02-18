@@ -1,3 +1,6 @@
+#summary The current status of the system.
+<wiki:toc max_depth="2" />
+
 = High Level Analysis =
 
 == State of Project Build ==
