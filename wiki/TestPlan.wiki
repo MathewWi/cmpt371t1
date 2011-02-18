@@ -68,7 +68,7 @@
 = Current Milestone (Test Plan) =
 == Milestone 3: Test new features, User test ==
 
-== Pre Milestone Comments ==
+=== Pre-Milestone Comments ===
  After speaking with Prof. Stanley we re-evaluated our testing plans  
  to concentrate more on core testing, e.g. black box, automated gui testing
  white box testing, user evaluations.
