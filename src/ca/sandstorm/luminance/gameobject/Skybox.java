@@ -95,12 +95,6 @@ public class Skybox implements IGameObject
     }
 
 
-    public void update(GL10 gl)
-    {
-
-    }
-
-
     public void draw(GL10 gl)
     {
 	int index = 0;
@@ -143,11 +137,11 @@ public class Skybox implements IGameObject
         return null;
     }
 	
-	@Override
-	public Vector3f getScale()
-	{
-		return null;
-	}
+    @Override
+    public Vector3f getScale()
+    {
+	return null;
+    }
 
     @Override
     public void initialize()

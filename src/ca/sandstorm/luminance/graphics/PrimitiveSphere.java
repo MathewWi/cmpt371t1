@@ -12,8 +12,10 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class PrimitiveSphere implements IRenderable
 {
-    // Sphere vertices generated with a tool from an OBJ file
-    private static float[] vertices =
+    // Sphere vertices generated with a tool from an OBJ file.
+    // In the future, this will likely be either procedurally generated
+    // or loaded as a OBJ model file.
+    private static float[] _vertices =
     {
       // f 17//17 1//1 2//2
       0.3535535f, 0.3535535f, 1.94775969232484e-18f,
@@ -914,7 +916,7 @@ public class PrimitiveSphere implements IRenderable
     };
 
     // Sphere normals generated with a tool from an OBJ file
-    private static float normals[] =
+    private static float _normals[] =
     {
       // f 17//17 1//1 2//2
       0.706554978403798f, 0.707598978371888f, -0.00915140972028265f,
@@ -1814,8 +1816,8 @@ public class PrimitiveSphere implements IRenderable
       0.418539810582109f, -0.907920589103834f, 0.0224639898335081f
     };
         
-    private FloatBuffer vertexBuffer;
-    private FloatBuffer normalBuffer;
+    private FloatBuffer _vertexBuffer;
+    private FloatBuffer _normalBuffer;
     
     /**
      * Constructor.
@@ -1824,36 +1826,40 @@ public class PrimitiveSphere implements IRenderable
     public PrimitiveSphere()
     {
 	// Create vertex buffer
-	ByteBuffer byteBufVert = ByteBuffer.allocateDirect(vertices.length * 4);
+	ByteBuffer byteBufVert = ByteBuffer.allocateDirect(_vertices.length * 4);
 	byteBufVert.order(ByteOrder.nativeOrder());
-	vertexBuffer = byteBufVert.asFloatBuffer();
-	vertexBuffer.put(vertices);
-	vertexBuffer.position(0);
+	_vertexBuffer = byteBufVert.asFloatBuffer();
+	_vertexBuffer.put(_vertices);
+	_vertexBuffer.position(0);
 	
 	// Create normal buffer
-	ByteBuffer byteBufNorm = ByteBuffer.allocateDirect(normals.length * 4);
+	ByteBuffer byteBufNorm = ByteBuffer.allocateDirect(_normals.length * 4);
 	byteBufNorm.order(ByteOrder.nativeOrder());
-	vertexBuffer = byteBufNorm.asFloatBuffer();
-	vertexBuffer.put(normals);
-	vertexBuffer.position(0);
+	_vertexBuffer = byteBufNorm.asFloatBuffer();
+	_vertexBuffer.put(_normals);
+	_vertexBuffer.position(0);
     }
     
+    /**
+     * Draw the sphere.
+     * Texture or color should be set before this call.
+     * @param gl The OpenGL context to use for drawing.
+     */
     @Override
     public void draw(GL10 gl)
     {
 	// Set the face rotation
 	gl.glFrontFace(GL10.GL_CW);
 	
-	// Point to the vertex buffer
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
-	
-	// Use a normal buffer
 	gl.glEnableClientState(GL10.GL_NORMAL_ARRAY);
-	gl.glNormalPointer(GL10.GL_FLOAT, 0, normalBuffer);
+
+	// Point to the vertex and normal buffers
+	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
+	gl.glNormalPointer(GL10.GL_FLOAT, 0, _normalBuffer);
 	
-	// Use index buffer to draw
-	gl.glDrawArrays(GL10.GL_TRIANGLES, 0, vertexBuffer.limit() / 3);
+	// Use vertex buffer to draw
+	gl.glDrawArrays(GL10.GL_TRIANGLES, 0, _vertexBuffer.limit() / 3);
 
 	// Restore state
 	gl.glDisableClientState(GL10.GL_NORMAL_ARRAY);
