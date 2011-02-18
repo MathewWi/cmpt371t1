@@ -1,3 +1,5 @@
+= High Level Analysis =
+
 == State of Project Build ==
 
 Currently the project builds a binary and runs a sample program. 
@@ -33,3 +35,20 @@ Random level generator.
 Currently there are no STI's or defects within the code itself, as everything is only stubbed out.
 
 Common problems of the development environment can be found here: CommonIssues
+
+= Specific Status Report = 
+
+ * Resource Manager.
+  * Capable of loading and managing most resources.
+  * Sound is fully implemented.
+
+ * Input.
+  * Touch and drag inputs are currently stable.
+
+ * Graphics.
+  * Basic primitives (sphere, box, etc.).
+  * Full grid, background and general play space implemented.
+
+ * Game.
+  * Currently draws a grid and loads a pre-defined level.
+  * Does not have any playable functionality.
