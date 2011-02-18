@@ -4,23 +4,25 @@ Currently the project builds a binary and runs a sample program.
 
 The application can be loaded onto an Android phone and run the same as on the AVD.  
 
-The rest of the project code is currently stubbed out.
+There is also a simple and as of yet incomplete smoke test implemented and can be run to ensure project quality before commit.
 
 == Features Implemented ==
 
 Build completes.
 
-Sample program runs correctly.
+Program runs correctly.
+
+Loads the grid play area, as well as multiple boxes and spheres to represent a level.
+
+Touch features such as pinch and swipe work well.  Some refinement may still need to be done.
 
 == Features to Be Implemented ==
 
-Touch screen GUI.
+Touch screen GUI - currently started, but incomplete.
 
-Enhanced graphics.
+Enhanced graphics - simple graphics currently implemented.
 
 Full audio capabilities.
-
-Full game engine.
 
 100+ levels.
 
