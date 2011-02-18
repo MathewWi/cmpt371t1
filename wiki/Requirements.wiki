@@ -1,0 +1,52 @@
+#summary Requirements for this project to succeed
+
+= Functional Requirements =
+  ==Fun factor== 
+   Perhaps an obvious statement but a very important part of a game none the less.  Measuring fun is not easy and is beyond the scope of this project.  However through some user evaluation and general feedback we will determine the fun factor and do what we can to increase it.
+
+  ==Quick load time==
+   Quick load time is always an important requirement to users.  This is exacerbated by the fact this will be running on a phone.  The user is going to expect the application to launch in a time comparable to other applications.
+
+  ==Graphics==
+   The game should have decent graphics.  This includes some neat special effects (lighting, reflections, and particles).  Not only is this a user requirement, it is a major selling point for any game.
+
+  ==Intuitive Input Interface==
+   The input interface should be clean and utilize the perceived affordances people already have for touch screen input usage.  For users who do not enjoy a touch interface we can utilize the pointer and keyboard as well.
+   We would also like to make the interface playable regardless of whether the user is holding the phone vertically or horizontally. 
+
+  ==Effective sound effects==
+   The sounds effects in the game should be minimal but effective.  Each important action should carry a unique sound effect.  Since we are on a phone we also need to make sure that without sound the game is still able to convey feedback information.
+
+  ==Responsive control==
+   The input interface should be very responsive.  There should be a minimal delay (<100ms) of processing the input a user makes and the user noticing the change.
+
+  ==Graceful termination on exception==
+   The application if encountering a critical error should attempt a graceful termination.  The users progress in the game should be preserved if possible.
+
+  ==Never crash the phone==
+   The game cannot bring the whole phone down.  This type of error cannot be allowed to persist.  The product will not pass Q&A if there is a way it can crash the phone.
+  
+  ==Saving and Loading==
+   Users will want to save their progress and load from where they left off.  A puzzle game such as this is expected to be played in small spurts.  The saving and loading process should be transparent.
+
+  ==Networking==
+   Users might want to upload high scores stored on a server.  The game still needs to be fully operational regardless of network connection.  
+
+= Derived Requirements =
+  ==Platform Compatibility==
+   We need to pick a minimum and maximum platform on the Android to support.  Considering availability of Android phones and current proliferation of the Android OS 2.1 and up we have decided to support 2.1 and up.
+ 
+  ==Portability==
+   The game is being developed for Android using the Android SDK and Java programming language.  Since we are using Java the majority of the code base is already portable.  So we have developed architecture to allow a PC port to be compiled in the future.
+
+  ==Performance==
+   A requirement implied with almost any game.  The game itself should not be a huge drain on the phone.  At all times the game should operate at or above 30 frames per second.  
+
+  ==Memory Usage==
+   With limited memory on the Android sandbox attention must be spent to how much we allocate for the game.  Memory pools and avoiding excessive use of allocations is very important.
+
+  ==Resources==
+   The games assets such as models, sound effects, textures and levels at some point during runtime will live in system memory (RAM).  Care has to be taken to guarantee that only what we need is loaded and that we never go over the sandbox RAM limit.
+
+  ==Distribution==
+   Distribution of the game is a requirement of interest.  This will require us pushing the game through a quality assurance process.  To succeed in that we need to follow the guidelines set out by Google (http://developer.android.com/guide/index.html).

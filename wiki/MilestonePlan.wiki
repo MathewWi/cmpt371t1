@@ -1,0 +1,86 @@
+#summary A list of our tentative milestones and mini-milestones.
+<wiki:toc max_depth="2" />
+
+
+= Milestones =
+== Mini-Milestone 1 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Organize entire team || _N/A_ || Complete ||
+|| !TeamCity Server setup || 8 || Complete ||
+|| Review old systems architecture || 4 || Complete  ||
+|| Android OpenGL POC || 4 || Complete ||
+
+== Milestone 1 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Document development environment setup || 8 || Complete ||
+|| Document team city usage || 8 || Ongoing, but currently complete||
+|| Android GUI POC || 4 || Complete ||
+|| Android Audio POC || 4 || Complete||
+|| Android Touch Input POC || 6 || Complete||
+|| Ant build script basics || 8 || Complete ||
+
+
+== Mini-Milestone 2 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Touch input handling || 6 || Complete||
+|| Android asset manager || 4 || Complete ||
+|| GUI Test suite basics || 6 || Complete ||
+|| Game level file format analyzed || 2 || Complete ||
+
+== Milestone 2 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| First version of game || 12 || Complete||
+|| Game menu primitives || 4 || Complete ||
+|| Game level format implemented || 4 || Complete ||
+|| Framework for Robotium test suite || 8 || Complete ||
+|| jUnit test suite || 8 || Complete ||
+
+== Mini-Milestone 3 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Game level editor || 4 || Incomplete ||
+|| Design user evaluation questionnaire || 2 || Incomplete ||
+|| Finalize the in game object models || 6 || Incomplete ||
+|| jCoverage primitives || 8 || Incomplete ||
+|| Audio playing (sfx and music) || 4 || Incomplete||
+|| Implement special effects (lighting, reflections, etc) || 6 || Incomplete ||
+
+== Milestone 3 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Add sound effects for all actions || 4 || Incomplete ||
+|| Implement random level generator || 12 || Incomplete ||
+|| Run user evaluation || _N/A_ || Incomplete ||
+|| Robotium test suite || 8 || Incomplete ||
+|| Continuing jUnit test suite || 8 || Incomplete ||
+|| jCoverage test suite || 8 || Incomplete ||
+|| Alpha version of the game || 12 || Incomplete ||
+
+== Mini-Milestone 4 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Discuss changes to game based on evaluation || 4 || Incomplete ||
+|| Prototype new in game puzzle tools || 4 || Incomplete ||
+|| Prototype new in game puzzle mechanics || 4 || Incomplete ||
+|| Outline user manual || 2 || Incomplete ||
+
+== Milestone 4 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Implement new tools and mechanics || 12 || Incomplete ||
+|| Each member designs 10 levels || 4 || Incomplete ||
+|| Design user manual || 4 || Incomplete ||
+|| Beta version of the game || 12 || Incomplete ||
+
+
+== Mini-Milestone 5 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Clear out all known bugs || _N/A_ || Incomplete ||
+|| Play test || _N/A_ || Incomplete ||
+|| Prepare for code Freeze || _N/A_ || Incomplete ||
+
+== Milestone 5 ==
+|| *Task* || *Estimate time (hours)* || *Status* ||
+|| Release version of game || 12 || Incomplete ||
+|| Post Mort-um document || _N/A_ || Incomplete ||
+|| Push game through Q&A process || _N/A_ || Incomplete ||
+
+<br/>
+= CPM Diagram =
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPMDiagram.jpg?t=1296619385

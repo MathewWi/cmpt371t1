@@ -1,0 +1,41 @@
+#summary Documentation for the Development Team.
+== Introduction ==
+
+This is where the development team will be listing their tasks and roles.
+
+== Updates ==
+=== Milestone 2 ===
+  * Two members have gone from the team. 
+  * Chet is not longer part of the development team.
+  * Stephen now development lead.
+
+== Significant Meeting Times ==
+*Tuesday, February 15, 2011 in S372*
+
+  * Looked through entire code base as a group peer review.
+  * Discussed team roles and how everybody was doing.  Solved issues verbally with suggestions and help.
+
+*Wednesday, February 2, 2011 in S371*
+
+  * Stephen performed the OpenGL tutorial for all the group members.
+
+== Tasks ==
+  * Stephen
+    * Grid implementation
+    * Sky Box for game background
+    * Graphics for grid and skybox
+    * Core engine
+  * Jonny
+    * Touch input implementation
+  * Zenja
+    * Resource manager
+    * Audio system
+    * Game objects system (only Box so far)
+    * Graphics renderer
+  * Kum
+    * Learning Android and OpenGL Widget Toolkits.
+    * Implement GUI menus, buttons, labels, etc.
+  * Steven
+    * Sound asset creation
+    * Level XML template, which can be viewed here: LevelFileTemplate
+    * Level loader

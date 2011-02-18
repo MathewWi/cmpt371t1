@@ -1,0 +1,133 @@
+#summary Results of code reviews we've done so far.
+
+= Code Review by Stephen Damm = 
+* ALL IF STATEMENTS NEED BRACERS * 
+
+Under all circumstances, please put braces around all if statements, regardless of how many lines they are. Please run Eclipse -> Project -> Source -> Format on your files before commit.
+
+
+* !ResourceManager() *
+
+The word resource should not appear in the function names, since it is a ResourceManager.  Something like loadTexture() is more appropriate. The AudioManager is separate but an instance will be maintained by Engine and talked to by resourceManager via the engine.
+
+
+* !InputSystem() *
+
+The scaleX, scaleY was not being set correctly, Luminance.java should calculate the proper values like ReplicaIsland does and pass it on to Engine deviceChagne.
+
+
+* GUI() *
+
+Keep class names generic, add a Interface (IWidget).  Here is a helpful link: (http://wiki.allegro.cc/index.php?title=2D_using_OpenGL) it is for OpenGL but most applies to OpenGL ES (except the glVertex() calls, see Box/SkyBox for how to translate it to OpenGL ES).
+
+
+* Renderer() *
+
+Should be a container for renderable objects, will manage matrix multiplications and then ask objects to render themselves.
+
+
+* !PrimitiveSphere() *
+
+Should use a sphere generation algorithm (this is a classic 3D problem and task given to students). Here is a long OpenGL version I wrote for my summer work last year in IMG Lab. Convert to OpenGL ES fairly easily. Although it uses QUAD_STRIPS which are a bit slower (TRIANGLE_STRIP is the fastest by far). The hardest part of these algorithms is making sure texture coords wrap properly.
+
+`void drawSphere(double r, int lats, int longs)`
+
+`{`
+
+`int i, j;`
+
+`for(i = 0; i <= lats; i++)`
+
+`{`
+
+`double lat0 = PI * (-0.5 + (double) (i - 1) / lats);`
+
+`double z0 = sin(lat0);`
+
+`double zr0 = cos(lat0);`
+
+`double lat1 = PI * (-0.5 + (double) i / lats);`
+
+`double z1 = sin(lat1);`
+
+`double zr1 = cos(lat1);`
+
+`double tx1 = 0;`
+
+`double ty1 = 0;`
+
+`double tx2 = 0;`
+
+`double ty2 = 0;`
+
+`glBegin(GL_QUAD_STRIP);`
+
+`for(j = 0; j <= longs; j++)`
+
+`{`
+
+`double lng = 2 * PI * (double) (j - 1) / longs;`
+
+`double x = cos(lng);`
+
+`double y = sin(lng);`
+
+`tx1 = atan2(x * zr0, z0) / (2. * PI) + 0.5;`
+
+`ty1 = asin(y * zr0) / PI + .5;`
+
+`if(tx1 < 0.75 && tx2 > 0.75)`
+
+`{`
+
+`tx1 += 1.0;`
+
+`}`
+
+`else if(tx1 > 0.75 && tx2 < 0.75)`
+
+`{`
+
+`tx1 -= 1.0;`
+
+`}`
+
+`tx2 = atan2(x * zr1, z1) / (2. * PI) + 0.5;`
+
+`ty2 = asin(y * zr1) / PI + .5;`
+
+`if(tx2 < 0.75 && tx1 > 0.75)`
+
+`{`
+
+`tx2 += 1.0;`
+
+`}`
+
+`else if(tx2 > 0.75 && tx1 < 0.75)`
+
+`{`
+
+`tx2 -= 1.0;`
+
+`}`
+
+`glTexCoord2f(tx1, ty1);`
+
+`glNormal3f(x * zr0, y * zr0, z0);`
+
+`glVertex3f(x * zr0 * r, y * zr0 * r, z0 * r);`
+
+`glTexCoord2f(tx2, ty2);`
+
+`glNormal3f(x * zr1, y * zr1, z1);`
+
+`glVertex3f(x * zr1 * r, y * zr1 * r, z1 * r);`
+
+`}`
+
+`glEnd();`
+
+`}`
+
+`}`

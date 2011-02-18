@@ -1,0 +1,194 @@
+#summary Plan of action for testing
+#labels Phase-QA
+<wiki:toc max_depth="3" />
+
+
+== Past/Existing Tests ==
+  There are currently no existing tests made for the game Luminance. We will be making the tests from the ground up along with the development team as they progress.  Since the code is being completely ported, we will have to write all these tests from scratch.
+
+== Testing Concept ==
+=== Test Suite ===
+  The whole testing suite will be a project in and of itself with packages inside differentiating each test component.
+
+  e.g.
+<br>
+  Test Suite --> testGraphics --> testCube.java
+<br>
+  Test Suite --> testGameLogic --> testAI.java
+
+  This will make it easy for the daily build to just run inside the eclipse IDE and go through its full steps as it automatically associates and runs. Whats more, the Android SDK uses an ant script for its builds and test builds so this can be implemented into the Team City server where a target specifying the testHook package will only be invoked instead of the whole Test Suite.
+
+  Furthermore, the ant build will have a file that holds output from a successful run through the test suite.  The diff command will be used to test the output of the testHook package with this file to ensure that the tests have passed. The output of a test, when invoked via command-line, will output to STDOUT. Should any errors be made, the script will then tell the user that the build has failed and reject the commit. A summary of the tests that have failed will be given to the end-committer.
+
+  The main (and recommended) technologies to be used are Robotium and JUnit for Android. Robotium is essentially built for Android GUI testing and JUnit is recommended by Android's site.
+
+=== User-Public ===
+  By the end of the second Milestone, a working version of the game replicated on the Android phone should be up and running. With this, and hopefully a handful of Android phones, we will incorporate a testing facility with which non-group members from the public will play our game and give a feedback via form. This form (in its alpha) is at the end of this document. 
+
+  The public will get roughly a half hour to full hour of gameplay within a break-out room on the Spinks 3rd floor. They will then fill out the sheet handed to them and the team will then process the results based on comments given by the public. Based on those results, bug reports will be posted upon the issues and any other comments such as functionality, coolness, etc will be resolved respectfully.
+
+  The times at which these will take place will depend upon the status of the project. Hopefully, at least two full 
+
+=== User-Member ===
+  Will be the same as the User-Public but will not need to fill out a form and have full access anytime to an Android phone. Discussion of the game will either be brought up through meetings, documentation on the wiki or a form as the same with the User-Public
+
+== Daily Build ==
+  The build master will run the test suite on eclipse and verify its success via the pop-up window status given in eclipse. Should a few errors occur, A bug report will be issued and taken up by the triage. Should the majority of the project fail then either an emergency meeting is in order or a very high alert report followed by an emergency e-mail to see the problem through thoroughly.
+
+== Milestone 1: Documentation & Concept smoke test ==
+  The discussion and writing of this documentation and planning of smoke test.
+=== Tasks ===
+  * Write-up of Documentation
+  * Divide up Test Components
+  * Conceptualize test smoke test structure
+  * Set-up testing environments(tools)
+
+*Estimated: 2-3 hours*
+
+<br>
+== Milestone 2: Smoke test, all core tests done, paired up with developers ==
+  Division of labour, Working smoke test, Finished suite of core tests
+
+=== Tasks ===
+  * Know how to make an Ant Script
+  * Write Milestone 2 black box tests simultaneously with development
+  * Write Milestone 2 white box tests after development of components
+  * Write Milestone 2 mutation tests for each component developed
+  * Write Milestone 2 GUI testing (Robotium)simultaneously with dev.
+  * Integrate black box, white box, mutation test into smoke test
+
+*Estimated: 40 hours*
+== Post Milestone Comments ==
+ Much difficulty in setting up the emulator to work on TeamCity.
+ As a consequence Android Junit tests were not integrated into Smoke tests.
+ JUnit tests has been postponed to next milestone.
+ See TestTeam wiki for details
+ 
+<br>
+= Current Milestone (Test Plan) =
+== Milestone 3: Test new features, User test ==
+
+=== Pre-Milestone Comments ===
+ After speaking with Prof. Stanley we re-evaluated our testing plans  
+ to concentrate more on core testing, e.g. black box, automated gui testing
+ white box testing, user evaluations.
+ We have decided to delay Jcoverage testing with Emma until our 
+ core tests are fully integrated to work with the emulator
+
+===Tasks===
+  * Translate User scenarios into GUI testing scripts
+  * Write all black box tests simultaneously with development
+  * Write all white box tests after development of components
+  * Integrate Mock objects to test objects in unit tests
+  * Integrate GUI tests into daily builds
+  * Integrate black box, white box, mutation test into smoke test
+  * Carry out user evaluations and revise project
+  * Plan out position grid testing by speaking with Level Builder, 
+       GUI developer
+
+*Estimated: 35 hours*
+
+<br>
+== Milestone 4: User test, Test new features, Possible hardware test ==
+  Get feedbacks from real life testing on Milestone 3’s added features
+
+*Estimated: 35 hours*
+
+<br>
+== Milestone 5: Thorough Run-through of all tests, Flush out bugs ==
+  Make sure everything works
+
+*Estimated: 15 hours*
+
+<br>
+*Note: Estimates are total spent by whole group*
+
+== Division of Labour: ==
+  It has been discussed that the team will divide up the major testing (unit and general testing) portion into sub categories. This is in coalition with the development group’s choice of dividing their work. This will keep each member’s knowledge of the project narrow but thoroughly understandable. Some will have more than one job depending on their ease of testing. Below is a table of division:
+
+||Name||Task||Task ||
+||Chet|| || ||
+|| || Resource Management||Game Object|| 
+|| || Math || Game Logic ||
+||Amara|| || ||
+|| || State||Input|| 
+|| || Engine || GUI || 
+|| || Automated GUI Testing || User evaluations||
+||Jeff|| || ||
+|| || Smoke Test || Level|| 
+|| || time || User evaluations || 
+
+== Technologies Used ==
+  * Android JUnit
+    Run Regression, Unit tests
+  * Robotium
+    Run Gui based tests
+  * Google Code
+    Code Base
+  * Ant Script
+    Build script, Smoke test, Hooks
+  * Team City
+    Smoke test, Hooks
+  * Emma
+   Code Coverage
+
+Links:
+  * Robotium  http://code.google.com/p/robotium/
+  * Android  http://developer.android.com/guide/developing/testing/testing_eclipse.html
+  * Emma http://emma.sourceforge.net/
+
+== Test Summary ==
+=== Regression ===
+  Performed only when a bug is reported and a fix has been issued. It is a check to also see if a fix has broken any other part of the project.
+
+=== Smoke ===
+  This has been determined to only cover basic method testing as discussion of a first level play through might take too long. There would be no point in waiting for a commit that takes 10 minutes long. This will take a bit longer to understand as Team City, Ant Script and Shell scripting are needed to run in collaboration with the Android Virtual Device. It will be built on the Team City server, check basic methods and menus and, depending on time taken, might play through first level.
+
+=== Black Box ===
+  Using the class diagrams and function/method stubs, the test team will be making black box test cases for their respective parts. This will be made in parallel with the development team as asking them to wait will not bode well because time is an issue. Thus, the test will be ran when the section of code is committed. 
+
+=== White Box ===
+  This will be implemented after the Black Box Testing has been passed. It will include basics such as mutation testing and if possible, path testing. This will run through from either a method or a whole run-through of a level(s).
+
+=== Unit Test: ===
+  Unit test will be used in Eclipse IDE’s built-in to run the majority of the test suites. Also use test coverage tool to find areas of a program not exercised by a set of test cases, creating additional test cases to increase coverage and determining a quantitative measure of code coverage, which is an indirect measure of quality. 
+
+=== JCoverage Test: ===
+  We are delaying Jcoverage testing (Emma) in order to concentrate on automated daily build tests working remotely on the emulator
+  
+=== GUI Test: ===
+  Android specific Robotium GUI tester will be used in accordance with a user use scenario. GUI test would perform a series of functions needed to pass the first level of the game. GUI test will be written and automated and run by testers.
+
+=== Activity Test ===
+  Testing the conditions of the game
+==== Initial Condition ====
+  Test whether or not the start-up of the game will be at some "playable" state, it also provides a confidence measure for subsequent tests. 
+
+==== User Interface ====
+  Check whether or not the buttons/actions do what they do.
+==== State Management ====
+  Check whether if you've actually won a game when you have won a game.
+
+== Testing results format: ==
+  What will eventually be printed out as a result of running tests.
+  !TestPackage | “Short description” | !MethodName | Passed/Failed
+
+== Defect/Bug Reports: ==
+  These will follow in with the formatting given to us by Google Code. They will also be issued through Google Code.
+
+  Defect Resolution Process: 
+   # Tester or user discovers bug
+   # Tester reports bug to issue tracker
+   # Triage selects which bugs to handle
+   # Bug is assigned to developer
+   # Developer fixes bug marks the bug fixed
+   # Triage assigns tester to retest
+   # Tester tests and marks bug as verified
+   # Triage archives bug
+
+
+== Usability Test Reports: ==
+  A sheet will be given to testers when testing on a real device. This will include both members and non-members of team1. It will contain basics (see below. Bugs will be converted into official bug reports by testers and assigned to developer by Triage:
+
+-------------------------
+(see UserEvaluations wiki for updated Usability test reports)

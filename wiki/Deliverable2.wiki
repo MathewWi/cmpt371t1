@@ -1,0 +1,76 @@
+#summary Outline of the requirements for Milestone 2
+<wiki:toc max_depth="2" />
+
+= Source Code Repository =
+  Source code for Luminance for this milestone can be found here:
+  [http://code.google.com/p/cmpt371t1/source/checkout]
+
+= Development =
+  Documentation for the development team can be viewed here: DevTeam
+
+= Testing =
+  The plan for testing can be viewed here: TestPlan <br>
+  Documentation for the test team can be viewed here: TestTeam<br>
+  The user evaluation plan can be viewed here: UserEvaluations<br>
+  Use cases that have been written so far can be viewed here: UseCaseScenarios
+
+= Mini-Milestone List =
+ The updated project plan we have set can be viewed here:  MilestonePlan
+
+ CPM Diagram: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
+
+= Risk Analysis =
+ The updated risk report can be viewed at: RiskReport
+
+= Requirements =
+ Updated requirements can be viewed at: [Requirements]
+
+= Team Roles and Activity Log =
+ The team roles can be found at: http://code.google.com/p/cmpt371t1/people/list
+
+ The activity log can be viewed at: ProjectMemberTime
+
+= Code Reviews =
+ The code review process is documented at CodeReviewProcess.
+ 
+ Code reviews are documented at CodeReviews.
+ 
+= Refinement of our Software Development Process =
+
+ The software engineering processes we have been using can be viewed here: SoftwareEngineeringProcesses
+
+= Current State of the System =
+
+ The status report can be viewed here: StatusReport
+
+ The class diagram from this prototype can be viewed here: ClassDiagram
+
+= Initial Analysis for Deliverable 3 =
+ == Deliverable plan ==
+ Any project artifacts that were modified or created since the first two milestones will be part of Deliverable 3:
+
+   * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
+   * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build.
+   * GUI Test Suite - Continuing work with Robotium.
+   * jUnit Test Suite - Continuing work with the unit test suite.
+   * jCoverage Test Suite - The code coverage test suite.
+   * Software Quality - The latest measurements of quality using code reviews.
+
+ In addition, the following implementation-specific tasks are anticipated:
+  * Alpha Version Complete - A working alpha version of the game should be complete.
+  * Level Format - The game level format will be analyzed and implemented.
+  * Sounds, special effects, lighting complete.
+  * Multiple playable levels.
+  * Game Level Editor - A tool to create new game levels.
+
+
+ == Estimate of size and time ==
+|| *Task* || *Estimate time (hours)* ||
+|| Full Alpha version of game || 24 ||
+|| Continuing Robotium test suite || 8 ||
+|| Continuing jUnit test suite || 8 ||
+|| jCoverage test suite || 8 ||
+|| Code Reviews || 6 ||
+|| Level Format || 8 ||
+|| Sounds, special effects, lighting || 10 ||
+|| Multiple levels || 8 ||
