@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TestStarter" default="run.script">
+<property file="build.properties"/>
+
+
+<!--
+	Default starting target. Will invoke threading to start emulator and run
+	test scripts
+-->
+<target name="run.script">
+	<parallel>
+		<!-- <ant target="run.emulator"/> -->
+		<ant target="run.install"/>
+	</parallel>
+</target>
+
+<!--
+	emuStart: Starts the emulator and sets the timeout defined in the build.properties file. The timeout is set in milliseconds. ie 60000 = 1 minute
+-->
+<target name="run.emulator">
+	<echo message="Starting emulator"/>
+	<echo message="Timeout limit set at 3 minutes"/>
+        <exec executable="${path.emulator}" timeout="${timeout.emulator}">
+                <arg value="-avd"/>
+                <arg value="${name.android.emulator}"/>
+        </exec>
+</target>
+
+<!--
+	run: The meat of the ant script
+		Step-by-Step:
+		It updates the build.xml of the project 
+		It updates the build.xml of the test-project
+		It waits for the emulator to start
+		It then invokes the run-tests command to run all tests
+-->
+<target name="run.install">
+
+
+	<echo message="CLEANING…"/>
+	<sleep seconds="3"/>
+
+	<ant target="clean.test"/>
+	<ant target="clean.project"/>
+	<ant target="clean.bin"/>
+
+	<echo message="UPDATING..."/>
+	<sleep seconds="3"/>
+
+	<ant target="update.project"/>
+	<ant target="update.test"/>
+
+	<echo message="COMPILING..."/>
+	<sleep seconds="3"/>
+
+	<ant target="compile.test.debug"/>
+	<ant target="compile.project.debug"/>
+
+	<echo message="UNINSTALLING..."/>
+	<sleep seconds="3"/>
+
+	<ant target="uninstall.test"/>
+	<ant target="uninstall.project"/>
+	
+	<echo message="INSTALLING…"/>
+	<sleep seconds="3"/>
+
+	<ant target="adb.install.project"/>
+	<ant target="adb.install.test"/>	
+
+	<echo message="TESTING..."/>
+	<sleep seconds="3"/>
+	<echo message="Running smoke.test"/>
+	<ant target="smoke.test"/>
+	<sleep seconds="1"/>
+
+	<sleep seconds="1"/>
+	<echo message="ALL DONE!"/>
+
+</target>
+
+<target name="smoke.test">
+	<exec executable="${path.android.platform.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg line="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="update.project">
+	<echo message="Updating project"/>
+	<exec executable="${path.android.tools}/android.bat">
+		<arg value="update"/>
+		<arg value="project"/>
+		<arg value="--target"/>
+		<arg value="${id.emulator}"/>
+		<arg value="--path"/>
+		<arg value="${path.project}"/>
+	</exec>
+</target>
+
+<target name="update.test">
+	<echo message="Updating test project"/>
+
+	<exec executable="${path.android.tools}/android.bat">
+		<arg value="update"/>
+		<arg value="test-project"/>
+		<arg value="-m"/>
+		<arg value="${relative.test.to.project}"/>
+		<arg value="-p"/>
+		<arg value="${path.test.project}"/>
+	</exec>
+</target>
+
+<target name="uninstall.test">
+	<echo message="Uninstalling Test Package"/>
+	<ant dir="${path.test.project}" target="uninstall"/>
+</target>
+
+<target name="uninstall.project">
+	<echo message="Uninstalling Project Package"/>
+	<ant dir="${path.project}" target="uninstall"/>
+</target>
+
+<target name="install.test">
+	<echo message="Installing Test Package"/>
+	<ant dir="${path.test.project}" target="install"/>
+</target>
+
+<target name="install.project">
+	<echo message="Installing Project Package"/>
+	<ant dir="${path.project}" target="install"/>
+</target>
+
+<target name="clean.project">
+	<delete file="${path.project}/build.xml"/>	
+	<delete file="${path.project}/build.properties"/>
+</target>
+
+<target name="clean.test">
+	<delete file="${path.test.project}/build.xml"/>	
+	<delete file="${path.test.project}/build.properties"/>
+</target>
+
+<target name="adb.install.test">
+	<exec executable="${path.android.platform.tools}/adb">
+		<arg value="install"/>
+		<arg value="-r"/>
+		<arg value="${path.test.apk}"/>
+	</exec>
+</target>
+
+<target name="adb.install.project">
+	<exec executable="${path.android.platform.tools}/adb">
+		<arg value="install"/>
+		<arg value="-r"/>
+		<arg value="${path.project.apk}"/>
+	</exec>
+</target>
+
+<target name="clean.bin">
+	<delete includeemptydirs="true">
+            <fileset dir="${path.project}/bin" includes="**/*"/>
+            <fileset dir="${path.test.project}/bin" includes="**/*"/>
+        </delete>
+</target>
+
+<target name="compile.test.debug">
+	<echo message="Installing Test Package"/>
+	<ant dir="${path.test.project}" target="debug"/>
+</target>
+
+<target name="compile.project.debug">
+	<echo message="Installing Project Package"/>
+	<ant dir="${path.project}" target="debug"/>
+</target>
+
+
+</project>
