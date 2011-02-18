@@ -116,10 +116,17 @@
 || Usability test template  || 2 ||
 
 == Liang Huang ==
-|| *Task* || *Hours spent so far* ||
+=== MIlestone 0 ===
+|| *Tasks* || *Hours spent so far* ||
 || Test Plan || 2 ||
 || Learning Ant Script || 4 ||
 || Learning Android Virtual Device || 4 ||
+|| Documentation || 5 ||
+
+=== Milestone 1 ===
+|| *Task* || *Hours spent so far* ||
+|| Ant Script || 4 ||
+|| Android Virtual Device || 4 ||
 || Meeting with Dr. Kevin Stanley || 1 ||
 || Continuous Integration Script || 30 ||
 || SVN TestSuite || 1 ||
