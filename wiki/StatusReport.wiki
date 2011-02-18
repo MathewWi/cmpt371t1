@@ -54,7 +54,7 @@ Common problems of the development environment can be found here: CommonIssues
   * Creating our own custom menu primitives.
   * Menu primitives robust
   * GUIManager created; responsible for managing buttons
-    * Buttons created, can perform action on tap
+  * Buttons created, can perform action on tap
 
  == Level Loader ==
   * Use of XML to store level information.
