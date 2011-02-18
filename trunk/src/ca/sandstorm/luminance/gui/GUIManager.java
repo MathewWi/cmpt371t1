@@ -7,7 +7,12 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.input.InputTouchScreen;
 import ca.sandstorm.luminance.input.InputXY;
 
-
+/**
+ * Class for handling buttons and whether they have been tapped.
+ * 
+ * @author Kumaran Vijayan
+ *
+ */
 public class GUIManager
 {
 
@@ -17,12 +22,27 @@ public class GUIManager
     private InputTouchScreen _touchScreen;
     private Button _buttons[];
 
-
+    /**
+     * Constructor. By default, the number of buttons to be managed is 0.
+     * 
+     * @precond n/a
+     * @postcond this.getNumberOfButtons() == 0
+     */
     public GUIManager()
     {
 	_touchScreen = Engine.getInstance().getInputSystem().getTouchScreen();
 	_buttons = new Button[MAX_BUTTON_COUNT];
 	_numberOfButtons = 0;
+    }
+    
+    /**
+     * Get the number of buttons that are being managed by this GUIManager.
+     * 
+     * @return the buttons being managed by this GUIManager.
+     */
+    public int getNumberOfButtons()
+    {
+	return _buttons.length;
     }
 
     /**
@@ -73,13 +93,16 @@ public class GUIManager
      */
     public Button touchOccured(float x, float y)
     {
+	// drawing coordinates are offset by -50
+	// offset y by the same amount
+	float compensatedY = y - 50;
 	/*
 	 * Searches through the array of buttons and compares each one
 	 */
 	for (int i = 0; i < _numberOfButtons; i++) {
 	    Button button = _buttons[i];
 	    if (x > button.getX() && x < button.getX() + button.getWidth() &&
-		y > button.getY() && y < button.getY() + button.getHeight()) {
+		compensatedY > button.getY() && compensatedY < button.getY() + button.getHeight()) {
 		return button;
 	    }
 	}
