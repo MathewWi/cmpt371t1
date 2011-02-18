@@ -18,4 +18,5 @@
     <instrumentation android:name="android.test.InstrumentationTestRunner"
                      android:targetPackage="ca.sandstorm.luminance"
                      android:label="Tests for ca.sandstorm.luminance"/>
+    <uses-sdk android:targetSdkVersion="8" android:minSdkVersion="7"/>
 </manifest>
