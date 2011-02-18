@@ -43,9 +43,11 @@
 || Resource manager || 5 ||
 || Audio system updates || 1 ||
 || Graphics renderer || 6 ||
-|| Game object system || 2 ||
+|| Game object system || 2.5 ||
 || Model loading research || 2 ||
-|| Build master duties || 1 ||
+|| Helping with GUI drawing || 1 ||
+|| Modifying smoke test scripts to work for TeamCity || 4 ||
+|| Misc. build master duties || 1 ||
 
 == Stephen Damm ==
 === Milestone 0 ===
