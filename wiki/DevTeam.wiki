@@ -38,5 +38,5 @@ This is where the development team will be listing their tasks and roles.
     * Implement GUI menus, buttons, labels, etc.
   * Steven
     * Sound implementation
-    * Level XML format
+    * Level XML template, which can be viewed here: LevelFileTemplate
     * Level loader
