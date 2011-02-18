@@ -14,6 +14,8 @@ public class XmlLevelTool {
 	 * Constructor for XmlLevelTool object.
 	 * @param type The type of tool (mirror, prism)
 	 * @param count The number of this tool you get for this level.
+	 * @precond type is mirror or prism, count > 0.
+	 * @postcond An XmlLevelTool is created.
 	 */
 	public XmlLevelTool(String type, int count)
 	{
@@ -50,6 +52,7 @@ public class XmlLevelTool {
 	/**
 	 * Checks if a type is valid (mirror, prism)
 	 * @param type The type to check the validity of.
+	 * @precond type != null
 	 * @return True is the type is valid, false otherwise.
 	 */
 	public boolean isValidType(String type)
@@ -67,6 +70,10 @@ public class XmlLevelTool {
 		}
 	}
 	
+	/**
+	 * Returns a string representation of XmlLevelTool.
+	 * @return A string representation of XmlLevelTool.
+	 */
 	public String toString()
 	{
 		return ("\nType: " + getType() + 

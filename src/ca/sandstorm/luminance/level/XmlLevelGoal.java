@@ -12,6 +12,8 @@ public class XmlLevelGoal extends XmlLevelObject {
 	/**
 	 * Constructor for XmlLevelGoal class.
 	 * @throws IllegalArgumentException
+	 * @precond colour != null
+	 * @postcond XmlLevelGoal is created.
 	 */
 	public XmlLevelGoal(String colour) throws IllegalArgumentException {
 		super("goal");
@@ -26,13 +28,26 @@ public class XmlLevelGoal extends XmlLevelObject {
 	 * Checks to see if a colour given is valid.
 	 * @param colour The given colour, should be white, red, blue, or green.
 	 * @return True if the colour is valid, false otherwise.
+	 * @precond colour != null
 	 */
 	public boolean isValidColour(String colour) 
 	{
-		if (colour.equals("white")) return true;
-		else if (colour.equals("red")) return true;
-		else if (colour.equals("blue")) return true;
-		else if (colour.equals("green")) return true;
+		if (colour.equals("white"))
+		{
+		    return true;
+		}
+		else if (colour.equals("red")) 
+		{
+		    return true;
+		}
+		else if (colour.equals("blue")) 
+		{
+		    return true;
+		}
+		else if (colour.equals("green"))
+		{
+		    return true;
+		}
 		return false;
 	}
 	

@@ -15,7 +15,9 @@ public class XmlLevelObject
 	/**
 	 * Constructor for XmlLevelObject.
 	 * @param type The type of the object.
-	 * @throws Exception
+	 * @throws IllegalArgumentException
+	 * @precond type is brick or goal.
+	 * @postcond XmlLevelObject is created with given type.
 	 */
 	public XmlLevelObject(String type) throws IllegalArgumentException 
 	{
@@ -33,6 +35,7 @@ public class XmlLevelObject
 	 * Checks to see if a type given is valid.
 	 * @param type The object type.
 	 * @return True if the type is valid, false otherwise.
+	 * @precond type != null
 	 */
 	public boolean isValidType(String type) 
 	{
@@ -54,6 +57,8 @@ public class XmlLevelObject
 	 * Setter method for the object's position.
 	 * @param x The x position of the object.
 	 * @param y The y position of the object.
+	 * @precond x > 0, y > 0
+	 * @postcond _positionX == x, _positionY == y
 	 */
 	public void setPosition(float x, float y)
 	{
@@ -82,6 +87,8 @@ public class XmlLevelObject
 	/**
 	 * The setter method for the object's rotation.
 	 * @param rotation The rotation of the object.
+	 * @precond rotation > 0
+	 * @postcond _rotation == rotation
 	 */
 	public void setRotation(float rotation)
 	{

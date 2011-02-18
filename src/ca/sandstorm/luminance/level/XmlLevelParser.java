@@ -19,6 +19,8 @@ public class XmlLevelParser
 	/**
 	 * Constructor for the XmlParser class.
 	 * @param filename The name of a file in the same directory.
+	 * @precond filename != null, filename is a file in the project directory.
+	 * @postcond XmlLevelParser has been created
 	 */
 	public XmlLevelParser(String filename)
 	{
@@ -36,6 +38,9 @@ public class XmlLevelParser
 	
 	/**
 	 * Parse the level file.
+	 * @precond XmlLevelParser was successfully created
+	 * @postcond An XmlLevel is created from information parsed from the XML file
+	 * @return An XmlLevel object that contains all information about the level.
 	 */
 	public XmlLevel parse()
 	{
@@ -216,11 +221,5 @@ public class XmlLevelParser
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	public static void main(String args[])
-	{
-		XmlLevelParser parser = new XmlLevelParser("template.xml");
-		System.out.println(parser.parse().toString());
 	}
 }

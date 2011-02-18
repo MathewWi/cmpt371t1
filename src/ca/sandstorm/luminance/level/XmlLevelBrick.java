@@ -10,6 +10,7 @@ public class XmlLevelBrick extends XmlLevelObject {
 	/**
 	 * Constructor for XmlLevelBrick.
 	 * @throws IllegalArgumentException
+	 * @postcond XmlLevelBrick is created
 	 */
 	public XmlLevelBrick() throws IllegalArgumentException {
 		super("brick");
