@@ -26,13 +26,14 @@ This is where the development team will be listing their tasks and roles.
   * Stephen
     * Grid implementation
     * Sky Box for game background
-    * Graphics
+    * Graphics for grid and skybox
   * Jonny
     * Touch input implementation
   * Zenja
-    * Implementing resource manager
-    * Researching sound implementation
-    * Game objects
+    * Resource manager
+    * Audio system
+    * Game objects (only Box so far); integration with game state
+    * Graphics renderer
   * Kum
     * Learning Android and OpenGL Widget Toolkits.
     * Implement GUI menus, buttons, labels, etc.
