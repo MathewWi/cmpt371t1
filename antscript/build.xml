@@ -108,7 +108,7 @@
 		<arg value="update"/>
 		<arg value="test-project"/>
 		<arg value="-m"/>
-		<arg value="${path.project}"/>
+		<arg value="${relative.test.to.project}"/>
 		<arg value="-p"/>
 		<arg value="${path.test.project}"/>
 	</exec>
