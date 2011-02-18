@@ -43,7 +43,7 @@
 
  The status report can be viewed here: StatusReport
 
- The class diagram from this prototype can be viewed here: [http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/Milestone2.png?t=1298068329]
+ The class diagram from this prototype can be viewed here: http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/Milestone2.png?t=1298068329
 
 = Initial Analysis for Deliverable 3 =
  == Deliverable plan ==
