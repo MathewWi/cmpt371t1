@@ -61,7 +61,6 @@
   * Level Format - The game level format will be analyzed and implemented.
   * Sounds, special effects, lighting complete.
   * Multiple playable levels.
-  * Random level generator.
   * Game Level Editor - A tool to create new game levels.
 
 
