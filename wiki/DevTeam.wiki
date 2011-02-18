@@ -1,8 +1,5 @@
 #summary Documentation for the Development Team.
-
-#summary Documentation for the Test Team
-
-= Introduction =
+== Introduction ==
 
 This is where the development team will be listing their tasks and roles.
 
@@ -27,17 +24,18 @@ This is where the development team will be listing their tasks and roles.
     * Grid implementation
     * Sky Box for game background
     * Graphics for grid and skybox
+    * Core engine
   * Jonny
     * Touch input implementation
   * Zenja
     * Resource manager
     * Audio system
-    * Game objects (only Box so far); integration with game state
+    * Game objects system (only Box so far)
     * Graphics renderer
   * Kum
     * Learning Android and OpenGL Widget Toolkits.
     * Implement GUI menus, buttons, labels, etc.
   * Steven
-    * Sound implementation
+    * Sound asset creation
     * Level XML template, which can be viewed here: LevelFileTemplate
     * Level loader
