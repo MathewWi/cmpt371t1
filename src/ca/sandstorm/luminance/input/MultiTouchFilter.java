@@ -5,7 +5,11 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.view.MotionEvent;
 
-
+/**
+ * Code from Replica Island (Android open source game project)
+ * 
+ * Class to filter out the multi single touch and store it in the input touch screen class
+ */
 public class MultiTouchFilter extends SingleTouchFilter
 {
     private boolean mCheckedForMultitouch = false;

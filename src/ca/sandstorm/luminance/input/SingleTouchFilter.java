@@ -3,7 +3,11 @@ package ca.sandstorm.luminance.input;
 import ca.sandstorm.luminance.Engine;
 import android.view.MotionEvent;
 
-
+/**
+ * Code from Replica Island (Android open source game project)
+ * 
+ * Class to filter out the single touch and store it in the input touch screen class
+ */
 public class SingleTouchFilter extends TouchFilter
 {
 
