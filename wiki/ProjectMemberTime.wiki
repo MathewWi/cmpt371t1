@@ -99,7 +99,7 @@
 || *Task* || *Hours spent so far* ||
 || Risk Report || 2.5 ||
 || Analysis of code for test cases || 1 ||
-|| Testing || 2 ||
+|| Testing || 4 ||
 
 == Amara Daal ==
 === Milestone 0 ===
