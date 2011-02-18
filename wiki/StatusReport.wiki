@@ -48,7 +48,7 @@ Common problems of the development environment can be found here: CommonIssues
  == Input ==
   * Use of ReplicaIsland open source code.
   * Touch and drag inputs are currently stable, although need refining.
-  * Pinch implementation soon to be underway.
+  * Pinch(zoom) are now working.
 
  == GUI ==
   * Creating our own custom menu primitives.
