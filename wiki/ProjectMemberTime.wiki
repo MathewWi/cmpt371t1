@@ -85,8 +85,8 @@
 || *Task* || *Hours spent so far* ||
 || Helping figure out test project setup || 2 ||
 || Setup of test build configuration || 2 ||
-|| Organizing team || 3 ||
-|| Preparing Wiki for deliverable || 2.5 ||
+|| Organizing team || 4 ||
+|| Preparing Wiki for deliverable || 5.5 ||
 
 == Chet Collins ==
 || *Task* || *Hours spent so far* ||
