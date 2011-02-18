@@ -110,13 +110,6 @@
 || User evaluations || 3 ||
 || Usability test template  || 2 ||
 
-== Jiajing Wang ==
-|| *Task* || *Hours spent so far* ||
-|| Learning Ant Script || 2 ||
-|| Learning basic test concepts || 1 ||
-|| Learning Android test|| 3 ||
-
-
 == Liang Huang ==
 || *Task* || *Hours spent so far* ||
 || Test Plan || 2 ||
@@ -146,9 +139,3 @@
 || Working on game music || 3 ||
 || Adding to project page/wiki || 1 ||
 || Researching XML, creating level file template || 2 ||
-
-== Kai Kang ==
-|| *Task* || *Hours spent so far* ||
-|| Source code architectural analysis & diagram || 4 ||
-|| Project control analysis || 3 ||
-|| Test Concepts Research || 3 ||
