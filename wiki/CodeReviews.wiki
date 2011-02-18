@@ -12,6 +12,7 @@ The word resource should not appear in the function names, since it is a Resourc
 
 
 * !InputSystem() *
+
 The scaleX, scaleY was not being set correctly, Luminance.java should calculate the proper values like ReplicaIsland does and pass it on to Engine deviceChagne.
 
 
