@@ -133,6 +133,7 @@
 || Continuous Integration Script || 30 ||
 || SVN TestSuite || 1 ||
 || SVN TestSmoke || 1 ||
+|| Team City Smoketest Help || 4 ||
 
 == Jonny ==
 === Milestone 0 ===
