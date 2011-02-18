@@ -25,6 +25,8 @@ public class XmlLevel
 	 * @param ySize The vertical size of the grid.
 	 * @param objects A LinkedList of XmlLevelObjects in the level.
 	 * @param tools A LinkedList of XmlLevelTools in the level.
+	 * @precond name != null, difficulty != null, xSize > 0, ySize > 0, objects != null, tools != null
+	 * @postcond An XmlLevel is created
 	 */
 	public XmlLevel(String name, String difficulty, int xSize, int ySize, LinkedList<XmlLevelObject> objects, LinkedList<XmlLevelTool> tools)
 	{
