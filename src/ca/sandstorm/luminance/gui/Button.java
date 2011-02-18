@@ -34,7 +34,7 @@ public class Button implements IWidget
      * @param title String to be used for the buton title.
      * @precond x >= 0, y >= 0, width >= 0, height >= 0
      * @postcond this.getX() == x, this.getY() == y, this.getWidth() == width,
-     * this.getHeight() == height
+     * this.getHeight() == height, this.getTitle() == title
      */
     public Button(float x, float y, float width, float height, String title)
     {

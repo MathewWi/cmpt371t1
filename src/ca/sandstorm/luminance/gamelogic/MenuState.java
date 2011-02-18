@@ -19,12 +19,14 @@ public class MenuState implements IState
 {
     private static final Logger logger = LoggerFactory.getLogger(MenuState.class);
     private GUIManager _guiManager;
+    private boolean _tapped;
 
     public MenuState()
     {
+	_tapped = false;
 	_guiManager = new GUIManager();
 	
-	Button b = new Button(10, 10, 100, 100, "Play");
+	Button b = new Button(20, 50, 280, 30, "Play");
 	_guiManager.addButton(b);
     }
     
@@ -120,17 +122,19 @@ public class MenuState implements IState
     @Override
     public void update(GL10 gl)
     {
-	System.out.println("update(GL10)");
 	// TODO Auto-generated method stub
 	if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchEvent() != null) {
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 	    				.getTouchScreen().getTouchEvent();
 	    
-	    if (touchEvent.getAction() == MotionEvent.ACTION_UP) {
+	    if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
+		_tapped = true;
+	    } if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
 		logger.debug("Menu has been touched");
 		if (_guiManager.touchOccured(touchEvent) != null) {
 		    logger.debug("button has been tapped");
 		}
+		_tapped = false;
 	    }
 	}
 	
