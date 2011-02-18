@@ -8,23 +8,23 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
-import ca.sandstorm.luminance.resources.TextureResource;
 
 public class Receptor implements IRenderableObject
 {
-    private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
+    private static final Logger _logger = LoggerFactory.getLogger("Luminance.Sphere");
 
     private IRenderable _model;
     private Vector3f _position;
     private Vector4f _rotation;
     private Vector3f _scale;
     private int _texture;
+    private double _scaleCounter = 0;
     
     /**
      * Constructor.
-     * Sets up the box position and scale.
-     * @param position Position to put box at initially
-     * @param scale Box initial scale
+     * Sets up the receptor position and scale.
+     * @param position Position to put receptor at initially
+     * @param scale receptor initial scale
      */
     public Receptor(Vector3f position, Vector3f scale)
     {
@@ -102,7 +102,9 @@ public class Receptor implements IRenderableObject
     @Override
     public void update()
     {
-
+	// For fun
+	_scaleCounter += 0.1f;
+	_scale.x = _scale.y = _scale.z = (float)(1.0 + (Math.sin(_scaleCounter) * 0.3));
     }
 
     /**
