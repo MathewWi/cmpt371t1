@@ -67,7 +67,13 @@ Common problems of the development environment can be found here: CommonIssues
   * Does not have any playable functionality.
 
  == Smoke Test == 
-  * Integrated with daily build, but only a few tests written.
+  * Currently runs on the command line, but is not implemented on the !TeamCity server.
+  * Issue with file paths.
+    * !TeamCity only recognizes the path within SVN.
+    * The build script needs to access artifacts such as the android virtual device, and all its relative components.
+    * Unable to solve this problem within the time limit.
+  * It has "three thumbs up" tests currently.
+   * Tests suite includes ResourceManager and Input classes.
 
  == GUI Testing ==
   * Use of Robotium.
