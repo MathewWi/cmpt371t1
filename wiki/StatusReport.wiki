@@ -23,7 +23,7 @@ Touch features such as pinch and swipe work well.  Some refinement may still nee
 
 == Features to Be Implemented ==
 
-Touch screen GUI - currently started, but incomplete.
+Touch screen GUI - basic elements created & fleshed out, buttons tappable.
 
 Enhanced graphics - simple graphics currently implemented.
 
@@ -52,7 +52,9 @@ Common problems of the development environment can be found here: CommonIssues
 
  == GUI ==
   * Creating our own custom menu primitives.
-  * Menu primitives robust, but not integrated into the system.
+  * Menu primitives robust
+  * GUIManager created; responsible for managing buttons
+    * Buttons created, can perform action on tap
 
  == Level Loader ==
   * Use of XML to store level information.
