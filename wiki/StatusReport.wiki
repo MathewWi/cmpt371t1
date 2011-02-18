@@ -40,18 +40,39 @@ Currently there are no STI's or defects within the code itself, as everything is
 Common problems of the development environment can be found here: CommonIssues
 
 = Specific Status Report = 
-
- * Resource Manager.
+ == Resource Manager ==
   * Capable of loading and managing most resources.
-  * Sound is fully implemented.
+  * Simple textures loading.
+  * Sound/music implementation understood, although currently not working.
 
- * Input.
-  * Touch and drag inputs are currently stable.
+ == Input ==
+  * Use of ReplicaIsland open source code.
+  * Touch and drag inputs are currently stable, although need refining.
+  * Pinch implementation soon to be underway.
 
- * Graphics.
+ == GUI ==
+  * Creating our own custom menu primitives.
+  * Menu primitives robust, but not integrated into the system.
+
+ == Level Loader ==
+  * Use of XML to store level information.
+  * Loader currently stable.
+
+ == Graphics ==
   * Basic primitives (sphere, box, etc.).
   * Full grid, background and general play space implemented.
 
- * Game.
+ == Game == 
   * Currently draws a grid and loads a pre-defined level.
   * Does not have any playable functionality.
+
+ == Smoke Test == 
+  * Integrated with daily build, but only a few tests written.
+
+ == GUI Testing ==
+  * Use of Robotium.
+  * Full test suite under construction.
+
+ == Unit Tests ==
+  * Currently underway.
+  * Unit Tests that are completed work well; have already caught bugs.
