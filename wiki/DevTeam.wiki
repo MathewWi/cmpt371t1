@@ -21,3 +21,22 @@ This is where the development team will be listing their tasks and roles.
 *Wednesday, February 2, 2011 in S371*
 
   * Stephen performed the OpenGL tutorial for all the group members.
+
+== Tasks ==
+  * Stephen
+    * Grid implementation
+    * Sky Box for game background
+    * Graphics
+  * Jonny
+    * Touch input implementation
+  * Zenja
+    * Implementing resource manager
+    * Researching sound implementation
+    * Game objects
+  * Kum
+    * Learning Android and OpenGL Widget Toolkits.
+    * Implement GUI menus, buttons, labels, etc.
+  * Steven
+    * Sound implementation
+    * Level XML format
+    * Level loader
