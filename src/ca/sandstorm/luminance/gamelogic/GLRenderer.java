@@ -1,4 +1,4 @@
-package ca.sandstorm.luminance.graphics;
+package ca.sandstorm.luminance.gamelogic;
 
 import java.util.LinkedList;
 
@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
+import ca.sandstorm.luminance.graphics.PrimitiveBox;
+import ca.sandstorm.luminance.graphics.PrimitiveSphere;
 
 /**
  * Graphics renderer for drawing objects.
