@@ -24,6 +24,9 @@ public class Receptor implements IRenderableObject
     private int _texture;
     private double _scaleCounter = 0;
     
+    private RenderType _renderType = RenderType.Normal;
+    
+    
     /**
      * Constructor.
      * Sets up the receptor position and scale.
@@ -118,5 +121,11 @@ public class Receptor implements IRenderableObject
     public void destroy()
     {
 	
+    }
+
+    @Override
+    public RenderType getRenderType()
+    {
+	return _renderType;
     }
 }

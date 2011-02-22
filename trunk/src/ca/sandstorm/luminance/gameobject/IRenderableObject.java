@@ -15,4 +15,7 @@ public interface IRenderableObject extends IGameObject
      * @return Associated texture
      */
     int getTexture();
+    
+    
+    RenderType getRenderType();
 }

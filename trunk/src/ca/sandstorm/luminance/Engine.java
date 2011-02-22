@@ -12,7 +12,7 @@ import android.content.Context;
 import android.os.SystemClock;
 
 import ca.sandstorm.luminance.audio.AndroidSoundPlayer;
-import ca.sandstorm.luminance.graphics.GLRenderer;
+import ca.sandstorm.luminance.gamelogic.GameRenderer;
 import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
@@ -54,7 +54,7 @@ public class Engine
     private InputSystem _inputSystem;
     private AndroidSoundPlayer _audioSystem;
     private ResourceManager _resourceManager;
-    private GLRenderer _renderer;
+    private GameRenderer _renderer;
     private TouchFilter _touchFilter;
     
     // last update step, used to calculate frame time delta
@@ -71,7 +71,7 @@ public class Engine
     private Engine()
     {
 	logger.debug("Engine()");
-	_renderer = new GLRenderer();
+	_renderer = new GameRenderer();
 
 	_stateStack = new Stack<IState>();
 	_timer = new TimeSystem();
@@ -140,7 +140,7 @@ public class Engine
      * Returns the renderer used for this game.
      * @return
      */
-    public GLRenderer getRenderer()
+    public GameRenderer getRenderer()
     {
 	return _renderer;
     }

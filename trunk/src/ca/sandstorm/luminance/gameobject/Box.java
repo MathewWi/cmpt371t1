@@ -24,6 +24,8 @@ public class Box implements IRenderableObject
     private Vector3f _scale;
     private int _texture;
     
+    private RenderType _renderType = RenderType.Normal;
+    
     /**
      * Constructor.
      * Sets up the box position and scale.
@@ -122,5 +124,11 @@ public class Box implements IRenderableObject
     public void destroy()
     {
 	
+    }
+
+    @Override
+    public RenderType getRenderType()
+    {
+	return _renderType;
     }
 }

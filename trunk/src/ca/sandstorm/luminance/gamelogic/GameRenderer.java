@@ -10,12 +10,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
+import ca.sandstorm.luminance.gameobject.RenderType;
 import ca.sandstorm.luminance.graphics.PrimitiveBox;
 import ca.sandstorm.luminance.graphics.PrimitiveSphere;
 
+
 /**
  * Graphics renderer for drawing objects.
- * @author zenja
  */
 public class GameRenderer
 {
@@ -25,7 +26,9 @@ public class GameRenderer
     private PrimitiveBox _box;
     private PrimitiveSphere _sphere;
     
-    private LinkedList<IRenderableObject> _renderableObjects;
+    private LinkedList<IRenderableObject> _normalObjects;
+    private LinkedList<IRenderableObject> _alphaObjects;
+    private LinkedList<IRenderableObject> _reflectionObjects;
     
     /**
      * Constructor.
@@ -33,30 +36,59 @@ public class GameRenderer
      */
     public GameRenderer()
     {
-	_renderableObjects = new LinkedList<IRenderableObject>();
+	_logger.debug("GameRenderer()");
+	
+	_normalObjects = new LinkedList<IRenderableObject>();
+	_alphaObjects = new LinkedList<IRenderableObject>();
+	_reflectionObjects = new LinkedList<IRenderableObject>();
+	
 	_box = new PrimitiveBox();
 	_sphere = new PrimitiveSphere();
 	
-	_logger.debug("GameRenderer created.");
     }
+    
     
     /**
      * Add a new object to be drawn on every frame render.
      * @param object Renderable object to be added.
      */
-    public void addRenderable(IRenderableObject object)
+    public void add(IRenderableObject object)
     {
-	_renderableObjects.add(object);
+	if (object.getRenderType() == RenderType.Normal)
+	{
+	    _normalObjects.add(object);
+	}
+	else if (object.getRenderType() == RenderType.Alpha)
+	{
+	    _alphaObjects.add(object);
+	}
+	else if (object.getRenderType() == RenderType.Reflection)
+	{
+	    _reflectionObjects.add(object);
+	}
     }
     
+        
     /**
      * Remove an object from the automatic draw list.
      * @param object Renderable object to remove.
      */
-    public void removeRenderable(IRenderableObject object)
+    public void remove(IRenderableObject object)
     {
-	_renderableObjects.remove(object);
+	if (object.getRenderType() == RenderType.Normal)
+	{
+	    _normalObjects.remove(object);
+	}
+	else if (object.getRenderType() == RenderType.Alpha)
+	{
+	    _alphaObjects.remove(object);
+	}
+	else if (object.getRenderType() == RenderType.Reflection)
+	{
+	    _reflectionObjects.remove(object);
+	}
     }
+    
     
     /**
      * Get a box primitive.
@@ -67,6 +99,7 @@ public class GameRenderer
 	return _box;
     }
     
+    
     /**
      * Get a sphere primitive.
      * @return Sphere primitive
@@ -76,13 +109,14 @@ public class GameRenderer
 	return _sphere;
     }
     
+    
     /**
-     * Render all objects that are being tracked by the renderer.
-     * @param gl OpenGL context to render with
+     * Draw the normal objects which require no special rendering.
+     * @param gl OpenGL context
      */
-    public void drawObjects(GL10 gl)
+    private void drawNormalObjects(GL10 gl)
     {
-	for (IRenderableObject object : _renderableObjects) {
+	for (IRenderableObject object : _normalObjects) {
 	    gl.glPushMatrix();
 	    	    
 	    // Position object
@@ -117,6 +151,39 @@ public class GameRenderer
 	    // Reset state
 	    gl.glDisable(GL10.GL_TEXTURE_2D);
 	    gl.glPopMatrix();
-	}
+	}	
+    }
+    
+    
+    
+    /**
+     * Draw the alpha objects which require sorted and special rendering.
+     * @param gl OpenGL context
+     */
+    private void drawAlphaObjects(GL10 gl)
+    {
+	
+    }
+    
+    
+    /**
+     * Draw the reflection objects which require special rendering.
+     * @param gl OpenGL context
+     */
+    private void drawReflectionObjects(GL10 gl)
+    {
+	
+    }
+    
+    
+    /**
+     * Render all objects that are being tracked by the renderer.
+     * @param gl OpenGL context to render with
+     */
+    public void draw(GL10 gl)
+    {
+	drawNormalObjects(gl);
+	drawAlphaObjects(gl);
+	drawReflectionObjects(gl);
     }
 }
