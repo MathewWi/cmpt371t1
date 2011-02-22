@@ -17,7 +17,7 @@ import ca.sandstorm.luminance.graphics.PrimitiveSphere;
  * Graphics renderer for drawing objects.
  * @author zenja
  */
-public class GLRenderer
+public class GameRenderer
 {
     private static final Logger _logger = LoggerFactory.getLogger("Luminance.GLRenderer");
     
@@ -31,13 +31,13 @@ public class GLRenderer
      * Constructor.
      * Create the primitives.
      */
-    public GLRenderer()
+    public GameRenderer()
     {
 	_renderableObjects = new LinkedList<IRenderableObject>();
 	_box = new PrimitiveBox();
 	_sphere = new PrimitiveSphere();
 	
-	_logger.debug("GLRenderer created.");
+	_logger.debug("GameRenderer created.");
     }
     
     /**
