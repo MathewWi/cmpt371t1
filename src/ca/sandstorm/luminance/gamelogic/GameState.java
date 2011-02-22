@@ -88,8 +88,8 @@ public class GameState implements IState
 
 	objects.add(_testBox);
 	objects.add(_testReceptor);
-	Engine.getInstance().getRenderer().addRenderable(_testBox);
-	Engine.getInstance().getRenderer().addRenderable(_testReceptor);
+	Engine.getInstance().getRenderer().add(_testBox);
+	Engine.getInstance().getRenderer().add(_testReceptor);
 
 	float maxSize = Math.max(_grid.getTotalWidth(), _grid.getTotalHeight());
 	float camY = 1.15f * (maxSize / (float) (Math.tan((Math.PI / 6.0))));
@@ -354,7 +354,7 @@ public class GameState implements IState
 	gl.glPopMatrix();
 
 	// Get renderer to draw everything on its renderable list -zenja
-	Engine.getInstance().getRenderer().drawObjects(gl);
+	Engine.getInstance().getRenderer().draw(gl);
 
 	gl.glPushMatrix();
 	gl.glTranslatef(0.0f, 0, 0f);
