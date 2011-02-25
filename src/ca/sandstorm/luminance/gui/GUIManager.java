@@ -2,10 +2,11 @@ package ca.sandstorm.luminance.gui;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.view.MotionEvent;
-import ca.sandstorm.luminance.Engine;
-import ca.sandstorm.luminance.input.InputTouchScreen;
-import ca.sandstorm.luminance.input.InputXY;
+
 
 /**
  * Class for handling buttons and whether they have been tapped.
@@ -15,11 +16,12 @@ import ca.sandstorm.luminance.input.InputXY;
  */
 public class GUIManager
 {
-
+    private static final Logger _logger = LoggerFactory
+    	.getLogger(GUIManager.class);
+    
     private int MAX_BUTTON_COUNT = 10;
 
     private int _numberOfButtons;
-    private InputTouchScreen _touchScreen;
     private Button _buttons[];
 
     /**
@@ -30,7 +32,8 @@ public class GUIManager
      */
     public GUIManager()
     {
-	_touchScreen = Engine.getInstance().getInputSystem().getTouchScreen();
+	_logger.debug("GUIManager()");
+	
 	_buttons = new Button[MAX_BUTTON_COUNT];
 	_numberOfButtons = 0;
     }
