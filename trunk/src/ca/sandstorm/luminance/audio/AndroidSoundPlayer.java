@@ -32,6 +32,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public AndroidSoundPlayer()
     {
+	_logger.debug("AndroidSoundPlayer()");
+	
 	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
 	if (_soundPool == null) {
 	    throw new RuntimeException("Audio: failed to create SoundPool");
@@ -58,6 +60,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public int play(SoundResource sound, float volume)
     {
+	_logger.debug("play(" + sound + ", " + volume + ")");
+	
 	assert sound != null;
 	int soundId = sound.getSound();
 	int streamId = _soundPool.play(soundId, volume, volume, 1, 0, 1.0f);
@@ -75,6 +79,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void stop(int stream)
     {
+	_logger.debug("stop(" + stream + ")");
+	
 	_soundPool.stop(stream);
 	_streamMap.remove(stream);
     }
@@ -85,6 +91,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void pauseAll()
     {
+	_logger.debug("pauseAll()");
+	
 	for (int stream : _streamMap.values()) {
 	    _soundPool.pause(stream);
 	}
@@ -96,6 +104,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void resumeAll()
     {
+	_logger.debug("resumeAll()");
+	
 	for (int stream : _streamMap.values()) {
 	    _soundPool.resume(stream);
 	}
@@ -107,6 +117,8 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void unloadAll()
     {
+	_logger.debug("unloadAll()");
+	
 	_streamMap.clear();
 	_soundPool.release();
 	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
