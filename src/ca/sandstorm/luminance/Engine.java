@@ -18,7 +18,6 @@ import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
 import ca.sandstorm.luminance.input.TouchFilter;
 import ca.sandstorm.luminance.resources.ResourceManager;
-import ca.sandstorm.luminance.resources.SoundResource;
 import ca.sandstorm.luminance.resources.TextResource;
 import ca.sandstorm.luminance.state.IState;
 import ca.sandstorm.luminance.time.TimeSystem;
@@ -32,7 +31,7 @@ import ca.sandstorm.luminance.time.TimeSystem;
 public class Engine
 {
     private static final Logger logger = LoggerFactory
-	    .getLogger("Luminance.Engine");
+	    .getLogger(Engine.class);
 
     // singleton instance
     private static Engine _instance = null;
@@ -60,8 +59,6 @@ public class Engine
     // last update step, used to calculate frame time delta
     private long _lastTime;
     
-    //SoundResource testSound;
-
 
     /**
      * Constructor.
@@ -351,12 +348,16 @@ public class Engine
      */
     public void update(GL10 gl)
     {
+	// calculate time step
 	long time = SystemClock.uptimeMillis();
-	long timeDelta = time - _lastTime;
+	//long timeDelta = time - _lastTime;
 	float secondsDelta = (time - _lastTime) * 0.001f;
+	
+	// update timer, store time step
 	_timer.update(secondsDelta);
 	_lastTime = time;
 
+	// update all the active states
 	for (IState s : _stateStack) {
 	    if (s.isActive()) {
 		s.update(gl);
