@@ -17,7 +17,6 @@ public class InputTouchScreen
     private InputXY mTouchPoints[];
 
     private MotionEvent _touchEvent;
-    private boolean _onTouch = false;
 
     public InputTouchScreen()
     {
@@ -167,11 +166,6 @@ public class InputTouchScreen
     public void setTouchEvent(MotionEvent touchEvent)
     {
 	this._touchEvent = touchEvent;
-	if (_touchEvent.getAction() == MotionEvent.ACTION_UP){
-	    _onTouch = false;
-	} else {
-	    _onTouch = true;
-	}
     }
 
 
