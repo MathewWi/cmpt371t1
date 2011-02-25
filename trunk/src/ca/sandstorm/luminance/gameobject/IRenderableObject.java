@@ -17,5 +17,10 @@ public interface IRenderableObject extends IGameObject
     int getTexture();
     
     
+    /**
+     * Get the Render type for this object.
+     * Used by the renderer to determine how to deal with it.
+     * @return
+     */
     RenderType getRenderType();
 }
