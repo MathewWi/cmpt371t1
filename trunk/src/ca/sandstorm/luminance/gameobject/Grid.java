@@ -9,6 +9,9 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
  * Grid class
@@ -17,6 +20,9 @@ import javax.vecmath.Vector4f;
  */
 public class Grid implements IGameObject
 {
+    private static final Logger _logger = LoggerFactory
+    	.getLogger(Grid.class);    
+    
     // vertex and index buffers
     private FloatBuffer _vertexBuffer;
     private ShortBuffer _indexBuffer;
@@ -25,8 +31,7 @@ public class Grid implements IGameObject
     private int _totalIndices;
 
     // temp vectors to avoid mallocs
-    private Vector3f _vCenter;
-    private Vector3f _tmpCenter;
+    private Vector3f _position;
     private Vector3f _tmpCellCenter;
 
     // grid properties
@@ -49,6 +54,8 @@ public class Grid implements IGameObject
      */
     public Grid(int rows, int cols, float cellWidth, float cellHeight)
     {
+	_logger.debug("Grid(" + rows + ", " + cols + ", " + cellWidth + ", " + cellHeight + ")");
+	
 	// calculate vertices
 	float x = 0.0f;
 	float z = 0.0f;
@@ -108,12 +115,36 @@ public class Grid implements IGameObject
 	_rows = rows;
 	_cols = cols;
 
-	_vCenter = new Vector3f();
-	_vCenter.set((_cols * _cellWidth), 0, (_rows * _cellHeight));
+	_position = new Vector3f();
+	_position.set(0, 0, 0);
 
-	_tmpCenter = new Vector3f(0, 0, 0);
 	_tmpCellCenter = new Vector3f(0, 0, 0);
     }
+    
+    
+    /**
+     * Initialize the object.
+     * Unused.
+     */
+    @Override
+    public void initialize()
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
+
+
+    /**
+     * Destroy the object.
+     * Unused.
+     */
+    @Override
+    public void destroy()
+    {
+	// TODO Auto-generated method stub
+	
+    }    
 
 
     /**
@@ -174,17 +205,40 @@ public class Grid implements IGameObject
     {
 	return (_cellHeight * getRowCount());
     }
-
+    
+    
+    /**
+     * Get the object's position.
+     * @return Object position
+     */
+    @Override
+    public Vector3f getPosition()
+    {
+	return _position;
+    }
 
     /**
-     * Gets the center of the entire grid in world space.
-     * @return
+     * Get the object's rotation.
+     * Unused.
+     * @return Object rotation
      */
-    public Vector3f getCenter()
+    @Override
+    public Vector4f getRotation()
     {
-	return _vCenter;
+        return null;
     }
-    
+
+    /**
+     * Get the object's scale.
+     * Unused.
+     * @return Object scale
+     */
+    @Override
+    public Vector3f getScale()
+    {
+	return null;
+    }    
+
     
     /**
      * Get the center of a cell in world space.
@@ -208,6 +262,17 @@ public class Grid implements IGameObject
 	return _tmpCellCenter;
     }
 
+    
+    /**
+     * Update the object state.
+     * Unused.
+     */
+    @Override
+    public void update()
+    {
+	// TODO Auto-generated method stub
+	
+    }    
 
 
     /**
@@ -237,70 +302,5 @@ public class Grid implements IGameObject
 	// Disable the client state before leaving
 	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
 	// gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
-    }
-
-    /**
-     * Get the object's position.
-     * @return Object position
-     */
-    @Override
-    public Vector3f getPosition()
-    {
-	return _vCenter;
-    }
-
-    /**
-     * Get the object's rotation.
-     * Unused.
-     * @return Object rotation
-     */
-    @Override
-    public Vector4f getRotation()
-    {
-        return null;
-    }
-
-    /**
-     * Get the object's scale.
-     * Unused.
-     * @return Object scale
-     */
-    @Override
-    public Vector3f getScale()
-    {
-	return null;
-    }
-    
-    /**
-     * Initialize the object.
-     * Unused.
-     */
-    @Override
-    public void initialize()
-    {
-	// TODO Auto-generated method stub
-	
-    }
-
-    /**
-     * Update the object state.
-     * Unused.
-     */
-    @Override
-    public void update()
-    {
-	// TODO Auto-generated method stub
-	
-    }
-
-    /**
-     * Destroy the object.
-     * Unused.
-     */
-    @Override
-    public void destroy()
-    {
-	// TODO Auto-generated method stub
-	
     }
 }
