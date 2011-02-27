@@ -25,7 +25,7 @@ import android.opengl.GLUtils;
 public class ResourceManager
 {
     private static final Logger _logger = LoggerFactory
-	    .getLogger("Luminance.ResourceManager");
+	    .getLogger(ResourceManager.class);
 
     private AssetManager _assets;
     private HashMap<String, IResource> _resources;
@@ -36,9 +36,10 @@ public class ResourceManager
      */
     public ResourceManager()
     {
+	_logger.debug("ResourceManager()");
+	
 	_resources = new HashMap<String, IResource>();
-	_assets = null;
-	_logger.debug("ResourceManager created.");
+	_assets = null;	
     }
 
 
@@ -64,6 +65,8 @@ public class ResourceManager
      */
     public void setAssets(AssetManager assets)
     {
+	_logger.debug("setAssets(" + assets + ")");
+	
 	if (assets == null)
 	    throw new RuntimeException(
 		    "Attempting to assign null application context to resource manager!");
@@ -82,6 +85,8 @@ public class ResourceManager
      */
     public Resource loadResource(String filename) throws IOException
     {
+	_logger.debug("loadResource(" + filename + ")");
+	
 	// Check if the resource is already loaded
 	if (_resources.containsKey(filename))
 	    return (Resource) _resources.get(filename);
@@ -100,6 +105,8 @@ public class ResourceManager
      */
     public void unloadResource(String name)
     {
+	_logger.debug("unloadResource(" + name + ")");
+	
 	if (!_resources.containsKey(name))
 	    return;
 	
@@ -118,6 +125,8 @@ public class ResourceManager
      */
     public TextResource loadText(String filename) throws IOException
     {
+	_logger.debug("loadText(" + filename + ")");
+	
 	// Check if the resource is already loaded
 	if (_resources.containsKey(filename))
 	    return (TextResource) _resources.get(filename);
@@ -141,6 +150,8 @@ public class ResourceManager
      */
     public ImageResource loadImage(String filename) throws IOException
     {
+	_logger.debug("loadImage(" + filename + ")");
+	
 	InputStream stream = _assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
 	ImageResource res = new ImageResource(filename, bitmap);
@@ -163,10 +174,14 @@ public class ResourceManager
     public TextureResource loadTexture(GL10 gl, String filename)
 	    throws IOException
     {
+	_logger.debug("loadTexture(" + gl + " , " + filename + ")");
+	
 	// Load the image
 	InputStream stream = _assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
 
+	_logger.debug("loadTexture() Width: " + bitmap.getWidth() + " Height: " + bitmap.getHeight());
+	
 	// Create a texture out of the image
 	int[] textures = new int[1];
 	gl.glGenTextures(1, textures, 0); // one texture
@@ -189,6 +204,7 @@ public class ResourceManager
 
 	_resources.put(filename, res);
 	_logger.debug("Generated texture: " + filename + " = " + Integer.toString(textures[0]));
+	
 	return res;
     }
 
@@ -203,6 +219,8 @@ public class ResourceManager
      */
     public SoundResource loadSound(SoundPool pool, String filename)
     {
+	_logger.debug("loadSound(" + pool + ", " + filename + ")");
+	
 	int soundId = pool.load(filename, 1);
 	SoundResource res = new SoundResource(filename, soundId);
 
@@ -221,6 +239,8 @@ public class ResourceManager
      */
     public byte[] readFile(String filename) throws IOException
     {
+	_logger.debug("readFile(" + filename + ")");
+	
 	// An official Android sample states that available() guarantees
 	// returning the whole file size
 	InputStream stream = _assets.open(filename);
@@ -244,6 +264,8 @@ public class ResourceManager
      */
     public void unloadResource(IResource res)
     {
+	_logger.debug("unloadResource(" + res + ")");
+	
 	if (_resources.containsKey(res.getName())) {
 	    res.dispose();
 	    _resources.remove(res.getName());
@@ -259,9 +281,12 @@ public class ResourceManager
      */
     public String[] getFileListing(String path) throws IOException
     {
+	_logger.debug("unloadResource(" + path + ")");
+	
 	if (_assets == null)
 	    throw new RuntimeException(
 		    "Trying to access null asset manager in getFileListing()!");
+	
 	return _assets.list(path);
     }
 }
