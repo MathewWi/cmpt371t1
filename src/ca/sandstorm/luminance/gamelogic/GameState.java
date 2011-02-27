@@ -344,11 +344,8 @@ public class GameState implements IState
 	_cam.updateViewMatrix(gl);
 
 	gl.glPushMatrix();
-	gl.glLoadIdentity();
-	GLU.gluLookAt(gl, 0, 0, 0, _cam.getTarget().x, _cam.getTarget().y,
-		      _cam.getTarget().z, 0, 1, 0);
+	gl.glTranslatef(_cam.getEye().x, _cam.getEye().y, _cam.getEye().z);
 	gl.glDisable(GL10.GL_DEPTH_TEST);
-	gl.glColor4f(0.2f, 0.2f, 0.2f, 1.0f);
 	_sky.draw(gl);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
 	gl.glPopMatrix();
