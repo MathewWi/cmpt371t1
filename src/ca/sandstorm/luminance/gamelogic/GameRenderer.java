@@ -142,7 +142,7 @@ public class GameRenderer
 		gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		gl.glBindTexture(GL10.GL_TEXTURE_2D, object.getTexture());
 	    } else {
-		gl.glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
+		gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	    }
 
 	    // Draw

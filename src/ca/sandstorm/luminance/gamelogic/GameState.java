@@ -22,6 +22,7 @@ import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
+import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
 import ca.sandstorm.luminance.state.IState;
 
@@ -41,9 +42,6 @@ public class GameState implements IState
 
     // camera for the view matrix
     private Camera _cam;
-
-    private Box _testBox;
-    private Receptor _testReceptor;
 
     // game grid
     private Grid _grid;
@@ -65,9 +63,9 @@ public class GameState implements IState
     private static final float TOUCH_SENSITIVITY = 3.0f;
     private int _touchMode;
 
-    // Container of game objects -zenja
+    // Container of game objects -zenja (and fixed properly by shinhalsafar)
     // TODO: Implement functions for manipulating this
-    private LinkedList<IGameObject> objects;
+    private LinkedList<IGameObject> _objects;
 
 
     /**
@@ -79,37 +77,74 @@ public class GameState implements IState
     {
 	logger.debug("GameState()");
 
-	objects = new LinkedList<IGameObject>();
-
+	_parseLevel();
+	resetCamera();
+	
+	_sky = new Skybox();
+	_objects.add(_sky);
+    }
+    
+    
+    /**
+     * Parses the level info. 
+     * @TODO: should come from a level list
+     */
+    private void _parseLevel()
+    {
+	// init or clear object buffer
+	if (_objects == null)
+	{
+	    _objects = new LinkedList<IGameObject>(); 
+	}
+	else
+	{
+	    _objects.clear();
+	}
+	
+	// try to load a level
 	try
 	{
+	    // parse the level
 	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/TestLevel.xml");
 	    XmlLevelParser levelParser = new XmlLevelParser(levelFile);
 	    XmlLevel level = levelParser.parse();
 	    level.toString();
 	    
+	    // parse the grid
 	    _grid = new Grid(level.getXSize(), level.getYSize(), 1.0f, 1.0f);
+	    _objects.add(_grid);
 	    
-	    
+	    // parse all the objects into game objects
+	    for (int i = 0; i < level.getObjects().size(); i++)
+	    {
+		XmlLevelObject obj = level.getObjects().get(i);
+		
+		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionX(), (int)obj.getPositionY());
+		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);
+		Vector3f vRot = new Vector3f(0, 0, 0);
+		Vector3f vScale = new Vector3f(0.5f, 0.5f, 0.5f);
+		
+		if (obj.getType().equals("brick"))
+		{		   
+		    Box box = new Box(vPos, vScale);
+		    
+		    _objects.add(box);		    
+		    Engine.getInstance().getRenderer().add(box);
+		}
+	    }
 	}
 	catch (IOException e)
 	{
 	    logger.error("Could not open level file!");
-	}
-	
-
-	
-
-	// Temporary box and receptor for testing
-	Vector3f center = _grid.getCellCenter(5, 5);
-	_testBox = new Box(center, new Vector3f(1f, 1f, 1f));
-	_testReceptor = new Receptor(new Vector3f(0f, 0f, 0f), new Vector3f(1f, 1f, 1f));
-
-	objects.add(_testBox);
-	objects.add(_testReceptor);
-	Engine.getInstance().getRenderer().add(_testBox);
-	Engine.getInstance().getRenderer().add(_testReceptor);
-
+	}	
+    }
+    
+    
+    /**
+     * Simply resets the camera to default position for each level.
+     */
+    public void resetCamera()
+    {
 	float maxSize = Math.max(_grid.getTotalWidth(), _grid.getTotalHeight());
 	float camY = 1.15f * (maxSize / (float) (Math.tan((Math.PI / 6.0))));
 
@@ -118,11 +153,7 @@ public class GameState implements IState
 		    _grid.getTotalHeight() / 2.0f);
 	_cam.setTarget(_grid.getTotalWidth() / 2.0f, 0,
 		       _grid.getTotalHeight() / 2.0f);
-	_cam.rotateCamera(0.01f, 1, 0, 0);
-
-	_sky = new Skybox();
-	objects.add(_grid);
-	objects.add(_sky);
+	_cam.rotateCamera(0.01f, 1, 0, 0);	
     }
 
 
@@ -172,7 +203,7 @@ public class GameState implements IState
 	}
 
 	// Initialize objects
-	for (IGameObject object : objects) {
+	for (IGameObject object : _objects) {
 	    object.initialize();
 	}
 
@@ -345,7 +376,7 @@ public class GameState implements IState
 	}
 
 	// Update game objects
-	for (IGameObject object : objects) {
+	for (IGameObject object : _objects) {
 	    object.update();
 	}
     }
