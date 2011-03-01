@@ -1,11 +1,15 @@
 package ca.sandstorm.luminance.level;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.LinkedList;
 
 import javax.xml.parsers.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.*;
+
 
 /**
  * Class for parsing an XML level file.
@@ -14,7 +18,10 @@ import org.w3c.dom.*;
  */
 public class XmlLevelParser
 {
-	private String _filename;
+	private InputStream _file;
+	
+	private static final Logger _logger = LoggerFactory
+	    .getLogger(XmlLevelParser.class);	
 
 	/**
 	 * Constructor for the XmlParser class.
@@ -22,19 +29,14 @@ public class XmlLevelParser
 	 * @precond filename != null, filename is a file in the project directory.
 	 * @postcond XmlLevelParser has been created
 	 */
-	public XmlLevelParser(String filename)
+	public XmlLevelParser(InputStream file)
 	{
-		_filename = filename;
+	    _logger.debug("XmlLevelParser(" + file + ")");
+	    
+	    _file = file;
 	}
 
-	/**
-	 * Accessor method for the filename of the file being parsed.
-	 * @return The filename of the file being parsed.
-	 */
-	public String getFilename()
-	{
-		return _filename;
-	}
+
 	
 	/**
 	 * Parse the level file.
@@ -44,12 +46,14 @@ public class XmlLevelParser
 	 */
 	public XmlLevel parse()
 	{
+	    _logger.debug("parse()");
+	    
 		try
 		{
-			File file = new File(getFilename());
+			//File file = new File(getFilename());
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(file);
+			Document doc = db.parse(_file);
 			doc.getDocumentElement().normalize();
 
 			// Check that root element is "level"
@@ -75,6 +79,15 @@ public class XmlLevelParser
 			Element yElement = (Element)gridElement.getElementsByTagName("y").item(0);
 			String y = ((Node)yElement.getChildNodes().item(0)).getNodeValue();
 			int yString = Integer.parseInt(y);
+			
+			Element wElement = (Element)gridElement.getElementsByTagName("width").item(0);
+			String w = ((Node)yElement.getChildNodes().item(0)).getNodeValue();
+			int iW = Integer.parseInt(y);
+			
+			Element hElement = (Element)gridElement.getElementsByTagName("height").item(0);
+			String h = ((Node)yElement.getChildNodes().item(0)).getNodeValue();
+			int iH = Integer.parseInt(y);		
+			
 
 			// Get level objects.
 			LinkedList<XmlLevelObject> objectList = new LinkedList<XmlLevelObject>();

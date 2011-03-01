@@ -1,6 +1,7 @@
 package ca.sandstorm.luminance.gamelogic;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -9,7 +10,6 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.opengl.GLU;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
@@ -21,6 +21,8 @@ import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
+import ca.sandstorm.luminance.level.XmlLevel;
+import ca.sandstorm.luminance.level.XmlLevelParser;
 import ca.sandstorm.luminance.state.IState;
 
 
@@ -79,7 +81,24 @@ public class GameState implements IState
 
 	objects = new LinkedList<IGameObject>();
 
-	_grid = new Grid(10, 10, 1.0f, 1.0f);
+	try
+	{
+	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/TestLevel.xml");
+	    XmlLevelParser levelParser = new XmlLevelParser(levelFile);
+	    XmlLevel level = levelParser.parse();
+	    level.toString();
+	    
+	    _grid = new Grid(level.getXSize(), level.getYSize(), 1.0f, 1.0f);
+	    
+	    
+	}
+	catch (IOException e)
+	{
+	    logger.error("Could not open level file!");
+	}
+	
+
+	
 
 	// Temporary box and receptor for testing
 	Vector3f center = _grid.getCellCenter(5, 5);

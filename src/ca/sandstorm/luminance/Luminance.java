@@ -111,6 +111,8 @@ public class Luminance extends Activity
 	logger.debug("onTouchEvent(" + event + ")");
 
 	Engine.getInstance().getTouchFilter().updateTouch(event);
+	
+	try {Thread.sleep(16);} catch (Exception e) { logger.error("Could not sleep event thread"); }
 
 	return true;
     }

@@ -2,6 +2,9 @@ package ca.sandstorm.luminance.level;
 
 import java.util.LinkedList;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Class for storing all information about a level, loaded from XML.
  * @author Steven Indzeoski
@@ -9,6 +12,8 @@ import java.util.LinkedList;
  */
 public class XmlLevel 
 {
+	private static final Logger _logger = LoggerFactory
+	    .getLogger(XmlLevel.class);	
 	
 	private String _name;
 	private String _difficulty;
@@ -30,6 +35,8 @@ public class XmlLevel
 	 */
 	public XmlLevel(String name, String difficulty, int xSize, int ySize, LinkedList<XmlLevelObject> objects, LinkedList<XmlLevelTool> tools)
 	{
+	    _logger.debug("XmlLevel(" + name + ", " + difficulty + ", " + xSize + ", " + ySize + ", " + objects + ", " + tools + ")");
+	    
 		_name = name;
 		_difficulty = difficulty;
 		_xSize = xSize;
