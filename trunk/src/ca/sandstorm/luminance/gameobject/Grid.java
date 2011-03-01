@@ -12,6 +12,8 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.telephony.CellLocation;
+
 
 /**
  * Grid class
@@ -250,8 +252,8 @@ public class Grid implements IGameObject
      */
     public Vector3f getCellCenter(int row, int col)
     {
-	float xOffset = 0.0f;
-	float zOffset = 0.0f;
+	float xOffset = _cellWidth / 2.0f;
+	float zOffset = _cellHeight / 2.0f;
 	
 	float x = xOffset + (col * _cellWidth);
 	float y = 0.0f;
