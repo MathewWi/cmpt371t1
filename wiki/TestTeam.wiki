@@ -126,3 +126,15 @@ February 16, 2011
 January 24, 2011
   Format issue report form
   Accept and assign issues - Continuous
+
+
+
+= Testing Matrix =
+
+|| || TC#1 || TC#2 || TC#3 ||
+|| Features ||
+|| #1 || X || || ||
+|| #2 || || X || X ||
+|| Others ||
+|| #1 || || || X || 
+|| #2 || || || X ||
