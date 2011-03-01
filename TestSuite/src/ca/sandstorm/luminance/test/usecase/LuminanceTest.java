@@ -1,17 +1,10 @@
 package ca.sandstorm.luminance.test.usecase;
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import org.junit.After;
 import org.junit.Before;
 
 import android.test.ActivityInstrumentationTestCase2;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import ca.sandstorm.luminance.R;
 import ca.sandstorm.luminance.Luminance;
+
 import com.jayway.android.robotium.solo.Solo;
 
 

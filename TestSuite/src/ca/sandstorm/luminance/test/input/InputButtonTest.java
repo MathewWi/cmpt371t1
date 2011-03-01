@@ -3,14 +3,12 @@
  */
 package ca.sandstorm.luminance.test.input;
 
-import ca.sandstorm.luminance.input.InputButton;
-
-import android.test.AndroidTestCase;
-
-import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.input.InputButton;
 
 /**
  * 
