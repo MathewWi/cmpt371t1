@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
+import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
@@ -61,10 +62,13 @@ public class Grid implements IGameObject
 	// calculate vertices
 	float x = 0.0f;
 	float z = 0.0f;
-	float[] vertices = new float[(rows + 1) * (cols + 1) * 3];
+	int numVertices = (rows + 1) * (cols + 1) * 3;
+	float[] vertices = null;
+	Vector<Float> vVertices = new Vector<Float>();
 
 	int tmpIndex = 0;
 
+	/*
 	for (int i = 0; i < rows + 1; i++) {
 	    for (int j = 0; j < cols + 1; j++) {
 		x = j * cellWidth;
@@ -76,7 +80,28 @@ public class Grid implements IGameObject
 		vertices[tmpIndex++] = z;
 	    }
 	}
-
+	 */
+	for (int i = 0; i < rows + 1; i++) {
+	    for (int j = 0; j < cols + 1; j++) {
+		if (i == 0 || j == 0 || j == cols || i == rows)
+		{
+    			x = j * cellWidth;
+    			z = i * cellHeight;
+    			
+    			vVertices.add(x);
+    			vVertices.add(0.0f);
+    			vVertices.add(z);
+		}
+	    }
+	}
+	
+	vertices = new float[vVertices.size()];
+	for (int i = 0; i < vVertices.size(); i++)
+	{
+	    vertices[i] = vVertices.get(i);
+	}
+	
+	
 	ByteBuffer byteBuf = ByteBuffer.allocateDirect(vertices.length * 4);
 	byteBuf.order(ByteOrder.nativeOrder());
 	_vertexBuffer = byteBuf.asFloatBuffer();
@@ -84,9 +109,11 @@ public class Grid implements IGameObject
 	_vertexBuffer.position(0);
 
 	// calculate indices
-	_totalIndices = (rows + 1) * cols * 2 * 2;
+	//_totalIndices = (rows + 1) * cols * 2 * 2;
+	_totalIndices = ((rows + 1) + (cols + 1)) * 2;
 	short[] indices = new short[_totalIndices];
 
+	/*
 	// horizontal line indices
 	tmpIndex = 0;
 	for (int i = 0; i < rows + 1; i++) {
@@ -103,6 +130,44 @@ public class Grid implements IGameObject
 		indices[tmpIndex++] = (short) ((j) + ((i + 1) * (rows + 1)));
 	    }
 	}
+	*/
+	
+	// horizontal line indices
+	short index1 = 0;
+	short index2 = 0;	
+	tmpIndex = 0;
+	for (int i = 0; i < rows + 1; i++) {
+	    if (i == 0)
+	    {
+		index1 = 0;
+		index2 = (short)cols;
+	    }
+	    else
+	    {
+		index1 = (short) (i + (i * cols) - ((i-1)*(cols-1)));
+		
+		if (i == cols)
+		{
+		    index2 = (short) ((vertices.length / 3) - 1);
+		}
+		else
+		{
+		    index2 = (short)(index2 + 2);
+		}
+	    }
+	    
+	    indices[tmpIndex++] = index1;
+	    indices[tmpIndex++] = index2;	    
+	}
+
+	// vertical line indices
+	index1 = 0;
+	index2 = 0;
+	for (int i = 0; i < cols + 1; i++) {
+	    indices[tmpIndex++] = (short) (i);
+	    //indices[tmpIndex++] = (short) ( ( (cols + 1) + i ) + cols );
+	    indices[tmpIndex++] = (short) ( ((cols+1) * 2) + i );
+	}	
 
 	byteBuf = ByteBuffer.allocateDirect(indices.length * 2);
 	byteBuf.order(ByteOrder.nativeOrder());
