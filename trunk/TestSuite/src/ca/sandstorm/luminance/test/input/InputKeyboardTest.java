@@ -1,15 +1,13 @@
 
 package ca.sandstorm.luminance.test.input;
-import ca.sandstorm.luminance.input.InputButton;
-import ca.sandstorm.luminance.input.InputKeyboard;
-import ca.sandstorm.luminance.gui.*;
-import android.inputmethodservice.Keyboard.Key;
-import android.test.AndroidTestCase;
-import static org.junit.Assert.*;
-import android.view.KeyEvent;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.test.AndroidTestCase;
+import android.view.KeyEvent;
+import ca.sandstorm.luminance.input.InputButton;
+import ca.sandstorm.luminance.input.InputKeyboard;
 
 /**
  * @author Amara Daal

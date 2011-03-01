@@ -1,14 +1,13 @@
 package ca.sandstorm.luminance.test.input;
 
-import ca.sandstorm.luminance.input.*;
-import ca.sandstorm.luminance.gui.*;
-import android.test.AndroidTestCase;
-import android.view.MotionEvent;
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.gui.Button;
+import ca.sandstorm.luminance.gui.GUIManager;
+import ca.sandstorm.luminance.input.InputXY;
 
 
 /**
