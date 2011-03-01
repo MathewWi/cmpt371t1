@@ -162,11 +162,10 @@ public class Grid implements IGameObject
 
 	// vertical line indices
 	index1 = 0;
-	index2 = 0;
-	for (int i = 0; i < cols + 1; i++) {
+	index2 = (short)((vertices.length/3) - cols - 1);
+	for (int i = 0; i < cols + 1; i++) {	    	   
 	    indices[tmpIndex++] = (short) (i);
-	    //indices[tmpIndex++] = (short) ( ( (cols + 1) + i ) + cols );
-	    indices[tmpIndex++] = (short) ( ((cols+1) * 2) + i );
+	    indices[tmpIndex++] = index2++;
 	}	
 
 	byteBuf = ByteBuffer.allocateDirect(indices.length * 2);
