@@ -1,6 +1,7 @@
 package ca.sandstorm.luminance;
 
 import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
 //import org.apache.log4j.Logger;
@@ -68,6 +69,12 @@ public class Luminance extends Activity
 	super.onCreate(savedInstanceState);
 	mGLView = new GLSurfaceView(this);
 	mGLView.setRenderer(new ClearRenderer());
+	mGLView.setGLWrapper(new GLSurfaceView.GLWrapper()
+        {
+            @Override
+            public GL wrap(GL gl) { return new MatrixTrackingGL(gl); }
+        });
+	
 	setContentView(mGLView);
     }
 
