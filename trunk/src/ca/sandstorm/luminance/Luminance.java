@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gamelogic.MenuState;
+import ca.sandstorm.luminance.gui.Button;
+import ca.sandstorm.luminance.gui.GUIManager;
 
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
@@ -63,7 +65,21 @@ public class Luminance extends Activity
 	Engine.getInstance().pushState(new GameState());
 	
 	// UNCOMMENT TO START IN MENU STATE
-	//Engine.getInstance().pushState(new MenuState());
+	/*
+	Button[] buttons = new Button[GUIManager.MAX_WIDGET_COUNT];
+	Button startButton = new Button(20, 50, 280, 30, "Start");
+	startButton.setTextureResourceLocation("textures/startImage.png");
+	Button optionsButton = new Button(20, 110, 280, 30, "Options");
+	optionsButton.setTextureResourceLocation("textures/optionsImage.png");
+	Button aboutButton = new Button(20, 170, 280, 30, "About");
+	aboutButton.setTextureResourceLocation("textures/aboutImage.png");
+	
+	buttons[0] = startButton;
+	buttons[1] = optionsButton;
+	buttons[2] = aboutButton;
+	MenuState menuState = new MenuState(buttons);
+	Engine.getInstance().pushState(menuState);
+	*/
 		
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
