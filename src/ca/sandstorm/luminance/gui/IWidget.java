@@ -2,6 +2,8 @@ package ca.sandstorm.luminance.gui;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import ca.sandstorm.luminance.resources.TextureResource;
+
 /**
  * User interface Widget interface
  * 
@@ -65,6 +67,40 @@ public interface IWidget
      * @postcond this.getHeight() == height
      */
     public void setHeight(float height);
+    
+    /**
+     * Get the texture resource location string that locates the texture being
+     * used.
+     * 
+     * @return texture resource location string being used by this IWidget
+     */
+    public String getTextureResourceLocation();
+    
+    /**
+     * Set the texture resource location string that locates the texture being
+     * used.
+     * 
+     * @param textureResourceLocation The texture resource location string
+     * @precond textureResourceLocation != null
+     * @postcond this.getTextureResourceLocation().equals(textureResourceLocation) == true
+     */
+    public void setTextureResourceLocation(String textureResourceLocation);
+    
+    /**
+     * Get the texture being used by this IWidget.
+     * 
+     * @return the texture being used this IWidget
+     */
+    public TextureResource getTexture();
+    
+    /**
+     * Set the texture to be used by this IWidget.
+     * 
+     * @param texture the texture to be used by this IWidget.
+     * @precond texture != null
+     * @postcond this.getTexture() == texture
+     */
+    public void setTexture(TextureResource texture);
     
     // Every widget must know how to draw itself.
     public void draw(GL10 gl);
