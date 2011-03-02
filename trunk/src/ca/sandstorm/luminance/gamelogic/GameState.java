@@ -144,9 +144,6 @@ public class GameState implements IState
 		if (obj.getType().equals("brick"))
 		{		   
 		    Box box = new Box(vPos, vScale);
-		    
-		    //_objects.add(box);		    
-		    //Engine.getInstance().getRenderer().add(box);
 		    _addObject(box);
 		}
 	    }
@@ -233,12 +230,6 @@ public class GameState implements IState
 	    e.printStackTrace();
 	}
 	_addObject(_sky);
-
-	// Initialize objects
-	// TODO: this should probably be removed since _addObject() initializes
-	//for (IGameObject object : _objects) {
-	//    object.initialize();
-	//}
 	
 	resetCamera();
 	

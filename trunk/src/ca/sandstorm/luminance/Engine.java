@@ -18,6 +18,7 @@ import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
 import ca.sandstorm.luminance.input.TouchFilter;
 import ca.sandstorm.luminance.resources.ResourceManager;
+import ca.sandstorm.luminance.resources.SoundResource;
 import ca.sandstorm.luminance.resources.TextResource;
 import ca.sandstorm.luminance.state.IState;
 import ca.sandstorm.luminance.time.TimeSystem;
@@ -78,10 +79,6 @@ public class Engine
 	_touchFilter = new MultiTouchFilter();
 
 	_lastTime = SystemClock.uptimeMillis();
-	
-	// TEMP: play a sound to test sound system
-	//testSound = _resourceManager.loadSound(_audioSystem.getPool(), "sounds/sample.ogg");
-	//_audioSystem.play(testSound, 0.9f);
     }
 
 
@@ -112,9 +109,6 @@ public class Engine
 	_resourceManager.setAssets(_context.getAssets());
 
 	listDirectoryFiles("");
-
-	// TEMP: test reading from text file
-	printFileContents("text/text.txt");
     }
 
 
@@ -278,6 +272,15 @@ public class Engine
 
 	// Resume all sounds
 	_audioSystem.resumeAll();
+	
+	// Play sound effect
+	try {
+	    SoundResource testSound = _resourceManager.loadSound(_audioSystem.getPool(), "sounds/sample.ogg");
+	    _audioSystem.play(testSound, 0.9f);
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
     }
 
 
@@ -332,7 +335,6 @@ public class Engine
      */
     public void init(GL10 gl)
     {
-
 	for (IState s : _stateStack) {
 	    if (s.isActive()) {
 		s.init(gl);
