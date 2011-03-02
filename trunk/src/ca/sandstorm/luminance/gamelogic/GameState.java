@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.LinkedList;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
 import org.slf4j.Logger;
@@ -283,11 +284,15 @@ public class GameState implements IState
 
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 		    .getTouchScreen().getTouchEvent();
-
+	    
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
+		    // unproject test		    
+		    _cam.getWorldCoord(new Vector2f(touchEvent.getX(), touchEvent.getY()));		    
+		    
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();
+		    
 		    _touchMode = DRAG;
 		case MotionEvent.ACTION_MOVE:
 		    if (_touchMode == DRAG) {

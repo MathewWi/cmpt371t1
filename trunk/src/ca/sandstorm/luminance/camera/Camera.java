@@ -444,7 +444,7 @@ public class Camera
      *            screenHeight of the device.
      * @return position in WCS.
      */
-    public Vector3f GetWorldCoords(Vector2f touch, Camera cam)
+    public Vector3f getWorldCoord(Vector2f touch)
     {
 	_logger.debug("GetWorldCoords(" + touch + ")");
 
@@ -488,8 +488,7 @@ public class Camera
 
 	if (outPoint[3] == 0.0) {
 	    // Avoid /0 error.
-	    _logger.error("World coords",
-			  "Could not calculate world coordinates");
+	    _logger.error("World coords: Could not calculate world coordinates");
 	    return worldPos;
 	}
 
@@ -500,8 +499,7 @@ public class Camera
 	// Unnecesary, but here for log purposes.
 	// float worldZ = outPoint[2] / outPoint[3];
 
-	// Log.i("World Coords", "Move to point: " + worldPos.X() + ", " +
-	// worldPos.Y() + ", " + worldZ);
+	_logger.debug("Calculated World Coords: " + worldPos);
 
 	return worldPos;
     }
