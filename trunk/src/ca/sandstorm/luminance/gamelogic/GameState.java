@@ -19,6 +19,7 @@ import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
+import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
@@ -64,7 +65,6 @@ public class GameState implements IState
     private int _touchMode;
 
     // Container of game objects -zenja (and fixed properly by shinhalsafar)
-    // TODO: Implement functions for manipulating this
     private LinkedList<IGameObject> _objects;
 
 
@@ -76,12 +76,22 @@ public class GameState implements IState
     public GameState()
     {
 	logger.debug("GameState()");
-
-	_parseLevel();
-	resetCamera();
 	
-	_sky = new Skybox();
-	_objects.add(_sky);
+	_objects = new LinkedList<IGameObject>();
+    }
+    
+    public void addObject(IGameObject obj)
+    {
+	// Initialize object
+	obj.initialize();
+	
+	// Add to updatable objects list
+	_objects.add(obj);
+	
+	// Add to renderer if applicable
+	if(obj instanceof IRenderableObject) {
+	    Engine.getInstance().getRenderer().add((IRenderableObject)obj);
+	}
     }
     
     
@@ -91,15 +101,9 @@ public class GameState implements IState
      */
     private void _parseLevel()
     {
-	// init or clear object buffer
-	if (_objects == null)
-	{
-	    _objects = new LinkedList<IGameObject>(); 
-	}
-	else
-	{
-	    _objects.clear();
-	}
+	// clear object buffer
+	// TODO: clear the renderer list too
+	_objects.clear();
 	
 	// try to load a level
 	try
@@ -112,7 +116,8 @@ public class GameState implements IState
 	    
 	    // parse the grid
 	    _grid = new Grid(level.getXSize(), level.getYSize(), 1.0f, 1.0f);
-	    _objects.add(_grid);
+	    //_objects.add(_grid);
+	    addObject(_grid);
 	    
 	    // parse all the objects into game objects
 	    for (int i = 0; i < level.getObjects().size(); i++)
@@ -128,8 +133,9 @@ public class GameState implements IState
 		{		   
 		    Box box = new Box(vPos, vScale);
 		    
-		    _objects.add(box);		    
-		    Engine.getInstance().getRenderer().add(box);
+		    //_objects.add(box);		    
+		    //Engine.getInstance().getRenderer().add(box);
+		    addObject(box);
 		}
 	    }
 	}
@@ -197,31 +203,37 @@ public class GameState implements IState
 	try {
 	    Engine.getInstance().getResourceManager()
 		    .loadTexture(gl, "textures/wallBrick.jpg");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/missing.jpg");
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
 	}
+	
+	// Load level
+	_parseLevel();
+
+	// Add a skybox
+	_sky = new Skybox();
+	try {
+	    _sky.init(gl);
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	addObject(_sky);
 
 	// Initialize objects
 	for (IGameObject object : _objects) {
 	    object.initialize();
 	}
-
-	try {
-	    _sky.init(gl);
-	} catch (IOException e) {
-
-	}
+	
+	resetCamera();
     }
 
-
     /**
-     * update()
-     * Engine has requested this state update itself.
-     * @param gl OpenGL context
+     * Read and process user input.
      */
-    @Override
-    public void update(GL10 gl)
+    public void processInput()
     {
 	InputButton[] keys = Engine.getInstance().getInputSystem()
 		.getKeyboard().getKeys();
@@ -256,25 +268,25 @@ public class GameState implements IState
 	    _cam.rotateCamera(-0.01f, 1, 0, 0);
 	    // _cam.moveUp(-1.0f);
 	}
-	
-	if (Engine.getInstance().getInputSystem()
-		.getTouchScreen().getPressed(1)) {
+
+	if (Engine.getInstance().getInputSystem().getTouchScreen()
+		.getPressed(1)) {
 	    // use to identify the zoom gesture
 	    _touchMode = ZOOM;
 	    _initialSecondX = Engine.getInstance().getInputSystem()
-	    			.getTouchScreen().getTouchEvent().getX(1);
+		    .getTouchScreen().getTouchEvent().getX(1);
 	    _initialSecondY = Engine.getInstance().getInputSystem()
-				.getTouchScreen().getTouchEvent().getY(1);
+		    .getTouchScreen().getTouchEvent().getY(1);
 	} else {
 	    _touchMode = DRAG;
 	}
 
-	if (!Engine.getInstance().getInputSystem()
-		.getTouchScreen().getPressed(0)) {
+	if (!Engine.getInstance().getInputSystem().getTouchScreen()
+		.getPressed(0)) {
 	    // set touchMode to NONE if screen is not pressed
 	    _touchMode = NONE;
 	}
-	
+
 	// use touch screen to move the camera
 	//
 	// not using replica island coordinates
@@ -283,15 +295,16 @@ public class GameState implements IState
 
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 		    .getTouchScreen().getTouchEvent();
-	    
+
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-		    // unproject test		    
-		    _cam.getWorldCoord(new Vector2f(touchEvent.getX(), touchEvent.getY()));		    
-		    
+		    // unproject test
+		    _cam.getWorldCoord(new Vector2f(touchEvent.getX(),
+			    touchEvent.getY()));
+
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();
-		    
+
 		    _touchMode = DRAG;
 		case MotionEvent.ACTION_MOVE:
 		    if (_touchMode == DRAG) {
@@ -304,40 +317,41 @@ public class GameState implements IState
 			_initialY = newY;
 
 			if (Math.abs(moveX) > TOUCH_SENSITIVITY ||
-				Math.abs(moveY) > TOUCH_SENSITIVITY) {
+			    Math.abs(moveY) > TOUCH_SENSITIVITY) {
 			    if (Math.abs(moveX) > Math.abs(moveY)) {
 				if (moveX > 0) {
 				    // Left to right
 				    _cam.moveLeft(-TOUCH_CAMERA_SPEED);
 				    logger.debug("Left to right: " +
-				                 Float.toString(-moveX));
+						 Float.toString(-moveX));
 
 				} else if (moveX < 0) {
 				    // Right to left
 				    _cam.moveLeft(TOUCH_CAMERA_SPEED);
 				    logger.debug("Right to left: " +
-				                 Float.toString(-moveX));
+						 Float.toString(-moveX));
 				}
-				    
+
 			    } else {
 				if (moveY > 0) {
 				    // up to down
 				    _cam.moveUp(TOUCH_CAMERA_SPEED);
 				    logger.debug("Up to down: " +
-				                 Float.toString(moveY));
+						 Float.toString(moveY));
 
 				} else if (moveY < 0) {
 				    // Down to up
 				    _cam.moveUp(-TOUCH_CAMERA_SPEED);
 				    logger.debug("Down to up: " +
-				                 Float.toString(moveY));
+						 Float.toString(moveY));
 				}
 			    }
 			}
-		    }else if (_touchMode == ZOOM) {
+		    } else if (_touchMode == ZOOM) {
 			// pinch gesture for zooming
-			float newPinchDist = Engine.getInstance().getInputSystem()
-	  					.getTouchScreen().getPinchDistance();
+			float newPinchDist = Engine.getInstance()
+				.getInputSystem().getTouchScreen()
+				.getPinchDistance();
 
 			float newX = touchEvent.getX();
 			float newY = touchEvent.getY();
@@ -348,36 +362,49 @@ public class GameState implements IState
 			float moveY = newY - _initialY;
 			float moveSecondX = newSecondX - _initialSecondX;
 			float moveSecondY = newSecondY - _initialSecondY;
-			
+
 			_initialX = newX;
 			_initialY = newY;
 			_initialSecondX = newSecondX;
 			_initialSecondY = newSecondY;
 			if (Math.abs(moveX) > TOUCH_SENSITIVITY ||
-				Math.abs(moveY) > TOUCH_SENSITIVITY ||
-				Math.abs(moveSecondX) > TOUCH_SENSITIVITY ||
-					Math.abs(moveSecondY) > TOUCH_SENSITIVITY) {
-			
+			    Math.abs(moveY) > TOUCH_SENSITIVITY ||
+			    Math.abs(moveSecondX) > TOUCH_SENSITIVITY ||
+			    Math.abs(moveSecondY) > TOUCH_SENSITIVITY) {
+
 			    logger.debug("ZOOMING");
-		
-			    if (newPinchDist > _pinchDist){
+
+			    if (newPinchDist > _pinchDist) {
 				_cam.moveForward(1.0f);
 				logger.debug("pinch out: " +
-				             Float.toString(_pinchDist) +
-				             ", " + Float.toString(newPinchDist));
+					     Float.toString(_pinchDist) + ", " +
+					     Float.toString(newPinchDist));
 			    } else {
 				_cam.moveForward(-1.0f);
 				logger.debug("pinch in: " +
-				             Float.toString(_pinchDist) +
-				             ", " + Float.toString(newPinchDist));
+					     Float.toString(_pinchDist) + ", " +
+					     Float.toString(newPinchDist));
 			    }
-			    
+
 			}
 			_pinchDist = newPinchDist;
-		    break;
+			break;
 		    }
 	    }
 	}
+
+    }
+
+    /**
+     * update()
+     * Engine has requested this state update itself.
+     * @param gl OpenGL context
+     */
+    @Override
+    public void update(GL10 gl)
+    {
+	// Handle input
+	processInput();
 
 	// Update game objects
 	for (IGameObject object : _objects) {
