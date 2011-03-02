@@ -13,7 +13,9 @@ import android.view.MotionEvent;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
+import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.input.InputButton;
+import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
 
 
@@ -29,8 +31,11 @@ public class MenuState implements IState
 	_guiManager = new GUIManager();
 	
 	Button startButton = new Button(20, 50, 280, 30, "Start");
+	startButton.setTextureResourceLocation("textures/startImage.png");
 	Button optionsButton = new Button(20, 110, 280, 30, "Options");
+	optionsButton.setTextureResourceLocation("textures/optionsImage.png");
 	Button aboutButton = new Button(20, 170, 280, 30, "About");
+	aboutButton.setTextureResourceLocation("textures/aboutImage.png");
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(optionsButton);
 	_guiManager.addButton(aboutButton);
@@ -94,19 +99,15 @@ public class MenuState implements IState
 	// TODO Auto-generated method stub
 	logger.debug("MenuState init has been called");
 	try {
-	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/startImage.png");
-	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/aboutImage.png");
-	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/optionsImage.png");
+	    for (IWidget widget : _guiManager.getButtons()) {
+		if (widget != null) {
+		    String textureResourceLocation = widget.getTextureResourceLocation();
+		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
+		    widget.setTexture(texture);
+		}
+	    }
 	} catch (IOException e) {
 	    e.printStackTrace();
-	}
-	
-	logger.debug("buttons array length: " + _guiManager.getButtons().length);
-	logger.debug("getNumberOfButtons(): " + _guiManager.getNumberOfButtons());
-	for (Button button : _guiManager.getButtons()) {
-	    if (button != null) {
-		button.initialize();
-	    }
 	}
     }    
 

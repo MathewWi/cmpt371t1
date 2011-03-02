@@ -6,7 +6,6 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.PrimitiveBox;
 import ca.sandstorm.luminance.resources.TextureResource;
 
@@ -27,6 +26,7 @@ public class Button implements IWidget
     private static FloatBuffer _vertexBuffer;
     private static float[] _vertices;
     
+    private String _textureResourceLocation;
     private TextureResource _texture;
     
     private String _title;
@@ -66,17 +66,6 @@ public class Button implements IWidget
         	_vertexBuffer = byteBuf.asFloatBuffer();
         	_vertexBuffer.put(_vertices);
         	_vertexBuffer.position(0);
-	}
-    }
-
-    public void initialize()
-    {
-	if (_title.equals("Start")) {
-	    _texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/startImage.png");
-	} else if (_title.equals("Options")) {
-	    _texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/optionsImage.png");
-	} else {
-	    _texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/aboutImage.png");
 	}
     }
 
@@ -125,6 +114,27 @@ public class Button implements IWidget
     public void setHeight(float height)
     {
 	_height = height;
+    }
+    
+    
+    public String getTextureResourceLocation()
+    {
+	return _textureResourceLocation;
+    }
+    
+    public void setTextureResourceLocation(String textureResourceLocation)
+    {
+	_textureResourceLocation = textureResourceLocation;
+    }
+    
+    public TextureResource getTexture()
+    {
+	return _texture;
+    }
+    
+    public void setTexture(TextureResource texture)
+    {
+	_texture = texture;
     }
     
     /**

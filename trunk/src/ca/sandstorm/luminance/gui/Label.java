@@ -2,6 +2,8 @@ package ca.sandstorm.luminance.gui;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import ca.sandstorm.luminance.resources.TextureResource;
+
 /**
  * Standard label for showing static text.
  * 
@@ -96,6 +98,33 @@ public class Label implements IWidget
 
     }
 
+    @Override
+    public String getTextureResourceLocation()
+    {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public void setTextureResourceLocation(String textureResourceLocation)
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
+    @Override
+    public TextureResource getTexture()
+    {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public void setTexture(TextureResource texture)
+    {
+	// TODO Auto-generated method stub
+	
+    }
 
     @Override
     public void draw(GL10 gl)
@@ -103,5 +132,4 @@ public class Label implements IWidget
 	// TODO Auto-generated method stub
 
     }
-
 }
