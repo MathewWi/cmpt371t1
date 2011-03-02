@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gamelogic;
 
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,8 +28,12 @@ public class MenuState implements IState
 	_tapped = false;
 	_guiManager = new GUIManager();
 	
-	Button b = new Button(20, 50, 280, 30, "Play");
-	_guiManager.addButton(b);
+	Button startButton = new Button(20, 50, 280, 30, "Start");
+	Button optionsButton = new Button(20, 110, 280, 30, "Options");
+	Button aboutButton = new Button(20, 170, 280, 30, "About");
+	_guiManager.addButton(startButton);
+	_guiManager.addButton(optionsButton);
+	_guiManager.addButton(aboutButton);
     }
     
     /**
@@ -86,7 +92,22 @@ public class MenuState implements IState
     public void init(GL10 gl)
     {
 	// TODO Auto-generated method stub
+	logger.debug("MenuState init has been called");
+	try {
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/startImage.png");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/aboutImage.png");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/optionsImage.png");
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
 	
+	logger.debug("buttons array length: " + _guiManager.getButtons().length);
+	logger.debug("getNumberOfButtons(): " + _guiManager.getNumberOfButtons());
+	for (Button button : _guiManager.getButtons()) {
+	    if (button != null) {
+		button.initialize();
+	    }
+	}
     }    
 
 

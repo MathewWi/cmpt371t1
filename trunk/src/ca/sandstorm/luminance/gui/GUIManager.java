@@ -41,13 +41,39 @@ public class GUIManager
     /**
      * Get the number of buttons that are being managed by this GUIManager.
      * 
-     * @return the buttons being managed by this GUIManager.
+     * @return the number of buttons being managed by this GUIManager.
      */
     public int getNumberOfButtons()
     {
 	return _buttons.length;
     }
+    
+    /**
+     * Get the array of buttons in this GUIManager
+     * 
+     * @return the buttons being managed by this GUIManager 
+     */
+    public Button[] getButtons()
+    {
+	return _buttons;
+    }
 
+    /**
+     * Add the array of buttons to this GUIManager.
+     * 
+     * @param buttons The array of buttons to be managed by this GUIManager
+     * @precond buttons != null
+     * @postcond this.getNumberOfButtons() <= 5
+     */
+    public void addButtons(Button[] buttons)
+    {
+	for (Button button : buttons) {
+	    if (_numberOfButtons < MAX_BUTTON_COUNT && button != null) {
+		_buttons[_numberOfButtons++] = button;
+	    }
+	}
+    }
+    
     /**
      * Add a button to be managed by this GUIManager. If the GUIManager has
      * already hit its maximum number of buttons it can hold, then it won't add
@@ -55,7 +81,7 @@ public class GUIManager
      * @param button The button to be added to, and managed by, this GUIManager
      * @return false if the button wasn't added to the GUIManager, true otherwise
      * @precond button != null
-     * @postcond _buttons.length <= 5
+     * @postcond this.getNumberOfButtons() <= 5
      */
     public boolean addButton(Button button)
     {
