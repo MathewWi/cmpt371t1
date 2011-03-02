@@ -13,8 +13,6 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.telephony.CellLocation;
-
 
 /**
  * Grid class
@@ -62,7 +60,7 @@ public class Grid implements IGameObject
 	// calculate vertices
 	float x = 0.0f;
 	float z = 0.0f;
-	int numVertices = (rows + 1) * (cols + 1) * 3;
+	//int numVertices = (rows + 1) * (cols + 1) * 3;
 	float[] vertices = null;
 	Vector<Float> vVertices = new Vector<Float>();
 
