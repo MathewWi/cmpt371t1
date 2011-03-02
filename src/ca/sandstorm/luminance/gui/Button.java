@@ -6,6 +6,10 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.graphics.PrimitiveBox;
+import ca.sandstorm.luminance.resources.TextureResource;
+
 /**
  * Standard Button widget.
  * 
@@ -22,6 +26,8 @@ public class Button implements IWidget
     // static because all quads only need one of these, just change textures
     private static FloatBuffer _vertexBuffer;
     private static float[] _vertices;
+    
+    private TextureResource _texture;
     
     private String _title;
 
@@ -63,6 +69,16 @@ public class Button implements IWidget
 	}
     }
 
+    public void initialize()
+    {
+	if (_title.equals("Start")) {
+	    _texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/startImage.png");
+	} else if (_title.equals("Options")) {
+	    _texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/optionsImage.png");
+	} else {
+	    _texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/aboutImage.png");
+	}
+    }
 
     public float getX()
     {
@@ -135,20 +151,32 @@ public class Button implements IWidget
     {
 	gl.glPushMatrix();
 	
+	PrimitiveBox box = new PrimitiveBox();
+	gl.glEnable(GL10.GL_TEXTURE_2D);
+	gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
+
 	//gl.glScalef(this.width, this.height, 1.0f);
-	gl.glTranslatef(this._x, this._y, 0);
+	gl.glTranslatef(this._x + _width/2, this._y + _height/2, -10);
+	gl.glScalef(100f, 15f, 2f);
 	
-	gl.glFrontFace(GL10.GL_CW);
-	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
-	//gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
-	
-	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-	//gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-		
-	//gl.glEnable(GL10.GL_TEXTURE_2D);
-	
-	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, _vertices.length / 3);
-	
+	box.draw(gl);
+//	gl.glPushMatrix();
+//	
+//	//gl.glScalef(this.width, this.height, 1.0f);
+//	gl.glTranslatef(this._x, this._y, 0);
+//	
+//	gl.glFrontFace(GL10.GL_CW);
+//	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
+//	//gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
+//	
+//	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+//	//gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+//		
+//	//gl.glEnable(GL10.GL_TEXTURE_2D);
+//	
+//	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, _vertices.length / 3);
+//	
 	gl.glPopMatrix();
     }
 }
