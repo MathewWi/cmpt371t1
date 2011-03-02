@@ -9,6 +9,7 @@ import javax.microedition.khronos.opengles.GL10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -216,12 +217,15 @@ public class ResourceManager
      * @param filename
      *            Path to resource relative to assets directory
      * @return The newly loaded resource, or an existing already loaded one
+     * @throws IOException 
      */
-    public SoundResource loadSound(SoundPool pool, String filename)
+    public SoundResource loadSound(SoundPool pool, String filename) throws IOException
     {
 	_logger.debug("loadSound(" + pool + ", " + filename + ")");
 	
-	int soundId = pool.load(filename, 1);
+	//int soundId = pool.load(filename, 1);
+	AssetFileDescriptor afd = _assets.openFd(filename);
+	int soundId = pool.load(afd, 1);
 	SoundResource res = new SoundResource(filename, soundId);
 
 	_resources.put(filename, res);
