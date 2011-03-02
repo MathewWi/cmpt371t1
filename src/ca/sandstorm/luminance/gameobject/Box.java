@@ -105,7 +105,6 @@ public class Box implements IRenderableObject
 	    throw new RuntimeException("Unable to get wallBrick texture. It hasn't been loaded yet!");
 	}
 	_texture = tex.getTexture();
-	logger.debug("Box texture: " + Integer.toString(_texture));
     }
 
     /**

@@ -19,7 +19,7 @@ import android.media.SoundPool;
 public class AndroidSoundPlayer implements IAudioDriver
 {
     // TODO: Remove sound streams from map when they're done
-    private static final int MAX_STREAMS = 0;
+    private static final int MAX_STREAMS = 8;
 
     private SoundPool _soundPool;
     private HashMap<Integer, Integer> _streamMap;
