@@ -49,6 +49,11 @@
 || Modifying smoke test scripts to work for TeamCity || 4 ||
 || Misc. build master duties || 1 ||
 
+===Milestone 2===
+|| Fixing audio || 0.5 ||
+|| Game tools/tool objects || 1.5 ||
+|| Refactoring || 0.5 ||
+
 == Stephen Damm ==
 === Milestone 0 ===
 || *Task* || *Hours spent so far* ||
