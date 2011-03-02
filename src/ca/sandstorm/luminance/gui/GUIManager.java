@@ -19,10 +19,10 @@ public class GUIManager
     private static final Logger _logger = LoggerFactory
     	.getLogger(GUIManager.class);
     
-    private int MAX_BUTTON_COUNT = 10;
+    public static int MAX_WIDGET_COUNT = 10;
 
-    private int _numberOfButtons;
-    private Button _buttons[];
+    private int _numberOfWidgets;
+    private IWidget _widgets[];
 
     /**
      * Constructor. By default, the number of buttons to be managed is 0.
@@ -34,61 +34,62 @@ public class GUIManager
     {
 	_logger.debug("GUIManager()");
 	
-	_buttons = new Button[MAX_BUTTON_COUNT];
-	_numberOfButtons = 0;
+	_widgets = new IWidget[MAX_WIDGET_COUNT];
+	_numberOfWidgets = 0;
     }
     
     /**
-     * Get the number of buttons that are being managed by this GUIManager.
+     * Get the number of widgets that are being managed by this GUIManager.
      * 
-     * @return the number of buttons being managed by this GUIManager.
+     * @return the number of widgets being managed by this GUIManager.
      */
-    public int getNumberOfButtons()
+    public int getNumberOfWidgets()
     {
-	return _buttons.length;
+	return _widgets.length;
     }
     
     /**
-     * Get the array of buttons in this GUIManager
+     * Get the array of widgets in this GUIManager
      * 
-     * @return the buttons being managed by this GUIManager 
+     * @return the widgets being managed by this GUIManager 
      */
-    public Button[] getButtons()
+    public IWidget[] getWidgets()
     {
-	return _buttons;
+	return _widgets;
     }
 
     /**
-     * Add the array of buttons to this GUIManager.
+     * Add the array of IWidgets to this GUIManager.
      * 
-     * @param buttons The array of buttons to be managed by this GUIManager
-     * @precond buttons != null
-     * @postcond this.getNumberOfButtons() <= 5
+     * @param widgets The array of buttons to be managed by this GUIManager
+     * @precond widgets != null
+     * @postcond this.getNumberOfWidgets() <= MAX_BUTTON_COUNT
      */
-    public void addButtons(Button[] buttons)
+    public void addWidgets(IWidget[] widgets)
     {
-	for (Button button : buttons) {
-	    if (_numberOfButtons < MAX_BUTTON_COUNT && button != null) {
-		_buttons[_numberOfButtons++] = button;
+	for (IWidget widget : widgets) {
+	    if (_numberOfWidgets < MAX_WIDGET_COUNT && widget != null) {
+		_widgets[_numberOfWidgets++] = widget;
 	    }
 	}
     }
     
     /**
-     * Add a button to be managed by this GUIManager. If the GUIManager has
+     * Add an IWidget to be managed by this GUIManager. If the GUIManager has
      * already hit its maximum number of buttons it can hold, then it won't add
      * the button and return false.
-     * @param button The button to be added to, and managed by, this GUIManager
-     * @return false if the button wasn't added to the GUIManager, true otherwise
-     * @precond button != null
-     * @postcond this.getNumberOfButtons() <= 5
+     * @param widget The widget to be added to, and managed by, this GUIManager
+     * @return false if the widget wasn't added to the GUIManager, true
+     * otherwise
+     * @precond widget != null
+     * @postcond this.getNumberOfWidgets() <= MAX_WIDGET_COUNT
      */
-    public boolean addButton(Button button)
+    public boolean addButton(IWidget widget)
     {
-	if (_numberOfButtons == MAX_BUTTON_COUNT) {
+	if (_numberOfWidgets == MAX_WIDGET_COUNT) {
 	    return false;
 	} else {
-	    _buttons[_numberOfButtons++] = button;
+	    _widgets[_numberOfWidgets++] = widget;
 	    return true;
 	}
     }
@@ -128,11 +129,13 @@ public class GUIManager
 	/*
 	 * Searches through the array of buttons and compares each one
 	 */
-	for (int i = 0; i < _numberOfButtons; i++) {
-	    Button button = _buttons[i];
+	for (int i = 0; i < _numberOfWidgets; i++) {
+	    IWidget button = _widgets[i];
 	    if (x > button.getX() && x < button.getX() + button.getWidth() &&
-		compensatedY > button.getY() && compensatedY < button.getY() + button.getHeight()) {
-		return button;
+		compensatedY > button.getY() &&
+		compensatedY < button.getY() + button.getHeight() &&
+		button.getClass() == Button.class) {
+		return (Button)button;
 	    }
 	}
 
@@ -148,8 +151,8 @@ public class GUIManager
     
     public void draw(GL10 gl)
     {
-	for (int i = 0; i < _numberOfButtons; i++) {
-	    _buttons[i].draw(gl);
+	for (int i = 0; i < _numberOfWidgets; i++) {
+	    _widgets[i].draw(gl);
 	}	
     }
     

@@ -11,7 +11,6 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 import ca.sandstorm.luminance.Engine;
-import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.input.InputButton;
@@ -25,20 +24,12 @@ public class MenuState implements IState
     private GUIManager _guiManager;
     private boolean _tapped;
 
-    public MenuState()
+    public MenuState(IWidget[] widgets)
     {
 	_tapped = false;
 	_guiManager = new GUIManager();
 	
-	Button startButton = new Button(20, 50, 280, 30, "Start");
-	startButton.setTextureResourceLocation("textures/startImage.png");
-	Button optionsButton = new Button(20, 110, 280, 30, "Options");
-	optionsButton.setTextureResourceLocation("textures/optionsImage.png");
-	Button aboutButton = new Button(20, 170, 280, 30, "About");
-	aboutButton.setTextureResourceLocation("textures/aboutImage.png");
-	_guiManager.addButton(startButton);
-	_guiManager.addButton(optionsButton);
-	_guiManager.addButton(aboutButton);
+	_guiManager.addWidgets(widgets);
     }
     
     /**
@@ -99,7 +90,7 @@ public class MenuState implements IState
 	// TODO Auto-generated method stub
 	logger.debug("MenuState init has been called");
 	try {
-	    for (IWidget widget : _guiManager.getButtons()) {
+	    for (IWidget widget : _guiManager.getWidgets()) {
 		if (widget != null) {
 		    String textureResourceLocation = widget.getTextureResourceLocation();
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
