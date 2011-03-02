@@ -20,6 +20,7 @@ import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
+import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
@@ -80,7 +81,11 @@ public class GameState implements IState
 	_objects = new LinkedList<IGameObject>();
     }
     
-    public void addObject(IGameObject obj)
+    /**
+     * Add a game object to the game.
+     * @param obj Object to add.
+     */
+    private void _addObject(IGameObject obj)
     {
 	// Initialize object
 	obj.initialize();
@@ -94,6 +99,15 @@ public class GameState implements IState
 	}
     }
     
+    /**
+     * Clear objects currently in the level.
+     */
+    private void _clearLevel()
+    {
+	// TODO: clear the renderer list too
+	_objects.clear();
+    }
+    
     
     /**
      * Parses the level info. 
@@ -101,9 +115,8 @@ public class GameState implements IState
      */
     private void _parseLevel()
     {
-	// clear object buffer
-	// TODO: clear the renderer list too
-	_objects.clear();
+	// clear old objects
+	_clearLevel();
 	
 	// try to load a level
 	try
@@ -116,8 +129,7 @@ public class GameState implements IState
 	    
 	    // parse the grid
 	    _grid = new Grid(level.getXSize(), level.getYSize(), 1.0f, 1.0f);
-	    //_objects.add(_grid);
-	    addObject(_grid);
+	    _addObject(_grid);
 	    
 	    // parse all the objects into game objects
 	    for (int i = 0; i < level.getObjects().size(); i++)
@@ -135,7 +147,7 @@ public class GameState implements IState
 		    
 		    //_objects.add(box);		    
 		    //Engine.getInstance().getRenderer().add(box);
-		    addObject(box);
+		    _addObject(box);
 		}
 	    }
 	}
@@ -220,14 +232,19 @@ public class GameState implements IState
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	addObject(_sky);
+	_addObject(_sky);
 
 	// Initialize objects
-	for (IGameObject object : _objects) {
-	    object.initialize();
-	}
+	// TODO: this should probably be removed since _addObject() initializes
+	//for (IGameObject object : _objects) {
+	//    object.initialize();
+	//}
 	
 	resetCamera();
+	
+	// Temporary developer test area
+	IGameObject mirror = new Mirror(new Vector3f(0,0,0), 45f);
+	_addObject(mirror);
     }
 
     /**
