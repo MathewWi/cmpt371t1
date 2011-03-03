@@ -26,6 +26,8 @@ import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
 import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
+import ca.sandstorm.luminance.math.Colliders;
+import ca.sandstorm.luminance.math.Ray;
 import ca.sandstorm.luminance.state.IState;
 
 
@@ -307,8 +309,17 @@ public class GameState implements IState
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		    // unproject test
-		    _cam.getWorldCoord(new Vector2f(touchEvent.getX(),
+		    Ray r = _cam.getWorldCoord(new Vector2f(touchEvent.getX(),
 			    touchEvent.getY()));
+		    
+		    if (r != null)
+		    {
+			Vector3f colPoint = Colliders.collide(r, _grid.getPlane());
+			logger.debug("CollisionPoint: " + colPoint);
+			
+			Vector2f gridPoint = _grid.getGridPosition(colPoint.x, colPoint.y, colPoint.z);
+			logger.debug("Grid Point: " + gridPoint);
+		    }
 
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();

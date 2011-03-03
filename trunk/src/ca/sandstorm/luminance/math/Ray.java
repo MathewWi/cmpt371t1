@@ -7,6 +7,7 @@ public class Ray
     private Vector3f _pos;
     private Vector3f _dir;
     
+    
     public Ray(float xPos, float yPos, float zPos, float xDir, float yDir, float zDir)
     {
 	_pos = new Vector3f(xPos, yPos, zPos);
@@ -21,8 +22,8 @@ public class Ray
     public void setPosition(float x, float y, float z)
     {
 	_pos.x = x;
-	_pos.x = y;
-	_pos.x = z;
+	_pos.y = y;
+	_pos.z = z;
     }
     
     public Vector3f getDirection()
@@ -33,7 +34,7 @@ public class Ray
     public void setDirection(float x, float y, float z)
     {
 	_dir.x = x;
-	_dir.x = y;
-	_dir.x = z;
+	_dir.y = y;
+	_dir.z = z;
     }    
 }

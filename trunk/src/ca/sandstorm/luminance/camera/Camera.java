@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.MatrixTrackingGL;
+import ca.sandstorm.luminance.math.Ray;
 
 import android.opengl.GLU;
 import android.opengl.Matrix;
@@ -60,6 +61,9 @@ public class Camera
     private Quat4f _qView;
     private Quat4f _qNewView;
     private Quat4f _qConjugate;
+    
+    // tmp ray for returning, user can destroy it if they want, never reused internally
+    private Ray _tmpRay;
 
 
     /**
@@ -83,6 +87,8 @@ public class Camera
 	_qView = new Quat4f();
 	_qNewView = new Quat4f();
 	_qConjugate = new Quat4f();
+	
+	_tmpRay = new Ray(0,0,0,0,0,0);
     }
 
 
@@ -117,6 +123,8 @@ public class Camera
     public void setEye(Vector3f v)
     {
 	_eye = new Vector3f(v);
+	
+	updateViewDirection();
     }
 
 
@@ -135,6 +143,8 @@ public class Camera
 	_eye.x = x;
 	_eye.y = y;
 	_eye.z = z;
+	
+	updateViewDirection();
     }
 
 
@@ -147,6 +157,8 @@ public class Camera
     public void setTaret(Vector3f v)
     {
 	_target = new Vector3f(v);
+	
+	updateViewDirection();
     }
 
 
@@ -165,6 +177,8 @@ public class Camera
 	_target.x = x;
 	_target.y = y;
 	_target.z = z;
+	
+	updateViewDirection();
     }
 
 
@@ -269,6 +283,19 @@ public class Camera
 		      _target.z, _up.x, _up.y, _up.z);
         getCurrentModelView(gl);
     }
+    
+    
+    /**
+     * Updates the look direction vector referenced often
+     */
+    private void updateViewDirection()
+    {
+	_lookDirection.set(_target);
+	_lookDirection.sub(_eye);
+	
+	// Normalize the direction.
+	_lookDirection.normalize();	
+    }
 
 
     // --------------------
@@ -292,13 +319,7 @@ public class Camera
 
     public void moveForward(float distance)
     {
-	// The look direction is the view (where we are looking) minus the
-	// position (where we are).
-	_lookDirection.set(_target);
-	_lookDirection.sub(_eye);
-
-	// Normalize the direction.
-	_lookDirection.normalize();
+	updateViewDirection();
 
 	// Call UpdateCamera to move our camera in the direction we want.
 	move(distance, _lookDirection.x, _lookDirection.y, _lookDirection.z);
@@ -307,13 +328,7 @@ public class Camera
 
     public void moveLeft(float distance)
     {
-	// The look direction is the view (where we are looking) minus the
-	// position (where we are).
-	_lookDirection.set(_target);
-	_lookDirection.sub(_eye);
-
-	// Normalize the direction.
-	_lookDirection.normalize();
+	updateViewDirection();
 
 	// Get the cross product of the direction we are looking and the up
 	// direction.
@@ -326,13 +341,7 @@ public class Camera
 
     public void moveUp(float distance)
     {
-	// The look direction is the view (where we are looking) minus the
-	// position (where we are).
-	_lookDirection.set(_target);
-	_lookDirection.sub(_eye);
-
-	// Normalize the direction.
-	_lookDirection.normalize();
+	updateViewDirection();
 
 	// Get the cross product of the direction we are looking and the up
 	// direction.
@@ -442,9 +451,9 @@ public class Camera
      * @param cam
      *            camera object with x,y,z of the camera and screenWidth and
      *            screenHeight of the device.
-     * @return position in WCS.
+     * @return Ray based on camera view and touch location in WCS.  null if no collision found.
      */
-    public Vector3f getWorldCoord(Vector2f touch)
+    public Ray getWorldCoord(Vector2f touch)
     {
 	_logger.debug("GetWorldCoords(" + touch + ")");
 
@@ -489,7 +498,7 @@ public class Camera
 	if (outPoint[3] == 0.0) {
 	    // Avoid /0 error.
 	    _logger.error("World coords: Could not calculate world coordinates");
-	    return worldPos;
+	    return null;
 	}
 
 	// Divide by the 3rd component to find out the real position.
@@ -501,6 +510,9 @@ public class Camera
 
 	_logger.debug("Calculated World Coords: " + worldPos);
 
-	return worldPos;
+	_tmpRay.setPosition(worldPos.x, worldPos.y, worldPos.z);
+	_tmpRay.setDirection(_lookDirection.x, _lookDirection.y, _lookDirection.z);
+	
+	return _tmpRay;
     }
 }

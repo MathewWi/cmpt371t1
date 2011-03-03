@@ -14,6 +14,8 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.sandstorm.luminance.math.Plane;
+
 
 /**
  * Grid class
@@ -44,6 +46,8 @@ public class Grid implements IGameObject
     private float _cellWidth;
     private float _cellHeight;
 
+    // plane of the grid
+    private Plane _plane; 
 
     /**
      * Constructor.
@@ -64,6 +68,9 @@ public class Grid implements IGameObject
     {
 	_logger.debug("Grid(" + rows + ", " + cols + ", " + cellWidth + ", " +
 		      cellHeight + ")");
+	
+	// create plane
+	_plane = new Plane(0, 0, 0, 0, 1, 0);
 
 	// calculate vertices
 	float x = 0.0f;
@@ -275,6 +282,16 @@ public class Grid implements IGameObject
     public Vector3f getScale()
     {
 	return null;
+    }
+    
+    
+    /**
+     * Get the object's plane.
+     * @return
+     */
+    public Plane getPlane()
+    {
+	return _plane;
     }
 
 
