@@ -107,6 +107,14 @@
 || Preparing Wiki for deliverable || 7.5 ||
 || Helping group members with various tasks || 3.5 ||
 
+
+=== Milestone 2 ===
+|| *Task* || *Hours spent so far* ||
+|| Writing GameObject tests for test suite || 5 ||
+|| Writing TimeSystem tests for test suite || 1 ||
+|| Organizing team || 1 ||
+|| Helping group members with various tasks || 0.5 ||
+
 == Chet Collins ==
 ===Milestone 0===
 || *Task* || *Hours spent so far* ||
