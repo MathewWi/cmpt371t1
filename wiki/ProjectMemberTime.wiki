@@ -51,8 +51,9 @@
 
 ===Milestone 2===
 || Fixing audio || 0.5 ||
-|| Game tools/tool objects || 1.5 ||
+|| Game tools/tool objects || 2.5 ||
 || Refactoring || 0.5 ||
+
 
 == Stephen Damm ==
 === Milestone 0 ===
