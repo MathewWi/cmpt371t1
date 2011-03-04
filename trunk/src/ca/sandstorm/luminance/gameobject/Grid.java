@@ -23,7 +23,7 @@ import ca.sandstorm.luminance.math.Plane;
  * @author halsafar
  * 
  */
-public class Grid implements IGameObject
+public class Grid
 {
     private static final Logger _logger = LoggerFactory.getLogger(Grid.class);
 
@@ -162,28 +162,6 @@ public class Grid implements IGameObject
 
 
     /**
-     * Initialize the object. Unused.
-     */
-    @Override
-    public void initialize()
-    {
-	// TODO Auto-generated method stub
-
-    }
-
-
-    /**
-     * Destroy the object. Unused.
-     */
-    @Override
-    public void destroy()
-    {
-	// TODO Auto-generated method stub
-
-    }
-
-
-    /**
      * GetColumnCount()
      * 
      * @return
@@ -247,42 +225,6 @@ public class Grid implements IGameObject
     {
 	return (_cellHeight * getRowCount());
     }
-
-
-    /**
-     * Get the object's position.
-     * 
-     * @return Object position
-     */
-    @Override
-    public Vector3f getPosition()
-    {
-	return _position;
-    }
-
-
-    /**
-     * Get the object's rotation. Unused.
-     * 
-     * @return Object rotation
-     */
-    @Override
-    public Vector4f getRotation()
-    {
-	return null;
-    }
-
-
-    /**
-     * Get the object's scale. Unused.
-     * 
-     * @return Object scale
-     */
-    @Override
-    public Vector3f getScale()
-    {
-	return null;
-    }
     
     
     /**
@@ -342,17 +284,6 @@ public class Grid implements IGameObject
 	_tmpGridPos.set(gridX, gridZ);
 
 	return _tmpGridPos;
-    }
-
-
-    /**
-     * Update the object state. Unused.
-     */
-    @Override
-    public void update()
-    {
-	// TODO Auto-generated method stub
-
     }
 
 

@@ -7,8 +7,6 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
-import javax.vecmath.Vector3f;
-import javax.vecmath.Vector4f;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.resources.TextureResource;
@@ -20,7 +18,7 @@ import ca.sandstorm.luminance.resources.TextureResource;
  * @author halsafar
  *
  */
-public class Skybox implements IGameObject
+public class Skybox
 {
     // rendering buffers
     private FloatBuffer _vertexBuffer;
@@ -146,45 +144,4 @@ public class Skybox implements IGameObject
 	gl.glDisable(GL10.GL_TEXTURE_2D);
     }
 
-
-    @Override
-    public Vector3f getPosition()
-    {
-	return null;
-    }
-
-    @Override
-    public Vector4f getRotation()
-    {
-        return null;
-    }
-	
-    @Override
-    public Vector3f getScale()
-    {
-	return null;
-    }
-
-    @Override
-    public void initialize()
-    {
-	// TODO Auto-generated method stub
-	
-    }
-
-
-    @Override
-    public void update()
-    {
-	// TODO Auto-generated method stub
-	
-    }
-
-
-    @Override
-    public void destroy()
-    {
-	// TODO Auto-generated method stub
-	
-    }
 }

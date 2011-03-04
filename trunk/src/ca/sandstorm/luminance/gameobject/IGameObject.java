@@ -3,6 +3,8 @@ package ca.sandstorm.luminance.gameobject;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
+import ca.sandstorm.luminance.gametools.LightPath;
+
 public interface IGameObject
 {
     /**
@@ -21,6 +23,12 @@ public interface IGameObject
      * Destroy the object.
      */
     void destroy();
+    
+    /**
+     * Influence and interact with the light beam.
+     * @param beam The light beam
+     */
+    void beamInteract(LightPath beam);
     
     /**
      * Get the object's position.

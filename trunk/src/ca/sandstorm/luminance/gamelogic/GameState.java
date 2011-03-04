@@ -131,7 +131,7 @@ public class GameState implements IState
 	    
 	    // parse the grid
 	    _grid = new Grid(level.getXSize(), level.getYSize(), 1.0f, 1.0f);
-	    _addObject(_grid);
+	    //_addObject(_grid);
 	    
 	    // parse all the objects into game objects
 	    for (int i = 0; i < level.getObjects().size(); i++)
@@ -231,7 +231,7 @@ public class GameState implements IState
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	_addObject(_sky);
+	//_addObject(_sky);
 	
 	resetCamera();
 	

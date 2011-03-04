@@ -10,15 +10,12 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.resources.TextureResource;
 
-public class Prism implements IRenderableObject
+public class Prism extends GameObject implements IRenderableObject
 {
     private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
 
     private IRenderable _model;
-    private Vector3f _position;
-    private Vector4f _rotation;
     private float _orientation;
-    private Vector3f _scale;
     private int _texture;
     
     private RenderType _renderType = RenderType.Normal;
@@ -44,42 +41,6 @@ public class Prism implements IRenderableObject
 	    throw new RuntimeException("Unable to get prism texture. It hasn't been loaded yet!");
 	}
 	_texture = tex.getTexture();
-    }
-
-    @Override
-    public void update()
-    {
-	// TODO Auto-generated method stub
-
-    }
-
-
-    @Override
-    public void destroy()
-    {
-	// TODO Auto-generated method stub
-
-    }
-
-
-    @Override
-    public Vector3f getPosition()
-    {
-	return _position;
-    }
-
-
-    @Override
-    public Vector4f getRotation()
-    {
-	return _rotation;
-    }
-
-
-    @Override
-    public Vector3f getScale()
-    {
-	return _scale;
     }
 
 
