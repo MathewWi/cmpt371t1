@@ -20,11 +20,4 @@ public class Prism implements ITool
 	return (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/missing.jpg");
     }
 
-    @Override
-    public void interact(LightPath lp)
-    {
-	// TODO Auto-generated method stub
-	
-    }
-
 }

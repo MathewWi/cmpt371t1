@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.gametools.LightPath;
 import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.resources.TextureResource;
 
@@ -14,15 +15,12 @@ import ca.sandstorm.luminance.resources.TextureResource;
  * Represents a game wall object.
  * @author zenja
  */
-public class Box implements IRenderableObject
+public class Box extends GameObject implements IRenderableObject
 {
     private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
 
-    private IRenderable _model;
-    private Vector3f _position;
-    private Vector4f _rotation;
-    private Vector3f _scale;
-    private int _texture;
+    protected IRenderable _model;
+    protected int _texture;
     
     private RenderType _renderType = RenderType.Normal;
     
@@ -61,36 +59,6 @@ public class Box implements IRenderableObject
     }
 
     /**
-     * Get the object's position.
-     * @return Object position
-     */
-    @Override
-    public Vector3f getPosition()
-    {
-	return _position;
-    }
-    
-    /**
-     * Get the object's rotation.
-     * @return Object rotation
-     */
-    @Override
-    public Vector4f getRotation()
-    {
-        return _rotation;
-    }
-
-    /**
-     * Get the object's scale.
-     * @return Object scale
-     */
-    @Override
-    public Vector3f getScale()
-    {
-	return _scale;
-    }
-
-    /**
      * Initialize the object.
      * Associate with the object's texture. The texture needs to be loaded
      * before calling this function.
@@ -116,18 +84,16 @@ public class Box implements IRenderableObject
 
     }
 
-    /**
-     * Destroy the object.
-     */
-    @Override
-    public void destroy()
-    {
-	
-    }
-
     @Override
     public RenderType getRenderType()
     {
 	return _renderType;
+    }
+
+    @Override
+    public void beamInteract(LightPath beam)
+    {
+	// TODO Auto-generated method stub
+	
     }
 }

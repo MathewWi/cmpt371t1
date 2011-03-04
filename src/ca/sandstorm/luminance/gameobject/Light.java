@@ -3,7 +3,7 @@ package ca.sandstorm.luminance.gameobject;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
-public class Light implements IGameObject
+public class Light extends GameObject implements IGameObject
 {
 
     @Override

@@ -8,6 +8,4 @@ public interface ITool
     public IGameObject getGameObject();
     
     public TextureResource getIcon();
-    
-    public void interact(LightPath lp);
 }
