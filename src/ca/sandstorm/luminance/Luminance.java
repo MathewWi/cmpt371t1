@@ -14,6 +14,8 @@ import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gamelogic.MenuState;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
+import ca.sandstorm.luminance.gui.IWidget;
+import ca.sandstorm.luminance.gui.Label;
 
 import android.app.Activity;
 import android.opengl.GLSurfaceView;
@@ -85,7 +87,7 @@ public class Luminance extends Activity
 	}
 	MenuState menuState = new MenuState();
 	
-	Button[] buttons = new Button[GUIManager.MAX_WIDGET_COUNT];
+	IWidget[] widgets = new IWidget[GUIManager.MAX_WIDGET_COUNT];
 	Button startButton = new Button(20, 50, 280, 30, "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
 	startButton.setCalleeAndMethod(menuState, method);
@@ -102,11 +104,16 @@ public class Luminance extends Activity
 	aboutButton.setTextureResourceLocation("textures/aboutImage.png");
 	aboutButton.setCalleeAndMethod(menuState, method);
 	
-	buttons[0] = startButton;
-	buttons[1] = optionsButton;
-	buttons[2] = aboutButton;
-	buttons[3] = helpButton;
-	menuState.addWidgets(buttons);
+	// An example label
+	Label testLabel = new Label(20, 210, 280, 30, "Test");
+	testLabel.setTextureResourceLocation("textures/aboutImage.png");
+	
+	widgets[0] = startButton;
+	widgets[1] = optionsButton;
+	widgets[2] = aboutButton;
+	widgets[3] = helpButton;
+	widgets[4] = testLabel;
+	menuState.addWidgets(widgets);
 	Engine.getInstance().pushState(menuState);
 	*/
 		
