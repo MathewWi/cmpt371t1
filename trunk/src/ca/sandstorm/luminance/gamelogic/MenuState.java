@@ -24,12 +24,29 @@ public class MenuState implements IState
     private GUIManager _guiManager;
     private boolean _tapped;
 
-    public MenuState(IWidget[] widgets)
+    public MenuState()
     {
 	_tapped = false;
 	_guiManager = new GUIManager();
+    }
+    
+    public MenuState(IWidget[] widgets)
+    {
+//	_tapped = false;
+//	_guiManager = new GUIManager();
+	this();
 	
 	_guiManager.addWidgets(widgets);
+    }
+    
+    /**
+     * This method exists solely for testing the button action features. Its
+     * existence is temporary.
+     */
+    public void test()
+    {
+	logger.debug("test()");
+	logger.debug("test2()");
     }
     
     /**
@@ -39,6 +56,11 @@ public class MenuState implements IState
     public GUIManager getGUIManager()
     {
 	return _guiManager;
+    }
+    
+    public void addWidgets(IWidget widgets[])
+    {
+	_guiManager.addWidgets(widgets);
     }
     
     

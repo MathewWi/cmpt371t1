@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance;
 
+import java.lang.reflect.Method;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
@@ -66,18 +68,45 @@ public class Luminance extends Activity
 	
 	// UNCOMMENT TO START IN MENU STATE
 	/*
+	Method method = null;
+	try {
+	    method = MenuState.class.getMethod("test", (Class[])null);
+	} catch (SecurityException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (NoSuchMethodException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	if (method == null) {
+	    logger.debug("method is null");
+	} else {
+	    logger.debug("methos is not null");
+	}
+	MenuState menuState = new MenuState();
+	
 	Button[] buttons = new Button[GUIManager.MAX_WIDGET_COUNT];
 	Button startButton = new Button(20, 50, 280, 30, "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
+	startButton.setCalleeAndMethod(menuState, method);
+	
 	Button optionsButton = new Button(20, 110, 280, 30, "Options");
 	optionsButton.setTextureResourceLocation("textures/optionsImage.png");
-	Button aboutButton = new Button(20, 170, 280, 30, "About");
+	optionsButton.setCalleeAndMethod(menuState, method);
+	
+	Button helpButton = new Button(20, 170, 280, 30, "Help");
+	helpButton.setTextureResourceLocation("textures/helpImage.png");
+	helpButton.setCalleeAndMethod(menuState, method);
+	
+	Button aboutButton = new Button(20, 350, 280, 30, "About");
 	aboutButton.setTextureResourceLocation("textures/aboutImage.png");
+	aboutButton.setCalleeAndMethod(menuState, method);
 	
 	buttons[0] = startButton;
 	buttons[1] = optionsButton;
 	buttons[2] = aboutButton;
-	MenuState menuState = new MenuState(buttons);
+	buttons[3] = helpButton;
+	menuState.addWidgets(buttons);
 	Engine.getInstance().pushState(menuState);
 	*/
 		
