@@ -27,8 +27,8 @@ public class Prism extends GameObject implements IRenderableObject
 	_orientation = orientation;
 	_position = new Vector3f(position);
 	_rotation = new Vector4f(1.0f, 0.0f, 0.0f, orientation);
-	_scale = new Vector3f(0.2f, 1.0f, 1.0f);
-	_model = Engine.getInstance().getRenderer().getBox();
+	_scale = new Vector3f(0.5f, 0.5f, 0.5f);
+	_model = Engine.getInstance().getRenderer().getPrism();
     }
 
     @Override
