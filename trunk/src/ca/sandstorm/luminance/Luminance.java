@@ -18,6 +18,8 @@ import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.gui.Label;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Rect;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,6 +27,7 @@ import android.os.Message;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.Window;
 
 
 /**
@@ -37,7 +40,7 @@ import android.view.MotionEvent;
  */
 public class Luminance extends Activity
 {
-    private static final Logger logger = LoggerFactory.getLogger("Luminance");
+    private static final Logger _logger = LoggerFactory.getLogger("Luminance");
 
     // openGL view
     private GLSurfaceView mGLView;
@@ -60,7 +63,7 @@ public class Luminance extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-	logger.debug("onCreate()");
+	_logger.debug("onCreate()");
 	
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
@@ -81,9 +84,9 @@ public class Luminance extends Activity
 	    e.printStackTrace();
 	}
 	if (method == null) {
-	    logger.debug("method is null");
+	    _logger.debug("method is null");
 	} else {
-	    logger.debug("methos is not null");
+	    _logger.debug("methos is not null");
 	}
 	MenuState menuState = new MenuState();
 	
@@ -128,6 +131,33 @@ public class Luminance extends Activity
         });
 	
 	setContentView(mGLView);
+	
+	// calculate the status bar height
+	DisplayMetrics metrics = new DisplayMetrics();
+	getWindowManager().getDefaultDisplay().getMetrics(metrics);
+	
+	float statusBarHeight = 0.0f;
+
+	float LOW_DPI_STATUS_BAR_HEIGHT = 19f;
+	float MEDIUM_DPI_STATUS_BAR_HEIGHT = 25f;
+	float HIGH_DPI_STATUS_BAR_HEIGHT = 38f;
+	
+	switch (metrics.densityDpi) {
+	    case DisplayMetrics.DENSITY_HIGH:
+	        statusBarHeight = HIGH_DPI_STATUS_BAR_HEIGHT;
+	        break;
+	    case DisplayMetrics.DENSITY_MEDIUM:
+	        statusBarHeight = MEDIUM_DPI_STATUS_BAR_HEIGHT;
+	        break;
+	    case DisplayMetrics.DENSITY_LOW:
+	        statusBarHeight = LOW_DPI_STATUS_BAR_HEIGHT;
+	        break;
+	    default:
+	        statusBarHeight = MEDIUM_DPI_STATUS_BAR_HEIGHT;
+	}
+	
+	_logger.debug("StatusBarHeight: " + statusBarHeight);
+	Engine.getInstance().setMenuBarHeight((int)statusBarHeight);
     }
 
 
@@ -137,7 +167,7 @@ public class Luminance extends Activity
     @Override
     protected void onPause()
     {
-	logger.debug("onPause()");
+	_logger.debug("onPause()");
 
 	super.onPause();
 	mGLView.onPause();
@@ -152,7 +182,7 @@ public class Luminance extends Activity
     @Override
     protected void onResume()
     {
-	logger.debug("onResume()");
+	_logger.debug("onResume()");
 
 	super.onResume();
 	mGLView.onResume();
@@ -167,11 +197,11 @@ public class Luminance extends Activity
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-	logger.debug("onTouchEvent(" + event + ")");
+	_logger.debug("onTouchEvent(" + event + ")");
 
 	Engine.getInstance().getTouchFilter().updateTouch(event);
 	
-	try {Thread.sleep(16);} catch (Exception e) { logger.error("Could not sleep event thread"); }
+	try {Thread.sleep(16);} catch (Exception e) { _logger.error("Could not sleep event thread"); }
 
 	return true;
     }
@@ -183,7 +213,7 @@ public class Luminance extends Activity
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
-	logger.debug("onKeyDown(" + keyCode + ", " + event + ")");
+	_logger.debug("onKeyDown(" + keyCode + ", " + event + ")");
 
 	boolean result = false;
 
@@ -199,7 +229,7 @@ public class Luminance extends Activity
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event)
     {
-	logger.debug("onKeyUp(" + keyCode + ", " + event + ")");
+	_logger.debug("onKeyUp(" + keyCode + ", " + event + ")");
 
 	boolean result = false;
 
@@ -223,7 +253,7 @@ public class Luminance extends Activity
 	 */
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{
-	    logger.debug("onSurfaceCreated(" + gl.toString() + ", " +
+	    _logger.debug("onSurfaceCreated(" + gl.toString() + ", " +
 			 config.toString() + ")");
 
 	    
@@ -236,7 +266,7 @@ public class Luminance extends Activity
 	 */
 	public void onSurfaceChanged(GL10 gl, int w, int h)
 	{
-	    logger.debug("onSurfaceChanged(" + gl.toString() + ", " + w + ", " +
+	    _logger.debug("onSurfaceChanged(" + gl.toString() + ", " + w + ", " +
 			 h + ")");
 
 	    DisplayMetrics dm = new DisplayMetrics();
@@ -251,7 +281,7 @@ public class Luminance extends Activity
 	    
 	    Engine.getInstance().deviceChanged(gl, w, h, dm.widthPixels,
 	                                       dm.heightPixels);
-	    logger.debug("width:" + defaultWidth + "\theight: " + defaultHeight);
+	    _logger.debug("width:" + defaultWidth + "\theight: " + defaultHeight);
 	}
 
 

@@ -26,17 +26,17 @@ import ca.sandstorm.luminance.time.TimeSystem;
 
 /**
  * Application runtime controller class
+ * 
  * @author halsafar - shinhalsafar@gmail.com
- *
+ * 
  */
 public class Engine
 {
-    private static final Logger logger = LoggerFactory
-	    .getLogger(Engine.class);
+    private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
     // singleton instance
     private static Engine _instance = null;
-    
+
     // android context
     private Context _context = null;
 
@@ -56,10 +56,13 @@ public class Engine
     private ResourceManager _resourceManager;
     private GameRenderer _renderer;
     private TouchFilter _touchFilter;
-    
+
     // last update step, used to calculate frame time delta
     private long _lastTime;
-    
+
+    // store menu bar height for offsetting input coordinates
+    private int _menuBarHeight;
+
 
     /**
      * Constructor.
@@ -84,6 +87,7 @@ public class Engine
 
     /**
      * Singleton method.
+     * 
      * @return instance to the Engine
      */
     public static Engine getInstance()
@@ -108,7 +112,7 @@ public class Engine
 	_context = context;
 	_resourceManager.setAssets(_context.getAssets());
 
-	listDirectoryFiles("");
+	// listDirectoryFiles("");
     }
 
 
@@ -126,19 +130,21 @@ public class Engine
 	return _context;
     }
 
-    
+
     /**
      * Returns the renderer used for this game.
+     * 
      * @return
      */
     public GameRenderer getRenderer()
     {
 	return _renderer;
     }
-    
+
 
     /**
      * Returns the timer system.
+     * 
      * @return
      */
     public TimeSystem getTimer()
@@ -149,6 +155,7 @@ public class Engine
 
     /**
      * Returns the input system.
+     * 
      * @return
      */
     public InputSystem getInputSystem()
@@ -159,6 +166,7 @@ public class Engine
 
     /**
      * Returns the resource manager.
+     * 
      * @return
      */
     public ResourceManager getResourceManager()
@@ -168,7 +176,31 @@ public class Engine
 
 
     /**
+     * Set the menu bar height the engine will use to offset input coordinates.
+     * 
+     * @param h
+     *            The height value in pixels of the menu bar
+     */
+    public void setMenuBarHeight(int h)
+    {
+	_menuBarHeight = h;
+    }
+
+
+    /**
+     * Get the menu bar height.
+     * 
+     * @return the height in pixels.
+     */
+    public int getMenuBarHeight()
+    {
+	return _menuBarHeight;
+    }
+
+
+    /**
      * Get the view port width in pixels.
+     * 
      * @return
      */
     public int getViewWidth()
@@ -179,6 +211,7 @@ public class Engine
 
     /**
      * Get the view port height in pixels.
+     * 
      * @return
      */
     public int getViewHeight()
@@ -188,7 +221,8 @@ public class Engine
 
 
     /**
-     * Get the view port X scaling.  This is the x:y ratio.
+     * Get the view port X scaling. This is the x:y ratio.
+     * 
      * @return
      */
     public float getViewScaleX()
@@ -198,7 +232,8 @@ public class Engine
 
 
     /**
-     * Get the view port Y scaling.  This is the x:y ratio.
+     * Get the view port Y scaling. This is the x:y ratio.
+     * 
      * @return
      */
     public float getViewScaleY()
@@ -208,9 +243,10 @@ public class Engine
 
 
     /**
-     * Sets the filter to MultiTouch.
-     * The default is to use SingleTouch.
-     * @param b true to set multitouch filter
+     * Sets the filter to MultiTouch. The default is to use SingleTouch.
+     * 
+     * @param b
+     *            true to set multitouch filter
      */
     public void setMultiTouchFilter(boolean b)
     {
@@ -224,6 +260,7 @@ public class Engine
 
     /**
      * Returns the current touch filter instance.
+     * 
      * @return
      */
     public TouchFilter getTouchFilter()
@@ -234,7 +271,9 @@ public class Engine
 
     /**
      * Push a state onto the engine state stack.
-     * @param state - An instance of a state for the engine to update.
+     * 
+     * @param state
+     *            - An instance of a state for the engine to update.
      */
     public void pushState(IState state)
     {
@@ -244,9 +283,9 @@ public class Engine
     }
 
 
-
     /**
-     * Pops a state off the state stack.     
+     * Pops a state off the state stack.
+     * 
      * @return the state popped off
      */
     public IState popState()
@@ -272,10 +311,11 @@ public class Engine
 
 	// Resume all sounds
 	_audioSystem.resumeAll();
-	
+
 	// Play sound effect
 	try {
-	    SoundResource testSound = _resourceManager.loadSound(_audioSystem.getPool(), "sounds/sample.ogg");
+	    SoundResource testSound = _resourceManager.loadSound(_audioSystem
+		    .getPool(), "sounds/sample.ogg");
 	    _audioSystem.play(testSound, 0.9f);
 	} catch (IOException e) {
 	    // TODO Auto-generated catch block
@@ -301,16 +341,21 @@ public class Engine
 
 
     /**
-     * The device information has changed.  
-     * This function is called by the graphics API.  In most cases
-     * the Android events let us know or the JOGL API.
-     * @param gl Instance of GL10, not valid after the function ends.
-     * @param w New width of the device
-     * @param h New height of the device
-     * @param viewWidth 
+     * The device information has changed. This function is called by the
+     * graphics API. In most cases the Android events let us know or the JOGL
+     * API.
+     * 
+     * @param gl
+     *            Instance of GL10, not valid after the function ends.
+     * @param w
+     *            New width of the device
+     * @param h
+     *            New height of the device
+     * @param viewWidth
      * @param viewHeight
      */
-    public void deviceChanged(GL10 gl, int w, int h, int viewWidth, int viewHeight)
+    public void deviceChanged(GL10 gl, int w, int h, int viewWidth,
+	    int viewHeight)
     {
 	logger.debug("deviceChanged(" + gl.toString() + ", " + w + ", " + h +
 		     ")");
@@ -318,20 +363,22 @@ public class Engine
 	_width = w;
 	_height = h;
 
-	 _scaleX = (float)viewWidth / _width;
-	 _scaleY = (float)viewHeight / _height;
+	_scaleX = (float) viewWidth / _width;
+	_scaleY = (float) viewHeight / _height;
 
 	for (IState s : _stateStack) {
 	    s.deviceChanged(gl, _width, _height);
 	}
     }
-    
-    
+
+
     /**
-     * Init code path.  Since the GL10 instance is only valid at certains times
-     * this code path is used to allow states, objects, etc to init anything they
-     * require an OpenGL context for.
-     * @param gl OpenGL context, local scope.
+     * Init code path. Since the GL10 instance is only valid at certains times
+     * this code path is used to allow states, objects, etc to init anything
+     * they require an OpenGL context for.
+     * 
+     * @param gl
+     *            OpenGL context, local scope.
      */
     public void init(GL10 gl)
     {
@@ -344,17 +391,19 @@ public class Engine
 
 
     /**
-     * Update code path.  Used to process the update step of the game.
-     * This would include physics for example.
-     * @param gl OpenGL context, local scope.
+     * Update code path. Used to process the update step of the game. This would
+     * include physics for example.
+     * 
+     * @param gl
+     *            OpenGL context, local scope.
      */
     public void update(GL10 gl)
     {
 	// calculate time step
 	long time = SystemClock.uptimeMillis();
-	//long timeDelta = time - _lastTime;
+	// long timeDelta = time - _lastTime;
 	float secondsDelta = (time - _lastTime) * 0.001f;
-	
+
 	// update timer, store time step
 	_timer.update(secondsDelta);
 	_lastTime = time;
@@ -369,8 +418,10 @@ public class Engine
 
 
     /**
-     * Drawing code path.  Used to draw all visible on screen objects.
-     * @param gl OpenGL context, local scope.
+     * Drawing code path. Used to draw all visible on screen objects.
+     * 
+     * @param gl
+     *            OpenGL context, local scope.
      */
     public void draw(GL10 gl)
     {
