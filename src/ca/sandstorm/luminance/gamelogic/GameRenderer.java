@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.RenderType;
+import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.graphics.PrimitiveBox;
+import ca.sandstorm.luminance.graphics.PrimitivePrism;
 import ca.sandstorm.luminance.graphics.PrimitiveSphere;
 
 
@@ -25,6 +27,7 @@ public class GameRenderer
     // Primitives to be reused in draws
     private PrimitiveBox _box;
     private PrimitiveSphere _sphere;
+    private PrimitivePrism _prism;
     
     private LinkedList<IRenderableObject> _normalObjects;
     private LinkedList<IRenderableObject> _alphaObjects;
@@ -44,7 +47,7 @@ public class GameRenderer
 	
 	_box = new PrimitiveBox();
 	_sphere = new PrimitiveSphere();
-	
+	_prism = new PrimitivePrism();
     }
     
     
@@ -107,6 +110,15 @@ public class GameRenderer
     public PrimitiveSphere getSphere()
     {
 	return _sphere;
+    }
+    
+    /**
+     * Get a prism primitive.
+     * @return Prism primitive
+     */
+    public IRenderable getPrism()
+    {
+	return _prism;
     }
     
     

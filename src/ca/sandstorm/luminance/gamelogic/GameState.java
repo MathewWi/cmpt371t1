@@ -21,6 +21,7 @@ import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
+import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
@@ -238,6 +239,8 @@ public class GameState implements IState
 	// Temporary developer test area
 	IGameObject mirror = new Mirror(new Vector3f(0,0,0), 45f);
 	_addObject(mirror);
+	IGameObject prism = new Prism(new Vector3f(5f, 0f, 0f), 0f);
+	_addObject(prism);
     }
 
     /**
