@@ -259,11 +259,11 @@ public class Camera
 	gl.glLoadIdentity();
 
 	GLU.gluPerspective(gl, fov, aspect, zNear, zFar);
+	
+        getCurrentProjection(gl);	
 
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glLoadIdentity();
-	
-        getCurrentProjection(gl);
     }
 
 
@@ -457,61 +457,76 @@ public class Camera
     {
 	_logger.debug("GetWorldCoords(" + touch + ")");
 
-	// Initialize auxiliary variables.
-	Vector3f worldPos = new Vector3f();
-
 	// SCREEN height & width (ej: 320 x 480)
 	float screenW = Engine.getInstance().getViewWidth();
 	float screenH = Engine.getInstance().getViewHeight();
 
 	// touch.Print("World Coords", "Screen touch");
-	_logger.debug("World Coords", "Screen: " + screenW + ", " + screenH);
+	_logger.debug("World Coords Screen: " + screenW + ", " + screenH);
 
 	// Auxiliary matrix and vectors to deal with ogl.
-	float[] invertedMatrix, transformMatrix, normalizedInPoint, outPoint;
+	float[] invertedMatrix, transformMatrix, normalizedInPoint, outPointNear, outPointFar;
 	invertedMatrix = new float[16];
 	transformMatrix = new float[16];
 	normalizedInPoint = new float[4];
-	outPoint = new float[4];
+	outPointNear = new float[4];
+	outPointFar = new float[4];
 
 	// Invert y coordinate, as android uses top-left, and ogl bottom-left.
 	int oglTouchY = (int) (screenH - touch.y);
 
-	/* Transform the screen point to clip space in ogl (-1,1) */
+	// Transform the screen point to clip space in ogl (-1,1) 
+	float winz = 0.0f;
 	normalizedInPoint[0] = (float) ((touch.x) * 2.0f / screenW - 1.0);
 	normalizedInPoint[1] = (float) ((oglTouchY) * 2.0f / screenH - 1.0);
-	normalizedInPoint[2] = -1.0f;
+	normalizedInPoint[2] = 2f * winz - 1.0f;
 	normalizedInPoint[3] = 1.0f;
 
-	// Print("In", normalizedInPoint);
 
-	/* Obtain the transform matrix and then the inverse. */
-
+	// Obtain the transform matrix and then the inverse. 
 	Matrix.multiplyMM(transformMatrix, 0, _lastProjectionMat, 0,
 			  _lastModelViewMat, 0);
 	Matrix.invertM(invertedMatrix, 0, transformMatrix, 0);
 
-	/* Apply the inverse to the point in clip space */
-	Matrix.multiplyMV(outPoint, 0, invertedMatrix, 0, normalizedInPoint, 0);
-	// Print("Out ", outPoint);
+	// Apply the inverse to the point in clip space, near plane 
+	Matrix.multiplyMV(outPointNear, 0, invertedMatrix, 0, normalizedInPoint, 0);
+	_logger.debug("WorldCoords NearPointWW: " + outPointNear[0] + ", " + outPointNear[1] + ", " + outPointNear[2] + ", " + outPointNear[3]);
 
-	if (outPoint[3] == 0.0) {
-	    // Avoid /0 error.
+	// Avoid /0 error.
+	if (outPointNear[3] == 0.0) {
 	    _logger.error("World coords: Could not calculate world coordinates");
 	    return null;
-	}
+	}	
+	
+	// Far plane
+	winz = 1.0f;
+	normalizedInPoint[2] = 2f * winz - 1.0f;
+	Matrix.multiplyMV(outPointFar, 0, invertedMatrix, 0, normalizedInPoint, 0);
+	_logger.debug("WorldCoords FarPointWW: " + outPointFar[0] + ", " + outPointFar[1] + ", " + outPointFar[2] + ", " + outPointFar[3]);	
 
-	// Divide by the 3rd component to find out the real position.
-	worldPos.set(outPoint[0] / outPoint[3], outPoint[1] / outPoint[3],
-		     outPoint[2] / outPoint[3]);
+	// Avoid /0 error.
+	if (outPointFar[3] == 0.0) {
+	    _logger.error("World coords: Could not calculate world coordinates");
+	    return null;
+	}	
 
-	// Unnecesary, but here for log purposes.
-	// float worldZ = outPoint[2] / outPoint[3];
+	float xNear = outPointNear[0] / outPointNear[3];
+	float yNear = outPointNear[1] / outPointNear[3];
+	float zNear = outPointNear[2] / outPointNear[3];
+	
+	float xFar = outPointFar[0] / outPointFar[3];
+	float yFar = outPointFar[1] / outPointFar[3];
+	float zFar = outPointFar[2] / outPointFar[3];	
 
-	_logger.debug("Calculated World Coords: " + worldPos);
-
-	_tmpRay.setPosition(worldPos.x, worldPos.y, worldPos.z);
-	_tmpRay.setDirection(_lookDirection.x, _lookDirection.y, _lookDirection.z);
+	Vector3f dir = new Vector3f(xFar - xNear, yFar - yNear, zFar - zNear);
+	dir.normalize();	
+	
+	_logger.debug("World Coords NearPoint: " + xNear + ", " + yNear + ", " + zNear + ")");
+	_logger.debug("World Coords FarPoint: " + xFar + ", " + yFar + ", " + zFar + ")");
+	_logger.debug("World Coords Dir: " + dir.x + ", " + dir.y + ", " + dir.z + ")");
+	
+	_tmpRay.setPosition(xNear, yNear, zNear);
+	_tmpRay.setDirection(dir.x, dir.y, dir.z);
 	
 	return _tmpRay;
     }
