@@ -86,9 +86,12 @@
 || Fixed sky box bug || 0.5 ||
 || Fixed texture bugs || 0.5 ||
 || Modified renderer system || 1 ||
+|| Basic mock design of tool framework || 1 ||
 || Added math classes Ray and Plane || 1 ||
-|| Added unproject functionality to Camera || 1 ||
+|| Added unproject functionality to Camera || 4 ||
 || Added OpenGL X.X compatible MatrixStack || 1 ||
+|| Added status bar height calculates for all phones || 1 ||
+|| Grid Plane with un-project ray collision tests || 2 ||
 
 == Martina Nagy ==
 === Milestone 0 ===
