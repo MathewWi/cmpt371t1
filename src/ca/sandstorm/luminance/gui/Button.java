@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gui;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -30,6 +32,9 @@ public class Button implements IWidget
     private TextureResource _texture;
     
     private String _title;
+    
+    private Object _callee;
+    private Method _method;
 
     /**
      * Constructor for creating a Button.
@@ -155,6 +160,62 @@ public class Button implements IWidget
     public void setTitle(String title)
     {
 	_title = title;
+    }
+    
+    /**
+     * Get the object that will be called by the method
+     * 
+     * @return the object that will be called with the method by this.getMethod()
+     */
+    public Object getCallee()
+    {
+	return _callee;
+    }
+    
+    /**
+     * Get the Method that will be called on the this.getCallee()
+     * 
+     * @return the Method that will be called on this.getCallee()
+     */
+    public Method getMethod()
+    {
+	return _method;
+    }
+    
+    /**
+     * Set the callee and the method to be called on it.
+     * 
+     * @param callee The object to be called with method.
+     * @param method The Method representing the method that will be called on
+     * callee when the method is tapped.
+     * @precond method != null && callee != null
+     * @postcond this.getCallee() == callee && this.getMethod() == method
+     */
+    public void setCalleeAndMethod(Object callee, Method method)
+    {
+	_callee = callee;
+	_method = method;
+    }
+
+    /**
+     * When a button is tapped, this method is called. This method should only
+     * be called by GUIManager from inside its touchOccurred(float, float) 
+     * method.
+     */
+    protected void tapped()
+    {
+	try {
+	    _method.invoke(_callee, (Object[])null);
+	} catch (IllegalArgumentException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (IllegalAccessException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (InvocationTargetException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
     }
     
     public void draw(GL10 gl)

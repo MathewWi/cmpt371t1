@@ -125,16 +125,20 @@ public class GUIManager
     {
 	// drawing coordinates are offset by -50
 	// offset y by the same amount
+	// This is to compensate for the titlebar and statusbar at the top of
+	// the screen
 	float compensatedY = y - 50;
 	/*
-	 * Searches through the array of buttons and compares each one
+	 * Searches through the array of widgets and compares each one
 	 */
 	for (int i = 0; i < _numberOfWidgets; i++) {
 	    IWidget button = _widgets[i];
-	    if (x > button.getX() && x < button.getX() + button.getWidth() &&
+	    if (button.getClass() == Button.class &&
+		x > button.getX() &&
+		x < button.getX() + button.getWidth() &&
 		compensatedY > button.getY() &&
-		compensatedY < button.getY() + button.getHeight() &&
-		button.getClass() == Button.class) {
+		compensatedY < button.getY() + button.getHeight()) {
+		((Button)button).tapped();
 		return (Button)button;
 	    }
 	}
