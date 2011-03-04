@@ -1,11 +1,10 @@
-/**
- * 
- */
+
 package ca.sandstorm.luminance.test.input;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.input.InputButton;
+import junit.framework.TestCase;
+
 
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.input.InputButton;
@@ -25,7 +24,7 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * @throws java.lang.Exception
      */
-    @Before
+    
     public void setUp() throws Exception
     {
 	super.setUp();
@@ -37,7 +36,7 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * @throws java.lang.Exception
      */
-    @After
+    
     public void tearDown() throws Exception
     {
 	super.tearDown();
@@ -48,7 +47,7 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#press(float, float)}.
      */
-    @Test
+
     public void testPress()
     {
 	inputButton.press(currentTime, magnitude);
@@ -59,7 +58,7 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#release()}.
      */
-    @Test
+    
     public void testRelease()
     {
 	inputButton.release();
@@ -70,7 +69,7 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#getPressed()}.
      */
-    @Test
+    
     public void testGetPressed()
     {
 	inputButton.press(currentTime, magnitude);
@@ -82,19 +81,9 @@ public class InputButtonTest extends AndroidTestCase
 
 
     /**
-     * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#getTriggered(float)}.
-     */
-    @Test
-    public void testGetTriggered()
-    {
-	fail("Not yet implemented"); // TODO
-    }
-
-
-    /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#getPressedDuration(float)}.
      */
-    @Test
+    
     public void testGetPressedDuration()
     {
 	float newTime = currentTime;
@@ -114,11 +103,11 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#getLastPressedTime()}.
      */
-    @Test
+    
     public void testGetLastPressedTime()
     {
-	
-	assertEquals(currentTime, inputButton.getLastPressedTime(), .001f);
+    	inputButton.press(currentTime, magnitude);
+    	assertEquals(currentTime, inputButton.getLastPressedTime(), .001f);
 
 
     }
@@ -127,7 +116,7 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#getMagnitude()}.
      */
-    @Test
+    
     public void testGetMagnitude()
     {
 	inputButton.press(currentTime, magnitude);
@@ -144,13 +133,15 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#setMagnitude(float)}.
      */
-    @Test
+    
     public void testSetMagnitude()
     {
+    	inputButton.reset();
 	float newMg = 0.01f;
+	inputButton.press(0, 2.0f);
 	inputButton.setMagnitude(newMg);
 	float mg = inputButton.getMagnitude();
-	assertEquals(newMg, mg, 0.001f);
+	assertEquals(newMg, mg, 0.01f);
 	
 	newMg = -0.01f;
 	inputButton.setMagnitude(newMg);
@@ -168,7 +159,7 @@ public class InputButtonTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputButton#reset()}.
      */
-    @Test
+    
     public void testReset()
     {
 	inputButton.reset();
