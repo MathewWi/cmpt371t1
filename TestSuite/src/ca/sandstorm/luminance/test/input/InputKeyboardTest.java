@@ -1,13 +1,12 @@
 
 package ca.sandstorm.luminance.test.input;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-import android.test.AndroidTestCase;
-import android.view.KeyEvent;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.input.InputKeyboard;
+
+import android.test.AndroidTestCase;
+
+import android.view.KeyEvent;
+
 
 /**
  * @author Amara Daal
@@ -23,7 +22,7 @@ public class InputKeyboardTest extends AndroidTestCase
     /**
      * @throws java.lang.Exception
      */
-    @Before
+    
     public void setUp() throws Exception
     {
 	super.setUp();
@@ -35,7 +34,7 @@ public class InputKeyboardTest extends AndroidTestCase
     /**
      * @throws java.lang.Exception
      */
-    @After
+    
     public void tearDown() throws Exception
     {
 	super.tearDown();
@@ -44,7 +43,7 @@ public class InputKeyboardTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputKeyboard#press(float, int)}.
      */
-    @Test
+    
     public void testPress()
     {
 
@@ -97,7 +96,7 @@ public class InputKeyboardTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputKeyboard#release(int)}.
      */
-    @Test
+    
     public void testRelease()
     {
 
@@ -112,12 +111,13 @@ public class InputKeyboardTest extends AndroidTestCase
 	//Release all keys
 	for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
 	    inputKeyboard.release(x);
+	   
 	    
 	}
-	
+	mKeys = inputKeyboard.getKeys();
 	//Assert all other keys are released
 	for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-	    assertFalse(mKeys[x].getPressed());
+		 assertFalse(mKeys[x].getPressed());
 	}
 	
 
@@ -127,7 +127,7 @@ public class InputKeyboardTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputKeyboard#releaseAll()}.
      */
-    @Test
+    
     public void testReleaseAll()
     {
 	
@@ -138,6 +138,7 @@ public class InputKeyboardTest extends AndroidTestCase
 	}
 	inputKeyboard.releaseAll();
 	
+	mKeys = inputKeyboard.getKeys();
 	//Assert all keys were released
 	for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
 	    assertFalse(mKeys[x].getPressed());
@@ -149,7 +150,7 @@ public class InputKeyboardTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputKeyboard#getKeys()}.
      */
-    @Test
+    
     public void testGetKeys()
     {
 	mKeys = null;
@@ -185,7 +186,7 @@ public class InputKeyboardTest extends AndroidTestCase
     /**
      * Test method for {@link ca.sandstorm.luminance.test.input.InputKeyboard#resetAll()}.
      */
-    @Test
+    
     public void testResetAll()
     {
 	mKeys = inputKeyboard.getKeys();
