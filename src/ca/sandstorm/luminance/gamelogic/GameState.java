@@ -313,7 +313,7 @@ public class GameState implements IState
 		case MotionEvent.ACTION_DOWN:
 		    // unproject test
 		    Ray r = _cam.getWorldCoord(new Vector2f(touchEvent.getX(),
-			    touchEvent.getY()));
+			    touchEvent.getY() - Engine.getInstance().getMenuBarHeight()));
 		    
 		    if (r != null)
 		    {
