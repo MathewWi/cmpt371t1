@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gui;
 
+import java.nio.FloatBuffer;
+
 import javax.microedition.khronos.opengles.GL10;
 
 import ca.sandstorm.luminance.resources.TextureResource;
@@ -12,9 +14,19 @@ import ca.sandstorm.luminance.resources.TextureResource;
  */
 public class Label implements IWidget
 {
-
+    private float _x;
+    private float _y;
+    private float _width;
+    private float _height;
     private String _text;
     
+    // static because all quads only need one of these, just change textures
+    private static FloatBuffer _vertexBuffer;
+    private static float[] _vertices;
+    
+    private String _textureResourceLocation;
+    private TextureResource _texture;
+
     /**
      * Constructor for creating a Label.
      * @param text String to use for the Label.
@@ -35,98 +47,66 @@ public class Label implements IWidget
 	return _text;
     }
     
-    @Override
     public float getX()
     {
-	// TODO Auto-generated method stub
-	return 0;
+	return _x;
     }
 
-
-    @Override
     public void setX(float x)
     {
-	// TODO Auto-generated method stub
-
+	_x = x;
     }
 
-
-    @Override
     public float getY()
     {
-	// TODO Auto-generated method stub
-	return 0;
+	return _y;
     }
 
-
-    @Override
     public void setY(float y)
     {
-	// TODO Auto-generated method stub
-
+	_y = y;
     }
 
-
-    @Override
     public float getWidth()
     {
-	// TODO Auto-generated method stub
-	return 0;
+	return _width;
     }
 
-
-    @Override
     public void setWidth(float width)
     {
-	// TODO Auto-generated method stub
-
+	_width = width;
     }
 
-
-    @Override
     public float getHeight()
     {
-	// TODO Auto-generated method stub
-	return 0;
+	return _height;
     }
 
-
-    @Override
     public void setHeight(float height)
     {
-	// TODO Auto-generated method stub
-
+	_height = height;
     }
 
-    @Override
     public String getTextureResourceLocation()
     {
-	// TODO Auto-generated method stub
-	return null;
+	return _textureResourceLocation;
     }
 
-    @Override
     public void setTextureResourceLocation(String textureResourceLocation)
     {
-	// TODO Auto-generated method stub
-	
+	_textureResourceLocation = textureResourceLocation;
     }
 
-    @Override
     public TextureResource getTexture()
     {
-	// TODO Auto-generated method stub
-	return null;
+	return _texture;
     }
 
-    @Override
     public void setTexture(TextureResource texture)
     {
-	// TODO Auto-generated method stub
-	
+	_texture = texture;
     }
 
-    @Override
     public void draw(GL10 gl)
     {
 	// TODO Auto-generated method stub
