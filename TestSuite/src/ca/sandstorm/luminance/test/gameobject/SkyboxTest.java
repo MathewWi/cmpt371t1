@@ -30,7 +30,7 @@ public class SkyboxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-	Vector3f dummy = mySkybox.getPosition();
+	//Vector3f dummy = mySkybox.getPosition();
 	/*assertTrue(dummy.x == 0);
 	assertTrue(dummy.y == 0);
 	assertTrue(dummy.z == 0);*/
@@ -42,7 +42,7 @@ public class SkyboxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-	Vector4f dummy = mySkybox.getRotation();
+	//Vector4f dummy = mySkybox.getRotation();
 	/*assertTrue(dummy.w == 0.0f);
 	assertTrue(dummy.x == 1.0f);
 	assertTrue(dummy.y == 0.0f);
@@ -55,7 +55,7 @@ public class SkyboxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-	Vector3f dummy = mySkybox.getScale();
+	//Vector3f dummy = mySkybox.getScale();
 	/*assertTrue(dummy.x == 0.0f);
 	assertTrue(dummy.y == 0.0f);
 	assertTrue(dummy.z == 0.0f);*/

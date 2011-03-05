@@ -29,7 +29,7 @@ public class LabelTest extends AndroidTestCase
 	y = 1.0f;
 	width = 1.0f;
 	height = 1.0f;
-	label = new Label(text);
+	//label = new Label(text);
 	
     }
 
@@ -48,7 +48,7 @@ public class LabelTest extends AndroidTestCase
      */
     public void testLabel()
     {
-	label = new Label(text);
+	//label = new Label(text);
     }
 
 
