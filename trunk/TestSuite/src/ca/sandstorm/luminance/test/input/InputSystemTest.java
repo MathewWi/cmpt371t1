@@ -1,13 +1,8 @@
 package ca.sandstorm.luminance.test.input;
-<<<<<<< .mine
 import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.input.*;
 import android.test.AndroidTestCase;
 import android.view.KeyEvent;
-
-
-=======
->>>>>>> .r676
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
