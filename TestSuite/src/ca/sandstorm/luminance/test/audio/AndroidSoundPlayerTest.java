@@ -41,12 +41,19 @@ public class AndroidSoundPlayerTest extends AndroidTestCase {
 	 * Testing of the play() method 
 	 */
 	public void testPlay() throws Exception {
-		try{
+		try {
 			sound = resManager.loadSound(player.getPool(), "sample.ogg");
 			streamId = player.play(sound, (new Float(0.5)));
 			assert(streamId != 0);
 		}
 		catch(Exception ex){}
+	}
+	
+	/*
+	 * Testing of the stop() method
+	 */
+	public void testStop() throws Exception {
+		player.stop(streamId);		
 	}
 
 	/*
