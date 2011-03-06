@@ -196,6 +196,20 @@ public class Button implements IWidget
 	_callee = callee;
 	_method = method;
     }
+    
+    public void setCalleeAndMethod(Object callee, String method)
+    {
+	_callee = callee;
+	try {
+	    _method = callee.getClass().getMethod(method, (Class[])null);
+	} catch (SecurityException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (NoSuchMethodException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+    }
 
     /**
      * When a button is tapped, this method is called. This method should only

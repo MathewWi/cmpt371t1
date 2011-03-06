@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.input.InputButton;
@@ -28,6 +29,17 @@ public class MenuState implements IState
     {
 	_tapped = false;
 	_guiManager = new GUIManager();
+	
+	Button startButton = new Button(20, 50, 280, 30, "Start");
+	startButton.setTextureResourceLocation("textures/startImage.png");
+	startButton.setCalleeAndMethod(this, "test");
+	
+	Button helpButton = new Button(20, 110, 280, 30, "Help");
+	helpButton.setTextureResourceLocation("textures/helpImage.png");
+	helpButton.setCalleeAndMethod(this, "test");
+	
+	_guiManager.addButton(startButton);
+	_guiManager.addButton(helpButton);
     }
     
     public MenuState(IWidget[] widgets)

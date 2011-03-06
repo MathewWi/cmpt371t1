@@ -72,53 +72,7 @@ public class Luminance extends Activity
 	Engine.getInstance().pushState(new GameState());
 	
 	// UNCOMMENT TO START IN MENU STATE
-	/*
-	Method method = null;
-	try {
-	    method = MenuState.class.getMethod("test", (Class[])null);
-	} catch (SecurityException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	} catch (NoSuchMethodException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	}
-	if (method == null) {
-	    _logger.debug("method is null");
-	} else {
-	    _logger.debug("methos is not null");
-	}
-	MenuState menuState = new MenuState();
-	
-	IWidget[] widgets = new IWidget[GUIManager.MAX_WIDGET_COUNT];
-	Button startButton = new Button(20, 50, 280, 30, "Start");
-	startButton.setTextureResourceLocation("textures/startImage.png");
-	startButton.setCalleeAndMethod(menuState, method);
-	
-	Button optionsButton = new Button(20, 110, 280, 30, "Options");
-	optionsButton.setTextureResourceLocation("textures/optionsImage.png");
-	optionsButton.setCalleeAndMethod(menuState, method);
-	
-	Button helpButton = new Button(20, 170, 280, 30, "Help");
-	helpButton.setTextureResourceLocation("textures/helpImage.png");
-	helpButton.setCalleeAndMethod(menuState, method);
-	
-	Button aboutButton = new Button(20, 350, 280, 30, "About");
-	aboutButton.setTextureResourceLocation("textures/aboutImage.png");
-	aboutButton.setCalleeAndMethod(menuState, method);
-	
-	// An example label
-	Label testLabel = new Label(20, 210, 280, 30, "Test");
-	testLabel.setTextureResourceLocation("textures/aboutImage.png");
-	
-	widgets[0] = startButton;
-	widgets[1] = optionsButton;
-	widgets[2] = aboutButton;
-	widgets[3] = helpButton;
-	widgets[4] = testLabel;
-	menuState.addWidgets(widgets);
-	Engine.getInstance().pushState(menuState);
-	*/
+	//Engine.getInstance().pushState(new MenuState());
 		
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
