@@ -114,9 +114,9 @@
 
 === Milestone 2 ===
 || *Task* || *Hours spent so far* ||
-|| Writing GameObject tests for test suite || 5 ||
+|| Writing GameObject tests for test suite || 9 ||
 || Writing TimeSystem tests for test suite || 1 ||
-|| Organizing team || 1 ||
+|| Organizing team || 3 ||
 || Helping group members with various tasks || 0.5 ||
 
 == Chet Collins ==
