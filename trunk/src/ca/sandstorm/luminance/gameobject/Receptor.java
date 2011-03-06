@@ -66,10 +66,12 @@ public class Receptor extends GameObject implements IRenderableObject
      * before calling this function.
      */
     @Override
-    public void initialize()
+    public void initialize(Grid grid)
     {
 	// Use a solid color for now
 	_texture = 0;
+	
+	super.initialize(grid);
     }
 
     /**
