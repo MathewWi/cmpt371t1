@@ -604,10 +604,7 @@ public class GameState implements IState
 	_grid.draw(gl);
 	gl.glPopMatrix();
 	
-
-	
-	
-	
+	_guiManager.draw(gl);
     }
 
 
