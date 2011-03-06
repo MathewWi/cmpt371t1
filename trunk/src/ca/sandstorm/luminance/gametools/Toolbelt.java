@@ -100,7 +100,7 @@ public class Toolbelt
 	// TODO
 	
 	// Create a mirror and place it
-	Vector2f position2d = _gameState.gridToScreenCoords(x, y);
+	Vector2f position2d = _gameState.gridToWorldCoords(x, y);
 	Vector3f position3d = new Vector3f(position2d.x, 0, position2d.y);
 	IGameObject tool = null;
 	if(toolType == ToolType.Mirror) { 
