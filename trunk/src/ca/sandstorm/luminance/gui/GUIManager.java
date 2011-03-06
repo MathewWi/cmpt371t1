@@ -138,7 +138,9 @@ public class GUIManager
 		x < button.getX() + button.getWidth() &&
 		compensatedY > button.getY() &&
 		compensatedY < button.getY() + button.getHeight()) {
-		((Button)button).tapped();
+		if (((Button)button).getMethod() != null && ((Button)button).getCallee() != null) {
+		    ((Button)button).tapped();
+		}
 		return (Button)button;
 	    }
 	}
