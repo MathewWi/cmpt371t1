@@ -4,7 +4,7 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.resources.TextureResource;
 
-public class Prism implements ITool
+public class PrismTool implements ITool
 {
 
     @Override

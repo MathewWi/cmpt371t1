@@ -3,20 +3,28 @@ package ca.sandstorm.luminance.gametools;
 import java.util.LinkedList;
 
 import javax.vecmath.Vector2f;
+import javax.vecmath.Vector3f;
+
+import ca.sandstorm.luminance.gamelogic.GameState;
+import ca.sandstorm.luminance.gameobject.Mirror;
+import ca.sandstorm.luminance.gameobject.Prism;
 
 public class Toolbelt
 {
     private final float _GRIDPOINT_ERROR = 0.05f;
     private ToolType _selectedTool = ToolType.Mirror;
     
-    // Collections of available tools to place
-    private LinkedList<Mirror> _mirrors;
-    private LinkedList<Prism> _prisms;
+    private GameState _gameState;
     
-    public Toolbelt()
+    // Collections of available tools to place
+    private LinkedList<MirrorTool> _mirrors;
+    private LinkedList<PrismTool> _prisms;
+    
+    public Toolbelt(GameState gameState)
     {
-	_mirrors = new LinkedList<Mirror>();
-	_prisms = new LinkedList<Prism>();
+	_gameState = gameState;
+	_mirrors = new LinkedList<MirrorTool>();
+	_prisms = new LinkedList<PrismTool>();
     }
     
     /**
@@ -30,7 +38,7 @@ public class Toolbelt
 	// Check if click was in the toolbelt area
 	// TODO
 	if(false) {
-	
+	    // Select tool based on click coordinates
 	} else {
 	    // It's a click on the grid
 	    // Add a small amount to the coordinates so that casting to int doesn't possibly round down due to float error
@@ -52,6 +60,7 @@ public class Toolbelt
 	    placeMirror(x, y);
 	    break;
 	case Prism:
+	    placePrism(x, y);
 	    break;
 	case Eraser:
 	    break;
@@ -64,10 +73,48 @@ public class Toolbelt
      * Place a mirror into the world.
      * @param x Grid X coordinate
      * @param y Grid Y coordinate
+     * @return True if placed, false if can't place (out of stock, etc)
      */
-    public void placeMirror(int x, int y)
+    public boolean placeMirror(int x, int y)
     {
+	// Check if stock is available
+	if(_mirrors.isEmpty()) {
+	    return false;
+	}
 	
+	// Check if an object is already at this point
+	// TODO
+	
+	// Create a mirror and place it
+	Mirror m = (Mirror)_mirrors.removeFirst().getGameObject();
+	Vector2f position = _gameState.gridToScreenCoords(x, y);
+	m.setPosition(new Vector3f(position.x, 0, position.y));
+	_gameState.addObject(m);
+	return true;
+    }
+    
+    /**
+     * Place a prism into the world.
+     * @param x Grid X coordinate
+     * @param y Grid Y coordinate
+     * @return True if placed, false if can't place (out of stock, etc)
+     */
+    public boolean placePrism(int x, int y)
+    {
+	// Check if stock is available
+	if(_prisms.isEmpty()) {
+	    return false;
+	}
+	
+	// Check if an object is already at this point
+	// TODO
+	
+	// Create a prism and place it
+	Prism p = (Prism)_prisms.removeFirst().getGameObject();
+	Vector2f position = _gameState.gridToScreenCoords(x, y);
+	p.setPosition(new Vector3f(position.x, 0, position.y));
+	_gameState.addObject(p);
+	return true;
     }
     
     /**
@@ -82,12 +129,12 @@ public class Toolbelt
 	    break;
 	case Mirror:
 	    for(int i = 0; i < quantity; i++) {
-		_mirrors.add(new Mirror());
+		_mirrors.add(new MirrorTool());
 	    }
 	    break;
 	case Prism:
 	    for(int i = 0; i < quantity; i++) {
-		_prisms.add(new Prism());
+		_prisms.add(new PrismTool());
 	    }
 	    break;
 	case Eraser:

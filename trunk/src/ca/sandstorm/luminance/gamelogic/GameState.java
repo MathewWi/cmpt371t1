@@ -23,6 +23,7 @@ import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gameobject.Skybox;
+import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
@@ -31,6 +32,7 @@ import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
 import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
+import ca.sandstorm.luminance.level.XmlLevelTool;
 import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Ray;
 import ca.sandstorm.luminance.resources.TextureResource;
@@ -113,7 +115,7 @@ public class GameState implements IState
      * NOTE: Also calls object's initialize(), at least for now.
      * @param obj Object to add.
      */
-    private void _addObject(IGameObject obj)
+    public void addObject(IGameObject obj)
     {
 	// Initialize object
 	obj.initialize();
@@ -157,7 +159,6 @@ public class GameState implements IState
 	    
 	    // parse the grid
 	    _grid = new Grid(level.getXSize(), level.getYSize(), 1.0f, 1.0f);
-	    //_addObject(_grid);
 	    
 	    // parse all the objects into game objects
 	    for (int i = 0; i < level.getObjects().size(); i++)
@@ -172,7 +173,15 @@ public class GameState implements IState
 		if (obj.getType().equals("brick"))
 		{		   
 		    Box box = new Box(vPos, vScale);
-		    _addObject(box);
+		    addObject(box);
+		}
+	    }
+	    
+	    // Parse tools -zenja
+	    for(XmlLevelTool tool : level.getTools()) {
+		if(tool.getType().equals("mirror")) {
+		    _toolbelt.addToolStock(ToolType.Mirror, tool.getCount());
+		    logger.debug("Level parser: added " + tool.getCount() + " mirror stock.");
 		}
 	    }
 	}
@@ -247,7 +256,7 @@ public class GameState implements IState
 	}
 	
 	// Create the toolbelt
-	_toolbelt = new Toolbelt();
+	_toolbelt = new Toolbelt(this);
 	
 	// Load level
 	_parseLevel();
@@ -265,10 +274,10 @@ public class GameState implements IState
 	resetCamera();
 	
 	// Temporary developer test area
-	IGameObject mirror = new Mirror(new Vector3f(0,0,0), 45f);
-	_addObject(mirror);
-	IGameObject prism = new Prism(new Vector3f(5f, 0f, 0f), 0f);
-	_addObject(prism);
+	//IGameObject mirror = new Mirror(new Vector3f(0,0,0), 45f);
+	//addObject(mirror);
+	//IGameObject prism = new Prism(new Vector3f(5f, 0f, 0f), 0f);
+	//addObject(prism);
 	
 	
 	try {
@@ -467,6 +476,11 @@ public class GameState implements IState
 	
 	_toolbelt.processClick(x, y, gridPoint);
     }
+    
+    public Vector2f gridToScreenCoords(int x, int y)
+    {
+	return _grid.getGridPosition(x, 0, y);
+    }
 
     /**
      * update()
@@ -504,7 +518,7 @@ public class GameState implements IState
 	gl.glEnable(GL10.GL_DEPTH_TEST);
 	gl.glPopMatrix();
 
-	// Get renderer to draw everything on its renderable list -zenja
+	// Get renderer to draw everything on its renderable list
 	Engine.getInstance().getRenderer().draw(gl);
 
 	gl.glPushMatrix();

@@ -36,6 +36,8 @@ public interface IGameObject
      */
     Vector3f getPosition();
     
+    Vector3f setPosition(Vector3f position);
+    
     /**
      * Get the object's rotation.
      * @return Object rotation
