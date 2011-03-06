@@ -10,7 +10,6 @@ public class Eraser implements ITool
     @Override
     public IGameObject getGameObject()
     {
-	// TODO Auto-generated method stub
 	return null;
     }
 
