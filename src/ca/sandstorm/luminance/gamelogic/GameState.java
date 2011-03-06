@@ -283,16 +283,8 @@ public class GameState implements IState
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	//_addObject(_sky);
 	
 	resetCamera();
-	
-	// Temporary developer test area
-	//IGameObject mirror = new Mirror(new Vector3f(0,0,0), 45f);
-	//addObject(mirror);
-	//IGameObject prism = new Prism(new Vector3f(5f, 0f, 0f), 0f);
-	//addObject(prism);
-	
 	
 	try {
 	    for (IWidget widget : _guiManager.getWidgets()) {
@@ -315,6 +307,15 @@ public class GameState implements IState
     {
 	InputButton[] keys = Engine.getInstance().getInputSystem()
 		.getKeyboard().getKeys();
+	
+	// Select tool based on keyboard input -zenja
+	if (keys[KeyEvent.KEYCODE_M].getPressed()) {
+	    _toolbelt.selectTool(ToolType.Mirror);
+	}
+	if (keys[KeyEvent.KEYCODE_P].getPressed()) {
+	    _toolbelt.selectTool(ToolType.Prism);
+	}
+	
 	if (keys[KeyEvent.KEYCODE_1].getPressed()) {
 	    System.exit(-1);
 	}
