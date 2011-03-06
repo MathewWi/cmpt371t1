@@ -14,9 +14,9 @@
 
 *Evaluation Goals:*
 
-		   Assert the software we are making is the software that the user wants.
+		   Verify the utility we plan to provide in our software is a utility users would want.
 
-		   Assert the way we are implementing the project is fulfills the user wants.
+		   Verify our approach in producing said utility for users is effective.
 
 		   Measure the real world usability versus potential usability in ideal conditions.
 
@@ -31,7 +31,7 @@
 *Process:*
 
 			#.	Gather experienced/inexperienced participants
-			#.	Give out each participant from both groups their respective usability test reports
+			#.	Give each participant from both groups their respective usability test reports
 					*	Have each participant fill out “User information section” of report
 			#	Split the participants into control and experiment groups
 			#	Move the groups into their separate testing areas
@@ -76,13 +76,13 @@
 
 *Implementation Plan:*
 
-			Day 1:
+			Phase 1(Milestone 3):
 
 				Every member finds 2 experienced people to test our game
 
 				Groups a) and b) are tested
 
-			Day 2:
+			Phase 2(Milestone 4):
 
 				Test team goes to crowded place in campus finds inexperienced persons
 
@@ -142,7 +142,7 @@ We hope you will have so much fun playing our game!  If not, tell us why.  We wi
 
 		Comments:
 
-*Bugs/Errors:* (more bugs the better)
+*Possible Defects/Errors/Confusions:* (more the better)
 
 		#	When/Where did the bug occur:
 			*	Effects/What happened:
