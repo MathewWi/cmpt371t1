@@ -6,7 +6,6 @@ import javax.vecmath.Vector4f;
 
 import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.RenderType;
-import ca.sandstorm.luminance.graphics.IRenderable;
 
 /**
  * Testing of the Receptor class of the gameobject package
@@ -61,8 +60,8 @@ public class ReceptorTest extends AndroidTestCase {
 	Vector4f dummy = myReceptor.getRotation();
 	assertTrue(dummy.w == 0.0f);
 	assertTrue(dummy.x == 1.0f);
-	assertTrue(dummy.y == 0.0f);
-	assertTrue(dummy.z == 0.5f);
+	assertTrue(dummy.y == 1.0f);
+	assertTrue(dummy.z == 1.0f);
 	 }
 	
 	/**

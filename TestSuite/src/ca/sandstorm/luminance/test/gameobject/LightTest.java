@@ -1,9 +1,6 @@
 package ca.sandstorm.luminance.test.gameobject;
 import android.test.AndroidTestCase;
 
-import javax.vecmath.Vector3f;
-import javax.vecmath.Vector4f;
-
 import ca.sandstorm.luminance.gameobject.Light;
 
 /**

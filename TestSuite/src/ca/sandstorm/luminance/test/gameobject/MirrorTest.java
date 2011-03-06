@@ -6,7 +6,6 @@ import javax.vecmath.Vector4f;
 
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.RenderType;
-import ca.sandstorm.luminance.graphics.IRenderable;
 
 /**
  * Testing of the Mirror class of the gameobject package
@@ -59,10 +58,10 @@ public class MirrorTest extends AndroidTestCase {
 	 */
 	public void testGetRotation() throws Exception {
 	Vector4f dummy = myMirror.getRotation();
-	assertTrue(dummy.w == 0.0f);
-	assertTrue(dummy.x == 1.0f);
-	assertTrue(dummy.y == 0.0f);
-	assertTrue(dummy.z == 0.5f);
+	assertTrue(dummy.w == 0.5f);
+	assertTrue(dummy.x == 0.0f);
+	assertTrue(dummy.y == 1.0f);
+	assertTrue(dummy.z == 0.0f);
 	 }
 	
 	/**
@@ -71,9 +70,9 @@ public class MirrorTest extends AndroidTestCase {
 	 */
 	public void testGetScale() throws Exception {
 	Vector3f dummy = myMirror.getScale();
-	assertTrue(dummy.x == 0.2f);
-	assertTrue(dummy.y == 1.0f);
-	assertTrue(dummy.z == 1.0f);
+	assertTrue(dummy.x == 0.1f);
+	assertTrue(dummy.y == 0.5f);
+	assertTrue(dummy.z == 0.5f);
 	 }
 	
 	/**

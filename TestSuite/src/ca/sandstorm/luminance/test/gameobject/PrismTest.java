@@ -58,10 +58,10 @@ public class PrismTest extends AndroidTestCase {
 	 */
 	public void testGetRotation() throws Exception {
 	Vector4f dummy = myPrism.getRotation();
-	assertTrue(dummy.w == 0.0f);
+	assertTrue(dummy.w == 0.5f);
 	assertTrue(dummy.x == 1.0f);
 	assertTrue(dummy.y == 0.0f);
-	assertTrue(dummy.z == 0.5f);
+	assertTrue(dummy.z == 0.0f);
 	 }
 	
 	/**
@@ -70,9 +70,9 @@ public class PrismTest extends AndroidTestCase {
 	 */
 	public void testGetScale() throws Exception {
 	Vector3f dummy = myPrism.getScale();
-	assertTrue(dummy.x == 0.2f);
-	assertTrue(dummy.y == 1.0f);
-	assertTrue(dummy.z == 1.0f);
+	assertTrue(dummy.x == 0.5f);
+	assertTrue(dummy.y == 0.5f);
+	assertTrue(dummy.z == 0.5f);
 	 }
 	
 	/**

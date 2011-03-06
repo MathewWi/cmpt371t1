@@ -56,7 +56,7 @@ public class BoxTest extends AndroidTestCase {
 	 */
 	public void testGetRotation() throws Exception {
 	Vector4f dummy = myBox.getRotation();
-	assertTrue(dummy.w == 1.0f);
+	assertTrue(dummy.w == 0.0f);
 	assertTrue(dummy.x == 1.0f);
 	assertTrue(dummy.y == 1.0f);
 	assertTrue(dummy.z == 1.0f);
