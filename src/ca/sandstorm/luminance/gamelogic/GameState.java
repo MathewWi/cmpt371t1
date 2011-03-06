@@ -514,15 +514,19 @@ public class GameState implements IState
 	    if (touchedButton != null) {
 		if (touchedButton.getTitle().equalsIgnoreCase("pause")) {
 		    logger.debug("pause has been tapped");
+		    Engine.getInstance().pause();
 			
 		} else if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
 		    logger.debug("mirror has been tapped");
+		    _toolbelt.selectTool(ToolType.Mirror);
 			
 		} else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
 		    logger.debug("prism has been tapped");
+		    _toolbelt.selectTool(ToolType.Prism);
 			
 		} else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
 		    logger.debug("eraser has been tapped");
+		    _toolbelt.selectTool(ToolType.Eraser);
 		}
 	    }
 	    _tapped = false;
@@ -580,7 +584,7 @@ public class GameState implements IState
      */
     @Override
     public void draw(GL10 gl)
-    {
+    {	
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
 	_cam.updateViewMatrix(gl);
@@ -600,7 +604,9 @@ public class GameState implements IState
 	_grid.draw(gl);
 	gl.glPopMatrix();
 	
-	_guiManager.draw(gl);	
+
+	
+	
 	
     }
 
