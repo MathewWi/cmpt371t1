@@ -66,6 +66,17 @@ public abstract class GameObject implements IGameObject
     {
 	return _position;
     }
+    
+    /**
+     * Set the object's position.
+     * @param position New position
+     */
+    @Override
+    public Vector3f setPosition(Vector3f position)
+    {
+        _position = new Vector3f(position);
+        return null;
+    }
 
 
     /**
