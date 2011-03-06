@@ -7,6 +7,9 @@ import java.util.Map;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
@@ -18,6 +21,8 @@ import ca.sandstorm.luminance.gameobject.Prism;
  */
 public class Toolbelt
 {
+    private static final Logger logger = LoggerFactory.getLogger(Toolbelt.class);
+
     private final float _GRIDPOINT_ERROR = 0.05f;
     private ToolType _selectedTool = ToolType.Mirror;
     
@@ -85,6 +90,7 @@ public class Toolbelt
 	
 	// Check if stock is available
 	if(_stock.get(toolType) <= 0) {
+	    logger.debug("Out of stock: " + toolType);
 	    return null;
 	}
 	
@@ -92,11 +98,20 @@ public class Toolbelt
 	// TODO
 	
 	// Create a mirror and place it
-	Vector2f position = _gameState.gridToScreenCoords(x, y);
-	Mirror m = new Mirror(new Vector3f(position.x, 0, position.y), 45f);
-	_gameState.addObject(m);
-	_tools.add(m);
-	return m;
+	Vector2f position2d = _gameState.gridToScreenCoords(x, y);
+	Vector3f position3d = new Vector3f(position2d.x, 0, position2d.y);
+	IGameObject tool = null;
+	if(toolType == ToolType.Mirror) { 
+	    tool = new Mirror(position3d, 45f);
+	} else if(toolType == ToolType.Prism) {
+	    tool = new Prism(position3d, 0f);
+	}
+	
+	addToolStock(toolType, -1);
+	_gameState.addObject(tool);
+	_tools.add(tool);
+	logger.debug("Placed tool: " + toolType);
+	return tool;
     }
     
     /**
@@ -116,5 +131,6 @@ public class Toolbelt
     {
 	assert _stock.containsKey(toolType);
 	_selectedTool = toolType;
+	logger.debug("Selected tool: " + toolType);
     }
 }

@@ -197,6 +197,10 @@ public class GameState implements IState
 		    _toolbelt.addToolStock(ToolType.Mirror, tool.getCount());
 		    logger.debug("Level parser: added " + tool.getCount() + " mirror stock.");
 		}
+		if(tool.getType().equals("prism")) {
+		    _toolbelt.addToolStock(ToolType.Prism, tool.getCount());
+		    logger.debug("Level parser: added " + tool.getCount() + " prism stock.");
+		}
 	    }
 	}
 	catch (IOException e)
