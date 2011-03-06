@@ -75,6 +75,7 @@ public class GameState implements IState
     private static final float TOUCH_SENSITIVITY = 3.0f;
     private int _touchMode;
     private GUIManager _guiManager;
+    private boolean _tapped = false;
     
     // Toolbelt
     private Toolbelt _toolbelt;
@@ -104,9 +105,22 @@ public class GameState implements IState
     {
 	_guiManager = new GUIManager();
 	IWidget[] widgets = new IWidget[GUIManager.MAX_WIDGET_COUNT];
-	Button mirrorButton = new Button(50, 100, 100, 50, "Mirror");
+	Button mirrorButton = new Button(50, 100, 30, 30, "Mirror");
 	mirrorButton.setTextureResourceLocation("textures/mirror.png");
+	
+	Button prismButton = new Button(80, 100, 30, 30, "Prism");
+	prismButton.setTextureResourceLocation("textures/prism.png");
+	
+	Button eraserButton = new Button(110, 100, 30, 30, "Eraser");
+	eraserButton.setTextureResourceLocation("textures/eraser.png");
+	
+	Button pauseButton = new Button(140, 100, 30, 30, "Pause");
+	pauseButton.setTextureResourceLocation("textures/pause.png");
+	
 	widgets[0] = mirrorButton;
+	widgets[1] = prismButton;
+	widgets[2] = eraserButton;
+	widgets[3] = pauseButton;
 	_guiManager.addWidgets(widgets);
     }
     
@@ -360,6 +374,8 @@ public class GameState implements IState
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 		    .getTouchScreen().getTouchEvent();
 
+	    processToolBeltInput(touchEvent);
+	    
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		    // TODO: Make mouseClick() only trigger on a full click, and not when trying to zoom/drag
@@ -457,6 +473,43 @@ public class GameState implements IState
 
     }
 
+    /**
+     * Private function called by processInput to handle toolBelt input
+     * @param touchEvent
+     * 			current movement event
+     * @precond touchEvent != null
+     * 
+     * @author Jonny
+     */
+    private void processToolBeltInput(MotionEvent touchEvent)
+    {
+	if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
+		_tapped = true;
+	}
+	
+	if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
+	    
+	    Button touchedButton = _guiManager.touchOccured(touchEvent);
+	    if (touchedButton != null) {
+		if (touchedButton.getTitle().equalsIgnoreCase("pause")) {
+		    logger.debug("pause has been tapped");
+			
+		} else if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
+		    logger.debug("mirror has been tapped");
+			
+		} else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
+		    logger.debug("prism has been tapped");
+			
+		} else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
+		    logger.debug("eraser has been tapped");
+		}
+	    }
+	    _tapped = false;
+	    
+	}
+    }
+    
+    
     /**
      * Handle a mouse/touchpad click.
      * @param x Click X coordinate
