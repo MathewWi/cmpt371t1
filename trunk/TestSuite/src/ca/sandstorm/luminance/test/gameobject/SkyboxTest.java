@@ -1,10 +1,5 @@
 package ca.sandstorm.luminance.test.gameobject;
 
-import javax.vecmath.Vector3f;
-import javax.vecmath.Vector4f;
-
-import ca.sandstorm.luminance.gameobject.Receptor;
-import ca.sandstorm.luminance.gameobject.RenderType;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import android.test.AndroidTestCase;
 

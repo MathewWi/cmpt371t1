@@ -68,7 +68,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTotalHeight() throws Exception {
-	assertTrue(myGrid.getTotalWidth() == 10.0f);
+	assertTrue(myGrid.getTotalHeight() == 10.0f);
 	 }
 	
 	/**
@@ -96,9 +96,9 @@ public class GridTest extends AndroidTestCase {
 	 */
 	public void testGetCellCenter() throws Exception {
 	Vector3f dummy = myGrid.getCellCenter(3, 2);
-	assertTrue(dummy.x == 10.5);
+	assertTrue(dummy.x == 2.5);
 	assertTrue(dummy.y == 0);
-	assertTrue(dummy.z == 5.5);
+	assertTrue(dummy.z == 3.5);
 	 }
 
 	/**
@@ -107,7 +107,7 @@ public class GridTest extends AndroidTestCase {
 	 */
 	public void testGetGridPosition() throws Exception {
 	Vector2f dummy = myGrid.getGridPosition(3.0f, 2.0f, 1.0f);
-	assertTrue(dummy.x == 1.0f);
+	assertTrue(dummy.x == 3.0f);
 	assertTrue(dummy.y == 1.0f);
 	 }
 	

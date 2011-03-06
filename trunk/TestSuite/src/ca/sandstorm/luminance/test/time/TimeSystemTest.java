@@ -2,8 +2,6 @@ package ca.sandstorm.luminance.test.time;
 import android.test.AndroidTestCase;
 
 import ca.sandstorm.luminance.time.TimeSystem;
-import ca.sandstorm.luminance.gameobject.RenderType;
-import ca.sandstorm.luminance.math.Lerp;
 
 /**
  * Testing of the TimeSystem class of the gameobject package
