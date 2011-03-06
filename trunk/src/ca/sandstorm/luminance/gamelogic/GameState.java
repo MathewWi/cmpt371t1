@@ -555,9 +555,10 @@ public class GameState implements IState
 	_toolbelt.processClick(x, y, gridPoint);
     }
     
-    public Vector2f gridToWorldCoords(int x, int y)
+    public Vector3f gridToWorldCoords(int x, int y)
     {
-	return _grid.getGridPosition(x, 0, y);
+	//return _grid.getGridPosition(x, 0, y);
+	return _grid.getCellCenter(y, x);
     }
 
     /**

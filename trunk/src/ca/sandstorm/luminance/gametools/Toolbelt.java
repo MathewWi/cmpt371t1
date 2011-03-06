@@ -100,13 +100,12 @@ public class Toolbelt
 	// TODO
 	
 	// Create a mirror and place it
-	Vector2f position2d = _gameState.gridToWorldCoords(x, y);
-	Vector3f position3d = new Vector3f(position2d.x, 0, position2d.y);
+	Vector3f position = _gameState.gridToWorldCoords(x, y);
 	IGameObject tool = null;
 	if(toolType == ToolType.Mirror) { 
-	    tool = new Mirror(position3d, 45f);
+	    tool = new Mirror(position, 45f);
 	} else if(toolType == ToolType.Prism) {
-	    tool = new Prism(position3d, 0f);
+	    tool = new Prism(position, 0f);
 	}
 	
 	addToolStock(toolType, -1);
