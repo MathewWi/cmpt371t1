@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="libs/slf4j-android-1.6.1-RC1.jar"/>
 	<classpathentry kind="lib" path="libs/log4j-over-slf4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="conf"/>
-	<classpathentry kind="lib" path="libs/vecmath.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/vecmath.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
