@@ -9,6 +9,9 @@ import android.test.AndroidTestCase;
  *
  */
 public class CollidersTest extends AndroidTestCase {
+	
+	private Ray rayTest;
+	private Plane planeTest;
 
 	/*
 	 * Setting up instances to use for testing
@@ -22,7 +25,7 @@ public class CollidersTest extends AndroidTestCase {
 	/*
 	 * Testing of the dotProduct() method
 	 */
-	public static void testDotProduct() throws Exception {
+	public void testDotProduct() throws Exception {
 		// Test coordinates
 		float x1 = (float) 1.5;
 		float y1 = (float) 3.5;
@@ -47,14 +50,14 @@ public class CollidersTest extends AndroidTestCase {
 	/*
 	 * Testing of the intersect() method
 	 */
-	public static void testIntersect() throws Exception {
+	public  void testIntersect() throws Exception {
 		float px = (float) 1.0;
 		float py = (float) 3.0;
 		float pz = (float) 2.0;
 		float pxNormal = (float) 2.0;
 		float pyNormal = (float) 7.0;
 		float pzNormal = (float) 6.0;
-		Plane planeTest = new Plane(px, py, pz, pxNormal, pyNormal, pzNormal);
+		planeTest = new Plane(px, py, pz, pxNormal, pyNormal, pzNormal);
 		
 		float rx = (float)1.7;
 		float ry = (float)4.5;
@@ -62,25 +65,35 @@ public class CollidersTest extends AndroidTestCase {
 		float rxDir = (float)1.1;
 		float ryDir = (float)5.2;
 		float rzDir = (float)6.2;
-		Ray rayTest = new Ray(rx,ry,rz,rxDir,ryDir,rzDir);
+		rayTest = new Ray(rx,ry,rz,rxDir,ryDir,rzDir);
 		
+		// Perform calculations in intersect()
 		double D = Colliders.dotProduct(planeTest.getPosition(), planeTest.getNormal());
 		double numerator = Colliders.dotProduct(planeTest.getNormal(), rayTest.getPosition()) + D;
 		double denominator = Colliders.dotProduct(planeTest.getNormal(), rayTest.getDirection());
-		double result = -(numerator/denominator);
 		
-		
+		// Compare actual value to result of intersect()
+		double actual = -(numerator/denominator);
+		double result = Colliders.intersect(rayTest, planeTest);
+		assert(result == actual);
 	}
 	
 	/*
 	 * Testing of the collide() method
 	 */
-	public static void testCollide() throws Exception {
-		
+	public void testCollide() throws Exception {
+		Vector3f collisionPoint = Colliders.collide(rayTest, planeTest);
+		assertNotNull(collisionPoint);
+	}
+	
+	/*
+	 * Testing of the intersionPlane() method
+	 */
+	public void testIntersionPlane() throws Exception {
+		assert(true);
 	}
 
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
-
 }
