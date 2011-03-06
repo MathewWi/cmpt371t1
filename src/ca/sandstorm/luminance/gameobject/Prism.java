@@ -23,7 +23,6 @@ public class Prism extends GameObject implements IRenderableObject
     public Prism(Vector3f position, float orientation)
     {
 	// TODO: Improve orientation
-	// TODO: Make a prism renderable
 	_orientation = orientation;
 	_position = new Vector3f(position);
 	_rotation = new Vector4f(1.0f, 0.0f, 0.0f, orientation);
@@ -32,7 +31,7 @@ public class Prism extends GameObject implements IRenderableObject
     }
 
     @Override
-    public void initialize()
+    public void initialize(Grid grid)
     {
 	// Texture needs to be loaded ahead of time because an instance of GL
 	// is needed to load it, which is unavailable here.
@@ -41,6 +40,8 @@ public class Prism extends GameObject implements IRenderableObject
 	    throw new RuntimeException("Unable to get prism texture. It hasn't been loaded yet!");
 	}
 	_texture = tex.getTexture();
+	
+	super.initialize(grid);
     }
 
 

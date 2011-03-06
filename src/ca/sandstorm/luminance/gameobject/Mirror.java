@@ -31,7 +31,7 @@ public class Mirror extends GameObject implements IRenderableObject
     }
 
     @Override
-    public void initialize()
+    public void initialize(Grid grid)
     {
 	// Texture needs to be loaded ahead of time because an instance of GL
 	// is needed to load it, which is unavailable here.
@@ -40,6 +40,8 @@ public class Mirror extends GameObject implements IRenderableObject
 	    throw new RuntimeException("Unable to get mirror texture. It hasn't been loaded yet!");
 	}
 	_texture = tex.getTexture();
+	
+	super.initialize(grid);
     }
 
 

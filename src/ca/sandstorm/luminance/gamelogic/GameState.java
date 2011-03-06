@@ -20,8 +20,6 @@ import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
-import ca.sandstorm.luminance.gameobject.Mirror;
-import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
@@ -132,7 +130,7 @@ public class GameState implements IState
     public void addObject(IGameObject obj)
     {
 	// Initialize object
-	obj.initialize();
+	obj.initialize(_grid);
 	
 	// Add to updatable objects list
 	_objects.add(obj);
@@ -140,6 +138,21 @@ public class GameState implements IState
 	// Add to renderer if applicable
 	if(obj instanceof IRenderableObject) {
 	    Engine.getInstance().getRenderer().add((IRenderableObject)obj);
+	}
+    }
+    
+    /**
+     * Remove an object from the world.
+     * @param obj Object to remove
+     */
+    public void removeObject(IGameObject obj)
+    {
+	// Remove from objects list
+	_objects.remove(obj);
+	
+	// Remove from renderer
+	if(obj instanceof IRenderableObject) {
+	    Engine.getInstance().getRenderer().remove((IRenderableObject)obj);
 	}
     }
     
@@ -318,6 +331,9 @@ public class GameState implements IState
 	}
 	if (keys[KeyEvent.KEYCODE_P].getPressed()) {
 	    _toolbelt.selectTool(ToolType.Prism);
+	}
+	if (keys[KeyEvent.KEYCODE_K].getPressed()) {
+	    _toolbelt.selectTool(ToolType.Eraser);
 	}
 	
 	if (keys[KeyEvent.KEYCODE_1].getPressed()) {

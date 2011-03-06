@@ -71,7 +71,9 @@ public class Toolbelt
      */
     private void _gridClick(int x, int y)
     {
-	if(_selectedTool != ToolType.Eraser) {
+	if(_selectedTool == ToolType.Eraser) {
+	    eraseTool(x, y);
+	} else {
 	    placeTool(_selectedTool, x, y);
 	}
     }
@@ -112,6 +114,29 @@ public class Toolbelt
 	_tools.add(tool);
 	logger.debug("Placed tool: " + toolType);
 	return tool;
+    }
+    
+    /**
+     * Erase a previously-placed tool.
+     * @param x Grid X coordinate
+     * @param y Grid Y coordinate
+     */
+    public void eraseTool(int x, int y)
+    {
+	for(IGameObject tool : _tools) {
+	    if(tool.getGridPositionX() == x && tool.getGridPositionY() == y) {
+		logger.debug("Found tool to erase at " + x + "," + y + ": " + tool);
+		if(tool instanceof Mirror) {
+		    addToolStock(ToolType.Mirror, 1);
+		} else if(tool instanceof Prism) {
+		    addToolStock(ToolType.Prism, 1);
+		} else {
+		    assert false;
+		}
+		_gameState.removeObject(tool);
+		break;
+	    }
+	}
     }
     
     /**
