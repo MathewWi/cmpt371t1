@@ -3,6 +3,7 @@ package ca.sandstorm.luminance.test.math;
 import javax.vecmath.Vector3f;
 
 import ca.sandstorm.luminance.math.Colliders;
+import ca.sandstorm.luminance.math.Plane;
 import android.test.AndroidTestCase;
 
 /**
@@ -44,6 +45,28 @@ public class CollidersTest extends AndroidTestCase {
 			assertTrue(result.equals(actual));
 		}
 		catch(Exception ex){}
+	}
+	
+	/*
+	 * Testing of the intersect() method
+	 */
+	public static void testIntersect() throws Exception {
+		float px = (float) 1.0;
+		float py = (float) 3.0;
+		float pz = (float) 2.0;
+		float pxNormal = (float) 2.0;
+		float pyNormal = (float) 7.0;
+		float pzNormal = (float) 6.0;
+		
+		Plane planeTest = new Plane(px, py, pz, pxNormal, pyNormal, pzNormal);
+		
+	}
+	
+	/*
+	 * Testing of the collide() method
+	 */
+	public static void testCollide() throws Exception {
+		
 	}
 
 	protected void tearDown() throws Exception {
