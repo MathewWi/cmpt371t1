@@ -13,17 +13,18 @@ import android.test.AndroidTestCase;
 public class PlaneTest extends AndroidTestCase {
 
 	private Plane tester;
-	private float testX;
-	private float testY;
-	private float testZ;
-	private float testXNormal;
-	private float testYNormal;
-	private float testZNormal;
+	private float testX = 1.0f;
+	private float testY = 1.0f;
+	private float testZ = 1.0f;
+	private float testXNormal = 1.0f;
+	private float testYNormal = 1.0f;
+	private float testZNormal = 1.0f;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		tester = new Plane(testX,testY,testZ,testXNormal,testYNormal,testZNormal);
 	}
+	
 
 	/*
 	 * Testing the setPosition() method

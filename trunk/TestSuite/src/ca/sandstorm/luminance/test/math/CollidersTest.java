@@ -1,9 +1,6 @@
 package ca.sandstorm.luminance.test.math;
-
 import javax.vecmath.Vector3f;
-
-import ca.sandstorm.luminance.math.Colliders;
-import ca.sandstorm.luminance.math.Plane;
+import ca.sandstorm.luminance.math.*;
 import android.test.AndroidTestCase;
 
 /**
@@ -57,8 +54,21 @@ public class CollidersTest extends AndroidTestCase {
 		float pxNormal = (float) 2.0;
 		float pyNormal = (float) 7.0;
 		float pzNormal = (float) 6.0;
-		
 		Plane planeTest = new Plane(px, py, pz, pxNormal, pyNormal, pzNormal);
+		
+		float rx = (float)1.7;
+		float ry = (float)4.5;
+		float rz = (float)3.2;
+		float rxDir = (float)1.1;
+		float ryDir = (float)5.2;
+		float rzDir = (float)6.2;
+		Ray rayTest = new Ray(rx,ry,rz,rxDir,ryDir,rzDir);
+		
+		double D = Colliders.dotProduct(planeTest.getPosition(), planeTest.getNormal());
+		double numerator = Colliders.dotProduct(planeTest.getNormal(), rayTest.getPosition()) + D;
+		double denominator = Colliders.dotProduct(planeTest.getNormal(), rayTest.getDirection());
+		double result = -(numerator/denominator);
+		
 		
 	}
 	
