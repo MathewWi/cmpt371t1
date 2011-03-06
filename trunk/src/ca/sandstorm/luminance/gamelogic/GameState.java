@@ -23,6 +23,7 @@ import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gameobject.Skybox;
+import ca.sandstorm.luminance.gametools.Toolbelt;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
@@ -72,8 +73,11 @@ public class GameState implements IState
     private static final float TOUCH_SENSITIVITY = 3.0f;
     private int _touchMode;
     private GUIManager _guiManager;
+    
+    // Toolbelt
+    private Toolbelt _toolbelt;
 
-    // Container of game objects -zenja (and fixed properly by shinhalsafar)
+    // Container of game objects
     private LinkedList<IGameObject> _objects;
 
 
@@ -106,6 +110,7 @@ public class GameState implements IState
     
     /**
      * Add a game object to the game.
+     * NOTE: Also calls object's initialize(), at least for now.
      * @param obj Object to add.
      */
     private void _addObject(IGameObject obj)
@@ -236,13 +241,13 @@ public class GameState implements IState
 	    Engine.getInstance().getResourceManager()
 		    .loadTexture(gl, "textures/wallBrick.jpg");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/missing.jpg");
-	
-
-	    
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
 	}
+	
+	// Create the toolbelt
+	_toolbelt = new Toolbelt();
 	
 	// Load level
 	_parseLevel();
@@ -348,22 +353,11 @@ public class GameState implements IState
 
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-		    // unproject test
-		    Ray r = _cam.getWorldCoord(new Vector2f(touchEvent.getX(),
-			    touchEvent.getY() - Engine.getInstance().getMenuBarHeight()));
+		    // TODO: Make mouseClick() only trigger on a full click, and not when trying to zoom/drag
+		    _mouseClick(touchEvent.getX(), touchEvent.getY() - Engine.getInstance().getMenuBarHeight());
 		    
-		    if (r != null)
-		    {
-			Vector3f colPoint = Colliders.collide(r, _grid.getPlane());
-			logger.debug("CollisionPoint: " + colPoint);
-			
-			Vector2f gridPoint = _grid.getGridPosition(colPoint.x, colPoint.y, colPoint.z);
-			logger.debug("Grid Point: " + gridPoint);
-		    }
-
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();
-
 		    _touchMode = DRAG;
 		case MotionEvent.ACTION_MOVE:
 		    if (_touchMode == DRAG) {
@@ -452,6 +446,26 @@ public class GameState implements IState
 	    }
 	}
 
+    }
+
+    /**
+     * Handle a mouse/touchpad click.
+     * @param x Click X coordinate
+     * @param y Click Y coordinate
+     */
+    private void _mouseClick(float x, float y)
+    {
+	Ray r = _cam.getWorldCoord(new Vector2f(x, y));
+	if (r == null)
+	    return;
+
+	Vector3f colPoint = Colliders.collide(r, _grid.getPlane());
+	logger.debug("CollisionPoint: " + colPoint);
+
+	Vector2f gridPoint = _grid.getGridPosition(colPoint.x, colPoint.y, colPoint.z);
+	logger.debug("Grid Point: " + gridPoint);
+	
+	_toolbelt.processClick(x, y, gridPoint);
     }
 
     /**
