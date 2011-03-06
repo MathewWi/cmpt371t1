@@ -23,12 +23,16 @@ import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gameobject.Skybox;
+import ca.sandstorm.luminance.gui.Button;
+import ca.sandstorm.luminance.gui.GUIManager;
+import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
 import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
 import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Ray;
+import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
 
 
@@ -67,6 +71,7 @@ public class GameState implements IState
     private static final float TOUCH_CAMERA_SPEED = 45.0f;
     private static final float TOUCH_SENSITIVITY = 3.0f;
     private int _touchMode;
+    private GUIManager _guiManager;
 
     // Container of game objects -zenja (and fixed properly by shinhalsafar)
     private LinkedList<IGameObject> _objects;
@@ -82,6 +87,21 @@ public class GameState implements IState
 	logger.debug("GameState()");
 	
 	_objects = new LinkedList<IGameObject>();
+	addToolBelt();
+    }
+    
+    /**
+     * Add toolbelt which consist all tool buttons created using GUI
+     * @author Jonny
+     */
+    private void addToolBelt()
+    {
+	_guiManager = new GUIManager();
+	IWidget[] widgets = new IWidget[GUIManager.MAX_WIDGET_COUNT];
+	Button mirrorButton = new Button(50, 100, 100, 50, "Mirror");
+	mirrorButton.setTextureResourceLocation("textures/mirror.png");
+	widgets[0] = mirrorButton;
+	_guiManager.addWidgets(widgets);
     }
     
     /**
@@ -216,6 +236,9 @@ public class GameState implements IState
 	    Engine.getInstance().getResourceManager()
 		    .loadTexture(gl, "textures/wallBrick.jpg");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/missing.jpg");
+	
+
+	    
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
@@ -241,6 +264,20 @@ public class GameState implements IState
 	_addObject(mirror);
 	IGameObject prism = new Prism(new Vector3f(5f, 0f, 0f), 0f);
 	_addObject(prism);
+	
+	
+	try {
+	    for (IWidget widget : _guiManager.getWidgets()) {
+		if (widget != null) {
+		    String textureResourceLocation = widget.getTextureResourceLocation();
+		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
+		    widget.setTexture(texture);
+		}
+	    }	    
+	} catch (IOException e) {
+	    // TODO: improve this
+	    throw new RuntimeException("Unable to load a required texture!");
+	}
     }
 
     /**
@@ -460,6 +497,9 @@ public class GameState implements IState
 	gl.glTranslatef(0.0f, 0, 0f);
 	_grid.draw(gl);
 	gl.glPopMatrix();
+	
+	_guiManager.draw(gl);	
+	
     }
 
 
