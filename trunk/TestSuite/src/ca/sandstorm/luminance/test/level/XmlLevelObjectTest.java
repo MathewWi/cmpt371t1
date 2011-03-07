@@ -1,8 +1,15 @@
 package ca.sandstorm.luminance.test.level;
 
+import ca.sandstorm.luminance.level.XmlLevelObject;
 import android.test.AndroidTestCase;
 
 public class XmlLevelObjectTest extends AndroidTestCase {
+	
+	
+	
+	// USE MOCK OBJECTS
+	private XmlLevelObject tObjectBrick, tObjectGoal, tObjectOut;
+	
 	protected void setUp() throws Exception {
 		super.setUp();
 
