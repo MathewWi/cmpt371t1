@@ -21,7 +21,7 @@ Personal code reviews were done on team members own time.  The process was to re
   * !SkyBox.java:
     * Lines 75, 81, 87: Magic numbers.  What do these values represent?  
 
-= Stephen Damm = 
+== Stephen Damm == 
 * ALL IF STATEMENTS NEED BRACERS * 
 
 Under all circumstances, please put braces around all if statements, regardless of how many lines they are. Please run Eclipse -> Project -> Source -> Format on your files before commit.
