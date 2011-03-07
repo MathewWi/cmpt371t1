@@ -75,6 +75,9 @@ public class GameState implements IState
     private int _touchMode;
     private GUIManager _guiManager;
     
+    // Temporary Point to avoid creating new ones
+    private Point2i tempPoint;
+    
     // Toolbelt
     private Toolbelt _toolbelt;
 
@@ -94,6 +97,7 @@ public class GameState implements IState
 	
 	//_objects = new LinkedList<IGameObject>();
 	_objects = new HashMap<Point2i, IGameObject>();
+	tempPoint = new Point2i();
 	
 	// Create GUI manager and add initial widgets
 	_guiManager = new GUIManager();
@@ -525,7 +529,9 @@ public class GameState implements IState
     public Point2i worldToGridCoords(Vector3f position)
     {
 	Vector2f pos2d = _grid.getGridPosition(position.x, 0, position.z);
-	return new Point2i((int)pos2d.x, (int)pos2d.y);
+	tempPoint.x = (int)pos2d.x;
+	tempPoint.y = (int)pos2d.y;
+	return tempPoint;
     }
     
     /**
@@ -536,7 +542,9 @@ public class GameState implements IState
      */
     public IGameObject getObjectAtGridCoords(int x, int y)
     {
-	return _objects.get(new Point2i(x, y));
+	tempPoint.x = x;
+	tempPoint.y = y;
+	return _objects.get(tempPoint);
     }
     
     /**
@@ -547,7 +555,9 @@ public class GameState implements IState
      */
     public boolean isCellOccupied(int x, int y)
     {
-	return _objects.containsKey(new Point2i(x, y));
+	tempPoint.x = x;
+	tempPoint.y = y;
+	return _objects.containsKey(tempPoint);
     }
 
     /**
