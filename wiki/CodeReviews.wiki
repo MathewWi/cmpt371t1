@@ -1,29 +1,30 @@
 #summary Results of code reviews we've done so far.
 
-= Informal Code Reviews =
-Informal code reviews are documented within the google code source viewer.  The reviews done by each of the members are:
+= Personal Code Reviews =
+Personal code reviews were done on team members own time.  The process was to review code that was not written by them, and log issues they saw here.
 
 == Martina ==
 
-* Box.java: http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/Box.java
+* Box.java:
+   * Line 36: Why are values hard coded for rotation?
 
-* !GameObject.java: http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/GameObject.java
+* !GameObject.java: 
+   * Lines 70-78: Commented out code.  Is this still needed?  If not, delete it.
 
 * Grid.java: 
-http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/Grid.java
+   * Line 79, 107, 302, 306, 317: Commented out code.
+   * Line 82: Not very clear what this loop does.  Consider adding comment.
 
 * Mirror.java:
-http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/Mirror.java
+   * Lines 29 and 30: Why are these values hard coded?  
 
 * !SkyBox.java:
-http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/Skybox.java
+   * Lines 75, 81, 87: Magic numbers.  What do these values represent?  
 
-
-= Code Review by Stephen Damm = 
+= Stephen Damm = 
 * ALL IF STATEMENTS NEED BRACERS * 
 
 Under all circumstances, please put braces around all if statements, regardless of how many lines they are. Please run Eclipse -> Project -> Source -> Format on your files before commit.
-
 
 * !ResourceManager() *
 
