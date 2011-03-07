@@ -62,6 +62,7 @@ public class Engine
 
     // store menu bar height for offsetting input coordinates
     private int _menuBarHeight;
+    private int _titleBarHeight;
 
 
     /**
@@ -82,6 +83,9 @@ public class Engine
 	_touchFilter = new MultiTouchFilter();
 
 	_lastTime = SystemClock.uptimeMillis();
+	
+	_menuBarHeight = 0;
+	_titleBarHeight = 0;
     }
 
 
@@ -185,6 +189,18 @@ public class Engine
     {
 	_menuBarHeight = h;
     }
+    
+    
+    /**
+     * Set the title bar height the engine will use to offset input coordinates.
+     * 
+     * @param h
+     *            The height value in pixels of the menu bar
+     */
+    public void setTitleBarHeight(int h)
+    {
+	_titleBarHeight = h;
+    }    
 
 
     /**
@@ -196,6 +212,17 @@ public class Engine
     {
 	return _menuBarHeight;
     }
+    
+    
+    /**
+     * Get the title bar height.
+     * 
+     * @return the height in pixels.
+     */
+    public int getTitleBarHeight()
+    {
+	return _titleBarHeight;
+    }    
 
 
     /**
