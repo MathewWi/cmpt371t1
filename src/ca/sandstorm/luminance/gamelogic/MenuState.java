@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import android.opengl.GLU;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
@@ -86,6 +87,8 @@ public class MenuState implements IState
     @Override
     public void deviceChanged(GL10 gl, int w, int h)
     {
+	logger.debug("deviceChanged(" + gl + ", " + w + ", " + h + ")");
+	
 	gl.glShadeModel(GL10.GL_SMOOTH); // Enable Smooth Shading
 	gl.glClearColor(0.182f, 0.182f, 1, 1); // Error blue
 	gl.glClearDepthf(1.0f); // Depth Buffer Setup
@@ -101,14 +104,6 @@ public class MenuState implements IState
 	if (h == 0) {
 	    h = 1;
 	}
-
-	// setup 2D ortho mode with 0,0 top left
-	gl.glViewport(0,0,w,h);
-	gl.glMatrixMode(GL10.GL_PROJECTION);
-	gl.glLoadIdentity();
-	gl.glOrthof(0, w, h, 0, -1.0f, 1.0f);
-	gl.glMatrixMode(GL10.GL_MODELVIEW);
-	//gl.glLoadIdentity();
     }
     
     
@@ -122,7 +117,8 @@ public class MenuState implements IState
     public void init(GL10 gl)
     {
 	// TODO Auto-generated method stub
-	logger.debug("MenuState init has been called");
+	logger.debug("init(" + gl + ")");
+	
 	try {
 	    for (IWidget widget : _guiManager.getWidgets()) {
 		if (widget != null) {
@@ -199,17 +195,32 @@ public class MenuState implements IState
     @Override
     public void draw(GL10 gl)
     {
-	gl.glViewport(0,0,Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
-	gl.glMatrixMode(GL10.GL_PROJECTION);
-	gl.glLoadIdentity();
-	gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
-	gl.glMatrixMode(GL10.GL_MODELVIEW);	
-	gl.glLoadIdentity();
-	
+	// clear to back and clear the depth buffer!
 	gl.glClearColor(0, 0, 0, 1);
-	gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);	
+
+	gl.glViewport(0,0,Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
+	
+	// render 3D stuff - if any
+	// ... matrix push pops etc
+	
+	// render 2D stuff in a complex matrix saving manner
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
+	gl.glPushMatrix();	
+		gl.glLoadIdentity();
 		
-	_guiManager.draw(gl);
+		gl.glMatrixMode(GL10.GL_PROJECTION);
+		gl.glPushMatrix();
+			gl.glLoadIdentity();
+			gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
+			
+			gl.glMatrixMode(GL10.GL_MODELVIEW);
+			_guiManager.draw(gl);
+			gl.glMatrixMode(GL10.GL_PROJECTION);
+		gl.glPopMatrix();
+		
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
+	gl.glPopMatrix();		
     }
 
 
