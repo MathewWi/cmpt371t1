@@ -10,7 +10,9 @@ public class XmlLevelObject
 	private String _type;
 	private float _positionX;
 	private float _positionY;
-	private float _rotation;
+	private float _rotationX;
+	private float _rotationY;
+	private float _rotationZ;
 	
 	/**
 	 * Constructor for XmlLevelObject.
@@ -90,18 +92,38 @@ public class XmlLevelObject
 	 * @precond rotation > 0
 	 * @postcond _rotation == rotation
 	 */
-	public void setRotation(float rotation)
+	public void setRotation(float rotationX, float rotationY, float rotationZ)
 	{
-		_rotation = rotation;
+		_rotationX = rotationX;
+		_rotationY = rotationY;
+		_rotationZ = rotationZ;
 	}
 	
 	/**
-	 * The getter method for the object's rotation.
-	 * @return The object's rotation.
+	 * Getter method for the object's X rotation.
+	 * @return The object's X rotation.
 	 */
-	public float getRotation()
+	public float getRotationX()
 	{
-		return _rotation;
+	    return _rotationX;
+	}
+	
+	/**
+	 * Getter method for the object's Y rotation.
+	 * @return The object's Y rotation.
+	 */
+	public float getRotationY()
+	{
+	    return _rotationY;
+	}
+	
+	/**
+	 * Getter method for the object's Z rotation.
+	 * @return The object's Z rotation.
+	 */
+	public float getRotationZ()
+	{
+	    return _rotationZ;
 	}
 	
 	/**
@@ -111,6 +133,6 @@ public class XmlLevelObject
 	{
 		return ("\nType: " + getType() + 
 				"\nPosition: " + getPositionX() + " x " + getPositionY() + 
-				"\nRotation: " + getRotation());
+				"\nRotation: (" + getRotationX() + ", " + getRotationY() + ", " + getRotationZ() + ")");
 	}
 }

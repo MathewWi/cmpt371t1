@@ -69,9 +69,6 @@ public class XmlLevelGoal extends XmlLevelObject {
 	 */
 	public String toString()
 	{
-		return ("\nType: " + getType() + 
-				"\nColour: " + getColour() +
-				"\nPosition: " + getPositionX() + " x " + getPositionY() + 
-				"\nRotation: " + getRotation());
+		return (super.toString() + "\nColour: " + getColour());
 	}
 }

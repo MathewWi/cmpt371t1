@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.level;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.LinkedList;
 
@@ -81,12 +80,12 @@ public class XmlLevelParser
 			int yString = Integer.parseInt(y);
 			
 			Element wElement = (Element)gridElement.getElementsByTagName("width").item(0);
-			String w = ((Node)yElement.getChildNodes().item(0)).getNodeValue();
-			int iW = Integer.parseInt(y);
+			String w = ((Node)wElement.getChildNodes().item(0)).getNodeValue();
+			int iW = Integer.parseInt(w);
 			
 			Element hElement = (Element)gridElement.getElementsByTagName("height").item(0);
-			String h = ((Node)yElement.getChildNodes().item(0)).getNodeValue();
-			int iH = Integer.parseInt(y);		
+			String h = ((Node)hElement.getChildNodes().item(0)).getNodeValue();
+			int iH = Integer.parseInt(h);		
 			
 
 			// Get level objects.
@@ -156,18 +155,27 @@ public class XmlLevelParser
 					// Get the rotation
 					NodeList rotationNodeList = element.getElementsByTagName("rotation");
 					Element rotationElement = (Element)rotationNodeList.item(0);
-					NodeList rotation = rotationElement.getChildNodes();
-					String rotationString = ((Node)rotation.item(0)).getNodeValue();
-					//System.out.println("Object rotation: " + rotationString);
-					float rotationFloat = 0;
-					try
-					{
-						rotationFloat = Float.valueOf(rotationString.trim()).floatValue();
-					}
-					catch (NumberFormatException e)
-					{
-						e.printStackTrace();
-					}
+					
+					// Get the x rotation
+					NodeList objectXRotationNodeList = rotationElement.getElementsByTagName("x");
+					Element objectXRotationElement = (Element)objectXRotationNodeList.item(0);
+					NodeList objectXRotation = objectXRotationElement.getChildNodes();
+					String objectXRotationString = ((Node)objectXRotation.item(0)).getNodeValue();
+					float objectXRotationFloat = Float.parseFloat(objectXRotationString);
+					
+					// Get the y rotation
+					NodeList objectYRotationNodeList = rotationElement.getElementsByTagName("y");
+					Element objectYRotationElement = (Element)objectYRotationNodeList.item(0);
+					NodeList objectYRotation = objectYRotationElement.getChildNodes();
+					String objectYRotationString = ((Node)objectYRotation.item(0)).getNodeValue();
+					float objectYRotationFloat = Float.parseFloat(objectYRotationString);
+					
+					// Get the z rotation
+					NodeList objectZRotationNodeList = rotationElement.getElementsByTagName("z");
+					Element objectZRotationElement = (Element)objectZRotationNodeList.item(0);
+					NodeList objectZRotation = objectZRotationElement.getChildNodes();
+					String objectZRotationString = ((Node)objectZRotation.item(0)).getNodeValue();
+					float objectZRotationFloat = Float.parseFloat(objectZRotationString);
 
 					// Create the object for the level
 					XmlLevelObject xmlLevelObject = null;
@@ -180,7 +188,7 @@ public class XmlLevelParser
 						xmlLevelObject = new XmlLevelGoal(colourString);
 					}
 					xmlLevelObject.setPosition(objectXFloat, objectYFloat);
-					xmlLevelObject.setRotation(rotationFloat);
+					xmlLevelObject.setRotation(objectXRotationFloat, objectYRotationFloat, objectZRotationFloat);
 
 					// Add the object to a linked list of objects
 					objectList.add(xmlLevelObject);
@@ -226,7 +234,7 @@ public class XmlLevelParser
 			}
 			
 			// Create and return level object.
-			XmlLevel xmlLevel = new XmlLevel(name, difficulty, xString, yString, objectList, toolList);	
+			XmlLevel xmlLevel = new XmlLevel(name, difficulty, xString, yString, iW, iH, objectList, toolList);	
 			return xmlLevel;
 		}
 		catch (Exception e) 
