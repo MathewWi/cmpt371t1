@@ -8,6 +8,11 @@ import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of the GameRenderer Class
+ * @author lianghuang
+ *
+ */
 public class GameRendererTest extends AndroidTestCase {
 	
 	private GameRenderer gr;

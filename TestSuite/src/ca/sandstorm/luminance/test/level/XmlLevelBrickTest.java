@@ -3,6 +3,11 @@ package ca.sandstorm.luminance.test.level;
 import ca.sandstorm.luminance.level.XmlLevelBrick;
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of the XmlLevelBrick Class
+ * @author lianghuang
+ *
+ */
 public class XmlLevelBrickTest extends AndroidTestCase {
 	
 	private XmlLevelBrick tBrick;

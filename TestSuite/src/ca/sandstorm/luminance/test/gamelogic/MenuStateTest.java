@@ -2,6 +2,11 @@ package ca.sandstorm.luminance.test.gamelogic;
 
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of the MenuState Class
+ * @author lianghuang
+ *
+ */
 public class MenuStateTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		super.setUp();

@@ -5,6 +5,11 @@ import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of the ToolBelt Class
+ * @author lianghuang
+ *
+ */
 public class ToolBeltTest extends AndroidTestCase {
 	private Toolbelt tToolbelt;
 	

@@ -3,6 +3,11 @@ package ca.sandstorm.luminance.test.level;
 import ca.sandstorm.luminance.level.XmlLevel;
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of XmlLevel Class
+ * @author lianghuang
+ *
+ */
 public class XmlLevelTest extends AndroidTestCase {
 	
 	private XmlLevel tLevel;
