@@ -19,6 +19,7 @@ import ca.sandstorm.luminance.gui.Label;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -62,7 +63,7 @@ public class Luminance extends Activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState)
-    {
+    {	
 	_logger.debug("onCreate()");
 	
 	// Assign the engine's application context
@@ -77,6 +78,8 @@ public class Luminance extends Activity
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
 	mGLView = new GLSurfaceView(this);
+	mGLView.setEGLConfigChooser(8, 8, 8, 8, 0, 0);
+	mGLView.getHolder().setFormat(PixelFormat.RGBA_8888); 
 	mGLView.setRenderer(new ClearRenderer(this));
 	mGLView.setGLWrapper(new GLSurfaceView.GLWrapper()
         {
