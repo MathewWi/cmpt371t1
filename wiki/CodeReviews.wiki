@@ -15,7 +15,7 @@ http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminanc
 * Mirror.java:
 http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/Mirror.java
 
-* SkyBox.java:
+* !SkyBox.java:
 http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/Skybox.java
 
 
