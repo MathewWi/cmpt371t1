@@ -5,14 +5,15 @@
    Perhaps an obvious statement but a very important part of a game none the less.  Measuring fun is not easy and is beyond the scope of this project.  However through some user evaluation and general feedback we will determine the fun factor and do what we can to increase it.
 
   ==Quick load time==
-   Quick load time is always an important requirement to users.  This is exacerbated by the fact this will be running on a phone.  The user is going to expect the application to launch in a time comparable to other applications.
+   Quick load time is always an important requirement to users.  This is exacerbated by the fact this will be running on a phone.  The user is going to expect the application to launch in a time comparable to other applications.  
 
   ==Graphics==
    The game should have decent graphics.  This includes some neat special effects (lighting, reflections, and particles).  Not only is this a user requirement, it is a major selling point for any game.
+   We will be working on creating textures and graphics that all fit within the theme we are creating with Luminance.  There is a space-age, Tron sort of feel to the game, and the graphics and GUI interfaces reflect that.  More polish is currently needed on textures particularly, but this is a goal for this project.
 
   ==Intuitive Input Interface==
    The input interface should be clean and utilize the perceived affordances people already have for touch screen input usage.  For users who do not enjoy a touch interface we can utilize the pointer and keyboard as well.
-   We would also like to make the interface playable regardless of whether the user is holding the phone vertically or horizontally. 
+   We would also like to make the interface playable regardless of whether the user is holding the phone vertically or horizontally. For this project, this means that the switch from vertical to horizontal must be smooth and not disrupt gameplay.  
 
   ==Effective sound effects==
    The sounds effects in the game should be minimal but effective.  Each important action should carry a unique sound effect.  Since we are on a phone we also need to make sure that without sound the game is still able to convey feedback information.
@@ -28,6 +29,10 @@
   
   ==Saving and Loading==
    Users will want to save their progress and load from where they left off.  A puzzle game such as this is expected to be played in small spurts.  The saving and loading process should be transparent.
+
+  == Incorrect tool placing handling ==
+   We will have to account for when the user accidentally places a tool on the grid that they placed there by mistake, or decide they don't want there at all.  This is accounted for by having an eraser tool to get rid of it.
+   In addition to this, we have to account for the user accidentally placing tools on the grid because the way the touch input is handled.  For example, currently tools might be accidentally added to the grid when the user tries to scroll.  This, of course, will be unacceptable in the final milestone and is currently an issue we're working on.
 
   ==Networking==
    Users might want to upload high scores stored on a server.  The game still needs to be fully operational regardless of network connection.  
