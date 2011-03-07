@@ -27,6 +27,8 @@ public class Button implements IWidget
     // static because all quads only need one of these, just change textures
     private static FloatBuffer _vertexBuffer;
     private static float[] _vertices;
+    private static FloatBuffer _texCoordBuffer;
+    private static float[] _texCoords;
     
     private String _textureResourceLocation;
     private TextureResource _texture;
@@ -71,6 +73,20 @@ public class Button implements IWidget
         	_vertexBuffer = byteBuf.asFloatBuffer();
         	_vertexBuffer.put(_vertices);
         	_vertexBuffer.position(0);
+	}
+	if(_texCoordBuffer == null || _texCoords == null) {
+	    _texCoords = new float[] {
+		    0f, 0f,
+		    0f, 1f,
+		    1f, 0f,
+		    1f, 1f
+	    };
+	    
+	    ByteBuffer byteBuf = ByteBuffer.allocateDirect(_texCoords.length * 4);
+	    byteBuf.order(ByteOrder.nativeOrder());
+	    _texCoordBuffer = byteBuf.asFloatBuffer();
+	    _texCoordBuffer.put(_texCoords);
+	    _texCoordBuffer.position(0);
 	}
     }
 
@@ -236,32 +252,21 @@ public class Button implements IWidget
     {
 	gl.glPushMatrix();
 	
-	PrimitiveBox box = new PrimitiveBox();
-	gl.glEnable(GL10.GL_TEXTURE_2D);
-	gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
-
 	//gl.glScalef(this.width, this.height, 1.0f);
-	gl.glTranslatef(this._x + _width/2, this._y + _height/2, -10);
-	gl.glScalef(100f, 15f, 2f);
+	gl.glTranslatef(this._x, this._y, 0);
 	
-	box.draw(gl);
-//	gl.glPushMatrix();
-//	
-//	//gl.glScalef(this.width, this.height, 1.0f);
-//	gl.glTranslatef(this._x, this._y, 0);
-//	
-//	gl.glFrontFace(GL10.GL_CW);
-//	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
-//	//gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
-//	
-//	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-//	//gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-//		
-//	//gl.glEnable(GL10.GL_TEXTURE_2D);
-//	
-//	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, _vertices.length / 3);
-//	
+	gl.glFrontFace(GL10.GL_CCW);
+	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
+	gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
+	
+	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+		
+	gl.glEnable(GL10.GL_TEXTURE_2D);
+	gl.glColor4f(1f, 1f, 1f, 1f);
+	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
+	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, _vertices.length / 3);
+	
 	gl.glPopMatrix();
     }
 }

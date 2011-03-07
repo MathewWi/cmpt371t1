@@ -52,7 +52,7 @@ public class Toolbelt
 	_stock.put(ToolType.Mirror, 0);
 	_stock.put(ToolType.Prism, 0);
 	
-	Button eraserButton = new Button(110, 100, 30, 30, "Eraser");
+	Button eraserButton = new Button(110, 20, 30, 30, "Eraser");
 	eraserButton.setTextureResourceLocation("textures/eraser.png");
 	_gameState.getGui().addButton(eraserButton);
     }
@@ -175,11 +175,11 @@ public class Toolbelt
 	if(_stock.get(toolType) == 0) {
 	    Button button = null;
 	    if(toolType == ToolType.Mirror){
-		button = new Button(50, 100, 30, 30, "Mirror");
+		button = new Button(50, 20, 30, 30, "Mirror");
 		button.setTextureResourceLocation("textures/mirror.png");
 		logger.debug("Adding mirror icon");
 	    } else if (toolType == ToolType.Prism){
-		button = new Button(80, 100, 30, 30, "Prism");
+		button = new Button(80, 20, 30, 30, "Prism");
 		button.setTextureResourceLocation("textures/prism.png");
 		logger.debug("Adding prism icon");
 	    } else {
