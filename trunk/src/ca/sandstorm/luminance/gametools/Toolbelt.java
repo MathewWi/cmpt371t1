@@ -43,6 +43,9 @@ public class Toolbelt
     // Stock available of each tool type
     private HashMap<ToolType, Integer> _stock;
     
+    private boolean _mirrorIconAdded = false;
+    private boolean _prismIconAdded = false;
+    
     public Toolbelt(GameState gameState)
     {
 	_gameState = gameState;
@@ -174,19 +177,15 @@ public class Toolbelt
 	assert _stock.containsKey(toolType);
 
 	// Draw the widget if needed
-	if(_stock.get(toolType) == 0) {
-	    Button button = null;
-	    if(toolType == ToolType.Mirror){
-		button = new Button(50, 20, 30, 30, "Mirror");
-		button.setTextureResourceLocation("textures/mirror.png");
-		logger.debug("Adding mirror icon");
-	    } else if (toolType == ToolType.Prism){
-		button = new Button(80, 20, 30, 30, "Prism");
-		button.setTextureResourceLocation("textures/prism.png");
-		logger.debug("Adding prism icon");
-	    } else {
-		assert false;
-	    }
+	if(toolType == ToolType.Mirror && !_mirrorIconAdded) {
+	    Button button = new Button(50, 20, 30, 30, "Mirror");
+	    button.setTextureResourceLocation("textures/mirror.png");
+	    _mirrorIconAdded = true;
+	    _gameState.getGui().addButton(button);
+	} else if(toolType == ToolType.Prism && !_prismIconAdded) {
+	    Button button = new Button(80, 20, 30, 30, "Prism");
+	    button.setTextureResourceLocation("textures/prism.png");
+	    _prismIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	}
 
