@@ -12,20 +12,19 @@ import ca.sandstorm.luminance.resources.TextureResource;
 
 public class Prism extends GameObject implements IRenderableObject
 {
+    @SuppressWarnings("unused")
     private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
 
     private IRenderable _model;
-    private float _orientation;
     private int _texture;
     
     private RenderType _renderType = RenderType.Normal;
     
-    public Prism(Vector3f position, float orientation)
+    public Prism(Vector3f position)
     {
 	// TODO: Improve orientation
-	_orientation = orientation;
 	_position = new Vector3f(position);
-	_rotation = new Vector4f(1.0f, 0.0f, 0.0f, orientation);
+	_rotation = new Vector4f(1.0f, 0.0f, 0.0f, 0);
 	_scale = new Vector3f(0.5f, 0.5f, 0.5f);
 	_model = Engine.getInstance().getRenderer().getPrism();
     }
@@ -41,7 +40,6 @@ public class Prism extends GameObject implements IRenderableObject
 	}
 	_texture = tex.getTexture();
     }
-
 
     @Override
     public IRenderable getRenderable()

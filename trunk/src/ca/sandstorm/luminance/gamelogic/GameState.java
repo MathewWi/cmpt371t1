@@ -3,7 +3,6 @@ package ca.sandstorm.luminance.gamelogic;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Point2i;
@@ -75,7 +74,6 @@ public class GameState implements IState
     private static final float TOUCH_SENSITIVITY = 3.0f;
     private int _touchMode;
     private GUIManager _guiManager;
-    private boolean _tapped = false;
     
     // Toolbelt
     private Toolbelt _toolbelt;
@@ -180,7 +178,7 @@ public class GameState implements IState
 		
 		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionX(), (int)obj.getPositionY());
 		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);
-		Vector3f vRot = new Vector3f(0, 0, 0);
+		//Vector3f vRot = new Vector3f(0, 0, 0);
 		Vector3f vScale = new Vector3f(0.5f, 0.5f, 0.5f);
 		
 		if (obj.getType().equals("brick"))

@@ -9,7 +9,6 @@ import java.util.Vector;
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
-import javax.vecmath.Vector4f;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

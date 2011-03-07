@@ -17,6 +17,7 @@ import ca.sandstorm.luminance.resources.TextureResource;
  */
 public class Box extends GameObject implements IRenderableObject
 {
+    @SuppressWarnings("unused")
     private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
 
     protected IRenderable _model;

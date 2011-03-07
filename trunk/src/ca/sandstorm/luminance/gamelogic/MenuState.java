@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.opengl.GLU;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 

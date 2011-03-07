@@ -4,7 +4,6 @@ import javax.vecmath.Vector3f;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gameobject.IGameObject;
-import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.resources.TextureResource;
 
@@ -16,7 +15,7 @@ public class PrismTool implements ITool
     public IGameObject getGameObject()
     {
 	if(_prism == null) {
-	    _prism = new Prism(new Vector3f(0,0,0), 45f);
+	    _prism = new Prism(new Vector3f(0,0,0));
 	}
 	
 	return _prism;
