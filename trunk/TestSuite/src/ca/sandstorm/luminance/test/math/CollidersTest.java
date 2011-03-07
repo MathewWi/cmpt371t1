@@ -25,6 +25,8 @@ public class CollidersTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
+		rayTest = new Ray(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f);
+		planeTest = new Plane(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f);
 	}
 
 	/*
