@@ -651,7 +651,23 @@ public class GameState implements IState
 	_grid.draw(gl);
 	gl.glPopMatrix();
 	
-	_guiManager.draw(gl);
+	// render 2D stuff in a complex matrix saving manner
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
+	gl.glPushMatrix();	
+		gl.glLoadIdentity();
+		
+		gl.glMatrixMode(GL10.GL_PROJECTION);
+		gl.glPushMatrix();
+			gl.glLoadIdentity();
+			gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
+			
+			gl.glMatrixMode(GL10.GL_MODELVIEW);
+			_guiManager.draw(gl);
+			gl.glMatrixMode(GL10.GL_PROJECTION);
+		gl.glPopMatrix();
+		
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
+	gl.glPopMatrix();
     }
 
 
