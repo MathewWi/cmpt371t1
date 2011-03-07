@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import javax.vecmath.Point2i;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
@@ -127,8 +128,8 @@ public class Toolbelt
     {
 	for(IGameObject tool : _tools) {
 	    
-	    //if(tool.getGridPositionX() == x && tool.getGridPositionY() == y) {
-	    if(false) {
+	    Point2i gridCoords = _gameState.worldToGridCoords(tool.getPosition());
+	    if(gridCoords.x == x && gridCoords.y == y) {
 		logger.debug("Found tool to erase at " + x + "," + y + ": " + tool);
 		if(tool instanceof Mirror) {
 		    addToolStock(ToolType.Mirror, 1);
