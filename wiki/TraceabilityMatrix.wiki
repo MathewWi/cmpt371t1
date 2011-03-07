@@ -1,4 +1,4 @@
-# summary Traceability Matrix, functional requirements, game features
+#summary Traceability Matrix, functional requirements, game features
 
 = Introduction =
 
