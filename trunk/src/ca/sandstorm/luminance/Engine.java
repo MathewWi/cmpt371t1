@@ -414,6 +414,13 @@ public class Engine
 		s.init(gl);
 	    }
 	}
+	
+	// Start the game music
+	try {
+	    _audioSystem.playMusic("sounds/sample.ogg");
+	} catch (IOException e) {
+	    logger.error("Unable to load music file for playback.");
+	}
     }
 
 
