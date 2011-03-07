@@ -7,12 +7,15 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
 = Milestone 3 =
   == Tasks ==
-
-    Jeff
-
-    Amara
-
-    Chet
+||Priority|| ||
+||1. ||Unit Test suite ||
+||2. ||Code Coverage test(Emma)||
+|| || Code reviews (test codes) ||
+|| || Code reviews (source) ||
+|| || Restructure test suite for Test cases ||
+|| || Robust smoke test ||
+|| || Mock testing ||
+|| || State Mock testing(Game Logic) ||
 
 = End Milestone 3 =
 
