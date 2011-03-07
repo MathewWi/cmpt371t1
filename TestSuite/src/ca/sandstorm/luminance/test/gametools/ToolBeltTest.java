@@ -7,4 +7,24 @@ public class ToolBeltTest extends AndroidTestCase {
 		super.setUp();
 
 	}
+
+	public void testProcessClick() throws Exception {
+
+	}
+
+	public void testPlaceTool() throws Exception {
+
+	}
+
+	public void testEraseTool() throws Exception {
+
+	}
+
+	public void testAddToolStock() throws Exception {
+
+	}
+
+	public void testSelectTool() throws Exception {
+
+	}
 }
