@@ -3,7 +3,7 @@
 = Informal Code Reviews =
 Informal code reviews are documented within the google code source viewer.  The reviews done by each of the members are:
 
-*Martina:*
+== Martina ==
 
 * Box.java: http://code.google.com/p/cmpt371t1/source/browse/trunk/src/ca/sandstorm/luminance/gameobject/Box.java
 
