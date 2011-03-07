@@ -1,8 +1,8 @@
-#summary Use cases to be translated into test scripts
+# summary Use cases to be translated into test scripts
 
-= Use Cases =
+= Use Procedure =
 
-*Use Case Name* First Level Walk-through
+*User Procedure Name* First Level Walk-through
 
 New player walks through the first level of game
 
@@ -117,75 +117,75 @@ The player splits the beam of white light into primary colors and redirects them
 
 *Main Success Scenario*
 
-            # They open the program
-            # The player chooses ->Start Game from main menu
-            # Single taps the tools prism
-            # Double taps at (6, 4) the prism is placed
-            # Single taps the tools mirror
-            # Double taps at (8, 4) the mirror is placed
-            # Single taps until  M\
-            # Single taps the tools mirror
-            # Double taps at (8, 5) mirror is placed
-            # Single taps the mirror
-            # Double tap at (6, 6) mirror placed
-            # Single taps until \M
-            # Single taps the mirror
-            # Double tap at (6, 7) mirror placed
-            # Single taps the tools mirror
-            # Double tap at (7, 1) mirror placed
-            # Single taps until M\
-            # First level complete
+            #  They open the program
+            #  The player chooses ->Start Game from main menu
+            #  Single taps the tools prism
+            #  Double taps at (6, 4) the prism is placed
+            #  Single taps the tools mirror
+            #  Double taps at (8, 4) the mirror is placed
+            #  Single taps until  M\
+            #  Single taps the tools mirror
+            #  Double taps at (8, 5) mirror is placed
+            #  Single taps the mirror
+            #  Double tap at (6, 6) mirror placed
+            #  Single taps until \M
+            #  Single taps the mirror
+            #  Double tap at (6, 7) mirror placed
+            #  Single taps the tools mirror
+            #  Double tap at (7, 1) mirror placed
+            #  Single taps until M\
+            #  First level complete
 
 *Extensions*
 
-            #. They open the program
-            #. The player chooses ->Start Game from main menu
+            # . They open the program
+            # . The player chooses ->Start Game from main menu
                         * Level 1 loaded
                         * background music plays
-                   #) Double taps on each tool cycles through
-            #. Single taps the tools prism
+                   # ) Double taps on each tool cycles through
+            # . Single taps the tools prism
                         * prism shown as chosen
-                   #) Double taps at (5,4)  the prism was placed incorrectly
-                   #) Single taps the tools eraser
-                   #) Single taps the prism at (5, 4)
+                   # ) Double taps at (5,4)  the prism was placed incorrectly
+                   # ) Single taps the tools eraser
+                   # ) Single taps the prism at (5, 4)
                                     * prism at (5, 4) is erased
-            #. Double taps at (6, 4) the prism is placed
+            # . Double taps at (6, 4) the prism is placed
                         * white light is split into RGB
                         * red circle is linked
-            #. Single taps the tools mirror
+            # . Single taps the tools mirror
                         * the mirror is shown as chosen
                         * the mirror count reduces
-                        #) Double taps at (8, 3) the mirror is placed incorrectly
-                        #) Single taps the tools eraser
-                        #) Single taps the mirror at (8, 3)
+                        # ) Double taps at (8, 3) the mirror is placed incorrectly
+                        # ) Single taps the tools eraser
+                        # ) Single taps the mirror at (8, 3)
                                     *mirror at (8, 3) is erased
-            #. Double taps at (8, 4) the mirror is placed
-            #. Single taps until  M\
+            # . Double taps at (8, 4) the mirror is placed
+            # . Single taps until  M\
                         * mirror is flipped
-            #. Single taps the tools mirror
+            # . Single taps the tools mirror
                         * the mirror is shown as chosen
                         * the mirror count reduces
-            #. Double taps at (8, 5) mirror is placed
+            # . Double taps at (8, 5) mirror is placed
                         * green circle is linked
-            #. Single taps the tools mirror
+            # . Single taps the tools mirror
                         * the mirror is shown as chosen
                         * the mirror count reduces
-            #. Double tap at (6, 6) mirror placed
-            #. Single taps until \M
+            # . Double tap at (6, 6) mirror placed
+            # . Single taps until \M
                         * the mirror is flipped
-            #. Single taps the mirror
+            # . Single taps the mirror
                         * the mirror is shown as chosen
                         * the mirror count reduces
-            #. Double tap at (6, 7) mirror placed
-            #. Single taps the tools mirror
+            # . Double tap at (6, 7) mirror placed
+            # . Single taps the tools mirror
                         * the mirror is shown as chosen
                         * the mirror count reduces
-            #. Double tap at (7, 1) mirror placed
-            #. Single taps until M\
+            # . Double tap at (7, 1) mirror placed
+            # . Single taps until M\
                         * the mirror is flipped
                         * blue ring is linked
                         * menu opens
-            #. First level complete
+            # . First level complete
                         * victory music plays
 						
 *Special Requirements*
@@ -201,3 +201,431 @@ The player splits the beam of white light into primary colors and redirects them
   -frequent all players will play through the first level.
 
 *Miscellaneous*
+
+Actors:
+
+	*Irratic player always erases after each placement, connects light to wrong orb, switches levels, restarts level
+	*Commuter/leasure player always pauses game, turns off sound, rotates android frequiently
+	*Average player plays each level perfectly in the fastest amount of time.
+	
+
+	
+
+Use Case (1) Light to Orb Connection(collision)
+
+Actors: Irratic player
+
+Goal: Connect light to Orb
+
+Activities: The player 
+
+		# User chooses prism
+		# User places Prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Light collides with Wall obstacle
+				//prism -> mirror -> brick
+			*Light collides with outer boundary
+				//prism -> outer boundary
+			*Light collides with differing color orb
+				//prism -> wrong orb
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User Rotates mirror
+			*Light reflects to a different angle
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User Rotates mirror
+			*Light reflects to a different angle
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+			*Light collides with wrong orb
+				//prism -> mirror -> wrong orb
+		# User Rotates mirror
+			*Light reflects to a different angle
+			*Light collides with prism 
+			*Light intersects with different light
+				//prism -> mirror -> mirror-> prism
+				//lights intersect
+
+
+Use Case (2) Backtracks steps
+
+Actors: Irratic player
+
+Goal: User wants to backtrack on steps previously taken
+
+Activities: 
+
+	# User starts game
+	# User chooses random level
+		*Game view is shown
+	# prism -> mirror -> orb
+		# User chooses prism
+		# User places Prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Light collides with Wall obstacle
+				//prism -> mirror -> brick
+			*Light collides with outer boundary
+				//prism -> outer boundary
+			*Light collides with differing color orb
+				//prism -> wrong orb
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User chooses eraser
+		
+		# User erases prism
+			*Prism dissapears
+			*RGB dissapears
+			*System reactivates prism in toolbar
+			*White light collides with mirror
+		# User chooses prism
+		# User places prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Lights reflects off of mirror
+		# User selects deployed mirror
+		# User moves said mirror to different coordinate
+			*Previously in contact light no longer impeded
+			*Light at the new coordinate reflected
+		# User Rotates mirror
+			*Light reflects to a different angle
+		# User chooses mirror 
+		# User tries to place a mirror on top of another mirror
+		# User tries to place a mirror on top of a Wall
+		# User chooses erasor
+		# User erases mirror
+			*Light continues on with no obstacle in the way
+		# User presses pause 
+			*System brings up pop up menu
+		# User presses restart
+			*System brings up the same map reset
+
+Use Case (3) Switch states,
+
+Actors: Marathon player
+
+Goal: User wants to switch out of the game to use another app.
+
+Activities: 
+	# User starts game
+	# User chooses random level
+		*Game view is shown
+	# prism -> mirror -> orb
+		# User chooses prism
+		# User places Prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Light collides with Wall obstacle
+				//prism -> mirror -> brick
+			*Light collides with outer boundary
+				//prism -> outer boundary
+			*Light collides with differing color orb
+				//prism -> wrong orb
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User recieves a call
+			*Game sound is automatically turned off
+		# User rotates phone
+			*Phones changes orientation
+			*Game is automatically paused
+		# User exits the Luminance
+		# User reenters Luminance
+			*System shows pop up menu screen
+		# User chooses sound on
+		# User chooses resume
+			*System reloads all previously made moves
+		
+		# User chooses pause
+			*System loads pop up menu
+		# User chooses main menu
+			*System loads main menu
+
+
+
+== Test Cases ==
+
+	# Light to obstacle collision
+	# Object interaction/function
+	# Object to obstacle collision
+	# User statistics registration
+	# User transition between states, saved menu, resume
+	# System under stress
+	
+
+Test Case (1): Light to obstacle collision
+
+Purpose: To test and verify connections to objects are being handled appropriatly.
+
+Prereq:	 A game level has been started
+
+Test Data:	
+
+	(post map grid here)
+	
+Steps:	 			
+
+		# prism -> mirror -> orb
+		# User chooses prism
+		# User places Prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Light collides with Wall obstacle
+				*prism -> mirror -> brick
+			*Light collides with outer boundary
+				*prism -> outer boundary
+			*Light collides with differing color orb
+				*prism -> wrong orb
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User Rotates mirror
+			*Light reflects to a different angle
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User Rotates mirror
+			*Light reflects to a different angle
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+			*Light collides with wrong orb
+				*prism -> mirror -> wrong orb
+		# User Rotates mirror
+			*Light reflects to a different angle
+			*Light collides with prism 
+			*Light intersects with different light
+				*prism -> mirror -> mirror-> prism
+				*lights intersect
+				
+Notes and Questions:
+	
+NOTE
+
+QUESTION
+
+
+Test Case (2): Object interaction/function
+
+Purpose: To test and verify that objects unique, functional, and interact with each other.
+
+Prereq:	 A game level has been started
+
+Test Data:	
+
+	(post map grid here)
+	
+Steps:			
+	
+	# User starts game
+	# User chooses random level
+		*Game view is shown
+	# prism -> mirror -> orb
+		# User chooses prism
+		# User places Prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Light collides with Wall obstacle
+				*prism -> mirror -> brick
+			*Light collides with outer boundary
+				*prism -> outer boundary
+			*Light collides with differing color orb
+				*prism -> wrong orb
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User chooses eraser
+
+		# User erases prism
+			*Prism dissapears
+			*RGB dissapears
+			*System reactivates prism in toolbar
+			*White light collides with mirror
+		# User chooses prism
+		# User places prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Lights reflects off of mirror
+		# User selects deployed mirror
+		# User moves said mirror to different coordinate
+			*Previously in contact light no longer impeded
+			*Light at the new coordinate reflected
+		# User Rotates mirror
+			*Light reflects to a different angle
+		# User chooses erasor
+		# User erases mirror
+			*Light continues on with no obstacle in the way
+		# User presses pause 
+			*System brings up pop up menu
+		# User presses restart
+			*System brings up the same map reset
+
+Notes and Questions:	
+
+NOTE
+
+QUESTION
+
+Test Case (3): Object to obstacle collision
+
+Purpose: To test and verify that objects unique, functional, and interact with each other.
+
+Prereq:	 A game level has been started
+
+Test Data:	
+
+	(post map grid here)
+	
+Steps:				
+
+	# User starts game
+	# User chooses random level
+		*Game view is shown
+	# prism -> mirror -> orb
+		# User chooses prism
+		# User places Prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Light collides with Wall obstacle
+				*prism -> mirror -> brick
+			*Light collides with outer boundary
+				*prism -> outer boundary
+			*Light collides with differing color orb
+				*prism -> wrong orb
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User chooses eraser
+		# User tries to erase wall
+		# User Rotates mirror
+			*Light reflects to a different angle
+		# User chooses mirror 
+		# User tries to place a mirror on top of another mirror
+		# User tries to place a mirror on top of a Wall
+		# User tries to place a mirror on top of prism
+
+Notes and Questions:
+	
+NOTE
+
+QUESTION
+
+Test Case (4): User statistics registration
+
+Purpose: To test and verify that toolbar/high score is correctly updated after each object use
+
+Prereq:	 A game level has been started
+
+Test Data:	
+
+	(post map grid here)
+	
+Steps:				
+
+		# User starts game
+		# User chooses random level
+			*Game view is shown
+		# User chooses prism
+		# User places prism in empty grid square
+			*Prism count is reduced in toolbar
+		# User chooses eraser
+		# User erases prism
+			*System increments number of prisms
+		# User beats game
+			*System updates high score with time
+		# User chooses main menu
+		# User selects high score bored
+			*User sees high score bored is updated
+
+Notes and Questions:	
+
+NOTE
+
+QUESTION
+
+Test Case (5): 	User transition between states, saved menu, resume
+
+Purpose: To test and verify that state changes are taking place and are handled appropriatly
+
+Prereq:	 A game level has been started
+
+Test Data:	
+
+	(post map grid here)
+	
+Steps:			
+
+	# User starts game
+	# User chooses random level
+		*Game view is shown
+	# prism -> mirror -> orb
+		# User chooses prism
+		# User places Prism
+			*System refracts light into RGB
+			*System deactivates prism from toolbar
+			*Light collides with Wall obstacle
+				*prism -> mirror -> brick
+			*Light collides with outer boundary
+				*prism -> outer boundary
+			*Light collides with differing color orb
+				*prism -> wrong orb
+		# User chooses mirror
+		# User places mirror
+			*Light collides with mirror
+		# User recieves a call
+			*Game sound is automatically turned off
+		# User rotates phone
+			*Phones changes orientation
+			*Game is automatically paused
+		# User exits the Luminance
+		# User reenters Luminance
+			*System shows pop up menu screen
+		# User chooses sound on
+		# User chooses resume
+			*System reloads all previously made moves
+		# User chooses pause
+			*System loads pop up menu
+		# User chooses main menu
+			*System loads main menu
+						
+Notes and Questions:	
+
+NOTE
+
+QUESTION
+
+Test Case (6): 	Stress test
+
+Purpose: To test and verify that is able to cope under stranious conditions
+
+Prereq:	Map is started
+
+Test Data:	
+
+	(post map grid here)
+	
+Steps:			
+
+		# User starts game
+			# Android's Luminance memory is reduced
+		# User chooses first level play through tutorial
+			# Android slowly reduces memory for Luminance to 0
+				*Luminance system realizes memory is too low returns error exits
+			# Android's Luminance memory is reset to normal
+			# Android's hard drive space is set to very low
+		# User starts game
+		# User chooses first level play through tutorial
+			*Luminance gives error hard drive space is too low
+			*Luminance exits
+			
+Notes and Questions:	
+
+NOTE
+
+QUESTION
