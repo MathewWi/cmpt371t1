@@ -5,70 +5,97 @@ package ca.sandstorm.luminance.level;
  * @author Steven Indzeoski
  *
  */
-public class XmlLevelGoal extends XmlLevelObject {
-	
-	private String _colour;
+public class XmlLevelGoal extends XmlLevelObject
+{	
+    public enum GoalColour { WHITE, RED, GREEN, BLUE };
 
-	/**
-	 * Constructor for XmlLevelGoal class.
-	 * @throws IllegalArgumentException
-	 * @precond colour != null
-	 * @postcond XmlLevelGoal is created.
-	 */
-	public XmlLevelGoal(String colour) throws IllegalArgumentException {
-		super("goal");
-		if (!isValidColour(colour))
-		{
-			throw new IllegalArgumentException("The colour " + colour + " is invalid.");
-		}
-		_colour = colour;
-	}
-	
-	/**
-	 * Checks to see if a colour given is valid.
-	 * @param colour The given colour, should be white, red, blue, or green.
-	 * @return True if the colour is valid, false otherwise.
-	 * @precond colour != null
-	 */
-	public boolean isValidColour(String colour) 
+    private GoalColour _colour;
+
+    /**
+     * Constructor for XmlLevelGoal class.
+     * @throws IllegalArgumentException
+     * @precond colour != null
+     * @postcond XmlLevelGoal is created.
+     */
+    public XmlLevelGoal(String colour) throws IllegalArgumentException {
+	super(XmlLevelGoal.getId());
+	if (!isValidColour(colour))
 	{
-		if (colour.equals("white"))
-		{
-		    return true;
-		}
-		else if (colour.equals("red")) 
-		{
-		    return true;
-		}
-		else if (colour.equals("blue")) 
-		{
-		    return true;
-		}
-		else if (colour.equals("green"))
-		{
-		    return true;
-		}
-		return false;
+	    throw new IllegalArgumentException("The colour " + colour + " is invalid.");
 	}
-	
-	/**
-	 * Getter method for colour when object is a goal.
-	 * @return The colour of the goal.
-	 */
-	public String getColour()
+	colour = colour.toUpperCase();
+	if (colour.equals(GoalColour.WHITE.name()))
 	{
-		if (!getType().equals("goal")) 
-		{
-			throw new IllegalStateException("Trying to get colour of non-goal object.");
-		}
-		return _colour;
+	    _colour = GoalColour.WHITE;
 	}
-	
-	/**
-	 * Returns a string representation of the XmlLevelObject.
-	 */
-	public String toString()
+	else if (colour.equals(GoalColour.RED.name()))
 	{
-		return (super.toString() + "\nColour: " + getColour());
+	    _colour = GoalColour.RED;
 	}
+	else if (colour.equals(GoalColour.BLUE.name()))
+	{
+	    _colour = GoalColour.BLUE;
+	}
+	else if (colour.equals(GoalColour.GREEN.name()))
+	{
+	    _colour = GoalColour.GREEN;
+	}
+    }
+
+    /**
+     * Checks to see if a colour given is valid.
+     * @param colour The given colour, should be white, red, blue, or green.
+     * @return True if the colour is valid, false otherwise.
+     * @precond colour != null
+     */
+    public boolean isValidColour(String colour) 
+    {
+	if (colour.equals(GoalColour.WHITE.name()))
+	{
+	    return true;
+	}
+	else if (colour.equals(GoalColour.RED.name())) 
+	{
+	    return true;
+	}
+	else if (colour.equals(GoalColour.BLUE.name())) 
+	{
+	    return true;
+	}
+	else if (colour.equals(GoalColour.GREEN.name()))
+	{
+	    return true;
+	}
+	return false;
+    }
+
+    /**
+     * Getter method for colour when object is a goal.
+     * @return The colour of the goal.
+     */
+    public String getColour()
+    {
+	if (!getType().equals(XmlLevelGoal.getId())) 
+	{
+	    throw new IllegalStateException("Trying to get colour of non-goal object.");
+	}
+	return _colour.name();
+    }
+
+    /**
+     * Returns a string representation of the XmlLevelObject.
+     */
+    public String toString()
+    {
+	return (super.toString() + "\nColour: " + getColour());
+    }
+
+    /**
+     * getId method for XmlLevelGoal
+     * @return The type of the object.
+     */
+    public static String getId()
+    {
+	return "goal";
+    }
 }

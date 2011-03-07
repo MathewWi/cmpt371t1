@@ -15,7 +15,15 @@ public class XmlLevelMirror extends XmlLevelTool
 	 */
 	public XmlLevelMirror(int count) 
 	{
-		super("mirror", count);
+		super(XmlLevelMirror.getId(), count);
 	}
 	
+	/**
+	 * getId method for XmlLevelMirror.
+	 * @return The tool type.
+	 */
+	public static String getId()
+	{
+	    return "mirror";
+	}
 }

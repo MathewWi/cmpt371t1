@@ -13,7 +13,16 @@ public class XmlLevelBrick extends XmlLevelObject {
 	 * @postcond XmlLevelBrick is created
 	 */
 	public XmlLevelBrick() throws IllegalArgumentException {
-		super("brick");
+		super(XmlLevelBrick.getId());
+	}
+	
+	/**
+	 * getId method for XmlLevelBrick.
+	 * @return The object type.
+	 */
+	public static String getId()
+	{
+	    return "brick";
 	}
 
 }

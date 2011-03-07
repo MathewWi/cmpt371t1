@@ -57,11 +57,11 @@ public class XmlLevelTool {
 	 */
 	public boolean isValidType(String type)
 	{
-		if (type.equals("mirror"))
+		if (type.equals(XmlLevelMirror.getId()))
 		{
 			return true;
 		}
-		else if (type.equals("prism"))
+		else if (type.equals(XmlLevelPrism.getId()))
 		{
 			return true;
 		}
