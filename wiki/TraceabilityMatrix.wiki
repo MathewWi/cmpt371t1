@@ -8,28 +8,28 @@ Test coverage, traceability matrix.
 = Details =
 
 ==Traceability Matrix==
-||Business Requirements|| Functional Requirements || TC(1) || TC(2) || TC(3) || TC(4) || TC(5) || TC(6) ||
-|| 1 ||Light to orb connection  ||  ||  ||  ||  ||  ||||
-|| 2 ||Light to mirror connection  ||  ||  ||  ||  ||  ||||
-|| 3 ||White Light to prism refraction  ||  ||  ||  ||  ||  ||||
-|| 4 ||Mirror rotation ||  ||  ||  ||  ||  || ||
-|| 5 ||Erasor functionality||  ||  ||  ||  ||  || ||
-|| 6 ||User time record||  ||  ||  ||  ||  || ||
-|| 7 ||Sound effects/BG music||  ||  ||  ||  || ||  ||
-|| 8 ||Level transition ||  ||  ||  ||  ||  || ||
-|| 9 ||Pausability ||  ||  ||  ||  ||  || ||
-|| 10 ||Change in orientation ||  ||  ||  || ||  ||  ||
-|| 11 ||Smooth playability ||  ||  ||  ||  || || ||
+||Business Requirements|| Functional Requirements || TC(1) || TC(2) || TC(3) || TC(4) || TC(5) || TC(6) || TC(7) ||
+|| 1 ||Light to orb connection  || x ||  || x ||  ||  || ||  ||
+|| 2 ||Light to mirror connection  || x || x ||  ||  ||  || || ||
+|| 3 ||White Light to prism refraction  || x ||  x||  ||  ||  || || ||
+|| 4 ||Mirror rotation ||  || x ||  ||  ||  || || ||
+|| 5 ||Erasor functionality|| x ||  ||  ||  ||  || || ||
+|| 6 ||User time record||  ||  ||  || x ||  || x|| ||
+|| 7 ||Sound effects/BG music||  ||  ||  ||  || ||  ||x||
+|| 8 ||Level transition ||  ||  ||  ||  || x || || ||
+|| 9 ||Pausability ||  ||  ||  ||  || x || || ||
+|| 10 ||Change in orientation ||  ||  ||  || || x ||  || ||
+|| 11 ||Smooth playability ||  ||  ||  ||  || || x|| ||
 
 == Test Cases:==
 
-	* Light to obstacle collision
-	* Object interaction/function
-	* Object to obstacle collision
-	* User statistics registration
-	* User transition between states, saved menu, resume
-	* System under stress
-	
+	# Light to obstacle collision
+	# Object interaction/function
+	# Object to obstacle collision
+	# User statistics registration
+	# User transition between states, saved menu, resume
+	# System under stress
+	# User game configuration and input
 == Functional Requirements: ==
 
 	* Light to orb connection
