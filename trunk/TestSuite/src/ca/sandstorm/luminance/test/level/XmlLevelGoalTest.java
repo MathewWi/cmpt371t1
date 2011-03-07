@@ -3,6 +3,11 @@ package ca.sandstorm.luminance.test.level;
 import ca.sandstorm.luminance.level.XmlLevelGoal;
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of the XmlLevelGoal Class
+ * @author lianghuang
+ *
+ */
 public class XmlLevelGoalTest extends AndroidTestCase {
 	
 	private XmlLevelGoal tGoalWhite, tGoalRed, tGoalGreen, tGoalBlue, tGoalOut;

@@ -7,6 +7,11 @@ import javax.vecmath.Vector3f;
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.camera.Camera;
 
+/**
+ * Testing of the Camera Class
+ * @author lianghuang
+ *
+ */
 public class CameraTest extends AndroidTestCase {
 
 	private Camera camera;

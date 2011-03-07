@@ -3,6 +3,11 @@ package ca.sandstorm.luminance.test.level;
 import ca.sandstorm.luminance.level.XmlLevelTool;
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of XmlLevelTool Class
+ * @author lianghuang
+ *
+ */
 public class XmlLevelToolTest extends AndroidTestCase {
 	
 	private XmlLevelTool tToolMirror, tToolPrism, tToolOut;

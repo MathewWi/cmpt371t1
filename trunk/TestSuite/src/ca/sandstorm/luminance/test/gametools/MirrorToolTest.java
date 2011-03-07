@@ -3,6 +3,11 @@ package ca.sandstorm.luminance.test.gametools;
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gametools.MirrorTool;
 
+/**
+ * Testing of the MirrorTool Class
+ * @author lianghuang
+ *
+ */
 public class MirrorToolTest extends AndroidTestCase {
 	
 	private MirrorTool tMirror;

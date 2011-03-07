@@ -2,6 +2,12 @@ package ca.sandstorm.luminance.test.gamelogic;
 
 import android.test.AndroidTestCase;
 
+/**
+ * Testing of the GameState Class
+ * Its not filled out at the moment because GameState is... horribly cluttered
+ * @author lianghuang
+ *
+ */
 public class GameStateTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
