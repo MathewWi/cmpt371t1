@@ -153,6 +153,12 @@ Should use a sphere generation algorithm (this is a classic 3D problem and task 
 
 `}`
 
+
+== Jonny ==
+  * Label.java
+    * draw() function in the label should be implemented using quads like button.draw() instead of using primitive box.
+
+
 = Peer Reviews =
 == March 7, 2011 ==
 === Toolbelt.java ===
