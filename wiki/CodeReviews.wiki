@@ -151,3 +151,14 @@ Should use a sphere generation algorithm (this is a classic 3D problem and task 
 `}`
 
 `}`
+
+= Peer Reviews =
+== March 7, 2011 ==
+=== Toolbelt.java ===
+Line 26: _GRIDPOINT_ERROR - What is this? Needs to be made smaller.  Used as an epsilon for constraining floating point errors.
+
+Line 30: Game state should not be a storage object.  It should be a container for all the other classes; act as a controller.  This causes coupling.  We should try to get this with the toolbelt not talking to game state.
+
+Line 34: List of tools used to loop through to see objects on the grid.  Not necessary.  Be careful with usage.
+
+Line 39 and 40: These are used to indicate a load of a button texture after the parsing of a level file.  Perhaps load all at startup instead of at runtime.
