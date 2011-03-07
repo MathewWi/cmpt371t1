@@ -12,7 +12,7 @@ public interface IGameObject
      * Associate with the object's texture. The texture needs to be loaded
      * before calling this function.
      */
-    void initialize(Grid grid);
+    void initialize();
     
     /**
      * Update the object state.
@@ -35,11 +35,7 @@ public interface IGameObject
      * @return Object position
      */
     Vector3f getPosition();
-    
-    int getGridPositionX();
-    
-    int getGridPositionY();
-    
+        
     /**
      * Set the object's position.
      * @param position New position

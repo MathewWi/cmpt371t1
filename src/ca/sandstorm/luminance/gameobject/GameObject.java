@@ -7,8 +7,6 @@ import ca.sandstorm.luminance.gametools.LightPath;
 
 public abstract class GameObject implements IGameObject
 {
-    private final float _GRIDPOINT_ERROR = 0.05f;
-
     protected Vector3f _position;
     protected Vector4f _rotation;
     protected Vector3f _scale;
@@ -27,9 +25,8 @@ public abstract class GameObject implements IGameObject
      * before calling this function.
      */
     @Override
-    public void initialize(Grid grid)
+    public void initialize()
     {
-	_grid = grid;
     }
 
 
@@ -70,15 +67,15 @@ public abstract class GameObject implements IGameObject
 	return _position;
     }
     
-    public int getGridPositionX()
-    {
-	return (int)(_grid.getGridPosition(_position.x, 0, _position.z).x + _GRIDPOINT_ERROR);
-    }
-    
-    public int getGridPositionY()
-    {
-	return (int)(_grid.getGridPosition(_position.x, 0, _position.z).y + _GRIDPOINT_ERROR);
-    }
+//    public int getGridPositionX()
+//    {
+//	return (int)(_grid.getGridPosition(_position.x, 0, _position.z).x + _GRIDPOINT_ERROR);
+//    }
+//    
+//    public int getGridPositionY()
+//    {
+//	return (int)(_grid.getGridPosition(_position.x, 0, _position.z).y + _GRIDPOINT_ERROR);
+//    }
     
     /**
      * Set the object's position.

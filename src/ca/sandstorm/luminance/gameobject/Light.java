@@ -7,10 +7,9 @@ public class Light extends GameObject implements IGameObject
 {
 
     @Override
-    public void initialize(Grid grid)
+    public void initialize()
     {
 	// TODO Auto-generated method stub
-	super.initialize(grid);
     }
 
 

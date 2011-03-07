@@ -97,7 +97,10 @@ public class Toolbelt
 	}
 	
 	// Check if an object is already at this point
-	// TODO
+	if(_gameState.isCellOccupied(x, y)) {
+	    logger.debug("Cell is occupied: " + x + "," + y);
+	    return null;
+	}
 	
 	// Create a mirror and place it
 	Vector3f position = _gameState.gridToWorldCoords(x, y);
@@ -123,7 +126,9 @@ public class Toolbelt
     public void eraseTool(int x, int y)
     {
 	for(IGameObject tool : _tools) {
-	    if(tool.getGridPositionX() == x && tool.getGridPositionY() == y) {
+	    
+	    //if(tool.getGridPositionX() == x && tool.getGridPositionY() == y) {
+	    if(false) {
 		logger.debug("Found tool to erase at " + x + "," + y + ": " + tool);
 		if(tool instanceof Mirror) {
 		    addToolStock(ToolType.Mirror, 1);
@@ -132,6 +137,8 @@ public class Toolbelt
 		} else {
 		    assert false;
 		}
+		
+		_tools.remove(tool);
 		_gameState.removeObject(tool);
 		break;
 	    }
@@ -151,6 +158,10 @@ public class Toolbelt
 	_stock.put(toolType, stockQty);
     }
     
+    /**
+     * Set which tool should be active.
+     * @param toolType Tool to set as selected
+     */
     public void selectTool(ToolType toolType)
     {
 	assert _stock.containsKey(toolType);
