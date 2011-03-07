@@ -53,8 +53,8 @@
 || Fixing audio || 0.5 ||
 || Game tools/tool objects || 9 ||
 || Game object system || 1 ||
-|| Refactoring || 1 ||
-
+|| Refactoring || 2 ||
+|| Toolbox GUI drawing, GUI system fixes || 1.5 ||
 
 == Stephen Damm ==
 === Milestone 0 ===
