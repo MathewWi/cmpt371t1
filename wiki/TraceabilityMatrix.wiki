@@ -1,4 +1,4 @@
-#summary Traceability Matrix, functional requirements, game features
+# summary Traceability Matrix, functional requirements, game features
 
 = Introduction =
 
@@ -12,47 +12,47 @@ Test coverage, traceability matrix.
 || 1 ||Light to orb connection  ||  ||  ||  ||  ||  ||||
 || 2 ||Light to mirror connection  ||  ||  ||  ||  ||  ||||
 || 3 ||White Light to prism refraction  ||  ||  ||  ||  ||  ||||
-|| 4 ||Mirror rotation ||  ||  ||  ||  ||  ||||
-|| 5 ||Erasor functionality||  ||  ||  ||  ||  ||||
-|| 6 ||User time record||  ||  ||  ||  ||  ||||
-|| 7 ||Sound effects/BG music||  ||  ||  ||  ||||  ||
-|| 8 ||Level transition ||  ||  ||  ||  ||  ||||
-|| 9 ||Pausability ||  ||  ||  ||  ||  ||||
-|| 10 ||Change in orientation ||  ||  ||  ||||  ||  ||
+|| 4 ||Mirror rotation ||  ||  ||  ||  ||  || ||
+|| 5 ||Erasor functionality||  ||  ||  ||  ||  || ||
+|| 6 ||User time record||  ||  ||  ||  ||  || ||
+|| 7 ||Sound effects/BG music||  ||  ||  ||  || ||  ||
+|| 8 ||Level transition ||  ||  ||  ||  ||  || ||
+|| 9 ||Pausability ||  ||  ||  ||  ||  || ||
+|| 10 ||Change in orientation ||  ||  ||  || ||  ||  ||
 || 11 ||Smooth playability ||  ||  ||  ||  || || ||
 
 == Test Cases:==
 
-	*Light to obstacle collision
-	*Object interaction/function
-	*Object to obstacle collision
-	*User statistics registration
-	*User transition between states, saved menu, resume
-	*System under stress
+	* Light to obstacle collision
+	* Object interaction/function
+	* Object to obstacle collision
+	* User statistics registration
+	* User transition between states, saved menu, resume
+	* System under stress
 	
 == Functional Requirements: ==
 
-	*Light to orb connection
-	*Light to mirror connection
-	*White Light to prism refraction
-	*Mirror rotation
-	*Erasor functionality
-	*User time record
-	*Sound effects/BG music
-	*Level transition
-	*Pausability
-	*Change in Orientation
-	*Smooth playability
+	* Light to orb connection
+	* Light to mirror connection
+	* White Light to prism refraction
+	* Mirror rotation
+	* Erasor functionality
+	* User time record
+	* Sound effects/BG music
+	* Level transition
+	* Pausability
+	* Change in Orientation
+	* Smooth playability
 	
 Premise of game:
 
-	*Player is trying to connect light to orb
-	*Player is trying refract around obstacles
+	* Player is trying to connect light to orb
+	* Player is trying refract around obstacles
 	
 	
 Features of game:
 
-	*Phone Rotation possible
-	*Music and sound effects
-	*3D Zoom in Zoom out
+	* Phone Rotation possible
+	* Music and sound effects
+	* 3D Zoom in Zoom out
 	
