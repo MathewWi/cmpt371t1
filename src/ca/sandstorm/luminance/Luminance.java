@@ -77,7 +77,7 @@ public class Luminance extends Activity
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
 	mGLView = new GLSurfaceView(this);
-	mGLView.setRenderer(new ClearRenderer());
+	mGLView.setRenderer(new ClearRenderer(this));
 	mGLView.setGLWrapper(new GLSurfaceView.GLWrapper()
         {
             @Override
@@ -87,7 +87,7 @@ public class Luminance extends Activity
 	setContentView(mGLView);
 	
 	// calculate the status bar height
-	DisplayMetrics metrics = new DisplayMetrics();
+	/*DisplayMetrics metrics = new DisplayMetrics();
 	getWindowManager().getDefaultDisplay().getMetrics(metrics);
 	
 	float statusBarHeight = 0.0f;
@@ -111,7 +111,7 @@ public class Luminance extends Activity
 	}
 	
 	_logger.debug("StatusBarHeight: " + statusBarHeight);
-	Engine.getInstance().setMenuBarHeight((int)statusBarHeight);
+	Engine.getInstance().setMenuBarHeight((int)statusBarHeight);*/
     }
 
 
@@ -201,6 +201,12 @@ public class Luminance extends Activity
      */
     class ClearRenderer implements GLSurfaceView.Renderer
     {
+	private Activity _activity = null;
+	
+	public ClearRenderer(Activity act)
+	{
+	    _activity = act;	    
+	}
 	
 	/**
 	 * OpenGL surface first created.
@@ -209,6 +215,20 @@ public class Luminance extends Activity
 	{
 	    _logger.debug("onSurfaceCreated(" + gl.toString() + ", " +
 			 config.toString() + ")");
+	    
+	    Rect rect= new Rect();
+	    Window window= _activity.getWindow();
+	    window.getDecorView().getWindowVisibleDisplayFrame(rect);
+	    int statusBarHeight= rect.top;
+	    int contentViewTop= 
+	        window.findViewById(Window.ID_ANDROID_CONTENT).getTop();
+	    int titleBarHeight= contentViewTop - statusBarHeight;
+	    
+	    _logger.debug("StatusBarHeight: " + statusBarHeight);
+	    _logger.debug("TitleBarHeight: " + titleBarHeight);
+	    
+	    Engine.getInstance().setMenuBarHeight(statusBarHeight);
+	    Engine.getInstance().setTitleBarHeight(titleBarHeight);
 
 	    
 	    Engine.getInstance().init(gl);
