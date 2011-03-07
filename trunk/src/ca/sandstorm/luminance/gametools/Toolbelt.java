@@ -66,6 +66,8 @@ public class Toolbelt
     public void processClick(float x, float y, Vector2f gridCoords)
     {
 	// Check if click was in the toolbelt area
+	// TODO: GUIManager gives button callback functionality, so perhaps change it to
+	//       that instead of checking button titles like this
 	Button touchedButton = _gameState.getGui().touchOccured(x, y);
 	if (touchedButton != null) {
 	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {

@@ -123,11 +123,6 @@ public class GUIManager
      */
     public Button touchOccured(float x, float y)
     {
-	// drawing coordinates are offset by -50
-	// offset y by the same amount
-	// This is to compensate for the titlebar and statusbar at the top of
-	// the screen
-	float compensatedY = y - 50;
 	/*
 	 * Searches through the array of widgets and compares each one
 	 */
@@ -136,8 +131,8 @@ public class GUIManager
 	    if (button.getClass() == Button.class &&
 		x > button.getX() &&
 		x < button.getX() + button.getWidth() &&
-		compensatedY > button.getY() &&
-		compensatedY < button.getY() + button.getHeight()) {
+		y > button.getY() &&
+		y < button.getY() + button.getHeight()) {
 		if (((Button)button).getMethod() != null && ((Button)button).getCallee() != null) {
 		    ((Button)button).tapped();
 		}

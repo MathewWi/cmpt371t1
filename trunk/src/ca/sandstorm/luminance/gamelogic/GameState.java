@@ -383,6 +383,7 @@ public class GameState implements IState
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		    // TODO: Make mouseClick() only trigger on a full click, and not when trying to zoom/drag
+		    // TODO: Should the menu bar height be compensated for elsewhere, higher up?
 		    _mouseClick(touchEvent.getX(), touchEvent.getY() - Engine.getInstance().getMenuBarHeight() - Engine.getInstance().getTitleBarHeight());
 		    
 		    _initialX = touchEvent.getX();
@@ -489,9 +490,9 @@ public class GameState implements IState
 	if(touchedButton != null) {
 	    if (touchedButton.getTitle().equalsIgnoreCase("pause")) {
 		logger.debug("pause has been tapped");
-		Engine.getInstance().pause();
+		// TODO: disable pausing for now (it doesn't work correctly atm)
+		//Engine.getInstance().pause();
 	    }
-	    return;
 	}
 
 	Ray r = _cam.getWorldCoord(new Vector2f(x, y));
