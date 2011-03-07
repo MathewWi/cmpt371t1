@@ -1,8 +1,11 @@
 package ca.sandstorm.luminance.test.math;
 
 import javax.vecmath.Vector3f;
-import ca.sandstorm.luminance.math.*;
+
 import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.math.Colliders;
+import ca.sandstorm.luminance.math.Plane;
+import ca.sandstorm.luminance.math.Ray;
 
 /**
  * Testing of the Colliders class

@@ -1,7 +1,7 @@
 package ca.sandstorm.luminance.test.math;
 
-import ca.sandstorm.luminance.math.Lerp;
 import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.math.Lerp;
 
 /**
  * Testing of the Lerp class
