@@ -15,7 +15,16 @@ public class XmlLevelPrism extends XmlLevelTool
 	 */
 	public XmlLevelPrism(int count) 
 	{
-		super("prism", count);
+		super(XmlLevelPrism.getId(), count);
+	}
+	
+	/**
+	 * getId method for XmlLevelPrism.
+	 * @return The tool type.
+	 */
+	public static String getId()
+	{
+	    return "prism";
 	}
 
 }

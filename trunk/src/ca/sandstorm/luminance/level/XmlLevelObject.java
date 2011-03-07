@@ -5,7 +5,7 @@ package ca.sandstorm.luminance.level;
  * @author Steven Indzeoski
  * 
  */
-public class XmlLevelObject 
+public abstract class XmlLevelObject 
 {
 	private String _type;
 	private float _positionX;
@@ -41,8 +41,14 @@ public class XmlLevelObject
 	 */
 	public boolean isValidType(String type) 
 	{
-		if (type.equals("brick")) return true;
-		else if (type.equals("goal")) return true;
+		if (type.equals(XmlLevelBrick.getId())) 
+		{
+		    return true;
+		}
+		else if (type.equals(XmlLevelGoal.getId())) 
+		{
+		    return true;
+		}
 		else return false;
 	}
 	

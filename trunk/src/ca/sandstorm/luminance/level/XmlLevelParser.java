@@ -107,7 +107,7 @@ public class XmlLevelParser
 
 					// Get the colour if object is a goal
 					String colourString = null;
-					if (typeString.equals("goal"))
+					if (typeString.equals(XmlLevelGoal.getId()))
 					{
 						NodeList colourNodeList = element.getElementsByTagName("colour");
 						Element colourElement = (Element)colourNodeList.item(0);
@@ -179,11 +179,11 @@ public class XmlLevelParser
 
 					// Create the object for the level
 					XmlLevelObject xmlLevelObject = null;
-					if (typeString.equals("brick"))
+					if (typeString.equals(XmlLevelBrick.getId()))
 					{
 						xmlLevelObject = new XmlLevelBrick();
 					}
-					else if (typeString.equals("goal"))
+					else if (typeString.equals(XmlLevelGoal.getId()))
 					{
 						xmlLevelObject = new XmlLevelGoal(colourString);
 					}
@@ -221,11 +221,11 @@ public class XmlLevelParser
 					
 					// Create the XmlLevelTool and add to list.
 					XmlLevelTool xmlLevelTool = null;
-					if (typeString.equals("mirror"))
+					if (typeString.equals(XmlLevelMirror.getId()))
 					{
 						xmlLevelTool = new XmlLevelMirror(countInt);
 					}
-					else if (typeString.equals("prism"))
+					else if (typeString.equals(XmlLevelPrism.getId()))
 					{
 						xmlLevelTool = new XmlLevelPrism(countInt);
 					}
