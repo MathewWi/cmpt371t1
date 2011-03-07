@@ -99,7 +99,7 @@ public class Toolbelt
 	
 	// Check if an object is already at this point
 	if(_gameState.isCellOccupied(x, y)) {
-	    logger.debug("Cell is occupied: " + x + "," + y);
+	    logger.warn("Cell is occupied: " + x + "," + y);
 	    return null;
 	}
 	
