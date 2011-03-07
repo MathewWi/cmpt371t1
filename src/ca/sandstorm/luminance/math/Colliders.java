@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.math;
 
-import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
 public class Colliders

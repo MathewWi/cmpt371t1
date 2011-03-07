@@ -18,7 +18,6 @@ import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
 import ca.sandstorm.luminance.input.TouchFilter;
 import ca.sandstorm.luminance.resources.ResourceManager;
-import ca.sandstorm.luminance.resources.SoundResource;
 import ca.sandstorm.luminance.resources.TextResource;
 import ca.sandstorm.luminance.state.IState;
 import ca.sandstorm.luminance.time.TimeSystem;
@@ -476,6 +475,7 @@ public class Engine
      *            Directory path
      * @author zenja
      */
+    @SuppressWarnings("unused")
     private void listDirectoryFiles(String path)
     {
 	logger.info("File listing for '" + path + "':");
@@ -498,6 +498,7 @@ public class Engine
      *            Path to text file in assets
      * @author zenja
      */
+    @SuppressWarnings("unused")
     private void printFileContents(String path)
     {
 	try {

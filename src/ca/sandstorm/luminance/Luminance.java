@@ -1,24 +1,16 @@
 package ca.sandstorm.luminance;
 
-import java.lang.reflect.Method;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
-//import org.apache.log4j.Logger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gamelogic.GameState;
-import ca.sandstorm.luminance.gamelogic.MenuState;
-import ca.sandstorm.luminance.gui.Button;
-import ca.sandstorm.luminance.gui.GUIManager;
-import ca.sandstorm.luminance.gui.IWidget;
-import ca.sandstorm.luminance.gui.Label;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.opengl.GLSurfaceView;

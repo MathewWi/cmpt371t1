@@ -1,8 +1,6 @@
 package ca.sandstorm.luminance.gametools;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
 import javax.vecmath.Point2i;
 import javax.vecmath.Vector2f;
@@ -11,16 +9,11 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.view.MotionEvent;
-
-import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gui.Button;
-import ca.sandstorm.luminance.gui.GUIManager;
-import ca.sandstorm.luminance.gui.IWidget;
 
 /**
  * Holds the level's tools and provides functionality for placing/removing them.
@@ -134,7 +127,7 @@ public class Toolbelt
 	if(toolType == ToolType.Mirror) { 
 	    tool = new Mirror(position, 45f);
 	} else if(toolType == ToolType.Prism) {
-	    tool = new Prism(position, 0f);
+	    tool = new Prism(position);
 	}
 	
 	addToolStock(toolType, -1);

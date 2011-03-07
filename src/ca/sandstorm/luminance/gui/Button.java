@@ -8,7 +8,6 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import ca.sandstorm.luminance.graphics.PrimitiveBox;
 import ca.sandstorm.luminance.resources.TextureResource;
 
 /**

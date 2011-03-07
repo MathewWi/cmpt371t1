@@ -12,6 +12,7 @@ import ca.sandstorm.luminance.resources.TextureResource;
 
 public class Mirror extends GameObject implements IRenderableObject
 {
+    @SuppressWarnings("unused")
     private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
 
     private IRenderable _model;
@@ -42,6 +43,10 @@ public class Mirror extends GameObject implements IRenderableObject
 	_texture = tex.getTexture();
     }
 
+    public float getOrientation()
+    {
+	return _orientation;
+    }
 
     @Override
     public IRenderable getRenderable()
