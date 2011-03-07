@@ -5,21 +5,21 @@ Personal code reviews were done on team members own time.  The process was to re
 
 == Martina ==
 
-* Box.java:
-   * Line 36: Why are values hard coded for rotation?
+  * Box.java:
+    * Line 36: Why are values hard coded for rotation?
 
-* !GameObject.java: 
-   * Lines 70-78: Commented out code.  Is this still needed?  If not, delete it.
+  * !GameObject.java: 
+    * Lines 70-78: Commented out code.  Is this still needed?  If not, delete it.
 
-* Grid.java: 
-   * Line 79, 107, 302, 306, 317: Commented out code.
-   * Line 82: Not very clear what this loop does.  Consider adding comment.
+  * Grid.java: 
+    * Line 79, 107, 302, 306, 317: Commented out code.
+    * Line 82: Not very clear what this loop does.  Consider adding comment.
 
-* Mirror.java:
-   * Lines 29 and 30: Why are these values hard coded?  
+  * Mirror.java:
+    * Lines 29 and 30: Why are these values hard coded?  
 
-* !SkyBox.java:
-   * Lines 75, 81, 87: Magic numbers.  What do these values represent?  
+  * !SkyBox.java:
+    * Lines 75, 81, 87: Magic numbers.  What do these values represent?  
 
 = Stephen Damm = 
 * ALL IF STATEMENTS NEED BRACERS * 
