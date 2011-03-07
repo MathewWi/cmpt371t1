@@ -196,7 +196,7 @@ public class MenuState implements IState
     public void draw(GL10 gl)
     {
 	// clear to back and clear the depth buffer!
-	gl.glClearColor(0, 0, 0, 1);
+	//gl.glClearColor(0, 0, 0, 1);
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);	
 
 	gl.glViewport(0,0,Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
