@@ -169,3 +169,23 @@ Line 30: Game state should not be a storage object.  It should be a container fo
 Line 34: List of tools used to loop through to see objects on the grid.  Not necessary.  Be careful with usage.
 
 Line 39 and 40: These are used to indicate a load of a button texture after the parsing of a level file.  Perhaps load all at startup instead of at runtime.
+
+=== Test classes ===
+AndroidSoundPlayerTest.java
+ * streamId: why is this 0?  If this is zero, it indicates failure, since player.play returns an int.
+
+GameRendererRest.java
+ * constructor is no longer valid, due to dev team changes.
+ * Should be comments on methods
+
+BoxTest.java
+ * looks good
+
+GridTest.java
+ * looks good
+
+LightTest.java
+ * Need to fill in with proper tests
+
+MirrorTest.java
+ * Looks good
