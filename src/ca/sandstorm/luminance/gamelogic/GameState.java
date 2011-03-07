@@ -2,6 +2,7 @@ package ca.sandstorm.luminance.gamelogic;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -80,7 +81,8 @@ public class GameState implements IState
     private Toolbelt _toolbelt;
 
     // Container of game objects
-    private LinkedList<IGameObject> _objects;
+    //private LinkedList<IGameObject> _objects;
+    private HashMap<Point2i, IGameObject> _objects;
 
 
     /**
@@ -92,7 +94,8 @@ public class GameState implements IState
     {
 	logger.debug("GameState()");
 	
-	_objects = new LinkedList<IGameObject>();
+	//_objects = new LinkedList<IGameObject>();
+	_objects = new HashMap<Point2i, IGameObject>();
 	addToolBelt();
     }
     
@@ -134,7 +137,9 @@ public class GameState implements IState
 	obj.initialize();
 	
 	// Add to updatable objects list
-	_objects.add(obj);
+	//_objects.add(obj);
+	Point2i gridCoord = worldToGridCoords(obj.getPosition());
+	_objects.put(gridCoord, obj);
 	
 	// Add to renderer if applicable
 	if(obj instanceof IRenderableObject) {
@@ -148,7 +153,7 @@ public class GameState implements IState
      */
     public void removeObject(IGameObject obj)
     {
-	assert _objects.contains(obj);
+	assert _objects.containsValue(obj);
 	// Remove from objects list
 	logger.debug("Removing object: " + obj);
 	_objects.remove(obj);
@@ -588,8 +593,7 @@ public class GameState implements IState
      */
     public boolean isCellOccupied(int x, int y)
     {
-	// TODO
-	return false;
+	return _objects.containsKey(new Point2i(x, y));
     }
 
     /**
@@ -604,7 +608,7 @@ public class GameState implements IState
 	processInput();
 
 	// Update game objects
-	for (IGameObject object : _objects) {
+	for (IGameObject object : _objects.values()) {
 	    object.update();
 	}
     }
