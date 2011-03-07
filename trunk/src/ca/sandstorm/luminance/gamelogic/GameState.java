@@ -96,36 +96,14 @@ public class GameState implements IState
 	
 	//_objects = new LinkedList<IGameObject>();
 	_objects = new HashMap<Point2i, IGameObject>();
-	addToolBelt();
-    }
-    
-    /**
-     * Add toolbelt which consist all tool buttons created using GUI
-     * @author Jonny
-     */
-    private void addToolBelt()
-    {
+	
+	// Create GUI manager and add initial widgets
 	_guiManager = new GUIManager();
-	IWidget[] widgets = new IWidget[GUIManager.MAX_WIDGET_COUNT];
-	Button mirrorButton = new Button(50, 100, 30, 30, "Mirror");
-	mirrorButton.setTextureResourceLocation("textures/mirror.png");
-	
-	Button prismButton = new Button(80, 100, 30, 30, "Prism");
-	prismButton.setTextureResourceLocation("textures/prism.png");
-	
-	Button eraserButton = new Button(110, 100, 30, 30, "Eraser");
-	eraserButton.setTextureResourceLocation("textures/eraser.png");
-	
 	Button pauseButton = new Button(140, 100, 30, 30, "Pause");
 	pauseButton.setTextureResourceLocation("textures/pause.png");
-	
-	widgets[0] = mirrorButton;
-	widgets[1] = prismButton;
-	widgets[2] = eraserButton;
-	widgets[3] = pauseButton;
-	_guiManager.addWidgets(widgets);
+	_guiManager.addButton(pauseButton);
     }
-    
+        
     /**
      * Add a game object to the game.
      * NOTE: Also calls object's initialize(), at least for now.
@@ -402,8 +380,6 @@ public class GameState implements IState
 
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 		    .getTouchScreen().getTouchEvent();
-
-	    processToolBeltInput(touchEvent);
 	    
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
@@ -500,48 +476,7 @@ public class GameState implements IState
 	    }
 	}
 
-    }
-
-    /**
-     * Private function called by processInput to handle toolBelt input
-     * @param touchEvent
-     * 			current movement event
-     * @precond touchEvent != null
-     * 
-     * @author Jonny
-     */
-    private void processToolBeltInput(MotionEvent touchEvent)
-    {
-	if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
-		_tapped = true;
-	}
-	
-	if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
-	    
-	    Button touchedButton = _guiManager.touchOccured(touchEvent);
-	    if (touchedButton != null) {
-		if (touchedButton.getTitle().equalsIgnoreCase("pause")) {
-		    logger.debug("pause has been tapped");
-		    Engine.getInstance().pause();
-			
-		} else if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
-		    logger.debug("mirror has been tapped");
-		    _toolbelt.selectTool(ToolType.Mirror);
-			
-		} else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
-		    logger.debug("prism has been tapped");
-		    _toolbelt.selectTool(ToolType.Prism);
-			
-		} else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
-		    logger.debug("eraser has been tapped");
-		    _toolbelt.selectTool(ToolType.Eraser);
-		}
-	    }
-	    _tapped = false;
-	    
-	}
-    }
-    
+    }    
     
     /**
      * Handle a mouse/touchpad click.
@@ -550,6 +485,17 @@ public class GameState implements IState
      */
     private void _mouseClick(float x, float y)
     {
+	// Check if pause was pressed
+	Button touchedButton = _guiManager.touchOccured(x, y);
+	if(touchedButton != null) {
+	    if (touchedButton.getTitle().equalsIgnoreCase("pause")) {
+		logger.debug("pause has been tapped");
+		Engine.getInstance().pause();
+	    }
+	    
+	    return;
+	}
+
 	Ray r = _cam.getWorldCoord(new Vector2f(x, y));
 	if (r == null)
 	    return;
@@ -670,6 +616,10 @@ public class GameState implements IState
 	gl.glPopMatrix();
     }
 
+    public GUIManager getGui()
+    {
+	return _guiManager;
+    }
 
     /**
      * Engine has informed the state the device has changed.
