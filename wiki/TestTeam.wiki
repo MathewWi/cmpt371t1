@@ -16,6 +16,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || || Robust smoke test ||
 || || Mock testing ||
 || || State Mock testing(Game Logic) ||
+|| || Finish Triage ||
 
 = End Milestone 3 =
 
