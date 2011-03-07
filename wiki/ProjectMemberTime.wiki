@@ -93,6 +93,9 @@
 || Added OpenGL X.X compatible MatrixStack || 1 ||
 || Added status bar height calculates for all phones || 1 ||
 || Grid Plane with un-project ray collision tests || 2 ||
+|| Fixed bug, MenuState not rendering properly || 2 ||
+|| Fixed bug, game state gui manager not rendering properly || 0.5 ||
+|| Added title bar and status bar height generic calculation || 1 ||
 
 == Martina Nagy ==
 === Milestone 0 ===
