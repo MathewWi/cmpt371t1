@@ -1,4 +1,4 @@
-# summary Use cases to be translated into test scripts
+#summary Use cases to be translated into test scripts
 
 = Use Cases =
 
