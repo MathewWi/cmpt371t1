@@ -99,7 +99,7 @@ public class GameState implements IState
 	
 	// Create GUI manager and add initial widgets
 	_guiManager = new GUIManager();
-	Button pauseButton = new Button(140, 100, 30, 30, "Pause");
+	Button pauseButton = new Button(140, 20, 30, 30, "Pause");
 	pauseButton.setTextureResourceLocation("textures/pause.png");
 	_guiManager.addButton(pauseButton);
     }
@@ -235,7 +235,6 @@ public class GameState implements IState
     public void pause()
     {
 	logger.debug("pause()");
-
     }
 
 
@@ -492,7 +491,6 @@ public class GameState implements IState
 		logger.debug("pause has been tapped");
 		Engine.getInstance().pause();
 	    }
-	    
 	    return;
 	}
 
