@@ -7,4 +7,8 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		super.setUp();
 
 	}
+
+	public void testParse() throws Exception {
+
+	}
 }

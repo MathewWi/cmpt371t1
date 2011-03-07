@@ -7,4 +7,13 @@ public class XmlLevelGoalTest extends AndroidTestCase {
 		super.setUp();
 
 	}
+
+	public void testIsValidColour() throws Exception {
+
+	}
+
+	public void testGetColour() throws Exception {
+
+	}
+
 }

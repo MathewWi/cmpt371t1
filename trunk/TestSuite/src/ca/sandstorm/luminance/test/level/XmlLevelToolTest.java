@@ -7,4 +7,17 @@ public class XmlLevelToolTest extends AndroidTestCase {
 		super.setUp();
 
 	}
+
+	public void testGetType() throws Exception {
+
+	}
+
+	public void testGetCount() throws Exception {
+
+	}
+
+	public void testIsValidType() throws Exception {
+
+	}
+
 }
