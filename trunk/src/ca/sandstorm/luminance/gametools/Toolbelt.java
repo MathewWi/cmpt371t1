@@ -31,7 +31,8 @@ public class Toolbelt
     private GameState _gameState;
     
     // Collections of placed tools
-    private LinkedList<IGameObject> _tools;
+    //private LinkedList<IGameObject> _tools;
+    private HashMap<Point2i, IGameObject> _tools;
 
     // Stock available of each tool type
     private HashMap<ToolType, Integer> _stock;
@@ -39,7 +40,7 @@ public class Toolbelt
     public Toolbelt(GameState gameState)
     {
 	_gameState = gameState;
-	_tools = new LinkedList<IGameObject>();
+	_tools = new HashMap<Point2i, IGameObject>();
 	
 	_stock = new HashMap<ToolType, Integer>();
 	_stock.put(ToolType.Mirror, 0);
@@ -114,7 +115,7 @@ public class Toolbelt
 	
 	addToolStock(toolType, -1);
 	_gameState.addObject(tool);
-	_tools.add(tool);
+	_tools.put(new Point2i(x, y), tool);
 	logger.debug("Placed tool: " + toolType);
 	return tool;
     }
@@ -126,23 +127,19 @@ public class Toolbelt
      */
     public void eraseTool(int x, int y)
     {
-	for(IGameObject tool : _tools) {
-	    
-	    Point2i gridCoords = _gameState.worldToGridCoords(tool.getPosition());
-	    if(gridCoords.x == x && gridCoords.y == y) {
-		logger.debug("Found tool to erase at " + x + "," + y + ": " + tool);
-		if(tool instanceof Mirror) {
-		    addToolStock(ToolType.Mirror, 1);
-		} else if(tool instanceof Prism) {
-		    addToolStock(ToolType.Prism, 1);
-		} else {
-		    assert false;
-		}
-		
-		_tools.remove(tool);
-		_gameState.removeObject(tool);
-		break;
+	IGameObject tool = _tools.get(new Point2i(x, y));
+	if(tool != null) {
+	    logger.debug("Found tool to erase at " + x + "," + y + ": " + tool);
+	    if(tool instanceof Mirror) {
+		addToolStock(ToolType.Mirror, 1);
+	    } else if(tool instanceof Prism) {
+		addToolStock(ToolType.Prism, 1);
+	    } else {
+		assert false;
 	    }
+
+	    _tools.remove(tool);
+	    _gameState.removeObject(tool);
 	}
     }
     

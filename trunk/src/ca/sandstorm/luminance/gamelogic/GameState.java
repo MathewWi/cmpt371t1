@@ -586,6 +586,17 @@ public class GameState implements IState
     }
     
     /**
+     * Get an object at specified grid coordinates.
+     * @param x Grid X coordinate
+     * @param y Grid Y coordinate
+     * @return The object at the position, or null if none
+     */
+    public IGameObject getObjectAtGridCoords(int x, int y)
+    {
+	return _objects.get(new Point2i(x, y));
+    }
+    
+    /**
      * Check if a cell is occupied.
      * @param x Grid X coordinate
      * @param y Grid Y coordinate
