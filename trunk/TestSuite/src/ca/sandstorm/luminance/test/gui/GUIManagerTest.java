@@ -12,7 +12,7 @@ public class GUIManagerTest extends AndroidTestCase {
 
 	GUIManager guiManager;
 	int MAX_BUTTON_COUNT = 10;
-	Button[] button = new Button[MAX_BUTTON_COUNT];
+	Button[] button;
 
 	/*
 	 * (non-Javadoc)
@@ -22,6 +22,7 @@ public class GUIManagerTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		guiManager = new GUIManager();
+		button = new Button[MAX_BUTTON_COUNT];
 	}
 
 	/*
