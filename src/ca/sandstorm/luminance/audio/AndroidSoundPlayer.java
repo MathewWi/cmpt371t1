@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.resources.SoundResource;
 
 import android.media.AudioManager;
@@ -37,16 +38,16 @@ public class AndroidSoundPlayer implements IAudioDriver
     {
 	_logger.debug("AndroidSoundPlayer()");
 	
+	_mediaPlayer = new MediaPlayer();
+	if(_mediaPlayer == null) {
+	    throw new RuntimeException("Audio: failed to create MediaPlayer");
+	}
+	
 	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
 	if (_soundPool == null) {
 	    throw new RuntimeException("Audio: failed to create SoundPool");
 	}
 	
-	_mediaPlayer = new MediaPlayer();
-	if(_mediaPlayer == null) {
-	    throw new RuntimeException("Audio: failed to create MediaPlayer");
-	}
-
 	_streamMap = new HashMap<Integer, Integer>();
     }
     
@@ -85,6 +86,7 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void playMusic(String file) throws IOException
     {
+	//_mediaPlayer.setDataSource(Engine.getInstance().getResourceManager().loadResource(file).getAssetFd());
 	_mediaPlayer.setDataSource(file);
 	_mediaPlayer.setLooping(true);
 	_mediaPlayer.prepare();

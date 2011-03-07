@@ -95,6 +95,7 @@ public class ResourceManager
 	// Read file
 	byte[] data = readFile(filename);
 	Resource res = new Resource(filename, data);
+	res._fd = _assets.openFd(filename);
 	_resources.put(filename, res);
 
 	return res;

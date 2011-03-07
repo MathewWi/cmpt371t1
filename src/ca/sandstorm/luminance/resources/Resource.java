@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.resources;
 
+import android.content.res.AssetFileDescriptor;
+
 /**
  * Project resource.
  * 
@@ -9,6 +11,7 @@ public class Resource implements IResource
 {
     protected byte[] _data;
     protected String _name;
+    protected AssetFileDescriptor _fd;
 
 
     /**
@@ -59,6 +62,11 @@ public class Resource implements IResource
     public byte[] getData()
     {
 	return _data;
+    }
+    
+    public AssetFileDescriptor getAssetFd()
+    {
+	return _fd;
     }
 
 

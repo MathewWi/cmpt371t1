@@ -11,10 +11,16 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.view.MotionEvent;
+
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
+import ca.sandstorm.luminance.gui.Button;
+import ca.sandstorm.luminance.gui.GUIManager;
+import ca.sandstorm.luminance.gui.IWidget;
 
 /**
  * Holds the level's tools and provides functionality for placing/removing them.
@@ -29,7 +35,7 @@ public class Toolbelt
     
     // Reference to the game state the toolbelt is in so it can be manipulated
     private GameState _gameState;
-    
+        
     // Collections of placed tools
     //private LinkedList<IGameObject> _tools;
     private HashMap<Point2i, IGameObject> _tools;
@@ -45,6 +51,10 @@ public class Toolbelt
 	_stock = new HashMap<ToolType, Integer>();
 	_stock.put(ToolType.Mirror, 0);
 	_stock.put(ToolType.Prism, 0);
+	
+	Button eraserButton = new Button(110, 100, 30, 30, "Eraser");
+	eraserButton.setTextureResourceLocation("textures/eraser.png");
+	_gameState.getGui().addButton(eraserButton);
     }
     
     /**
@@ -56,9 +66,18 @@ public class Toolbelt
     public void processClick(float x, float y, Vector2f gridCoords)
     {
 	// Check if click was in the toolbelt area
-	// TODO
-	if(false) {
-	    // Select tool based on click coordinates
+	Button touchedButton = _gameState.getGui().touchOccured(x, y);
+	if (touchedButton != null) {
+	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
+		logger.debug("mirror has been tapped");
+		selectTool(ToolType.Mirror);
+	    } else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
+		logger.debug("prism has been tapped");
+		selectTool(ToolType.Prism);
+	    } else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
+		logger.debug("eraser has been tapped");
+		selectTool(ToolType.Eraser);
+	    }
 	} else {
 	    // It's a click on the grid
 	    // Add a small amount to the coordinates so that casting to int doesn't possibly round down due to float error
@@ -151,9 +170,31 @@ public class Toolbelt
     public void addToolStock(ToolType toolType, int quantity)
     {
 	assert _stock.containsKey(toolType);
+
+	// Draw the widget if needed
+	if(_stock.get(toolType) == 0) {
+	    Button button = null;
+	    if(toolType == ToolType.Mirror){
+		button = new Button(50, 100, 30, 30, "Mirror");
+		button.setTextureResourceLocation("textures/mirror.png");
+		logger.debug("Adding mirror icon");
+	    } else if (toolType == ToolType.Prism){
+		button = new Button(80, 100, 30, 30, "Prism");
+		button.setTextureResourceLocation("textures/prism.png");
+		logger.debug("Adding prism icon");
+	    } else {
+		assert false;
+	    }
+	    _gameState.getGui().addButton(button);
+	}
+
+	// Update stock
 	int stockQty = _stock.get(toolType);
 	stockQty += quantity;
 	_stock.put(toolType, stockQty);
+	
+	// Update stock on icon
+	// TODO
     }
     
     /**
@@ -166,4 +207,45 @@ public class Toolbelt
 	_selectedTool = toolType;
 	logger.debug("Selected tool: " + toolType);
     }
+    
+//    /**
+//     * Private function called by processInput to handle toolBelt input
+//     * @param touchEvent
+//     * 			current movement event
+//     * @precond touchEvent != null
+//     * 
+//     * @author Jonny
+//     */
+//    private void processToolBeltInput(MotionEvent touchEvent)
+//    {
+//	if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
+//		_tapped = true;
+//	}
+//	
+//	if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
+//	    
+//	    Button touchedButton = _guiManager.touchOccured(touchEvent);
+//	    if (touchedButton != null) {
+//		if (touchedButton.getTitle().equalsIgnoreCase("pause")) {
+//		    logger.debug("pause has been tapped");
+//		    Engine.getInstance().pause();
+//			
+//		} else if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
+//		    logger.debug("mirror has been tapped");
+//		    _toolbelt.selectTool(ToolType.Mirror);
+//			
+//		} else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
+//		    logger.debug("prism has been tapped");
+//		    _toolbelt.selectTool(ToolType.Prism);
+//			
+//		} else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
+//		    logger.debug("eraser has been tapped");
+//		    _toolbelt.selectTool(ToolType.Eraser);
+//		}
+//	    }
+//	    _tapped = false;
+//	    
+//	}
+//    }
+
 }
