@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.LinkedList;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Point2i;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
@@ -130,7 +131,7 @@ public class GameState implements IState
     public void addObject(IGameObject obj)
     {
 	// Initialize object
-	obj.initialize(_grid);
+	obj.initialize();
 	
 	// Add to updatable objects list
 	_objects.add(obj);
@@ -147,7 +148,9 @@ public class GameState implements IState
      */
     public void removeObject(IGameObject obj)
     {
+	assert _objects.contains(obj);
 	// Remove from objects list
+	logger.debug("Removing object: " + obj);
 	_objects.remove(obj);
 	
 	// Remove from renderer
@@ -400,7 +403,7 @@ public class GameState implements IState
 	    switch (touchEvent.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		    // TODO: Make mouseClick() only trigger on a full click, and not when trying to zoom/drag
-		    _mouseClick(touchEvent.getX(), touchEvent.getY() - Engine.getInstance().getMenuBarHeight());
+		    _mouseClick(touchEvent.getX(), touchEvent.getY() - Engine.getInstance().getMenuBarHeight() - Engine.getInstance().getTitleBarHeight());
 		    
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();
@@ -555,10 +558,38 @@ public class GameState implements IState
 	_toolbelt.processClick(x, y, gridPoint);
     }
     
+    /**
+     * Convert a grid cell coordinate to a world coordinate.
+     * @param x Grid X coordinate
+     * @param y Grid Y coordinate
+     * @return World coordinates
+     */
     public Vector3f gridToWorldCoords(int x, int y)
     {
-	//return _grid.getGridPosition(x, 0, y);
 	return _grid.getCellCenter(y, x);
+    }
+    
+    /**
+     * Convert a world coordinate to a grid cell coordinate.
+     * @param position World coordinate
+     * @return 
+     */
+    public Point2i worldToGridCoords(Vector3f position)
+    {
+	Vector2f pos2d = _grid.getGridPosition(position.x, 0, position.z);
+	return new Point2i((int)pos2d.x, (int)pos2d.y);
+    }
+    
+    /**
+     * Check if a cell is occupied.
+     * @param x Grid X coordinate
+     * @param y Grid Y coordinate
+     * @return True if occupied, false if not
+     */
+    public boolean isCellOccupied(int x, int y)
+    {
+	// TODO
+	return false;
     }
 
     /**
