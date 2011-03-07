@@ -1,5 +1,6 @@
 package ca.sandstorm.luminance.audio;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import ca.sandstorm.luminance.resources.SoundResource;
 
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 
 
@@ -21,6 +23,7 @@ public class AndroidSoundPlayer implements IAudioDriver
     // TODO: Remove sound streams from map when they're done
     private static final int MAX_STREAMS = 8;
 
+    private MediaPlayer _mediaPlayer;
     private SoundPool _soundPool;
     private HashMap<Integer, Integer> _streamMap;
     private static final Logger _logger = LoggerFactory
@@ -37,6 +40,11 @@ public class AndroidSoundPlayer implements IAudioDriver
 	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
 	if (_soundPool == null) {
 	    throw new RuntimeException("Audio: failed to create SoundPool");
+	}
+	
+	_mediaPlayer = new MediaPlayer();
+	if(_mediaPlayer == null) {
+	    throw new RuntimeException("Audio: failed to create MediaPlayer");
 	}
 
 	_streamMap = new HashMap<Integer, Integer>();
@@ -70,6 +78,19 @@ public class AndroidSoundPlayer implements IAudioDriver
 	return streamId;
     }
 
+    /**
+     * Play a song by streaming it.
+     * @param file Path to song
+     * @throws IOException
+     */
+    public void playMusic(String file) throws IOException
+    {
+	_mediaPlayer.setDataSource(file);
+	_mediaPlayer.setLooping(true);
+	_mediaPlayer.prepare();
+	_mediaPlayer.start();
+    }
+
 
     /**
      * Stop a playing stream.
@@ -93,9 +114,13 @@ public class AndroidSoundPlayer implements IAudioDriver
     {
 	_logger.debug("pauseAll()");
 	
+	// Stop all sound effects
 	for (int stream : _streamMap.values()) {
 	    _soundPool.pause(stream);
 	}
+	
+	// Stop music
+	_mediaPlayer.start();
     }
 
 
@@ -106,9 +131,13 @@ public class AndroidSoundPlayer implements IAudioDriver
     {
 	_logger.debug("resumeAll()");
 	
+	// Resume all sound effects
 	for (int stream : _streamMap.values()) {
 	    _soundPool.resume(stream);
 	}
+	
+	// Resume music
+	_mediaPlayer.pause();
     }
 
 
