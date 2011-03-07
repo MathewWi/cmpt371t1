@@ -4,7 +4,6 @@ import javax.vecmath.Vector3f;
 
 import ca.sandstorm.luminance.gamelogic.GameRenderer;
 import ca.sandstorm.luminance.gameobject.Box;
-import ca.sandstorm.luminance.gameobject.Light;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import android.test.AndroidTestCase;

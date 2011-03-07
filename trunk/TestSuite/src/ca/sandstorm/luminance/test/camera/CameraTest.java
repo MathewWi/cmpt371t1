@@ -11,20 +11,21 @@ public class CameraTest extends AndroidTestCase {
 
 	private Camera camera;
 
+	@SuppressWarnings("unused")
 	private Vector3f up, target, eye, lookDirection, strafeDirection;
-
+	@SuppressWarnings("unused")
 	private float[] lastProjectionMat, lastModelViewMat;
-
+	@SuppressWarnings("unused")
 	private Quat4f rotation, view, newView, conjugate;
 
 	protected void setUp() throws Exception {
 		super.setUp();
 
 		camera = new Camera();
-
-		up = new Vector3f(0, 1, 0);
+		
 		target = new Vector3f(0, 0, 0);
-		eye = new Vector3f(0, 0, 0);
+/*		eye = new Vector3f(0, 0, 0);
+		up = new Vector3f(0, 1, 0);
 
 		lookDirection = new Vector3f();
 		strafeDirection = new Vector3f();
@@ -35,7 +36,7 @@ public class CameraTest extends AndroidTestCase {
 		rotation = new Quat4f();
 		view = new Quat4f();
 		newView = new Quat4f();
-		conjugate = new Quat4f();
+		conjugate = new Quat4f();*/
 	}
 
 	public void testGetEye() throws Exception {
