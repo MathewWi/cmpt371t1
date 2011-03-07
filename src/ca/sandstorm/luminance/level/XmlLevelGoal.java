@@ -19,24 +19,27 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public XmlLevelGoal(String colour) throws IllegalArgumentException {
 	super(XmlLevelGoal.getId());
+	
+	colour = colour.toUpperCase();
+	
 	if (!isValidColour(colour))
 	{
 	    throw new IllegalArgumentException("The colour " + colour + " is invalid.");
 	}
-	colour = colour.toUpperCase();
-	if (colour.equals(GoalColour.WHITE.name()))
+	
+	if (colour.equals(GoalColour.WHITE.toString()))
 	{
 	    _colour = GoalColour.WHITE;
 	}
-	else if (colour.equals(GoalColour.RED.name()))
+	else if (colour.equals(GoalColour.RED.toString()))
 	{
 	    _colour = GoalColour.RED;
 	}
-	else if (colour.equals(GoalColour.BLUE.name()))
+	else if (colour.equals(GoalColour.BLUE.toString()))
 	{
 	    _colour = GoalColour.BLUE;
 	}
-	else if (colour.equals(GoalColour.GREEN.name()))
+	else if (colour.equals(GoalColour.GREEN.toString()))
 	{
 	    _colour = GoalColour.GREEN;
 	}
@@ -50,19 +53,19 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public boolean isValidColour(String colour) 
     {
-	if (colour.equals(GoalColour.WHITE.name()))
+	if (colour.equals(GoalColour.WHITE.toString()))
 	{
 	    return true;
 	}
-	else if (colour.equals(GoalColour.RED.name())) 
+	else if (colour.equals(GoalColour.RED.toString())) 
 	{
 	    return true;
 	}
-	else if (colour.equals(GoalColour.BLUE.name())) 
+	else if (colour.equals(GoalColour.BLUE.toString())) 
 	{
 	    return true;
 	}
-	else if (colour.equals(GoalColour.GREEN.name()))
+	else if (colour.equals(GoalColour.GREEN.toString()))
 	{
 	    return true;
 	}

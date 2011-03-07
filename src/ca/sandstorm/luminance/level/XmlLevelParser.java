@@ -81,11 +81,11 @@ public class XmlLevelParser
 			
 			Element wElement = (Element)gridElement.getElementsByTagName("width").item(0);
 			String w = ((Node)wElement.getChildNodes().item(0)).getNodeValue();
-			int iW = Integer.parseInt(w);
+			float fW = Float.parseFloat(w);
 			
 			Element hElement = (Element)gridElement.getElementsByTagName("height").item(0);
 			String h = ((Node)hElement.getChildNodes().item(0)).getNodeValue();
-			int iH = Integer.parseInt(h);		
+			float fH = Float.parseFloat(h);		
 			
 
 			// Get level objects.
@@ -234,7 +234,7 @@ public class XmlLevelParser
 			}
 			
 			// Create and return level object.
-			XmlLevel xmlLevel = new XmlLevel(name, difficulty, xString, yString, iW, iH, objectList, toolList);	
+			XmlLevel xmlLevel = new XmlLevel(name, difficulty, xString, yString, fW, fH, objectList, toolList);	
 			return xmlLevel;
 		}
 		catch (Exception e) 
