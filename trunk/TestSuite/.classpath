@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Luminance"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="ReferencedLibrariesJar"/>
-	<classpathentry kind="lib" path="D:/Winter2011/CMPT 371/robotium/robotium-solo-2.1.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry excluding="ca/sandstorm/luminance/test/input/GUIManagerTest.java"
+		kind="src" path="src" />
+	<classpathentry kind="src" path="gen" />
+	<classpathentry combineaccessrules="false" kind="src"
+		path="/Luminance" />
+	<classpathentry kind="con"
+		path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK" />
+	<classpathentry kind="con"
+		path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4" />
+	<classpathentry kind="lib" path="ReferencedLibrariesJar" />
+	<classpathentry kind="lib"
+		path="/Users/lianghuang/Documents/workspace/LuminanceTestSuite/ReferencedLibrariesJar/com/jayway/android/robotium/solo" />
+	<classpathentry kind="output" path="bin" />
 </classpath>
