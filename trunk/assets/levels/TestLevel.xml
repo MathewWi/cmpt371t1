@@ -22,7 +22,11 @@
 			<x>1</x>
 			<y>1</y>
 		</position>
-		<rotation>0</rotation>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
 	</object>
 	
 	<object>
@@ -31,7 +35,11 @@
 			<x>2</x>
 			<y>2</y>
 		</position>
-		<rotation>0</rotation>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
 	</object>
 			<object>
 		<type>brick</type>
@@ -39,7 +47,11 @@
 			<x>3</x>
 			<y>3</y>
 		</position>
-		<rotation>0</rotation>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
 	</object>
 	
 	<object>
@@ -48,7 +60,11 @@
 			<x>4</x>
 			<y>4</y>
 		</position>
-		<rotation>0</rotation>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
 	</object>
 	
 	<object>
@@ -57,7 +73,11 @@
 			<x>5</x>
 			<y>5</y>
 		</position>
-		<rotation>0</rotation>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
 	</object>
 	
 			<object>
@@ -66,7 +86,11 @@
 			<x>6</x>
 			<y>6</y>
 		</position>
-		<rotation>0</rotation>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
 	</object>
 		
 	<object>
@@ -76,7 +100,11 @@
 			<x>50</x>
 			<y>15</y>
 		</position>
-		<rotation>180</rotation>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
 	</object>
 	
 	<!-- Level Tools -->

@@ -19,6 +19,8 @@ public class XmlLevel
 	private String _difficulty;
 	private int _xSize;
 	private int _ySize;
+	private int _width;
+	private int _height;
 	private LinkedList<XmlLevelObject> _objects;
 	private LinkedList<XmlLevelTool> _tools;
 	
@@ -33,16 +35,18 @@ public class XmlLevel
 	 * @precond name != null, difficulty != null, xSize > 0, ySize > 0, objects != null, tools != null
 	 * @postcond An XmlLevel is created
 	 */
-	public XmlLevel(String name, String difficulty, int xSize, int ySize, LinkedList<XmlLevelObject> objects, LinkedList<XmlLevelTool> tools)
+	public XmlLevel(String name, String difficulty, int xSize, int ySize, int width, int height, LinkedList<XmlLevelObject> objects, LinkedList<XmlLevelTool> tools)
 	{
 	    _logger.debug("XmlLevel(" + name + ", " + difficulty + ", " + xSize + ", " + ySize + ", " + objects + ", " + tools + ")");
-	    
-		_name = name;
-		_difficulty = difficulty;
-		_xSize = xSize;
-		_ySize = ySize;
-		_objects = objects;
-		_tools = tools;
+
+	    _name = name;
+	    _difficulty = difficulty;
+	    _xSize = xSize;
+	    _ySize = ySize;
+	    _width = width;
+	    _height = height;
+	    _objects = objects;
+	    _tools = tools;
 	}
 	
 	/**
@@ -79,6 +83,24 @@ public class XmlLevel
 	public int getYSize()
 	{
 		return _ySize;
+	}
+	
+	/**
+	 * Getter method for the width of the level.
+	 * @return The width of the level.
+	 */
+	public int getWidth()
+	{
+	    return _width;
+	}
+	
+	/**
+	 * Getter method for the height of the level.
+	 * @return
+	 */
+	public int getHeight()
+	{
+	    return _height;
 	}
 	
 	/**
