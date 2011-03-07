@@ -1,91 +1,81 @@
 package ca.sandstorm.luminance.test.gamelogic;
 
+import javax.vecmath.Vector3f;
+
+import ca.sandstorm.luminance.gamelogic.GameRenderer;
+import ca.sandstorm.luminance.gameobject.Box;
+import ca.sandstorm.luminance.gameobject.Light;
+import ca.sandstorm.luminance.gameobject.Mirror;
+import ca.sandstorm.luminance.gameobject.Prism;
 import android.test.AndroidTestCase;
 
 public class GameRendererTest extends AndroidTestCase {
+	
+	private GameRenderer gr;
+	private Box tBox;
+	private Mirror tMirror;
+	private Prism tPrism;
+	
 	protected void setUp() throws Exception {
 		super.setUp();
+		gr = new GameRenderer();
+		
+		tBox = new Box(new Vector3f(3,2,1), new Vector3f(4,3,2));
+		tMirror = new Mirror(new Vector3f(1,4,4), 0.5f);
+		tPrism = new Prism(new Vector3f(5,5,5));
 	}
 
-	/**
-	 * Add a new object to be drawn on every frame render.
-	 * 
-	 * @param object
-	 *            Renderable object to be added.
-	 */
+	// Need to use coverage testing to see if it gets all cases
 	public void testAdd() throws Exception {
+		gr.add(new Box(new Vector3f(1,2,2), new Vector3f(2,2,2)));
+		gr.add(new Mirror(new Vector3f(3,3,3), 0.5f));
+		gr.add(new Prism(new Vector3f(4,4,4)));
+		
+		gr.add(tBox);
+		gr.add(tMirror);
+		
+		assertNotNull(gr);
 	}
 
-	/**
-	 * Remove an object from the automatic draw list.
-	 * 
-	 * @param object
-	 *            Renderable object to remove.
-	 */
+	// Same as add. Use coverage testing.
 	public void testRemove() throws Exception {
-
+		gr.remove(new Box(new Vector3f(1,2,2), new Vector3f(2,2,2)));
+		gr.remove(new Mirror(new Vector3f(3,3,3), 0.5f));
+		gr.remove(new Prism(new Vector3f(4,4,4)));
+		
+		gr.remove(tBox);
+		gr.remove(tMirror);
+		gr.remove(tPrism);
 	}
 
-	/**
-	 * Get a box primitive.
-	 * 
-	 * @return Box primitive
-	 */
 	public void testGetBox() throws Exception {
+		assertNotNull(gr.getBox());
 	}
 
-	/**
-	 * Get a sphere primitive.
-	 * 
-	 * @return Sphere primitive
-	 */
 	public void testGetSphere() throws Exception {
+		assertNotNull(gr.getSphere());
 	}
 
-	/**
-	 * Get a prism primitive.
-	 * 
-	 * @return Prism primitive
-	 */
 	public void testGetPrism() throws Exception {
+		assertNotNull(gr.getPrism());
 	}
 
-	/**
-	 * Draw the normal objects which require no special rendering.
-	 * 
-	 * @param gl
-	 *            OpenGL context
-	 */
 	public void testDrawNormalObjects() throws Exception {
-
+		// Uses GL and will need to check visually on screen
+		assertTrue(true);
 	}
 
-	/**
-	 * Draw the alpha objects which require sorted and special rendering.
-	 * 
-	 * @param gl
-	 *            OpenGL context
-	 */
 	public void testDrawAlphaObjects() throws Exception {
-
+		// Uses GL and will need to check visually on screen
+		assertTrue(true);
 	}
 
-	/**
-	 * Draw the reflection objects which require special rendering.
-	 * 
-	 * @param gl
-	 *            OpenGL context
-	 */
 	public void testDrawReflectionObjects() throws Exception {
-
+		// Uses GL and will need to check visually on screen
+		assertTrue(true);
 	}
 
-	/**
-	 * Render all objects that are being tracked by the renderer.
-	 * 
-	 * @param gl
-	 *            OpenGL context to render with
-	 */
 	public void testDraw() throws Exception {
-	}
+		// Uses GL and will need to check visually on screen
+		assertTrue(true);	}
 }
