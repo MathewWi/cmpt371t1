@@ -1,17 +1,23 @@
 package ca.sandstorm.luminance.test.resource;
 
-
-import ca.sandstorm.luminance.resources.*;
 import android.media.SoundPool;
 import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.resources.IResource;
+import ca.sandstorm.luminance.resources.ImageResource;
+import ca.sandstorm.luminance.resources.Resource;
+import ca.sandstorm.luminance.resources.ResourceManager;
+import ca.sandstorm.luminance.resources.SoundResource;
+import ca.sandstorm.luminance.resources.TextResource;
+import ca.sandstorm.luminance.resources.TextureResource;
 
 /**
  * Testing of the ResourceManager class
+ * 
  * @author Chet W Collins
- *
+ * 
  */
 public class ResourceManagerTest extends AndroidTestCase {
-	
+
 	ResourceManager resManager;
 	TextResource text;
 	ImageResource image;
@@ -26,7 +32,7 @@ public class ResourceManagerTest extends AndroidTestCase {
 		super.setUp();
 		resManager = new ResourceManager();
 	}
-	
+
 	/**
 	 * Testing the loadResource() method
 	 */
@@ -34,12 +40,11 @@ public class ResourceManagerTest extends AndroidTestCase {
 
 		try {
 			resource = resManager.loadResource("text.txt");
-		}
-		catch(Exception ex){
-			assert(resource != null);
+		} catch (Exception ex) {
+			assert (resource != null);
 		}
 	}
-	
+
 	/**
 	 * Testing the loadText() method
 	 */
@@ -47,12 +52,11 @@ public class ResourceManagerTest extends AndroidTestCase {
 
 		try {
 			text = resManager.loadText("text.txt");
-		}
-		catch(Exception ex){
-			assert(text != null);
+		} catch (Exception ex) {
+			assert (text != null);
 		}
 	}
-	
+
 	/**
 	 * Testing the loadImage() method
 	 */
@@ -60,45 +64,44 @@ public class ResourceManagerTest extends AndroidTestCase {
 
 		try {
 			image = resManager.loadImage("skyBack.jpg");
-		}
-		catch(Exception ex){
-			assert(image != null);
+		} catch (Exception ex) {
+			assert (image != null);
 		}
 	}
-	
+
 	/**
 	 * Testing the loadSound() method
+	 * 
 	 * @throws Exception
 	 */
 	public void testLoadSound() throws Exception {
-		
+
 		try {
-			sound = resManager.loadSound((new SoundPool(1,1,100)), "sample.ogg");
-		}
-		catch(Exception ex){
-			assert(sound != null);
+			sound = resManager.loadSound((new SoundPool(1, 1, 100)),
+					"sample.ogg");
+		} catch (Exception ex) {
+			assert (sound != null);
 		}
 	}
-	
+
 	public void testLoadTexture() throws Exception {
-		
+
 		try {
 			texture = resManager.loadTexture(null, "skyBack.jpg");
-		}
-		catch(Exception ex){
-			assert(texture != null);
+		} catch (Exception ex) {
+			assert (texture != null);
 		}
 	}
-	
+
 	/**
 	 * Testing the getResource() method
+	 * 
 	 * @throws Exception
 	 */
 	public void testGetResource() throws Exception {
-		
+
 		IResource res = resManager.getResource("text.txt");
-		assert(res.getName().equals("text.txt"));
+		assert (res.getName().equals("text.txt"));
 	}
-	
 
 }

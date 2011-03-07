@@ -1,4 +1,5 @@
 package ca.sandstorm.luminance.test.usecase;
+
 import org.junit.After;
 import org.junit.Before;
 
@@ -7,13 +8,13 @@ import ca.sandstorm.luminance.Luminance;
 
 import com.jayway.android.robotium.solo.Solo;
 
-
 public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	private Solo solo;
-	
-	public LuminanceTest(){
+
+	public LuminanceTest() {
 		super("ca.sandstorm.luminance", Luminance.class);
 	}
+
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
@@ -30,9 +31,11 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		getActivity().finish();
 		super.tearDown();
 	}
+
 	public void testDisplayBlackBox() {
-		
+
 	}
+
 	public void testDisplayWhiteBox() {
 
 	}
