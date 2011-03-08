@@ -14,7 +14,7 @@ import ca.sandstorm.luminance.resources.TextureResource;
 public class Emitter extends GameObject implements IRenderableObject
 {
     @SuppressWarnings("unused")
-    private static final Logger logger = LoggerFactory.getLogger(this.class);
+    private static final Logger logger = LoggerFactory.getLogger("Luminance.Emitter");
 
     private IRenderable _model;
     private float _orientation;
