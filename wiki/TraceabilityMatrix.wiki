@@ -24,7 +24,16 @@ Test coverage, traceability matrix.
 == Test Cases:==
 
 	# Light to obstacle collision
-Related code to be tested:
+	# Object interaction/function
+	# Object to obstacle collision
+	# User statistics registration
+	# User transition between states, saved menu, resume
+	# System under stress
+	# User game configuration and input
+
+== Code related to Test Cases:==
+
+        # Light to obstacle collision
 
 ca.sandstorm.luminance.test.gameobject
  * BoxTest
@@ -43,12 +52,7 @@ ca.sandstorm.luminance.test.math:
  * LerpTest
  * PlaneTest
  * RayTest
-	# Object interaction/function
-	# Object to obstacle collision
-	# User statistics registration
-	# User transition between states, saved menu, resume
-	# System under stress
-	# User game configuration and input
+
 == Functional Requirements: ==
 
 	* Light to orb connection
