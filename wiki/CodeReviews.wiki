@@ -171,21 +171,97 @@ Line 34: List of tools used to loop through to see objects on the grid.  Not nec
 Line 39 and 40: These are used to indicate a load of a button texture after the parsing of a level file.  Perhaps load all at startup instead of at runtime.
 
 === Test classes ===
-AndroidSoundPlayerTest.java
+!AndroidSoundPlayerTest.java
  * streamId: why is this 0?  If this is zero, it indicates failure, since player.play returns an int.
 
-GameRendererRest.java
+!GameRendererRest.java
  * constructor is no longer valid, due to dev team changes.
  * Should be comments on methods
 
-BoxTest.java
- * looks good
+!BoxTest.java
+ * Looks good
 
-GridTest.java
- * looks good
+!GridTest.java
+ * Looks good
 
-LightTest.java
+!LightTest.java
  * Need to fill in with proper tests
 
-MirrorTest.java
+!MirrorTest.java
  * Looks good
+
+!EraserTest.java, LightPathTests.java, MirrorToolTest.java, PrismToolTest.java
+ * Look good.  Not much there yet as source class isn't complete
+
+!ToolBeltTest.java
+ * Needs to say who wrote it.
+ * Otherwise looks good
+
+!ButtonTest.java
+ * No description of the class.
+ 
+!GUIManagerTest.java
+ * No description of the class.
+ * testGetNumberOfButtions() currently doesn't work and is commented out.  Don't know why as of yet.
+ * testAddButtons() weird comment.  Meant to represent the way the buttons are added in the test, but is unclear.
+
+!LabelTest.java
+ * testLabel() doesn't really do anything other than create an object.  No asserts or anything in the function.
+ * get rid of testDraw function.  We're not going to be testing OpenGL functions.
+
+InputButtonTest.java
+ * Looks good
+
+InputKeyboardTest.java
+ * Very robust!
+
+InputSystemTest.java
+ * Needs class description
+ * testKeyUp(): magic number in for loops (what does 10 represent?)
+ * Very robust!
+
+ALL XML TEST CLASSES NEED COMMENTS
+XmlLevelGoalTest.java
+ * Needs description and who wrote it
+ * why are the parameters passed to the constructor all messed up? i.e. why is the string "rEd" or "WhitE" being passed?
+ 
+XmlLevelTest.java
+ * Looks good
+
+CollidersTest.java
+ * Looks good
+
+LerpTest.java
+ * Looks good
+
+PlaneTest.java
+ * Looks good
+
+RayTest.java
+ * testSetDirection isn't technically testing anything, is just setting values.
+
+ImageResourceTest.java
+ * looks good
+
+ResourceManagerTest.java
+ * shouldn't have the assert in the catch portion of a try-catch.  They will never be called unless there's an exception.
+
+ResourceTest.java
+ * Looks good.
+
+SoundResourceTest.java
+ * Looks good. 
+
+TextResourceTest.java
+ * Looks good.
+
+TextureResourceTest.java
+ * Looks good.
+
+TimeSystemTest.java
+ * copied and pasted throws clause when they may not be necessary.
+ * some tests are commented out, need to fix and make them work.
+
+LuminanceTest.java
+ * needs comments and who wrote it.
+ * tests aren't written yet since the game has not been in a 'playable' state yet.
