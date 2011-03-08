@@ -80,4 +80,11 @@ public class Mirror extends GameObject implements IRenderableObject
 	return _colSphere;
     }
 
+    @Override
+    public void beamInteract(LightBeam beam, int lightIndexToInteract)
+    {
+	// TODO Auto-generated method stub
+	
+    }
+
 }

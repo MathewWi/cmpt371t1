@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
+import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Sphere;
 import ca.sandstorm.luminance.resources.TextureResource;
 
@@ -98,10 +99,21 @@ public class Box extends GameObject implements IRenderableObject
     }
 
     @Override
-    public void beamInteract(LightBeam beam, Light light)
+    public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
-	// TODO Auto-generated method stub
+	_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
 	
+	// this is not the end light
+	while (lightIndexToInteract < beam.size()-1)
+	{
+	    // this is a brick, remove all fragments
+	    beam.removeLast();
+	}
+	
+	// adjust the last piece (the one hitting the brick)
+	Light l = beam.get(lightIndexToInteract);
+	float newDistance = (float)Colliders.distance(this.getPosition(), l.getPosition());
+	l.setDistance(newDistance);
     }
 
     @Override

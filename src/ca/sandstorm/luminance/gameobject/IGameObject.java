@@ -27,9 +27,9 @@ public interface IGameObject
     /**
      * Influence and interact with the light beam.
      * @param beam The light beam
-     * @param light TODO
+     * @param lightIndexToInteract TODO
      */
-    void beamInteract(LightBeam beam, Light light);
+    void beamInteract(LightBeam beam, int lightIndexToInteract);
     
     /**
      * Get the object's position.

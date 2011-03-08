@@ -49,13 +49,6 @@ public abstract class GameObject implements IGameObject
     }
 
 
-    @Override
-    public void beamInteract(LightBeam beam, Light light)
-    {
-
-    }
-
-
     /**
      * Get the object's position.
      * @return Object position
