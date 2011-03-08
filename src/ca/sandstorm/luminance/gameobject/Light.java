@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
+import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
@@ -14,8 +15,11 @@ import ca.sandstorm.luminance.math.Sphere;
 
 public class Light extends GameObject implements IGameObject
 {
+    private static final float LIGHT_INFINITY = 65535.0f;
+    
     private Vector3f _startPoint;
     private Vector3f _endPoint;
+    private Vector3f _tmpDistance;
     
     // vertex and index buffers
     private FloatBuffer _vertexBuffer;
@@ -90,6 +94,14 @@ public class Light extends GameObject implements IGameObject
     public void setEndPoint(float x, float y, float z)
     {
 	_endPoint.set(x, y, z);
+    }
+    
+    
+    public float getDistance()
+    {
+	_tmpDistance.set(_endPoint);
+	_tmpDistance.sub(_startPoint);
+	return _tmpDistance.length();
     }
     
     
