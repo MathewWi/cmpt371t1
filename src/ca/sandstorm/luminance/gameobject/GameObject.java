@@ -3,7 +3,7 @@ package ca.sandstorm.luminance.gameobject;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
-import ca.sandstorm.luminance.gametools.LightPath;
+import ca.sandstorm.luminance.gamelogic.LightPath;
 
 public abstract class GameObject implements IGameObject
 {

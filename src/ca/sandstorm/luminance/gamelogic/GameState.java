@@ -18,9 +18,13 @@ import android.view.MotionEvent;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
+import ca.sandstorm.luminance.gameobject.GameObject;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
+import ca.sandstorm.luminance.gameobject.Light;
+import ca.sandstorm.luminance.gameobject.LightBeamCollection;
+import ca.sandstorm.luminance.gameobject.LightCollection;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
@@ -59,6 +63,9 @@ public class GameState implements IState
     
     // game skybox
     private Skybox _sky;
+    
+    // light beam
+    private LightPath _lightPath;
 
     // input handling properties
     private float _initialX = 0.0f;
@@ -489,6 +496,18 @@ public class GameState implements IState
 	    }
 	}
 
+	// collision detection
+	LightBeamCollection beams = _lightPath.getLightPaths();
+	for (LightCollection lightBeam : beams)
+	{
+	    for (Light l : lightBeam)
+	    {
+		for (IGameObject o : _objects.values())
+		{
+		    // if (collide(l, o) then do stuff
+		}
+	    }
+	}
     }    
     
     /**
@@ -610,6 +629,10 @@ public class GameState implements IState
 	gl.glPushMatrix();
 	gl.glTranslatef(0.0f, 0, 0f);
 	_grid.draw(gl);
+	gl.glPopMatrix();
+	
+	gl.glPushMatrix();
+	_lightPath.draw(gl);
 	gl.glPopMatrix();
 	
 	// render 2D stuff in a complex matrix saving manner
