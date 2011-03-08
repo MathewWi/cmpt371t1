@@ -91,13 +91,13 @@ ca.sandstorm.luminance.test.math
 *User statistics registration
 
 ca.sandstorm.luminance.gamelogic
- *GameStateTest
+ * GameStateTest
 
 ca.sandstorm.luminance.input
- *InputButtonTest
- *InputKeyboardTest
- *InputSystemTest
- *GUIManagerTest
+ * InputButtonTest
+ * InputKeyboardTest
+ * InputSystemTest
+ * GUIManagerTest
 
 == Functional Requirements: ==
 
