@@ -3,7 +3,6 @@ package ca.sandstorm.luminance.gameobject;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
-import ca.sandstorm.luminance.gamelogic.LightPath;
 
 public abstract class GameObject implements IGameObject
 {
@@ -51,7 +50,7 @@ public abstract class GameObject implements IGameObject
 
 
     @Override
-    public void beamInteract(LightPath beam)
+    public void beamInteract(LightBeam beam, Light light)
     {
 
     }

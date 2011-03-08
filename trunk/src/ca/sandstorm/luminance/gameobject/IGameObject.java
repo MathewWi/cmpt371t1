@@ -3,7 +3,6 @@ package ca.sandstorm.luminance.gameobject;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
-import ca.sandstorm.luminance.gamelogic.LightPath;
 import ca.sandstorm.luminance.math.Sphere;
 
 public interface IGameObject
@@ -28,8 +27,9 @@ public interface IGameObject
     /**
      * Influence and interact with the light beam.
      * @param beam The light beam
+     * @param light TODO
      */
-    void beamInteract(LightPath beam);
+    void beamInteract(LightBeam beam, Light light);
     
     /**
      * Get the object's position.
