@@ -7,7 +7,7 @@ import java.nio.ShortBuffer;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
-import javax.vecmath.Vector2f;
+import javax.vecmath.Point2i;
 import javax.vecmath.Vector3f;
 
 import org.slf4j.Logger;
@@ -36,7 +36,7 @@ public class Grid
     // temp vectors to avoid mallocs
     private Vector3f _position;
     private Vector3f _tmpCellCenter;
-    private Vector2f _tmpGridPos;
+    private Point2i _tmpGridPos;
 
     // grid properties
     private int _cols;
@@ -156,7 +156,7 @@ public class Grid
 	_position.set(0, 0, 0);
 
 	_tmpCellCenter = new Vector3f(0, 0, 0);
-	_tmpGridPos = new Vector2f(0, 0);
+	_tmpGridPos = new Point2i(0, 0);
     }
 
 
@@ -273,12 +273,18 @@ public class Grid
      *            World y coordinate (ignored)
      * @param z
      *            World z coordinate
-     * @return
+     * @return Null if not on grid; grid coordinates otherwise
      */
-    public Vector2f getGridPosition(float x, float y, float z)
-    {
+    public Point2i getGridPosition(float x, float y, float z)
+    {	
 	int gridX = (int) (x / _cellWidth);
 	int gridZ = (int) (z / _cellWidth);
+	
+	// Check if position is within grid -zenja
+	if (gridX < 0 || gridZ < 0 ||
+	    gridX > getColumnCount() - 1 || gridZ > getRowCount() - 1) {
+	    return null;
+	}
 
 	_tmpGridPos.set(gridX, gridZ);
 
