@@ -45,6 +45,12 @@
 
  The class diagram from this prototype can be viewed here: ClassDiagram
 
+= Defect/Bug information =
+
+ Information about all defects/bugs ever found can be viewed here: http://code.google.com/p/cmpt371t1/issues/list?can=1&q=&colspec=ID+Type+Status+Priority+Milestone+Owner+Summary+AssignedTo&cells=tiles
+
+ Information about the current defects/bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
+
 = Initial Analysis for Deliverable 4 =
  == Deliverable plan ==
  Any project artifacts that were modified or created since the first three milestones will be part of Deliverable 4:
