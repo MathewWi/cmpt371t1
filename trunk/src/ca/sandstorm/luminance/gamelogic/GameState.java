@@ -290,7 +290,8 @@ public class GameState implements IState
 	_lightPath = new LightPath();
 	LightBeam foo = new LightBeam();
 	foo.add(new Light(0, 0.5f, 0.5f,
-	                  10, 0.5f, 0.5f));
+	                  1.0f, 0.0f, 0.0f,
+	                  Light.LIGHT_INFINITY));
 	_lightPath.getLightPaths().add(foo);
 	
 	// Create the toolbelt
@@ -508,14 +509,15 @@ public class GameState implements IState
 	LightBeamCollection beams = _lightPath.getLightPaths();
 	for (LightBeam lightBeam : beams)
 	{
-	    for (Light l : lightBeam)
+	    for (int i = 0; i < lightBeam.size(); i++)	
+	    //for (Light l : lightBeam)
 	    {
 		for (IGameObject o : _objects.values())
 		{
-		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), l.getRay());
+		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), lightBeam.get(i).getRay());
 		    if (colPoint != null)
 		    {
-			o.beamInteract(null, null);
+			o.beamInteract(lightBeam, i);
 			logger.debug("LIGHT COLLISION: " + colPoint);
 		    }
 		}
