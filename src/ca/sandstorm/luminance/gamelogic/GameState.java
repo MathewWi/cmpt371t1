@@ -285,6 +285,9 @@ public class GameState implements IState
 	    throw new RuntimeException("Unable to load a required texture!");
 	}
 	
+	// init the lightpath
+	_lightPath = new LightPath();
+	
 	// Create the toolbelt
 	_toolbelt = new Toolbelt(this);
 	
