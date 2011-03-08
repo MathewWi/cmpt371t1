@@ -49,6 +49,10 @@ public abstract class XmlLevelObject
 		{
 		    return true;
 		}
+		else if (type.equals(XmlLevelEmitter.getId()))
+		{
+		    return true;
+		}
 		else return false;
 	}
 	

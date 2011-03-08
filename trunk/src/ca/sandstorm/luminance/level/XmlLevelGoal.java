@@ -17,7 +17,8 @@ public class XmlLevelGoal extends XmlLevelObject
      * @precond colour != null
      * @postcond XmlLevelGoal is created.
      */
-    public XmlLevelGoal(String colour) throws IllegalArgumentException {
+    public XmlLevelGoal(String colour) throws IllegalArgumentException 
+    {
 	super(XmlLevelGoal.getId());
 	
 	colour = colour.toUpperCase();

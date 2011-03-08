@@ -5,14 +5,16 @@ package ca.sandstorm.luminance.level;
  * @author Steven Indzeoski
  *
  */
-public class XmlLevelBrick extends XmlLevelObject {
+public class XmlLevelBrick extends XmlLevelObject 
+{
 
 	/**
 	 * Constructor for XmlLevelBrick.
 	 * @throws IllegalArgumentException
 	 * @postcond XmlLevelBrick is created
 	 */
-	public XmlLevelBrick() throws IllegalArgumentException {
+	public XmlLevelBrick() throws IllegalArgumentException 
+	{
 		super(XmlLevelBrick.getId());
 	}
 	
