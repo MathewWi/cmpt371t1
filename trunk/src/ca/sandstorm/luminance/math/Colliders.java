@@ -44,11 +44,102 @@ public class Colliders
 
         return _tmpCollisionPoint;
     }
-         
+    
+            
+    /**
+     * Calculate the time of collision between a sphere and a ray.
+     * Remember this is not time as in 'real time' it is time as in the
+     * mathematical time along the rays path it hits the sphere.
+     * @param sphere
+     * @param ray
+     * @return < 0 means no collision, >= 0 means a possible collision
+     */
+    public static float intersect(Sphere sphere, Ray ray)
+    {
+	Vector3f origin = ray.getPosition();
+	Vector3f dir = ray.getDirection();
+	Vector3f center = sphere.getCenter();
+	float radius = sphere.getRadius();
+	float t = 0.0f;
+	
+        //Compute A, B and C coefficients
+        float a = (float)dotProduct(ray.getDirection(), ray.getDirection());
+        //float b = 2.0f * (float)dotProduct(ray.getDirection(), ray.getPosition());
+        float b = 2.0f * ( dir.x * (origin.x - center.x) + dir.y * (origin.y - center.y) + dir.z * (origin.z - center.z) );
+        //float c = (float)dotProduct(ray.getPosition(), ray.getPosition()) - (sphere.getRadius() * sphere.getRadius());
+        float c = 	((origin.x - center.x) * (origin.x - center.x)) + 
+        		((origin.y - center.y) * (origin.y - center.y)) + 
+        		((origin.z - center.z) * (origin.z - center.z)) - 
+        		(radius * radius);
+
+        //Find discriminant
+        float disc = b * b - 4.0f * a * c;
+        
+        // if discriminant is negative there are no real roots, so return 
+        // false as ray misses sphere
+        if (disc < 0)
+            return -1;
+
+        // compute q as described above
+        float distSqrt = (float)Math.sqrt(disc);
+        float q;
+        if (b < 0)
+            q = (-b - distSqrt)/2.0f;
+        else
+            q = (-b + distSqrt)/2.0f;
+
+        // compute t0 and t1
+        float t0 = q / a;
+        float t1 = c / q;
+
+        // make sure t0 is smaller than t1
+        if (t0 > t1)
+        {
+            // if t0 is bigger than t1 swap them around
+            float temp = t0;
+            t0 = t1;
+            t1 = temp;
+        }
+
+        // if t1 is less than zero, the object is in the ray's negative direction
+        // and consequently the ray misses the sphere
+        if (t1 < 0)
+            return -1;
+
+        // if t0 is less than zero, the intersection point is at t1
+        if (t0 < 0)
+        {
+            t = t1;
+            return t;
+        }
+        // else the intersection point is at t0
+        else
+        {
+            t = t0;
+            return t;
+        }
+    }
+    
+    
+    public static Vector3f collide(Sphere s, Ray r)
+    {
+	float t = intersect(s, r);
+	if (t >= 0.0f)
+	{
+	    _tmpCollisionPoint.x = r.getPosition().x + (r.getDirection().x * t);
+	    _tmpCollisionPoint.y = r.getPosition().y + (r.getDirection().y * t);
+	    _tmpCollisionPoint.z = r.getPosition().z + (r.getDirection().z * t);
+	    
+	    return _tmpCollisionPoint;
+	}
+	
+	return null;
+    }
+    
     
     /**
      * Fast Intersection Function between ray/plane
-     * @unused
+     * @unused in Luminance
      */
     public static boolean IntersionPlane(Plane plane, Vector3f position, Vector3f direction,
                                        double[] lamda, Vector3f pNormal) {
