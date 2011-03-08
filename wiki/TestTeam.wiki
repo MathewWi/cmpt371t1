@@ -17,8 +17,10 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || medium || Mock testing || Half ||
 || medium || State Mock testing(Game Logic) || Half ||
 || medium || Finish Triage || Not ||
+|| low || Monkey Runner || Half ||
 
   === Code Coverage ===
+
     Emma is not implemented within Android nor Eclipse IDE for Android use and many hours were wasted in trying to make it work. Chet had spent hours only to get it working inside the eclipse IDE and what resulted was that there was 0% on code coverage to the source code with a 5% coverage to the junit.jar. Which made not much sense. Later it was debated that it might've only used the junit.jar for its methods and thus tracked it. And on why it wouldn't work on the emulator was that not much documentation was found for it and very hard to implement.
 
     What was later used is the Android build-in coverage. This made things much easier! Not really. What ensued were earlier errors back when implementation of the smoke test was in place. Essentially, filepaths, linking and all that fun stuff. After a many hours, a solution came about. The libs folder inside the tested project needed the necessary .jars that the test project used. Lo and behold, the coverage worked and a generated resultant was placed under the LuminanceTestSuite/coverage path.
@@ -30,6 +32,11 @@ Emma link http://groups.google.com/group/android-platform/browse_thread/thread/b
 Android built-in coverage
 
 http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-report-for-your-unit-tests/
+
+  === Monkey Runner ===
+
+    Using monkey runner on the emulator and phone will inject it with psuedo random events. This will give us an indication that the game at least will not crash on the phone based on such random events. 
+
 
 = End Milestone 3 =
 
