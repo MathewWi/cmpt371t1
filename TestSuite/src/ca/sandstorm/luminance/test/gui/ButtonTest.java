@@ -4,6 +4,7 @@ import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gui.Button;
 
 /**
+ * Testing button functionality
  * @author Amara Daal
  * 
  */

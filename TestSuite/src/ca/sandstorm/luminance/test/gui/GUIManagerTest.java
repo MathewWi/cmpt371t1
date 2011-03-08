@@ -5,6 +5,7 @@ import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 
 /**
+ * Testing GUIManager functionality
  * @author Amara Daal
  * 
  */
@@ -47,6 +48,7 @@ public class GUIManagerTest extends AndroidTestCase {
 	 * {@link ca.sandstorm.luminance.gui.GUIManager#getNumberOfButtons()}.
 	 */
 	public void testGetNumberOfButtons() {
+		//TODO:
 		// assertEquals(MAX_BUTTON_COUNT, guiManager.getNumberOfButtons());
 	}
 
@@ -72,7 +74,9 @@ public class GUIManagerTest extends AndroidTestCase {
 			x++;
 			y++;
 			/**
-			 * x x x
+			 * x 
+			 *  x 
+			 *   x
 			 */
 		}
 		// Try to add an extra button
@@ -113,9 +117,7 @@ public class GUIManagerTest extends AndroidTestCase {
 			// position buttons in diagonal
 			x++;
 			y++;
-			/**
-			 * x x x
-			 */
+
 		}
 
 	}

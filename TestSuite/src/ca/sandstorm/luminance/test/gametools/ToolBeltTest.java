@@ -4,7 +4,11 @@ import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
 import android.test.AndroidTestCase;
-
+/**
+ * Testing tool belt creation
+ * @author Jeff
+ *
+ */
 /**
  * Testing of the ToolBelt Class
  * @author lianghuang

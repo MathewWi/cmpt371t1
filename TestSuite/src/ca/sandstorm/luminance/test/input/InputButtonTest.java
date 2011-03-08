@@ -4,7 +4,7 @@ import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.input.InputButton;
 
 /**
- * 
+ * Testing InputButton functionality
  * @author Amara Daal
  * 
  */
