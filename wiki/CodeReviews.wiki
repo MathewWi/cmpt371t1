@@ -280,15 +280,15 @@ ALL XML TEST CLASSES NEED COMMENTS
  * tests aren't written yet since the game has not been in a 'playable' state yet.
 
 = Formal Inspections =
-== Milestone 3: Inspection of the input package ==
+== Milestone 3: Inspection of the resource package ==
 
 *Moderator:* Martina
 
-*Author:* Jonny
+*Author:* Zenja
 
-*Presenter /Reader:* Jonny
+*Presenter /Reader:* Zenja
 
-*Inspectors:*
+*Inspectors:* Martina, Zenja, Jonny, Amara, Kum, Jeff
 
 *Recorder:* Sten
 
