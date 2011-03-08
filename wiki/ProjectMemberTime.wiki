@@ -143,6 +143,15 @@
 || Analysis of code for test cases || 2 ||
 || Testing || 4 ||
 
+===Milestone 2===
+|| *Task* || *Hours spent so far* ||
+|| Risk Report || 1 ||
+|| Testing || 5.5 ||
+|| Peer Review || 1.5 || 
+|| EclEmma Plugin Config || 2.5 || 
+|| Traceability Matrix || 1 ||
+
+
 == Amara Daal ==
 === Milestone 0 ===
 || *Task* || *Hours spent so far* ||
