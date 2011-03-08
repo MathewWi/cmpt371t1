@@ -3,6 +3,7 @@ package ca.sandstorm.luminance.gamelogic;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Point2i;
@@ -12,6 +13,7 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.graphics.Color;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
@@ -24,6 +26,7 @@ import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Light;
 import ca.sandstorm.luminance.gameobject.LightBeamCollection;
 import ca.sandstorm.luminance.gameobject.LightBeam;
+import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
@@ -32,6 +35,7 @@ import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
+import ca.sandstorm.luminance.level.XmlLevelGoal;
 import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
 import ca.sandstorm.luminance.level.XmlLevelTool;
@@ -90,6 +94,9 @@ public class GameState implements IState
     // Container of game objects
     //private LinkedList<IGameObject> _objects;
     private HashMap<Point2i, IGameObject> _objects;
+    
+    // Container for the goals for quick verification
+    private Vector<Receptor> _goalObjects = null;
 
 
     /**
@@ -103,6 +110,7 @@ public class GameState implements IState
 	
 	//_objects = new LinkedList<IGameObject>();
 	_objects = new HashMap<Point2i, IGameObject>();
+	_goalObjects = new Vector<Receptor>();
 	tempPoint = new Point2i();
 	
 	// Create GUI manager and add initial widgets
@@ -162,6 +170,7 @@ public class GameState implements IState
     {
 	// TODO: clear the renderer list too
 	_objects.clear();
+	_goalObjects.clear();
     }
     
     
@@ -201,6 +210,32 @@ public class GameState implements IState
 		{		   
 		    Box box = new Box(vPos, vScale);
 		    addObject(box);
+		}		
+		else if (obj.getType().equals("goal"))
+		{
+		    // calculate goal color
+		    int color = 0;
+		    if (((XmlLevelGoal)obj).getColour().equals("white"))
+		    {
+			color = Color.WHITE;
+		    }
+		    if (((XmlLevelGoal)obj).getColour().equals("red"))
+		    {
+			color = Color.RED;
+		    }
+		    if (((XmlLevelGoal)obj).getColour().equals("green"))
+		    {
+			color = Color.GREEN;
+		    }
+		    if (((XmlLevelGoal)obj).getColour().equals("blue"))
+		    {
+			color = Color.BLUE;
+		    }		
+		    
+		    Receptor goal = new Receptor(vPos, vScale);
+		    goal.setColor(color);
+		    addObject(goal);
+		    _goalObjects.add(goal);
 		}
 	    }
 	    
@@ -291,7 +326,8 @@ public class GameState implements IState
 	LightBeam foo = new LightBeam();
 	foo.add(new Light(0, 0.5f, 0.5f,
 	                  1.0f, 0.0f, 0.0f,
-	                  Light.LIGHT_INFINITY));
+	                  Light.LIGHT_INFINITY,
+	                  Color.WHITE));
 	_lightPath.getLightPaths().add(foo);
 	
 	// Create the toolbelt
@@ -504,25 +540,6 @@ public class GameState implements IState
 		    }
 	    }
 	}
-
-	// collision detection
-	LightBeamCollection beams = _lightPath.getLightPaths();
-	for (LightBeam lightBeam : beams)
-	{
-	    for (int i = 0; i < lightBeam.size(); i++)	
-	    //for (Light l : lightBeam)
-	    {
-		for (IGameObject o : _objects.values())
-		{
-		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), lightBeam.get(i).getRay());
-		    if (colPoint != null)
-		    {
-			o.beamInteract(lightBeam, i);
-			logger.debug("LIGHT COLLISION: " + colPoint);
-		    }
-		}
-	    }
-	}
     }    
     
     /**
@@ -616,6 +633,45 @@ public class GameState implements IState
 	// Update game objects
 	for (IGameObject object : _objects.values()) {
 	    object.update();
+	}
+	
+	// collision detection
+	LightBeamCollection beams = _lightPath.getLightPaths();
+	for (LightBeam lightBeam : beams)
+	{
+	    for (int i = 0; i < lightBeam.size(); i++)	
+	    //for (Light l : lightBeam)
+	    {
+		for (IGameObject o : _objects.values())
+		{
+		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), lightBeam.get(i).getRay());
+		    if (colPoint != null)
+		    {
+			o.beamInteract(lightBeam, i);
+			//logger.debug("LIGHT COLLISION: " + colPoint);
+		    }
+		}
+	    }
+	}
+	
+	// level end check
+	boolean bLevelComplete = true;
+	for (Receptor r : _goalObjects)
+	{
+	    // all goals must be activated
+	    if (!r.getActivated())
+	    {
+		bLevelComplete = false;
+		break;
+	    }
+	}
+	
+	if (bLevelComplete)
+	{
+	    logger.info("/--LEVEL COMPLETED--\\");
+	    
+	    // do stuff
+	    // TODO: add level end handler and trigget event to next level
 	}
     }
 

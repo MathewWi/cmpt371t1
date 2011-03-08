@@ -13,8 +13,7 @@ import ca.sandstorm.luminance.resources.TextureResource;
 
 public class Mirror extends GameObject implements IRenderableObject
 {
-    @SuppressWarnings("unused")
-    private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
+    private static final Logger _logger = LoggerFactory.getLogger(Mirror.class);
 
     private IRenderable _model;
     private float _orientation;
@@ -26,6 +25,8 @@ public class Mirror extends GameObject implements IRenderableObject
     
     public Mirror(Vector3f position, float orientation)
     {
+	_logger.debug("Mirror(" + position + ", " + orientation + ")");
+	
 	// TODO: Improve orientation
 	_orientation = orientation;
 	_position = new Vector3f(position);
@@ -83,8 +84,7 @@ public class Mirror extends GameObject implements IRenderableObject
     @Override
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
-	// TODO Auto-generated method stub
-	
+	_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
     }
 
 }
