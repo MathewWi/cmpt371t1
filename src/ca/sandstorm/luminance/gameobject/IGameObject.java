@@ -4,6 +4,7 @@ import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
 import ca.sandstorm.luminance.gamelogic.LightPath;
+import ca.sandstorm.luminance.math.Sphere;
 
 public interface IGameObject
 {
@@ -53,4 +54,11 @@ public interface IGameObject
      * @return Object scale
      */
     Vector3f getScale();
+    
+    
+    /**
+     * Get the object's collision sphere
+     * @return Object sphere used for collision
+     */
+    Sphere getCollisionSphere();    
 }
