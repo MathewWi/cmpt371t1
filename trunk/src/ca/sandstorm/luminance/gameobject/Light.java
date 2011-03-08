@@ -15,10 +15,11 @@ import ca.sandstorm.luminance.math.Sphere;
 
 public class Light extends GameObject implements IGameObject
 {
-    private static final float LIGHT_INFINITY = 65535.0f;
+    public static final float LIGHT_INFINITY = 65535.0f;
     
     private Vector3f _startPoint;
     private Vector3f _endPoint;
+    private Vector3f _direction;
     private Vector3f _tmpDistance;
     
     // vertex and index buffers
@@ -31,10 +32,13 @@ public class Light extends GameObject implements IGameObject
     private Ray _ray;
     
     
-    public Light(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd)
+    public Light(float xStart, float yStart, float zStart, float xDir, float yDir, float zDir, float distance)
     {
 	_startPoint = new Vector3f(xStart, yStart, zStart);
-	_endPoint = new Vector3f(xEnd, yEnd, zEnd);
+	_direction = new Vector3f(xDir, yDir, zDir);
+	_endPoint = new Vector3f(xStart + (xDir * distance), 
+	                         yStart + (yDir * distance), 
+	                         zStart + (zDir * distance));
 	
 	float[] vertices = new float[2 * 3];
 	
