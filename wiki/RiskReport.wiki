@@ -151,3 +151,33 @@ Below are risks that are most important to this phase of the project:
  * *Contingency Plan:* If lowering the graphics quality does not resolve the slowness, we will have to reduce the number of in play objects.
 
  * *Status:* We have not yet encountered the issue, but are prepared to deal with slowness should it come up.
+
+==Risk 9==
+ * *Description:* Avoid vague descriptions for implementation of new features
+
+ * *Probability:* Medium
+
+ * *Severity:* High
+
+ * *Rationale:* Due to the current high-level nature of our requirements document, it is possible that developers (and to a lesser extent, testers) may misunderstand what needs to be done. These misunderstandings can cause significant issues in the form of defects and even reworking of the project design.
+
+ * *Mitigation Plan:* Before any new features are implemented, we must formalize a design of the new components, so there is no confusion.
+
+ * *Contingency Plan:* If there is still confusion about how the new features are to be implemented, then the design lead will step in to clarify any issues that should arise, and ensure that all developers are on the correct path.
+
+ * *Status:* Since we are still working on a runnable version of the game, this risk has not yet been realized. Once the existing features are implemented, we will formalize a plan for how to proceed with the new features.
+
+==Risk 10==
+ * *Description:* Ensure that all group members are aware of impending due dates.
+
+ * *Probability:* Medium
+
+ * *Severity:* High
+
+ * *Rationale:* There were several members that were under the impression that the next Milestone was due on Wednesday, March 8th as opposed to Tuesday. This risk has severe implications since it would involve us missing the deadline by 24 hours.
+
+ * *Mitigation Plan:* The project's manager has sent out communication informing all of us of the correct due date.
+
+ * *Contingency Plan:* If there are still individuals who are unaware of the correct due date, then the project manager will need to intervene on an individual level to ensure that proper communication takes place.
+
+ * *Status:* Everyone is likely aware of the correct due date, and we have already received extra help from our project's manager. Therefore, the risk is sufficiently avoided at this point.
