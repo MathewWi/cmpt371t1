@@ -158,6 +158,19 @@ Should use a sphere generation algorithm (this is a classic 3D problem and task 
   * Label.java
     * draw() function in the label should be implemented using quads like button.draw() instead of using primitive box.
 
+== Chet Collins ==
+  * Sphere.java 
+    * No comments
+  * Ray.java
+    * No comments
+  * Plane.java
+    * No comments
+  * MatrixStack.java
+    * Minimal comments, more detail would help
+  * Lerp.java
+    * No comments, this class really could use some
+  * Colliders.java
+    * Looks good
 
 = Peer Reviews =
 == March 7, 2011 ==
