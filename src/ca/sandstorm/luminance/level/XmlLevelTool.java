@@ -5,7 +5,8 @@ package ca.sandstorm.luminance.level;
  * @author Steven Indzeoski
  *
  */
-public class XmlLevelTool {
+public class XmlLevelTool 
+{
 	
 	private String _type;
 	private int _count;
