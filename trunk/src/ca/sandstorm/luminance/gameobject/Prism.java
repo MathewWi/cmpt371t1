@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
+import ca.sandstorm.luminance.math.Sphere;
 import ca.sandstorm.luminance.resources.TextureResource;
 
 public class Prism extends GameObject implements IRenderableObject
@@ -20,6 +21,8 @@ public class Prism extends GameObject implements IRenderableObject
     
     private RenderType _renderType = RenderType.Normal;
     
+    private Sphere _colSphere;
+    
     public Prism(Vector3f position)
     {
 	// TODO: Improve orientation
@@ -27,6 +30,8 @@ public class Prism extends GameObject implements IRenderableObject
 	_rotation = new Vector4f(1.0f, 0.0f, 0.0f, 0);
 	_scale = new Vector3f(0.5f, 0.5f, 0.5f);
 	_model = Engine.getInstance().getRenderer().getPrism();
+	
+	_colSphere = new Sphere(_position.x, _position.y, _position.z, 0.5f);
     }
 
     @Override
@@ -59,6 +64,13 @@ public class Prism extends GameObject implements IRenderableObject
     public RenderType getRenderType()
     {
 	return _renderType;
+    }
+
+    @Override
+    public Sphere getCollisionSphere()
+    {
+	// TODO Auto-generated method stub
+	return _colSphere;
     }
 
 }

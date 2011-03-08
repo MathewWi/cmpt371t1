@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
+import ca.sandstorm.luminance.math.Sphere;
 
 /**
  * Light receptor game object.
@@ -22,6 +23,8 @@ public class Receptor extends GameObject implements IRenderableObject
     private double _scaleCounter = 0;
     
     private RenderType _renderType = RenderType.Normal;
+    
+    private Sphere _colSphere;
     
     
     /**
@@ -38,6 +41,8 @@ public class Receptor extends GameObject implements IRenderableObject
 	_rotation = new Vector4f(1.0f, 1.0f, 1.0f, 0f);
 	_scale = new Vector3f(scale);
 	_model = Engine.getInstance().getRenderer().getSphere();
+	
+	_colSphere = new Sphere(_position.x, _position.y, _position.z, 0.5f);
     }
     
     /**
@@ -87,5 +92,12 @@ public class Receptor extends GameObject implements IRenderableObject
     public RenderType getRenderType()
     {
 	return _renderType;
+    }
+
+    @Override
+    public Sphere getCollisionSphere()
+    {
+	// TODO Auto-generated method stub
+	return _colSphere;
     }
 }

@@ -9,6 +9,9 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
+import ca.sandstorm.luminance.math.Ray;
+import ca.sandstorm.luminance.math.Sphere;
+
 public class Light extends GameObject implements IGameObject
 {
     private Vector3f _startPoint;
@@ -19,7 +22,9 @@ public class Light extends GameObject implements IGameObject
     private ShortBuffer _indexBuffer;
 
     // total indice count for rendering
-    private int _totalIndices;    
+    private int _totalIndices;   
+    
+    private Ray _ray;
     
     
     public Light(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd)
@@ -53,6 +58,16 @@ public class Light extends GameObject implements IGameObject
 	_indexBuffer = byteBuf.asShortBuffer();
 	_indexBuffer.put(indices);
 	_indexBuffer.position(0);	
+	
+	
+	// calc ray for collision
+	Vector3f dir = new Vector3f(_endPoint.x, _endPoint.y, _endPoint.z);
+	dir.sub(_startPoint);
+	dir.normalize();
+	
+	_ray = new Ray(_startPoint.x, _startPoint.y, _startPoint.z,
+	               dir.x, dir.y, dir.z);
+	
     }
     
     
@@ -61,10 +76,20 @@ public class Light extends GameObject implements IGameObject
 	return _startPoint;
     }
     
+    public void setStartPoint(float x, float y, float z)
+    {
+	_startPoint.set(x, y, z);	
+    }
+    
     
     public Vector3f getEndPoint()
     {
 	return _endPoint;
+    }
+    
+    public void setEndPoint(float x, float y, float z)
+    {
+	_endPoint.set(x, y, z);
     }
     
     
@@ -118,6 +143,37 @@ public class Light extends GameObject implements IGameObject
     // @HACK - not consistent at all
     public void draw(GL10 gl)
     {
-	
+	// Set the face rotation
+	gl.glFrontFace(GL10.GL_CW);
+
+	// Point to our buffers
+	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
+
+	// Enable the vertex and color state
+	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+
+	// Set color
+	gl.glColor4f(1f, 1f, 1f, 1f);
+
+	// Draw the vertices as triangles, based on the Index Buffer information
+	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,
+			  _indexBuffer);
+
+	// Disable the client state before leaving
+	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);	
+    }
+    
+    
+    public Ray getRay()
+    {
+	return _ray;
+    }
+
+
+    @Override
+    public Sphere getCollisionSphere()
+    {
+	// TODO Auto-generated method stub
+	return null;
     }
 }

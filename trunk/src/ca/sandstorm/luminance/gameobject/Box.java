@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gamelogic.LightPath;
 import ca.sandstorm.luminance.graphics.IRenderable;
+import ca.sandstorm.luminance.math.Sphere;
 import ca.sandstorm.luminance.resources.TextureResource;
 
 /**
@@ -17,13 +18,15 @@ import ca.sandstorm.luminance.resources.TextureResource;
  */
 public class Box extends GameObject implements IRenderableObject
 {
-    @SuppressWarnings("unused")
-    private static final Logger logger = LoggerFactory.getLogger("Luminance.Box");
+    private static final Logger _logger = LoggerFactory.getLogger("Luminance.Box");
 
     protected IRenderable _model;
     protected int _texture;
     
     private RenderType _renderType = RenderType.Normal;
+    
+    private Sphere _colSphere;
+    
     
     /**
      * Constructor.
@@ -33,10 +36,14 @@ public class Box extends GameObject implements IRenderableObject
      */
     public Box(Vector3f position, Vector3f scale)
     {
+	_logger.debug("Box(" + position + ", " + scale + ")");
+	
 	_position = new Vector3f(position);
 	_rotation = new Vector4f(1.0f, 1.0f, 1.0f, 0f);
 	_scale = new Vector3f(scale);
 	_model = Engine.getInstance().getRenderer().getBox();
+	
+	_colSphere = new Sphere(_position.x, _position.y, _position.z, scale.z);	
     }
     
     /**
@@ -96,5 +103,12 @@ public class Box extends GameObject implements IRenderableObject
     {
 	// TODO Auto-generated method stub
 	
+    }
+
+    @Override
+    public Sphere getCollisionSphere()
+    {
+	// TODO Auto-generated method stub
+	return _colSphere;
     }
 }
