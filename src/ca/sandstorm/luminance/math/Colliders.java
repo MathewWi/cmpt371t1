@@ -13,6 +13,15 @@ public class Colliders
         return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
     }    
     
+    
+    public static double distance(Vector3f v1, Vector3f v2)
+    {
+	return Math.sqrt( (v2.x - v1.x) * (v2.x - v1.x) + 
+	                  (v2.y - v1.y) * (v2.y - v1.y) + 
+	                  (v2.z - v1.z) * (v2.z - v1.z) );
+    }
+    
+    
     public static double intersect(Ray r, Plane p)
     {
         // Calc D for the plane (this is usually pre-calculated
