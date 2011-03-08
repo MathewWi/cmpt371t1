@@ -6,11 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.graphics.PrimitiveQuad;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
@@ -24,22 +26,30 @@ public class MenuState implements IState
     private static final Logger logger = LoggerFactory.getLogger(MenuState.class);
     private GUIManager _guiManager;
     private boolean _tapped;
+    
+    private TextureResource _background;
+    private PrimitiveQuad _quad;
 
     public MenuState()
     {
 	_tapped = false;
 	_guiManager = new GUIManager();
 	
-	Button startButton = new Button(20, 50, 280, 30, "Start");
+	Button startButton = new Button(20, 50, 280, 40, "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
 	startButton.setCalleeAndMethod(this, "test");
 	
-	Button helpButton = new Button(20, 110, 280, 30, "Help");
+	Button helpButton = new Button(20, 120, 280, 40, "Help");
 	helpButton.setTextureResourceLocation("textures/helpImage.png");
 	helpButton.setCalleeAndMethod(this, "test");
 	
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(helpButton);
+	
+	_quad = new PrimitiveQuad(
+	        new Vector3f(0, 0, 0),
+		new Vector3f(320, 480, 0)
+	);
     }
     
     public MenuState(IWidget[] widgets)
@@ -59,6 +69,7 @@ public class MenuState implements IState
     {
 	logger.debug("test()");
 	logger.debug("test2()");
+	
     }
     
     /**
@@ -119,6 +130,7 @@ public class MenuState implements IState
 	logger.debug("init(" + gl + ")");
 	
 	try {
+	    _background = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/menuBackground.png");
 	    for (IWidget widget : _guiManager.getWidgets()) {
 		if (widget != null) {
 		    String textureResourceLocation = widget.getTextureResourceLocation();
@@ -206,16 +218,23 @@ public class MenuState implements IState
 	// render 2D stuff in a complex matrix saving manner
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glPushMatrix();	
-		gl.glLoadIdentity();
-		
+        	gl.glLoadIdentity();
+        	
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glPushMatrix();
 			gl.glLoadIdentity();
 			gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
 			
 			gl.glMatrixMode(GL10.GL_MODELVIEW);
-			_guiManager.draw(gl);
-			gl.glMatrixMode(GL10.GL_PROJECTION);
+	        	
+	        	gl.glTranslatef(0, 0, 0);
+	        	gl.glEnable(GL10.GL_TEXTURE_2D);
+	        	gl.glBindTexture(GL10.GL_TEXTURE_2D, _background.getTexture());
+	        	_quad.draw(gl);
+
+	        	_guiManager.draw(gl);
+
+	        	gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glPopMatrix();
 		
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
