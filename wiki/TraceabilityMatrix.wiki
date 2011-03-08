@@ -33,7 +33,7 @@ Test coverage, traceability matrix.
 
 == Code related to Test Cases:==
 
-# Light to obstacle collision
+  # Light to obstacle collision
 
 ca.sandstorm.luminance.test.gameobject
  * BoxTest
@@ -53,7 +53,7 @@ ca.sandstorm.luminance.test.math
  * PlaneTest
  * RayTest
 
-# Object interaction/function
+  # Object interaction/function
 
 ca.sandstorm.luminance.test.gameobject
  * BoxTest
@@ -68,7 +68,7 @@ ca.sandstorm.luminance.test.gametools
  * PrismToolTest
  * ToolBeltTest
 
-# Object to obstacle collision
+  # Object to obstacle collision
 
 ca.sandstorm.luminance.test.gameobject
  * BoxTest
@@ -88,7 +88,7 @@ ca.sandstorm.luminance.test.math
  * PlaneTest
  * RayTest
 
-# User statistics registration
+  # User statistics registration
 
 ca.sandstorm.luminance.gamelogic
 *GameStateTest
