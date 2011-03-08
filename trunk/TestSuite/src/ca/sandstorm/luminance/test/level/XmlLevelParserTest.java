@@ -8,8 +8,6 @@ import ca.sandstorm.luminance.level.XmlLevel;
 import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
 import ca.sandstorm.luminance.level.XmlLevelTool;
-import ca.sandstorm.luminance.resources.ResourceManager;
-import ca.sandstorm.luminance.resources.TextResource;
 
 /**
  * Testing of XmlLevelParser Class
@@ -25,24 +23,18 @@ public class XmlLevelParserTest extends AndroidTestCase {
 	 */
 
 	private XmlLevelParser tParser;
-	private String xmlFileName = "levels/TestLevel.xml";
+	private String xmlFileName = "TestLevels/TestLevel.xml";
 	private XmlLevel tLevel;
 
 	private LinkedList<XmlLevelObject> tListObject;
 	private LinkedList<XmlLevelTool> tListTool;
 	
-	ResourceManager tMan;
-
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		tMan = new ResourceManager();
-		
-		tMan.setAssets(this.getContext().getAssets());
-		
-		TextResource tRes = tMan.loadText(xmlFileName);
+		InputStream tis = this.getContext().getAssets().open(xmlFileName);
 		//FileInputStream fis;
-		tParser = new XmlLevelParser(tRes.getAssetFd().createInputStream());
+		tParser = new XmlLevelParser(tis);
 	}
 
 	public void testXmlLevelParser() throws Exception {
@@ -58,9 +50,9 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tLevel.getHeight() == 1.0f);
 		assertTrue(tLevel.getWidth() == 1.0f);
 		assertTrue(tLevel.getDifficulty().equals("easy"));
-		assertTrue(tLevel.getName().equals("Level Test"));
-		assertTrue(tLevel.getXSize() == 15);
-		assertTrue(tLevel.getYSize() == 30);
+		assertTrue(tLevel.getName().equals("Level 1"));
+		assertTrue(tLevel.getXSize() == 10);
+		assertTrue(tLevel.getYSize() == 10);
 
 		tListObject = tLevel.getObjects();
 		tListTool = tLevel.getTools();
@@ -68,43 +60,83 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertNotNull(tListObject);
 		assertNotNull(tListTool);
 
-		XmlLevelObject tObject = tListObject.getFirst();
+		XmlLevelObject tObject = tListObject.removeFirst();
 
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("brick"));
-		assertTrue(tObject.getPositionX() == 10);
-		assertTrue(tObject.getPositionY() == 10);
-		assertTrue(tObject.getRotationX() == 0);
-		assertTrue(tObject.getRotationY() == 0);
-		assertTrue(tObject.getRotationZ() == 0);
-
-		tObject = tListObject.getFirst();
-
-		assertNotNull(tObject);
-		assertTrue(tObject.getType().equals("brick"));
-		assertTrue(tObject.getPositionX() == 9);
-		assertTrue(tObject.getPositionY() == 9);
-		assertTrue(tObject.getRotationX() == 0);
-		assertTrue(tObject.getRotationY() == 0);
-		assertTrue(tObject.getRotationZ() == 0);
-
-		tObject = tListObject.getFirst();
-
-		assertNotNull(tObject);
-		assertTrue(tObject.getType().equals("goal"));
 		assertTrue(tObject.getPositionX() == 1);
 		assertTrue(tObject.getPositionY() == 1);
 		assertTrue(tObject.getRotationX() == 0);
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 
-		XmlLevelTool tTools = tListTool.getFirst();
+		tObject = tListObject.removeFirst();
+		
+		assertNotNull(tObject);
+		assertTrue(tObject.getType().equals("brick"));
+		assertTrue(tObject.getPositionX() == 2);
+		assertTrue(tObject.getPositionY() == 2);
+		assertTrue(tObject.getRotationX() == 0);
+		assertTrue(tObject.getRotationY() == 0);
+		assertTrue(tObject.getRotationZ() == 0);
+
+		tObject = tListObject.removeFirst();
+		
+		assertNotNull(tObject);
+		assertTrue(tObject.getType().equals("brick"));
+		assertTrue(tObject.getPositionX() == 3);
+		assertTrue(tObject.getPositionY() == 3);
+		assertTrue(tObject.getRotationX() == 0);
+		assertTrue(tObject.getRotationY() == 0);
+		assertTrue(tObject.getRotationZ() == 0);
+
+		tObject = tListObject.removeFirst();
+		
+		assertNotNull(tObject);
+		assertTrue(tObject.getType().equals("brick"));
+		assertTrue(tObject.getPositionX() == 4);
+		assertTrue(tObject.getPositionY() == 4);
+		assertTrue(tObject.getRotationX() == 0);
+		assertTrue(tObject.getRotationY() == 0);
+		assertTrue(tObject.getRotationZ() == 0);
+		
+		tObject = tListObject.removeFirst();
+
+		assertNotNull(tObject);
+		assertTrue(tObject.getType().equals("brick"));
+		assertTrue(tObject.getPositionX() == 0);
+		assertTrue(tObject.getPositionY() == 6);
+		assertTrue(tObject.getRotationX() == 0);
+		assertTrue(tObject.getRotationY() == 0);
+		assertTrue(tObject.getRotationZ() == 0);
+
+		tObject = tListObject.removeFirst();
+		
+		assertNotNull(tObject);
+		assertTrue(tObject.getType().equals("brick"));
+		assertTrue(tObject.getPositionX() == 6);
+		assertTrue(tObject.getPositionY() == 0);
+		assertTrue(tObject.getRotationX() == 0);
+		assertTrue(tObject.getRotationY() == 0);
+		assertTrue(tObject.getRotationZ() == 0);
+
+		tObject = tListObject.removeFirst();
+		
+		assertNotNull(tObject);
+		assertTrue(tObject.getType().equals("goal"));
+		assertTrue(tObject.getPositionX() == 50);
+		assertTrue(tObject.getPositionY() == 15);
+		assertTrue(tObject.getRotationX() == 0);
+		assertTrue(tObject.getRotationY() == 0);
+		assertTrue(tObject.getRotationZ() == 0);
+
+		XmlLevelTool tTools = tListTool.removeFirst();
 
 		assertNotNull(tTools);
 		assertTrue(tTools.getType().equals("mirror"));
 		assertTrue(tTools.getCount() == 5);
 
-		tTools = tListTool.getFirst();
+		tTools = tListTool.removeFirst();
 
 		assertNotNull(tTools);
 		assertTrue(tTools.getType().equals("prism"));
