@@ -209,59 +209,59 @@ Line 39 and 40: These are used to indicate a load of a button texture after the 
  * testLabel() doesn't really do anything other than create an object.  No asserts or anything in the function.
  * get rid of testDraw function.  We're not going to be testing OpenGL functions.
 
-InputButtonTest.java
+!InputButtonTest.java
  * Looks good
 
-InputKeyboardTest.java
+!InputKeyboardTest.java
  * Very robust!
 
-InputSystemTest.java
+!InputSystemTest.java
  * Needs class description
  * testKeyUp(): magic number in for loops (what does 10 represent?)
  * Very robust!
 
 ALL XML TEST CLASSES NEED COMMENTS
-XmlLevelGoalTest.java
+!XmlLevelGoalTest.java
  * Needs description and who wrote it
  * why are the parameters passed to the constructor all messed up? i.e. why is the string "rEd" or "WhitE" being passed?
  
-XmlLevelTest.java
+!XmlLevelTest.java
  * Looks good
 
-CollidersTest.java
+!CollidersTest.java
  * Looks good
 
-LerpTest.java
+!LerpTest.java
  * Looks good
 
-PlaneTest.java
+!PlaneTest.java
  * Looks good
 
-RayTest.java
+!RayTest.java
  * testSetDirection isn't technically testing anything, is just setting values.
 
-ImageResourceTest.java
+!ImageResourceTest.java
  * looks good
 
-ResourceManagerTest.java
+!ResourceManagerTest.java
  * shouldn't have the assert in the catch portion of a try-catch.  They will never be called unless there's an exception.
 
-ResourceTest.java
+!ResourceTest.java
  * Looks good.
 
-SoundResourceTest.java
+!SoundResourceTest.java
  * Looks good. 
 
-TextResourceTest.java
+!TextResourceTest.java
  * Looks good.
 
-TextureResourceTest.java
+!TextureResourceTest.java
  * Looks good.
 
-TimeSystemTest.java
+!TimeSystemTest.java
  * copied and pasted throws clause when they may not be necessary.
  * some tests are commented out, need to fix and make them work.
 
-LuminanceTest.java
+!LuminanceTest.java
  * needs comments and who wrote it.
  * tests aren't written yet since the game has not been in a 'playable' state yet.
