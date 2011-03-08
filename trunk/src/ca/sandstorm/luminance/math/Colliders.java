@@ -4,7 +4,7 @@ import javax.vecmath.Vector3f;
 
 public class Colliders
 {
-    private static final float EPSILON = 1e-8f;
+    public static final float EPSILON = 1e-8f;
     
     private static Vector3f _tmpCollisionPoint = new Vector3f();
     
