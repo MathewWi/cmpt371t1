@@ -95,7 +95,7 @@ public class ResourceManager
 	// Read file
 	byte[] data = readFile(filename);
 	Resource res = new Resource(filename, data);
-	res._fd = _assets.openFd(filename);
+	//res._fd = _assets.openFd(filename);
 	_resources.put(filename, res);
 
 	return res;
@@ -157,6 +157,7 @@ public class ResourceManager
 	InputStream stream = _assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
 	ImageResource res = new ImageResource(filename, bitmap);
+	stream.close();
 
 	_resources.put(filename, res);
 	return res;
@@ -181,6 +182,7 @@ public class ResourceManager
 	// Load the image
 	InputStream stream = _assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
+	stream.close();
 
 	_logger.debug("loadTexture() Width: " + bitmap.getWidth() + " Height: " + bitmap.getHeight());
 	
@@ -191,7 +193,7 @@ public class ResourceManager
 
 	// Texture parameters
 	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER,
-			   GL10.GL_NEAREST);
+			   GL10.GL_LINEAR);
 	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER,
 			   GL10.GL_LINEAR);
 	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S,
@@ -227,6 +229,7 @@ public class ResourceManager
 	//int soundId = pool.load(filename, 1);
 	AssetFileDescriptor afd = _assets.openFd(filename);
 	int soundId = pool.load(afd, 1);
+	afd.close();
 	SoundResource res = new SoundResource(filename, soundId);
 
 	_resources.put(filename, res);
