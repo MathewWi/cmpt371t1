@@ -42,6 +42,9 @@ http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-repor
     * Test run failed: org.junit.Test
       # run the android update test-project and android update project command-line functions
 
+    * Getting files/resources during a test
+      # The function this.getContext().getAssets() grabs the items inside the Lumiance package's asset's folder and not the one inside LuminanceTestSuite. 
+
 = End Milestone 3 =
 
 
