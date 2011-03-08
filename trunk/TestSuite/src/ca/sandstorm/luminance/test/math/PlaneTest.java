@@ -29,7 +29,7 @@ public class PlaneTest extends AndroidTestCase {
 
 	/*
 	 * Testing the setPosition() method
-	 */
+	 *
 	public void testSetPosition() throws Exception {
 		testX = (float) 1.7;
 		testY = (float) 2.9;
@@ -39,7 +39,7 @@ public class PlaneTest extends AndroidTestCase {
 
 	/*
 	 * Testing the getPosition() method
-	 */
+	 *
 	public void testGetPosition() throws Exception {
 		Vector3f pos = tester.getPosition();
 		assert (pos.getX() == testX);
@@ -49,7 +49,7 @@ public class PlaneTest extends AndroidTestCase {
 
 	/*
 	 * Testing the setNormal() method
-	 */
+	 *
 	public void testSetNormal() throws Exception {
 		testXNormal = (float) 5.7;
 		testYNormal = (float) 7.9;
@@ -59,7 +59,7 @@ public class PlaneTest extends AndroidTestCase {
 
 	/*
 	 * Testing the getNormal() method
-	 */
+	 *
 	public void testGetNormal() throws Exception {
 		Vector3f norm = tester.getNormal();
 		assert (norm.getX() == testXNormal);
@@ -67,6 +67,9 @@ public class PlaneTest extends AndroidTestCase {
 		assert (norm.getZ() == testZNormal);
 	}
 
+	/*
+	 * 
+	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}

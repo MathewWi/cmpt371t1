@@ -37,7 +37,7 @@ public class RayTest extends AndroidTestCase {
 
 	/*
 	 * Testing the getPosition() method
-	 */
+	 *
 	public void testGetPosition() throws Exception {
 		Vector3f pos = tester.getPosition();
 		assert (pos.getX() == testX);
@@ -47,7 +47,7 @@ public class RayTest extends AndroidTestCase {
 
 	/*
 	 * Testing the setDirection() method
-	 */
+	 *
 	public void testSetDirection() throws Exception {
 		testXDir = (float) 5.7;
 		testYDir = (float) 7.9;
@@ -57,7 +57,7 @@ public class RayTest extends AndroidTestCase {
 
 	/*
 	 * Testing the getDirection() method
-	 */
+	 *
 	public void testGetDirection() throws Exception {
 		Vector3f norm = tester.getDirection();
 		assert (norm.getX() == testXDir);
@@ -65,6 +65,9 @@ public class RayTest extends AndroidTestCase {
 		assert (norm.getZ() == testZDir);
 	}
 
+	/*
+	 * 
+	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
