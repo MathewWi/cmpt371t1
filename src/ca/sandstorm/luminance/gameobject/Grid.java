@@ -13,6 +13,7 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Plane;
 
 
@@ -286,7 +287,7 @@ public class Grid
 	    return null;
 	}
 
-	_tmpGridPos.set((int)(gridX + 1e-08f), (int)(gridZ + 1e-08f));
+	_tmpGridPos.set((int)(gridX + Colliders.EPSILON), (int)(gridZ + Colliders.EPSILON));
 
 	return _tmpGridPos;
     }
