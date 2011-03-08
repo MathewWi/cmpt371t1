@@ -265,3 +265,33 @@ ALL XML TEST CLASSES NEED COMMENTS
 !LuminanceTest.java
  * needs comments and who wrote it.
  * tests aren't written yet since the game has not been in a 'playable' state yet.
+
+= Formal Inspections =
+== Milestone 3: Inspection of the input package ==
+
+*Moderator:* Martina
+
+*Author:* Jonny
+
+*Presenter /Reader:* Jonny
+
+*Inspectors:*
+
+*Recorder:* Sten
+
+=== Inspection Meeting:===
+ * Defect 1:
+  * Location (File, line number)
+  * Description of defect
+  * Inspector who found it
+  * Decision about what do do with the defect
+  * Future recommendations
+ * Defect 2:
+  * Location (File, line number)
+  * Description of defect
+  * Inspector who found it
+  * Decision about what do do with the defect
+  * Future recommendations
+
+=== Follow-Up Results ===
+ * Status of project.
