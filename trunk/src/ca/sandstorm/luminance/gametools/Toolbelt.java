@@ -123,8 +123,9 @@ public class Toolbelt
 	    return null;
 	}
 	
-	// Create a mirror and place it
+	// Create an object and place it
 	Vector3f position = _gameState.gridToWorldCoords(x, y);
+	position.y += 0.5f;  // line bottom up with the grid
 	IGameObject tool = null;
 	if(toolType == ToolType.Mirror) { 
 	    tool = new Mirror(position, _currentRotation);

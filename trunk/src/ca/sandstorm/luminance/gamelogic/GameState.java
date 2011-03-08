@@ -18,7 +18,6 @@ import android.view.MotionEvent;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
-import ca.sandstorm.luminance.gameobject.GameObject;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
@@ -194,6 +193,7 @@ public class GameState implements IState
 		
 		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionX(), (int)obj.getPositionY());
 		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);
+		vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid
 		//Vector3f vRot = new Vector3f(0, 0, 0);
 		Vector3f vScale = new Vector3f(0.5f, 0.5f, 0.5f);
 		
