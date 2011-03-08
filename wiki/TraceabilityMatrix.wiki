@@ -25,21 +25,19 @@ Test coverage, traceability matrix.
 
 	# Light to obstacle collision
 Related code to be tested:
- * ca.sandstorm.luminance.test.gameobject
+ca.sandstorm.luminance.test.gameobject
  * BoxTest
  * LightTest
  * MirrorTest
  * PrismTest
  * ReceptorTest
- * 
- * ca.sandstorm.luminance.test.gametools:
+ca.sandstorm.luminance.test.gametools
  * EraserTest
  * LightPathTest
  * MirrorToolTest
  * PrismToolTest
  * ToolBeltTest
- *
- * ca.sandstorm.luminance.test.math:
+ca.sandstorm.luminance.test.math:
  * CollidersTest
  * LerpTest
  * PlaneTest
