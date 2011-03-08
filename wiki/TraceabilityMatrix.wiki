@@ -25,6 +25,7 @@ Test coverage, traceability matrix.
 
 	# Light to obstacle collision
 Related code to be tested:
+
 ca.sandstorm.luminance.test.gameobject
  * BoxTest
  * LightTest
