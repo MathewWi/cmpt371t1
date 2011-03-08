@@ -33,7 +33,7 @@ Test coverage, traceability matrix.
 
 == Code related to Test Cases:==
 
-        # Light to obstacle collision
+# Light to obstacle collision
 
 ca.sandstorm.luminance.test.gameobject
  * BoxTest
@@ -47,11 +47,57 @@ ca.sandstorm.luminance.test.gametools
  * MirrorToolTest
  * PrismToolTest
  * ToolBeltTest
-ca.sandstorm.luminance.test.math:
+ca.sandstorm.luminance.test.math
  * CollidersTest
  * LerpTest
  * PlaneTest
  * RayTest
+
+# Object interaction/function
+
+ca.sandstorm.luminance.test.gameobject
+ * BoxTest
+ * LightTest
+ * MirrorTest
+ * PrismTest
+ * ReceptorTest
+ca.sandstorm.luminance.test.gametools
+ * EraserTest
+ * LightPathTest
+ * MirrorToolTest
+ * PrismToolTest
+ * ToolBeltTest
+
+# Object to obstacle collision
+
+ca.sandstorm.luminance.test.gameobject
+ * BoxTest
+ * LightTest
+ * MirrorTest
+ * PrismTest
+ * ReceptorTest
+ca.sandstorm.luminance.test.gametools
+ * EraserTest
+ * LightPathTest
+ * MirrorToolTest
+ * PrismToolTest
+ * ToolBeltTest
+ca.sandstorm.luminance.test.math
+ * CollidersTest
+ * LerpTest
+ * PlaneTest
+ * RayTest
+
+# User statistics registration
+
+ca.sandstorm.luminance.gamelogic
+*GameStateTest
+
+ca.sandstorm.luminance.input
+*InputButtonTest
+*InputKeyboardTest
+*InputSystemTest
+*GUIManagerTest
 
 == Functional Requirements: ==
 
