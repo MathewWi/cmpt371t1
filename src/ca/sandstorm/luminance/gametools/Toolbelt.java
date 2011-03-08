@@ -3,7 +3,6 @@ package ca.sandstorm.luminance.gametools;
 import java.util.HashMap;
 
 import javax.vecmath.Point2i;
-import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
 import org.slf4j.Logger;
@@ -18,19 +17,20 @@ import ca.sandstorm.luminance.gui.Button;
 /**
  * Holds the level's tools and provides functionality for placing/removing them.
  * @author zenja
+ * @TODO Perhaps 
  */
 public class Toolbelt
 {
     private static final Logger logger = LoggerFactory.getLogger(Toolbelt.class);
 
-    private final float _GRIDPOINT_ERROR = 0.05f;
     private ToolType _selectedTool = ToolType.Mirror;
+    private float _currentRotation = 45f;
+    private float _rotationStep = 90f;
     
     // Reference to the game state the toolbelt is in so it can be manipulated
     private GameState _gameState;
         
-    // Collections of placed tools
-    //private LinkedList<IGameObject> _tools;
+    // Collection of placed tools
     private HashMap<Point2i, IGameObject> _tools;
 
     // Stock available of each tool type
@@ -38,10 +38,12 @@ public class Toolbelt
     
     private boolean _mirrorIconAdded = false;
     private boolean _prismIconAdded = false;
+    private Point2i _tempPoint;
     
     public Toolbelt(GameState gameState)
     {
 	_gameState = gameState;
+	_tempPoint = new Point2i();
 	_tools = new HashMap<Point2i, IGameObject>();
 	
 	_stock = new HashMap<ToolType, Integer>();
@@ -59,7 +61,7 @@ public class Toolbelt
      * @param y Screen Y coordinate
      * @param gridCoords Grid coordinates
      */
-    public void processClick(float x, float y, Vector2f gridCoords)
+    public void processClick(float x, float y, Point2i gridCoords)
     {
 	// Check if click was in the toolbelt area
 	// TODO: GUIManager gives button callback functionality, so perhaps change it to
@@ -79,7 +81,7 @@ public class Toolbelt
 	} else {
 	    // It's a click on the grid
 	    // Add a small amount to the coordinates so that casting to int doesn't possibly round down due to float error
-	    _gridClick((int)(gridCoords.x + _GRIDPOINT_ERROR), (int)(gridCoords.y + _GRIDPOINT_ERROR));
+	    _gridClick(gridCoords.x, gridCoords.y);
 	}
     }
     
@@ -125,7 +127,7 @@ public class Toolbelt
 	Vector3f position = _gameState.gridToWorldCoords(x, y);
 	IGameObject tool = null;
 	if(toolType == ToolType.Mirror) { 
-	    tool = new Mirror(position, 45f);
+	    tool = new Mirror(position, _currentRotation);
 	} else if(toolType == ToolType.Prism) {
 	    tool = new Prism(position);
 	}
@@ -144,7 +146,10 @@ public class Toolbelt
      */
     public void eraseTool(int x, int y)
     {
-	IGameObject tool = _tools.get(new Point2i(x, y));
+	_tempPoint.x = x;
+	_tempPoint.y = y;
+	IGameObject tool = _tools.get(_tempPoint);
+	
 	if(tool != null) {
 	    logger.debug("Found tool to erase at " + x + "," + y + ": " + tool);
 	    if(tool instanceof Mirror) {
@@ -155,7 +160,8 @@ public class Toolbelt
 		assert false;
 	    }
 
-	    _tools.remove(tool);
+	    // Remove the object both from gamestate and our collection of tools
+	    _tools.remove(_tempPoint);
 	    _gameState.removeObject(tool);
 	}
     }
@@ -200,6 +206,11 @@ public class Toolbelt
 	assert _stock.containsKey(toolType);
 	_selectedTool = toolType;
 	logger.debug("Selected tool: " + toolType);
+    }
+    
+    public void adjustRotation(int amount)
+    {
+	_currentRotation += _rotationStep * amount;
     }
     
 //    /**

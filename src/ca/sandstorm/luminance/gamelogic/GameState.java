@@ -134,9 +134,14 @@ public class GameState implements IState
     public void removeObject(IGameObject obj)
     {
 	assert _objects.containsValue(obj);
+	
 	// Remove from objects list
 	logger.debug("Removing object: " + obj);
-	_objects.remove(obj);
+	
+	// Hashmap removes by key, so we need to calculate the key (cheap operation).
+	// Alternately, we can keep an object's grid coords inside the object.
+	Point2i key = worldToGridCoords(obj.getPosition());
+	_objects.remove(key);
 	
 	// Remove from renderer
 	if(obj instanceof IRenderableObject) {
@@ -322,6 +327,12 @@ public class GameState implements IState
 	if (keys[KeyEvent.KEYCODE_K].getPressed()) {
 	    _toolbelt.selectTool(ToolType.Eraser);
 	}
+	if (keys[KeyEvent.KEYCODE_Z].getPressed()) {
+	    _toolbelt.adjustRotation(-1);
+	}
+	if (keys[KeyEvent.KEYCODE_X].getPressed()) {
+	    _toolbelt.adjustRotation(1);
+	}
 	
 	if (keys[KeyEvent.KEYCODE_1].getPressed()) {
 	    System.exit(-1);
@@ -504,7 +515,7 @@ public class GameState implements IState
 	Vector3f colPoint = Colliders.collide(r, _grid.getPlane());
 	logger.debug("CollisionPoint: " + colPoint);
 
-	Vector2f gridPoint = _grid.getGridPosition(colPoint.x, colPoint.y, colPoint.z);
+	Point2i gridPoint = _grid.getGridPosition(colPoint.x, colPoint.y, colPoint.z);
 	logger.debug("Grid Point: " + gridPoint);
 	
 	_toolbelt.processClick(x, y, gridPoint);
@@ -524,14 +535,11 @@ public class GameState implements IState
     /**
      * Convert a world coordinate to a grid cell coordinate.
      * @param position World coordinate
-     * @return 
+     * @return Grid coordinate
      */
     public Point2i worldToGridCoords(Vector3f position)
     {
-	Vector2f pos2d = _grid.getGridPosition(position.x, 0, position.z);
-	tempPoint.x = (int)pos2d.x;
-	tempPoint.y = (int)pos2d.y;
-	return tempPoint;
+	return _grid.getGridPosition(position.x, position.y, position.z);
     }
     
     /**
