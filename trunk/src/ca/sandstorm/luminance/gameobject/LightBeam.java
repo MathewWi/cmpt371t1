@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * @author halsafar
  *
  */
-public class LightCollection extends LinkedList<Light>
+public class LightBeam extends LinkedList<Light>
 {
 
     /**
