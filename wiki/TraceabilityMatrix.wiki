@@ -90,9 +90,18 @@ ca.sandstorm.luminance.test.math
 
 *User statistics registration
 
+ * 
+
 *User transition between states, saved menu, resume
 
+ca.sandstorm.luminance.gamelogic
+ * GameStateTest
+ * GameRendererTest
+ * MenuStateTest
+
 *System under stress
+ 
+ *
 
 *User game configuration and input
 
