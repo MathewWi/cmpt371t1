@@ -2,7 +2,11 @@ package ca.sandstorm.luminance.test.level;
 
 import ca.sandstorm.luminance.level.XmlLevelGoal;
 import android.test.AndroidTestCase;
-
+/**
+ * Testing Xml Level goal functionality
+ * @author Jeff
+ *
+ */
 /**
  * Testing of the XmlLevelGoal Class
  * @author lianghuang

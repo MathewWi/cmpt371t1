@@ -1,5 +1,15 @@
 package ca.sandstorm.luminance.test.gamelogic;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.stub;
+import static org.mockito.Mockito.verify;
+
+import javax.vecmath.Vector3f;
+
+import org.junit.Test;
+
+import ca.sandstorm.luminance.gamelogic.GameState;
+import ca.sandstorm.luminance.gameobject.IGameObject;
 import android.test.AndroidTestCase;
 
 /**
@@ -17,9 +27,22 @@ public class GameStateTest extends AndroidTestCase {
 	public void testAddToolBelt() throws Exception {
 
 	}
-
-	public void testAddObject() throws Exception {
-
+	/**
+	 * @Mock Test
+	 */
+	@Test
+	public void testAddObject() {
+		//setup
+		IGameObject mockLight = mock(IGameObject.class);
+		GameState gameState = new GameState();
+		stub(mockLight.getPosition()).toReturn(new Vector3f(3f, 3f, 3f));
+		//added mock light into gameState
+		gameState.addObject(mockLight);
+		//execute
+		assertEquals(mockLight.getPosition().x, gameState.getObjectAtGridCoords(3, 3).getPosition().x, .001);
+		//verify
+		verify(mockLight).getPosition();
+		
 	}
 
 	public void testRemoveObject() throws Exception {
