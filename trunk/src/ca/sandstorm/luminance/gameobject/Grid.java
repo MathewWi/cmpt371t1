@@ -305,11 +305,9 @@ public class Grid
 
 	// Point to our buffers
 	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
-	// gl.glColorPointer(4, GL10.GL_FLOAT, 0, colorBuffer);
 
 	// Enable the vertex and color state
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-	// gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 
 	// Set color
 	gl.glColor4f(1f, 1f, 1f, 1f);
@@ -320,6 +318,5 @@ public class Grid
 
 	// Disable the client state before leaving
 	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-	// gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
     }
 }
