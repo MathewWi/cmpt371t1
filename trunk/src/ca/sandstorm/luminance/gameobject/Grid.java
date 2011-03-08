@@ -277,16 +277,16 @@ public class Grid
      */
     public Point2i getGridPosition(float x, float y, float z)
     {	
-	int gridX = (int) (x / _cellWidth);
-	int gridZ = (int) (z / _cellWidth);
+	float gridX = x / _cellWidth;
+	float gridZ = z / _cellWidth;
 	
 	// Check if position is within grid -zenja
 	if (gridX < 0 || gridZ < 0 ||
-	    gridX > getColumnCount() - 1 || gridZ > getRowCount() - 1) {
+	    gridX > getColumnCount() || gridZ > getRowCount()) {
 	    return null;
 	}
 
-	_tmpGridPos.set(gridX, gridZ);
+	_tmpGridPos.set((int)(gridX + 1e-08f), (int)(gridZ + 1e-08f));
 
 	return _tmpGridPos;
     }

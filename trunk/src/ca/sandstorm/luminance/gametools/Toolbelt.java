@@ -78,7 +78,7 @@ public class Toolbelt
 		logger.debug("eraser has been tapped");
 		selectTool(ToolType.Eraser);
 	    }
-	} else {
+	} else if (gridCoords != null) {
 	    // It's a click on the grid
 	    // Add a small amount to the coordinates so that casting to int doesn't possibly round down due to float error
 	    _gridClick(gridCoords.x, gridCoords.y);
