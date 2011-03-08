@@ -8,29 +8,29 @@ This is where the development team will be listing their tasks and roles.
   * Chet is not longer part of the development team.
   * Stephen now development lead.
 
-=== Meeting Times ===
- * Tuesday, March 8, 2011 *
+ === Meeting Times ===
+ * Tuesday, March 8, 2011
   * All dev meeting over Skype
 
- * Monday, March 7, 2011 *
+ * Monday, March 7, 2011
   * All dev meeting over Skype
 
- * Sunday, March 6, 2011 *
+ * Sunday, March 6, 2011
   * All dev meeting over Skype
 
- * Wednesday, February 23, 2011 *
+ * Wednesday, February 23, 2011
   * New dev tasks
   * Review of completed tasks.
 
- * Monday, February 21, 2011 *
+ * Monday, February 21, 2011
   * Group meeting after break, big task lists given out
   * All completed tasks over the break reviewed
 
- * Tuesday, February 15, 2011 in S372 *
+ * Tuesday, February 15, 2011 in S372
   * Looked through entire code base as a group peer review.
   * Discussed team roles and how everybody was doing.  Solved issues verbally with suggestions and help.
 
-=== Tasks ===
+ === Tasks ===
  * Stephen
   * Lights
   * Collision Detection
@@ -50,13 +50,13 @@ This is where the development team will be listing their tasks and roles.
 
 
 == Milestone 1 ==
-=== Meeting Times ===
-*Wednesday, February 2, 2011 in S371*
-  * Stephen performed the OpenGL tutorial for all the group members.
+ === Meeting Times ===
+  * Wednesday, February 2, 2011 in S371
+   * Stephen performed the OpenGL tutorial for all the group members.
 
-Note: Lost the rest of our times.
+  Note: Lost the rest of our times.
 
-=== Tasks ===
+ === Tasks ===
   * Stephen
     * Grid implementation
     * Sky Box for game background
