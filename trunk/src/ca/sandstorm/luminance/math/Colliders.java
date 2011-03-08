@@ -50,8 +50,8 @@ public class Colliders
      * Calculate the time of collision between a sphere and a ray.
      * Remember this is not time as in 'real time' it is time as in the
      * mathematical time along the rays path it hits the sphere.
-     * @param sphere
-     * @param ray
+     * @param sphere The sphere
+     * @param ray The ray
      * @return < 0 means no collision, >= 0 means a possible collision
      */
     public static float intersect(Sphere sphere, Ray ray)
@@ -64,9 +64,7 @@ public class Colliders
 	
         //Compute A, B and C coefficients
         float a = (float)dotProduct(ray.getDirection(), ray.getDirection());
-        //float b = 2.0f * (float)dotProduct(ray.getDirection(), ray.getPosition());
         float b = 2.0f * ( dir.x * (origin.x - center.x) + dir.y * (origin.y - center.y) + dir.z * (origin.z - center.z) );
-        //float c = (float)dotProduct(ray.getPosition(), ray.getPosition()) - (sphere.getRadius() * sphere.getRadius());
         float c = 	((origin.x - center.x) * (origin.x - center.x)) + 
         		((origin.y - center.y) * (origin.y - center.y)) + 
         		((origin.z - center.z) * (origin.z - center.z)) - 
@@ -121,9 +119,18 @@ public class Colliders
     }
     
     
+    /**
+     * Finds the exact collision point between a sphere and a ray if one exists.
+     * @param s The sphere
+     * @param r The ray
+     * @return The collision point if one occurs, null for no collision.
+     */
     public static Vector3f collide(Sphere s, Ray r)
     {
+	// find time of intersection
 	float t = intersect(s, r);
+	
+	// if a time exists, find collision point
 	if (t >= 0.0f)
 	{
 	    _tmpCollisionPoint.x = r.getPosition().x + (r.getDirection().x * t);
@@ -133,6 +140,7 @@ public class Colliders
 	    return _tmpCollisionPoint;
 	}
 	
+	// no collision
 	return null;
     }
     
