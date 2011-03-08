@@ -286,7 +286,12 @@ public class GameState implements IState
 	}
 	
 	// init the lightpath
+	// add a test light
 	_lightPath = new LightPath();
+	LightCollection foo = new LightCollection();
+	foo.add(new Light(0, 0.5f, 0.5f,
+	                  10, 0.5f, 0.5f));
+	_lightPath.getLightPaths().add(foo);
 	
 	// Create the toolbelt
 	_toolbelt = new Toolbelt(this);
@@ -507,7 +512,11 @@ public class GameState implements IState
 	    {
 		for (IGameObject o : _objects.values())
 		{
-		    // if (collide(l, o) then do stuff
+		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), l.getRay());
+		    if (colPoint != null)
+		    {
+			logger.debug("LIGHT COLLISION: " + colPoint);
+		    }
 		}
 	    }
 	}

@@ -70,8 +70,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>5</x>
-			<y>5</y>
+			<x>0</x>
+			<y>6</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -80,11 +80,11 @@
 		</rotation>
 	</object>
 	
-			<object>
+	<object>
 		<type>brick</type>
 		<position>
 			<x>6</x>
-			<y>6</y>
+			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
