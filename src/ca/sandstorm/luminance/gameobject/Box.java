@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
-import ca.sandstorm.luminance.gamelogic.LightPath;
 import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.math.Sphere;
 import ca.sandstorm.luminance.resources.TextureResource;
@@ -99,7 +98,7 @@ public class Box extends GameObject implements IRenderableObject
     }
 
     @Override
-    public void beamInteract(LightPath beam)
+    public void beamInteract(LightBeam beam, Light light)
     {
 	// TODO Auto-generated method stub
 	

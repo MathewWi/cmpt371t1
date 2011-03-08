@@ -515,7 +515,7 @@ public class GameState implements IState
 		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), l.getRay());
 		    if (colPoint != null)
 		    {
-			o.beamInteract(null);
+			o.beamInteract(null, null);
 			logger.debug("LIGHT COLLISION: " + colPoint);
 		    }
 		}
