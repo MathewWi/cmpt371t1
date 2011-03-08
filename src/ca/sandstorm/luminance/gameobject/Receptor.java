@@ -26,6 +26,8 @@ public class Receptor extends GameObject implements IRenderableObject
     
     private Sphere _colSphere;
     
+    private int _color;
+    private boolean _activated;
     
     /**
      * Constructor.
@@ -43,7 +45,28 @@ public class Receptor extends GameObject implements IRenderableObject
 	_model = Engine.getInstance().getRenderer().getSphere();
 	
 	_colSphere = new Sphere(_position.x, _position.y, _position.z, 0.5f);
+	
+	_activated = false;
     }
+    
+    
+    public void setColor(int color)
+    {
+	
+    }
+    
+    
+    public int getColor()
+    {
+	return _color;
+    }
+    
+    
+    public boolean getActivated()
+    {
+	return _activated;
+    }
+    
     
     /**
      * Get the model associated with this object.
@@ -84,8 +107,8 @@ public class Receptor extends GameObject implements IRenderableObject
     public void update()
     {
 	// For fun
-	_scaleCounter += 0.1f;
-	_scale.x = _scale.y = _scale.z = (float)(1.0 + (Math.sin(_scaleCounter) * 0.3));
+	//_scaleCounter += 0.1f;
+	//_scale.x = _scale.y = _scale.z = (float)(1.0 + (Math.sin(_scaleCounter) * 0.3));
     }
 
     @Override
@@ -104,7 +127,10 @@ public class Receptor extends GameObject implements IRenderableObject
     @Override
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
-	// TODO Auto-generated method stub
-	
+	Light l = beam.get(lightIndexToInteract);
+	if (l.getColor() == this.getColor())
+	{
+	    _activated = true;
+	}
     }
 }

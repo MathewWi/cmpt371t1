@@ -10,6 +10,8 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
+import android.graphics.Color;
+
 import ca.sandstorm.luminance.math.Ray;
 import ca.sandstorm.luminance.math.Sphere;
 
@@ -33,8 +35,10 @@ public class Light extends GameObject implements IGameObject
     
     private Ray _ray;
     
+    private int _color;
     
-    public Light(float xStart, float yStart, float zStart, float xDir, float yDir, float zDir, float distance)
+    
+    public Light(float xStart, float yStart, float zStart, float xDir, float yDir, float zDir, float distance, int color)
     {
 	_distance = distance;
 	_startPoint = new Vector3f(xStart, yStart, zStart);
@@ -59,6 +63,8 @@ public class Light extends GameObject implements IGameObject
 	
 	// init the vertices (dynamic)
 	_initVertices();
+	
+	_color = color;
     }
     
     
@@ -127,6 +133,12 @@ public class Light extends GameObject implements IGameObject
     }
     
     
+    public int getColor()
+    {
+	return _color;
+    }
+    
+    
     @Override
     public void initialize()
     {
@@ -186,7 +198,10 @@ public class Light extends GameObject implements IGameObject
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
 	// Set color
-	gl.glColor4f(1f, 1f, 1f, 1f);
+	gl.glColor4f(Color.red(_color) / 255.0f,
+	             Color.green(_color) / 255.0f,
+	             Color.blue(_color) / 255.0f,
+	             0.5f);
 
 	// Draw the vertices as triangles, based on the Index Buffer information
 	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,
