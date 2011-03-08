@@ -7,16 +7,23 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
 = Milestone 3 =
   == Tasks ==
-||Priority|| ||
-||1. ||Unit Test suite ||
-||2. ||Code Coverage test(Emma)||
-|| || Code reviews (test codes) ||
-|| || Code reviews (source) ||
-|| || Restructure test suite for Test cases ||
-|| || Robust smoke test ||
-|| || Mock testing ||
-|| || State Mock testing(Game Logic) ||
-|| || Finish Triage ||
+||Priority|| Name || Status ||
+|| high ||Unit Test suite || Done ||
+|| high ||Code Coverage test(Emma)|| Done ||
+|| high || Code reviews (test codes) || Done ||
+|| high || Code reviews (source) || Done ||
+|| medium || Restructure test suite for Test cases || Not ||
+|| medium || Robust smoke test || Not ||
+|| medium || Mock testing || Half ||
+|| medium || State Mock testing(Game Logic) || Half ||
+|| medium || Finish Triage || Not ||
+
+  === Code Coverage ===
+    Emma is not implemented within Android nor Eclipse IDE for Android use and many hours were wasted in trying to make it work. Chet had spent hours only to get it working inside the eclipse IDE and what resulted was that there was 0% on code coverage to the source code with a 5% coverage to the junit.jar. Which made not much sense. Later it was debated that it might've only used the junit.jar for its methods and thus tracked it. And on why it wouldn't work on the emulator was that not much documentation was found for it and very hard to implement.
+
+    What was later used is the Android build-in coverage. This made things much easier! Not really. What ensued were earlier errors back when implementation of the smoke test was in place. Essentially, filepaths, linking and all that fun stuff. After a many hours, a solution came about. The libs folder inside the tested project needed the necessary .jars that the test project used. Lo and behold, the coverage worked and a generated resultant was placed under the LuminanceTestSuite/coverage path.
+
+    Issues on that is that the Vector3f methods used inside the plane and ray test classes were needed to be commented out and is in need of refactoring to make those tests work again in coherence with the code coverage.
 
 Emma link http://groups.google.com/group/android-platform/browse_thread/thread/b5219988c5374369
 
