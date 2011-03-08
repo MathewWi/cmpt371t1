@@ -37,6 +37,10 @@ http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-repor
 
     Using monkey runner on the emulator and phone will inject it with psuedo random events. This will give us an indication that the game at least will not crash on the phone based on such random events. 
 
+  === Common Errors ===
+
+    * Test run failed: org.junit.Test
+      # run the android update test-project and android update project command-line functions
 
 = End Milestone 3 =
 
