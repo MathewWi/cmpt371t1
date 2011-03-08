@@ -100,4 +100,11 @@ public class Receptor extends GameObject implements IRenderableObject
 	// TODO Auto-generated method stub
 	return _colSphere;
     }
+
+    @Override
+    public void beamInteract(LightBeam beam, int lightIndexToInteract)
+    {
+	// TODO Auto-generated method stub
+	
+    }
 }
