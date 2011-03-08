@@ -2,7 +2,7 @@ package ca.sandstorm.luminance.gameobject;
 
 import java.util.Vector;
 
-public class LightBeamCollection extends Vector<LightCollection>
+public class LightBeamCollection extends Vector<LightBeam>
 {
 
     /**

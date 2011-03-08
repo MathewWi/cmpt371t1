@@ -23,7 +23,7 @@ import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Light;
 import ca.sandstorm.luminance.gameobject.LightBeamCollection;
-import ca.sandstorm.luminance.gameobject.LightCollection;
+import ca.sandstorm.luminance.gameobject.LightBeam;
 import ca.sandstorm.luminance.gameobject.Skybox;
 import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
@@ -288,7 +288,7 @@ public class GameState implements IState
 	// init the lightpath
 	// add a test light
 	_lightPath = new LightPath();
-	LightCollection foo = new LightCollection();
+	LightBeam foo = new LightBeam();
 	foo.add(new Light(0, 0.5f, 0.5f,
 	                  10, 0.5f, 0.5f));
 	_lightPath.getLightPaths().add(foo);
@@ -506,7 +506,7 @@ public class GameState implements IState
 
 	// collision detection
 	LightBeamCollection beams = _lightPath.getLightPaths();
-	for (LightCollection lightBeam : beams)
+	for (LightBeam lightBeam : beams)
 	{
 	    for (Light l : lightBeam)
 	    {
@@ -515,6 +515,7 @@ public class GameState implements IState
 		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), l.getRay());
 		    if (colPoint != null)
 		    {
+			o.beamInteract(null);
 			logger.debug("LIGHT COLLISION: " + colPoint);
 		    }
 		}
