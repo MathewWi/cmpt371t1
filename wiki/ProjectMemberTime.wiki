@@ -51,10 +51,12 @@
 
 ===Milestone 2===
 || Fixing audio || 0.5 ||
-|| Game tools/tool objects || 9 ||
+|| Game tools/tool objects || 10 ||
 || Game object system || 1 ||
 || Refactoring || 2 ||
 || Toolbox GUI drawing, GUI system fixes || 1.5 ||
+|| Quad renderable, updating GUI to use it || 1 ||
+|| Bug fixing, optimizing || 2 ||
 
 == Stephen Damm ==
 === Milestone 0 ===
