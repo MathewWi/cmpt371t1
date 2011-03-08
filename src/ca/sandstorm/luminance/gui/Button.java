@@ -2,19 +2,18 @@ package ca.sandstorm.luminance.gui;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
+import ca.sandstorm.luminance.graphics.PrimitiveQuad;
 import ca.sandstorm.luminance.resources.TextureResource;
 
 /**
  * Standard Button widget.
  * 
- * @author Kumaran Vijayan
- *
+ * @author Kumaran Vijayan.
+ * Modified by Zenja to use a PrimitiveQuad for rendering.
  */
 public class Button implements IWidget
 {
@@ -22,13 +21,8 @@ public class Button implements IWidget
     private float _y;
     private float _width;
     private float _height;
-    
-    // static because all quads only need one of these, just change textures
-    private static FloatBuffer _vertexBuffer;
-    private static float[] _vertices;
-    private static FloatBuffer _texCoordBuffer;
-    private static float[] _texCoords;
-    
+        
+    private PrimitiveQuad _quad;
     private String _textureResourceLocation;
     private TextureResource _texture;
     
@@ -56,37 +50,10 @@ public class Button implements IWidget
 	this._height = height;
 	_title = title;
 	
-	// allocate these only once
-	if (_vertices == null || _vertexBuffer == null)
-	{
-	     _vertices = new float[] {
-		         // Vertices for the square
-		          0, height,  0.0f,  // 0. left-bottom
-		          width, height,  0.0f,  // 1. right-bottom
-		          0,  0,  0.0f,  // 2. left-top
-		          width,  0,  0.0f   // 3. right-top
-		};
-        	
-        	ByteBuffer byteBuf = ByteBuffer.allocateDirect(_vertices.length * 4);
-        	byteBuf.order(ByteOrder.nativeOrder());
-        	_vertexBuffer = byteBuf.asFloatBuffer();
-        	_vertexBuffer.put(_vertices);
-        	_vertexBuffer.position(0);
-	}
-	if(_texCoordBuffer == null || _texCoords == null) {
-	    _texCoords = new float[] {
-		    0f, 0f,
-		    0f, 1f,
-		    1f, 0f,
-		    1f, 1f
-	    };
-	    
-	    ByteBuffer byteBuf = ByteBuffer.allocateDirect(_texCoords.length * 4);
-	    byteBuf.order(ByteOrder.nativeOrder());
-	    _texCoordBuffer = byteBuf.asFloatBuffer();
-	    _texCoordBuffer.put(_texCoords);
-	    _texCoordBuffer.position(0);
-	}
+	_quad = new PrimitiveQuad(
+	    new Vector3f(0, 0, 0),
+	    new Vector3f(width, height, 0)
+	);
     }
 
     public float getX()
@@ -251,20 +218,11 @@ public class Button implements IWidget
     {
 	gl.glPushMatrix();
 	
-	//gl.glScalef(this.width, this.height, 1.0f);
-	gl.glTranslatef(this._x, this._y, 0);
-	
-	gl.glFrontFace(GL10.GL_CCW);
-	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
-	gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
-	
-	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-		
+	gl.glTranslatef(_x, _y, 0);		
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glColor4f(1f, 1f, 1f, 1f);
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
-	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, _vertices.length / 3);
+	_quad.draw(gl);
 	
 	gl.glPopMatrix();
     }
