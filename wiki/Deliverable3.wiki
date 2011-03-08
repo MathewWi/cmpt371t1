@@ -12,7 +12,7 @@
   The plan for testing can be viewed here: TestPlan <br>
   Documentation for the test team can be viewed here: TestTeam<br>
   The user evaluation plan can be viewed here: UserEvaluations<br>
-  Use cases that have been written so far can be viewed here: UseCaseScenarios
+  Use cases that have been written so far can be viewed here: UseCaseScenarios<br>
   The Traceability matrix can be viewed here: TraceabilityMatrix
 
 = Mini-Milestone List =
