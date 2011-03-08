@@ -1,4 +1,4 @@
-#summary Traceability Matrix, functional requirements, game features
+ #summary Traceability Matrix, functional requirements, game features
 
 = Introduction =
 
@@ -89,6 +89,12 @@ ca.sandstorm.luminance.test.math
  * RayTest
 
 *User statistics registration
+
+*User transition between states, saved menu, resume
+
+*System under stress
+
+*User game configuration and input
 
 ca.sandstorm.luminance.gamelogic
  * GameStateTest
