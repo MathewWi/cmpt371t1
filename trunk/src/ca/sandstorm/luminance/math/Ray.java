@@ -11,7 +11,7 @@ public class Ray
     public Ray(float xPos, float yPos, float zPos, float xDir, float yDir, float zDir)
     {
 	_pos = new Vector3f(xPos, yPos, zPos);
-	_dir = new Vector3f(zDir, yDir, zDir);
+	_dir = new Vector3f(xDir, yDir, zDir);
     }
     
     public Vector3f getPosition()
