@@ -98,6 +98,9 @@
 || Fixed bug, MenuState not rendering properly || 2 ||
 || Fixed bug, game state gui manager not rendering properly || 0.5 ||
 || Added title bar and status bar height generic calculation || 1 ||
+|| Added Sphere math class and Ray-Sphere intersection || 2 ||
+|| Setup Light and Light Path classes || 0.5 ||
+
 
 == Martina Nagy ==
 === Milestone 0 ===
