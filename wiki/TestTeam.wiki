@@ -20,6 +20,10 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
 Emma link http://groups.google.com/group/android-platform/browse_thread/thread/b5219988c5374369
 
+Android built-in coverage
+
+http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-report-for-your-unit-tests/
+
 = End Milestone 3 =
 
 
