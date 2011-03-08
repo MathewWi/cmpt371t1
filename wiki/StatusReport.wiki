@@ -1,9 +1,103 @@
 #summary The current status of the system.
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="3"/>
 
-= High Level Analysis =
+= Deliverable 3 =
+== High Level Analysis ==
 
-== State of Project Build ==
+=== State of Project Build ===
+
+Currently the project builds a binary and runs the alpha of our game. 
+
+The application can be loaded onto an Android phone and run the same as on the AVD.  
+
+There is also a smoke test implemented and can be run to ensure project quality before commit.
+
+=== Features Implemented ===
+
+Build completes.
+
+Program runs correctly.
+
+Loads the grid play area.
+
+Touch features such as pinch and swipe work well.  Some refinement may still need to be done.
+
+Game objects logically work i.e. prisms split light, mirrors bounce light etc.
+
+Toolbelt is fully functional and can be interacted with.  Objects can be selected from the toolbelt and placed on the grid.
+
+Essentially a basic level is loaded and can be interacted with.
+
+=== Features to Be Implemented ===
+
+Touch screen GUI - GUI is designed, needs to be integrated into the application.
+
+Enhanced graphics - simple graphics currently implemented.
+
+Full audio capabilities.
+
+100+ levels.
+
+Random level generator.
+
+=== STI/Defect Information ===
+
+Defects and bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
+
+Common problems of the development environment can be found here: CommonIssues
+
+== Specific Status Report ==
+*Resource Manager*
+  * Capable of loading and managing most resources.
+  * Simple textures loading.
+  * Sound/music implementation understood, although currently not working.
+
+*Input*
+  * Use of !ReplicaIsland open source code.
+  * Touch and drag inputs are currently stable.
+  * Pinch(zoom) are now working.
+
+*GUI*
+  * Creating our own custom menu primitives.
+  * Menu primitives robust
+  * GUIManager created; responsible for managing buttons
+  * Buttons created, can perform action on tap.
+
+*Level Loader*
+  * Use of XML to store level information.
+  * Loader currently stable.
+
+*Graphics*
+  * Basic primitives (sphere, box, etc.).
+  * Full grid, background and general play space implemented.
+
+*Game* 
+  * Currently draws a grid and loads a pre-defined level.
+  * User is able to interact with the game.  They are able to place tools from the toolbelt on the grid.  These tools work the way that they should.
+
+*Smoke Test*
+  * Currently runs on the !TeamCity server.
+  * Tests all source classes using the TestSuite.
+
+*GUI Testing*
+  * Use of Robotium.
+  * Full test suite under construction.
+
+*Unit Tests*
+  * Complete with respect to the current source code completion.
+  * Will be updated as more source is changed/added.
+
+== Overall Status of Game ==
+ Currently loads the grid that will be where the levels will be created to be played.  It also loads a simple box and sphere, to show that our primitive objects are working.  The !SkyBox that represents the background works on the emulator, but not on an android phone.  This issue will be need to be resolved.
+
+ When loaded on the phone, touch, swipe and pinch inputs work, although will need to be refined for precision and smoothness.
+
+ The project can also be loaded into a Menu state if you un-comment line 65 Luminance.java in the method !OnCreate.  From here, two buttons are loaded.  Every time the menu is clicked, a log message is sent to the logger as "Menu has been touched".  If a button is tapped, then "Button has been tapped" is sent to the logger, therefore showing these buttons work.  This currently only works on the emulator.
+
+= Deliverable 2 =
+== High Level Analysis ==
+
+=== State of Project Build ===
 
 Currently the project builds a binary and runs a simple version of our game. 
 
@@ -11,7 +105,7 @@ The application can be loaded onto an Android phone and run the same as on the A
 
 There is also a simple and as of yet incomplete smoke test implemented and can be run to ensure project quality before commit.
 
-== Features Implemented ==
+=== Features Implemented ===
 
 Build completes.
 
@@ -21,7 +115,7 @@ Loads the grid play area, as well as multiple boxes and spheres to represent a l
 
 Touch features such as pinch and swipe work well.  Some refinement may still need to be done.
 
-== Features to Be Implemented ==
+=== Features to Be Implemented ===
 
 Touch screen GUI - basic elements created & fleshed out, buttons tappable.
 
@@ -33,55 +127,55 @@ Full audio capabilities.
 
 Random level generator.
 
-== STI/Defect Information ==
+=== STI/Defect Information ===
 
 Currently there are no known STI's or defects within the code.  The test environment was not complete up until this point.  When more tests are implemented, defects and STI's will become more apparent.
 
 Common problems of the development environment can be found here: CommonIssues
 
-= Specific Status Report = 
- == Resource Manager ==
+== Specific Status Report ==
+*Resource Manager*
   * Capable of loading and managing most resources.
   * Simple textures loading.
   * Sound/music implementation understood, although currently not working.
 
- == Input ==
+*Input*
   * Use of !ReplicaIsland open source code.
   * Touch and drag inputs are currently stable, although need refining.
   * Pinch(zoom) are now working.
 
- == GUI ==
+*GUI*
   * Creating our own custom menu primitives.
   * Menu primitives robust
   * GUIManager created; responsible for managing buttons
   * Buttons created, can perform action on tap
 
- == Level Loader ==
+*Level Loader*
   * Use of XML to store level information.
   * Loader currently stable.
 
- == Graphics ==
+*Graphics*
   * Basic primitives (sphere, box, etc.).
   * Full grid, background and general play space implemented.
 
- == Game == 
+*Game* 
   * Currently draws a grid and loads a pre-defined level.
   * Does not have any playable functionality.
 
- == Smoke Test == 
+*Smoke Test*
   * Currently runs on the !TeamCity server.
   * It has "three thumbs up" tests currently.
    * Tests suite includes Resource Manager and Input classes.
 
- == GUI Testing ==
+*GUI Testing*
   * Use of Robotium.
   * Full test suite under construction.
 
- == Unit Tests ==
+*Unit Tests*
   * Currently underway.
   * Unit Tests that are completed work well; have already caught bugs.
 
-= Overall Status of Game =
+== Overall Status of Game ==
  Currently loads the grid that will be where the levels will be created to be played.  It also loads a simple box and sphere, to show that our primitive objects are working.  The !SkyBox that represents the background works on the emulator, but not on an android phone.  This issue will be need to be resolved.
 
  When loaded on the phone, touch, swipe and pinch inputs work, although will need to be refined for precision and smoothness.
