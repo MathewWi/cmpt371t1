@@ -85,7 +85,7 @@ public class GridTest extends AndroidTestCase {
 	 */
 	public void testGetPlane() throws Exception {
 		Plane myPlane = myGrid.getPlane();
-		assertNotNull(myPlane);
+		assertTrue(myPlane != null);
 
 		Vector3f pos = myPlane.getPosition();
 		Vector3f norm = myPlane.getNormal();

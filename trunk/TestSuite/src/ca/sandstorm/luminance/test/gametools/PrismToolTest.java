@@ -18,6 +18,6 @@ public class PrismToolTest extends AndroidTestCase {
 	}
 	
 	public void testPrismTool(){
-		assertNotNull(tPrism);
+		assertTrue(tPrism != null);
 	}
 }

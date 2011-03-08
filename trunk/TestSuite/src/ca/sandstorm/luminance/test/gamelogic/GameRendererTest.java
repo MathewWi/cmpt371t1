@@ -38,7 +38,7 @@ public class GameRendererTest extends AndroidTestCase {
 		gr.add(tBox);
 		gr.add(tMirror);
 		
-		assertNotNull(gr);
+		assertTrue(gr != null);
 	}
 
 	// Same as add. Use coverage testing.
@@ -53,15 +53,15 @@ public class GameRendererTest extends AndroidTestCase {
 	}
 
 	public void testGetBox() throws Exception {
-		assertNotNull(gr.getBox());
+		assertTrue(gr.getBox() != null);
 	}
 
 	public void testGetSphere() throws Exception {
-		assertNotNull(gr.getSphere());
+		assertTrue(gr.getSphere() != null);
 	}
 
 	public void testGetPrism() throws Exception {
-		assertNotNull(gr.getPrism());
+		assertTrue(gr.getPrism() != null);
 	}
 
 	public void testDrawNormalObjects() throws Exception {

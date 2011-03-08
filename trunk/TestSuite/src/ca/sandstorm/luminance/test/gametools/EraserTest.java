@@ -19,6 +19,6 @@ public class EraserTest extends AndroidTestCase {
 	}
 	
 	public void testEraser(){
-		assertNotNull(tEraser);
+		assertTrue(tEraser != null);
 	}
 }
