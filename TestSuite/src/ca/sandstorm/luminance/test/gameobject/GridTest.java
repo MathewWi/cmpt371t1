@@ -1,6 +1,6 @@
 package ca.sandstorm.luminance.test.gameobject;
 
-import javax.vecmath.Vector2f;
+import javax.vecmath.Point2i;
 import javax.vecmath.Vector3f;
 
 import android.test.AndroidTestCase;
@@ -116,7 +116,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetGridPosition() throws Exception {
-		Vector2f dummy = myGrid.getGridPosition(3.0f, 2.0f, 1.0f);
+		Point2i dummy = myGrid.getGridPosition(3.0f, 2.0f, 1.0f);
 		assertTrue(dummy.x == 3.0f);
 		assertTrue(dummy.y == 1.0f);
 	}
