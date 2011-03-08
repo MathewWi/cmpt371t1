@@ -31,7 +31,7 @@ public class BoxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertNotNull(myBox.getRenderable());
+		assertTrue(myBox.getRenderable() != null);
 	}
 
 	/**

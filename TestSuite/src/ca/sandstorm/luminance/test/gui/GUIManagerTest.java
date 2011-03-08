@@ -109,7 +109,7 @@ public class GUIManagerTest extends AndroidTestCase {
 
 			testButtonHolder = guiManager.touchOccured(x, y);
 
-			assertNotNull(testButtonHolder);
+			assertTrue(testButtonHolder != null);
 			System.out.println("1");
 
 			assertTrue(testButtonHolder.getTitle().equals(button[i].getTitle()));

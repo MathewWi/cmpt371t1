@@ -87,7 +87,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertNotNull(myPrism.getRenderable());
+		assertTrue(myPrism.getRenderable() != null);
 	}
 
 	/**

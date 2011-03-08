@@ -35,7 +35,7 @@ public class AndroidSoundPlayerTest extends AndroidTestCase {
 	 */
 	public void testGetPool() throws Exception {
 		SoundPool testPool = player.getPool();
-		assertNotNull(testPool);
+		assertTrue(testPool != null);
 	}
 
 	/*
@@ -45,7 +45,7 @@ public class AndroidSoundPlayerTest extends AndroidTestCase {
 		try {
 			sound = resManager.loadSound(player.getPool(), "sample.ogg");
 			streamId = player.play(sound, (new Float(0.5)));
-			assert (streamId != 0);
+			assertTrue (streamId != 0);
 		} catch (Exception ex) {
 		}
 	}

@@ -20,6 +20,6 @@ public class MirrorToolTest extends AndroidTestCase {
 	}
 	
 	public void testMirrorTool(){
-		assertNotNull(tMirror);
+		assertTrue(tMirror != null);
 	}
 }

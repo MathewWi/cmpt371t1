@@ -88,7 +88,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertNotNull(myReceptor.getRenderable());
+		assertTrue(myReceptor.getRenderable() != null);
 	}
 
 	/**

@@ -87,7 +87,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertNotNull(myMirror.getRenderable());
+		assertTrue(myMirror.getRenderable() != null);
 	}
 
 	/**
