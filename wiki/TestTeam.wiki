@@ -18,6 +18,8 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || || State Mock testing(Game Logic) ||
 || || Finish Triage ||
 
+Emma link http://groups.google.com/group/android-platform/browse_thread/thread/b5219988c5374369
+
 = End Milestone 3 =
 
 
