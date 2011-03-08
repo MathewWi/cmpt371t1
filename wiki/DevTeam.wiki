@@ -4,10 +4,9 @@
 This is where the development team will be listing their tasks and roles.
 
 == Milestone 2 ==
-  * Two members have gone from the team. 
-  * Chet is not longer part of the development team.
-  * Stephen now development lead.
-
+ * Two members have gone from the team. 
+ * Chet is not longer part of the development team.
+ * Stephen now development lead.
  === Meeting Times ===
   * Tuesday, March 8, 2011
    * All dev meeting over Skype
