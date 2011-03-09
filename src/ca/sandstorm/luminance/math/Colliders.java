@@ -6,7 +6,10 @@ public class Colliders
 {
     public static final float EPSILON = 1e-8f;
     
+    public static Vector3f UP = new Vector3f(0, 1, 0);
+    
     private static Vector3f _tmpCollisionPoint = new Vector3f();
+    private static Vector3f _tmpCrossProduct = new Vector3f();
     
     public static double dotProduct(Vector3f v1, Vector3f v2)
     {
@@ -19,6 +22,14 @@ public class Colliders
 	return Math.sqrt( (v2.x - v1.x) * (v2.x - v1.x) + 
 	                  (v2.y - v1.y) * (v2.y - v1.y) + 
 	                  (v2.z - v1.z) * (v2.z - v1.z) );
+    }
+    
+    
+    public static Vector3f crossProduct(Vector3f v1, Vector3f v2)
+    {
+	_tmpCrossProduct.cross(v1, v2);
+	
+	return _tmpCrossProduct;
     }
     
     

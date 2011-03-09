@@ -37,6 +37,9 @@ public class Light extends GameObject implements IGameObject
     
     private int _color;
     
+    private IGameObject _startTouchingObject = null;
+    private IGameObject _endTouchingObject = null;
+    
     
     public Light(float xStart, float yStart, float zStart, float xDir, float yDir, float zDir, float distance, int color)
     {
@@ -139,6 +142,30 @@ public class Light extends GameObject implements IGameObject
     }
     
     
+    public IGameObject getStartTouchedObject()
+    {
+	return _startTouchingObject;
+    }
+    
+    
+    public void setStartTouchedObject(IGameObject o)
+    {
+	_startTouchingObject = o;
+    }
+    
+    
+    public IGameObject getEndTouchedObject()
+    {
+	return _endTouchingObject;
+    }
+    
+    
+    public void setEndTouchedObject(IGameObject o)
+    {
+	_endTouchingObject = o;
+    }    
+    
+    
     @Override
     public void initialize()
     {
@@ -188,6 +215,8 @@ public class Light extends GameObject implements IGameObject
     // @HACK - not consistent at all
     public void draw(GL10 gl)
     {
+	gl.glScalef(1, 1, 1);
+	
 	// Set the face rotation
 	gl.glFrontFace(GL10.GL_CW);
 
@@ -201,7 +230,7 @@ public class Light extends GameObject implements IGameObject
 	gl.glColor4f(Color.red(_color) / 255.0f,
 	             Color.green(_color) / 255.0f,
 	             Color.blue(_color) / 255.0f,
-	             0.95f);
+	             1.0f);
 
 	// Draw the vertices as triangles, based on the Index Buffer information
 	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,

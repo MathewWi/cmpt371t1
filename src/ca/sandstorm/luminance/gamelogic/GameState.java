@@ -305,6 +305,7 @@ public class GameState implements IState
 		                        1, 0, 0,
 		                        Light.LIGHT_INFINITY,
 		                        color);
+		    l.setStartTouchedObject(emitter);
 		    beam.add(l);
 		    _lightPath.getLightPaths().add(beam);
 		}
@@ -732,21 +733,51 @@ public class GameState implements IState
 	{
 	    LightBeam lightBeam = beams.get(i);
 	    int savedBeamSize = lightBeam.size();
+	    
 	    for (int j = 0; j < savedBeamSize; j++)	
 	    {
+		IGameObject minObj = null;
+		float minDist = Light.LIGHT_INFINITY;
+		float curDist = 0.0f;
+		Light l = lightBeam.get(j);
+		
+		// loop through all objects to find min dist collision
 		for (IGameObject o : _objects.values())
 		{
-		    Light l = lightBeam.get(j);
+		    // ignore collisions with objects we know light
+		    // such a HACK
+		    if (o == l.getStartTouchedObject())
+		    {
+			continue;
+		    }
+		    
+		    if (o == l.getEndTouchedObject())// && !(o instanceof Box))
+		    {
+			//minObj = null;
+			break;
+		    }
+		    
+		    // get collision point, compare to find min
 		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), l.getRay());
 		    if (colPoint != null)
 		    {
-			if (Colliders.distance(colPoint, l.getPosition()) <= l.getDistance())
+			curDist = (float)Colliders.distance(colPoint, l.getPosition());
+			if (curDist <= minDist)
 			{
-			    o.beamInteract(lightBeam, j);
-			}
-			
-			//logger.debug("LIGHT COLLISION: " + colPoint);
+			    minDist = curDist;
+			    minObj = o;			    
+			}		
 		    }
+		}
+		
+		// we found a min collision
+		if (minObj != null)
+		{
+		    if (l.getEndTouchedObject() != null && minDist > l.getDistance())
+		    {
+			
+		    }
+		    minObj.beamInteract(lightBeam, j);
 		}
 		
 		// check if the beam was modified and we are done
