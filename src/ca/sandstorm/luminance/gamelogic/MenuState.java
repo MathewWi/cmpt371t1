@@ -50,11 +50,6 @@ public class MenuState implements IState
 	
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(helpButton);
-	
-	_quad = new PrimitiveQuad(
-	        new Vector3f(0, 0, 0),
-		new Vector3f(320, 480, 0)
-	);
     }
     
     public MenuState(IWidget[] widgets)
@@ -143,6 +138,13 @@ public class MenuState implements IState
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
+	
+	float width = Engine.getInstance().getViewWidth();
+	float height = Engine.getInstance().getViewHeight();
+	_quad = new PrimitiveQuad(
+	        new Vector3f(0, 0, 0),
+		new Vector3f(width, height, 0)
+	);
     }    
 
 
