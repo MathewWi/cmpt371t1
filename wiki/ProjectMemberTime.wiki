@@ -137,13 +137,18 @@
 || Writing TimeSystem tests for test suite || 1 ||
 || Fixed problem with GameObject tests || 3 ||
 || Assisting test team with various tasks || 7 ||
-|| Organizing team || 6.5 ||
-|| Informal code reviews || 2 ||
+|| Organizing team || 5.5 ||
+|| Informal code and peer reviews || 2 ||
 || Code inspection || 1 ||
+|| Preparing Wiki for deliverable || 3 ||
 || Helping group members with various tasks || 2 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| Code and peer reviews || 2 ||
+|| Formal Inspection || 1 ||
+|| Organizing team || 4 ||
+|| Helping group members with various tasks || 5 ||
+|| Preparing Wiki for deliverable || 6 ||
 
 == Chet Collins ==
 ===Milestone 0===
