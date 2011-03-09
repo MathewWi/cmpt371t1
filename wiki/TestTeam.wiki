@@ -11,8 +11,8 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Touch up unit testing || 6 ||
 || Touch up smoke test || 6 ||
 || Touch up mock test || 12 ||
-|| User play test || 25 ||
-|| Use-Case Scenarios test || 20 || 
+|| User play test || 15 ||
+|| Use-Case Scenarios test || 15 || 
 || State test || 12 ||
 || Triage || 5 ||
 = Milestone 4 =
