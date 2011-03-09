@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
+import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Sphere;
 import ca.sandstorm.luminance.resources.TextureResource;
 
@@ -78,7 +79,28 @@ public class Mirror extends GameObject implements IRenderableObject
     @Override
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
-	_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
+	//_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
+	
+	// if this mirror is breaking a light beam
+	// this is not the end light
+	while (lightIndexToInteract < beam.size()-1)
+	{
+	    // this is a brick, remove all fragments
+	    beam.removeLast();
+	}	
+	
+	// get the old light
+	Light l = beam.get(lightIndexToInteract);
+	float newDistance = (float)Colliders.distance(this.getPosition(), l.getPosition());
+	l.setDistance(newDistance);
+	
+	// if a beam collides with a mirror we need to create a new fragment
+	Light newL = new Light(_position.x, _position.y, _position.z, 
+	                       0, 0, 1, 
+	                       Light.LIGHT_INFINITY,
+	                       l.getColor());
+	
+	beam.add(newL);
     }
 
 }
