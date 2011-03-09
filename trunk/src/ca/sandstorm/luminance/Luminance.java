@@ -34,6 +34,11 @@ import android.view.Window;
 public class Luminance extends Activity
 {
     private static final Logger _logger = LoggerFactory.getLogger("Luminance");
+    
+    // Used for framerate analysis while stress testing. Supress
+    // warning because the code that uses it should normally be commented out.
+    @SuppressWarnings("unused")
+    private float logFpsCounter = 0f;
 
     // openGL view
     private GLSurfaceView mGLView;
@@ -46,6 +51,15 @@ public class Luminance extends Activity
 	    float fps = msg.getData().getFloat("fps");
 
 	    Luminance.this.setTitle("Luminance - " + fps);
+	    
+	    // Uncomment below code for logging framerate while doing performance
+	    // or stress tests. Do NOT commit with this uncommented. This way
+	    // avoids using an "if" here which would always slow the project down.
+//	    logFpsCounter += fps;
+//	    if(logFpsCounter > 1f) {
+//		_logger.debug("Frame length: " + fps);
+//		logFpsCounter -= 1f;
+//	    }
 	}
     };
 
