@@ -9,7 +9,10 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.graphics.Color;
+
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
+import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.RenderType;
 import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.graphics.PrimitiveBox;
@@ -150,14 +153,30 @@ public class GameRenderer
 		gl.glScalef(scale.x, scale.y, scale.z);
 	    }
 	    
+	    // Color - only Receptors have tint
+	    if (object instanceof Receptor) {
+		int color = ((Receptor)object).getColor();
+		switch(color) {
+		    case Color.RED:
+			gl.glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
+			break;
+		    case Color.BLUE:
+			gl.glColor4f(0.2f, 0.2f, 1.0f, 1.0f);
+			break;
+		    case Color.GREEN:
+			gl.glColor4f(0.2f, 1.0f, 0.2f, 1.0f);
+			break;
+		}
+	    } else {
+		gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	    }
+
 	    // Texture
 	    int texture = object.getTexture();
 	    if (texture > 0) {  // 0 = no texture
 		gl.glEnable(GL10.GL_TEXTURE_2D);
-		gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		gl.glBindTexture(GL10.GL_TEXTURE_2D, object.getTexture());
 	    } else {
-		gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	    }
 
 	    // Draw

@@ -9,7 +9,6 @@ public abstract class GameObject implements IGameObject
     protected Vector3f _position;
     protected Vector4f _rotation;
     protected Vector3f _scale;
-    protected Grid _grid;
     
     public GameObject()
     {

@@ -16,12 +16,10 @@ import ca.sandstorm.luminance.math.Sphere;
  */
 public class Receptor extends GameObject implements IRenderableObject
 {
-    private static final Logger _logger = LoggerFactory.getLogger("Luminance.Sphere");
+    private static final Logger _logger = LoggerFactory.getLogger(Receptor.class);
 
     private IRenderable _model;
-    private int _texture;
-    private double _scaleCounter = 0;
-    
+    private int _texture;    
     private RenderType _renderType = RenderType.Normal;
     
     private Sphere _colSphere;
@@ -52,7 +50,7 @@ public class Receptor extends GameObject implements IRenderableObject
     
     public void setColor(int color)
     {
-	
+	_color = color;
     }
     
     
@@ -120,7 +118,6 @@ public class Receptor extends GameObject implements IRenderableObject
     @Override
     public Sphere getCollisionSphere()
     {
-	// TODO Auto-generated method stub
 	return _colSphere;
     }
 
