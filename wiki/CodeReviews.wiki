@@ -22,7 +22,8 @@ Personal code reviews were done on team members own time.  The process was to re
   * !SkyBox.java:
     * Lines 75, 81, 87: Magic numbers.  What do these values represent?
 
-*Last minute code review before deliverable*
+*Last minute code review before deliverable 3*
+
 - GameRenderer.java does not an author
 
 - LightPath.java has zero comments, also sans author
