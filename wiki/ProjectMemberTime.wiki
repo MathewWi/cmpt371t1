@@ -192,7 +192,21 @@
 || Usability test template  || 2 ||
 
 ===Milestone 2===
-|| || ||
+||GUI package black box testing||2.5 ||
+||Updating tests withd Devs. to pass tests || .5 ||
+||Researching mock objects|| 1.5 ||
+||Researching traceability matrix|| 1||
+||Researching test manager, state testing|| 1.25||
+||Writing use cases|| 3 ||
+||Writing test cases  || 3 ||
+||Creating traceability matrix/functional requirements||1.5||
+||Setting up mock testing library || 2||
+||Mock testing in game state||2 ||
+||Trying to set up coverage with command line||1.5 ||
+||Research emma coverage testing||1.5 ||
+||Luminance engine package, unit/mock tests||1.5 ||
+||Updating wiki, getting tests to run || 3||
+|| Total || 25.75 ||
 
 ===Milestone 3 Estimations===
 || || ||
