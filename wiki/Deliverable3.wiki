@@ -18,7 +18,7 @@
 = Mini-Milestone List =
  The updated project plan we have set can be viewed here:  MilestonePlan
 
- CPM Diagram: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
+ CPM Diagram information can be viewed here: [CPMDiagram]
 
 = Risk Analysis =
  The updated risk report can be viewed at: RiskReport
