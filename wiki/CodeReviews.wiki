@@ -20,7 +20,45 @@ Personal code reviews were done on team members own time.  The process was to re
     * Lines 29 and 30: Why are these values hard coded?  
 
   * !SkyBox.java:
-    * Lines 75, 81, 87: Magic numbers.  What do these values represent?  
+    * Lines 75, 81, 87: Magic numbers.  What do these values represent?
+
+*Last minute code review before deliverable*
+- GameRenderer.java does not an author
+
+- LightPath.java has zero comments, also sans author
+
+-MenuState.java has few comments, no author, and generally looks messy with things commented out.
+
+- Box.java missing some comments on methods
+
+- GameObject.java does not have an author or class comment
+
+- Emitter.java zero comments and no author
+
+- Light.java has zero comments and no author
+
+- Mirror.java has zero comments and no author
+
+- Prism.java has zero comments and no author
+
+- Eraser.java has zero comments and no author
+
+- MirrorTool.java has no comments and no author
+
+- PrismTool.java has no comments and no author
+
+-PrimitivePrism.java has no author
+
+- PrimitiveQuad.java has no comments and no author
+
+- Colliders.java missing some comments and no author
+
+- Plane.java no comments and no author
+
+- Ray.java has no comments and no author
+
+- Sphere.java has no comments and no author
+  
 
 == Stephen Damm == 
 * ALL IF STATEMENTS NEED BRACERS * 
