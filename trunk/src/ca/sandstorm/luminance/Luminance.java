@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gamelogic.GameState;
+import ca.sandstorm.luminance.gamelogic.MenuState;
 
 import android.app.Activity;
 import android.graphics.PixelFormat;
@@ -79,7 +80,7 @@ public class Luminance extends Activity
 	Engine.getInstance().pushState(new GameState());
 	
 	// UNCOMMENT TO START IN MENU STATE
-	//Engine.getInstance().pushState(new MenuState());
+//	Engine.getInstance().pushState(new MenuState());
 		
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
