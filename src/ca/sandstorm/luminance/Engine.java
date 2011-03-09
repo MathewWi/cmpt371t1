@@ -1,6 +1,7 @@
 package ca.sandstorm.luminance;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Stack;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -41,6 +42,7 @@ public class Engine
 
     // state stack for updating/rendering
     private Stack<IState> _stateStack;
+    private ArrayList<IState> _tempStateStack;
 
     // stored screen vars
     private int _width;
@@ -64,6 +66,7 @@ public class Engine
     private int _titleBarHeight;
 
 
+
     /**
      * Constructor.
      * 
@@ -75,6 +78,7 @@ public class Engine
 	_renderer = new GameRenderer();
 
 	_stateStack = new Stack<IState>();
+//	_tempStateStack = new ArrayList<IState>();
 	_timer = new TimeSystem();
 	_resourceManager = new ResourceManager();
 	_audioSystem = new AndroidSoundPlayer();
@@ -329,7 +333,10 @@ public class Engine
     {
 	logger.debug("pushState(" + state + ")");
 
-	_stateStack.push(state);
+	//
+//	_tempStateStack.add(state);
+	
+	_stateStack.push(state);	
     }
 
 
@@ -421,6 +428,15 @@ public class Engine
 	for (IState s : _stateStack) {
 	    s.deviceChanged(gl, _width, _height);
 	}
+
+	// If there's a state in the temporary stack, pop it, init it, and push
+	// it on _stateStack
+//	while (_tempStateStack.isEmpty() == false) {
+//	    IState state = _tempStateStack.remove(0);
+//	    logger.debug("adding state: " + state);
+//	    state.init(gl);
+//	    _stateStack.add(state);
+//	}
     }
 
 
@@ -441,11 +457,11 @@ public class Engine
 	    logger.error("Unable to load music file for playback.");
 	}
 
-	for (IState s : _stateStack) {
-	    if (s.isActive()) {
-		s.init(gl);
-	    }
-	}
+    	for (IState s : _stateStack) {
+    	    if (s.isActive()) {
+    		s.init(gl);
+    	    }
+    	}
     }
 
 

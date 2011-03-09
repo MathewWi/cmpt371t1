@@ -20,7 +20,12 @@ import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
 
-
+/**
+ * State for handling the main menu.
+ * 
+ * @author Kumaran Vijayan
+ *
+ */
 public class MenuState implements IState
 {
     private static final Logger logger = LoggerFactory.getLogger(MenuState.class);
@@ -54,8 +59,6 @@ public class MenuState implements IState
     
     public MenuState(IWidget[] widgets)
     {
-//	_tapped = false;
-//	_guiManager = new GUIManager();
 	this();
 	
 	_guiManager.addWidgets(widgets);
@@ -69,7 +72,6 @@ public class MenuState implements IState
     {
 	logger.debug("test()");
 	logger.debug("test2()");
-	
     }
     
     /**
