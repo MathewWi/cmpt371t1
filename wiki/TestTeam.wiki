@@ -43,6 +43,7 @@ http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-repor
   === Common Errors ===
 
     * Test run failed: org.junit.Test
+      # First: If there are any annotations with "@Tests"  it screws up the whole testsuite. Get rid of them.
       # run the android update test-project and android update project command-line functions
       # Make the manuel installs using ant install inside both the Luminance and LuminanceTestSuite packages
       # Then try and run the test from the eclipse IDE
