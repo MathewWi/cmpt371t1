@@ -266,6 +266,9 @@ public class GameState implements IState
 		    {
 			color = Color.BLUE;
 		    }
+		 
+		    // @HACK
+		    color = Color.WHITE;
 		    
 		    Emitter emitter = new Emitter(vPos, vRot);
 		    addObject(emitter);
@@ -277,6 +280,7 @@ public class GameState implements IState
 		                        Light.LIGHT_INFINITY,
 		                        color);
 		    beam.add(l);
+		    _lightPath.getLightPaths().add(beam);
 		}
 	    }
 	    
@@ -364,12 +368,6 @@ public class GameState implements IState
 	// init the lightpath
 	// add a test light
 	_lightPath = new LightPath();
-	LightBeam foo = new LightBeam();
-	foo.add(new Light(0, 0.5f, 0.5f,
-	                  1.0f, 0.0f, 0.0f,
-	                  Light.LIGHT_INFINITY,
-	                  Color.WHITE));
-	_lightPath.getLightPaths().add(foo);
 	
 	// Create the toolbelt
 	_toolbelt = new Toolbelt(this);
