@@ -76,11 +76,13 @@
 
  == Estimate of size and time ==
 || *Task* || *Estimate time (hours)* ||
-|| Full Alpha version of game || 24 ||
-|| Continuing Robotium test suite || 8 ||
-|| Continuing jUnit test suite || 8 ||
-|| jCoverage test suite || 8 ||
-|| Code Reviews || 6 ||
-|| Level Format || 8 ||
-|| Sounds, special effects, lighting || 10 ||
-|| Multiple levels || 8 ||
+|| Run user evaluation || _N/A_ ||
+|| Robotium test suite || 8 ||
+|| Implement new tools and mechanics || 20 ||
+|| Add sound effects for all actions || 4 ||
+|| Add sound special effects and improve graphics || 12 ||
+|| Each member designs 10 levels || 4 ||
+|| Design user manual || 6 ||
+|| Implement random level generator || 12 ||
+|| Updated smoke test based on source code changes || 8 ||
+|| Beta version of the game || 12 ||
