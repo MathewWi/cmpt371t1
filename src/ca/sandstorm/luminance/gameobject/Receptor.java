@@ -47,19 +47,29 @@ public class Receptor extends GameObject implements IRenderableObject
 	_activated = false;
     }
     
-    
+    /**
+     * Set the receptor color.
+     * @param color Android color
+     */
     public void setColor(int color)
     {
 	_color = color;
     }
     
     
+    /**
+     * Get the receptor color.
+     * @return Android color
+     */
     public int getColor()
     {
 	return _color;
     }
     
-    
+    /**
+     * Check if this receptor is activated by the right light beam.
+     * @return True if activate, false if not
+     */
     public boolean getActivated()
     {
 	return _activated;
