@@ -290,7 +290,7 @@
 || Composing game music || 4 ||
 
 ===Milestone 3 Estimations===
-|| *Task * || *Hours spent so far* ||
+|| *Task * || *Estimated Time (hours)* ||
 || Composing/mixing/mastering music || 8-10 ||
 || Level editor || 5-10 ||
 || Saving levels to XML || 3-5 ||
