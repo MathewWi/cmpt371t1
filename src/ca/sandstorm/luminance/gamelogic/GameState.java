@@ -224,19 +224,19 @@ public class GameState implements IState
 		{
 		    // calculate goal color
 		    int color = 0;
-		    if (((XmlLevelGoal)obj).getColour().equals("white"))
+		    if (((XmlLevelGoal)obj).getColour().equals("WHITE"))
 		    {
 			color = Color.WHITE;
 		    }
-		    if (((XmlLevelGoal)obj).getColour().equals("red"))
+		    if (((XmlLevelGoal)obj).getColour().equals("RED"))
 		    {
 			color = Color.RED;
 		    }
-		    if (((XmlLevelGoal)obj).getColour().equals("green"))
+		    if (((XmlLevelGoal)obj).getColour().equals("GREEN"))
 		    {
 			color = Color.GREEN;
 		    }
-		    if (((XmlLevelGoal)obj).getColour().equals("blue"))
+		    if (((XmlLevelGoal)obj).getColour().equals("BLUE"))
 		    {
 			color = Color.BLUE;
 		    }		
@@ -250,25 +250,25 @@ public class GameState implements IState
 		{
 		    // calculate goal color
 		    int color = 0;
-		    if (((XmlLevelEmitter)obj).getColour().equals("white"))
+		    if (((XmlLevelEmitter)obj).getColour().equals("WHITE"))
 		    {
 			color = Color.WHITE;
 		    }
-		    if (((XmlLevelEmitter)obj).getColour().equals("red"))
+		    if (((XmlLevelEmitter)obj).getColour().equals("RED"))
 		    {
 			color = Color.RED;
 		    }
-		    if (((XmlLevelEmitter)obj).getColour().equals("green"))
+		    if (((XmlLevelEmitter)obj).getColour().equals("GREEN"))
 		    {
 			color = Color.GREEN;
 		    }
-		    if (((XmlLevelEmitter)obj).getColour().equals("blue"))
+		    if (((XmlLevelEmitter)obj).getColour().equals("BLUE"))
 		    {
 			color = Color.BLUE;
 		    }
 		 
 		    // @HACK
-		    color = Color.WHITE;
+		    //color = Color.WHITE;
 		    
 		    Emitter emitter = new Emitter(vPos, vRot);
 		    addObject(emitter);
