@@ -126,9 +126,11 @@
 || Writing GameObject tests for test suite || 6 ||
 || Writing TimeSystem tests for test suite || 1 ||
 || Fixed problem with GameObject tests || 3 ||
-|| Organizing team || 5.5 ||
-|| Informal code reviews || 1 ||
-|| Helping group members with various tasks || 0.5 ||
+|| Assisting test team with various tasks || 7 ||
+|| Organizing team || 6.5 ||
+|| Informal code reviews || 2 ||
+|| Code inspection || 1 ||
+|| Helping group members with various tasks || 2 ||
 
 == Chet Collins ==
 ===Milestone 0===
