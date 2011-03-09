@@ -101,7 +101,7 @@ public class Box extends GameObject implements IRenderableObject
     @Override
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
-	_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
+	//_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
 	
 	// this is not the end light
 	while (lightIndexToInteract < beam.size()-1)
