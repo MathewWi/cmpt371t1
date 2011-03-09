@@ -1,5 +1,8 @@
 package ca.sandstorm.luminance.level;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ca.sandstorm.luminance.level.XmlLevelGoal.GoalColour;
 
 /**
@@ -9,6 +12,8 @@ import ca.sandstorm.luminance.level.XmlLevelGoal.GoalColour;
  */
 public class XmlLevelEmitter extends XmlLevelObject
 {
+    private static final Logger _logger = LoggerFactory.getLogger(XmlLevelEmitter.class);
+    
     public enum EmitterColour { WHITE, RED, GREEN, BLUE };
     
     private EmitterColour _colour;
@@ -20,6 +25,7 @@ public class XmlLevelEmitter extends XmlLevelObject
     public XmlLevelEmitter(String colour)
     {
 	super(XmlLevelEmitter.getId());
+	_logger.debug("XmlLevelEmitter(" + colour + ")");
 	
 	colour = colour.toUpperCase();
 	
@@ -54,6 +60,7 @@ public class XmlLevelEmitter extends XmlLevelObject
      */
     public boolean isValidColour(String colour) 
     {
+	_logger.debug("isValidColour(" + colour + ")");
 	if (colour.equals(GoalColour.WHITE.toString()))
 	{
 	    return true;
@@ -79,6 +86,7 @@ public class XmlLevelEmitter extends XmlLevelObject
      */
     public String getColour()
     {
+	_logger.debug("getColour()");
 	return _colour.toString();
     }
     
@@ -88,6 +96,7 @@ public class XmlLevelEmitter extends XmlLevelObject
      */
     public static String getId()
     {
+	_logger.debug("getId()");
 	return "emitter";
     }
     

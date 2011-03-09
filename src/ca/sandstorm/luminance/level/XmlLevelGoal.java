@@ -1,5 +1,8 @@
 package ca.sandstorm.luminance.level;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Class for goal objects in levels.
  * @author Steven Indzeoski
@@ -7,6 +10,8 @@ package ca.sandstorm.luminance.level;
  */
 public class XmlLevelGoal extends XmlLevelObject
 {	
+    private static final Logger _logger = LoggerFactory.getLogger(XmlLevelGoal.class);
+    
     public enum GoalColour { WHITE, RED, GREEN, BLUE };
 
     private GoalColour _colour;
@@ -20,6 +25,7 @@ public class XmlLevelGoal extends XmlLevelObject
     public XmlLevelGoal(String colour) throws IllegalArgumentException 
     {
 	super(XmlLevelGoal.getId());
+	_logger.debug("XmlLevelGoal(" + colour + ")");
 	
 	colour = colour.toUpperCase();
 	
@@ -54,6 +60,7 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public boolean isValidColour(String colour) 
     {
+	_logger.debug("isValidColour(" + colour + ")");
 	if (colour.equals(GoalColour.WHITE.toString()))
 	{
 	    return true;
@@ -79,6 +86,7 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public String getColour()
     {
+	_logger.debug("getColour()");
 	if (!getType().equals(XmlLevelGoal.getId())) 
 	{
 	    throw new IllegalStateException("Trying to get colour of non-coloured object.");
@@ -91,6 +99,7 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public String toString()
     {
+	_logger.debug("toString()");
 	return (super.toString() + "\nColour: " + getColour());
     }
 
@@ -100,6 +109,7 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public static String getId()
     {
+	_logger.debug("getId()");
 	return "goal";
     }
 }
