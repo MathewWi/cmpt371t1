@@ -336,4 +336,12 @@ ALL XML TEST CLASSES NEED COMMENTS
   * Decision: needs to be formatted!!
 
 === Follow-Up Results ===
- * Status of project.
+Follow-up from Zenja:
+  * Defect 1: Changed to be an assert.
+  * Defect 2: Left alone; only 2-3 lines are duplicated and there would be some issues with trying to create a common method.
+  * Defect 3: Left alone since they could be considered a resource and it's very convenient to allow any part of the project to quickly get a texture.
+  * Defect 4: The resource manager part of this is actually probably correct. The reason sound doesn't play is elsewhere.
+  * Defect 5: It does seem like it was a useless check; it was removed.
+  * Defect 6: Interfaces MUST have public methods. No other access modifier would work. It's acceptable to leave them out, and other interfaces I've seen in the project do so too. We should discuss as a group a confirmation to leave the "public" out everywhere, or put them everywhere possibly.
+  * Defect 7: Left alone because it may be needed in the near future for sound playback. Even if not, it may be useful for the game systems to have access to a file descriptor.
+  * Defect 8: It was formatted all along. Some javadoc comments look funky but that's because the auto-formatter in use throughout the project makes them that way.
