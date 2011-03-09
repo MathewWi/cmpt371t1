@@ -32,6 +32,9 @@ Emma link http://groups.google.com/group/android-platform/browse_thread/thread/b
 Android built-in coverage
 
 http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-report-for-your-unit-tests/
+  === GUI Testing ===
+
+    For milestone 3 we weren't able to progress as much in test case based GUI testing as we had planned to in milestone 2. Essentially we have the same GUI test as we had for milestone 2 due to the longer than expected development cycle for the GUI. Currently the GUI state that warrants testing is handled partly by our previous GUI test. Since we have made great progress at the very end of our deliverable, we are making GUI testing top priority for milestone 4.
 
   === Monkey Runner ===
 
