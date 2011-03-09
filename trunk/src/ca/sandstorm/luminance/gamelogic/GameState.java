@@ -167,9 +167,38 @@ public class GameState implements IState
      */
     private void _clearLevel()
     {
-	// TODO: clear the renderer list too
 	_objects.clear();
 	_goalObjects.clear();
+	Engine.getInstance().getRenderer().removeAll();
+    }
+    
+    /**
+     * Level is completed. Show a message, and more in the future.
+     */
+    private void _levelComplete()
+    {
+	// TODO: maybe move these to be class members updated automatically
+	float width = Engine.getInstance().getViewWidth();
+	float height = Engine.getInstance().getViewHeight();
+	
+	Button button = new Button(width*0.1f,
+	                           height*0.1f,
+	                           width*0.8f,
+	                           height*0.8f,
+	                           "LevelComplete");
+	button.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/levelComplete.png"));
+	button.setCalleeAndMethod(this, "nextLevel");
+	_guiManager.addButton(button);
+    }
+    
+    /**
+     * Go to the next level.
+     * Clear the current state and load the next one.
+     */
+    public void nextLevel()
+    {
+	//_parseLevel();
+	_clearLevel();
     }
     
     
@@ -354,10 +383,11 @@ public class GameState implements IState
 	logger.debug("init()");
 	// Load textures
 	try {
-	    Engine.getInstance().getResourceManager()
-		    .loadTexture(gl, "textures/wallBrick.jpg");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/inGameMirror.png");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/inGamePrism.png");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/missing.jpg");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/levelComplete.png");
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
@@ -618,7 +648,7 @@ public class GameState implements IState
 		//Engine.getInstance().pause();
 	    }
 	}
-
+	
 	Ray r = _cam.getWorldCoord(new Vector2f(x, y));
 	if (r == null)
 	    return;
@@ -729,9 +759,7 @@ public class GameState implements IState
 	if (bLevelComplete)
 	{
 	    logger.info("/--LEVEL COMPLETED--\\");
-	    
-	    // do stuff
-	    // TODO: add level end handler and trigget event to next level
+	    _levelComplete();
 	}
     }
 

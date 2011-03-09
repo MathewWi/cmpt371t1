@@ -39,7 +39,7 @@ public class Luminance extends Activity
     // Used for framerate analysis while stress testing. Supress
     // warning because the code that uses it should normally be commented out.
     @SuppressWarnings("unused")
-    private float logFpsCounter = 0f;
+    private float _logFpsCounter = 0f;
 
     // openGL view
     private GLSurfaceView mGLView;

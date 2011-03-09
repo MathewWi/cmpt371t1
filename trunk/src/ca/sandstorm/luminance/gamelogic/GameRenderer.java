@@ -54,6 +54,16 @@ public class GameRenderer
 	_prism = new PrimitivePrism();
     }
     
+    /**
+     * Remove all objects from renderer list.
+     */
+    public void removeAll()
+    {
+	_normalObjects.clear();
+	_alphaObjects.clear();
+	_reflectionObjects.clear();
+    }
+    
     
     /**
      * Add a new object to be drawn on every frame render.
