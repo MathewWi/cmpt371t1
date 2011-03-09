@@ -85,8 +85,8 @@
 
 <br/>
 = CPM Diagram =
-== Milestone 2 ==
+== New ==
 http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPMDiagram2.png?t=1299640511
 
-== Milestone 1 ==
+== Old ==
 http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPMDiagram.jpg?t=1296619385
