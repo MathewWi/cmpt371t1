@@ -26,6 +26,12 @@
 || OpenGL Widget Toolkit || 2 ||
 || GUI System || 8 ||
 
+===Milestone 2===
+|| || ||
+
+===Milestone 3 Estimations===
+|| || ||
+
 == Zenja Ivkovic ==
 ===Milestone 0===
 || *Task* || *Hours spent so far* ||
