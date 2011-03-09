@@ -14,9 +14,9 @@ New player walks through the first level of game
 
 * Stakeholders and Interests* 
 
-_ _
+_ _
 
-_New Player:_ Wants to learn how to play the game decides to walkthrough the tutorial.
+_New Player:_ Wants to learn how to play the game decides to walk-through the tutorial.
 
 _Tester:_ Wants to run the new player script for playing the first level of the game to check for possible issues.
 
@@ -24,7 +24,7 @@ _Developer: _Wants to run the new player script to see what functionalities of t
 
 * Preconditions* :
 
-   Walkthrough map is created e.g. Luminance video 1:03.
+   Walk-through map is created e.g. Luminance video 1:03.
 
                                     Map rules:
 
@@ -211,9 +211,9 @@ Actors:
 
 	
 
-Use Case (1) Light to Orb Connection(collision)
+===Use Case (1) Light to Orb Connection(collision)===
 
-Actors: Irratic player
+Actors: Erratic player
 
 Goal: Connect light to Orb
 
@@ -252,9 +252,9 @@ Activities: The player
 				//lights intersect
 
 
-Use Case (2) Backtracks steps
+===Use Case (2) Backtracks steps===
 
-Actors: Irratic player
+Actors: Erratic player
 
 Goal: User wants to backtrack on steps previously taken
 
@@ -280,8 +280,8 @@ Activities:
 		# User chooses eraser
 		
 		# User erases prism
-			* Prism dissapears
-			* RGB dissapears
+			* Prism disappears
+			* RGB disappears
 			* System reactivates prism in toolbar
 			* White light collides with mirror
 		# User chooses prism
@@ -298,7 +298,7 @@ Activities:
 		# User chooses mirror 
 		# User tries to place a mirror on top of another mirror
 		# User tries to place a mirror on top of a Wall
-		# User chooses erasor
+		# User chooses eraser
 		# User erases mirror
 			* Light continues on with no obstacle in the way
 		# User presses pause 
@@ -306,7 +306,7 @@ Activities:
 		# User presses restart
 			* System brings up the same map reset
 
-Use Case (3) Switch states,
+===Use Case (3) Switch states===
 
 Actors: Marathon player
 
@@ -330,7 +330,7 @@ Activities:
 		# User chooses mirror
 		# User places mirror
 			* Light collides with mirror
-		# User recieves a call
+		# User receives a call
 			* Game sound is automatically turned off
 		# User rotates phone
 			* Phones changes orientation
@@ -359,11 +359,11 @@ Activities:
 	# System under stress
 	
 
-Test Case (1): Light to obstacle collision
+===Test Case (1): Light to obstacle collision===
 
-Purpose: To test and verify connections to objects are being handled appropriatly.
+Purpose: To test and verify connections to objects are being handled appropriately.
 
-Prereq:	 A game level has been started
+Prerequisite:	 A game level has been started
 
 Test Data:	
 
@@ -406,16 +406,16 @@ Steps:
 				
 Notes and Questions:
 	
-NOTE
+GUI Tests:
 
-QUESTION
+Unit Tests
 
 
-Test Case (2): Object interaction/function
+===Test Case (2): Object interaction/function===
 
 Purpose: To test and verify that objects unique, functional, and interact with each other.
 
-Prereq:	 A game level has been started
+Prerequisite:	 A game level has been started
 
 Test Data:	
 
@@ -443,8 +443,8 @@ Steps:
 		# User chooses eraser
 
 		# User erases prism
-			* Prism dissapears
-			* RGB dissapears
+			* Prism disappears
+			* RGB disappears
 			* System reactivates prism in toolbar
 			* White light collides with mirror
 		# User chooses prism
@@ -458,7 +458,7 @@ Steps:
 			* Light at the new coordinate reflected
 		# User Rotates mirror
 			* Light reflects to a different angle
-		# User chooses erasor
+		# User chooses eraser
 		# User erases mirror
 			* Light continues on with no obstacle in the way
 		# User presses pause 
@@ -468,15 +468,15 @@ Steps:
 
 Notes and Questions:	
 
-NOTE
+GUI Tests:
 
-QUESTION
+Unit Tests
 
-Test Case (3): Object to obstacle collision
+===Test Case (3): Object to obstacle collision===
 
 Purpose: To test and verify that objects unique, functional, and interact with each other.
 
-Prereq:	 A game level has been started
+Prerequisite:	 A game level has been started
 
 Test Data:	
 
@@ -512,15 +512,15 @@ Steps:
 
 Notes and Questions:
 	
-NOTE
+GUI Tests:
 
-QUESTION
+Unit Tests
 
-Test Case (4): User statistics registration
+===Test Case (4): User statistics registration===
 
 Purpose: To test and verify that toolbar/high score is correctly updated after each object use
 
-Prereq:	 A game level has been started
+Prerequisite:	 A game level has been started
 
 Test Data:	
 
@@ -545,15 +545,15 @@ Steps:
 
 Notes and Questions:	
 
-NOTE
+GUI Tests:
 
-QUESTION
+Unit Tests
 
-Test Case (5): 	User transition between states, saved menu, resume
+===Test Case (5): 	User transition between states, saved menu, resume===
 
-Purpose: To test and verify that state changes are taking place and are handled appropriatly
+Purpose: To test and verify that state changes are taking place and are handled appropriately
 
-Prereq:	 A game level has been started
+Prerequisite:	 A game level has been started
 
 Test Data:	
 
@@ -578,7 +578,7 @@ Steps:
 		# User chooses mirror
 		# User places mirror
 			* Light collides with mirror
-		# User recieves a call
+		# User receives a call
 			* Game sound is automatically turned off
 		# User rotates phone
 			* Phones changes orientation
@@ -596,11 +596,11 @@ Steps:
 						
 Notes and Questions:	
 
-NOTE
+GUI Tests:
 
-QUESTION
+Unit Tests
 
-Test Case (6): 	Stress test
+===Test Case (6): 	Stress test===
 
 Purpose: To test and verify that is able to cope under stranious conditions
 
@@ -626,6 +626,6 @@ Steps:
 			
 Notes and Questions:	
 
-NOTE
+GUI Tests:
 
-QUESTION
+Unit Tests
