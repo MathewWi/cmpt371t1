@@ -76,6 +76,10 @@ http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-repor
 
     The stress.log file is located inside the LuminanceTestSuite.
 
+  === Mock Testing ===
+  
+    AndroidMock - It was tried and could not get to work. Scrapped.
+
 = End Milestone 3 =
 
 
