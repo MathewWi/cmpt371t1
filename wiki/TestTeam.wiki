@@ -14,7 +14,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || User play test || 25 ||
 || Use-Case Scenarios test || 20 || 
 || State test || 12 ||
-
+|| Triage || 5 ||
 = Milestone 4 =
 
 
