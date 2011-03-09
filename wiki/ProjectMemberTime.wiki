@@ -210,8 +210,13 @@
 || SVN TestSmoke || 1 ||
 || Team City Smoketest Help || 4 ||
 
-===Milestone 2===
-|| || ||
+=== Milestone 2 ===
+|| *Task* || *Hours spent so far* ||
+|| Test Suite || 12 ||
+|| Coverage test || 6 ||
+|| Stress test || 5 ||
+|| All-around Error fixing || 8 ||
+|| Wiki || 3 ||
 
 ===Milestone 3 Estimations===
 || || ||
