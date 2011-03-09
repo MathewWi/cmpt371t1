@@ -6,8 +6,6 @@ import static org.mockito.Mockito.verify;
 
 import javax.vecmath.Vector3f;
 
-import org.junit.Test;
-
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import android.test.AndroidTestCase;
@@ -30,7 +28,6 @@ public class GameStateTest extends AndroidTestCase {
 	/**
 	 * @Mock Test
 	 */
-	@Test
 	public void testAddObject() {
 		//setup
 		IGameObject mockLight = mock(IGameObject.class);
