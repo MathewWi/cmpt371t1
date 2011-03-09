@@ -52,6 +52,8 @@
 
  Information about the current defects/bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
 
+Note: The issue tracker also tracks tasks that need to be done in general.  It should also be noted that this issue tracker has been in place since the beginning.  Not including it in the previous milestones was an oversight.
+
 = Initial Analysis for Deliverable 4 =
  == Deliverable plan ==
  Any project artifacts that were modified or created since the first three milestones will be part of Deliverable 4:
