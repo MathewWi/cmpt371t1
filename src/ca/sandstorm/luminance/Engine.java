@@ -223,7 +223,31 @@ public class Engine
 	return _titleBarHeight;
     }    
 
+    /**
+     * Set the view width of the screen view, where gui will use to calculate the
+     * position.
+     * 
+     * @param w
+     *            The w value in pixels of the screen
+     */
+    public void setViewWidth(int w)
+    {
+	_width = w;
+    }
 
+    /**
+     * Set the view height of the screen view, where gui will use to calculate the
+     * position.
+     * 
+     * @param h
+     *            The h value in pixels of the screen
+     */
+    public void setViewHeight(int h)
+    {
+	_height = h;
+    }
+
+    
     /**
      * Get the view port width in pixels.
      * 
