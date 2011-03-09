@@ -201,7 +201,7 @@ public class Light extends GameObject implements IGameObject
 	gl.glColor4f(Color.red(_color) / 255.0f,
 	             Color.green(_color) / 255.0f,
 	             Color.blue(_color) / 255.0f,
-	             0.5f);
+	             0.95f);
 
 	// Draw the vertices as triangles, based on the Index Buffer information
 	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,
