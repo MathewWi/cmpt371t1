@@ -1,0 +1,27 @@
+#summary CPM Diagram, its description and various changes that have had to be done.
+
+= Milestone 3 =
+
+The CPM Diagram that has been modified for this milestone can be viewed here: http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPMDiagram2.png?t=1299640511
+
+This CPM has only changed slightly from the previous one, and that was moving the random level generator.  This was moved because in hindsight it was kind of silly to think that we could pull of such a task only having the basics of a playable game just completed.  The Porting task was also removed, as all the tasks before - such as the input, graphics, etc - it representing the porting from XNA and #C to OpenGL and Java.  It was essentially saying the same thing twice, which isn't necessary.
+
+When we started off, the Project Setup was the first task we had to do.  This was just organizing the team, assigning roles, etc.
+
+The next bunch of tasks contains Development Environment Setup, Build Script, and Test Plan.  The first was crucial, developers and testers would not be able to do their jobs until they had their environment set up, at least not easily.  Then it was setting up the build script, as well as the !TeamCity server.  This was also important because this was where the repository resides, and without a build script and server it would not be very effective in terms of continuous integration.  At this time we also worked out a basic test plan, just to get the ball rolling for the test team.
+
+Next was the Android Proof of Concepts.  This was all the members of the development team researching their individual development tasks, in order to realize how they would actually go about implementing them.  This is after the previous group because without the development environment, build script and server, their research and preliminary workings would not be able to be shared and integrated together.  The test plan could also take place at this time.
+
+Then, as it can be seen, there are two major join points in this diagram.  One that joins the Audio, Input, Graphics etc. tasks, then the one after the Random Level Generator, Special Effects etc. tasks.  The first group represents the major porting that had to be done in order to have the program run on Android.  The second bunch represents all of the additional things that we would like to do to the port.  Except for New Levels, these are all secondary features.  However, all of them depend on the full porting to be complete.
+
+In addition, it can be seen that New Levels depends on Basic level to be complete first.  This makes intuitive sense, as before we can create levels for the user to play, we have to have a framework under which we can create them.  Also notice that New Levels depends on all the other previous tasks.  This is because its all these components that make up a level.  Without input, graphics, asset management etc. put into place, it would not be very useful to try and implement levels within the game.
+
+Also, notice that New Game Elements depends on Basic Game elements.  This makes intuitive sense as well, for the same reasons previously stated for levels.  However, these new game elements do not depend on anything else.  This is because once basic elements are completed addition elements can be outlined.  Since basic elements will have everything that is needed for an element to exist within the game, new game elements does not need to direction depend on the rest of the tasks before it.
+
+Then, once this group of tasks is complete, it is time to ensure the game is robust.  That is why final testing is a task that is to be completed after all implementation is complete.  User manual is also in this group because until we're completely done, it will be a hard thing to write.  However, I am considering moving this so we can get a start on writing it sooner, so we can add to it as we continue developing.  
+
+Then, once the game is completely tested, its time to release it!  
+
+= Milestone 2 =
+
+The CPM Diagram we used for this milestone can be viewed here: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
