@@ -67,12 +67,9 @@ public class ResourceManager
     public void setAssets(AssetManager assets)
     {
 	_logger.debug("setAssets(" + assets + ")");
+	assert assets != null;
 	
-	if (assets == null)
-	    throw new RuntimeException(
-		    "Attempting to assign null application context to resource manager!");
 	this._assets = assets;
-	_logger.debug("Assets have been assigned to ResourceManager.");
     }
 
 
@@ -250,11 +247,10 @@ public class ResourceManager
 	_logger.debug("readFile(" + filename + ")");
 	
 	// An official Android sample states that available() guarantees
-	// returning the whole file size
+	// returning the whole file size, but this isn't a Java standard
+	// result. Keep an eye for potential errors here.
 	InputStream stream = _assets.open(filename);
 	int size = stream.available();
-	if (size == -1)
-	    return null;
 
 	byte[] buffer = new byte[size];
 	stream.read(buffer);

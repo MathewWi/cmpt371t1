@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 
 /**
  * Represents an image resource.
- * 
  * @author zenja
  */
 public class ImageResource implements IResource
@@ -31,7 +30,6 @@ public class ImageResource implements IResource
 
     /**
      * Get the resource name.
-     * 
      * @return The resource's name, which is normally its path
      */
     @Override
@@ -43,7 +41,6 @@ public class ImageResource implements IResource
 
     /**
      * Get the memory footprint of this resource.
-     * 
      * @return Memory footprint in bytes
      */
     @Override
