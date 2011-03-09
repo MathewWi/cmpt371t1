@@ -388,6 +388,7 @@ public class GameState implements IState
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/inGamePrism.png");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/missing.jpg");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/levelComplete.png");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/emitter.jpg");
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
