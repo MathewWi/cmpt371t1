@@ -64,11 +64,14 @@
    * Software Quality - The latest measurements of quality using code reviews.
 
  In addition, the following implementation-specific tasks are anticipated:
-  * Alpha Version Complete - A working alpha version of the game should be complete.
-  * Level Format - The game level format will be analyzed and implemented.
-  * Sounds, special effects, lighting complete.
+  * Full User Evaluation - Since this could not be completed for the current milestone as planned, it will be pushed back into this one.
+  * Sound effects - This was another thing that was originally delegated for this milestone that had to be pushed back due to time.
+  * Special and Lighting effects
   * Multiple playable levels.
   * Game Level Editor - A tool to create new game levels.
+  * Random level generator - An application that works behind the scenes to produce random levels for the user to play.
+  * Prototype new tools and mechanics.
+  * Beta version of game.
 
 
  == Estimate of size and time ==
