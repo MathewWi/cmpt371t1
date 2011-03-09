@@ -68,7 +68,8 @@ Common problems of the development environment can be found here: CommonIssues
   * Buttons created, can perform action on tap.
 
 *Level Loader*
-  * Use of XML to store level information.
+  * Level information stored in XML files.
+  * Loader takes in an XML file and parses it to create an object containing all level information.
   * Loader currently stable.
 
 *Graphics*
