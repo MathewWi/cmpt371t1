@@ -51,10 +51,6 @@ http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-repor
 
     For milestone 3 we weren't able to progress as much in test case based GUI testing as we had planned to in milestone 2. Essentially we have the same GUI test as we had for milestone 2 due to the longer than expected development cycle for the GUI. Currently the GUI state that warrants testing is handled partly by our previous GUI test. Since we have made great progress at the very end of our deliverable, we are making GUI testing top priority for milestone 4.
 
-  === Monkey Runner ===
-
-    Using monkey runner on the emulator and phone will inject it with psuedo random events. This will give us an indication that the game at least will not crash on the phone based on such random events. 
-
   === Common Errors ===
 
     * Test run failed: org.junit.Test
@@ -72,13 +68,15 @@ http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-repor
 
   === Monkey Runner ===
 
+    Using monkey runner on the emulator and phone will inject it with psuedo random events. This will give us an indication that the game at least will not crash on the phone based on such random events. 
+
     This is used as a random stress test on the phone. There is an output file 'stress.log' which showed the intent injected upon the device. It is very useful as it shows what the game can currently handle. A brief overview is that out of 50000 randome injections, the game has crashed at around 30000. This could simply mean that some memory clean-up isn't handled well or the hardware couldn't handle the game for a period of time. Further testing needed.
 
     The stress.log file is located inside the LuminanceTestSuite.
 
   === Mock Testing ===
   
-    AndroidMock - It was tried and could not get to work. Scrapped.
+    AndroidMock - It was tried and could not get to work. Now using Mockito
 
 = End Milestone 3 =
 
