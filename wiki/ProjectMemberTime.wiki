@@ -276,10 +276,16 @@
 || Updating class diagram || 1 ||
 
 ===Milestone 2===
-|| || ||
+|| *Task* || *Hours spent so far* ||
+|| Design and drawing GUI textures/images || 8 ||
+|| Fixed Engine return 0 value on screen view size || 2 ||
+|| Add GUI tool box to game state || 2 ||
+|| drawing inGame tools texture || 2 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| Input GameState refactoring || 4 ||
+|| Implement new input feature (rotating camera) || 3 ||
+|| Input performance improvement || 6 ||
 
 == Steven Indzeoski ==
 === Milestone 0 ===
