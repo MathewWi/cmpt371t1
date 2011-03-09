@@ -224,7 +224,14 @@
 || Wiki || 2 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| Task || Estimated Time (hours) ||
+|| Touch up unit testing || 2 ||
+|| Touch up smoke test || 2 ||
+|| Touch up mock test || 5 ||
+|| User play test || 5 ||
+|| Use-Case Scenarios test || 5 || 
+|| State test || 4 ||
+|| Triage || 2 ||
 
 == Jonny ==
 === Milestone 0 ===
