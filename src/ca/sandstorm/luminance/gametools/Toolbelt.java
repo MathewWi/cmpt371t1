@@ -14,6 +14,7 @@ import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gui.Button;
+import ca.sandstorm.luminance.resources.TextureResource;
 
 /**
  * Holds the level's tools and provides functionality for placing/removing them.
@@ -61,6 +62,7 @@ public class Toolbelt
 	                                 toolIconSizeWidth, 
 	                                 toolIconSizeHeight, "Eraser");
 	eraserButton.setTextureResourceLocation("textures/eraser.png");
+	//eraserButton.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/eraser.png"));
 	_gameState.getGui().addButton(eraserButton);
     }
     
