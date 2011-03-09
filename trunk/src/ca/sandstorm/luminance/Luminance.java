@@ -238,8 +238,11 @@ public class Luminance extends Activity
 	    
 	    Engine.getInstance().setMenuBarHeight(statusBarHeight);
 	    Engine.getInstance().setTitleBarHeight(titleBarHeight);
+	    Engine.getInstance().setViewWidth(window.getDecorView().getWidth());
+	    // offseting the screen with status and title bar
+	    Engine.getInstance().setViewHeight(window.getDecorView().getHeight()
+	                                       - statusBarHeight - titleBarHeight);
 
-	    
 	    Engine.getInstance().init(gl);
 	}
 
