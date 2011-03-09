@@ -27,7 +27,11 @@
 || GUI System || 8 ||
 
 ===Milestone 2===
-|| || ||
+|| Button Action Implementation || 4 ||
+|| MenuState Setup || 3 ||
+|| Button Draw Code || 2 ||
+|| Label Implementation || 3 ||
+|| Miscellaneous Bug Fixes || 3 ||
 
 ===Milestone 3 Estimations===
 || || ||
