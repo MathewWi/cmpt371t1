@@ -175,7 +175,9 @@
 || Triage || 0.5 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| Code and peer reviews || 2 ||
+|| Testing || 6 ||
+|| Risk Report || 2 ||
 
 == Amara Daal ==
 === Milestone 0 ===
