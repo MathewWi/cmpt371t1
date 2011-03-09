@@ -69,7 +69,9 @@
 || Bug fixing, optimizing || 2 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| Toolbelt--GameState refactoring || 3 ||
+|| Audio fixing || 4 ||
+|| Renderer improvements and/or level generator || 10+ ||
 
 == Stephen Damm ==
 === Milestone 0 ===
