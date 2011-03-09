@@ -117,9 +117,6 @@ public class GameState implements IState
 	
 	// Create GUI manager and add initial widgets
 	_guiManager = new GUIManager();
-	Button pauseButton = new Button(140, 20, 30, 30, "Pause");
-	pauseButton.setTextureResourceLocation("textures/pause.png");
-	_guiManager.addButton(pauseButton);
     }
         
     /**
@@ -369,6 +366,21 @@ public class GameState implements IState
 	// add a test light
 	_lightPath = new LightPath();
 	
+	
+	float width = Engine.getInstance().getViewWidth();
+	float height = Engine.getInstance().getViewHeight();
+	
+	
+	
+	
+	Button pauseButton = new Button(width*0.86f,
+	                                height*0.86f,
+	                                width*0.14f,
+	                                height*0.12f,
+	                                "Pause");
+	pauseButton.setTextureResourceLocation("textures/pause.png");
+	_guiManager.addButton(pauseButton);
+		
 	// Create the toolbelt
 	_toolbelt = new Toolbelt(this);
 	
@@ -386,14 +398,22 @@ public class GameState implements IState
 	
 	resetCamera();
 	
+
+	
 	try {
 	    for (IWidget widget : _guiManager.getWidgets()) {
 		if (widget != null) {
 		    String textureResourceLocation = widget.getTextureResourceLocation();
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
+		   /* 
+		    Engine.getInstance().getResourceManager().
+		    			loadTexture(gl, textureResourceLocation.substring(0, 
+		    			            		          textureResourceLocation.length()-4)
+		    			                 + "Clicked.png");
+		    */
 		    widget.setTexture(texture);
 		}
-	    }	    
+	    }	  
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
