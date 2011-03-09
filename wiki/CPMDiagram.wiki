@@ -1,8 +1,8 @@
 #summary CPM Diagram, its description and various changes that have had to be done.
 
-= Milestone 3 =
+= CPM Diagram =
 
-The CPM Diagram that has been modified for this milestone can be viewed here: http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPMDiagram2.png?t=1299640511
+The CPM Diagram that has been modified for this milestone can be viewed here: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
 
 This CPM has only changed slightly from the previous one, and that was moving the random level generator.  This was moved because in hindsight it was kind of silly to think that we could pull of such a task only having the basics of a playable game just completed.  The Porting task was also removed, as all the tasks before - such as the input, graphics, etc - it representing the porting from XNA and #C to OpenGL and Java.  It was essentially saying the same thing twice, which isn't necessary.
 
@@ -21,7 +21,3 @@ Also, notice that New Game Elements depends on Basic Game elements.  This makes 
 Then, once this group of tasks is complete, it is time to ensure the game is robust.  That is why final testing is a task that is to be completed after all implementation is complete.  User manual is also in this group because until we're completely done, it will be a hard thing to write.  However, I am considering moving this so we can get a start on writing it sooner, so we can add to it as we continue developing.  
 
 Then, once the game is completely tested, its time to release it!  
-
-= Milestone 2 =
-
-The CPM Diagram we used for this milestone can be viewed here: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
