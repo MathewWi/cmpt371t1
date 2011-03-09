@@ -70,4 +70,7 @@ To fix this problem:
  * click the export tab and ensure this jar is selected.
  * now go to the build path of the test suite
  * make sure the library you just exported is NOT included in the build path of this project.
+
+=== Build.xml error help not found ===
+*remove default ="help" from build.xml
       
