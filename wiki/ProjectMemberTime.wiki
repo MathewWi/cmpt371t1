@@ -284,7 +284,13 @@
 || Checking code documentation || 1 ||
 
 ===Milestone 2===
-|| || ||
+|| *Task* || *Hours spent so far* ||
+|| Adding to XML Level file and classes || 5 ||
+|| Documenting and adding debug messages || 1 ||
+|| Composing game music || 4 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| *Task * || *Hours spent so far* ||
+|| Composing/mixing/mastering music || 8-10 ||
+|| Level editor || 5-10 ||
+|| Saving levels to XML || 3-5 ||
