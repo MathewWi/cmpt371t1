@@ -39,7 +39,7 @@ public class Box extends GameObject implements IRenderableObject
 	_logger.debug("Box(" + position + ", " + scale + ")");
 	
 	_position = new Vector3f(position);
-	_rotation = new Vector4f(1.0f, 1.0f, 1.0f, 0f);
+	_rotation = new Vector4f(0, 0, 0, 0f);
 	_scale = new Vector3f(scale);
 	_model = Engine.getInstance().getRenderer().getBox();
 	
