@@ -35,13 +35,13 @@ Since the past milestone, we have worked on improving the things that causes us 
    * !TeamCity for continuous integration and as a build server, along with a google code repository set up on a VM on campus. 
   * Developers are to commit their classes with stubbed out methods and javadoc comments.
   * T est team is then able to start writing unit tests on this stubbed out code, therefore making out whole software development process more efficient.
+  * In addition, there is also a build upon commit to ensure that it does not break existing functionality.  If the build fails upon check-in, it does no allow that code into the repository.
 
  == Daily Build ==
   * A daily build is run on !TeamCity to ensure the continuing quality of the software.  
   * Sends and email to every group member when there is an unsuccessful build.  It also prevents committing of code that breaks the build. 
   * This is riding on the notion of fixing bugs on existing functionality before continuing development.
   * In addition, a simple smoke test is to be run to ensure existing quality is not compromised by new functionality.
-  * This is not the only build that occurs.  There is also a build upon commit to ensure that it does not break existing functionality.  If the build fails upon check-in, it does no allow that code into the repository.
 
  == Android/Java Caveats == 
   * These technologies posed unique problems:
