@@ -81,9 +81,9 @@ public class XmlLevelGoal extends XmlLevelObject
     {
 	if (!getType().equals(XmlLevelGoal.getId())) 
 	{
-	    throw new IllegalStateException("Trying to get colour of non-goal object.");
+	    throw new IllegalStateException("Trying to get colour of non-coloured object.");
 	}
-	return _colour.name();
+	return _colour.toString();
     }
 
     /**
