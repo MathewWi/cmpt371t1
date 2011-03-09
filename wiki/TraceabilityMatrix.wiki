@@ -1,4 +1,4 @@
- #summary Traceability Matrix, functional requirements, game features
+#summary Traceability Matrix, functional requirements, game features
 
 = Introduction =
 
@@ -13,11 +13,11 @@ Test coverage, traceability matrix.
 || 2 ||Light to mirror connection  || x || x ||  ||  ||  || || ||
 || 3 ||White Light to prism refraction  || x ||  x||  ||  ||  || || ||
 || 4 ||Mirror rotation ||  || x ||  ||  ||  || || ||
-|| 5 ||Erasor functionality|| x ||  ||  ||  ||  || || ||
+|| 5 ||Eraser functionality|| x ||  ||  ||  ||  || || ||
 || 6 ||User time record||  ||  ||  || x ||  || x|| ||
 || 7 ||Sound effects/BG music||  ||  ||  ||  || ||  ||x||
 || 8 ||Level transition ||  ||  ||  ||  || x || || ||
-|| 9 ||Pausability ||  ||  ||  ||  || x || || ||
+|| 9 ||Pause action ||  ||  ||  ||  || x || || ||
 || 10 ||Change in orientation ||  ||  ||  || || x ||  || ||
 || 11 ||Smooth playability ||  ||  ||  ||  || || x|| ||
 
@@ -120,11 +120,11 @@ ca.sandstorm.luminance.input
 	* Light to mirror connection
 	* White Light to prism refraction
 	* Mirror rotation
-	* Erasor functionality
+	* Eraser functionality
 	* User time record
 	* Sound effects/BG music
 	* Level transition
-	* Pausability
+	* Pause action
 	* Change in Orientation
 	* Smooth playability
 	
