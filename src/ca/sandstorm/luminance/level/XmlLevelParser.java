@@ -105,9 +105,9 @@ public class XmlLevelParser
 					NodeList type = typeElement.getChildNodes();
 					String typeString = ((Node)type.item(0)).getNodeValue();
 
-					// Get the colour if object is a goal
+					// Get the colour if object is a goal or emitter
 					String colourString = null;
-					if (typeString.equals(XmlLevelGoal.getId()))
+					if (typeString.equals(XmlLevelGoal.getId()) || typeString.equals(XmlLevelEmitter.getId()))
 					{
 						NodeList colourNodeList = element.getElementsByTagName("colour");
 						Element colourElement = (Element)colourNodeList.item(0);
@@ -181,11 +181,11 @@ public class XmlLevelParser
 					XmlLevelObject xmlLevelObject = null;
 					if (typeString.equals(XmlLevelBrick.getId()))
 					{
-						xmlLevelObject = new XmlLevelBrick();
+					    xmlLevelObject = new XmlLevelBrick();
 					}
 					else if (typeString.equals(XmlLevelGoal.getId()))
 					{
-						xmlLevelObject = new XmlLevelGoal(colourString);
+					    xmlLevelObject = new XmlLevelGoal(colourString);
 					}
 					else if (typeString.equals(XmlLevelEmitter.getId()))
 					{
@@ -194,6 +194,8 @@ public class XmlLevelParser
 					xmlLevelObject.setPosition(objectXFloat, objectYFloat);
 					xmlLevelObject.setRotation(objectXRotationFloat, objectYRotationFloat, objectZRotationFloat);
 
+					System.out.println(xmlLevelObject.toString());
+					
 					// Add the object to a linked list of objects
 					objectList.add(xmlLevelObject);
 				}
