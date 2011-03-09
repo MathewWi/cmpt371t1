@@ -57,17 +57,7 @@ public abstract class GameObject implements IGameObject
     {
 	return _position;
     }
-    
-//    public int getGridPositionX()
-//    {
-//	return (int)(_grid.getGridPosition(_position.x, 0, _position.z).x + _GRIDPOINT_ERROR);
-//    }
-//    
-//    public int getGridPositionY()
-//    {
-//	return (int)(_grid.getGridPosition(_position.x, 0, _position.z).y + _GRIDPOINT_ERROR);
-//    }
-    
+        
     /**
      * Set the object's position.
      * @param position New position
