@@ -51,7 +51,7 @@
    For this application, high scores would be in regard to how fast a user completes a level. 
 
   == New tools and mechanics ==
-  While we plan to make a complete port of the previous version, we also plan to add new tools and mechanics to make the gameplay even more intriguing.  These tools include... 
+  While we plan to make a complete port of the previous version, we also plan to add new tools and mechanics to make the gameplay even more intriguing.  These tools will be determined by the development team during the next milestone.
 
 = Derived Requirements =
   ==Platform Compatibility==
