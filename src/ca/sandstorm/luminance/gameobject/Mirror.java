@@ -46,7 +46,7 @@ public class Mirror extends GameObject implements IRenderableObject
     {
 	// Texture needs to be loaded ahead of time because an instance of GL
 	// is needed to load it, which is unavailable here.
-	TextureResource tex = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/missing.jpg");
+	TextureResource tex = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/inGameMirror.png");
 	if(tex == null) {
 	    throw new RuntimeException("Unable to get mirror texture. It hasn't been loaded yet!");
 	}

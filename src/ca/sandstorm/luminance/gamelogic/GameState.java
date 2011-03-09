@@ -356,6 +356,7 @@ public class GameState implements IState
 	try {
 	    Engine.getInstance().getResourceManager()
 		    .loadTexture(gl, "textures/wallBrick.jpg");
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/inGameMirror.png");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/missing.jpg");
 	} catch (IOException e) {
 	    // TODO: improve this
