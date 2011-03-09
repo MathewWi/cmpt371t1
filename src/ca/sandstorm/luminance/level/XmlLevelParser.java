@@ -187,6 +187,10 @@ public class XmlLevelParser
 					{
 						xmlLevelObject = new XmlLevelGoal(colourString);
 					}
+					else if (typeString.equals(XmlLevelEmitter.getId()))
+					{
+					    xmlLevelObject = new XmlLevelEmitter(colourString);
+					}
 					xmlLevelObject.setPosition(objectXFloat, objectYFloat);
 					xmlLevelObject.setRotation(objectXRotationFloat, objectYRotationFloat, objectZRotationFloat);
 

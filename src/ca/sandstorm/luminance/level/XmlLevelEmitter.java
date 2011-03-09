@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.level;
 
+import android.graphics.Color;
+
 /**
  * Class for the light emitter object in levels
  * @author Steven Indzeoski
@@ -7,13 +9,22 @@ package ca.sandstorm.luminance.level;
  */
 public class XmlLevelEmitter extends XmlLevelObject
 {
+    private String _color;
+    
     /**
      * Constructor for XmlLevelEmitter.
      * @postcond XmlLevelEmitter is created.
      */
-    public XmlLevelEmitter()
+    public XmlLevelEmitter(String color)
     {
 	super(XmlLevelEmitter.getId());
+	
+	_color = color;
+    }
+    
+    public String getColour()
+    {
+	return _color; 
     }
     
     /**
@@ -24,4 +35,6 @@ public class XmlLevelEmitter extends XmlLevelObject
     {
 	return "emitter";
     }
+    
+    
 }
