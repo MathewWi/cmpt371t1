@@ -16,21 +16,19 @@ public class Mirror extends GameObject implements IRenderableObject
     private static final Logger _logger = LoggerFactory.getLogger(Mirror.class);
 
     private IRenderable _model;
-    private float _orientation;
     private int _texture;
     
     private RenderType _renderType = RenderType.Normal;
     
     private Sphere _colSphere;
     
-    public Mirror(Vector3f position, float orientation)
+    public Mirror(Vector3f position, Vector3f rotation)
     {
-	_logger.debug("Mirror(" + position + ", " + orientation + ")");
+	_logger.debug("Mirror(" + position + ", " + rotation + ")");
 	
 	// TODO: Improve orientation
-	_orientation = orientation;
 	_position = new Vector3f(position);
-	_rotation = new Vector4f(0.0f, 1.0f, 0.0f, orientation);
+	_rotation = new Vector4f(rotation);
 	_scale = new Vector3f(0.1f, 0.5f, 0.5f);
 	_model = Engine.getInstance().getRenderer().getBox();
 	
@@ -49,10 +47,6 @@ public class Mirror extends GameObject implements IRenderableObject
 	_texture = tex.getTexture();
     }
 
-    public float getOrientation()
-    {
-	return _orientation;
-    }
 
     @Override
     public IRenderable getRenderable()

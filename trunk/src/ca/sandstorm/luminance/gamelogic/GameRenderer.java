@@ -130,16 +130,19 @@ public class GameRenderer
     {
 	for (IRenderableObject object : _normalObjects) {
 	    gl.glPushMatrix();
-	    	    
+	    
 	    // Position object
 	    Vector3f position = object.getPosition();
-	    gl.glTranslatef(position.x, position.y, position.z);
+	    gl.glTranslatef(position.x, position.y, position.z);	    
 	    
 	    // Rotate object
 	    Vector4f rotation = object.getRotation();
 	    if (rotation != null) {
-		gl.glRotatef(rotation.w, rotation.x, rotation.y, rotation.z);
+		gl.glRotatef(rotation.z, 0, 0, 1);
+		gl.glRotatef(rotation.y, 0, 1, 0);
+		gl.glRotatef(rotation.x, 1, 0, 0);
 	    }
+	        
 
 	    // Scale
 	    Vector3f scale = object.getScale();

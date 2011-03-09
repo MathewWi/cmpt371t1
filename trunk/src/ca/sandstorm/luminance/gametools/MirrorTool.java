@@ -15,7 +15,7 @@ public class MirrorTool implements ITool
     public IGameObject getGameObject()
     {
 	if(_mirror == null) {
-	    _mirror = new Mirror(new Vector3f(0,0,0), 45f);
+	    _mirror = new Mirror(new Vector3f(0,0,0), new Vector3f(0, 45, 0));
 	}
 	
 	return _mirror;

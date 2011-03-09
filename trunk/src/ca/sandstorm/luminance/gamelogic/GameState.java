@@ -20,6 +20,7 @@ import android.view.MotionEvent;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
+import ca.sandstorm.luminance.gameobject.Emitter;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
@@ -35,6 +36,7 @@ import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.level.XmlLevel;
+import ca.sandstorm.luminance.level.XmlLevelEmitter;
 import ca.sandstorm.luminance.level.XmlLevelGoal;
 import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
@@ -202,15 +204,22 @@ public class GameState implements IState
 		
 		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionX(), (int)obj.getPositionY());
 		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);
-		vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid
-		//Vector3f vRot = new Vector3f(0, 0, 0);
+		vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid		
+		Vector3f vRot = new Vector3f(obj.getRotationX(), obj.getRotationY(), obj.getRotationZ());
 		Vector3f vScale = new Vector3f(0.5f, 0.5f, 0.5f);
 		
+		// xml reads in degrees, convert to radians, no dont, opengl is degrees
+		//vRot.x = (float)Math.toRadians(vRot.x);
+		//vRot.y = (float)Math.toRadians(vRot.y);
+		//vRot.z = (float)Math.toRadians(vRot.z);
+		
+		// parse bricks into world
 		if (obj.getType().equals("brick"))
 		{		   
 		    Box box = new Box(vPos, vScale);
 		    addObject(box);
 		}		
+		// parse goals into world
 		else if (obj.getType().equals("goal"))
 		{
 		    // calculate goal color
@@ -236,6 +245,38 @@ public class GameState implements IState
 		    goal.setColor(color);
 		    addObject(goal);
 		    _goalObjects.add(goal);
+		}
+		else if (obj.getType().equals("emitter"))
+		{
+		    // calculate goal color
+		    int color = 0;
+		    if (((XmlLevelEmitter)obj).getColour().equals("white"))
+		    {
+			color = Color.WHITE;
+		    }
+		    if (((XmlLevelEmitter)obj).getColour().equals("red"))
+		    {
+			color = Color.RED;
+		    }
+		    if (((XmlLevelEmitter)obj).getColour().equals("green"))
+		    {
+			color = Color.GREEN;
+		    }
+		    if (((XmlLevelEmitter)obj).getColour().equals("blue"))
+		    {
+			color = Color.BLUE;
+		    }
+		    
+		    Emitter emitter = new Emitter(vPos, vRot);
+		    addObject(emitter);
+		    
+		    // generate a light beam for this emitter
+		    LightBeam beam = new LightBeam();
+		    Light l = new Light(vPos.x, vPos.y, vPos.z,
+		                        1, 0, 0,
+		                        Light.LIGHT_INFINITY,
+		                        color);
+		    beam.add(l);
 		}
 	    }
 	    

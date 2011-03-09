@@ -128,7 +128,7 @@ public class Toolbelt
 	position.y += 0.5f;  // line bottom up with the grid
 	IGameObject tool = null;
 	if(toolType == ToolType.Mirror) { 
-	    tool = new Mirror(position, _currentRotation);
+	    tool = new Mirror(position, new Vector3f(0, _currentRotation, 0));
 	} else if(toolType == ToolType.Prism) {
 	    tool = new Prism(position);
 	}
