@@ -8,6 +8,7 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
@@ -40,6 +41,10 @@ public class Toolbelt
     private boolean _prismIconAdded = false;
     private Point2i _tempPoint;
     
+    private float toolIconSizeWidth = Engine.getInstance().getViewWidth() * 0.20f;
+    private float toolIconSizeHeight = Engine.getInstance().getViewHeight() * 0.18f;
+    private float toolIconYPos = Engine.getInstance().getViewHeight() * 0.80f;
+    
     public Toolbelt(GameState gameState)
     {
 	_gameState = gameState;
@@ -50,7 +55,10 @@ public class Toolbelt
 	_stock.put(ToolType.Mirror, 0);
 	_stock.put(ToolType.Prism, 0);
 	
-	Button eraserButton = new Button(110, 20, 30, 30, "Eraser");
+	Button eraserButton = new Button(toolIconSizeWidth*2, 
+	                                 toolIconYPos, 
+	                                 toolIconSizeWidth, 
+	                                 toolIconSizeHeight, "Eraser");
 	eraserButton.setTextureResourceLocation("textures/eraser.png");
 	_gameState.getGui().addButton(eraserButton);
     }
@@ -178,12 +186,18 @@ public class Toolbelt
 
 	// Draw the widget if needed
 	if(toolType == ToolType.Mirror && !_mirrorIconAdded) {
-	    Button button = new Button(50, 20, 30, 30, "Mirror");
+	    Button button = new Button(0, 
+	                               toolIconYPos, 
+	                               toolIconSizeWidth, 
+	                               toolIconSizeHeight, "Mirror");
 	    button.setTextureResourceLocation("textures/mirror.png");
 	    _mirrorIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	} else if(toolType == ToolType.Prism && !_prismIconAdded) {
-	    Button button = new Button(80, 20, 30, 30, "Prism");
+	    Button button = new Button(toolIconSizeWidth, 
+	                               toolIconYPos, 
+	                               toolIconSizeWidth, 
+	                               toolIconSizeHeight, "Prism");
 	    button.setTextureResourceLocation("textures/prism.png");
 	    _prismIconAdded = true;
 	    _gameState.getGui().addButton(button);
