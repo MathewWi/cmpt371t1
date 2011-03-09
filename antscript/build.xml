@@ -85,7 +85,22 @@
 		<arg value="am"/>
 		<arg value="instrument"/>
 		<arg value="-w"/>
-		<arg line="${name.android.test.package}/${name.android.runner}"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg line="ca.sandstorm.luminance.test.audio,"/>
+		<arg line="ca.sandstorm.luminance.test.camera,"/>
+		<arg line="ca.sandstorm.luminance.test.gamelogic,"/>
+		<arg line="ca.sandstorm.luminance.test.gameobject,"/>
+		<arg line="ca.sandstorm.luminance.test.gametools,"/>
+		<arg line="ca.sandstorm.luminance.test.gui,"/>
+		<arg line="ca.sandstorm.luminance.test.input,"/>
+		<arg line="ca.sandstorm.luminance.test.level,"/>
+		<arg line="ca.sandstorm.luminance.test.math,"/>
+		<arg line="ca.sandstorm.luminance.test.resource,"/>
+		<arg line="ca.sandstorm.luminance.test.time,"/>
+		<arg line="ca.sandstorm.luminance.test.usecase"/>
+		<arg value="\"/>
+		<arg line="com.android.test/${name.android.runner}"/>
 	</exec>
 </target>
 
@@ -176,6 +191,7 @@
 	<echo message="Installing Project Package"/>
 	<ant dir="${path.project}" target="debug"/>
 </target>
+
 
 
 </project>
