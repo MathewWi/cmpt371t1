@@ -23,6 +23,8 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
     Emma is not implemented within Android nor Eclipse IDE for Android use and many hours were wasted in trying to make it work. Chet had spent hours only to get it working inside the eclipse IDE and what resulted was that there was 0% on code coverage to the source code with a 5% coverage to the junit.jar. Which made not much sense. Later it was debated that it might've only used the junit.jar for its methods and thus tracked it. And on why it wouldn't work on the emulator was that not much documentation was found for it and very hard to implement.
 
+    Ultimately, we determined that Emma was only capable of running JUnit tests, not Android JUnit tests. It was never invoking the Android emulator and thus never ran any of the Android-specific code. At this point, using the Emma plugin for Android development is not an option because they simply do not have support for it yet.
+
     What was later used is the Android build-in coverage. This made things much easier! Not really. What ensued were earlier errors back when implementation of the smoke test was in place. Essentially, filepaths, linking and all that fun stuff. After a many hours, a solution came about. The libs folder inside the tested project needed the necessary .jars that the test project used. Lo and behold, the coverage worked and a generated resultant was placed under the LuminanceTestSuite/coverage path.
 
     Issues on that is that the Vector3f methods used inside the plane and ray test classes were needed to be commented out and is in need of refactoring to make those tests work again in coherence with the code coverage.
