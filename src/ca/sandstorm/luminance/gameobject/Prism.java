@@ -46,6 +46,10 @@ public class Prism extends GameObject implements IRenderableObject
 	_texture = tex.getTexture();
     }
 
+    /**
+     * Get the model associated with this object.
+     * @return Associated model
+     */
     @Override
     public IRenderable getRenderable()
     {
@@ -53,19 +57,30 @@ public class Prism extends GameObject implements IRenderableObject
     }
 
 
+    /**
+     * Get the OpenGL texture to use for rendering this object.
+     * @return Texture ID
+     */
     @Override
     public int getTexture()
     {
 	return _texture;
     }
 
-
+    /**
+     * Get the type of rendering to use on this object.
+     * @param Render type
+     */
     @Override
     public RenderType getRenderType()
     {
 	return _renderType;
     }
 
+    /**
+     * Return the collision detection sphere.
+     * @return Collision sphere
+     */
     @Override
     public Sphere getCollisionSphere()
     {
@@ -73,6 +88,11 @@ public class Prism extends GameObject implements IRenderableObject
 	return _colSphere;
     }
 
+    /**
+     * Defines how the object interacts with a lightbeam.
+     * @param beam The light beam
+     * @param lightIndexToInteract Index of the light beam element to interact with
+     */
     @Override
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
