@@ -345,3 +345,8 @@ Follow-up from Zenja:
   * Defect 6: Interfaces MUST have public methods. No other access modifier would work. It's acceptable to leave them out, and other interfaces I've seen in the project do so too. We should discuss as a group a confirmation to leave the "public" out everywhere, or put them everywhere possibly.
   * Defect 7: Left alone because it may be needed in the near future for sound playback. Even if not, it may be useful for the game systems to have access to a file descriptor.
   * Defect 8: It was formatted all along. Some javadoc comments look funky but that's because the auto-formatter in use throughout the project makes them that way.
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I then checked out and some of the tests in the tests suite, and nothing unusual occurred.  
+  * I believe it is safe to say that these changes were made successfully.
