@@ -5,6 +5,19 @@
 
 Will be listing our tasks and now as well as our future plans and Milestone tasks completion based on TestPlan
 
+= Milestone 4 =
+  == Estimates ==
+|| Task || Estimated Time (hours) ||
+|| Touch up unit testing || 6 ||
+|| Touch up smoke test || 6 ||
+|| Touch up mock test || 12 ||
+|| User play test || 25 ||
+|| Use-Case Scenarios test || 20 || 
+|| State test || 12 ||
+
+= Milestone 4 =
+
+
 = Milestone 3 =
   == Tasks ==
 ||Priority|| Name || Status ||
