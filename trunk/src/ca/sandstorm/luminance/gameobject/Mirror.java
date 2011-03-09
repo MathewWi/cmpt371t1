@@ -23,6 +23,8 @@ public class Mirror extends GameObject implements IRenderableObject
     
     private Sphere _colSphere;
     
+    private Light _lightLastTouched = null;
+    
     public Mirror(Vector3f position, Vector3f rotation)
     {
 	_logger.debug("Mirror(" + position + ", " + rotation + ")");
@@ -103,6 +105,14 @@ public class Mirror extends GameObject implements IRenderableObject
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
 	//_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
+	// get the old light
+	Light l = beam.get(lightIndexToInteract);
+	
+	// skip if this is same light
+	if (_lightLastTouched != null)
+	{
+	    return;
+	}
 	
 	// if this mirror is breaking a light beam
 	// this is not the end light
@@ -112,8 +122,6 @@ public class Mirror extends GameObject implements IRenderableObject
 	    beam.removeLast();
 	}	
 	
-	// get the old light
-	Light l = beam.get(lightIndexToInteract);
 	float newDistance = (float)Colliders.distance(this.getPosition(), l.getPosition());
 	l.setDistance(newDistance);
 	
@@ -122,6 +130,8 @@ public class Mirror extends GameObject implements IRenderableObject
 	                       0, 0, 1, 
 	                       Light.LIGHT_INFINITY,
 	                       l.getColor());
+	
+	_lightLastTouched = l;
 	
 	beam.add(newL);
     }

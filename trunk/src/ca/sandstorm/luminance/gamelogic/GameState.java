@@ -727,19 +727,31 @@ public class GameState implements IState
 	
 	// collision detection
 	LightBeamCollection beams = _lightPath.getLightPaths();
-	for (LightBeam lightBeam : beams)
+	for (int i = 0; i < beams.size(); i++) 
 	{
-	    for (int i = 0; i < lightBeam.size(); i++)	
-	    //for (Light l : lightBeam)
+	    LightBeam lightBeam = beams.get(i);
+	    int savedBeamSize = lightBeam.size();
+	    for (int j = 0; j < savedBeamSize; j++)	
 	    {
 		for (IGameObject o : _objects.values())
 		{
-		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), lightBeam.get(i).getRay());
+		    Light l = lightBeam.get(j);
+		    Vector3f colPoint = Colliders.collide(o.getCollisionSphere(), l.getRay());
 		    if (colPoint != null)
 		    {
-			o.beamInteract(lightBeam, i);
+			if (Colliders.distance(colPoint, l.getPosition()) <= l.getDistance())
+			{
+			    o.beamInteract(lightBeam, j);
+			}
+			
 			//logger.debug("LIGHT COLLISION: " + colPoint);
 		    }
+		}
+		
+		// check if the beam was modified and we are done
+		if (lightBeam.size() != savedBeamSize)
+		{
+		    break;
 		}
 	    }
 	}
