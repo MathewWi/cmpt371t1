@@ -211,7 +211,14 @@
 || Total || 25.75 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| Task || Estimated Time (hours) ||
+|| Touch up unit testing || 2 ||
+|| Use-Case Scenarios test || 7 || 
+|| Touch up mock test || 5 ||
+|| User play test || 5 ||
+
+|| State test || 4 ||
+|| Triage || 2 ||
 
 == Liang Huang ==
 === MIlestone 0 ===
