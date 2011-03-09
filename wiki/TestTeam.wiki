@@ -25,12 +25,12 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || high ||Code Coverage test(Emma)|| Done ||
 || high || Code reviews (test codes) || Done ||
 || high || Code reviews (source) || Done ||
-|| medium || Restructure test suite for Test cases || Not ||
-|| medium || Robust smoke test || Not ||
+|| medium || Restructure test suite for Test cases || Done ||
+|| medium || Robust smoke test || Half ||
 || medium || Mock testing || Half ||
 || medium || State Mock testing(Game Logic) || Half ||
 || medium || Finish Triage || Not ||
-|| low || Monkey Runner || Half ||
+|| low || Monkey Runner || Done ||
 
   === Code Coverage ===
 
