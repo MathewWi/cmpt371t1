@@ -22,6 +22,7 @@ import ca.sandstorm.luminance.graphics.PrimitiveSphere;
 
 /**
  * Graphics renderer for drawing objects.
+ * @author zenja and halsafar
  */
 public class GameRenderer
 {

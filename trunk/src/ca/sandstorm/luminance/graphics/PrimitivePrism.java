@@ -6,6 +6,10 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+/**
+ * Primitive prism renderable.
+ * @author zenja
+ */
 public class PrimitivePrism implements IRenderable
 {
     // Vertex coordinates

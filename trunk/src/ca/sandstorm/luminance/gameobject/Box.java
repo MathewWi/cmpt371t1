@@ -92,12 +92,21 @@ public class Box extends GameObject implements IRenderableObject
 
     }
 
+    /**
+     * Get the type of rendering to use on this object.
+     * @param Render type
+     */
     @Override
     public RenderType getRenderType()
     {
 	return _renderType;
     }
 
+    /**
+     * Defines how the object interacts with a lightbeam.
+     * @param beam The light beam
+     * @param lightIndexToInteract Index of the light beam element to interact with
+     */
     @Override
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {
@@ -116,6 +125,10 @@ public class Box extends GameObject implements IRenderableObject
 	l.setDistance(newDistance);
     }
 
+    /**
+     * Return the collision detection sphere.
+     * @return Collision sphere
+     */
     @Override
     public Sphere getCollisionSphere()
     {

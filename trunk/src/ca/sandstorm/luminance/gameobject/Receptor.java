@@ -109,18 +109,31 @@ public class Receptor extends GameObject implements IRenderableObject
 	//_scale.x = _scale.y = _scale.z = (float)(1.0 + (Math.sin(_scaleCounter) * 0.3));
     }
 
+    /**
+     * Get the type of rendering to use on this object.
+     * @param Render type
+     */
     @Override
     public RenderType getRenderType()
     {
 	return _renderType;
     }
 
+    /**
+     * Return the collision detection sphere.
+     * @return Collision sphere
+     */
     @Override
     public Sphere getCollisionSphere()
     {
 	return _colSphere;
     }
 
+    /**
+     * Defines how the object interacts with a lightbeam.
+     * @param beam The light beam
+     * @param lightIndexToInteract Index of the light beam element to interact with
+     */
     @Override
     public void beamInteract(LightBeam beam, int lightIndexToInteract)
     {

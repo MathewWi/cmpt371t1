@@ -18,13 +18,14 @@ import ca.sandstorm.luminance.gui.Button;
 /**
  * Holds the level's tools and provides functionality for placing/removing them.
  * @author zenja
- * @TODO Perhaps 
  */
 public class Toolbelt
 {
     private static final Logger logger = LoggerFactory.getLogger(Toolbelt.class);
 
     private ToolType _selectedTool = ToolType.Mirror;
+    
+    // Current rotation amount, and rotation increment amount per step
     private float _currentRotation = 45f;
     private float _rotationStep = 90f;
     
@@ -223,6 +224,10 @@ public class Toolbelt
 	logger.debug("Selected tool: " + toolType);
     }
     
+    /**
+     * Change the current rotation setting for new tools.
+     * @param amount How many steps to change by
+     */
     public void adjustRotation(int amount)
     {
 	_currentRotation += _rotationStep * amount;

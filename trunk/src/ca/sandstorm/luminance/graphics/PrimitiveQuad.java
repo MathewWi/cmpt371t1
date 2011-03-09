@@ -7,15 +7,26 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 
+/**
+ * Primitive quad renderable
+ * @author zenja
+ */
 public class PrimitiveQuad implements IRenderable
 {
+    // Vertex and texture coordinate buffers
     private static float[] _vertices;
     private static float[] _texCoords;
     private FloatBuffer _vertexBuffer;
     private FloatBuffer _texCoordBuffer;
 
+    /**
+     * Create the quad based on the minimum and maximum point.
+     * @param min Minimum corner of the quad
+     * @param max Maximum corner of the quad
+     */
     public PrimitiveQuad(Vector3f min, Vector3f max)
     {	
+	// Set up and create vertex buffer
 	_vertices = new float[] {		
 		min.x, max.y, 0f,
 		max.x, max.y, 0f,
@@ -28,6 +39,7 @@ public class PrimitiveQuad implements IRenderable
 	_vertexBuffer.put(_vertices);
 	_vertexBuffer.position(0);
 
+	// Set up and create texture coordinate buffer
 	_texCoords = new float[] {
 		0f, 0f,
 		0f, 1f,
@@ -41,6 +53,10 @@ public class PrimitiveQuad implements IRenderable
 	_texCoordBuffer.position(0);
     }
 
+    /**
+     * Draw the quad.
+     * @param gl OpenGL instance to draw with
+     */
     @Override
     public void draw(GL10 gl)
     {
@@ -53,9 +69,6 @@ public class PrimitiveQuad implements IRenderable
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 		
-	//gl.glEnable(GL10.GL_TEXTURE_2D);
-	//gl.glColor4f(1f, 1f, 1f, 1f);
-	//gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
 	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, _vertices.length / 3);
 	
 	gl.glPopMatrix();
