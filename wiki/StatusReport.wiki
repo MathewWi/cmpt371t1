@@ -56,6 +56,10 @@ Common problems of the development environment can be found here: CommonIssues
   * Creates OpenGL textures out of images.
   * Audio resources are capable of loading, but playback (in other system) still broken.
 
+*Music*
+  * One song composed for in-game music.
+  * Hasn't been mixed or mastered yet, but it's good enough for use.
+
 *Input*
   * Use of !ReplicaIsland open source code.
   * Touch and drag inputs are currently stable.
