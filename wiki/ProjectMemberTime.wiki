@@ -58,6 +58,9 @@
 || Quad renderable, updating GUI to use it || 1 ||
 || Bug fixing, optimizing || 2 ||
 
+===Milestone 3 Estimations===
+|| || ||
+
 == Stephen Damm ==
 === Milestone 0 ===
 || *Task* || *Hours spent so far* ||
@@ -101,6 +104,8 @@
 || Added Sphere math class and Ray-Sphere intersection || 2 ||
 || Setup Light and Light Path classes || 0.5 ||
 
+===Milestone 3 Estimations===
+|| || ||
 
 == Martina Nagy ==
 === Milestone 0 ===
@@ -120,7 +125,6 @@
 || Preparing Wiki for deliverable || 7.5 ||
 || Helping group members with various tasks || 3.5 ||
 
-
 === Milestone 2 ===
 || *Task* || *Hours spent so far* ||
 || Writing GameObject tests for test suite || 6 ||
@@ -131,6 +135,9 @@
 || Informal code reviews || 2 ||
 || Code inspection || 1 ||
 || Helping group members with various tasks || 2 ||
+
+===Milestone 3 Estimations===
+|| || ||
 
 == Chet Collins ==
 ===Milestone 0===
@@ -156,6 +163,8 @@
 || Smoke Test Work || 0.5 ||
 || Triage || 0.5 ||
 
+===Milestone 3 Estimations===
+|| || ||
 
 == Amara Daal ==
 === Milestone 0 ===
@@ -170,6 +179,12 @@
 || GUI Testing Robotium || 2 ||
 || User evaluations || 3 ||
 || Usability test template  || 2 ||
+
+===Milestone 2===
+|| || ||
+
+===Milestone 3 Estimations===
+|| || ||
 
 == Liang Huang ==
 === MIlestone 0 ===
@@ -189,6 +204,12 @@
 || SVN TestSmoke || 1 ||
 || Team City Smoketest Help || 4 ||
 
+===Milestone 2===
+|| || ||
+
+===Milestone 3 Estimations===
+|| || ||
+
 == Jonny ==
 === Milestone 0 ===
 || *Task* || *Hours spent so far* ||
@@ -201,6 +222,12 @@
 || Touch input implementation || 15 ||
 || Presentation slide preparation || 1 ||
 || Updating class diagram || 1 ||
+
+===Milestone 2===
+|| || ||
+
+===Milestone 3 Estimations===
+|| || ||
 
 == Steven Indzeoski ==
 === Milestone 0 ===
@@ -216,3 +243,9 @@
 || Creating XML parser for levels || 5 ||
 || Creating classes associated with loading levels || 3 ||
 || Checking code documentation || 1 ||
+
+===Milestone 2===
+|| || ||
+
+===Milestone 3 Estimations===
+|| || ||
