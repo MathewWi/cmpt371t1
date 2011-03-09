@@ -150,6 +150,9 @@
 || Peer Review || 1.5 || 
 || EclEmma Plugin Config || 2.5 || 
 || Traceability Matrix || 1 ||
+|| Code Reviews || 0.5 ||
+|| Smoke Test Work || 0.5 ||
+|| Triage || 0.5 ||
 
 
 == Amara Daal ==
