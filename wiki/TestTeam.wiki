@@ -66,6 +66,9 @@ http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-repor
     * Getting files/resources during a test
       # The function this.getContext().getAssets() grabs the items inside the Lumiance package's asset's folder and not the one inside LuminanceTestSuite. 
 
+  === Smoke Test ===
+    The smoke test script folder is now inside the LuminanceTestSuite package. It now invokes essential packages of the testsuite to be run as a smoke test. This is changed because Coverage is needed to be run on the commandline (fun...) and so issues ensued and the best possible solution was just to modify the antscript to run the packages.
+
 = End Milestone 3 =
 
 
