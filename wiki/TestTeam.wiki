@@ -20,17 +20,18 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
 = Milestone 3 =
   == Tasks ==
-||Priority|| Name || Status ||
-|| high ||Unit Test suite || Done ||
-|| high ||Code Coverage test(Emma)|| Done ||
-|| high || Code reviews (test codes) || Done ||
-|| high || Code reviews (source) || Done ||
-|| medium || Restructure test suite for Test cases || Done ||
-|| medium || Robust smoke test || Half ||
-|| medium || Mock testing || Half ||
-|| medium || State Mock testing(Game Logic) || Half ||
-|| medium || Finish Triage || Not ||
-|| low || Monkey Runner || Done ||
+||Priority|| Name || Status || TimeSpent ||
+|| high ||Unit Test suite || Done || 14 ||
+|| high ||Code Coverage test(Emma)|| Done || 4 ||
+|| high || Code reviews (test codes) || Done || .5 ||
+|| high || Code reviews (source) || Done || .5 ||
+|| medium || Restructure test suite for Test cases || Done || .5 ||
+|| medium || Robust smoke test || Half || 1 ||
+|| medium || Mock testing || Half || 9 ||
+|| medium || State Mock testing(Game Logic) || Half || 2 ||
+|| medium || Finish Triage || Done || 2 ||
+|| low || Monkey Runner || Done ||3 ||
+||Total || || || 36.5 ||
 
   === Code Coverage ===
 
