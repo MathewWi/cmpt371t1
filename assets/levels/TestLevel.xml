@@ -41,7 +41,8 @@
 			<z>0</z>
 		</rotation>
 	</object>
-			<object>
+	
+	<object>
 		<type>brick</type>
 		<position>
 			<x>3</x>
@@ -97,8 +98,8 @@
 		<type>goal</type>
 		<colour>red</colour>
 		<position>
-			<x>50</x>
-			<y>15</y>
+			<x>9</x>
+			<y>9</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -106,6 +107,20 @@
 			<z>0</z>
 		</rotation>
 	</object>
+	
+	<object>
+		<type>emitter</type>
+		<colour>white</colour>
+		<position>
+			<x>0</x>
+			<y>0</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>90</y>
+			<z>0</z>
+		</rotation>
+	</object>	
 	
 	<!-- Level Tools -->
 	<tool>
