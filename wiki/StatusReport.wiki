@@ -52,9 +52,9 @@ Common problems of the development environment can be found here: CommonIssues
 
 == Specific Status Report ==
 *Resource Manager*
-  * Capable of loading and managing most resources.
-  * Simple textures loading.
-  * Sound/music implementation understood, although currently not working.
+  * Capable of loading and managing all necessary resources.
+  * Creates OpenGL textures out of images.
+  * Audio resources are capable of loading, but playback (in other system) still broken.
 
 *Input*
   * Use of !ReplicaIsland open source code.
@@ -62,9 +62,9 @@ Common problems of the development environment can be found here: CommonIssues
   * Pinch for zooming are now working.
 
 *GUI*
-  * Creating our own custom menu primitives.
+  * Rendered using OpenGL quads.
   * Menu primitives robust
-  * GUIManager created; responsible for managing buttons
+  * GUIManager created; responsible for managing buttons and labels
   * Buttons created, can perform action on tap.
 
 *Level Loader*
@@ -79,6 +79,7 @@ Common problems of the development environment can be found here: CommonIssues
 *Game* 
   * Currently draws a grid and loads a pre-defined level.
   * User is able to interact with the game.  They are able to place tools from the toolbelt on the grid.  These tools work the way that they should.  The light interacts with the tools logically and correctly.
+  * Toolbelt is implemented and working, but may benefit from refactoring some functionality to a higher level
 
 *Smoke Test*
   * Currently runs on the !TeamCity server.
