@@ -123,6 +123,9 @@ public class Box extends GameObject implements IRenderableObject
 	Light l = beam.get(lightIndexToInteract);
 	float newDistance = (float)Colliders.distance(this.getPosition(), l.getPosition());
 	l.setDistance(newDistance);
+	
+	// set the object this light is touching
+	l.setEndTouchedObject(this);
     }
 
     /**

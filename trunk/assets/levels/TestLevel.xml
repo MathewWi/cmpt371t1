@@ -110,7 +110,7 @@
 	
 	<object>
 		<type>emitter</type>
-		<colour>white</colour>
+		<colour>red</colour>
 		<position>
 			<x>0</x>
 			<y>0</y>
@@ -118,7 +118,7 @@
 		<rotation>
 			<x>0</x>
 			<y>90</y>
-			<z>0</z>
+			<z>90</z>
 		</rotation>
 	</object>	
 	

@@ -111,7 +111,7 @@ public class Mirror extends GameObject implements IRenderableObject
 	// skip if this is same light
 	if (_lightLastTouched != null)
 	{
-	    return;
+	    //return;
 	}
 	
 	// if this mirror is breaking a light beam
@@ -125,14 +125,21 @@ public class Mirror extends GameObject implements IRenderableObject
 	float newDistance = (float)Colliders.distance(this.getPosition(), l.getPosition());
 	l.setDistance(newDistance);
 	
+	// tell the old light it is touching this
+	l.setEndTouchedObject(this);
+	
+	// calc new direction of light
+	Vector3f dir = Colliders.crossProduct(l.getRay().getDirection(), Colliders.UP);
+	
 	// if a beam collides with a mirror we need to create a new fragment
 	Light newL = new Light(_position.x, _position.y, _position.z, 
-	                       0, 0, 1, 
+	                       -dir.x, dir.y, dir.z, 
 	                       Light.LIGHT_INFINITY,
 	                       l.getColor());
-	
+	newL.setStartTouchedObject(this);
 	_lightLastTouched = l;
 	
+	// add new beam
 	beam.add(newL);
     }
 
