@@ -288,23 +288,52 @@ ALL XML TEST CLASSES NEED COMMENTS
 
 *Presenter /Reader:* Zenja
 
-*Inspectors:* Martina, Zenja, Jonny, Amara, Kum, Jeff
+*Inspectors:* Martina, Zenja, Jonny, Kum
 
-*Recorder:* Sten
+*Recorder:* Martina
 
 === Inspection Meeting:===
  * Defect 1:
-  * Location (File, line number)
-  * Description of defect
-  * Inspector who found it
-  * Decision about what do do with the defect
-  * Future recommendations
+  * Location: (ResourceManager.java, 72)
+  * Summary: Probably don't need an exception here.
+  * Inspectors who discovered it: Zenja and Kum agreed with him
+  * Decision: could just be an assert
  * Defect 2:
-  * Location (File, line number)
-  * Description of defect
-  * Inspector who found it
-  * Decision about what do do with the defect
+  * Location: (ResourceManager.java, 90 and 128)
+  * Summary: Almost an exact copy of loadResource function.  Simply take different type for parameter.
+  * Inspector who discovered it: Zenja
+  * Decision: Leave it for now.  It's convenient and both are still useful.
+ * Defect 3:
+  * Location: (ResourceManager.java, loadTexture())
+  * Summary: Should this be in here?  It could be in graphics.
+  * Inspectors who discovered it: Zenja, Stephen (not present)
+  * Decision: It does belong here.
+ * Defect 4:
+  * Location (ResourceManager.java, loadSound())
+  * Not currently working
+  * Inspector who discovered it: Everybody.  We're all aware of this defect.
+  * Decision: It's not a priority for this deliverable, but will be fixed in later ones.  Leave for now.
+ * Defect 5:
+  * Location: (ResourceManager.java, 255)
+  * Summary: Dead code.  The way the method is set up, if a file that is attempted to be loaded doesn't exist, and exception is thrown.  Currently, there is a line of code after this that checks stream.available() returns -1, which also may mean the file doesn't exist.  Nobody is sure what this for sure.
+  * Martina, Jonny
+  * Do some research on it to figure out what exactly its doing.
+ * Defect 6: 
+  * Location (IResource.java)
+  * Summary: Should specify access modifiers
+  * Inspectors: Jonny, Kum
+  * Should be consistent, so we should put modifiers in this interface as other interfaces use them.
+ * Defect 7:
+  * Location (Resource.java, 67)
+  * Summary: Is this needed anymore (getAssetId())
+  * Jonny, Zenja
+  * Decision: currently the sound resource doesn't work, and this method is used for debugging.  Will leave for now.
   * Future recommendations
+ * Defect 8:
+  * Location (ImageResource.java)
+  * Needs to be formatted
+  * Martina, Zenja
+  * Decision: needs to be formatted!!
 
 === Follow-Up Results ===
  * Status of project.
