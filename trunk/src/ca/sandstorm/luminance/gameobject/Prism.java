@@ -34,6 +34,11 @@ public class Prism extends GameObject implements IRenderableObject
 	_colSphere = new Sphere(_position.x, _position.y, _position.z, 0.5f);
     }
 
+    /**
+     * Initialize the object.
+     * Associate with the object's texture. The texture needs to be loaded
+     * before calling this function.
+     */
     @Override
     public void initialize()
     {

@@ -3,7 +3,11 @@ package ca.sandstorm.luminance.gameobject;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
-
+/**
+ * Abstract class that underlies game objects.
+ * Provides basic commonalities such as position, rotation, and scale.
+ * @author zenja
+ */
 public abstract class GameObject implements IGameObject
 {
     protected Vector3f _position;
