@@ -13,7 +13,6 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.graphics.Color;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
@@ -248,50 +247,15 @@ public class GameState implements IState
 		// parse goals into world
 		else if (obj.getType().equals("goal"))
 		{
-		    // calculate goal color
-		    int color = 0;
-		    if (((XmlLevelGoal)obj).getColour().equals("WHITE"))
-		    {
-			color = Color.WHITE;
-		    }
-		    if (((XmlLevelGoal)obj).getColour().equals("RED"))
-		    {
-			color = Color.RED;
-		    }
-		    if (((XmlLevelGoal)obj).getColour().equals("GREEN"))
-		    {
-			color = Color.GREEN;
-		    }
-		    if (((XmlLevelGoal)obj).getColour().equals("BLUE"))
-		    {
-			color = Color.BLUE;
-		    }		
-		    
 		    Receptor goal = new Receptor(vPos, vScale);
-		    goal.setColor(color);
+		    goal.setColor(((XmlLevelGoal)obj).getColour());
 		    addObject(goal);
 		    _goalObjects.add(goal);
 		}
 		else if (obj.getType().equals("emitter"))
 		{
 		    // calculate goal color
-		    int color = 0;
-		    if (((XmlLevelEmitter)obj).getColour().equals("WHITE"))
-		    {
-			color = Color.WHITE;
-		    }
-		    if (((XmlLevelEmitter)obj).getColour().equals("RED"))
-		    {
-			color = Color.RED;
-		    }
-		    if (((XmlLevelEmitter)obj).getColour().equals("GREEN"))
-		    {
-			color = Color.GREEN;
-		    }
-		    if (((XmlLevelEmitter)obj).getColour().equals("BLUE"))
-		    {
-			color = Color.BLUE;
-		    }
+		    int color = ((XmlLevelEmitter)obj).getColour();
 		 
 		    // @HACK
 		    //color = Color.WHITE;

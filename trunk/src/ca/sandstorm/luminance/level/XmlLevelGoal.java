@@ -3,6 +3,8 @@ package ca.sandstorm.luminance.level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.graphics.Color;
+
 /**
  * Class for goal objects in levels.
  * @author Steven Indzeoski
@@ -14,7 +16,7 @@ public class XmlLevelGoal extends XmlLevelObject
     
     public enum GoalColour { WHITE, RED, GREEN, BLUE };
 
-    private GoalColour _colour;
+    private int _colour;
 
     /**
      * Constructor for XmlLevelGoal class.
@@ -27,28 +29,13 @@ public class XmlLevelGoal extends XmlLevelObject
 	super(XmlLevelGoal.getId());
 	_logger.debug("XmlLevelGoal(" + colour + ")");
 	
-	colour = colour.toUpperCase();
-	
 	if (!isValidColour(colour))
 	{
 	    throw new IllegalArgumentException("The colour " + colour + " is invalid.");
 	}
-	
-	if (colour.equals(GoalColour.WHITE.toString()))
+	else
 	{
-	    _colour = GoalColour.WHITE;
-	}
-	else if (colour.equals(GoalColour.RED.toString()))
-	{
-	    _colour = GoalColour.RED;
-	}
-	else if (colour.equals(GoalColour.BLUE.toString()))
-	{
-	    _colour = GoalColour.BLUE;
-	}
-	else if (colour.equals(GoalColour.GREEN.toString()))
-	{
-	    _colour = GoalColour.GREEN;
+	    _colour = Color.parseColor(colour);
 	}
     }
 
@@ -61,6 +48,7 @@ public class XmlLevelGoal extends XmlLevelObject
     public boolean isValidColour(String colour) 
     {
 	_logger.debug("isValidColour(" + colour + ")");
+	colour = colour.toUpperCase();
 	if (colour.equals(GoalColour.WHITE.toString()))
 	{
 	    return true;
@@ -84,14 +72,10 @@ public class XmlLevelGoal extends XmlLevelObject
      * Getter method for colour when object is a goal.
      * @return The colour of the goal.
      */
-    public String getColour()
+    public int getColour()
     {
 	_logger.debug("getColour()");
-	if (!getType().equals(XmlLevelGoal.getId())) 
-	{
-	    throw new IllegalStateException("Trying to get colour of non-coloured object.");
-	}
-	return _colour.toString();
+	return _colour;
     }
 
     /**

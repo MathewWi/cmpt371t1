@@ -3,6 +3,8 @@ package ca.sandstorm.luminance.level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.graphics.Color;
+
 import ca.sandstorm.luminance.level.XmlLevelGoal.GoalColour;
 
 /**
@@ -16,7 +18,7 @@ public class XmlLevelEmitter extends XmlLevelObject
     
     public enum EmitterColour { WHITE, RED, GREEN, BLUE };
     
-    private EmitterColour _colour;
+    private int _colour;
     
     /**
      * Constructor for XmlLevelEmitter.
@@ -27,28 +29,13 @@ public class XmlLevelEmitter extends XmlLevelObject
 	super(XmlLevelEmitter.getId());
 	_logger.debug("XmlLevelEmitter(" + colour + ")");
 	
-	colour = colour.toUpperCase();
-	
 	if (!isValidColour(colour))
 	{
 	    throw new IllegalArgumentException("The colour " + colour + " is invalid.");
 	}
-	
-	if (colour.equals(EmitterColour.WHITE.toString()))
+	else
 	{
-	    _colour = EmitterColour.WHITE;
-	}
-	else if (colour.equals(EmitterColour.RED.toString()))
-	{
-	    _colour = EmitterColour.RED;
-	}
-	else if (colour.equals(EmitterColour.GREEN.toString()))
-	{
-	    _colour = EmitterColour.GREEN;
-	}
-	else if (colour.equals(EmitterColour.BLUE.toString()))
-	{
-	    _colour = EmitterColour.BLUE;
+	    _colour = Color.parseColor(colour);
 	}
     }
     
@@ -61,6 +48,7 @@ public class XmlLevelEmitter extends XmlLevelObject
     public boolean isValidColour(String colour) 
     {
 	_logger.debug("isValidColour(" + colour + ")");
+	colour = colour.toUpperCase();
 	if (colour.equals(GoalColour.WHITE.toString()))
 	{
 	    return true;
@@ -84,10 +72,10 @@ public class XmlLevelEmitter extends XmlLevelObject
      * Method for getting the colour of an XmlLevelEmitter.
      * @return The colour of the XmlLevelEmitter.
      */
-    public String getColour()
+    public int getColour()
     {
 	_logger.debug("getColour()");
-	return _colour.toString();
+	return _colour;
     }
     
     /**
