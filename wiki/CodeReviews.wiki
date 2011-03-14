@@ -212,6 +212,51 @@ Should use a sphere generation algorithm (this is a classic 3D problem and task 
     * Looks good
 
 = Peer Reviews =
+== March 14, 2011 ==
+=== PrimitiveBox.java ===
+ - Stephen explained _vertices and _indices matrices, as well as _textureCoords
+
+Line 105 and 112: Could change 4 to a const called sizeOf(int) or something
+
+Zenja wondered about VBO's and wondering why were aren't using them.  Stephen explained that there is no performance gained using them.
+
+Line 143: why is it _indexBuffer.limit() in draw function.
+ - should be tested.  May be lucking out in that the buffer returned is the exact size of the buffer we need.
+ - should probably use something else
+
+=== PrimitivePrism.java  ===
+Texture does not work currently.  Is rendered as a pyramid, just a matter of making the texture fit it.
+
+Basically the same class as PrimitiveBox, only different vertices etc.
+
+
+=== PrimitiveQuad.java ===
+What is quad?
+ - vertices are created at runtime
+ - had to do this because we need to create buttons on the fly.
+
+Line 17, 18: why are they static?
+ - they could be declared locally in the constructor.  They really don't need to be fields.  If we move it it would probably improve performance slightly.
+
+Line 72: why is there a parameter of _vertices.length/3?
+ - without the division, it would still work, but it would keep going and render a bunch of nothing.  This increases performance.
+
+=== PrimitiveSphere.java ===
+A billion lines of vertices!!!
+ - should use a function to do this!!
+  - Although this would be a performance hit.
+ - probably don't need so many vertices
+
+Should also use an index array for the vertices.
+ - we will only get this if we generate in the algorithm
+
+=== For all the previous classes ===
+Since all these primitives are using the same constructor, there could be a superclass for these classes.
+
+We currently don't account for the fact we may have to modify the vertices.  This would be a huge performance hit.  We can get by for now, but should be considered.
+
+Also, when we want to start with special effects such as lighting, we're going to have to implement our objects with more triangles in order for it to look good.
+
 == March 7, 2011 ==
 === Toolbelt.java ===
 Line 26: _GRIDPOINT_ERROR - What is this? Needs to be made smaller.  Used as an epsilon for constraining floating point errors.
