@@ -43,7 +43,7 @@
   == Incorrect tool placing handling ==
   We will have to account for when the user accidentally places a tool on the grid that they placed there by mistake, or decide they don't want there at all.  This is accounted for by having an eraser tool to get rid of it.
    
-   In addition to this, we have to account for the user accidentally placing tools on the grid because the way the touch input is handled.  For example, currently tools might be accidentally added to the grid when the user tries to scroll.  This, of course, will be unacceptable in the final milestone and is currently an issue we're working on.
+   In addition to this, we have to account for the user acci dentally placing tools on the grid because the way the touch input is handled.  For example, currently tools might be accidentally added to the grid when the user tries to scroll.  This, of course, will be unacceptable in the final milestone and is currently an issue we're working on.
 
   ==Networking==
   Users might want to upload high scores stored on a server.  The game still needs to be fully operational regardless of network connection. 
@@ -52,6 +52,20 @@
 
   == New tools and mechanics ==
   While we plan to make a complete port of the previous version, we also plan to add new tools and mechanics to make the gameplay even more intriguing.  These tools will be determined by the development team during the next milestone.
+
+  Ideas:
+ * Charging station
+   * Brings the split up light back into one big beam
+   * Depending on the light combo, it may do different things
+ * Doors
+   * Can be opened by said charging station
+ * Fiber Optic cable
+   * The user can lay down a cable
+   * If the light hits one end, it comes out the other
+ * Particle deflector
+   * Use to bend light
+ * Light Goblin
+   * If you wake him up, perhaps he blocks the goal for a slight amount of time
 
 = Derived Requirements =
   ==Platform Compatibility==
