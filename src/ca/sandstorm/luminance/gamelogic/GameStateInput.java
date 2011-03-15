@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gamelogic;
 
+import java.io.IOException;
+
 import javax.vecmath.Point2i;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
@@ -19,6 +21,7 @@ import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Ray;
+import ca.sandstorm.luminance.resources.SoundResource;
 
 /**
  * Class to read and process user input in the game state.
@@ -171,6 +174,20 @@ public class GameStateInput
 	if (keys[KeyEvent.KEYCODE_X].getPressed()) {
 	    _toolbelt.adjustRotation(1);
 	}
+	
+	// Testing audio
+	if (keys[KeyEvent.KEYCODE_5].getPressed()) {
+	    try {
+		Engine.getInstance().getAudio().playMusic("sounds/music1.mp3");
+	    } catch (IOException e) {
+		logger.error("IOException: " + e.getMessage());
+		e.printStackTrace();
+	    }
+	}
+	if (keys[KeyEvent.KEYCODE_6].getPressed()) {
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/sample.ogg"), 0.9f);
+	}
+
 
 	if (keys[KeyEvent.KEYCODE_1].getPressed()) {
 	    System.exit(-1);

@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.resources;
 
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -70,6 +72,11 @@ public class ResourceManager
 	assert assets != null;
 	
 	this._assets = assets;
+    }
+    
+    public FileDescriptor openFileFd(String path) throws IOException
+    {
+	return _assets.openFd(path).getFileDescriptor();
     }
 
 
