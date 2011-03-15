@@ -1,11 +1,13 @@
 package ca.sandstorm.luminance.audio;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.resources.SoundResource;
 
 import android.media.AudioManager;
@@ -68,7 +70,7 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public int play(SoundResource sound, float volume)
     {
-	_logger.debug("play(" + sound + ", " + volume + ")");
+	_logger.debug("Playing sound effect: " + sound);
 	
 	assert sound != null;
 	int soundId = sound.getSound();
@@ -85,8 +87,9 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void playMusic(String file) throws IOException
     {
-	//_mediaPlayer.setDataSource(Engine.getInstance().getResourceManager().loadResource(file).getAssetFd());
-	_mediaPlayer.setDataSource(file);
+	_logger.debug("Playing music: " + file);
+	_mediaPlayer.setDataSource(Engine.getInstance().getResourceManager().openFileFd(file));
+	_mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 	_mediaPlayer.setLooping(true);
 	_mediaPlayer.prepare();
 	_mediaPlayer.start();
@@ -121,7 +124,7 @@ public class AndroidSoundPlayer implements IAudioDriver
 	}
 	
 	// Stop music
-	_mediaPlayer.start();
+	_mediaPlayer.pause();
     }
 
 
@@ -138,7 +141,7 @@ public class AndroidSoundPlayer implements IAudioDriver
 	}
 	
 	// Resume music
-	_mediaPlayer.pause();
+	_mediaPlayer.start();
     }
 
 
@@ -149,6 +152,7 @@ public class AndroidSoundPlayer implements IAudioDriver
     {
 	_logger.debug("unloadAll()");
 	
+	_mediaPlayer.reset();
 	_streamMap.clear();
 	_soundPool.release();
 	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);

@@ -119,7 +119,8 @@ public class Engine
 	_context = context;
 	_resourceManager.setAssets(_context.getAssets());
 
-	// listDirectoryFiles("");
+	listDirectoryFiles("/");
+	listDirectoryFiles("/assets");
     }
 
 
@@ -146,6 +147,15 @@ public class Engine
     public GameRenderer getRenderer()
     {
 	return _renderer;
+    }
+    
+    /**
+     * Returns the audio playback subsystem.
+     * @return Audio system
+     */
+    public AndroidSoundPlayer getAudio()
+    {
+	return _audioSystem;
     }
 
 
@@ -370,16 +380,6 @@ public class Engine
 	if(_audioSystem != null) {
 	    _audioSystem.resumeAll();
 	}
-
-	// Play sound effect
-//	try {
-//	    SoundResource testSound = _resourceManager.loadSound(_audioSystem
-//		    .getPool(), "sounds/sample.ogg");
-//	    _audioSystem.play(testSound, 0.9f);
-//	} catch (IOException e) {
-//	    // TODO Auto-generated catch block
-//	    e.printStackTrace();
-//	}
     }
 
 
@@ -451,11 +451,11 @@ public class Engine
     public void init(GL10 gl)
     {
 	// Start the game music
-	try {
-	    _audioSystem.playMusic("sounds/sample.ogg");
-	} catch (IOException e) {
-	    logger.error("Unable to load music file for playback.");
-	}
+//	try {
+//	    _audioSystem.playMusic("sounds/sample.ogg");
+//	} catch (IOException e) {
+//	    logger.error("Unable to load music file for playback.");
+//	}
 
     	for (IState s : _stateStack) {
     	    if (s.isActive()) {

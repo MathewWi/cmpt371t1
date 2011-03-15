@@ -338,8 +338,16 @@ public class GameState implements IState
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/levelComplete.png");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/emitter.jpg");
 	} catch (IOException e) {
-	    // TODO: improve this
-	    throw new RuntimeException("Unable to load a required texture!");
+	    logger.error("Unable to load a required texture: " + e.getMessage());
+	    e.printStackTrace();
+	}
+	
+	// Load sound effects
+	try {
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/sample.ogg");
+	} catch (IOException e) {
+	    logger.error("Unable to load a required sound: " + e.getMessage());
+	    e.printStackTrace();
 	}
 	
 	// init the lightpath
@@ -397,6 +405,14 @@ public class GameState implements IState
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
+	}
+	
+	// Start music playback
+	try {
+	    Engine.getInstance().getAudio().playMusic("sounds/music1.mp3");
+	} catch (IOException e) {
+	    logger.error("IOException: " + e.getMessage());
+	    e.printStackTrace();
 	}
     }
     
