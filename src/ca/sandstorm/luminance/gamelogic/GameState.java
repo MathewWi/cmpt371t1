@@ -36,6 +36,7 @@ import ca.sandstorm.luminance.level.XmlLevelObject;
 import ca.sandstorm.luminance.level.XmlLevelParser;
 import ca.sandstorm.luminance.level.XmlLevelTool;
 import ca.sandstorm.luminance.math.Colliders;
+import ca.sandstorm.luminance.resources.MusicResource;
 import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
 
@@ -342,9 +343,10 @@ public class GameState implements IState
 	    e.printStackTrace();
 	}
 	
-	// Load sound effects
+	// Load sound effects and music
 	try {
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/sample.ogg");
+	    Engine.getInstance().getResourceManager().loadMusic("sounds/music1.mp3");
 	} catch (IOException e) {
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
@@ -409,9 +411,9 @@ public class GameState implements IState
 	
 	// Start music playback
 	try {
-	    Engine.getInstance().getAudio().playMusic("sounds/music1.mp3");
+	    Engine.getInstance().getAudio().playMusic((MusicResource)Engine.getInstance().getResourceManager().getResource("sounds/music1.mp3"));
 	} catch (IOException e) {
-	    logger.error("IOException: " + e.getMessage());
+	    logger.error("Unable to play music: " + e.getMessage());
 	    e.printStackTrace();
 	}
     }

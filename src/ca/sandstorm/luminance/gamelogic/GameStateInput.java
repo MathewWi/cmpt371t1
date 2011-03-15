@@ -176,14 +176,6 @@ public class GameStateInput
 	}
 	
 	// Testing audio
-	if (keys[KeyEvent.KEYCODE_5].getPressed()) {
-	    try {
-		Engine.getInstance().getAudio().playMusic("sounds/music1.mp3");
-	    } catch (IOException e) {
-		logger.error("IOException: " + e.getMessage());
-		e.printStackTrace();
-	    }
-	}
 	if (keys[KeyEvent.KEYCODE_6].getPressed()) {
 	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/sample.ogg"), 0.9f);
 	}

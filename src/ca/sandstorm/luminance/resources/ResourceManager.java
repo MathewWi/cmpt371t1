@@ -74,9 +74,18 @@ public class ResourceManager
 	this._assets = assets;
     }
     
-    public FileDescriptor openFileFd(String path) throws IOException
+    /**
+     * Load a music resource.
+     * @param path Path to music file relative to assets directory
+     * @return Music resource
+     * @throws IOException
+     */
+    public MusicResource loadMusic(String path) throws IOException
     {
-	return _assets.openFd(path).getFileDescriptor();
+	AssetFileDescriptor fd = _assets.openFd(path);
+	MusicResource res = new MusicResource(path, fd);
+	_resources.put(path, res);
+	return res;
     }
 
 
@@ -99,7 +108,6 @@ public class ResourceManager
 	// Read file
 	byte[] data = readFile(filename);
 	Resource res = new Resource(filename, data);
-	//res._fd = _assets.openFd(filename);
 	_resources.put(filename, res);
 
 	return res;
