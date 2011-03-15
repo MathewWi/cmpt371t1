@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.resources.MusicResource;
 import ca.sandstorm.luminance.resources.SoundResource;
 
 import android.media.AudioManager;
@@ -85,10 +86,10 @@ public class AndroidSoundPlayer implements IAudioDriver
      * @param file Path to song
      * @throws IOException
      */
-    public void playMusic(String file) throws IOException
+    public void playMusic(MusicResource res) throws IOException
     {
-	_logger.debug("Playing music: " + file);
-	_mediaPlayer.setDataSource(Engine.getInstance().getResourceManager().openFileFd(file));
+	_logger.debug("Playing music: " + res.getName());
+	_mediaPlayer.setDataSource(res.getMusicFd());
 	_mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 	_mediaPlayer.setLooping(true);
 	_mediaPlayer.prepare();

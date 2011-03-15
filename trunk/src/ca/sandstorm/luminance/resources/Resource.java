@@ -11,8 +11,6 @@ public class Resource implements IResource
 {
     protected byte[] _data;
     protected String _name;
-    protected AssetFileDescriptor _fd;
-
 
     /**
      * Constructor.
@@ -64,11 +62,6 @@ public class Resource implements IResource
 	return _data;
     }
     
-    public AssetFileDescriptor getAssetFd()
-    {
-	return _fd;
-    }
-
 
     /**
      * Dispose of the resource and clean up behind it.
