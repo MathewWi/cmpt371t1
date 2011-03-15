@@ -73,6 +73,11 @@
 || Audio fixing || 4 ||
 || Renderer improvements and/or level generator || 10+ ||
 
+===Milestone 3===
+|| Audio and music playback completion || 2 ||
+|| Random small tasks || 1 ||
+|| Helping teammates || 1 ||
+
 == Stephen Damm ==
 === Milestone 0 ===
 || *Task* || *Hours spent so far* ||
