@@ -39,17 +39,6 @@ public class MenuState implements IState
     {
 	_tapped = false;
 	_guiManager = new GUIManager();
-	
-	Button startButton = new Button(20, 50, 280, 40, "Start");
-	startButton.setTextureResourceLocation("textures/startImage.png");
-	startButton.setCalleeAndMethod(this, "test");
-	
-	Button helpButton = new Button(20, 120, 280, 40, "Help");
-	helpButton.setTextureResourceLocation("textures/helpImage.png");
-	helpButton.setCalleeAndMethod(this, "test");
-	
-	_guiManager.addButton(startButton);
-	_guiManager.addButton(helpButton);
     }
     
     public MenuState(IWidget[] widgets)
@@ -129,6 +118,31 @@ public class MenuState implements IState
 	// Initiate the GUIManager
 	_guiManager.initiate();
 	
+	// Create the Buttons
+	float screenWidth = (float)Engine.getInstance().getViewWidth();
+	float screenHeight = (float)Engine.getInstance().getViewHeight();
+	
+	Button startButton = new Button(0.06f*screenWidth, 
+	                                0.1f*screenHeight, 
+	                                0.88f*screenWidth, 
+	                                0.1f*screenHeight, 
+	                                "Start");
+	startButton.setTextureResourceLocation("textures/startImage.png");
+	startButton.setTappedTextureLocation("textures/helpImage.png");
+	startButton.setCalleeAndMethod(this, "test");
+	
+	Button helpButton = new Button(0.06f*screenWidth, 
+	                               0.1f*screenHeight + 60.0f,
+	                               0.88f*screenWidth, 
+	                               0.1f*screenHeight,
+	                               "Help");
+	helpButton.setTextureResourceLocation("textures/helpImage.png");
+	helpButton.setTappedTextureLocation("textures/startImage.png");
+	helpButton.setCalleeAndMethod(this, "test");
+	
+	_guiManager.addButton(startButton);
+	_guiManager.addButton(helpButton);
+	
 	try {
 	    _background = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/menuBackground.png");
 	    for (IWidget widget : _guiManager.getWidgets()) {
@@ -136,6 +150,12 @@ public class MenuState implements IState
 		    String textureResourceLocation = widget.getTextureResourceLocation();
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
 		    widget.setTexture(texture);
+		    
+		    if (widget.getClass() == Button.class) {
+			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
+			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
+			((Button)widget).setTappedTexture(tappedTexture);
+		    }
 		}
 	    }
 	} catch (IOException e) {
