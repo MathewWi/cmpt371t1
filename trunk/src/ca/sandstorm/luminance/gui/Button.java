@@ -28,10 +28,15 @@ public class Button implements IWidget
     private TextureResource _texture;
     private TextureResource _tappedTexture;
     
+    // This texture's value is swapped between _texture and _tappedTexture.
+    // Used for drawing in the draw(GL10) method.
+    private TextureResource _drawTexture;
+    
     private String _title;
     
     private Object _callee;
     private Method _method;
+    private boolean _isTapped;
 
     /**
      * Constructor for creating a Button.
@@ -145,7 +150,9 @@ public class Button implements IWidget
     
     public void setTexture(TextureResource texture)
     {
+	// Immediately set all three textures
 	_texture = texture;
+	_drawTexture = texture;
     }
     
     /**
@@ -188,6 +195,41 @@ public class Button implements IWidget
     public void setTitle(String title)
     {
 	_title = title;
+    }
+    
+    /**
+     * Tells you whether this Button is currently being tapped, indicating
+     * which texture is being used to draw itself: the tapped texture
+     * (returns true) or the standard texture (returns false).
+     * 
+     * @return the boolean indicating whether this button is currently being
+     * tapped. If true is returned, then the tapped texture is being drawn. If
+     * false is returned, then the standard texture is being drawn.
+     */
+    public boolean getIsTapped()
+    {
+	return _isTapped;
+    }
+    
+    /**
+     * Lets you set this Button as being tapped. This boolean will cause the
+     * Button to switch between drawing the tapped texture and the standard
+     * texture.
+     *  
+     * @param isTapped A boolean indicating whether the Button should draw
+     * itself using the tapped texture (isTapped == true) or the standard
+     * texture (isTapped == false).
+     * @precond n/a
+     * @postcond this.getIsTapped() == isTapped
+     */
+    public void setIsTapped(boolean isTapped)
+    {
+	_isTapped = isTapped;
+	if (_isTapped && _tappedTexture != null) {
+	    _drawTexture = _tappedTexture;
+	} else {
+	    _drawTexture = _texture;
+	}
     }
     
     /**
@@ -267,7 +309,7 @@ public class Button implements IWidget
 	gl.glTranslatef(_x, _y, 0);		
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glColor4f(1f, 1f, 1f, 1f);
-	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
+	gl.glBindTexture(GL10.GL_TEXTURE_2D, _drawTexture.getTexture());
 	_quad.draw(gl);
 	
 	gl.glPopMatrix();
