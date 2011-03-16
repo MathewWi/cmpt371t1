@@ -54,6 +54,8 @@ public class GameState implements IState
     private static final Logger logger = LoggerFactory
 	    .getLogger(GameState.class);
 
+    private boolean _initialized = false;
+    
     // camera for the view matrix
     private Camera _cam;
 
@@ -81,7 +83,9 @@ public class GameState implements IState
     // Container for the goals for quick verification
     private Vector<Receptor> _goalObjects = null;
 
+    // Controller class for gamestate
     private GameStateInput _input;
+    
     
     /**
      * Constructor()
@@ -287,6 +291,10 @@ public class GameState implements IState
 	float camY = 1.15f * (maxSize / (float) (Math.tan((Math.PI / 6.0))));
 
 	_cam = new Camera();
+	
+	_cam.setViewPort(0, 0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
+	_cam.setPerspective(45.0f, (float) Engine.getInstance().getViewWidth() / (float) Engine.getInstance().getViewHeight(), 0.1f, 100.0f);	
+	
 	_cam.setEye(_grid.getTotalWidth() / 2.0f, camY,
 		    _grid.getTotalHeight() / 2.0f);
 	_cam.setTarget(_grid.getTotalWidth() / 2.0f, 0,
@@ -330,6 +338,13 @@ public class GameState implements IState
     public void init(GL10 gl)
     {
 	logger.debug("init()");
+	
+	// @TODO - write a proper uninit function and call it here.
+	if (_initialized)
+	{
+	    return;
+	}
+	
 	// Load textures
 	try {
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
@@ -358,10 +373,7 @@ public class GameState implements IState
 	
 	
 	float width = Engine.getInstance().getViewWidth();
-	float height = Engine.getInstance().getViewHeight();
-	
-	
-	
+	float height = Engine.getInstance().getViewHeight();	
 	
 	Button pauseButton = new Button(width*0.86f,
 	                                height*0.86f,
@@ -387,8 +399,6 @@ public class GameState implements IState
 	}
 	
 	resetCamera();
-	
-
 	
 	try {
 	    for (IWidget widget : _guiManager.getWidgets()) {
@@ -416,6 +426,9 @@ public class GameState implements IState
 	    logger.error("Unable to play music: " + e.getMessage());
 	    e.printStackTrace();
 	}
+	
+	// SUCCESS
+	_initialized = true;
     }
     
     /**
@@ -493,7 +506,14 @@ public class GameState implements IState
 		IGameObject minObj = null;
 		float minDist = Light.LIGHT_INFINITY;
 		float curDist = 0.0f;
+		
 		Light l = lightBeam.get(j);
+		
+		// if light has an end point adjust it for max distance
+		if (l.getEndTouchedObject() != null)
+		{
+		    minDist = (float)Colliders.distance(l.getEndTouchedObject().getPosition(), l.getPosition());
+		}
 		
 		// loop through all objects to find min dist collision
 		for (IGameObject o : _objects.values())
@@ -508,7 +528,7 @@ public class GameState implements IState
 		    if (o == l.getEndTouchedObject())// && !(o instanceof Box))
 		    {
 			//minObj = null;
-			break;
+			continue;
 		    }
 		    
 		    // get collision point, compare to find min
@@ -527,7 +547,7 @@ public class GameState implements IState
 		// we found a min collision
 		if (minObj != null)
 		{
-		    if (l.getEndTouchedObject() != null && minDist > l.getDistance())
+		    if (l.getEndTouchedObject() != null)
 		    {
 			
 		    }
@@ -634,7 +654,7 @@ public class GameState implements IState
 	gl.glDepthFunc(GL10.GL_LEQUAL); // The Type Of Depth Testing To Do
 
 	// Really Nice Perspective Calculations
-	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
+	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
 
 	// prevent divide by zero.
 	// @HACK - Forgiven since h == 0 means the game window is probably
@@ -643,8 +663,12 @@ public class GameState implements IState
 	    h = 1;
 	}
 
-	_cam.setViewPort(gl, 0, 0, w, h);
-	_cam.setPerspective(gl, 45.0f, (float) w / (float) h, 0.1f, 100.0f);
+	// if camera is active, update it
+	if (_cam != null)
+	{
+	    _cam.setViewPort(0, 0, w, h);
+	    _cam.setPerspective(45.0f, (float) w / (float) h, 0.1f, 100.0f);
+	}
     }
 
 
@@ -668,6 +692,13 @@ public class GameState implements IState
     {
 	// TODO Auto-generated method stub
 	return true;
+    }
+
+    
+    @Override
+    public boolean isInitialized()
+    {
+	return _initialized;
     }
 
 }

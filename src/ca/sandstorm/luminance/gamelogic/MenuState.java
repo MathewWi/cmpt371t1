@@ -29,6 +29,7 @@ import ca.sandstorm.luminance.state.IState;
 public class MenuState implements IState
 {
     private static final Logger logger = LoggerFactory.getLogger(MenuState.class);
+    private boolean _initialized = false;
     private GUIManager _guiManager;
     private boolean _tapped;
     
@@ -56,6 +57,10 @@ public class MenuState implements IState
     {
 	logger.debug("test()");
 	logger.debug("test2()");
+	
+	// TODO: this really isnt how we want to deal with states is it?
+	Engine.getInstance().popState();
+	Engine.getInstance().pushState( new GameState() );
     }
     
     /**
@@ -92,7 +97,7 @@ public class MenuState implements IState
 	gl.glDepthFunc(GL10.GL_LEQUAL); // The Type Of Depth Testing To Do
 
 	// Really Nice Perspective Calculations
-	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
+	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
 
 	// prevent divide by zero.
 	// @HACK - Forgiven since h == 0 means the game window is probably
@@ -111,9 +116,14 @@ public class MenuState implements IState
      */
     @Override
     public void init(GL10 gl)
-    {
-	// TODO Auto-generated method stub
+    {	
 	logger.debug("init(" + gl + ")");
+	
+	// @TODO - write a proper uninit function and call it here.
+	if (_initialized)
+	{
+	    return;
+	}	
 	
 	// Initiate the GUIManager
 	_guiManager.initiate();
@@ -296,6 +306,12 @@ public class MenuState implements IState
     {
 	// TODO Auto-generated method stub
 	return true;
+    }
+
+    @Override
+    public boolean isInitialized()
+    {
+	return _initialized;
     }
 
 
