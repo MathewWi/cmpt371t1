@@ -23,7 +23,7 @@ public class Button implements IWidget
     private float _height;
         
     private PrimitiveQuad _quad;
-    private String _textureResourceLocation;
+    private String _textureLocation;
     private TextureResource _texture;
     
     private String _title;
@@ -106,12 +106,12 @@ public class Button implements IWidget
     
     public String getTextureResourceLocation()
     {
-	return _textureResourceLocation;
+	return _textureLocation;
     }
     
     public void setTextureResourceLocation(String textureResourceLocation)
     {
-	_textureResourceLocation = textureResourceLocation;
+	_textureLocation = textureResourceLocation;
     }
     
     public TextureResource getTexture()
