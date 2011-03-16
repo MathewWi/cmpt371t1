@@ -183,6 +183,7 @@ public class GUIManager
 	_tappedButton.getMethod() != null &&
 	_tappedButton.getCallee() != null) {
 	    _tappedButton.tapped();
+	    _tappedButton.setIsTapped(false);
 	    _tappedButton = null;
 	}
     }

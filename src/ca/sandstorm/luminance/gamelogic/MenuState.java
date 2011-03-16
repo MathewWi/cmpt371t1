@@ -210,8 +210,10 @@ public class MenuState implements IState
 	    
 	    if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
 		_tapped = true;
-		if (_guiManager.touchOccured(touchEvent) != null) {
+		Button eventWidget = _guiManager.touchOccured(touchEvent);
+		if (eventWidget != null) {
 		    logger.debug("button has been tapped");
+		    eventWidget.setIsTapped(true);
 		}
 	    } if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
 		logger.debug("Menu has been touched");
