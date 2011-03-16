@@ -126,6 +126,9 @@ public class MenuState implements IState
 	// TODO Auto-generated method stub
 	logger.debug("init(" + gl + ")");
 	
+	// Initiate the GUIManager
+	_guiManager.initiate();
+	
 	try {
 	    _background = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/menuBackground.png");
 	    for (IWidget widget : _guiManager.getWidgets()) {
@@ -187,11 +190,15 @@ public class MenuState implements IState
 	    
 	    if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
 		_tapped = true;
-	    } if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
-		logger.debug("Menu has been touched");
 		if (_guiManager.touchOccured(touchEvent) != null) {
 		    logger.debug("button has been tapped");
 		}
+	    } if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
+		logger.debug("Menu has been touched");
+		if (_guiManager.buttonIsTapped()) {
+		    logger.debug(_guiManager.getTappedButton().getTitle());
+		}
+		_guiManager.letGoOfButton();
 		_tapped = false;
 	    }
 	}

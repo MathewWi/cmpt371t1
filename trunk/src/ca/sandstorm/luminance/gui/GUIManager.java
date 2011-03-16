@@ -5,6 +5,8 @@ import javax.microedition.khronos.opengles.GL10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.sandstorm.luminance.Engine;
+
 import android.view.MotionEvent;
 
 
@@ -20,9 +22,12 @@ public class GUIManager
     	.getLogger(GUIManager.class);
     
     public static int MAX_WIDGET_COUNT = 10;
+    private float _compensatedY;
 
     private int _numberOfWidgets;
     private IWidget _widgets[];
+    
+    private Button _tappedButton;
 
     /**
      * Constructor. By default, the number of buttons to be managed is 0.
@@ -36,6 +41,12 @@ public class GUIManager
 	
 	_widgets = new IWidget[MAX_WIDGET_COUNT];
 	_numberOfWidgets = 0;
+    }
+    
+    public void initiate()
+    {
+	_compensatedY = Engine.getInstance().getMenuBarHeight() +
+	Engine.getInstance().getTitleBarHeight();
     }
     
     /**
@@ -58,6 +69,15 @@ public class GUIManager
 	return _widgets;
     }
 
+    /**
+     * Return the Button that is currently being tapped.
+     * @return the Button that is currently being tapped.
+     */
+    public Button getTappedButton()
+    {
+	return _tappedButton;
+    }
+    
     /**
      * Add the array of IWidgets to this GUIManager.
      * 
@@ -94,6 +114,14 @@ public class GUIManager
 	}
     }
 
+    public boolean buttonIsTapped()
+    {
+	if (_tappedButton == null) {
+	    return false;
+	} else {
+	    return true;
+	}
+    }
 
     /**
      * Convenience method. Does the same thing as touchOccured(float, float)
@@ -131,11 +159,10 @@ public class GUIManager
 	    if (button.getClass() == Button.class &&
 		x > button.getX() &&
 		x < button.getX() + button.getWidth() &&
-		y > button.getY() &&
-		y < button.getY() + button.getHeight()) {
-		if (((Button)button).getMethod() != null && ((Button)button).getCallee() != null) {
-		    ((Button)button).tapped();
-		}
+		y > button.getY() + _compensatedY &&
+		y < button.getY() + button.getHeight() + _compensatedY) {
+		_tappedButton = (Button)button;
+		
 		return (Button)button;
 	    }
 	}
@@ -143,6 +170,22 @@ public class GUIManager
 	return null;
     }
     
+    /**
+     * Tell the GUIManager to notify that the currently tapped Button is no
+     * longer being touched.
+     * 
+     * @precond n/a
+     * @postcond _tappedButton == null
+     */
+    public void letGoOfButton()
+    {
+	if (_tappedButton != null &&
+	_tappedButton.getMethod() != null &&
+	_tappedButton.getCallee() != null) {
+	    _tappedButton.tapped();
+	    _tappedButton = null;
+	}
+    }
     
     public void update(GL10 gl)
     {
