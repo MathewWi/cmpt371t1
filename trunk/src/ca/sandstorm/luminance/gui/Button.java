@@ -24,7 +24,9 @@ public class Button implements IWidget
         
     private PrimitiveQuad _quad;
     private String _textureLocation;
+    private String _tappedTextureLocation;
     private TextureResource _texture;
+    private TextureResource _tappedTexture;
     
     private String _title;
     
@@ -114,6 +116,28 @@ public class Button implements IWidget
 	_textureLocation = textureResourceLocation;
     }
     
+    /**
+     * Get the location for the tapped texture.
+     * 
+     * @return the location for the tapped texture.
+     */
+    public String getTappedTextureLocation()
+    {
+	return _tappedTextureLocation;
+    }
+    
+    /**
+     * Set the location for the tapped texture.
+     * 
+     * @param tappedTextureLocation The location for the tapped texture.
+     * @precond n/a
+     * @postcond this.getTappedTextureLocation().equals(tappedTextureLocation) == true
+     */
+    public void setTappedTextureLocation(String tappedTextureLocation)
+    {
+	_tappedTextureLocation = tappedTextureLocation;
+    }
+    
     public TextureResource getTexture()
     {
 	return _texture;
@@ -122,6 +146,28 @@ public class Button implements IWidget
     public void setTexture(TextureResource texture)
     {
 	_texture = texture;
+    }
+    
+    /**
+     * Get the texture the button switches to when tapped.
+     * 
+     * @return texture the button switches to when tapped.
+     */
+    public TextureResource getTappedTexture()
+    {
+	return _tappedTexture;
+    }
+    
+    /**
+     * Set the texture the button switches to when tapped.
+     * 
+     * @param tappedTexture The texture the button switches to when tapped.
+     * @precond n/a
+     * @postcond this.getTappedTexture() == tappedTexture
+     */
+    public void setTappedTexture(TextureResource tappedTexture)
+    {
+	_tappedTexture = tappedTexture;
     }
     
     /**
