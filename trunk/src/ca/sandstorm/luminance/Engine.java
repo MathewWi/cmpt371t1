@@ -2,6 +2,8 @@ package ca.sandstorm.luminance;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -42,7 +44,7 @@ public class Engine
 
     // state stack for updating/rendering
     private Stack<IState> _stateStack;
-    private ArrayList<IState> _tempStateStack;
+    private Queue<IState> _stateQueue;
 
     // stored screen vars
     private int _width;
@@ -78,7 +80,7 @@ public class Engine
 	_renderer = new GameRenderer();
 
 	_stateStack = new Stack<IState>();
-//	_tempStateStack = new ArrayList<IState>();
+	_stateQueue = new LinkedList<IState>();
 	_timer = new TimeSystem();
 	_resourceManager = new ResourceManager();
 	_audioSystem = new AndroidSoundPlayer();
@@ -342,11 +344,11 @@ public class Engine
     public void pushState(IState state)
     {
 	logger.debug("pushState(" + state + ")");
-
-	//
-//	_tempStateStack.add(state);
 	
-	_stateStack.push(state);	
+	// queue up state for adding on next update cycle
+	_stateQueue.add(state);
+	
+	//_stateStack.push(state);	
     }
 
 
@@ -425,18 +427,15 @@ public class Engine
 	_scaleX = (float) viewWidth / _width;
 	_scaleY = (float) viewHeight / _height;
 
+	// we should check both states no stack and queue
 	for (IState s : _stateStack) {
 	    s.deviceChanged(gl, _width, _height);
 	}
-
-	// If there's a state in the temporary stack, pop it, init it, and push
-	// it on _stateStack
-//	while (_tempStateStack.isEmpty() == false) {
-//	    IState state = _tempStateStack.remove(0);
-//	    logger.debug("adding state: " + state);
-//	    state.init(gl);
-//	    _stateStack.add(state);
-//	}
+	
+	for (IState s : _stateQueue)
+	{
+	    s.deviceChanged(gl, _width, _height);
+	}
     }
 
 
@@ -474,6 +473,15 @@ public class Engine
      */
     public void update(GL10 gl)
     {
+	// flush the state queue
+	// init any states on the queue and add them for update/drawing
+	while (!_stateQueue.isEmpty()) {
+	    IState state = _stateQueue.remove();
+	    logger.debug("adding state: " + state);
+	    state.init(gl);
+	    _stateStack.add(state);
+	}	
+	
 	// calculate time step
 	long time = SystemClock.uptimeMillis();
 	// long timeDelta = time - _lastTime;
@@ -484,7 +492,8 @@ public class Engine
 	_lastTime = time;
 
 	// update all the active states
-	for (IState s : _stateStack) {
+	for (int i = 0; i < _stateStack.size(); i++) {
+	    IState s = _stateStack.get(i);
 	    if (s.isActive()) {
 		s.update(gl);
 	    }
@@ -500,7 +509,10 @@ public class Engine
      */
     public void draw(GL10 gl)
     {
-	for (IState s : _stateStack) {
+	// NOTE: do not flush the state queue here... only update() does that
+	
+	for (int i = 0; i < _stateStack.size(); i++) {
+	    IState s = _stateStack.get(i);
 	    if (s.isVisible()) {
 		s.draw(gl);
 	    }

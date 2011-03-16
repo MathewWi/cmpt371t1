@@ -5,6 +5,9 @@ import javax.microedition.khronos.opengles.GL10;
 
 public interface IState
 {
+    public boolean isInitialized();
+    
+    
     public boolean isVisible();
 
 

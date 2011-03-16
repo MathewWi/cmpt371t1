@@ -61,6 +61,19 @@ public class Camera
     private Quat4f _qView;
     private Quat4f _qNewView;
     private Quat4f _qConjugate;
+        
+    // store viewport
+    private int _viewX;
+    private int _viewY;
+    private int _viewWidth;
+    private int _viewHeight;
+    
+    // perspective vars
+    private float _fov;
+    private float _aspect;
+    private float _zNear;
+    private float _zFar;
+    
     
     // tmp ray for returning, user can destroy it if they want, never reused internally
     private Ray _tmpRay;
@@ -227,11 +240,14 @@ public class Camera
      * @param h
      *            height of the screen
      */
-    public void setViewPort(GL10 gl, int x, int y, int w, int h)
+    public void setViewPort(int x, int y, int w, int h)
     {
 	_logger.debug("setViewPort(" + x + ", " + y + ", " + w + ", " + h + ")");
 
-	gl.glViewport(x, y, w, h);
+	_viewX = x;
+	_viewY = y;
+	_viewWidth = w;
+	_viewHeight = h;
     }
 
 
@@ -249,21 +265,16 @@ public class Camera
      * @param zFar
      *            far clipping plane
      */
-    public void setPerspective(GL10 gl, float fov, float aspect, float zNear,
+    public void setPerspective(float fov, float aspect, float zNear,
 	    float zFar)
     {
 	_logger.debug("setPerspective(" + fov + ", " + aspect + ", " + zNear +
 		      ", " + zFar + ")");
 
-	gl.glMatrixMode(GL10.GL_PROJECTION);
-	gl.glLoadIdentity();
-
-	GLU.gluPerspective(gl, fov, aspect, zNear, zFar);
-	
-        getCurrentProjection(gl);	
-
-	gl.glMatrixMode(GL10.GL_MODELVIEW);
-	gl.glLoadIdentity();
+	_fov = fov;
+	_aspect = aspect;
+	_zNear = zNear;
+	_zFar = zFar;
     }
 
 
@@ -271,11 +282,21 @@ public class Camera
      * Update the view matrix. Use this to set the camera up before rendering
      * objects.
      * 
+     * @TODO - we shouldnt need to save matrices every frame
+     * 
      * @param gl
      *            OpenGL context, local scope.
      */
     public void updateViewMatrix(GL10 gl)
     {
+	gl.glViewport(_viewX, _viewY, _viewWidth, _viewHeight);
+	
+	gl.glMatrixMode(GL10.GL_PROJECTION);
+	gl.glLoadIdentity();
+
+	GLU.gluPerspective(gl, _fov, _aspect, _zNear, _zFar);
+        getCurrentProjection(gl);	
+	
 	// calculate the mdoel view matrix
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glLoadIdentity();
