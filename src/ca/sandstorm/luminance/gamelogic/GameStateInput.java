@@ -18,6 +18,7 @@ import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
 import ca.sandstorm.luminance.gui.Button;
+import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Ray;
@@ -35,6 +36,7 @@ public class GameStateInput
     
     private Camera _cam;
     private Toolbelt _toolbelt;
+    private GUIManager _guiManager;
     private Grid _grid;
  // input handling properties
     private float _initialX = 0.0f;
@@ -55,11 +57,12 @@ public class GameStateInput
 	logger.debug("GameStateInput()");
     }
     
-    public void process(Camera cam, Toolbelt toolbelt, Grid grid)
+    public void process(Camera cam, Toolbelt toolbelt, Grid grid, GUIManager guiManager)
     {
 	_cam = cam;
 	_toolbelt = toolbelt;
 	_grid = grid;
+	_guiManager = guiManager;
 	InputButton[] keys = Engine.getInstance().getInputSystem()
 				.getKeyboard().getKeys();
 	
@@ -245,7 +248,7 @@ public class GameStateInput
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 		    .getTouchScreen().getTouchEvent();
 	    
-	    switch (touchEvent.getAction()) {
+	    switch (touchEvent.getAction()) {		    
 		case MotionEvent.ACTION_DOWN:
 		    // TODO: Make mouseClick() only trigger on a full click, and not when trying to zoom/drag
 		    // TODO: Should the menu bar height be compensated for elsewhere, higher up?
@@ -254,6 +257,10 @@ public class GameStateInput
 		    _initialX = touchEvent.getX();
 		    _initialY = touchEvent.getY();
 		    _touchMode = DRAG;
+		    break;
+		case MotionEvent.ACTION_UP:
+		    _guiManager.letGoOfButton();
+		    break;
 		case MotionEvent.ACTION_MOVE:
 		    if (_touchMode == DRAG) {
 			float newX = touchEvent.getX();

@@ -56,6 +56,7 @@ public class Button implements IWidget
 	this._width = width;
 	this._height = height;
 	_title = title;
+	_isTapped = false;
 	
 	_quad = new PrimitiveQuad(
 	    new Vector3f(0, 0, 0),
@@ -150,7 +151,7 @@ public class Button implements IWidget
     
     public void setTexture(TextureResource texture)
     {
-	// Immediately set all three textures
+	// Immediately set both _texture and _drawTexture 
 	_texture = texture;
 	_drawTexture = texture;
     }

@@ -179,10 +179,11 @@ public class GUIManager
      */
     public void letGoOfButton()
     {
-	if (_tappedButton != null &&
-	_tappedButton.getMethod() != null &&
-	_tappedButton.getCallee() != null) {
-	    _tappedButton.tapped();
+	if (_tappedButton != null) {
+	    if (_tappedButton.getMethod() != null &&
+		_tappedButton.getCallee() != null) {
+		_tappedButton.tapped();
+	    }
 	    _tappedButton.setIsTapped(false);
 	    _tappedButton = null;
 	}
