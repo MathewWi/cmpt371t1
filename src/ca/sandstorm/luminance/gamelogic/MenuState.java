@@ -132,26 +132,50 @@ public class MenuState implements IState
 	float screenWidth = (float)Engine.getInstance().getViewWidth();
 	float screenHeight = (float)Engine.getInstance().getViewHeight();
 	
-	Button startButton = new Button(0.06f*screenWidth, 
-	                                0.1f*screenHeight, 
-	                                0.88f*screenWidth, 
-	                                0.1f*screenHeight, 
+	Button startButton = new Button(0.175f*screenWidth, 
+	                                0.350f*screenHeight, 
+	                                0.650f*screenWidth, 
+	                                0.100f*screenHeight, 
 	                                "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
 	startButton.setTappedTextureLocation("textures/helpImage.png");
 	startButton.setCalleeAndMethod(this, "test");
 	
-	Button helpButton = new Button(0.06f*screenWidth, 
-	                               0.1f*screenHeight + 60.0f,
-	                               0.88f*screenWidth, 
-	                               0.1f*screenHeight,
+	Button helpButton = new Button(0.175f*screenWidth, 
+	                               0.350f*screenHeight + .125f*screenHeight,
+	                               0.650f*screenWidth, 
+	                               0.100f*screenHeight,
 	                               "Help");
 	helpButton.setTextureResourceLocation("textures/helpImage.png");
 	helpButton.setTappedTextureLocation("textures/startImage.png");
 	helpButton.setCalleeAndMethod(this, "test");
 	
+	Button soundButton = new Button(0.86f*screenWidth,
+	                                0.86f*screenHeight,
+	                                0.14f*screenWidth,
+	                                0.12f*screenHeight,
+	                                "Sound");
+	soundButton.setTextureResourceLocation("textures/sound.png");
+	
+	Button scoreButton = new Button(0.010f*screenWidth,
+	                                0.740f*screenHeight,
+	                                0.140f*screenWidth,
+	                                0.120f*screenHeight,
+	                                "Score");
+	scoreButton.setTextureResourceLocation("textures/scoreBoard.png");
+	
+	Button infoButton = new Button(0.010f*screenWidth,
+	                               0.860f*screenHeight,
+	                               0.140f*screenWidth,
+	                               0.120f*screenHeight,
+	                               "Info");
+	infoButton.setTextureResourceLocation("textures/info.png");
+	
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(helpButton);
+	_guiManager.addButton(soundButton);
+	_guiManager.addButton(scoreButton);
+	_guiManager.addButton(infoButton);
 	
 	try {
 	    _background = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/menuBackground.png");
@@ -161,7 +185,8 @@ public class MenuState implements IState
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
 		    widget.setTexture(texture);
 		    
-		    if (widget.getClass() == Button.class) {
+		    if (widget.getClass() == Button.class & 
+			((Button)widget).getTappedTextureLocation() != null) {
 			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
 			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
 			((Button)widget).setTappedTexture(tappedTexture);
