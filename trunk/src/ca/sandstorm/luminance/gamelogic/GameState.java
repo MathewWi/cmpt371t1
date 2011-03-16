@@ -412,6 +412,13 @@ public class GameState implements IState
 		    			                 + "Clicked.png");
 		    */
 		    widget.setTexture(texture);
+		    
+		    if (widget.getClass() == Button.class && 
+			((Button)widget).getTappedTextureLocation() != null) {
+			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
+			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
+			((Button)widget).setTappedTexture(tappedTexture);
+		    }
 		}
 	    }	  
 	} catch (IOException e) {
@@ -487,7 +494,7 @@ public class GameState implements IState
     public void update(GL10 gl)
     {
 	// Handle input
-	_input.process(_cam, _toolbelt, _grid);
+	_input.process(_cam, _toolbelt, _grid, _guiManager);
 	
 	// Update game objects
 	for (IGameObject object : _objects.values()) {

@@ -62,6 +62,7 @@ public class Toolbelt
 	                                 toolIconSizeWidth, 
 	                                 toolIconSizeHeight, "Eraser");
 	eraserButton.setTextureResourceLocation("textures/eraser.png");
+	eraserButton.setTappedTextureLocation("textures/eraserClicked.png");
 	//eraserButton.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/eraser.png"));
 	_gameState.getGui().addButton(eraserButton);
     }
@@ -81,12 +82,15 @@ public class Toolbelt
 	if (touchedButton != null) {
 	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
 		logger.debug("mirror has been tapped");
+		touchedButton.setIsTapped(true);
 		selectTool(ToolType.Mirror);
 	    } else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
 		logger.debug("prism has been tapped");
+		touchedButton.setIsTapped(true);
 		selectTool(ToolType.Prism);
 	    } else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
 		logger.debug("eraser has been tapped");
+		touchedButton.setIsTapped(true);
 		selectTool(ToolType.Eraser);
 	    }
 	} else if (gridCoords != null) {
@@ -194,6 +198,7 @@ public class Toolbelt
 	                               toolIconSizeWidth, 
 	                               toolIconSizeHeight, "Mirror");
 	    button.setTextureResourceLocation("textures/mirror.png");
+	    button.setTappedTextureLocation("textures/mirrorClicked.png");
 	    _mirrorIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	} else if(toolType == ToolType.Prism && !_prismIconAdded) {
@@ -202,6 +207,7 @@ public class Toolbelt
 	                               toolIconSizeWidth, 
 	                               toolIconSizeHeight, "Prism");
 	    button.setTextureResourceLocation("textures/prism.png");
+	    button.setTappedTextureLocation("textures/prismClicked.png");
 	    _prismIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	}
