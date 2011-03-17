@@ -66,7 +66,8 @@
 || Refactoring || 2 ||
 || Toolbox GUI drawing, GUI system fixes || 1.5 ||
 || Quad renderable, updating GUI to use it || 1 ||
-|| Bug fixing, optimizing || 2 ||
+|| Bug fixing, optimizing || 2.5 ||
+|| Multilevel support, transitioning || 1 ||
 
 ===Milestone 3 Estimations===
 || Toolbelt--GameState refactoring || 3 ||
