@@ -20,6 +20,7 @@ import ca.sandstorm.luminance.input.InputSystem;
 import ca.sandstorm.luminance.input.MultiTouchFilter;
 import ca.sandstorm.luminance.input.SingleTouchFilter;
 import ca.sandstorm.luminance.input.TouchFilter;
+import ca.sandstorm.luminance.resources.MusicResource;
 import ca.sandstorm.luminance.resources.ResourceManager;
 import ca.sandstorm.luminance.resources.TextResource;
 import ca.sandstorm.luminance.state.IState;
@@ -121,8 +122,7 @@ public class Engine
 	_context = context;
 	_resourceManager.setAssets(_context.getAssets());
 
-	listDirectoryFiles("/");
-	listDirectoryFiles("/assets");
+	//listDirectoryFiles("/");
     }
 
 
@@ -449,12 +449,13 @@ public class Engine
      */
     public void init(GL10 gl)
     {
-	// Start the game music
-//	try {
-//	    _audioSystem.playMusic("sounds/sample.ogg");
-//	} catch (IOException e) {
-//	    logger.error("Unable to load music file for playback.");
-//	}
+	// Start music playback
+	try {
+	    MusicResource music = _resourceManager.loadMusic("sounds/music1.mp3");
+	    _audioSystem.playMusic(music);
+	} catch (IOException e) {
+	    logger.error("Failed to load music file: " + e.getMessage());
+	}
 
     	for (IState s : _stateStack) {
     	    if (s.isActive()) {

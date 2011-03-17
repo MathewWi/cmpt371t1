@@ -56,6 +56,10 @@ public class GameState implements IState
 
     private boolean _initialized = false;
     
+    // Current level
+    private int _level;
+    private boolean _complete = false;
+    
     // camera for the view matrix
     private Camera _cam;
 
@@ -77,7 +81,6 @@ public class GameState implements IState
     private Toolbelt _toolbelt;
 
     // Container of game objects
-    //private LinkedList<IGameObject> _objects;
     private HashMap<Point2i, IGameObject> _objects;
     
     // Container for the goals for quick verification
@@ -92,9 +95,10 @@ public class GameState implements IState
      * 
      * Sets up a basic test world.
      */
-    public GameState()
+    public GameState(int level)
     {
 	logger.debug("GameState()");
+	_level = level;
 	
 	//_objects = new LinkedList<IGameObject>();
 	_objects = new HashMap<Point2i, IGameObject>();
@@ -185,7 +189,9 @@ public class GameState implements IState
     public void nextLevel()
     {
 	//_parseLevel();
-	_clearLevel();
+	//_clearLevel();
+	Engine.getInstance().popState();
+	Engine.getInstance().pushState(new GameState(_level + 1));
     }
     
     
@@ -202,7 +208,7 @@ public class GameState implements IState
 	try
 	{
 	    // parse the level
-	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/TestLevel.xml");
+	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/level" + _level + ".xml");
 	    XmlLevelParser levelParser = new XmlLevelParser(levelFile);
 	    XmlLevel level = levelParser.parse();
 	    level.toString();
@@ -278,6 +284,7 @@ public class GameState implements IState
 	catch (IOException e)
 	{
 	    logger.error("Could not open level file!");
+	    System.exit(0);
 	}	
     }
     
@@ -361,7 +368,6 @@ public class GameState implements IState
 	// Load sound effects and music
 	try {
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/sample.ogg");
-	    Engine.getInstance().getResourceManager().loadMusic("sounds/music1.mp3");
 	} catch (IOException e) {
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
@@ -425,15 +431,7 @@ public class GameState implements IState
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
 	}
-	
-	// Start music playback
-	try {
-	    Engine.getInstance().getAudio().playMusic((MusicResource)Engine.getInstance().getResourceManager().getResource("sounds/music1.mp3"));
-	} catch (IOException e) {
-	    logger.error("Unable to play music: " + e.getMessage());
-	    e.printStackTrace();
-	}
-	
+		
 	// SUCCESS
 	_initialized = true;
     }
@@ -570,21 +568,24 @@ public class GameState implements IState
 	}
 	
 	// level end check
-	boolean bLevelComplete = true;
-	for (Receptor r : _goalObjects)
-	{
-	    // all goals must be activated
-	    if (!r.getActivated())
+	if (!_complete) {
+	    boolean bLevelComplete = true;
+	    for (Receptor r : _goalObjects)
 	    {
-		bLevelComplete = false;
-		break;
+		// all goals must be activated
+		if (!r.getActivated())
+		{
+		    bLevelComplete = false;
+		    break;
+		}
 	    }
-	}
-	
-	if (bLevelComplete)
-	{
-	    logger.info("/--LEVEL COMPLETED--\\");
-	    _levelComplete();
+
+	    if (bLevelComplete)
+	    {
+		logger.info("/--LEVEL COMPLETED--\\");
+		_complete = true;
+		_levelComplete();
+	    }
 	}
     }
 

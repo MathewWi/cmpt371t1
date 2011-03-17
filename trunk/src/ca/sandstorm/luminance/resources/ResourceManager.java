@@ -82,6 +82,12 @@ public class ResourceManager
      */
     public MusicResource loadMusic(String path) throws IOException
     {
+	_logger.debug("loadMusic(" + path + ")");
+	
+	// Check if the resource is already loaded
+	if (_resources.containsKey(path))
+	    return (MusicResource) _resources.get(path);
+
 	AssetFileDescriptor fd = _assets.openFd(path);
 	MusicResource res = new MusicResource(path, fd);
 	_resources.put(path, res);
@@ -166,6 +172,10 @@ public class ResourceManager
     {
 	_logger.debug("loadImage(" + filename + ")");
 	
+	// Check if the resource is already loaded
+	if (_resources.containsKey(filename))
+	    return (ImageResource) _resources.get(filename);
+	
 	InputStream stream = _assets.open(filename);
 	Bitmap bitmap = BitmapFactory.decodeStream(stream);
 	ImageResource res = new ImageResource(filename, bitmap);
@@ -190,6 +200,10 @@ public class ResourceManager
 	    throws IOException
     {
 	_logger.debug("loadTexture(" + gl + " , " + filename + ")");
+	
+	// Check if the resource is already loaded
+	if (_resources.containsKey(filename))
+	    return (TextureResource) _resources.get(filename);
 	
 	// Load the image
 	InputStream stream = _assets.open(filename);
@@ -237,6 +251,10 @@ public class ResourceManager
     public SoundResource loadSound(SoundPool pool, String filename) throws IOException
     {
 	_logger.debug("loadSound(" + pool + ", " + filename + ")");
+	
+	// Check if the resource is already loaded
+	if (_resources.containsKey(filename))
+	    return (SoundResource) _resources.get(filename);
 	
 	//int soundId = pool.load(filename, 1);
 	AssetFileDescriptor afd = _assets.openFd(filename);
