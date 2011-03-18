@@ -141,13 +141,14 @@ public class Receptor extends GameObject implements IRenderableObject
 
     /**
      * Defines how the object interacts with a lightbeam.
-     * @param beam The light beam
-     * @param lightIndexToInteract Index of the light beam element to interact with
+     * @param beamIndex The light beam
+     * @param lightIndex Index of the light beam element to interact with
      */
     @Override
-    public void beamInteract(LightBeam beam, int lightIndexToInteract)
+    public void beamInteract(LightBeamCollection beamCollection, int beamIndex, int lightIndex)
     {
-	Light l = beam.get(lightIndexToInteract);
+	LightBeam beam = beamCollection.get(beamIndex);
+	Light l = beam.get(lightIndex);
 	if (l.getColor() == this.getColor())
 	{
 	    _activated = true;

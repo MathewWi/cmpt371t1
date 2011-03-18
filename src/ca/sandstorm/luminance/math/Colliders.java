@@ -8,6 +8,9 @@ public class Colliders
     public static final float EPSILON = 1e-8f;
     
     public static Vector3f UP = new Vector3f(0, 1, 0);
+    public static Vector3f DOWN = new Vector3f(0, -1, 0);
+    public static Vector3f LEFT = new Vector3f(-1, 0, 0);
+    public static Vector3f RIGHT = new Vector3f(1, 0, 0);
     
     private static Vector3f _tmpCollisionPoint = new Vector3f();
     private static Vector3f _tmpCrossProduct = new Vector3f();

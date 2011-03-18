@@ -556,7 +556,7 @@ public class GameState implements IState
 		    {
 			
 		    }
-		    minObj.beamInteract(lightBeam, j);
+		    minObj.beamInteract(_lightPath.getLightPaths(), i, j);
 		}
 		
 		// check if the beam was modified and we are done

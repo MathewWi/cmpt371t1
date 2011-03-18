@@ -6,8 +6,11 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.graphics.Color;
+
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
+import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Sphere;
 import ca.sandstorm.luminance.resources.TextureResource;
 
@@ -95,13 +98,40 @@ public class Prism extends GameObject implements IRenderableObject
 
     /**
      * Defines how the object interacts with a lightbeam.
-     * @param beam The light beam
-     * @param lightIndexToInteract Index of the light beam element to interact with
+     * @param beamIndex The light beam
+     * @param lightIndex Index of the light beam element to interact with
      */
     @Override
-    public void beamInteract(LightBeam beam, int lightIndexToInteract)
+    public void beamInteract(LightBeamCollection beamCollection, int beamIndex, int lightIndex)
     {
-	// TODO Auto-generated method stub
+	LightBeam beam = beamCollection.get(beamIndex);
+	Light l = beam.get(lightIndex);
+	l.setEndTouchedObject(this);
+	
+	// prism spawns 3 lights	
+	// light 1, straight through, light dir
+	Vector3f dir = l.getDirection();
+	LightBeam newBeam = new LightBeam();
+	Light newLight = new Light(_position.x, _position.y, _position.z, dir.x, dir.y, dir.z, Light.LIGHT_INFINITY, Color.RED);
+	newLight.setStartTouchedObject(this);
+	newBeam.add(newLight);
+	beamCollection.add(newBeam);
+	
+	// light 2, side 1, light dir x up
+	dir = Colliders.crossProduct(l.getRay().getDirection(), Colliders.UP);
+	newBeam = new LightBeam();
+	newLight = new Light(_position.x, _position.y, _position.z, dir.x, dir.y, dir.z, Light.LIGHT_INFINITY, Color.GREEN);
+	newLight.setStartTouchedObject(this);
+	newBeam.add(newLight);
+	beamCollection.add(newBeam);
+	
+	// light 3, side 2, light dir x -up	
+	dir = Colliders.crossProduct(l.getRay().getDirection(), Colliders.DOWN);
+	newBeam = new LightBeam();
+	newLight = new Light(_position.x, _position.y, _position.z, dir.x, dir.y, dir.z, Light.LIGHT_INFINITY, Color.BLUE);
+	newLight.setStartTouchedObject(this);
+	newBeam.add(newLight);
+	beamCollection.add(newBeam);
 	
     }
 
