@@ -24,41 +24,41 @@ This is where the development team will be listing their tasks and roles.
    * Level editor
    * 2 more songs
 
-*First sprint*
-   * Stephen
-     * Fixed the state pushing
-     * Getting Prism to work
-     * Getting some lighting enabled.
-   * Jonny
-     * Update GUI textures with an on-touched version
-     * "Level Complete" texture
-   * Kum
-     * Update GUI textures with an on-touched version
-   * Zenja
-     * Get music playing on repeat
-     * "Level Complete" texture
-     * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
-   * Sten
-     * Get music playing on repeat
-     * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
+ === First sprint ===
+  * Stephen
+   * Fixed the state pushing
+   * Getting Prism to work
+   * Getting some lighting enabled.
+  * Jonny
+   * Update GUI textures with an on-touched version
+   * "Level Complete" texture
+  * Kum
+   * Update GUI textures with an on-touched version
+  * Zenja
+   * Get music playing on repeat
+   * "Level Complete" texture
+   * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
+  * Sten
+   * Get music playing on repeat
+   * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
 
-*Second sprint*
-   * Stephen
-     * 
-   * Jonny
-     * Make input perfect, and include a 'swipe' gesture
-     * Graphics for Pause Menu
-     * Adding and amount to number of tools left in the toolbar
-   * Kum
-     * Pause Menu for in-game
-     * Adding and amount to number of tools left in the toolbar
-   * Zenja
-     * Level complete should not delete the current gameState, but simply reset it.
-     * Sound effects
-     * Adding and amount to number of tools left in the toolbar
-   * Sten
-     * Load a level list containing names of each levels, GameState should parse this file and use it to iterate levels.
-     * Sound effects
+ === Second sprint ===
+  * Stephen
+   * 
+  * Jonny
+   * Make input perfect, and include a 'swipe' gesture
+   * Graphics for Pause Menu
+   * Adding and amount to number of tools left in the toolbar
+  * Kum
+   * Pause Menu for in-game
+   * Adding and amount to number of tools left in the toolbar
+  * Zenja
+   * Level complete should not delete the current gameState, but simply reset it.
+   * Sound effects
+   * Adding and amount to number of tools left in the toolbar
+  * Sten
+   * Load a level list containing names of each levels, GameState should parse this file and use it to iterate levels.
+   * Sound effects
 
 == Milestone 2 ==
  * Two members have gone from the team. 
