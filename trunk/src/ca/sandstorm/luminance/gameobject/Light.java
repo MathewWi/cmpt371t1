@@ -256,7 +256,7 @@ public class Light extends GameObject implements IGameObject
 
 
     @Override
-    public void beamInteract(LightBeam beam, int lightIndexToInteract)
+    public void beamInteract(LightBeamCollection beamCollection, int beamIndex, int lightIndex)
     {
 	// TODO Auto-generated method stub
 	

@@ -104,23 +104,25 @@ public class Box extends GameObject implements IRenderableObject
 
     /**
      * Defines how the object interacts with a lightbeam.
-     * @param beam The light beam
-     * @param lightIndexToInteract Index of the light beam element to interact with
+     * @param beamIndex The light beam
+     * @param lightIndex Index of the light beam element to interact with
      */
     @Override
-    public void beamInteract(LightBeam beam, int lightIndexToInteract)
+    public void beamInteract(LightBeamCollection beamCollection, int beamIndex, int lightIndex)
     {
 	//_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
 	
+	LightBeam beam = beamCollection.get(beamIndex);
+	
 	// this is not the end light
-	while (lightIndexToInteract < beam.size()-1)
+	while (lightIndex < beam.size()-1)
 	{
 	    // this is a brick, remove all fragments
 	    beam.removeLast();
 	}
 	
 	// adjust the last piece (the one hitting the brick)
-	Light l = beam.get(lightIndexToInteract);
+	Light l = beam.get(lightIndex);
 	float newDistance = (float)Colliders.distance(this.getPosition(), l.getPosition());
 	l.setDistance(newDistance);
 	
