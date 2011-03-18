@@ -24,7 +24,7 @@ This is where the development team will be listing their tasks and roles.
    * Level editor
    * 2 more songs
 
- * First sprint *
+*First sprint*
    * Stephen
      * Fixed the state pushing
      * Getting Prism to work
@@ -42,7 +42,7 @@ This is where the development team will be listing their tasks and roles.
      * Get music playing on repeat
      * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
 
- * Second sprint *
+*Second sprint*
    * Stephen
      * 
    * Jonny
@@ -57,8 +57,7 @@ This is where the development team will be listing their tasks and roles.
      * Sound effects
      * Adding and amount to number of tools left in the toolbar
    * Sten
-     * Load a level list containing names of each levels, GameState 
-should parse this file and use it to iterate levels.
+     * Load a level list containing names of each levels, GameState should parse this file and use it to iterate levels.
      * Sound effects
 
 == Milestone 2 ==
