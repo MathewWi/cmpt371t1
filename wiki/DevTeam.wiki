@@ -24,6 +24,68 @@ This is where the development team will be listing their tasks and roles.
    * Level editor
    * 2 more songs
 
+ * First sprint *
+   * Stephen
+     * Fixed the state pushing
+     * Getting Prism to work
+     * Getting some lighting enabled.
+   * Jonny
+     * Update GUI textures with an on-touched version
+     * "Level Complete" texture
+   * Kum
+     * Update GUI textures with an on-touched version
+   * Zenja
+     * Get music playing on repeat
+     * "Level Complete" texture
+     * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
+   * Sten
+     * Get music playing on repeat
+     * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
+
+Load a level list containing names of each levels, GameState 
+should parse this file and use it to iterate levels. - Sten
+
+- Level complete should not delete the current gameState, there 
+should be a clear() type function which essentially resets game state. 
+This might involve adding clear() to other classes. Things like Grid, 
+Camera, etc can just be recreated. (ie. _grid = new Grid, let the old 
+instance just die for now). - Zenja
+
+- Setup a "pause" menu for our game in GameState. This probably 
+requires a GUIManager that is only drawn at certain times. The menu 
+should have options like "resume, restart level, quit". This might 
+require a new graphics. - Kum, Jonny (for the graphic)
+
+- Sound effects for victory, placing tools and clicking on the 
+GUI. Check out (http://www.freesound.org/) - Sten, Zenja
+
+- Tools need icons representing how many are left. Since there is 
+no nice OpenGL way to just draw plain old text there will be some 
+learning here. Two good websites: start here 
+(http://www.opengl.org/resources/faq/technical/fonts.htm) and follow 
+the 
+link to here 
+(http://www.opengl.org/resources/code/samples/glut_examples/texfont/texf
+ont.html). 
+If you can't make heads or tails of this quickly please ask and I'll 
+explain a simpler (less useful) solution. - Zenja and Kum, Jonny for 
+support.
+
+ * Second sprint *
+   * Stephen
+     * 
+   * Jonny
+     * Make input perfect, and include a 'swipe' gesture
+   * Kum
+     * Update GUI textures with an on-touched version
+   * Zenja
+     * Get music playing on repeat
+     * "Level Complete" texture
+     * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
+   * Sten
+     * Get music playing on repeat
+     * A method to progress through levels - i.e. load a file which contains a list of levels in order, or create a way for XmlLevels to store the path to their next level.
+
 == Milestone 2 ==
  * Two members have gone from the team. 
  * Chet is not longer part of the development team.
