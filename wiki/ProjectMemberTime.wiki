@@ -125,10 +125,17 @@
 || Setup proper collision response and light reflecting || 3 ||
 
 ===Milestone 3 Estimations===
+|| *Task* || *Hours spent so far* ||
 || Add real lights, particles || 5 ||
 || Add real reflections on the mirror || 3 ||
 || Perfect collision detect and response || 3 ||
 || Add glowing effects to emmitter and receptor || 4 ||
+
+===Milestone 3 ===
+|| *Task* || *Hours spent so far* ||
+|| Fixed state pushing bugs || 3 ||
+|| Got prism working || 1 ||
+|| Implemented proper light reflection || 2 ||
 
 
 == Martina Nagy ==
