@@ -190,16 +190,16 @@ Below are risks that are most important to this phase of the project:
  * *Status:* Everyone is likely aware of the correct due date, and we have already received extra help from our project's manager. Therefore, the risk is sufficiently avoided at this point.
 
 ==Risk 11=
- * *Description:* 
+ * *Description:* Limited user evaluation may result in game play issues
 
  * *Probability:* Medium
 
  * *Severity:* High
 
- * *Rationale:* 
+ * *Rationale:* If our game does not receive enough user evaluation until the later stages of development, it may be too late to fix issues that are related to game play. These issues may not be a result of bugs or logical errors in code; they may simply be features that do not provide the best user experience.
 
- * *Mitigation Plan:* 
+ * *Mitigation Plan:* We have scheduled user evaluations as soon as levels are available to ensure that we get a realistic picture of how the game is when played by individuals outside of the project.
 
- * *Contingency Plan:* 
+ * *Contingency Plan:* We must also ensure that developers are aware of the importance of user evaluation and play testing. 
 
- * *Status:* 
+ * *Status:* Levels are not yet complete, so user evaluation will not be possible for the moment. The developers should be aware of the plan to start user evaluations as soon as possible.
