@@ -30,7 +30,7 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* Currently, the project builds successfully on !TeamCity and a simple smoke test is in place. Therefore, this risk is sufficiently avoided.
 
-* *Update* 03/20/2011: The smoke test currently runs our suite of JUnit tests to ensure that nothing major is broken by a commit.
+ * *Update* 03/20/2011: The smoke test currently runs our suite of JUnit tests to ensure that nothing major is broken by a commit.
 
 
 ==Risk 2==
