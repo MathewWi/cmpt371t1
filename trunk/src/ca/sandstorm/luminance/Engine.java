@@ -37,6 +37,10 @@ public class Engine
 {
     private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
+    // constants for debugging
+    public static final boolean DEBUG = true;
+    public static final boolean TRACE_VIEW = false;
+    
     // singleton instance
     private static Engine _instance = null;
 

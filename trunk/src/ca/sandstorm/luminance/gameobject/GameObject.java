@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gameobject;
 
+import java.util.Vector;
+
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
@@ -14,11 +16,16 @@ public abstract class GameObject implements IGameObject
     protected Vector4f _rotation;
     protected Vector3f _scale;
     
+    private Vector<Light> _lightsInteracting;
+    
+    
     public GameObject()
     {
 	_position = new Vector3f(0.0f, 0.0f, 0.0f);
 	_rotation = new Vector4f(1.0f, 1.0f, 1.0f, 0f);
 	_scale = new Vector3f(1.0f, 1.0f, 1.0f);
+	
+	_lightsInteracting = new Vector<Light>();
     }
     
     /**
@@ -39,16 +46,6 @@ public abstract class GameObject implements IGameObject
     public void update()
     {
 
-    }
-
-
-    /**
-     * Destroy the object.
-     */
-    @Override
-    public void destroy()
-    {
-	
     }
 
 
@@ -93,5 +90,22 @@ public abstract class GameObject implements IGameObject
     {
 	return _scale;
     }
+    
+    
+    public void addInteractingLight(Light l)
+    {
+	_lightsInteracting.add(l);
+    }
+    
+    
+    public void removeInteractingLight(Light l)
+    {
+	_lightsInteracting.remove(l);
+    }
+    
 
+    public Vector<Light> getInteractingLights()
+    {
+	return _lightsInteracting;
+    }
 }

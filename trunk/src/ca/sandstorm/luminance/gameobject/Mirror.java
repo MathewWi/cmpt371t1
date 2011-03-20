@@ -67,6 +67,17 @@ public class Mirror extends GameObject implements IRenderableObject
 	}
 	_texture = tex.getTexture();
     }
+    
+    
+    /**
+     * Destroy the object.
+     */
+    @Override
+    public void destroy()
+    {
+	
+    }
+    
 
     /**
      * Get the model associated with this object.

@@ -552,10 +552,6 @@ public class GameState implements IState
 		// we found a min collision
 		if (minObj != null)
 		{
-		    if (l.getEndTouchedObject() != null)
-		    {
-			
-		    }
 		    minObj.beamInteract(_lightPath.getLightPaths(), i, j);
 		}
 		
@@ -597,8 +593,9 @@ public class GameState implements IState
     @Override
     public void draw(GL10 gl)
     {	
+	gl.glEnable(GL10.GL_DITHER);
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-
+	
 	_cam.updateViewMatrix(gl);
 
 	gl.glPushMatrix();
@@ -607,6 +604,9 @@ public class GameState implements IState
 	_sky.draw(gl);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
 	gl.glPopMatrix();
+	
+	gl.glEnable(GL10.GL_CULL_FACE);
+	gl.glCullFace(GL10.GL_BACK);	
 
 	// Get renderer to draw everything on its renderable list
 	Engine.getInstance().getRenderer().draw(gl);
@@ -637,6 +637,8 @@ public class GameState implements IState
 		
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glPopMatrix();
+	
+	gl.glDisable(GL10.GL_CULL_FACE);
     }
 
     public GUIManager getGui()
@@ -661,8 +663,12 @@ public class GameState implements IState
 	gl.glEnable(GL10.GL_DEPTH_TEST); // Enables Depth Testing
 	gl.glDepthFunc(GL10.GL_LEQUAL); // The Type Of Depth Testing To Do
 
-	// Really Nice Perspective Calculations
+	// Really Nice Perspective Calculations 
 	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
+	gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_FASTEST);
+	gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_FASTEST);
+	gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_FASTEST);
+	gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_FASTEST);
 
 	// prevent divide by zero.
 	// @HACK - Forgiven since h == 0 means the game window is probably

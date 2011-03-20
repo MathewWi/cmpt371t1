@@ -16,6 +16,7 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
@@ -62,8 +63,8 @@ public class Luminance extends Activity
 //		logFpsCounter -= 1f;
 //	    }
 	}
-    };
-
+    };    
+    
 
     /**
      * Android Activity OnCreate()
@@ -72,6 +73,14 @@ public class Luminance extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {	
 	_logger.debug("onCreate()");
+	
+	// init traceview
+	if (Engine.TRACE_VIEW)
+	{
+	    // start tracing to "/sdcard/luminanceMethodProfile_($time).trace"
+	    long time = System.currentTimeMillis();
+	    Debug.startMethodTracing("luminanceMethodProfile_" + time);
+	}
 	
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
@@ -122,6 +131,19 @@ public class Luminance extends Activity
 	
 	_logger.debug("StatusBarHeight: " + statusBarHeight);
 	Engine.getInstance().setMenuBarHeight((int)statusBarHeight);*/
+    }
+    
+    
+    @Override
+    protected void onStop()
+    {
+	// init traceview
+	if (Engine.TRACE_VIEW)
+	{
+	    Debug.stopMethodTracing();
+	}	
+	
+	super.onStop();
     }
 
 
