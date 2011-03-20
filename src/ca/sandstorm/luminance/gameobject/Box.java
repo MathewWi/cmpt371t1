@@ -82,6 +82,17 @@ public class Box extends GameObject implements IRenderableObject
 	}
 	_texture = tex.getTexture();
     }
+    
+    
+    /**
+     * Destroy the object.
+     */
+    @Override
+    public void destroy()
+    {
+	
+    }
+    
 
     /**
      * Update the object state.

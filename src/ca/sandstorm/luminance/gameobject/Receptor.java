@@ -47,6 +47,17 @@ public class Receptor extends GameObject implements IRenderableObject
 	_activated = false;
     }
     
+    
+    /**
+     * Destroy the object.
+     */
+    @Override
+    public void destroy()
+    {
+	
+    }
+    
+    
     /**
      * Set the receptor color.
      * @param color Android color
