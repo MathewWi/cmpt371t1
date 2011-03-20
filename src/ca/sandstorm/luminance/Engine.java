@@ -453,12 +453,12 @@ public class Engine
     public void init(GL10 gl)
     {
 	// Start music playback
-	try {
+	/*try {
 	    MusicResource music = _resourceManager.loadMusic("sounds/music1.mp3");
 	    _audioSystem.playMusic(music);
 	} catch (IOException e) {
 	    logger.error("Failed to load music file: " + e.getMessage());
-	}
+	}*/
 
     	for (IState s : _stateStack) {
     	    if (s.isActive()) {
