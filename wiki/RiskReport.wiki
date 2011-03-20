@@ -9,7 +9,7 @@
   * Mitigation Plan - how we plan to prevent this risk from being realized
   * Contingency Plan - should the risk occur, what alternatives can be explored?
   * Status - has the issue been resolved or are there still potential risk issues?
-  * Updates - more information will be posted as risks change
+  * Update(s) - more information will be posted as risks change
 
 
 =Current Risks=
@@ -108,7 +108,7 @@ Below are risks that are most important to this phase of the project:
 
 
 ==Risk 6==
- * *Description:* Ensuring the success of a complete code rewrite
+ * *Description:* Ensuring the success of a complete code rewrite.
 
  * *Probability:* Medium
 
@@ -190,7 +190,7 @@ Below are risks that are most important to this phase of the project:
  * *Status:* Everyone is likely aware of the correct due date, and we have already received extra help from our project's manager. Therefore, the risk is sufficiently avoided at this point.
 
 ==Risk 11=
- * *Description:* Limited user evaluation may result in game play issues
+ * *Description:* Limited user evaluation may result in game play issues.
 
  * *Probability:* Medium
 
