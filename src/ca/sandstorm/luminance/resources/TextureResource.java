@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.resources;
 
+import javax.microedition.khronos.opengles.GL10;
+
 /**
  * Represents an OpenGL texture resource.
  * 
@@ -9,7 +11,8 @@ public class TextureResource implements IResource
 {
     private String _name;
     private int _glTexturePtr;
-
+    protected GL10 _gl;
+    
 
     /**
      * Constructor.
@@ -19,10 +22,11 @@ public class TextureResource implements IResource
      * @param texture
      *            OpenGL texture identifier
      */
-    public TextureResource(String name, int texture)
+    public TextureResource(String name, int texture, GL10 gl)
     {
 	_name = name;
 	_glTexturePtr = texture;
+	_gl = gl;
     }
 
 

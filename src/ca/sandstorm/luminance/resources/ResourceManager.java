@@ -32,7 +32,7 @@ public class ResourceManager
 
     private AssetManager _assets;
     private HashMap<String, IResource> _resources;
-
+    
 
     /**
      * Constructor.
@@ -201,9 +201,13 @@ public class ResourceManager
     {
 	_logger.debug("loadTexture(" + gl + " , " + filename + ")");
 	
-	// Check if the resource is already loaded
-	if (_resources.containsKey(filename))
-	    return (TextureResource) _resources.get(filename);
+	// Check if the resource is already loaded for this GL context
+	if (_resources.containsKey(filename)) {
+	    TextureResource oldRes = (TextureResource) _resources.get(filename);
+	    if (oldRes._gl == gl) {
+		return oldRes;
+	    }
+	}
 	
 	// Load the image
 	InputStream stream = _assets.open(filename);
@@ -230,7 +234,7 @@ public class ResourceManager
 	// Use the Android GLUtils to specify a two-dimensional texture image
 	// from our bitmap
 	GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
-	TextureResource res = new TextureResource(filename, textures[0]);
+	TextureResource res = new TextureResource(filename, textures[0], gl);
 
 	_resources.put(filename, res);
 	_logger.debug("Generated texture: " + filename + " = " + Integer.toString(textures[0]));

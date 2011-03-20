@@ -121,7 +121,6 @@ public class GameState implements IState
 	obj.initialize();
 	
 	// Add to updatable objects list
-	//_objects.add(obj);
 	Point2i gridCoord = worldToGridCoords(obj.getPosition());
 	_objects.put(gridCoord, obj);
 	
