@@ -30,6 +30,9 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* Currently, the project builds successfully on !TeamCity and a simple smoke test is in place. Therefore, this risk is sufficiently avoided.
 
+* *Update* 03/20/2011: The smoke test currently runs our suite of JUnit tests to ensure that nothing major is broken by a commit.
+
+
 ==Risk 2==
  * *Description:* Setting up a standard development environment for all developers.
 
@@ -78,6 +81,8 @@ Below are risks that are most important to this phase of the project:
  * *Contingency Plan:* If more specific assistance is needed, a test team member will contact the developer involved in the code being tested, and obtain some advice on how to properly test a given unit.
 
  * *Status:* After a recent meeting on 02/11/2011 both the developers and testers are aware of what is to be implemented, and which units can be tested first.
+
+ * *Update* 03/20/2011: To ensure that developers are in constant communication with testers, we have paired up 1-2 developer(s) with the member of the test team that will be testing their code.
 
 =Potential Risks=
 
@@ -137,6 +142,8 @@ Below are risks that are most important to this phase of the project:
 
  * *Update* 02/13/2011: At this point, we have delegated that a resource manager system be implemented to handle the efficient loading of audio and texture elements as needed.
 
+ * *Update* 03/20/2011: The source code relating to resource management has been written and tested. Further refactoring to follow.
+
 ==Risk 8==
  * *Description:* Avoid performance problems when running on Android phone
 
@@ -153,7 +160,7 @@ Below are risks that are most important to this phase of the project:
  * *Status:* We have not yet encountered the issue, but are prepared to deal with slowness should it come up.
 
 ==Risk 9==
- * *Description:* Avoid vague descriptions for implementation of new features
+ * *Description:* Repeated or defective work resulting from vague requirements.
 
  * *Probability:* Medium
 
@@ -168,7 +175,7 @@ Below are risks that are most important to this phase of the project:
  * *Status:* Since we are still working on a runnable version of the game, this risk has not yet been realized. Once the existing features are implemented, we will formalize a plan for how to proceed with the new features.
 
 ==Risk 10==
- * *Description:* Ensure that all group members are aware of impending due dates.
+ * *Description:* Work handed in late due to a miscommunication about due dates.
 
  * *Probability:* Medium
 
@@ -181,3 +188,18 @@ Below are risks that are most important to this phase of the project:
  * *Contingency Plan:* If there are still individuals who are unaware of the correct due date, then the project manager will need to intervene on an individual level to ensure that proper communication takes place.
 
  * *Status:* Everyone is likely aware of the correct due date, and we have already received extra help from our project's manager. Therefore, the risk is sufficiently avoided at this point.
+
+==Risk 11=
+ * *Description:* 
+
+ * *Probability:* Medium
+
+ * *Severity:* High
+
+ * *Rationale:* 
+
+ * *Mitigation Plan:* 
+
+ * *Contingency Plan:* 
+
+ * *Status:* 
