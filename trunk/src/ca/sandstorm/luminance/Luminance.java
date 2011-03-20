@@ -41,6 +41,9 @@ public class Luminance extends Activity
     // warning because the code that uses it should normally be commented out.
     @SuppressWarnings("unused")
     private float _logFpsCounter = 0f;
+    
+    // Set to false after the program starts for the first time
+    private boolean _firstCreate = true;
 
     // openGL view
     private GLSurfaceView mGLView;
@@ -77,11 +80,13 @@ public class Luminance extends Activity
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
 	
-	// init the engine and add our states
-	//Engine.getInstance().pushState(new GameState());
+	if (_firstCreate) {
+	    // init the engine and add our states
+	    //Engine.getInstance().pushState(new GameState());
 	
-	// UNCOMMENT TO START IN MENU STATE
-	Engine.getInstance().pushState(new MenuState());
+	    // UNCOMMENT TO START IN MENU STATE
+	    Engine.getInstance().pushState(new MenuState());
+	}
 		
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
@@ -95,7 +100,9 @@ public class Luminance extends Activity
             public GL wrap(GL gl) { return new MatrixTrackingGL(gl); }
         });
 	
-	setContentView(mGLView);	
+	setContentView(mGLView);
+	
+	_firstCreate = false;
     }
     
     
