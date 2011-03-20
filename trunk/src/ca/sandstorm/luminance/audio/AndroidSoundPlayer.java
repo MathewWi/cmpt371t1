@@ -29,6 +29,7 @@ public class AndroidSoundPlayer implements IAudioDriver
     private MediaPlayer _mediaPlayer;
     private SoundPool _soundPool;
     private HashMap<Integer, Integer> _streamMap;
+    private MusicResource _currentMusic;
     private static final Logger _logger = LoggerFactory
 	    .getLogger("Luminance.AndroidSoundPlayer");
 
@@ -88,12 +89,21 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public void playMusic(MusicResource res) throws IOException
     {
+	if (_mediaPlayer.isPlaying()) {
+	    if (res == _currentMusic) {
+		return;
+	    } else {
+		// TODO: switch songs
+	    }
+	}
+	
 	_logger.debug("Playing music: " + res.getName());
 	_mediaPlayer.setDataSource(res.getMusicFd());
 	_mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 	_mediaPlayer.setLooping(true);
 	_mediaPlayer.prepare();
 	_mediaPlayer.start();
+	_currentMusic = res;
     }
 
 
