@@ -14,32 +14,55 @@ public class PrimitivePrism implements IRenderable
 {
     // Vertex coordinates
     private float[] _vertices = {
-	    -1.0f, -1.0f, -1.0f,
-	    1.0f, -1.0f, -1.0f,
-	    1.0f, 1.0f, -1.0f,
-            -1.0f, 1.0f, -1.0f,
-            0, 0, 1.0f
+	    // front face
+	    0, 1, 0,
+	    -1, -1, 1,
+	    1, -1, 1,
 
+            // right face
+            0, 1, 0,
+            1, -1, 1,
+            1, -1, -1,
+            
+            // back face
+            0, 1, 0,
+            1, -1, -1,
+            -1, -1, -1,
+            
+            // left face
+            0, 1, 0,
+            -1, -1, -1,
+            -1, -1, 1           
     };
+    
+  
     
     // Indices
     private byte[] _indices = {
-	    0, 4, 1,
-            1, 4, 2,
-            2, 4, 3,
-            3, 4, 0,
-            1, 2, 0,
-            0, 2, 3	
+	    0, 1, 2,
+            3, 4, 5,
+            6, 7, 8,
+            9, 10, 11	
     };
     
     // Texture coordinates
     // TODO: these are wrong
     private float[] _textureCoords = {
-		0.0f, 0.0f,
-    		0.0f, 1.0f,
+		0.5f, 1.0f,
     		1.0f, 0.0f,
-    		1.0f, 1.0f,
-    		0.5f, 1.0f
+    		0.0f, 0.0f,
+    		
+		0.5f, 1.0f,
+    		1.0f, 0.0f,
+    		0.0f, 0.0f,
+
+		0.5f, 1.0f,
+    		1.0f, 0.0f,
+    		0.0f, 0.0f,
+    		
+		0.5f, 1.0f,
+    		1.0f, 0.0f,
+    		0.0f, 0.0f,    		
     };
     
     private FloatBuffer _vertexBuffer;
