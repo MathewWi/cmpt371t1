@@ -26,11 +26,11 @@ public class Prism extends GameObject implements IRenderableObject
     
     private Sphere _colSphere;
     
-    public Prism(Vector3f position)
+    public Prism(Vector3f position, Vector3f rotation)
     {
 	// TODO: Improve orientation
 	_position = new Vector3f(position);
-	_rotation = new Vector4f(1.0f, 0.0f, 0.0f, 0);
+	_rotation = new Vector4f(rotation);
 	_scale = new Vector3f(0.5f, 0.5f, 0.5f);
 	_model = Engine.getInstance().getRenderer().getPrism();
 	
@@ -118,6 +118,20 @@ public class Prism extends GameObject implements IRenderableObject
 	LightBeam beam = beamCollection.get(beamIndex);
 	Light l = beam.get(lightIndex);
 	l.setEndTouchedObject(this);
+	
+	// if this mirror is breaking a light beam
+	// this is not the end light
+	while (lightIndex < beam.size()-1)
+	{
+	    // this is a brick, remove all fragments
+	    beam.removeLast();
+	}	
+		
+	// cause it to act like a block
+	if (l.getColor() != Color.WHITE)
+	{
+	    return;
+	}
 	
 	// prism spawns 3 lights	
 	// light 1, straight through, light dir
