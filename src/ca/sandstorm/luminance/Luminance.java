@@ -73,15 +73,7 @@ public class Luminance extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {	
 	_logger.debug("onCreate()");
-	
-	// init traceview
-	if (Engine.TRACE_VIEW)
-	{
-	    // start tracing to "/sdcard/luminanceMethodProfile_($time).trace"
-	    long time = System.currentTimeMillis();
-	    Debug.startMethodTracing("luminanceMethodProfile_" + time);
-	}
-	
+			
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
 	
@@ -103,46 +95,13 @@ public class Luminance extends Activity
             public GL wrap(GL gl) { return new MatrixTrackingGL(gl); }
         });
 	
-	setContentView(mGLView);
-	
-	// calculate the status bar height
-	/*DisplayMetrics metrics = new DisplayMetrics();
-	getWindowManager().getDefaultDisplay().getMetrics(metrics);
-	
-	float statusBarHeight = 0.0f;
-
-	float LOW_DPI_STATUS_BAR_HEIGHT = 19f;
-	float MEDIUM_DPI_STATUS_BAR_HEIGHT = 25f;
-	float HIGH_DPI_STATUS_BAR_HEIGHT = 38f;
-	
-	switch (metrics.densityDpi) {
-	    case DisplayMetrics.DENSITY_HIGH:
-	        statusBarHeight = HIGH_DPI_STATUS_BAR_HEIGHT;
-	        break;
-	    case DisplayMetrics.DENSITY_MEDIUM:
-	        statusBarHeight = MEDIUM_DPI_STATUS_BAR_HEIGHT;
-	        break;
-	    case DisplayMetrics.DENSITY_LOW:
-	        statusBarHeight = LOW_DPI_STATUS_BAR_HEIGHT;
-	        break;
-	    default:
-	        statusBarHeight = MEDIUM_DPI_STATUS_BAR_HEIGHT;
-	}
-	
-	_logger.debug("StatusBarHeight: " + statusBarHeight);
-	Engine.getInstance().setMenuBarHeight((int)statusBarHeight);*/
+	setContentView(mGLView);	
     }
     
     
     @Override
     protected void onStop()
-    {
-	// init traceview
-	if (Engine.TRACE_VIEW)
-	{
-	    Debug.stopMethodTracing();
-	}	
-	
+    {	
 	super.onStop();
     }
 
@@ -155,7 +114,8 @@ public class Luminance extends Activity
     {
 	_logger.debug("onPause()");
 
-	super.onPause();
+	super.onPause();		
+	
 	mGLView.onPause();
 
 	Engine.getInstance().pause();
@@ -171,6 +131,7 @@ public class Luminance extends Activity
 	_logger.debug("onResume()");
 
 	super.onResume();
+		
 	mGLView.onResume();
 
 	Engine.getInstance().resume();
@@ -187,7 +148,7 @@ public class Luminance extends Activity
 
 	Engine.getInstance().getTouchFilter().updateTouch(event);
 	
-	try {Thread.sleep(16);} catch (Exception e) { _logger.error("Could not sleep event thread"); }
+	try {Thread.yield();} catch (Exception e) { _logger.error("Could not sleep event thread"); }
 
 	return true;
     }

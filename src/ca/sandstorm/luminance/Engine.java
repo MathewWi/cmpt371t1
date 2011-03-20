@@ -39,7 +39,6 @@ public class Engine
 
     // constants for debugging
     public static final boolean DEBUG = true;
-    public static final boolean TRACE_VIEW = false;
     
     // singleton instance
     private static Engine _instance = null;
@@ -454,12 +453,12 @@ public class Engine
     public void init(GL10 gl)
     {
 	// Start music playback
-	try {
+	/*try {
 	    MusicResource music = _resourceManager.loadMusic("sounds/music1.mp3");
 	    _audioSystem.playMusic(music);
 	} catch (IOException e) {
 	    logger.error("Failed to load music file: " + e.getMessage());
-	}
+	}*/
 
     	for (IState s : _stateStack) {
     	    if (s.isActive()) {
