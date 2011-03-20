@@ -9,6 +9,7 @@ Traceview allows us to dump a profiled run of the application and view it in a m
 
  Despite the urge to use traceview via code it proved to be unworthy.  You can start the profiler easily enough from the adb shell.
 
+ {{{
 # adb shell
 
 ## am profile ca.sandstorm.luminance start /sdcard/luminance.trace
@@ -25,3 +26,4 @@ Traceview allows us to dump a profiled run of the application and view it in a m
 # traceview /full_path_to/luminance.trace
 
 (yes it has to be the full path)
+ }}}
