@@ -145,7 +145,7 @@ public class Toolbelt
 	if(toolType == ToolType.Mirror) { 
 	    tool = new Mirror(position, new Vector3f(0, _currentRotation, 0));
 	} else if(toolType == ToolType.Prism) {
-	    tool = new Prism(position);
+	    tool = new Prism(position, new Vector3f(0, 0, 0));
 	}
 	
 	addToolStock(toolType, -1);
