@@ -4,7 +4,7 @@ import javax.vecmath.Vector2f;
 import android.util.FloatMath;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.widget.Scroller;
+
 
 /**
  * Code from Replica Island (Android open source game project)
@@ -21,8 +21,12 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     private MotionEvent _touchEvent;
     
     private int _touchMode = -1;
+    private static final int NONE = -1;
     private static final int ON_SCROLL = 0;
     private static final int ON_FLING = 1;
+    private static final int ON_SINGLE_TAP_CONFIRMED = 2;
+    private static final int ON_DOWN = 3;
+    private static final int ON_PRESS = 4;
     
     private float _distanceX;
     private float _distanceY;
@@ -230,16 +234,16 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e)
     {
-	// TODO Auto-generated method stub
-	return false;
+	setTouchMode(ON_SINGLE_TAP_CONFIRMED);
+	return true;
     }
 
 
     @Override
     public boolean onDown(MotionEvent e)
     {
-	// TODO Auto-generated method stub
-	return false;
+	setTouchMode(ON_DOWN);
+	return true;
     }
 
 
@@ -247,11 +251,9 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 	    float velocityY)
     {
-	System.out.println("I'm fling ooveeeerrrrrrrrrrrrrrrrrrrrrrr");
 	setTouchMode(ON_FLING);
 	_velocityX = velocityX;
 	_velocityY = velocityY;
-	// TODO Auto-generated method stub
 	return true;
     }
 
@@ -280,7 +282,7 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     @Override
     public void onShowPress(MotionEvent e)
     {
-	// TODO Auto-generated method stub
+	setTouchMode(ON_PRESS);
 	
     }
 
