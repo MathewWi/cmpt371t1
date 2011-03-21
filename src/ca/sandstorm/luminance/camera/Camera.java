@@ -295,8 +295,8 @@ public class Camera
 	gl.glLoadIdentity();
 
 	GLU.gluPerspective(gl, _fov, _aspect, _zNear, _zFar);
-        getCurrentProjection(gl);	
-	
+	getCurrentProjection(gl);
+        		
 	// calculate the mdoel view matrix
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glLoadIdentity();
@@ -502,8 +502,8 @@ public class Camera
 	normalizedInPoint[1] = (float) ((oglTouchY) * 2.0f / screenH - 1.0);
 	normalizedInPoint[2] = 2f * winz - 1.0f;
 	normalizedInPoint[3] = 1.0f;
-
-
+		
+	
 	// Obtain the transform matrix and then the inverse. 
 	Matrix.multiplyMM(transformMatrix, 0, _lastProjectionMat, 0,
 			  _lastModelViewMat, 0);

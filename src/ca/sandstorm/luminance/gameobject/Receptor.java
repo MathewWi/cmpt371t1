@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
+import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Sphere;
 
 /**
@@ -76,6 +77,13 @@ public class Receptor extends GameObject implements IRenderableObject
     {
 	return _color;
     }
+    
+    
+    public void setActivated(boolean b)
+    {
+	_activated = b;
+    }
+    
     
     /**
      * Check if this receptor is activated by the right light beam.
@@ -164,5 +172,7 @@ public class Receptor extends GameObject implements IRenderableObject
 	{
 	    _activated = true;
 	}
+	
+	l.setDistance( (float)Colliders.distance(l.getStartPoint(), this.getPosition()) );
     }
 }

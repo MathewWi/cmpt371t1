@@ -16,7 +16,6 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
@@ -157,7 +156,7 @@ public class Luminance extends Activity
 	Engine.getInstance().getTouchFilter().updateTouch(event);
 	_gesture.onTouchEvent(event);
 	
-	try {Thread.yield();} catch (Exception e) { _logger.error("Could not sleep event thread"); }
+	try {Thread.sleep(33);} catch (Exception e) { _logger.error("Could not sleep event thread"); }
 
 	return true;
     }
