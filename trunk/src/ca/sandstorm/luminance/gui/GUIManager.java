@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gui;
 
+import java.io.IOException;
+
 import javax.microedition.khronos.opengles.GL10;
 
 import org.slf4j.Logger;
@@ -43,10 +45,17 @@ public class GUIManager
 	_numberOfWidgets = 0;
     }
     
-    public void initiate()
+    public void initialize(GL10 gl)
     {
 	_compensatedY = Engine.getInstance().getMenuBarHeight() +
 	Engine.getInstance().getTitleBarHeight();
+	
+	// Load numbers texture
+	try {
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/numbers.png");
+	} catch (IOException e) {
+	    _logger.error("Unable to load numbers texture: " + e.getMessage());
+	}
     }
     
     /**
@@ -191,7 +200,6 @@ public class GUIManager
     
     public void update(GL10 gl)
     {
-	
     }
     
     
@@ -203,6 +211,9 @@ public class GUIManager
 	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE_MINUS_SRC_ALPHA);	
 	
 	for (int i = 0; i < _numberOfWidgets; i++) {
+	    if (_widgets[i] instanceof NumericLabel) {
+		
+	    }
 	    _widgets[i].draw(gl);
 	}	
 	gl.glDisable(GL10.GL_BLEND);

@@ -126,7 +126,7 @@ public class MenuState implements IState
 	}	
 	
 	// Initiate the GUIManager
-	_guiManager.initiate();
+	_guiManager.initialize(gl);
 	
 	// Create the Buttons
 	float screenWidth = (float)Engine.getInstance().getViewWidth();

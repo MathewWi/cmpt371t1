@@ -14,7 +14,7 @@ import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gui.Button;
-import ca.sandstorm.luminance.resources.TextureResource;
+import ca.sandstorm.luminance.gui.NumericLabel;
 
 /**
  * Holds the level's tools and provides functionality for placing/removing them.
@@ -38,6 +38,7 @@ public class Toolbelt
 
     // Stock available of each tool type
     private HashMap<ToolType, Integer> _stock;
+    private HashMap<ToolType, NumericLabel> _stockLabel;
     
     private boolean _mirrorIconAdded = false;
     private boolean _prismIconAdded = false;
@@ -58,6 +59,8 @@ public class Toolbelt
 	_stock = new HashMap<ToolType, Integer>();
 	_stock.put(ToolType.Mirror, 0);
 	_stock.put(ToolType.Prism, 0);
+	
+	_stockLabel = new HashMap<ToolType, NumericLabel>();
 	
 	Button eraserButton = new Button(_toolIconSizeWidth*2, 
 	                                 _toolIconYPos, 
@@ -201,6 +204,11 @@ public class Toolbelt
     public void addToolStock(ToolType toolType, int quantity)
     {
 	assert _stock.containsKey(toolType);
+	
+	// Update stock
+	int stockQty = _stock.get(toolType);
+	stockQty += quantity;
+	_stock.put(toolType, stockQty);
 
 	// Draw the widget if needed
 	if(toolType == ToolType.Mirror && !_mirrorIconAdded) {
@@ -212,6 +220,11 @@ public class Toolbelt
 	    button.setTappedTextureLocation("textures/mirrorClicked.png");
 	    _mirrorIconAdded = true;
 	    _gameState.getGui().addButton(button);
+	    
+	    // Add the label indicating stock
+	    NumericLabel label = new NumericLabel(0, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(toolType));
+	    _stockLabel.put(toolType, label);
+	    _gameState.getGui().addButton(label);
 	} else if(toolType == ToolType.Prism && !_prismIconAdded) {
 	    Button button = new Button(_toolIconSizeWidth, 
 	                               _toolIconYPos, 
@@ -221,15 +234,17 @@ public class Toolbelt
 	    button.setTappedTextureLocation("textures/prismClicked.png");
 	    _prismIconAdded = true;
 	    _gameState.getGui().addButton(button);
+	    
+	    // Add the label indicating stock
+	    NumericLabel label = new NumericLabel(_toolIconSizeWidth, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(toolType));
+	    _stockLabel.put(toolType, label);
+	    _gameState.getGui().addButton(label);
 	}
-
-	// Update stock
-	int stockQty = _stock.get(toolType);
-	stockQty += quantity;
-	_stock.put(toolType, stockQty);
 	
 	// Update stock on icon
-	// TODO
+	NumericLabel label = _stockLabel.get(toolType);
+	label.setNumber(_stock.get(toolType));
+	_stockLabel.put(toolType, label);
     }
     
     /**
