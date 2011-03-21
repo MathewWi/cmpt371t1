@@ -67,7 +67,6 @@
 || Toolbox GUI drawing, GUI system fixes || 1.5 ||
 || Quad renderable, updating GUI to use it || 1 ||
 || Bug fixing, optimizing || 2.5 ||
-|| Multilevel support, transitioning || 1 ||
 
 ===Milestone 3 Estimations===
 || Toolbelt--GameState refactoring || 3 ||
@@ -78,6 +77,10 @@
 || Audio and music playback completion || 2 ||
 || Random small tasks || 1 ||
 || Helping teammates || 1 ||
+|| Multilevel support, transitioning || 1 ||
+|| Drawing tool stock quantity || 4 ||
+|| Fixing orientation flipping || 2 ||
+|| Miscellaneous development || 1 ||
 
 == Stephen Damm ==
 === Milestone 0 ===
