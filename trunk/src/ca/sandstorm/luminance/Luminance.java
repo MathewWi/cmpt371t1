@@ -151,7 +151,8 @@ public class Luminance extends Activity
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-	_logger.debug("onTouchEvent(" + event + ")");
+	// not logging anymore, already slow enough
+	//_logger.debug("onTouchEvent(" + event + ")");
 
 	Engine.getInstance().getTouchFilter().updateTouch(event);
 	_gesture.onTouchEvent(event);
