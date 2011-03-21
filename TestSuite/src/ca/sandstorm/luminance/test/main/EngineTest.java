@@ -50,9 +50,10 @@ public class EngineTest extends AndroidTestCase
     }
 	
 	public void testAddObject() {
+		int level =1;
 		//setup
 		IGameObject mockLight = mock(IGameObject.class);
-		GameState gameState = new GameState();
+		GameState gameState = new GameState(1);
 		stub(mockLight.getPosition()).toReturn(new Vector3f(3f, 3f, 3f));
 		//added mock light into gameState
 		gameState.addObject(mockLight);

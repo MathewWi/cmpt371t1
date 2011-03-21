@@ -21,7 +21,7 @@ public class PrismTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myPrism = new Prism(new Vector3f(0, 0, 0));
+		myPrism = new Prism(new Vector3f(0, 0, 0), new Vector3f(0,0,0));
 	}
 
 	/**

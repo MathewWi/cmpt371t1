@@ -1,13 +1,14 @@
-package ca.sandstorm.luminance.test.gametools;
-
+package ca.sandstorm.luminance.test.recyclingbin;
+/*
 import ca.sandstorm.luminance.gametools.PrismTool;
 import android.test.AndroidTestCase;
-
+*/
 /**
  * Testing of the PrismTool Class
  * @author lianghuang
  *
  */
+/*
 public class PrismToolTest extends AndroidTestCase {
 	
 	private PrismTool tPrism;
@@ -21,3 +22,4 @@ public class PrismToolTest extends AndroidTestCase {
 		assertTrue(tPrism != null);
 	}
 }
+*/

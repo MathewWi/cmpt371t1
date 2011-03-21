@@ -1,7 +1,10 @@
-package ca.sandstorm.luminance.test.gametools;
+package ca.sandstorm.luminance.test.recyclingbin;
+
+import javax.vecmath.Vector3f;
 
 import android.test.AndroidTestCase;
-import ca.sandstorm.luminance.gametools.MirrorTool;
+import ca.sandstorm.luminance.gameobject.Mirror;
+
 
 /**
  * Testing of the MirrorTool Class
@@ -10,12 +13,12 @@ import ca.sandstorm.luminance.gametools.MirrorTool;
  */
 public class MirrorToolTest extends AndroidTestCase {
 	
-	private MirrorTool tMirror;
+	private Mirror tMirror;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		tMirror = new MirrorTool();
+		tMirror = new Mirror( new Vector3f(3, 3, 3), new Vector3f(3, 3, 3));
 
 	}
 	
