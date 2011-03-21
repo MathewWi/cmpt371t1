@@ -1,7 +1,5 @@
 package ca.sandstorm.luminance.gamelogic;
 
-import java.io.IOException;
-
 import javax.vecmath.Point2i;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
@@ -11,13 +9,11 @@ import org.slf4j.LoggerFactory;
 
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gametools.ToolType;
 import ca.sandstorm.luminance.gametools.Toolbelt;
-import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.math.Colliders;
@@ -48,9 +44,19 @@ public class GameStateInput
     private static final int NONE = 0;
     private static final int DRAG = 1;
     private static final int ZOOM = 2;
-    private static final float TOUCH_CAMERA_SPEED = 45.0f;
+    private static final float TOUCH_CAMERA_SPEED = 0.5f;
     private static final float TOUCH_SENSITIVITY = 3.0f;
     private int _touchMode;
+    private static final int ON_SCROLL = 0;
+    private static final int ON_FLING = 1;
+
+    private static final float DISTANCE_TIME_FACTOR = 0.4f;
+    private float _acceleration = 1.0f;
+    private float _flingMoveX = 0.0f;
+    private float _flingMoveY = 0.0f;
+    private float _flingDistanceX = 0.0f;
+    private float _flingDistanceY = 0.0f;
+    private boolean _flingEffect = false;
     
     public GameStateInput()
     {
@@ -63,7 +69,7 @@ public class GameStateInput
 	_toolbelt = toolbelt;
 	_grid = grid;
 	_guiManager = guiManager;
-	InputButton[] keys = Engine.getInstance().getInputSystem()
+	/*InputButton[] keys = Engine.getInstance().getInputSystem()
 				.getKeyboard().getKeys();
 	
 	
@@ -221,6 +227,60 @@ public class GameStateInput
     
     public void processTouchInput()
     {
+	if(Engine.getInstance().getInputSystem()
+		.getTouchScreen().getTouchMode() == ON_SCROLL){
+	    
+	    logger.debug("----DistanceX: " + Float.toString(Engine.getInstance()
+	                                                     .getInputSystem()
+	                                                     .getTouchScreen()
+	                                                     .getDistanceX()));
+	    logger.debug("----DistanceY: " + Float.toString(Engine.getInstance()
+	                                                     .getInputSystem()
+	                                                     .getTouchScreen()
+	                                                     .getDistanceY()));
+	    
+	    _cam.moveLeft(Engine.getInstance().getInputSystem()
+	                  .getTouchScreen().getDistanceX()
+	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	    _cam.moveUp(-Engine.getInstance().getInputSystem()
+	                  .getTouchScreen().getDistanceY()
+	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	    
+	    Engine.getInstance().getInputSystem()
+		.getTouchScreen().setTouchMode(-1);
+	}
+	
+	if(Engine.getInstance().getInputSystem()
+		.getTouchScreen().getTouchMode() == ON_FLING){
+	    logger.debug("--S--VelocityX: " + Float.toString(Engine.getInstance()
+	                                                     .getInputSystem()
+	                                                     .getTouchScreen()
+	                                                     .getVelocityX()));
+	    
+	    logger.debug("--S--VelocityY: " + Float.toString(Engine.getInstance()
+	                                                     .getInputSystem()
+	                                                     .getTouchScreen()
+	                                                     .getVelocityY()));
+	    
+	    
+            _flingDistanceX = (DISTANCE_TIME_FACTOR * Engine.getInstance()
+                    					.getInputSystem()
+                    					.getTouchScreen()
+                    					.getVelocityX()/2);
+            _flingDistanceY = (DISTANCE_TIME_FACTOR * Engine.getInstance()
+                    					.getInputSystem()
+                    					.getTouchScreen()
+                    					.getVelocityY()/2);
+	    
+            _acceleration = 2.0f;
+            _flingEffect = true;
+
+	    Engine.getInstance().getInputSystem()
+		.getTouchScreen().setTouchMode(-1);
+	}
+	
+	onFlingMove();
+	
 	if (Engine.getInstance().getInputSystem().getTouchScreen()
 		.getPressed(1)) {
 	    // use to identify the zoom gesture
@@ -262,47 +322,7 @@ public class GameStateInput
 		    _guiManager.letGoOfButton();
 		    break;
 		case MotionEvent.ACTION_MOVE:
-		    if (_touchMode == DRAG) {
-			float newX = touchEvent.getX();
-			float newY = touchEvent.getY();
-
-			float moveX = newX - _initialX;
-			float moveY = newY - _initialY;
-			_initialX = newX;
-			_initialY = newY;
-
-			if (Math.abs(moveX) > TOUCH_SENSITIVITY ||
-			    Math.abs(moveY) > TOUCH_SENSITIVITY) {
-			    if (Math.abs(moveX) > Math.abs(moveY)) {
-				if (moveX > 0) {
-				    // Left to right
-				    _cam.moveLeft(-TOUCH_CAMERA_SPEED);
-				    logger.debug("Left to right: " +
-						 Float.toString(-moveX));
-
-				} else if (moveX < 0) {
-				    // Right to left
-				    _cam.moveLeft(TOUCH_CAMERA_SPEED);
-				    logger.debug("Right to left: " +
-						 Float.toString(-moveX));
-				}
-
-			    } else {
-				if (moveY > 0) {
-				    // up to down
-				    _cam.moveUp(TOUCH_CAMERA_SPEED);
-				    logger.debug("Up to down: " +
-						 Float.toString(moveY));
-
-				} else if (moveY < 0) {
-				    // Down to up
-				    _cam.moveUp(-TOUCH_CAMERA_SPEED);
-				    logger.debug("Down to up: " +
-						 Float.toString(moveY));
-				}
-			    }
-			}
-		    } else if (_touchMode == ZOOM) {
+		    if (_touchMode == ZOOM) {
 			// pinch gesture for zooming
 			float newPinchDist = Engine.getInstance()
 				.getInputSystem().getTouchScreen()
@@ -328,14 +348,16 @@ public class GameStateInput
 			    Math.abs(moveSecondY) > TOUCH_SENSITIVITY) {
 
 			    logger.debug("ZOOMING");
-
+			    logger.debug("IT IS MY EYEESSSS before------: " +_cam.getEye().getY());
 			    if (newPinchDist > _pinchDist) {
 				_cam.moveForward(1.0f);
+				logger.debug("IT IS MY EYEESSSS------: " +_cam.getEye().getY());
 				logger.debug("pinch out: " +
 					     Float.toString(_pinchDist) + ", " +
 					     Float.toString(newPinchDist));
 			    } else {
 				_cam.moveForward(-1.0f);
+				logger.debug("IT IS MY EYEESSSS------: " +_cam.getEye().getY());
 				logger.debug("pinch in: " +
 					     Float.toString(_pinchDist) + ", " +
 					     Float.toString(newPinchDist));
@@ -378,4 +400,69 @@ public class GameStateInput
 	
 	_toolbelt.processClick(x, y, gridPoint);
     }
+
+   
+    private void calculateFlingMove()
+    {
+	_flingMoveX = _cam.getEye().getY() * TOUCH_CAMERA_SPEED * _acceleration;
+	_flingMoveY = _cam.getEye().getY() * TOUCH_CAMERA_SPEED * _acceleration;
+	
+	if (_acceleration <= 0){
+	    _flingEffect = false;
+	    
+	}else {
+	    
+	    if (_flingDistanceX > 0){
+		// fling left to right
+		_flingDistanceX = _flingDistanceX - _flingMoveX;
+		if (_flingDistanceX < 0){
+		    _flingEffect = false;    
+		}
+	    } else if (_flingDistanceX < 0) {
+		// fling right to left
+		_flingMoveX = -_flingMoveX;
+		_flingDistanceX = _flingDistanceX - _flingMoveX;
+		if (_flingDistanceX > 0){
+		    _flingEffect = false;
+		}    	
+	    }
+	
+	    if (_flingDistanceY > 0) {
+		// fling up to down
+		_flingDistanceY = _flingDistanceY - _flingMoveY;
+		if (_flingDistanceY < 0){
+		    _flingEffect = false;
+		}
+		
+	    } else if (_flingDistanceY < 0) {
+		    // fling down to up
+		    _flingMoveY = -_flingMoveY;
+		    _flingDistanceY = _flingDistanceY - _flingMoveY;
+		    if (_flingDistanceY > 0){
+			_flingEffect = false;
+		    }  
+	    }
+		
+	    _flingEffect = true;
+	    _acceleration = _acceleration - 0.05f;
+	}
+		
+		
+	logger.debug("--S--distanceX: " + Float.toString(_flingDistanceX));
+	    
+	logger.debug("--S--distanceY: " + Float.toString(_flingDistanceY));
+	logger.debug("--S--)flingMoveX: " + Float.toString(_flingMoveX));
+	logger.debug("--S--)flingMoveY: " + Float.toString(_flingMoveY));
+
+    }
+    
+    public void onFlingMove()
+    {
+	calculateFlingMove();
+	if(_flingEffect){
+	    _cam.moveLeft(-_flingMoveX);
+	    _cam.moveUp(_flingMoveY);
+	}
+    }
+ 
 }
