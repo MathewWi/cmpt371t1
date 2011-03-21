@@ -218,7 +218,7 @@ public class Light extends GameObject implements IGameObject
 	gl.glScalef(1, 1, 1);
 	
 	// Set the face rotation
-	gl.glFrontFace(GL10.GL_CW);
+	gl.glFrontFace(GL10.GL_CCW);
 
 	// Point to our buffers
 	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
