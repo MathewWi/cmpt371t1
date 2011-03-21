@@ -207,7 +207,7 @@ Should use a sphere generation algorithm (this is a classic 3D problem and task 
   * MatrixStack.java
     * Minimal comments, more detail would help
   * Lerp.java
-    * No comments, this class really could use some
+    * No comments
   * Colliders.java
     * Looks good
 
