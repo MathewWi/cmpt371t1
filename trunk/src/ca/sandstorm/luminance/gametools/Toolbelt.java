@@ -43,9 +43,11 @@ public class Toolbelt
     private boolean _prismIconAdded = false;
     private Point2i _tempPoint;
     
-    private float toolIconSizeWidth = Engine.getInstance().getViewWidth() * 0.20f;
-    private float toolIconSizeHeight = Engine.getInstance().getViewHeight() * 0.18f;
-    private float toolIconYPos = Engine.getInstance().getViewHeight() * 0.80f;
+    private float _toolIconSizeWidth = Engine.getInstance().getViewWidth() * 0.20f;
+    private float _toolIconSizeHeight = Engine.getInstance().getViewHeight() * 0.18f;
+    private float _toolIconYPos = Engine.getInstance().getViewHeight() * 0.80f;
+    
+    private Button _prevTouchedButton = null;
     
     public Toolbelt(GameState gameState)
     {
@@ -57,10 +59,10 @@ public class Toolbelt
 	_stock.put(ToolType.Mirror, 0);
 	_stock.put(ToolType.Prism, 0);
 	
-	Button eraserButton = new Button(toolIconSizeWidth*2, 
-	                                 toolIconYPos, 
-	                                 toolIconSizeWidth, 
-	                                 toolIconSizeHeight, "Eraser");
+	Button eraserButton = new Button(_toolIconSizeWidth*2, 
+	                                 _toolIconYPos, 
+	                                 _toolIconSizeWidth, 
+	                                 _toolIconSizeHeight, "Eraser");
 	eraserButton.setTextureResourceLocation("textures/eraser.png");
 	eraserButton.setTappedTextureLocation("textures/eraserClicked.png");
 	//eraserButton.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/eraser.png"));
@@ -93,6 +95,15 @@ public class Toolbelt
 		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Eraser);
 	    }
+	    touchedButton.setIsTapped(true);
+
+	    if (!touchedButton.equals(_prevTouchedButton)){
+		if(_prevTouchedButton != null){
+		    _prevTouchedButton.setIsTapped(false);
+		}
+		_prevTouchedButton = touchedButton;  
+	    }
+	    
 	} else if (gridCoords != null) {
 	    // It's a click on the grid
 	    // Add a small amount to the coordinates so that casting to int doesn't possibly round down due to float error
@@ -194,18 +205,18 @@ public class Toolbelt
 	// Draw the widget if needed
 	if(toolType == ToolType.Mirror && !_mirrorIconAdded) {
 	    Button button = new Button(0, 
-	                               toolIconYPos, 
-	                               toolIconSizeWidth, 
-	                               toolIconSizeHeight, "Mirror");
+	                               _toolIconYPos, 
+	                               _toolIconSizeWidth, 
+	                               _toolIconSizeHeight, "Mirror");
 	    button.setTextureResourceLocation("textures/mirror.png");
 	    button.setTappedTextureLocation("textures/mirrorClicked.png");
 	    _mirrorIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	} else if(toolType == ToolType.Prism && !_prismIconAdded) {
-	    Button button = new Button(toolIconSizeWidth, 
-	                               toolIconYPos, 
-	                               toolIconSizeWidth, 
-	                               toolIconSizeHeight, "Prism");
+	    Button button = new Button(_toolIconSizeWidth, 
+	                               _toolIconYPos, 
+	                               _toolIconSizeWidth, 
+	                               _toolIconSizeHeight, "Prism");
 	    button.setTextureResourceLocation("textures/prism.png");
 	    button.setTappedTextureLocation("textures/prismClicked.png");
 	    _prismIconAdded = true;
