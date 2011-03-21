@@ -14,8 +14,8 @@ import javax.vecmath.Vector3f;
 public class PrimitiveQuad implements IRenderable
 {
     // Vertex and texture coordinate buffers
-    private static float[] _vertices;
-    private static float[] _texCoords;
+    private float[] _vertices;
+    private float[] _texCoords;
     private FloatBuffer _vertexBuffer;
     private FloatBuffer _texCoordBuffer;
 
@@ -27,11 +27,11 @@ public class PrimitiveQuad implements IRenderable
     public PrimitiveQuad(Vector3f min, Vector3f max)
     {	
 	// Set up and create vertex buffer
-	_vertices = new float[] {		
-		min.x, max.y, 0f,
-		max.x, max.y, 0f,
+	_vertices = new float[] {				
 		min.x, min.y, 0f,
-		max.x, min.y, 0f
+		max.x, min.y, 0f,
+		min.x, max.y, 0f,
+		max.x, max.y, 0f
 	};
 	ByteBuffer byteBuf = ByteBuffer.allocateDirect(_vertices.length * 4);
 	byteBuf.order(ByteOrder.nativeOrder());
@@ -42,13 +42,30 @@ public class PrimitiveQuad implements IRenderable
 	// Set up and create texture coordinate buffer
 	_texCoords = new float[] {
 		0f, 0f,
-		0f, 1f,
 		1f, 0f,
+		0f, 1f,
 		1f, 1f
 	};
 	ByteBuffer byteBuf2 = ByteBuffer.allocateDirect(_texCoords.length * 4);
 	byteBuf2.order(ByteOrder.nativeOrder());
 	_texCoordBuffer = byteBuf2.asFloatBuffer();
+	_texCoordBuffer.put(_texCoords);
+	_texCoordBuffer.position(0);
+    }
+    
+    /**
+     * Adjust texture coordinate offset to allow for spritemap functionality.
+     * @param offset Horizontal offset, from 0-1
+     * @param width Width as proportion of total width, from 0-1
+     */
+    public void setWidthOffset(float offset, float width)
+    {
+	_texCoords[0] = 1 - offset;
+	_texCoords[2] = 1 - offset + width;
+	_texCoords[4] = 1 - offset;
+	_texCoords[6] = 1 - offset + width;
+	
+	_texCoordBuffer.clear();
 	_texCoordBuffer.put(_texCoords);
 	_texCoordBuffer.position(0);
     }
@@ -62,7 +79,7 @@ public class PrimitiveQuad implements IRenderable
     {
 	gl.glPushMatrix();
 		
-	gl.glFrontFace(GL10.GL_CCW);
+	gl.glFrontFace(GL10.GL_CW);
 	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
 	gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _texCoordBuffer);
 	
