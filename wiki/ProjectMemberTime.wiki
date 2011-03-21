@@ -78,7 +78,7 @@
 || Random small tasks || 1 ||
 || Helping teammates || 1 ||
 || Multilevel support, transitioning || 1 ||
-|| Drawing tool stock quantity || 4 ||
+|| Drawing tool stock quantity || 5 ||
 || Fixing orientation flipping || 2 ||
 || Miscellaneous development || 1 ||
 
