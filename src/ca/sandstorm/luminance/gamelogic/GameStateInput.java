@@ -42,7 +42,6 @@ public class GameStateInput
     private float _initialSecondX = 0.0f;
     private float _initialSecondY = 0.0f;
     private float _pinchDist = 0.0f;
-    private static final int DRAG = 1;
     private static final int ZOOM = 2;
     private static final float TOUCH_CAMERA_SPEED = 0.5f;
     private static final float TOUCH_SENSITIVITY = 3.0f;
@@ -67,6 +66,13 @@ public class GameStateInput
 	logger.debug("GameStateInput()");
     }
     
+    /**
+     *  Process the input of the game state
+     * @param cam 
+     * @param toolbelt
+     * @param grid
+     * @param guiManager
+     */
     public void process(Camera cam, Toolbelt toolbelt, Grid grid, GUIManager guiManager)
     {
 	_cam = cam;
@@ -78,6 +84,9 @@ public class GameStateInput
 	processTouchInput();
     }
 
+    /**
+     * Process keyboard input of the game state
+     */
     public void processKeyboardInput()
     {
 	InputButton[] keys = Engine.getInstance().getInputSystem()
@@ -140,12 +149,14 @@ public class GameStateInput
     }
 	
     
+    /**
+     * Process touch input of the game state
+     */
     public void processTouchInput()
     {
+	// handle the scroll/drag gesture
 	if(Engine.getInstance().getInputSystem()
 		.getTouchScreen().getTouchMode() == ON_SCROLL){
-	    
-	    
 	    _cam.moveLeft(Engine.getInstance().getInputSystem()
 	                  .getTouchScreen().getDistanceX()
 	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
@@ -153,10 +164,12 @@ public class GameStateInput
 	                  .getTouchScreen().getDistanceY()
 	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
 	    
+	    // set the touch mode back to none
 	    Engine.getInstance().getInputSystem()
 		.getTouchScreen().setTouchMode(NONE);
 	}
 	
+	// handle fling gesture
 	if(Engine.getInstance().getInputSystem()
 		.getTouchScreen().getTouchMode() == ON_FLING){
     
@@ -172,10 +185,12 @@ public class GameStateInput
             _acceleration = 2.0f;
             _flingEffect = true;
 
+            // set touch mode to none
 	    Engine.getInstance().getInputSystem()
 		.getTouchScreen().setTouchMode(NONE);
 	}
 	
+	// method to move camera based on fling gesture
 	onFlingMove();
 	
 	if (Engine.getInstance().getInputSystem().getTouchScreen()
@@ -187,7 +202,7 @@ public class GameStateInput
 	    _initialSecondY = Engine.getInstance().getInputSystem()
 		    .getTouchScreen().getTouchEvent().getY(1);
 	} else {
-	    _touchMode = DRAG;
+	    _touchMode = NONE;
 	}
 
 	if (!Engine.getInstance().getInputSystem().getTouchScreen()
@@ -259,16 +274,13 @@ public class GameStateInput
 			    Math.abs(moveSecondY) > TOUCH_SENSITIVITY) {
 
 			    logger.debug("ZOOMING");
-			    logger.debug("IT IS MY EYEESSSS before------: " +_cam.getEye().getY());
 			    if (newPinchDist > _pinchDist) {
 				_cam.moveForward(1.0f);
-				logger.debug("IT IS MY EYEESSSS------: " +_cam.getEye().getY());
 				logger.debug("pinch out: " +
 					     Float.toString(_pinchDist) + ", " +
 					     Float.toString(newPinchDist));
 			    } else {
 				_cam.moveForward(-1.0f);
-				logger.debug("IT IS MY EYEESSSS------: " +_cam.getEye().getY());
 				logger.debug("pinch in: " +
 					     Float.toString(_pinchDist) + ", " +
 					     Float.toString(newPinchDist));
@@ -313,6 +325,9 @@ public class GameStateInput
     }
 
    
+    /**
+     * Calculate the x and y after the fling gesture
+     */
     private void calculateFlingMove()
     {
 	_flingMoveX = _cam.getEye().getY() * TOUCH_CAMERA_SPEED * _acceleration;
@@ -365,10 +380,14 @@ public class GameStateInput
 
     }
     
+    /**
+     * Method to handle fling gesture
+     */
     public void onFlingMove()
     {
 	calculateFlingMove();
 	if(_flingEffect){
+	    // move the camera when fling effect is true
 	    _cam.moveLeft(-_flingMoveX);
 	    _cam.moveUp(_flingMoveY);
 	}
