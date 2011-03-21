@@ -82,15 +82,15 @@ public class Toolbelt
 	if (touchedButton != null) {
 	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
 		logger.debug("mirror has been tapped");
-		touchedButton.setIsTapped(true);
+		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Mirror);
 	    } else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
 		logger.debug("prism has been tapped");
-		touchedButton.setIsTapped(true);
+		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Prism);
 	    } else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
 		logger.debug("eraser has been tapped");
-		touchedButton.setIsTapped(true);
+		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Eraser);
 	    }
 	} else if (gridCoords != null) {
