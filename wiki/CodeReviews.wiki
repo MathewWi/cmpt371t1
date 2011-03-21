@@ -434,3 +434,58 @@ Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
   * I then checked out and some of the tests in the tests suite, and nothing unusual occurred.  
   * I believe it is safe to say that these changes were made successfully.
+
+== Milestone 4: Inspection of the GameState class ==
+*Moderator:* Martina
+
+*Author:* Stephen
+
+*Reader:* Stephen
+
+*Inspectors:* Martina, Stephen, Sten, Zenja, Kum, Johnny, Amara
+
+*Recorder:* Sten
+
+=== Inspection Meeting ===
+  * Defect 1:
+    * Location: GameState.java line 78
+    * Summary: Inconsistency with our naming conventions.  Private variable tempPoint should be called _tempPoint.
+    * Discovered by: Zenja
+  * Defect 2:
+    * Location: GameState.java lines 169 & 178
+    * Summary: beam.clear() is called in these two places and we know that one of them is causing problems with the light staying on the screen after object deletion.
+    * Discovered by: Zenja
+  * Defect 3:
+    * Location: GameState.java lines 181-184
+    * Summary: if-statement is in the wrong place in the code and needs to be moved.
+    * Discovered by: Stephen
+  * Defect 4:
+    * Location: GameState.java lines 254-304
+    * Summary: Zenja was wondering if using a for-each loop would be faster or more efficient.  We concluded that it shouldn't make a difference.
+  * Defect 5:
+    * Location: GameState.java lines 295-302
+    * Summary: Light is always created going in the same direction.
+    * Discovered by: Stephen
+  * Defect 6:
+    * Location: GameState.java lines 353-369
+    * Summary: pause() and resume() should be renamed to systemPause() and systemResume() or something similar.
+    * Discovered by: Stephen
+  * Defect 7:
+    * Location: GameState.java init function
+    * Summary: Our try-catch blocks print the stack trace but don't actually handle the errors.  We should make a new exception type that bubbles up to the top of the game and is handled by giving the user a nice error message and quitting the game in a controlled fashion.
+    * Discovered by: Martina and Stephen
+  * Defect 8:
+    * Location: GameState.java lines 472-492
+    * Summary: Stephen wondered if these one-line methods were being used at all.  Zenja says that they are.
+  * Defect 9:
+    * Location: GameState.java line 637
+    * Summary: Sky box is scaled improperly.  Looks like it has a low resolution but it doesn't.
+    * Discovered by: Zenja
+  * Defect 10:
+    * Location: GameState.java line 702-706
+    * Summary: glHints might be causing the problem with the disappearing light.
+    * Discovered by: Zenja
+  * Defect 11:
+    * Location: GameState.java line 725-736
+    * Summary: messageReceived() and isActive() are not needed and should be removed.
+    * Discovered by: Stephen
