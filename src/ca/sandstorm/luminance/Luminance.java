@@ -20,6 +20,7 @@ import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
@@ -42,6 +43,8 @@ public class Luminance extends Activity
     
     // openGL view
     private GLSurfaceView mGLView;
+    
+    private GestureDetector _gesture;
 
     // a handler for updating the ui thread from the android thread
     private final Handler handler = new Handler()
@@ -74,6 +77,9 @@ public class Luminance extends Activity
 			
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
+	
+	_gesture = new GestureDetector(this, Engine.getInstance()
+	                               .getInputSystem().getTouchScreen());
 	
 	// Push a new menu state unless engine is initialized, meaning one already exists
 	if (!Engine.getInstance().isInitialized()) {
@@ -148,6 +154,7 @@ public class Luminance extends Activity
 	_logger.debug("onTouchEvent(" + event + ")");
 
 	Engine.getInstance().getTouchFilter().updateTouch(event);
+	_gesture.onTouchEvent(event);
 	
 	try {Thread.yield();} catch (Exception e) { _logger.error("Could not sleep event thread"); }
 
