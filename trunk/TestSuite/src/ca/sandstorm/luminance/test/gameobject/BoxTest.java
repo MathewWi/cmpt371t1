@@ -5,6 +5,9 @@ import javax.vecmath.Vector4f;
 
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gameobject.Box;
+import ca.sandstorm.luminance.gameobject.Light;
+import ca.sandstorm.luminance.gameobject.LightBeam;
+import ca.sandstorm.luminance.gameobject.LightBeamCollection;
 import ca.sandstorm.luminance.gameobject.RenderType;
 
 /**
@@ -88,6 +91,32 @@ public class BoxTest extends AndroidTestCase {
 	public void testGetRenderType() throws Exception {
 		RenderType dummy = myBox.getRenderType();
 		assertTrue(dummy == RenderType.Normal);
+	}
+	
+	/**
+	 * Test the getCollisionSphere() method
+	 * 
+	 * @throws Exception
+	 */
+	public void testGetCollisionSphere() throws Exception
+	{
+		assertNotNull(myBox.getCollisionSphere());	
+	}
+	
+	/**
+	 * Test the beamInteract method
+	 */
+	public void testBeamInteract()
+	{
+		LightBeamCollection lbc = new LightBeamCollection();
+		LightBeam lb = new LightBeam();
+		Light l = new Light(0, 0, 0, 0, 0, 0, 5, 0);
+		lb.add(0, l);
+		lbc.add(0, new LightBeam());
+		
+		myBox.beamInteract(lbc, 0, 0);
+		
+		assertTrue(l.getEndTouchedObject() == this);
 	}
 
 	/**

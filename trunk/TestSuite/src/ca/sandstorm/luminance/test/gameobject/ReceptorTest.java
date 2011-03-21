@@ -4,8 +4,12 @@ import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
 import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.gameobject.Light;
+import ca.sandstorm.luminance.gameobject.LightBeam;
+import ca.sandstorm.luminance.gameobject.LightBeamCollection;
 import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.RenderType;
+import ca.sandstorm.luminance.math.Sphere;
 
 /**
  * Testing of the Receptor class of the gameobject package
@@ -25,6 +29,84 @@ public class ReceptorTest extends AndroidTestCase {
 				0.0f, 0.0f, 0.0f));
 	}
 
+	/**
+	 * Test the setColor method.
+	 * 
+	 * @throws Exception
+	 */
+	public void testSetColor() throws Exception {
+		myReceptor.setColor(5);
+		assertTrue(myReceptor.getColor() == 5);
+	}
+
+	/**
+	 * Test the getActivated method.
+	 * 
+	 * @throws Exception
+	 */
+	public void testGetActiviated()
+	{
+		assertFalse(myReceptor.getActivated());
+	}
+	
+	/**
+	 * Test the getRenderable method.
+	 * 
+	 * @throws Exception
+	 */
+	public void testGetRenderable() throws Exception {
+		assertTrue(myReceptor.getRenderable() != null);
+	}
+	
+	/**
+	 * Test the getTexture() method.
+	 * 
+	 * @throws Exception
+	 */
+	public void testGetTexture() throws Exception {
+		assertNotNull(myReceptor.getTexture());
+	}
+	
+	/**
+	 * Test the getRenderType() method.
+	 * 
+	 * @throws Exception
+	 */
+	public void testGetRenderType() throws Exception {
+		RenderType dummy = myReceptor.getRenderType();
+		assertTrue(dummy == RenderType.Normal);
+	}
+
+	/**
+	 * Test the getCollisionSphere() method.
+	 * 
+	 * @throws Exception
+	 */
+	public void testGetCollisionSphere() throws Exception {
+		Sphere dummy = myReceptor.getCollisionSphere();
+		assertNotNull(dummy);
+	}
+	
+	/**
+	 * Test the beamInteract() method
+	 * 
+	 * @throws Exception
+	 */
+	public void testBeamInteract()
+	{
+		LightBeamCollection lbc = new LightBeamCollection();
+		LightBeam lb = new LightBeam();
+		Light l = new Light(0, 0, 0, 0, 0, 0, 5, 0);
+		lb.add(0, l);
+		lbc.add(0, new LightBeam());
+		
+		myReceptor.beamInteract(lbc, 0, 0);
+		
+		assertTrue(l.getEndTouchedObject() == this);
+		
+		assertTrue(lb.size() == 2);
+	}
+	
 	/**
 	 * Test the update method.
 	 * 
@@ -80,34 +162,6 @@ public class ReceptorTest extends AndroidTestCase {
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 0.0f);
 		assertTrue(dummy.z == 0.0f);
-	}
-
-	/**
-	 * Test the getRenderable method.
-	 * 
-	 * @throws Exception
-	 */
-	public void testGetRenderable() throws Exception {
-		assertTrue(myReceptor.getRenderable() != null);
-	}
-
-	/**
-	 * Test the getTexture() method.
-	 * 
-	 * @throws Exception
-	 */
-	public void testGetTexture() throws Exception {
-		assertNotNull(myReceptor.getTexture());
-	}
-
-	/**
-	 * Test the getRenderType() method.
-	 * 
-	 * @throws Exception
-	 */
-	public void testGetRenderType() throws Exception {
-		RenderType dummy = myReceptor.getRenderType();
-		assertTrue(dummy == RenderType.Normal);
 	}
 
 	/**
