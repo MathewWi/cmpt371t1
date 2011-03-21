@@ -42,6 +42,7 @@ public class Engine
     
     // singleton instance
     private static Engine _instance = null;
+    private boolean _initialized = false;
 
     // android context
     private Context _context = null;
@@ -465,6 +466,16 @@ public class Engine
     		s.init(gl);
     	    }
     	}
+    	
+    	_initialized = true;
+    }
+    
+    /**
+     * Check if the engine has been initialized.
+     */
+    public boolean isInitialized()
+    {
+	return _initialized;
     }
 
 
