@@ -150,6 +150,41 @@ public class GameState implements IState
 	if(obj instanceof IRenderableObject) {
 	    Engine.getInstance().getRenderer().remove((IRenderableObject)obj);
 	}
+	
+	// adjust light path
+	LightBeamCollection beams = _lightPath.getLightPaths();
+	for (LightBeam beam : beams)
+	{
+	    for (Light l : beam)
+	    {
+		if (l.getStartTouchedObject() == obj || l.getEndTouchedObject() == obj)
+		{	    
+		    // is this not the only light
+		    if (beam.size() > 1)
+		    {
+			Light saveLight = beam.get(0);
+			saveLight.setEndTouchedObject(null);
+			saveLight.setDistance(Light.LIGHT_INFINITY);
+			
+			beam.clear();
+			beam.add(saveLight);
+			
+			// hack to avoid concurrent modification exception
+			break;
+		    }
+		    else
+		    {
+			// only one light, special case
+			beam.clear();
+		    }
+		    
+		    if (obj instanceof Receptor)
+		    {
+			((Receptor)obj).setActivated(false);
+		    }
+		}
+	    }
+	}
     }
     
     /**
@@ -592,7 +627,6 @@ public class GameState implements IState
     @Override
     public void draw(GL10 gl)
     {	
-	gl.glEnable(GL10.GL_DITHER);
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 	
 	_cam.updateViewMatrix(gl);
@@ -619,23 +653,25 @@ public class GameState implements IState
 	_lightPath.draw(gl);
 	gl.glPopMatrix();
 	
+	// NOTE: adjust the comments below, flip them to go back to old system.
+	gl.glLoadIdentity();
 	// render 2D stuff in a complex matrix saving manner
-	gl.glMatrixMode(GL10.GL_MODELVIEW);
+	/*gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glPushMatrix();	
 		gl.glLoadIdentity();
-		
+		*/
 		gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glPushMatrix();
+		//gl.glPushMatrix();
 			gl.glLoadIdentity();
 			gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
 			
-			gl.glMatrixMode(GL10.GL_MODELVIEW);
+		//	gl.glMatrixMode(GL10.GL_MODELVIEW);
 			_guiManager.draw(gl);
-			gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glPopMatrix();
+		//	gl.glMatrixMode(GL10.GL_PROJECTION);
+		//gl.glPopMatrix();
 		
-	gl.glMatrixMode(GL10.GL_MODELVIEW);
-	gl.glPopMatrix();
+	//gl.glMatrixMode(GL10.GL_MODELVIEW);
+	//gl.glPopMatrix();
 	
 	gl.glDisable(GL10.GL_CULL_FACE);
     }
