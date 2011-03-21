@@ -449,7 +449,7 @@ Follow-up from Martina:
 === Inspection Meeting ===
   * Defect 1:
     * Location: GameState.java line 78
-    * Summary: Inconsistency with our naming conventions.  Private variable tempPoint should be called _tempPoint.
+    * Summary: Inconsistency with our naming conventions.  Private variable tempPoint should be called `_`tempPoint.
     * Discovered by: Zenja
   * Defect 2:
     * Location: GameState.java lines 169 & 178
