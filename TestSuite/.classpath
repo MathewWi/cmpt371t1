@@ -6,6 +6,5 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="ReferencedLibrariesJar"/>
-	<classpathentry kind="lib" path="C:/Users/Zatoichi-Tetra/Downloads/mockito-all-1.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

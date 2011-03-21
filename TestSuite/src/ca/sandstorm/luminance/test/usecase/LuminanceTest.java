@@ -32,12 +32,10 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		super.tearDown();
 	}
 
-	public void testDisplayBlackBox() {
-
+	public void testDisplayBlackBox() throws Exception {
 	}
 
-	public void testDisplayWhiteBox() {
-
+	public void testDisplayWhiteBox() throws Exception{
 	}
 
 }

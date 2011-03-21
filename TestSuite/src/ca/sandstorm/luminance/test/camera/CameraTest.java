@@ -29,8 +29,8 @@ public class CameraTest extends AndroidTestCase {
 		camera = new Camera();
 		
 		target = new Vector3f(0, 0, 0);
-/*		eye = new Vector3f(0, 0, 0);
-		up = new Vector3f(0, 1, 0);
+		eye = new Vector3f(0, 0, 0);
+/*		up = new Vector3f(0, 1, 0);
 
 		lookDirection = new Vector3f();
 		strafeDirection = new Vector3f();
