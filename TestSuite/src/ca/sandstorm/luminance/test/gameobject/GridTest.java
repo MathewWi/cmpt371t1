@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.test.gameobject;
 
-import javax.vecmath.Point2i;
 import javax.vecmath.Vector3f;
 
 import android.test.AndroidTestCase;

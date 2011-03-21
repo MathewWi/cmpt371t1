@@ -7,25 +7,24 @@ import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gameobject.Light;
 import ca.sandstorm.luminance.gameobject.LightBeam;
 import ca.sandstorm.luminance.gameobject.LightBeamCollection;
-import ca.sandstorm.luminance.gameobject.Prism;
+import ca.sandstorm.luminance.gameobject.Emitter;
 import ca.sandstorm.luminance.gameobject.RenderType;
-import ca.sandstorm.luminance.math.Sphere;
 
 /**
- * Testing of the Prism class of the gameobject package
+ * Testing of the Emitter class of the gameobject package
  * 
  * @author Martina Nagy
  * 
  */
-public class PrismTest extends AndroidTestCase {
-	Prism myPrism;
+public class EmitterTest extends AndroidTestCase {
+	Emitter myEmitter;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myPrism = new Prism(new Vector3f(0, 0, 0), new Vector3f(0,0,0));
+		myEmitter = new Emitter(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
 	}
 	
 	/**
@@ -34,7 +33,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertTrue(myPrism.getRenderable() != null);
+		assertTrue(myEmitter.getRenderable() != null);
 	}
 	
 	/**
@@ -43,7 +42,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTexture() throws Exception {
-		assertNotNull(myPrism.getTexture());
+		assertNotNull(myEmitter.getTexture());
 	}
 	
 	/**
@@ -52,7 +51,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderType() throws Exception {
-		RenderType dummy = myPrism.getRenderType();
+		RenderType dummy = myEmitter.getRenderType();
 		assertTrue(dummy == RenderType.Normal);
 	}
 	
@@ -61,12 +60,9 @@ public class PrismTest extends AndroidTestCase {
 	 * 
 	 * @throws Exception
 	 */
-	public void testGetCollisionSphere() throws Exception{
-		Sphere dum = myPrism.getCollisionSphere();
-		assertNotNull(dum);
-		assertTrue(dum.getCenter().x == 0);
-		assertTrue(dum.getCenter().x == 0);
-		assertTrue(dum.getCenter().x == 0);
+	public void testGetCollisionSphere()
+	{
+		assertNotNull(myEmitter.getCollisionSphere());
 	}
 	
 	/**
@@ -76,17 +72,7 @@ public class PrismTest extends AndroidTestCase {
 	 */
 	public void testBeamInteract()
 	{
-		LightBeamCollection lbc = new LightBeamCollection();
-		LightBeam lb = new LightBeam();
-		Light l = new Light(0, 0, 0, 0, 0, 0, 5, 0);
-		lb.add(0, l);
-		lbc.add(0, new LightBeam());
 		
-		myPrism.beamInteract(lbc, 0, 0);
-		
-		assertTrue(l.getEndTouchedObject() == this);
-		
-		assertTrue(lb.size() == 2);
 	}
 
 	/**
@@ -95,7 +81,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testUpdate() throws Exception {
-		// assertTrue(myPrism.Update());
+		// assertTrue(myEmitter.Update());
 		// TODO: write proper tests
 	}
 
@@ -105,7 +91,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testDestroy() throws Exception {
-		// assertTrue(myPrism.destroy());
+		// assertTrue(myEmitter.destroy());
 		// TODO: write proper tests
 	}
 
@@ -115,7 +101,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f dummy = myPrism.getPosition();
+		Vector3f dummy = myEmitter.getPosition();
 		assertTrue(dummy.x == 0);
 		assertTrue(dummy.y == 0);
 		assertTrue(dummy.z == 0);
@@ -127,10 +113,10 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		Vector4f dummy = myPrism.getRotation();
+		Vector4f dummy = myEmitter.getRotation();
 		assertTrue(dummy.w == 0.5f);
-		assertTrue(dummy.x == 1.0f);
-		assertTrue(dummy.y == 0.0f);
+		assertTrue(dummy.x == 0.0f);
+		assertTrue(dummy.y == 1.0f);
 		assertTrue(dummy.z == 0.0f);
 	}
 
@@ -140,8 +126,8 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		Vector3f dummy = myPrism.getScale();
-		assertTrue(dummy.x == 0.5f);
+		Vector3f dummy = myEmitter.getScale();
+		assertTrue(dummy.x == 0.1f);
 		assertTrue(dummy.y == 0.5f);
 		assertTrue(dummy.z == 0.5f);
 	}
