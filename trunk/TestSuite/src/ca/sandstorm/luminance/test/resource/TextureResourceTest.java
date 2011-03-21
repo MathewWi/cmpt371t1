@@ -1,5 +1,9 @@
 package ca.sandstorm.luminance.test.resource;
 
+import java.nio.ByteBuffer;
+
+import javax.microedition.khronos.opengles.GL10;
+
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.resources.TextureResource;
 
@@ -17,7 +21,10 @@ public class TextureResourceTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		texResource = new TextureResource("texture1", 1);
+		
+		GL10 gl = null;
+
+		texResource = new TextureResource("texture1", 1, gl);
 	}
 
 	/**

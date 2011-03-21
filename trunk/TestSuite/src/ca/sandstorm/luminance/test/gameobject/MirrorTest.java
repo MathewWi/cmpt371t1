@@ -21,7 +21,7 @@ public class MirrorTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myMirror = new Mirror(new Vector3f(0, 0, 0), 0.5f);
+		myMirror = new Mirror(new Vector3f(0, 0, 0), new Vector3f(0,0,0));
 	}
 
 	/**

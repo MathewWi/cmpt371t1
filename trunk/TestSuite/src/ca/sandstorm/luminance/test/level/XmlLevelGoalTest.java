@@ -1,5 +1,6 @@
 package ca.sandstorm.luminance.test.level;
 
+import ca.sandstorm.luminance.level.XmlLevelEmitter;
 import ca.sandstorm.luminance.level.XmlLevelGoal;
 import android.test.AndroidTestCase;
 /**
@@ -55,10 +56,10 @@ public class XmlLevelGoalTest extends AndroidTestCase {
 	}
 
 	public void testGetColour() throws Exception {
-		assert(tGoalWhite.getColour().equals("WHITE"));
-		assert(tGoalRed.getColour().equals("RED"));
-		assert(tGoalGreen.getColour().equals("GREEN"));
-		assert(tGoalBlue.getColour().equals("BLUE"));
+		assertEquals(tGoalWhite.getColour(), XmlLevelEmitter.EmitterColour.WHITE);
+		assertEquals(tGoalRed.getColour(), XmlLevelEmitter.EmitterColour.RED);
+		assertEquals(tGoalGreen.getColour(), XmlLevelEmitter.EmitterColour.GREEN);
+		assertEquals(tGoalBlue.getColour(), XmlLevelEmitter.EmitterColour.BLUE);
 	}
 
 }

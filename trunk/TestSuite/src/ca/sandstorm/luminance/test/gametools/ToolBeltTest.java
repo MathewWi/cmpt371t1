@@ -19,8 +19,8 @@ public class ToolBeltTest extends AndroidTestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		
-		tToolbelt = new Toolbelt(new GameState());
+		int level = 1;
+		tToolbelt = new Toolbelt(new GameState(1));
 
 	}
 	
