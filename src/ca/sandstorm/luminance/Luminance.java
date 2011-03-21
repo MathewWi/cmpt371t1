@@ -37,14 +37,9 @@ public class Luminance extends Activity
 {
     private static final Logger _logger = LoggerFactory.getLogger("Luminance");
     
-    // Used for framerate analysis while stress testing. Supress
-    // warning because the code that uses it should normally be commented out.
-    @SuppressWarnings("unused")
-    private float _logFpsCounter = 0f;
+    // Used for framerate analysis while stress testing. 
+    //private float _logFpsCounter = 0f;
     
-    // Set to false after the program starts for the first time
-    private boolean _firstCreate = true;
-
     // openGL view
     private GLSurfaceView mGLView;
 
@@ -80,7 +75,8 @@ public class Luminance extends Activity
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
 	
-	if (_firstCreate) {
+	// Push a new menu state unless engine is initialized, meaning one already exists
+	if (!Engine.getInstance().isInitialized()) {
 	    // init the engine and add our states
 	    //Engine.getInstance().pushState(new GameState());
 	
@@ -101,8 +97,6 @@ public class Luminance extends Activity
         });
 	
 	setContentView(mGLView);
-	
-	_firstCreate = false;
     }
     
     
