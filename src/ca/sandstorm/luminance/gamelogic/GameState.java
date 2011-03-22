@@ -55,7 +55,13 @@ public class GameState implements IState
 {
     private static final Logger logger = LoggerFactory
 	    .getLogger(GameState.class);
+    
+    public static final float DEFAULT_CAMERA_Z_NEAR = 0.2f;
+    public static final float DEFAULT_CAMERA_Z_FAR = 40.0f;
+    public static final float DEFAULT_CAMERA_FOV = 45.0f;
+    public static final float DEFAULT_CAMERA_SKY_FOV = 90.0f;
 
+    // has the game state had its core components initialized
     private boolean _initialized = false;
     
     // Current level
@@ -357,7 +363,7 @@ public class GameState implements IState
 	_cam = new Camera();
 	
 	_cam.setViewPort(0, 0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
-	_cam.setPerspective(45.0f, (float) Engine.getInstance().getViewWidth() / (float) Engine.getInstance().getViewHeight(), 0.1f, 65535.0f);	
+	_cam.setPerspective(DEFAULT_CAMERA_FOV, (float) Engine.getInstance().getViewWidth() / (float) Engine.getInstance().getViewHeight(), DEFAULT_CAMERA_Z_NEAR, DEFAULT_CAMERA_Z_FAR);	
 	
 	_cam.setEye(_grid.getTotalWidth() / 2.0f, camY,
 		    _grid.getTotalHeight() / 2.0f);
@@ -763,7 +769,7 @@ public class GameState implements IState
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
 	// render skybox at 90 fov to keep the perspective realistic
-	_cam.setFov(90);
+	_cam.setFov(DEFAULT_CAMERA_SKY_FOV);
 	_cam.updateViewMatrix(gl);
 	gl.glPushMatrix();
 	gl.glTranslatef(_cam.getEye().x, _cam.getEye().y, _cam.getEye().z);
@@ -773,7 +779,7 @@ public class GameState implements IState
 	gl.glPopMatrix();	
 	
 	// render game at 45 fov to keep the 3D effect realistic
-	_cam.setFov(45);
+	_cam.setFov(DEFAULT_CAMERA_FOV);
 	_cam.updateViewMatrix(gl);
 
 	gl.glEnable(GL10.GL_CULL_FACE);
@@ -791,29 +797,17 @@ public class GameState implements IState
 	_lightPath.draw(gl);
 	gl.glPopMatrix();
 	
-	// NOTE: adjust the comments below, flip them to go back to old system.
+	// render 2D stuff, reset view to identity now
 	gl.glLoadIdentity();
-	// render 2D stuff in a complex matrix saving manner
-	/*gl.glMatrixMode(GL10.GL_MODELVIEW);
-	gl.glPushMatrix();	
-		gl.glLoadIdentity();
-		*/
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-		//gl.glPushMatrix();
-			gl.glLoadIdentity();
-			gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
-			
-		//	gl.glMatrixMode(GL10.GL_MODELVIEW);
-			_guiManager.draw(gl);
-			if (_showMenu) {
-			    _menuGuiManager.draw(gl);
-			}
-		//	gl.glMatrixMode(GL10.GL_PROJECTION);
-		//gl.glPopMatrix();
-		
-	//gl.glMatrixMode(GL10.GL_MODELVIEW);
-	//gl.glPopMatrix();
-	
+	gl.glMatrixMode(GL10.GL_PROJECTION);
+	gl.glLoadIdentity();
+	gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);    			
+    	_guiManager.draw(gl);
+    	if (_showMenu) {
+    	    _menuGuiManager.draw(gl);
+    	}
+    	
+    	// disable any states
 	gl.glDisable(GL10.GL_CULL_FACE);
     }
 
@@ -840,11 +834,11 @@ public class GameState implements IState
 	gl.glDepthFunc(GL10.GL_LEQUAL); // The Type Of Depth Testing To Do
 
 	// Really Nice Perspective Calculations 
-	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
+	/*gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
 	gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_FASTEST);
 	gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_FASTEST);
 	gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_FASTEST);
-	gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_FASTEST);
+	gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_FASTEST);*/
 
 	// prevent divide by zero.
 	// @HACK - Forgiven since h == 0 means the game window is probably
@@ -857,7 +851,7 @@ public class GameState implements IState
 	if (_cam != null)
 	{
 	    _cam.setViewPort(0, 0, w, h);
-	    _cam.setPerspective(45.0f, (float) w / (float) h, 0.1f, 100.0f);
+	    _cam.setPerspective(DEFAULT_CAMERA_FOV, (float) Engine.getInstance().getViewWidth() / (float) Engine.getInstance().getViewHeight(), DEFAULT_CAMERA_Z_NEAR, DEFAULT_CAMERA_Z_FAR);
 	}
     }
 

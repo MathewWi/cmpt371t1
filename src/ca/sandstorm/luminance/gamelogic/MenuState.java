@@ -98,7 +98,7 @@ public class MenuState implements IState
 	gl.glDepthFunc(GL10.GL_LEQUAL); // The Type Of Depth Testing To Do
 
 	// Really Nice Perspective Calculations
-	gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
+	//gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
 
 	// prevent divide by zero.
 	// @HACK - Forgiven since h == 0 means the game window is probably
