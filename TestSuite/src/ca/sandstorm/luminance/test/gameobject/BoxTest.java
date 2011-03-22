@@ -66,9 +66,9 @@ public class BoxTest extends AndroidTestCase {
 	public void testGetRotation() throws Exception {
 		Vector4f dummy = myBox.getRotation();
 		assertTrue(dummy.w == 0.0f);
-		assertTrue(dummy.x == 1.0f);
-		assertTrue(dummy.y == 1.0f);
-		assertTrue(dummy.z == 1.0f);
+		assertTrue(dummy.x == 0.0f);
+		assertTrue(dummy.y == 0.0f);
+		assertTrue(dummy.z == 0.0f);
 	}
 
 	/**
@@ -112,11 +112,11 @@ public class BoxTest extends AndroidTestCase {
 		LightBeam lb = new LightBeam();
 		Light l = new Light(0, 0, 0, 0, 0, 0, 5, 0);
 		lb.add(0, l);
-		lbc.add(0, new LightBeam());
+		lbc.add(0, lb);
 		
 		myBox.beamInteract(lbc, 0, 0);
 		
-		assertTrue(l.getEndTouchedObject() == this);
+		assertTrue(l.getEndTouchedObject().equals(myBox));
 	}
 
 	/**

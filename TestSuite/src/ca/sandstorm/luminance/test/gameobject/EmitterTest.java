@@ -114,9 +114,9 @@ public class EmitterTest extends AndroidTestCase {
 	 */
 	public void testGetRotation() throws Exception {
 		Vector4f dummy = myEmitter.getRotation();
-		assertTrue(dummy.w == 0.5f);
+		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 0.0f);
-		assertTrue(dummy.y == 1.0f);
+		assertTrue(dummy.y == 0.0f);
 		assertTrue(dummy.z == 0.0f);
 	}
 
@@ -127,8 +127,8 @@ public class EmitterTest extends AndroidTestCase {
 	 */
 	public void testGetScale() throws Exception {
 		Vector3f dummy = myEmitter.getScale();
-		assertTrue(dummy.x == 0.1f);
-		assertTrue(dummy.y == 0.5f);
+		assertTrue(dummy.x == 0.15f);
+		assertTrue(dummy.y == 0.15f);
 		assertTrue(dummy.z == 0.5f);
 	}
 

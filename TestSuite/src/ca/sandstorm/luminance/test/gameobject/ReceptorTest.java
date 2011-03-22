@@ -98,13 +98,13 @@ public class ReceptorTest extends AndroidTestCase {
 		LightBeam lb = new LightBeam();
 		Light l = new Light(0, 0, 0, 0, 0, 0, 5, 0);
 		lb.add(0, l);
-		lbc.add(0, new LightBeam());
+		lbc.add(0, lb);
+		myReceptor.setColor(0);
 		
 		myReceptor.beamInteract(lbc, 0, 0);
 		
-		assertTrue(l.getEndTouchedObject() == this);
-		
-		assertTrue(lb.size() == 2);
+		//assertTrue(l.getEndTouchedObject().equals(myReceptor));
+		assertTrue(myReceptor.getActivated());
 	}
 	
 	/**

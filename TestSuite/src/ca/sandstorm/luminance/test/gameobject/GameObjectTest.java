@@ -5,6 +5,7 @@ import javax.vecmath.Vector4f;
 
 import android.test.AndroidTestCase;
 
+import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.GameObject;
 
 public class GameObjectTest extends AndroidTestCase{
@@ -15,6 +16,7 @@ public class GameObjectTest extends AndroidTestCase{
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
+		myObject = new Box(new Vector3f(0,0,0), new Vector3f(0,0,0));
 	}
 
 	/**
@@ -70,9 +72,9 @@ public class GameObjectTest extends AndroidTestCase{
 	public void testGetRotation() throws Exception {
 		Vector4f dummy = myObject.getRotation();
 		assertTrue(dummy.w == 0.0f);
-		assertTrue(dummy.x == 1.0f);
-		assertTrue(dummy.y == 1.0f);
-		assertTrue(dummy.z == 1.0f);
+		assertTrue(dummy.x == 0.0f);
+		assertTrue(dummy.y == 0.0f);
+		assertTrue(dummy.z == 0.0f);
 	}
 
 	/**
@@ -82,9 +84,9 @@ public class GameObjectTest extends AndroidTestCase{
 	 */
 	public void testGetScale() throws Exception {
 		Vector3f dummy = myObject.getScale();
-		assertTrue(dummy.x == 1.0f);
-		assertTrue(dummy.y == 1.0f);
-		assertTrue(dummy.z == 1.0f);
+		assertTrue(dummy.x == 0.0f);
+		assertTrue(dummy.y == 0.0f);
+		assertTrue(dummy.z == 0.0f);
 	}
 
 	/**
