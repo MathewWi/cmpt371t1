@@ -50,6 +50,19 @@ public class LightTest extends AndroidTestCase {
 	}
 	
 	/**
+	 * Test the getPosition method.
+	 * 
+	 * @throws Exception
+	 */
+	public void testPosition() throws Exception {
+		Vector3f dum = myLight.getPosition();
+		//Vector3f dum = myLight.getStartPoint();
+		assertTrue(dum.x == 0);
+		assertTrue(dum.y == 0);
+		assertTrue(dum.z == 0);
+	}
+	
+	/**
 	 * Test the getDirection method.
 	 * 
 	 * @throws Exception
@@ -172,18 +185,6 @@ public class LightTest extends AndroidTestCase {
 	public void testDestroy() throws Exception {
 		// assertTrue(myLight.destroy());
 		// TODO: write proper tests
-	}
-
-	/**
-	 * Test the getPosition method.
-	 * 
-	 * @throws Exception
-	 */
-	public void testPosition() throws Exception {
-		Vector3f dum = myLight.getPosition();
-		assertTrue(dum.x == 1);
-		assertTrue(dum.y == 1);
-		assertTrue(dum.z == 1);
 	}
 
 	/**

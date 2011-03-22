@@ -76,13 +76,11 @@ public class MirrorTest extends AndroidTestCase {
 		LightBeam lb = new LightBeam();
 		Light l = new Light(0, 0, 0, 0, 0, 0, 5, 0);
 		lb.add(0, l);
-		lbc.add(0, new LightBeam());
+		lbc.add(0, lb);
 		
 		myMirror.beamInteract(lbc, 0, 0);
 		
-		assertTrue(l.getEndTouchedObject() == this);
-		
-		assertTrue(lb.size() == 2);
+		assertTrue(l.getEndTouchedObject().equals(myMirror));
 	}
 
 	/**
@@ -124,9 +122,9 @@ public class MirrorTest extends AndroidTestCase {
 	 */
 	public void testGetRotation() throws Exception {
 		Vector4f dummy = myMirror.getRotation();
-		assertTrue(dummy.w == 0.5f);
+		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 0.0f);
-		assertTrue(dummy.y == 1.0f);
+		assertTrue(dummy.y == 45.0f);
 		assertTrue(dummy.z == 0.0f);
 	}
 
