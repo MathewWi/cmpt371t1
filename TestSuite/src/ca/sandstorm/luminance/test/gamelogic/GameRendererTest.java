@@ -25,7 +25,7 @@ public class GameRendererTest extends AndroidTestCase {
 		gr = new GameRenderer();
 		
 		tBox = new Box(new Vector3f(3,2,1), new Vector3f(4,3,2));
-		tMirror = new Mirror(new Vector3f(1,4,4), new Vector3f(0,0,0));
+		tMirror = new Mirror(new Vector3f(1,4,4));
 		
 		Vector3f position = new Vector3f(5,5,5);
 		Vector3f rotation = new Vector3f(5, 5, 5);
@@ -35,7 +35,7 @@ public class GameRendererTest extends AndroidTestCase {
 	// Need to use coverage testing to see if it gets all cases
 	public void testAdd() throws Exception {
 		gr.add(new Box(new Vector3f(1,2,2), new Vector3f(2,2,2)));
-		gr.add(new Mirror(new Vector3f(3,3,3), new Vector3f(0,0,0)));
+		gr.add(new Mirror(new Vector3f(3,3,3)));
 		gr.add(new Prism(new Vector3f(4,4,4), new Vector3f(4, 4, 4)));
 		
 		gr.add(tBox);
@@ -47,7 +47,7 @@ public class GameRendererTest extends AndroidTestCase {
 	// Same as add. Use coverage testing.
 	public void testRemove() throws Exception {
 		gr.remove(new Box(new Vector3f(1,2,2), new Vector3f(2,2,2)));
-		gr.remove(new Mirror(new Vector3f(3,3,3), new Vector3f(0,0,0)));
+		gr.remove(new Mirror(new Vector3f(3,3,3)));
 		gr.remove(new Prism(new Vector3f(4,4,4),  new Vector3f(4, 4, 4)));
 		
 		gr.remove(tBox);
