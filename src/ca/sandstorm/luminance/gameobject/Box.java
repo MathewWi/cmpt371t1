@@ -151,4 +151,25 @@ public class Box extends GameObject implements IRenderableObject
 	// TODO Auto-generated method stub
 	return _colSphere;
     }
+
+    @Override
+    public float getNextYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
+    @Override
+    public float getPrevYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
+    @Override
+    public float getCurrentYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 }

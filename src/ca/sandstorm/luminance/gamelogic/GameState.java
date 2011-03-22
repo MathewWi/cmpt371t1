@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Matrix3f;
 import javax.vecmath.Point2i;
 import javax.vecmath.Vector3f;
 
@@ -16,6 +17,7 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Emitter;
+import ca.sandstorm.luminance.gameobject.GameObject;
 import ca.sandstorm.luminance.gameobject.Grid;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
@@ -85,6 +87,9 @@ public class GameState implements IState
     
     // Container for the goals for quick verification
     private Vector<Receptor> _goalObjects = null;
+    
+    // Container for the emitters, used to restart lights
+    private Vector<Emitter> _emitterObjects = null;
 
     // Controller class for gamestate
     private GameStateInput _input;
@@ -103,6 +108,7 @@ public class GameState implements IState
 	//_objects = new LinkedList<IGameObject>();
 	_objects = new HashMap<Point2i, IGameObject>();
 	_goalObjects = new Vector<Receptor>();
+	_emitterObjects = new Vector<Emitter>();
 	tempPoint = new Point2i();
 	_input = new GameStateInput();
 	
@@ -151,40 +157,7 @@ public class GameState implements IState
 	    Engine.getInstance().getRenderer().remove((IRenderableObject)obj);
 	}
 	
-	// adjust light path
-	LightBeamCollection beams = _lightPath.getLightPaths();
-	for (LightBeam beam : beams)
-	{
-	    for (Light l : beam)
-	    {
-		if (l.getStartTouchedObject() == obj || l.getEndTouchedObject() == obj)
-		{	    
-		    // is this not the only light
-		    if (beam.size() > 1)
-		    {
-			Light saveLight = beam.get(0);
-			saveLight.setEndTouchedObject(null);
-			saveLight.setDistance(Light.LIGHT_INFINITY);
-			
-			beam.clear();
-			beam.add(saveLight);
-			
-			// hack to avoid concurrent modification exception
-			break;
-		    }
-		    else
-		    {
-			// only one light, special case
-			beam.clear();
-		    }
-		    
-		    if (obj instanceof Receptor)
-		    {
-			((Receptor)obj).setActivated(false);
-		    }
-		}
-	    }
-	}
+	resetEmitters();
     }
     
     /**
@@ -260,12 +233,7 @@ public class GameState implements IState
 		vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid		
 		Vector3f vRot = new Vector3f(obj.getRotationX(), obj.getRotationY(), obj.getRotationZ());
 		Vector3f vScale = new Vector3f(0.5f, 0.5f, 0.5f);
-		
-		// xml reads in degrees, convert to radians, no dont, opengl is degrees
-		//vRot.x = (float)Math.toRadians(vRot.x);
-		//vRot.y = (float)Math.toRadians(vRot.y);
-		//vRot.z = (float)Math.toRadians(vRot.z);
-		
+				
 		// parse bricks into world
 		if (obj.getType().equals("brick"))
 		{		   
@@ -284,22 +252,10 @@ public class GameState implements IState
 		{
 		    // calculate goal color
 		    int color = ((XmlLevelEmitter)obj).getColour();
-		 
-		    // @HACK
-		    //color = Color.WHITE;
-		    
-		    Emitter emitter = new Emitter(vPos, vRot);
+		 	    
+		    Emitter emitter = new Emitter(vPos, vRot, color);
 		    addObject(emitter);
-		    
-		    // generate a light beam for this emitter
-		    LightBeam beam = new LightBeam();
-		    Light l = new Light(vPos.x, vPos.y, vPos.z,
-		                        1, 0, 0,
-		                        Light.LIGHT_INFINITY,
-		                        color);
-		    l.setStartTouchedObject(emitter);
-		    beam.add(l);
-		    _lightPath.getLightPaths().add(beam);
+		    _emitterObjects.add(emitter);		    
 		}
 	    }
 	    
@@ -334,13 +290,49 @@ public class GameState implements IState
 	_cam = new Camera();
 	
 	_cam.setViewPort(0, 0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
-	_cam.setPerspective(45.0f, (float) Engine.getInstance().getViewWidth() / (float) Engine.getInstance().getViewHeight(), 0.1f, 100.0f);	
+	_cam.setPerspective(45.0f, (float) Engine.getInstance().getViewWidth() / (float) Engine.getInstance().getViewHeight(), 0.1f, 65535.0f);	
 	
 	_cam.setEye(_grid.getTotalWidth() / 2.0f, camY,
 		    _grid.getTotalHeight() / 2.0f);
 	_cam.setTarget(_grid.getTotalWidth() / 2.0f, 0,
 		       _grid.getTotalHeight() / 2.0f);
 	_cam.rotateCamera(0.01f, 1, 0, 0);	
+    }
+    
+    
+    /**
+     * 
+     */
+    public void resetEmitters()
+    {
+	// delete all the light paths
+	_lightPath.getLightPaths().clear();
+	
+	// reset all goals
+	for (Receptor r : _goalObjects)
+	{
+	    r.setActivated(false);
+	}
+	
+	// restart all emitters
+	for (Emitter e : _emitterObjects)
+	{
+	    LightBeam beam = new LightBeam();
+	    
+	    // calc light direction
+	    Vector3f norm = new Vector3f(1,0,0);
+	    Vector3f result = new Vector3f();
+	    Matrix3f mat = Colliders.getMatrixRotationY((float)Math.toRadians(-e.getRotation().y));
+	    Colliders.Transform(norm, mat, result);	    
+	    
+	    // generate a light beam for this emitter
+	    Light l = new Light(e.getPosition().x, e.getPosition().y, e.getPosition().z, 
+	                        norm.x, norm.y, norm.z, 
+	                        Light.LIGHT_INFINITY, e.getColor() );
+	    l.setStartTouchedObject(e);
+	    beam.add(l);
+	    _lightPath.getLightPaths().add(beam);	    
+	}
     }
 
 
@@ -422,13 +414,7 @@ public class GameState implements IState
 	                                "Pause");
 	pauseButton.setTextureResourceLocation("textures/pause.png");
 	_guiManager.addButton(pauseButton);
-		
-	// Create the toolbelt
-	_toolbelt = new Toolbelt(this);
 	
-	// Load level
-	_parseLevel();
-
 	// Add a skybox
 	_sky = new Skybox();
 	try {
@@ -436,9 +422,19 @@ public class GameState implements IState
 	} catch (IOException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
-	}
+	}	
+		
+	// Create the toolbelt
+	_toolbelt = new Toolbelt(this);
 	
+	// Load level
+	_parseLevel();
+	
+	// default camera
 	resetCamera();
+	
+	// get the light going
+	resetEmitters();
 	
 	try {
 	    for (IWidget widget : _guiManager.getWidgets()) {
@@ -503,6 +499,26 @@ public class GameState implements IState
 	tempPoint.y = y;
 	return _objects.get(tempPoint);
     }
+    
+    
+    /**
+     * 
+     * @param x
+     * @param y
+     */
+    public void rotateObjectAtGridCoords(int x, int y)
+    {
+	// if cell is occupied
+	if (isCellOccupied(x, y))
+	{
+	    // just hack rotation for now
+	    IGameObject obj = getObjectAtGridCoords(x, y);
+	    obj.setRotation(0, obj.getNextYRotation(), 0);
+	    
+	    resetEmitters();
+	}
+    }
+    
     
     /**
      * Check if a cell is occupied.

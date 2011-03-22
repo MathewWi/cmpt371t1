@@ -28,11 +28,14 @@ public class Mirror extends GameObject implements IRenderableObject
     
     private Light _lightLastTouched = null;
     
-    public Mirror(Vector3f position, Vector3f rotation)
+    private static float[] _rotationArray = new float[] { 45, -45 };
+    private int _currentRotation = 0;
+    
+    public Mirror(Vector3f position)
     {
-	_logger.debug("Mirror(" + position + ", " + rotation + ")");
+	_logger.debug("Mirror(" + position + ")");
 		
-	// TODO: Improve orientation
+	Vector3f rotation = new Vector3f(0, getCurrentYRotation(), 0);
 	_position = new Vector3f(position);
 	_rotation = new Vector4f(rotation);
 	_scale = new Vector3f(0.1f, 0.5f, 0.5f);
@@ -42,9 +45,7 @@ public class Mirror extends GameObject implements IRenderableObject
 	
 	Vector3f norm = new Vector3f(1,0,0);
 	Vector3f result = new Vector3f();
-	Matrix3f mat = new Matrix3f();
-	mat.setIdentity();
-	mat.rotY((float)Math.toRadians(-rotation.y));
+	Matrix3f mat = Colliders.getMatrixRotationY((float)Math.toRadians(-rotation.y));
 	Colliders.Transform(norm, mat, result);
 	
 	_colPlane = new Plane(_position.x, _position.y, _position.z, result.x, result.y, result.z);
@@ -128,13 +129,12 @@ public class Mirror extends GameObject implements IRenderableObject
     @Override
     public void beamInteract(LightBeamCollection beamCollection, int beamIndex, int lightIndex)
     {
-	//_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");
-	
+	//_logger.debug("beamInteract(" + beam + ", " + lightIndexToInteract + ")");	
 	LightBeam beam = beamCollection.get(beamIndex);
 	
 	// get the old light
 	Light l = beam.get(lightIndex);
-	
+		
 	// skip if this is same light
 	if (_lightLastTouched != null)
 	{
@@ -155,9 +155,6 @@ public class Mirror extends GameObject implements IRenderableObject
 	// tell the old light it is touching this
 	l.setEndTouchedObject(this);
 	
-	// calc new direction of light -- OLD
-	//Vector3f dir = Colliders.crossProduct(l.getRay().getDirection(), Colliders.UP);
-	
 	// Reflect the light ray
 	// r = i - (2 * n * dot(i, n))
 	Vector3f dir = new Vector3f();
@@ -177,6 +174,51 @@ public class Mirror extends GameObject implements IRenderableObject
 	
 	// add new beam
 	beam.add(newL);
+    }
+
+    
+    public void setRotation(float x, float y, float z)
+    {
+	_rotation.x = x;
+	_rotation.y = y;
+	_rotation.z = z;
+	
+	// update the plane
+	Vector3f result = new Vector3f();
+	Matrix3f mat = Colliders.getMatrixRotationY((float)Math.toRadians(-_rotation.y));
+	Colliders.Transform(new Vector3f(1, 0, 0), mat, result);
+	_colPlane.setNormal(result.x, result.y, result.z);	
+    }
+    
+
+    @Override
+    public float getNextYRotation()
+    {
+	_currentRotation++;
+	if (_currentRotation >= _rotationArray.length) 
+	{
+	    _currentRotation = 0;
+	}
+	return _rotationArray[_currentRotation];
+    }
+
+
+    @Override
+    public float getPrevYRotation()
+    {
+	_currentRotation--;
+	if (_currentRotation < 0)
+	{
+	    _currentRotation = _rotationArray.length - 1;
+	}
+	return _rotationArray[_currentRotation];
+    }
+
+
+    @Override
+    public float getCurrentYRotation()
+    {
+	return _rotationArray[_currentRotation];
     }
 
 }
