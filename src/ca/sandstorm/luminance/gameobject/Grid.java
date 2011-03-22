@@ -286,6 +286,11 @@ public class Grid
 	    gridX > getColumnCount() || gridZ > getRowCount()) {
 	    return null;
 	}
+	
+	// Check if position is not NaN
+	if (Float.isNaN(x) || Float.isNaN(y) || Float.isNaN(z)){
+	    return null;
+	}
 
 	_tmpGridPos.set((int)(gridX + Colliders.EPSILON), (int)(gridZ + Colliders.EPSILON));
 
