@@ -142,7 +142,7 @@ public class MenuState implements IState
 	startButton.setCalleeAndMethod(this, "test");
 	
 	Button helpButton = new Button(0.175f*screenWidth, 
-	                               0.350f*screenHeight + .125f*screenHeight,
+	                               0.350f*screenHeight + .150f*screenHeight,
 	                               0.650f*screenWidth, 
 	                               0.100f*screenHeight,
 	                               "Help");

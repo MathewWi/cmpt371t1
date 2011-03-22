@@ -366,6 +366,11 @@ public class Engine
 
 	return _stateStack.pop();
     }
+    
+    public IState getCurrentState()
+    {
+	return _stateStack.peek();
+    }
 
 
     /**
