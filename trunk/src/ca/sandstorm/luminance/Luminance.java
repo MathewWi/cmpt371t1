@@ -280,11 +280,11 @@ public class Luminance extends Activity
 	public void onDrawFrame(GL10 gl)
 	{
 	    // do not log...
-	    /*Message msg = new Message();
+	    Message msg = new Message();
 	    Bundle b = new Bundle();
 	    b.putFloat("fps", Engine.getInstance().getTimer().getFrameDelta());
 	    msg.setData(b);
-	    handler.sendMessage(msg);*/
+	    handler.sendMessage(msg);
 
 	    // update/draw engine
 	    Engine.getInstance().update(gl);
