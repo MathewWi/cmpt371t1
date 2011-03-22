@@ -6,6 +6,8 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.graphics.Color;
+
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.math.Colliders;
@@ -25,6 +27,8 @@ public class Receptor extends GameObject implements IRenderableObject
     
     private Sphere _colSphere;
     
+    private int _deactivatedColor;
+    private int _activatedColor;
     private int _color;
     private boolean _activated;
     
@@ -66,6 +70,11 @@ public class Receptor extends GameObject implements IRenderableObject
     public void setColor(int color)
     {
 	_color = color;
+	_activatedColor = color;
+	int red = Color.red(color) / 2;
+	int green = Color.green(color) / 2;
+	int blue = Color.blue(color) / 2;
+	_deactivatedColor = Color.argb(255, red, green, blue);
     }
     
     
@@ -75,7 +84,14 @@ public class Receptor extends GameObject implements IRenderableObject
      */
     public int getColor()
     {
-	return _color;
+	if (_activated)
+	{
+	    return _activatedColor;
+	}
+	else
+	{
+	   return _deactivatedColor;
+	}
     }
     
     
@@ -168,9 +184,9 @@ public class Receptor extends GameObject implements IRenderableObject
     {
 	LightBeam beam = beamCollection.get(beamIndex);
 	Light l = beam.get(lightIndex);
-	if (l.getColor() == this.getColor())
+	if (_activatedColor == l.getColor())
 	{
-	    _activated = true;
+	    setActivated(true);	    
 	}
 	
 	l.setDistance( (float)Colliders.distance(l.getStartPoint(), this.getPosition()) );
