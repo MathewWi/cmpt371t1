@@ -2,9 +2,13 @@
 
 = CPM Diagram =
 
+== For Current Milestone ==
+
+== For Previous Milestones ==
+
 The CPM Diagram that has been modified for this milestone can be viewed here: http://code.google.com/p/cmpt371t1/wiki/MilestonePlan#CPM_Diagram
 
-== CPM Diagram Description == 
+=== CPM Diagram Description === 
 
 This CPM has only changed slightly from the previous one, and that was moving the random level generator.  This was moved because in hindsight it was kind of silly to think that we could pull of such a task only having the basics of a playable game just completed.  The Porting task was also removed, as all the tasks before - such as the input, graphics, etc - it representing the porting from XNA and #C to OpenGL and Java.  It was essentially saying the same thing twice, which isn't necessary.
 
