@@ -240,10 +240,10 @@ public class GameState implements IState
 	float width = Engine.getInstance().getViewWidth();
 	float height = Engine.getInstance().getViewHeight();
 	
-	Button button = new Button(width*0.1f,
-	                           height*0.1f,
-	                           width*0.8f,
-	                           height*0.8f,
+	Button button = new Button(width,
+	                           height,
+	                           width,
+	                           height,
 	                           "LevelComplete");
 	button.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/levelComplete.png"));
 	button.setCalleeAndMethod(this, "nextLevel");

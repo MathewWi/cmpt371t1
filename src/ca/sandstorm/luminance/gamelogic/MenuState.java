@@ -16,6 +16,7 @@ import ca.sandstorm.luminance.graphics.PrimitiveQuad;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
+import ca.sandstorm.luminance.gui.Label;
 import ca.sandstorm.luminance.input.InputButton;
 import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
@@ -132,19 +133,26 @@ public class MenuState implements IState
 	float screenWidth = (float)Engine.getInstance().getViewWidth();
 	float screenHeight = (float)Engine.getInstance().getViewHeight();
 	
+	Button luminanceTitle = new Button(0.0f*screenWidth,
+	                                 0.075f*screenHeight,
+	                                 1.0f*screenWidth,
+	                                 0.25f*screenHeight,
+	                                 "luminanceTitle");
+	luminanceTitle.setTextureResourceLocation("textures/LuminanceLogo.png");
+	
 	Button startButton = new Button(0.175f*screenWidth, 
 	                                0.350f*screenHeight, 
 	                                0.650f*screenWidth, 
-	                                0.100f*screenHeight, 
+	                                0.1250f*screenHeight, 
 	                                "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
 	startButton.setTappedTextureLocation("textures/helpImage.png");
 	startButton.setCalleeAndMethod(this, "test");
 	
 	Button helpButton = new Button(0.175f*screenWidth, 
-	                               0.350f*screenHeight + .150f*screenHeight,
+	                               0.350f*screenHeight + .185f*screenHeight,
 	                               0.650f*screenWidth, 
-	                               0.100f*screenHeight,
+	                               0.1250f*screenHeight,
 	                               "Help");
 	helpButton.setTextureResourceLocation("textures/helpImage.png");
 	helpButton.setTappedTextureLocation("textures/startImage.png");
@@ -171,6 +179,7 @@ public class MenuState implements IState
 	                               "Info");
 	infoButton.setTextureResourceLocation("textures/info.png");
 	
+	_guiManager.addButton(luminanceTitle);
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(helpButton);
 	_guiManager.addButton(soundButton);
