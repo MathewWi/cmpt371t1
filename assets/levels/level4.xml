@@ -6,11 +6,11 @@
 
 <level>
 	<!-- Level Information -->
-	<name>Level 1</name>
+	<name>Level 2</name>
 	<difficulty>easy</difficulty>
 	<grid_size>
-		<x>4</x>
-		<y>10</y>
+		<x>12</x>
+		<y>12</y>
 		<width>1.0</width>
 		<height>1.0</height>
 	</grid_size>
@@ -19,33 +19,7 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>0</x>
-			<y>5</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>	
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>1</x>
-			<y>1</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>1</x>
+			<x>3</x>
 			<y>3</y>
 		</position>
 		<rotation>
@@ -53,40 +27,13 @@
 			<y>0</y>
 			<z>0</z>
 		</rotation>
-	</object>	
+	</object>
 	
 	<object>
 		<type>brick</type>
 		<position>
-			<x>1</x>
-			<y>7</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>		
-		
-	<object>
-		<type>brick</type>
-		<position>
-			<x>2</x>
-			<y>7</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>		
-		
-	<object>
-		<type>goal</type>
-		<colour>white</colour>
-		<position>
-			<x>0</x>
-			<y>8</y>
+			<x>4</x>
+			<y>4</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -94,18 +41,57 @@
 			<z>0</z>
 		</rotation>
 	</object>
-			
 	
 	<object>
-		<type>emitter</type>
-		<colour>white</colour>
+		<type>brick</type>
 		<position>
-			<x>2</x>
+			<x>0</x>
+			<y>6</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>6</x>
 			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
-			<y>90</y>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+		
+	<object>
+		<type>goal</type>
+		<colour>red</colour>
+		<position>
+			<x>7</x>
+			<y>7</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>emitter</type>
+		<colour>red</colour>
+		<position>
+			<x>8</x>
+			<y>8</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
 			<z>0</z>
 		</rotation>
 	</object>	
@@ -113,6 +99,10 @@
 	<!-- Level Tools -->
 	<tool>
 		<type>mirror</type>
-		<count>5</count>
+		<count>3</count>
+	</tool>
+	<tool>
+		<type>prism</type>
+		<count>2</count>
 	</tool>
 </level>

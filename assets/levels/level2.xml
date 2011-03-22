@@ -6,11 +6,11 @@
 
 <level>
 	<!-- Level Information -->
-	<name>Level 2</name>
+	<name>Level 1</name>
 	<difficulty>easy</difficulty>
 	<grid_size>
-		<x>12</x>
-		<y>12</y>
+		<x>6</x>
+		<y>6</y>
 		<width>1.0</width>
 		<height>1.0</height>
 	</grid_size>
@@ -19,8 +19,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>3</x>
-			<y>3</y>
+			<x>0</x>
+			<y>2</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -32,7 +32,7 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>4</x>
+			<x>0</x>
 			<y>4</y>
 		</position>
 		<rotation>
@@ -46,7 +46,7 @@
 		<type>brick</type>
 		<position>
 			<x>0</x>
-			<y>6</y>
+			<y>5</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -58,8 +58,73 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>6</x>
+			<x>1</x>
 			<y>0</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+			
+	<object>
+		<type>brick</type>
+		<position>
+			<x>2</x>
+			<y>2</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>2</x>
+			<y>4</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>	
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>3</x>
+			<y>1</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>3</x>
+			<y>2</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>3</x>
+			<y>4</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -70,10 +135,10 @@
 		
 	<object>
 		<type>goal</type>
-		<colour>red</colour>
+		<colour>green</colour>
 		<position>
-			<x>7</x>
-			<y>7</y>
+			<x>2</x>
+			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -83,15 +148,43 @@
 	</object>
 	
 	<object>
-		<type>emitter</type>
-		<colour>red</colour>
+		<type>goal</type>
+		<colour>blue</colour>
 		<position>
-			<x>8</x>
-			<y>8</y>
+			<x>3</x>
+			<y>5</y>
 		</position>
 		<rotation>
 			<x>0</x>
 			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>goal</type>
+		<colour>red</colour>
+		<position>
+			<x>5</x>
+			<y>2</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>		
+	
+	<object>
+		<type>emitter</type>
+		<colour>white</colour>
+		<position>
+			<x>0</x>
+			<y>3</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>270</y>
 			<z>0</z>
 		</rotation>
 	</object>	
@@ -103,6 +196,6 @@
 	</tool>
 	<tool>
 		<type>prism</type>
-		<count>2</count>
+		<count>1</count>
 	</tool>
 </level>
