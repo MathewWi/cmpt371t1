@@ -110,7 +110,7 @@
 	
 	<object>
 		<type>emitter</type>
-		<colour>red</colour>
+		<colour>white</colour>
 		<position>
 			<x>0</x>
 			<y>0</y>

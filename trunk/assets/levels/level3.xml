@@ -19,85 +19,7 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>0</x>
-			<y>2</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>0</x>
-			<y>4</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>0</x>
-			<y>5</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>
-	
-	<object>
-		<type>brick</type>
-		<position>
 			<x>1</x>
-			<y>0</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>
-			
-	<object>
-		<type>brick</type>
-		<position>
-			<x>2</x>
-			<y>2</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>2</x>
-			<y>4</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>	
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>3</x>
 			<y>1</y>
 		</position>
 		<rotation>
@@ -110,7 +32,7 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>3</x>
+			<x>2</x>
 			<y>2</y>
 		</position>
 		<rotation>
@@ -124,7 +46,46 @@
 		<type>brick</type>
 		<position>
 			<x>3</x>
+			<y>3</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>4</x>
 			<y>4</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>0</x>
+			<y>6</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>brick</type>
+		<position>
+			<x>6</x>
+			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -137,8 +98,8 @@
 		<type>goal</type>
 		<colour>blue</colour>
 		<position>
-			<x>2</x>
-			<y>0</y>
+			<x>7</x>
+			<y>7</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -151,8 +112,8 @@
 		<type>goal</type>
 		<colour>green</colour>
 		<position>
-			<x>3</x>
-			<y>5</y>
+			<x>4</x>
+			<y>3</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -165,8 +126,8 @@
 		<type>goal</type>
 		<colour>red</colour>
 		<position>
-			<x>5</x>
-			<y>2</y>
+			<x>7</x>
+			<y>5</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -180,7 +141,7 @@
 		<colour>white</colour>
 		<position>
 			<x>0</x>
-			<y>3</y>
+			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
