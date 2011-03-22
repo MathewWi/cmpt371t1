@@ -671,7 +671,7 @@ public class GameState implements IState
 	    LightBeam lightBeam = beams.get(i);
 	    int savedBeamSize = lightBeam.size();
 
-	    for (int j = 0; j < savedBeamSize; j++)	
+	    for (int j = 0; j < lightBeam.size(); j++)	
 	    {
 		IGameObject minObj = null;
 		float minDist = Light.LIGHT_INFINITY;

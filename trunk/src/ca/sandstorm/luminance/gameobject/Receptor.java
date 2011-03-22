@@ -174,6 +174,7 @@ public class Receptor extends GameObject implements IRenderableObject
 	}
 	
 	l.setDistance( (float)Colliders.distance(l.getStartPoint(), this.getPosition()) );
+	l.setEndTouchedObject(this);
     }
 
 
