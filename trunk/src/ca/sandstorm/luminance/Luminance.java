@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gamelogic.MenuState;
+import ca.sandstorm.luminance.state.IState;
 
 import android.app.Activity;
 import android.graphics.PixelFormat;
@@ -21,6 +22,7 @@ import android.os.Message;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.Window;
 
@@ -104,6 +106,14 @@ public class Luminance extends Activity
 	setContentView(mGLView);
     }
     
+    public boolean onPrepareOptionsMenu (Menu menu)
+    {
+	IState currentState = Engine.getInstance().getCurrentState();
+	if (currentState instanceof GameState) {
+	    ((GameState)currentState).showOrDismissPauseMenu();
+	}
+	return false;
+    }
     
     @Override
     protected void onStop()

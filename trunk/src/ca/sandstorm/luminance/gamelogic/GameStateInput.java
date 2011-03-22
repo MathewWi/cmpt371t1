@@ -36,6 +36,7 @@ public class GameStateInput
     private Toolbelt _toolbelt;
     private GUIManager _guiManager;
     private Grid _grid;
+    private boolean _isGridEnabled;
  // input handling properties
     private float _initialX = 0.0f;
     private float _initialY = 0.0f;
@@ -70,13 +71,15 @@ public class GameStateInput
      * @param toolbelt
      * @param grid
      * @param guiManager
+     * @param isGridEnabled
      */
-    public void process(Camera cam, Toolbelt toolbelt, Grid grid, GUIManager guiManager)
+    public void process(Camera cam, Toolbelt toolbelt, Grid grid, GUIManager guiManager, boolean isGridEnabled)
     {
 	_cam = cam;
 	_toolbelt = toolbelt;
 	_grid = grid;
 	_guiManager = guiManager;
+	_isGridEnabled = isGridEnabled;
 	
 	processKeyboardInput();
 	processTouchInput();
@@ -178,10 +181,12 @@ public class GameStateInput
 	    
 	    if (Engine.getInstance().getInputSystem()
 		.getTouchScreen().getTouchMode() == InputTouchScreen.ON_SINGLE_TAP_CONFIRMED){
+		if (_isGridEnabled) {
 		    mouseClick(touchEvent.getX(), 
 		               touchEvent.getY() 
 		               - Engine.getInstance().getMenuBarHeight() 
 		               - Engine.getInstance().getTitleBarHeight());
+		}
 		    
 		    Engine.getInstance().getInputSystem()
 			.getTouchScreen().setTouchMode(InputTouchScreen.NONE);
@@ -211,7 +216,7 @@ public class GameStateInput
 	    
 	    switch (touchEvent.getAction()) {		    
 		case MotionEvent.ACTION_UP:
-		    //_guiManager.letGoOfButton();
+		    _guiManager.letGoOfButton();
 		    break;
 		case MotionEvent.ACTION_MOVE:
 		    zoomGesture(touchEvent);

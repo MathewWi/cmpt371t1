@@ -30,6 +30,7 @@ public class GUIManager
     private IWidget _widgets[];
     
     private Button _tappedButton;
+    private boolean _isEnabled;
 
     /**
      * Constructor. By default, the number of buttons to be managed is 0.
@@ -43,6 +44,35 @@ public class GUIManager
 	
 	_widgets = new IWidget[MAX_WIDGET_COUNT];
 	_numberOfWidgets = 0;
+	_isEnabled = true;
+    }
+    
+    /**
+     * Return the boolean specifying whether this GUIManager should check to
+     * see if Buttons are being clicked. If false, then
+     * touchOccured(MotionEvent) and touchOccured(float, float) will always
+     * return null. If true, then they will return their expected values
+     * 
+     * @return the boolean specifying whether this GUIManager should check to
+     * see if Buttons are being clicked.
+     */
+    public boolean getIsEnabled()
+    {
+	return _isEnabled;
+    }
+    
+    /**
+     * Set the boolean specifying whether this GUIManager and its buttons are
+     * enabled.
+     * 
+     * @param isEnabled The boolean specifying whether this GUIManager is
+     * enabled.
+     * @precond n/a
+     * @postcond this.getIsEnabled() == isEnabled
+     */
+    public void setIsEnabled(boolean isEnabled)
+    {
+	_isEnabled = isEnabled;
     }
     
     public void initialize(GL10 gl)
@@ -163,19 +193,21 @@ public class GUIManager
 	/*
 	 * Searches through the array of widgets and compares each one
 	 */
-	for (int i = 0; i < _numberOfWidgets; i++) {
-	    IWidget button = _widgets[i];
-	    if (button.getClass() == Button.class &&
-		x > button.getX() &&
-		x < button.getX() + button.getWidth() &&
-		y > button.getY() + _compensatedY &&
-		y < button.getY() + button.getHeight() + _compensatedY) {
-		_tappedButton = (Button)button;
-		
-		return (Button)button;
+	if (_isEnabled) {
+	    for (int i = 0; i < _numberOfWidgets; i++) {
+		IWidget button = _widgets[i];
+		if (button.getClass() == Button.class &&
+		    x > button.getX() &&
+		    x < button.getX() + button.getWidth() &&
+		    y > button.getY() + _compensatedY &&
+		    y < button.getY() + button.getHeight() + _compensatedY) {
+		    _tappedButton = (Button)button;
+        		
+		    return (Button)button;
+		}
 	    }
 	}
-
+	
 	return null;
     }
     

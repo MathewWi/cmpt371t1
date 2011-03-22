@@ -76,6 +76,10 @@ public class GameState implements IState
 
     private GUIManager _guiManager;
     
+    // in-game menu
+    private GUIManager _menuGuiManager;
+    private boolean _showMenu;
+
     // Temporary Point to avoid creating new ones
     private Point2i tempPoint;
     
@@ -114,6 +118,19 @@ public class GameState implements IState
 	
 	// Create GUI manager and add initial widgets
 	_guiManager = new GUIManager();
+	_menuGuiManager = new GUIManager();
+	_menuGuiManager.setIsEnabled(false);
+	_showMenu = false;
+    }
+    
+    public boolean getShowMenu()
+    {
+	return _showMenu;
+    }
+    
+    public void setShowMenu(boolean showMenu)
+    {
+	_showMenu = showMenu;
     }
         
     /**
@@ -413,6 +430,8 @@ public class GameState implements IState
 	                                height*0.12f,
 	                                "Pause");
 	pauseButton.setTextureResourceLocation("textures/pause.png");
+	pauseButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
+
 	_guiManager.addButton(pauseButton);
 	
 	// Add a skybox
@@ -456,7 +475,41 @@ public class GameState implements IState
 			((Button)widget).setTappedTexture(tappedTexture);
 		    }
 		}
-	    }	  
+	    }
+	    
+	    Button resumeButton = new Button(0.175f*width, 
+	                                     0.350f*height, 
+		                             0.650f*width, 
+		                             0.100f*height,
+		                             "Resume");
+	    resumeButton.setTextureResourceLocation("textures/resume.png");
+	    resumeButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
+	    
+	    Button nextLevelButton = new Button(width*0.175f,
+	                                        0.350f*height + .150f*height,
+	                                        0.650f*width, 
+			                        0.100f*height,
+		                                "Next Level");
+	    nextLevelButton.setTextureResourceLocation("textures/next.png");
+	    nextLevelButton.setCalleeAndMethod(this, "nextLevel()");
+
+	    _menuGuiManager.addButton(resumeButton);
+	    _menuGuiManager.addButton(nextLevelButton);
+	    
+	    for (IWidget widget : _menuGuiManager.getWidgets()) {
+		if (widget != null) {
+		    String texturelocation = widget.getTextureResourceLocation();
+		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, texturelocation);
+		    widget.setTexture(texture);
+		    
+		    if (widget.getClass() == Button.class &&
+			((Button)widget).getTappedTextureLocation() != null) {
+			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
+			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
+			((Button)widget).setTappedTexture(tappedTexture);
+		    }
+		}
+	    }
 	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
@@ -465,7 +518,20 @@ public class GameState implements IState
 	// SUCCESS
 	_initialized = true;
     }
-    
+
+    /**
+     * Show the pause menu if it is not currently being shown and dismiss it if
+     * it is being shown. This enables or disables the primary gui manager and
+     * the menu gui manager depending on the current state.
+     */
+    public void showOrDismissPauseMenu()
+    {
+	logger.debug("showOrDismissPauseMenu()");
+	_showMenu = !_showMenu;
+	_guiManager.setIsEnabled(!_showMenu);
+	_menuGuiManager.setIsEnabled(_showMenu);
+    }
+
     /**
      * Convert a grid cell coordinate to a world coordinate.
      * @param x Grid X coordinate
@@ -542,7 +608,11 @@ public class GameState implements IState
     public void update(GL10 gl)
     {
 	// Handle input
-	_input.process(_cam, _toolbelt, _grid, _guiManager);
+	if (_showMenu) {
+	    _input.process(_cam, _toolbelt, _grid, _menuGuiManager, false);
+	} else {
+	    _input.process(_cam, _toolbelt, _grid, _guiManager, true);
+	}
 	
 	// Update game objects
 	for (IGameObject object : _objects.values()) {
@@ -683,6 +753,9 @@ public class GameState implements IState
 			
 		//	gl.glMatrixMode(GL10.GL_MODELVIEW);
 			_guiManager.draw(gl);
+			if (_showMenu) {
+			    _menuGuiManager.draw(gl);
+			}
 		//	gl.glMatrixMode(GL10.GL_PROJECTION);
 		//gl.glPopMatrix();
 		
