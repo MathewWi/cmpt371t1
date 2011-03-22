@@ -1,0 +1,297 @@
+Test Cases
+
+    Light to obstacle collision
+    Object interaction/function
+    Object to obstacle collision
+    User statistics registration
+    User transition between states, saved menu, resume
+    System under stress 
+
+Test Case (1): Light to obstacle collision
+
+Purpose: To test and verify connections to objects are being handled appropriately.
+
+Prerequisite: A game level has been started
+
+Test Data:
+
+    (post map grid here) 
+
+Steps:
+
+    prism -> mirror -> orb
+    User chooses mirror
+    User places mirror(1)
+    	White Light collides with mirror 
+    	White Light reflects south
+        User chooses mirror
+    User places mirror(2)
+        Light collides with mirror      
+    User chooses prism
+    User places Prism
+        System refracts light into RGB
+        System deactivates prism from toolbar
+        Light collides with outer boundary
+            prism -> outer boundary 
+        Light collides with differing color orb
+            prism -> wrong orb 
+        Light collides with mirror bounces back to prism
+        	prism -> mirror -> prism   
+    User chooses mirror
+    User places mirror(3)
+        Light collides with mirror      
+        Light collides with Wall obstacle
+            prism -> brick 
+            
+    User rotates mirror(2)
+        Light reflects to a different angle 
+       	Prism no longer refracts light
+       	All coloured lights dissapear
+    User erases mirror(2)
+    User erases mirror(3)
+    User erases prism
+    
+    User chooses prism
+    User places prism (5, 6)
+        System refracts light into RGB
+        System deactivates prism from toolbar
+        Green light collides with outer boundary
+        Blue light collides with wall obstacle
+        Red light intersects with red orb
+    User chooses mirror
+    User places mirror(4) at (4, 6)
+        Green light collides with mirror 
+        green light connects with green orb
+    User Rotates mirror(4)
+        Light reflects south
+    User chooses mirror
+    User places mirror (5) at (4, 7)
+        Green light reflects to east
+        Light intersects with different light
+        
+    User chooses eraser
+    User erases mirror(5)
+    User chooses mirror
+    User places mirror (6) at (4, 8)
+        Light collides with mirror
+            Two different lights into one orb
+            Prism -> mirror -> mirror -> wrong orb
+    User chooses eraser
+    User erases mirror(6)
+    User rotates mirror(4)
+    	Green light collides with mirror 
+        Green light connects with green orb
+    User places mirror (7) at (8, 6)
+        Blue light collides with mirror
+        Blue light connects with blue orb
+    User completes level
+    
+Notes and Questions: GUI Tests:
+
+Unit Tests
+Test Case (2): Object interaction/function
+
+Purpose: To test and verify that objects unique, functional, and interact with each other.
+
+Prerequisite: A game level has been started
+
+Test Data:
+
+    (post map grid here) 
+
+Steps:
+
+    User starts game
+    User chooses random level
+        Game view is shown 
+    prism -> mirror -> orb
+        User chooses prism
+        User places Prism
+            System refracts light into RGB
+            System deactivates prism from toolbar
+            Light collides with Wall obstacle
+                prism -> mirror -> brick 
+            Light collides with outer boundary
+                prism -> outer boundary 
+            Light collides with differing color orb
+                prism -> wrong orb 
+        User chooses mirror
+        User places mirror
+            Light collides with mirror 
+        User chooses eraser 
+
+    User erases prism
+        Prism disappears
+        RGB disappears
+        System reactivates prism in toolbar
+        White light collides with mirror 
+    User chooses prism
+    User places prism
+        System refracts light into RGB
+        System deactivates prism from toolbar
+        Lights reflects off of mirror 
+    User selects deployed mirror
+    User moves said mirror to different coordinate
+        Previously in contact light no longer impeded
+        Light at the new coordinate reflected 
+    User Rotates mirror
+        Light reflects to a different angle 
+    User chooses eraser
+    User erases mirror
+        Light continues on with no obstacle in the way 
+    User presses pause
+        System brings up pop up menu 
+    User presses restart
+        System brings up the same map reset 
+
+Notes and Questions:
+
+GUI Tests:
+
+Unit Tests
+Test Case (3): Object to obstacle collision
+
+Purpose: To test and verify that objects unique, functional, and interact with each other.
+
+Prerequisite: A game level has been started
+
+Test Data:
+
+    (post map grid here) 
+
+Steps:
+
+    User starts game
+    User chooses random level
+        Game view is shown 
+    prism -> mirror -> orb
+        User chooses prism
+        User places Prism
+            System refracts light into RGB
+            System deactivates prism from toolbar
+            Light collides with Wall obstacle
+                prism -> mirror -> brick 
+            Light collides with outer boundary
+                prism -> outer boundary 
+            Light collides with differing color orb
+                prism -> wrong orb 
+        User chooses mirror
+        User places mirror
+            Light collides with mirror 
+        User chooses eraser
+        User tries to erase wall
+        User Rotates mirror
+            Light reflects to a different angle 
+        User chooses mirror
+        User tries to place a mirror on top of another mirror
+        User tries to place a mirror on top of a Wall
+        User tries to place a mirror on top of prism 
+
+Notes and Questions: GUI Tests:
+
+Unit Tests
+Test Case (4): User statistics registration
+
+Purpose: To test and verify that toolbar/high score is correctly updated after each object use
+
+Prerequisite: A game level has been started
+
+Test Data:
+
+    (post map grid here) 
+
+Steps:
+
+    User starts game
+    User chooses random level
+        Game view is shown 
+    User chooses prism
+    User places prism in empty grid square
+        Prism count is reduced in toolbar 
+    User chooses eraser
+    User erases prism
+        System increments number of prisms 
+    User beats game
+        System updates high score with time 
+    User chooses main menu
+    User selects high score bored
+        User sees high score bored is updated 
+
+Notes and Questions:
+
+GUI Tests:
+
+Unit Tests
+Test Case (5): User transition between states, saved menu, resume
+
+Purpose: To test and verify that state changes are taking place and are handled appropriately
+
+Prerequisite: A game level has been started
+
+Test Data:
+
+    (post map grid here) 
+
+Steps:
+
+    User starts game
+    User chooses random level
+        Game view is shown 
+    prism -> mirror -> orb
+        User chooses prism
+        User places Prism
+            System refracts light into RGB
+            System deactivates prism from toolbar
+            Light collides with Wall obstacle
+                prism -> mirror -> brick 
+            Light collides with outer boundary
+                prism -> outer boundary 
+            Light collides with differing color orb
+                prism -> wrong orb 
+        User chooses mirror
+        User places mirror
+            Light collides with mirror 
+        User receives a call
+            Game sound is automatically turned off 
+        User rotates phone
+            Phones changes orientation
+            Game is automatically paused 
+        User exits the Luminance
+        User reenters Luminance
+            System shows pop up menu screen 
+        User chooses sound on
+        User chooses resume
+            System reloads all previously made moves 
+        User chooses pause
+            System loads pop up menu 
+        User chooses main menu
+            System loads main menu 
+
+Notes and Questions:
+
+GUI Tests:
+
+Unit Tests
+Test Case (6): Stress test
+
+Purpose: To test and verify that is able to cope under stranious conditions
+
+Prereq: Map is started
+
+Test Data:
+
+    (post map grid here) 
+
+Steps:
+
+    User starts game
+        Android's Luminance memory is reduced 
+    User chooses first level play through tutorial
+        Android slowly reduces memory for Luminance to 0
+            Luminance system realizes memory is too low returns error exits 
+        Android's Luminance memory is reset to normal
+        Android's hard drive space is set to very low 
+    User starts game
+    User chooses first level play through tutorial
+        Luminance gives error hard drive space is too low
+        Luminance exits 
