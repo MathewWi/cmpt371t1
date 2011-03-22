@@ -60,7 +60,7 @@ public class MenuState implements IState
 	
 	// TODO: this really isnt how we want to deal with states is it?
 	Engine.getInstance().popState();
-	Engine.getInstance().pushState( new GameState(1) );
+	Engine.getInstance().pushState( new GameState(0) );
     }
     
     /**

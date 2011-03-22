@@ -59,7 +59,6 @@ public class GameState implements IState
     private boolean _initialized = false;
     
     // Current level
-    private int _level;
     private boolean _complete = false;
     
     // camera for the view matrix
@@ -98,6 +97,8 @@ public class GameState implements IState
     // Controller class for gamestate
     private GameStateInput _input;
     
+    // Level pack list
+    private LevelList _level;
     
     /**
      * Constructor()
@@ -107,7 +108,6 @@ public class GameState implements IState
     public GameState(int level)
     {
 	logger.debug("GameState()");
-	_level = level;
 	
 	//_objects = new LinkedList<IGameObject>();
 	_objects = new HashMap<Point2i, IGameObject>();
@@ -115,6 +115,10 @@ public class GameState implements IState
 	_emitterObjects = new Vector<Emitter>();
 	tempPoint = new Point2i();
 	_input = new GameStateInput();
+	
+	// TODO - should crash if pack file does not exist
+	_level = new LevelList("BasicPack.lst");
+	_level.setCurrentLevel(level);	
 	
 	// Create GUI manager and add initial widgets
 	_guiManager = new GUIManager();
@@ -182,9 +186,49 @@ public class GameState implements IState
      */
     private void _clearLevel()
     {
+	// clear arrays
 	_objects.clear();
+	_emitterObjects.clear();
 	_goalObjects.clear();
 	Engine.getInstance().getRenderer().removeAll();
+	
+	// reinit gui manager
+	_guiManager = new GUIManager();
+
+	float width = Engine.getInstance().getViewWidth();
+	float height = Engine.getInstance().getViewHeight();	
+	
+	Button pauseButton = new Button(width*0.86f,
+	                                height*0.86f,
+	                                width*0.14f,
+	                                height*0.12f,
+	                                "Pause");
+	pauseButton.setTextureResourceLocation("textures/pause.png");
+	pauseButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
+
+	_guiManager.addButton(pauseButton);	
+	
+	// init toolbelt
+	_toolbelt = new Toolbelt(this);
+	
+	    for (IWidget widget : _guiManager.getWidgets()) {
+		if (widget != null) {
+		    String textureResourceLocation = widget.getTextureResourceLocation();
+		    TextureResource texture = (TextureResource)Engine.getInstance().getResourceManager().getResource(textureResourceLocation);
+
+		    widget.setTexture(texture);
+		    
+		    if (widget.getClass() == Button.class && 
+			((Button)widget).getTappedTextureLocation() != null) {
+			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
+			TextureResource tappedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource(tappedTextureLocation);
+			((Button)widget).setTappedTexture(tappedTexture);
+		    }
+		}
+	    }	
+	
+	// level is not complete
+	_complete = false;
     }
     
     /**
@@ -212,10 +256,16 @@ public class GameState implements IState
      */
     public void nextLevel()
     {
-	//_parseLevel();
-	//_clearLevel();
-	Engine.getInstance().popState();
-	Engine.getInstance().pushState(new GameState(_level + 1));
+	_clearLevel();
+	_level.iterateNextLevel();
+	_parseLevel();
+	resetCamera();
+	resetEmitters();
+	
+	//Engine.getInstance().popState();
+	//Engine.getInstance().pushState(new GameState(_level + 1));
+	
+	
     }
     
     
@@ -232,7 +282,7 @@ public class GameState implements IState
 	try
 	{
 	    // parse the level
-	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/level" + _level + ".xml");
+	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/" + _level.getCurrentLevel());
 	    XmlLevelParser levelParser = new XmlLevelParser(levelFile);
 	    XmlLevel level = levelParser.parse();
 	    level.toString();
@@ -460,12 +510,7 @@ public class GameState implements IState
 		if (widget != null) {
 		    String textureResourceLocation = widget.getTextureResourceLocation();
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
-		   /* 
-		    Engine.getInstance().getResourceManager().
-		    			loadTexture(gl, textureResourceLocation.substring(0, 
-		    			            		          textureResourceLocation.length()-4)
-		    			                 + "Clicked.png");
-		    */
+
 		    widget.setTexture(texture);
 		    
 		    if (widget.getClass() == Button.class && 
