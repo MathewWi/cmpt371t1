@@ -24,7 +24,7 @@ public class EmitterTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myEmitter = new Emitter(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
+		myEmitter = new Emitter(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), 0);
 	}
 	
 	/**

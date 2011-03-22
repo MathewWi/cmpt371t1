@@ -18,7 +18,7 @@ public class MirrorToolTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		tMirror = new Mirror( new Vector3f(3, 3, 3), new Vector3f(3, 3, 3));
+		tMirror = new Mirror( new Vector3f(3, 3, 3));
 
 	}
 	
