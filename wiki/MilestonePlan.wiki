@@ -86,8 +86,9 @@
 <br/>
 = CPM Diagram =
 == New ==
-http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPM1.jpg?t=1300682759
+http://i.imgur.com/UtEGY.png
 
 == Old ==
+http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPM1.jpg?t=1300682759
 
 http://i1192.photobucket.com/albums/aa337/MeekoTheRogue/GUI%20Protoypes/CPMDiagram.jpg?t=1296619385
