@@ -80,29 +80,177 @@
 </target>
 
 <target name="smoke.test">
-	<exec executable="${path.android.platform.tools}/adb">
+	<ant target="test.audio"/>
+	<ant target="test.camera"/>
+	<ant target="test.gamelogic"/>
+	<ant target="test.gameobject"/>
+	<ant target="test.gametools"/>
+	<ant target="test.gui"/>
+	<ant target="test.input"/>
+	<ant target="test.level"/>
+	<ant target="test.math"/>
+	<ant target="test.resource"/>
+	<ant target="test.time"/>
+	<ant target="test.usecase"/>
+</target>
+
+<target name="test.audio">
+	<exec executable="${path.android.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
 		<arg value="-w"/>
 		<arg value="-e"/>
 		<arg value="package"/>
-		<arg line="ca.sandstorm.luminance.test.audio,"/>
-		<arg line="ca.sandstorm.luminance.test.camera,"/>
-		<arg line="ca.sandstorm.luminance.test.gamelogic,"/>
-		<arg line="ca.sandstorm.luminance.test.gameobject,"/>
-		<arg line="ca.sandstorm.luminance.test.gametools,"/>
-		<arg line="ca.sandstorm.luminance.test.gui,"/>
-		<arg line="ca.sandstorm.luminance.test.input,"/>
-		<arg line="ca.sandstorm.luminance.test.level,"/>
-		<arg line="ca.sandstorm.luminance.test.math,"/>
-		<arg line="ca.sandstorm.luminance.test.resource,"/>
-		<arg line="ca.sandstorm.luminance.test.time,"/>
-		<arg line="ca.sandstorm.luminance.test.usecase"/>
-		<arg value="\"/>
-		<arg line="com.android.test/${name.android.runner}"/>
+		<arg value="ca.sandstorm.luminance.test.audio"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
 	</exec>
 </target>
+
+<target name="test.camera">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.camera"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.gamelogic">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.gamelogic"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.gameobject">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.gameobject"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.gametools">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.gametools"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.gui">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.gui"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.input">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.input"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.level">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.level"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.math">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.math"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.resource">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.resource"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.time">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.time"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+<target name="test.usecase">
+	<exec executable="${path.android.tools}/adb">
+		<arg value="shell"/>
+		<arg value="am"/>
+		<arg value="instrument"/>
+		<arg value="-w"/>
+		<arg value="-e"/>
+		<arg value="package"/>
+		<arg value="ca.sandstorm.luminance.test.usecase"/>
+		<arg value="${name.android.test.package}/${name.android.runner}"/>
+	</exec>
+</target>
+
+
 
 <target name="update.project">
 	<echo message="Updating project"/>
