@@ -59,8 +59,8 @@
 	<echo message="UNINSTALLING..."/>
 	<sleep seconds="3"/>
 
-	<ant target="uninstall.test"/>
-	<ant target="uninstall.project"/>
+	<!-- <ant target="uninstall.test"/>
+	<ant target="uninstall.project"/> -->
 	
 	<echo message="INSTALLING…"/>
 	<sleep seconds="3"/>
