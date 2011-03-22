@@ -140,6 +140,11 @@
 || Fixed up prism model || 0.5 ||
 || Can erase objects now and light path adjusts || 2 ||
 || Traceview performance profile || 0.5 ||
+|| Added double tap for rotation || 2 ||
+|| Receptors are dim and light up || 1 ||
+|| Fixed rendering bugs with sky || 1 ||
+|| Corrected light path flicker bug || 2 ||
+|| Fixed lag in game menu || 1 ||
 
 
 == Martina Nagy ==
