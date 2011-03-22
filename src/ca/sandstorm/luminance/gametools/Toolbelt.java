@@ -94,11 +94,11 @@ public class Toolbelt
 		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Eraser);
 	    }
-	    touchedButton.setIsTapped(true);
+	    touchedButton.setIsSelected(true);
 
 	    if (!touchedButton.equals(_prevTouchedButton)){
 		if(_prevTouchedButton != null){
-		    _prevTouchedButton.setIsTapped(false);
+		    _prevTouchedButton.setIsSelected(false);
 		}
 		_prevTouchedButton = touchedButton;  
 	    }
