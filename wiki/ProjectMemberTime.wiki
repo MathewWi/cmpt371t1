@@ -314,6 +314,13 @@
 || Implement new input feature (rotating camera) || 3 ||
 || Input performance improvement || 6 ||
 
+===Milestone 3===
+|| *Task* || *Hours spent so far* ||
+|| Input GameState refactoring || 3.5 ||
+|| Integrate gesture to touch nput || 1 ||
+|| Input performance improvement || 6 ||
+|| Implement fling/swipe gesture || 4 ||
+
 == Steven Indzeoski ==
 === Milestone 0 ===
 || *Task* || *Hours spent so far* ||
