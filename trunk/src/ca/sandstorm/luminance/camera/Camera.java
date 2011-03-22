@@ -105,6 +105,54 @@ public class Camera
     }
 
 
+    public float getFov()
+    {
+        return _fov;
+    }
+
+
+    public void setFov(float _fov)
+    {
+        this._fov = _fov;
+    }
+
+
+    public float getAspect()
+    {
+        return _aspect;
+    }
+
+
+    public void setAspect(float _aspect)
+    {
+        this._aspect = _aspect;
+    }
+
+
+    public float getZNear()
+    {
+        return _zNear;
+    }
+
+
+    public void setZNear(float _zNear)
+    {
+        this._zNear = _zNear;
+    }
+
+
+    public float getZFar()
+    {
+        return _zFar;
+    }
+
+
+    public void setZFar(float _zFar)
+    {
+        this._zFar = _zFar;
+    }
+
+
     /**
      * Return the current eye of the camera.
      * 
