@@ -95,7 +95,7 @@
 </target>
 
 <target name="test.audio">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -108,7 +108,7 @@
 </target>
 
 <target name="test.camera">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -121,7 +121,7 @@
 </target>
 
 <target name="test.gamelogic">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -134,7 +134,7 @@
 </target>
 
 <target name="test.gameobject">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -147,7 +147,7 @@
 </target>
 
 <target name="test.gametools">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -160,7 +160,7 @@
 </target>
 
 <target name="test.gui">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -173,7 +173,7 @@
 </target>
 
 <target name="test.input">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -186,7 +186,7 @@
 </target>
 
 <target name="test.level">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -199,7 +199,7 @@
 </target>
 
 <target name="test.math">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -212,7 +212,7 @@
 </target>
 
 <target name="test.resource">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -225,7 +225,7 @@
 </target>
 
 <target name="test.time">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -238,7 +238,7 @@
 </target>
 
 <target name="test.usecase">
-	<exec executable="${path.android.tools}/adb">
+	<exec executable="${path.android.platform.tools}/adb">
 		<arg value="shell"/>
 		<arg value="am"/>
 		<arg value="instrument"/>
@@ -254,7 +254,7 @@
 
 <target name="update.project">
 	<echo message="Updating project"/>
-	<exec executable="${path.android.tools}/android.bat">
+	<exec executable="${path.android.platform.tools}/android.bat">
 		<arg value="update"/>
 		<arg value="project"/>
 		<arg value="--target"/>
@@ -267,7 +267,7 @@
 <target name="update.test">
 	<echo message="Updating test project"/>
 
-	<exec executable="${path.android.tools}/android.bat">
+	<exec executable="${path.android.platform.tools}/android.bat">
 		<arg value="update"/>
 		<arg value="test-project"/>
 		<arg value="-m"/>
