@@ -670,7 +670,7 @@ public class GameState implements IState
 	{
 	    LightBeam lightBeam = beams.get(i);
 	    int savedBeamSize = lightBeam.size();
-	    
+
 	    for (int j = 0; j < savedBeamSize; j++)	
 	    {
 		IGameObject minObj = null;
@@ -695,7 +695,7 @@ public class GameState implements IState
 			continue;
 		    }
 		    
-		    if (o == l.getEndTouchedObject())// && !(o instanceof Box))
+		    if (o == l.getEndTouchedObject())
 		    {
 			//minObj = null;
 			continue;
@@ -721,11 +721,13 @@ public class GameState implements IState
 		}
 		
 		// check if the beam was modified and we are done
-		if (lightBeam.size() != savedBeamSize)
+		if (lightBeam.size() < savedBeamSize)
 		{
 		    break;
 		}
+		
 	    }
+	    
 	}
 	
 	// level end check

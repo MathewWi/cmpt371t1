@@ -117,6 +117,7 @@ public class Prism extends GameObject implements IRenderableObject
     {
 	LightBeam beam = beamCollection.get(beamIndex);
 	Light l = beam.get(lightIndex);
+	l.setDistance((float)Colliders.distance(this.getPosition(), l.getPosition()));
 	l.setEndTouchedObject(this);
 	
 	// if this mirror is breaking a light beam
