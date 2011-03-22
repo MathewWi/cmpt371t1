@@ -37,6 +37,7 @@ public class Button implements IWidget
     private Object _callee;
     private Method _method;
     private boolean _isTapped;
+    private boolean _isSelected;
 
     /**
      * Constructor for creating a Button.
@@ -228,11 +229,20 @@ public class Button implements IWidget
 	_isTapped = isTapped;
 	if (_isTapped && _tappedTexture != null) {
 	    _drawTexture = _tappedTexture;
-	} else {
+	} else if (!_isSelected){
 	    _drawTexture = _texture;
 	}
     }
     
+    public void setIsSelected(boolean isSelected)
+    {
+	_isSelected = isSelected;
+	if(_isSelected && _tappedTexture != null){
+	    _drawTexture = _tappedTexture;
+	} else {
+	    _drawTexture = _texture;
+	}
+    }
     /**
      * Get the object that will be called by the method
      * 

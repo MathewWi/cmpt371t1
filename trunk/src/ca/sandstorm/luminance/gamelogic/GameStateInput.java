@@ -188,6 +188,13 @@ public class GameStateInput
 		               - Engine.getInstance().getTitleBarHeight());
 		}
 		    
+		
+		Button touchButton = _guiManager.touchOccured(touchEvent.getX(), 
+		                                              touchEvent.getY() 
+		                                              - Engine.getInstance().getMenuBarHeight() 
+		                                              - Engine.getInstance().getTitleBarHeight());
+	    
+		_guiManager.letGoOfButton();
 		    Engine.getInstance().getInputSystem()
 			.getTouchScreen().setTouchMode(InputTouchScreen.NONE);
 	    }
@@ -202,22 +209,23 @@ public class GameStateInput
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);		
 	    }
 	    
-	    if (Engine.getInstance().getInputSystem()
+	  /*  if (Engine.getInstance().getInputSystem()
 			.getTouchScreen().getTouchMode() == InputTouchScreen.ON_PRESS) {
 		Button touchButton = _guiManager.touchOccured(touchEvent.getX(), 
 		                                              touchEvent.getY() 
 		                                              - Engine.getInstance().getMenuBarHeight() 
 		                                              - Engine.getInstance().getTitleBarHeight());
 	    
+		_guiManager.letGoOfButton();
 		if (touchButton != null){
 		    touchButton.setIsTapped(true);
 		}
-	    }
+	    }*/
 	    
 	    switch (touchEvent.getAction()) {		    
-		case MotionEvent.ACTION_UP:
-		    _guiManager.letGoOfButton();
-		    break;
+		//case MotionEvent.ACTION_UP:
+		  //  _guiManager.letGoOfButton();
+		   // break;
 		case MotionEvent.ACTION_MOVE:
 		    zoomGesture(touchEvent);
 		    break;
