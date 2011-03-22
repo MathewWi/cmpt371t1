@@ -58,6 +58,7 @@ public class Button implements IWidget
 	this._height = height;
 	_title = title;
 	_isTapped = false;
+	_isSelected = false;
 	
 	_quad = new PrimitiveQuad(
 	    new Vector3f(0, 0, 0),
