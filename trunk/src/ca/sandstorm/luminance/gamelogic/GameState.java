@@ -240,8 +240,8 @@ public class GameState implements IState
 	float width = Engine.getInstance().getViewWidth();
 	float height = Engine.getInstance().getViewHeight();
 	
-	Button button = new Button(width,
-	                           height,
+	Button button = new Button(0.0f * width,
+	                           0.0f * height,
 	                           width,
 	                           height,
 	                           "LevelComplete");
