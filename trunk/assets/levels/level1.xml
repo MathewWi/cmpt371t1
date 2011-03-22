@@ -9,8 +9,8 @@
 	<name>Level 1</name>
 	<difficulty>easy</difficulty>
 	<grid_size>
-		<x>8</x>
-		<y>8</y>
+		<x>6</x>
+		<y>6</y>
 		<width>1.0</width>
 		<height>1.0</height>
 	</grid_size>
@@ -184,7 +184,7 @@
 		</position>
 		<rotation>
 			<x>0</x>
-			<y>90</y>
+			<y>270</y>
 			<z>0</z>
 		</rotation>
 	</object>	

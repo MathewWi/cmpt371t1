@@ -394,7 +394,7 @@ public class GameState implements IState
 	    
 	    // generate a light beam for this emitter
 	    Light l = new Light(e.getPosition().x, e.getPosition().y, e.getPosition().z, 
-	                        norm.x, norm.y, norm.z, 
+	                        result.x, result.y, result.z, 
 	                        Light.LIGHT_INFINITY, e.getColor() );
 	    l.setStartTouchedObject(e);
 	    beam.add(l);
