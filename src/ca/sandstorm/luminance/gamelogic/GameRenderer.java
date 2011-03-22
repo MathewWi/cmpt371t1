@@ -168,17 +168,6 @@ public class GameRenderer
 	    if (object instanceof Receptor) {
 		int color = ((Receptor)object).getColor();
 		gl.glColor4f(Color.red(color) / 255.0f, Color.green(color) / 255.0f, Color.blue(color) / 255.0f, Color.alpha(color) / 255.0f);
-		/*switch(color) {
-		    case Color.RED:
-			gl.glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
-			break;
-		    case Color.BLUE:
-			gl.glColor4f(0.2f, 0.2f, 1.0f, 1.0f);
-			break;
-		    case Color.GREEN:
-			gl.glColor4f(0.2f, 1.0f, 0.2f, 1.0f);
-			break;
-		}*/
 	    } else {
 		gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	    }
