@@ -313,15 +313,15 @@
 || Input GameState refactoring || 4 ||
 || Implement new input feature (rotating camera) || 3 ||
 || Input performance improvement || 6 ||
-|| Design and draw game title/logo || 3 ||
-|| Draw textures required by gui and game || 3.5 ||
 
 ===Milestone 3===
 || *Task* || *Hours spent so far* ||
 || Input GameState refactoring || 3.5 ||
-|| Integrate gesture to touch nput || 1 ||
+|| Integrate gesture to touch input || 1 ||
 || Input performance improvement || 6 ||
 || Implement fling/swipe gesture || 4 ||
+|| Design and draw game title/logo || 3 ||
+|| Draw textures required by gui and game || 3.5 ||
 
 == Steven Indzeoski ==
 === Milestone 0 ===
