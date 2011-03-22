@@ -40,9 +40,9 @@
 	<echo message="CLEANING…"/>
 	<sleep seconds="3"/>
 
-	<ant target="clean.test"/>
+	<!-- <ant target="clean.test"/>
 	<ant target="clean.project"/>
-	<ant target="clean.bin"/>
+	<ant target="clean.bin"/> -->
 
 	<echo message="UPDATING..."/>
 	<sleep seconds="3"/>
