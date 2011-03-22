@@ -14,13 +14,23 @@ public class Colliders
     
     private static Vector3f _tmpCollisionPoint = new Vector3f();
     private static Vector3f _tmpCrossProduct = new Vector3f();
-    
+        
     public static void Transform(Vector3f position, Matrix3f matrix, Vector3f result)
     {   
 
         result.x = (position.x * matrix.m00) + (position.y * matrix.m10) + (position.z * matrix.m20);// + matrix.m41;
         result.y = (position.x * matrix.m01) + (position.y * matrix.m11) + (position.z * matrix.m21);// + matrix.m42;
         result.z = (position.x * matrix.m02) + (position.y * matrix.m12) + (position.z * matrix.m22);// + matrix.m43;
+    }
+    
+    
+    public static Matrix3f getMatrixRotationY(float rad)
+    {
+	Matrix3f mat = new Matrix3f();
+	mat.setIdentity();
+	mat.rotY(rad);	
+	
+	return mat;
     }
     
     

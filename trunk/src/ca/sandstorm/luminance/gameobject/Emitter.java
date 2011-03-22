@@ -6,6 +6,8 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.graphics.Color;
+
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.math.Sphere;
@@ -22,13 +24,25 @@ public class Emitter extends GameObject implements IRenderableObject
     private RenderType _renderType = RenderType.Normal;
     
     private Sphere _colSphere;
+    private int _color;
     
-    public Emitter(Vector3f position, Vector3f rotation)
+    private static float[] _rotationArray = new float[] { 0, 90, 180, 360 };
+    private int _currentRotation = 0;
+    
+    
+    /**
+     * 
+     * @param position
+     * @param rotation
+     * @param color
+     */
+    public Emitter(Vector3f position, Vector3f rotation, int color)
     {
 	_position = new Vector3f(position);
 	_rotation = new Vector4f(rotation);
 	_scale = new Vector3f(0.15f, 0.15f, 0.5f);
 	_model = Engine.getInstance().getRenderer().getBox();
+	_color = color;
 	
 	_colSphere = new Sphere(_position.x, _position.y, _position.z, 0.5f);	
     }
@@ -59,6 +73,12 @@ public class Emitter extends GameObject implements IRenderableObject
     {
 	
     }
+    
+    
+    public int getColor()
+    {
+	return _color;
+    }    
     
 
     /**
@@ -101,6 +121,7 @@ public class Emitter extends GameObject implements IRenderableObject
 	// TODO Auto-generated method stub
 	return _colSphere;
     }
+    
 
     /**
      * Defines how the object interacts with a lightbeam.
@@ -114,4 +135,33 @@ public class Emitter extends GameObject implements IRenderableObject
 	
     }
 
+    
+    @Override
+    public float getNextYRotation()
+    {
+	_currentRotation++;
+	if (_currentRotation >= _rotationArray.length) 
+	{
+	    _currentRotation = 0;
+	}
+	return _rotationArray[_currentRotation];
+    }
+
+
+    @Override
+    public float getPrevYRotation()
+    {
+	_currentRotation--;
+	if (_currentRotation < 0)
+	{
+	    _currentRotation = _rotationArray.length - 1;
+	}
+	return _rotationArray[_currentRotation];
+    }
+
+    @Override
+    public float getCurrentYRotation()
+    {
+	return _rotationArray[_currentRotation];
+    }    
 }

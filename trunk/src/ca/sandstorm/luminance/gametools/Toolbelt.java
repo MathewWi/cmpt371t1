@@ -25,11 +25,7 @@ public class Toolbelt
     private static final Logger logger = LoggerFactory.getLogger(Toolbelt.class);
 
     private ToolType _selectedTool = ToolType.Mirror;
-    
-    // Current rotation amount, and rotation increment amount per step
-    private float _currentRotation = 45f;
-    private float _rotationStep = 90f;
-    
+        
     // Reference to the game state the toolbelt is in so it can be manipulated
     private GameState _gameState;
         
@@ -114,6 +110,12 @@ public class Toolbelt
 	}
     }
     
+    
+    public void processDoubleClick(float x, float y, Point2i gridCoords)
+    {
+	_gameState.rotateObjectAtGridCoords(gridCoords.x, gridCoords.y);
+    }
+    
     /**
      * Handle a click that landed on the grid and not on the toolbelt. 
      * @param x Grid X coordinate
@@ -157,7 +159,7 @@ public class Toolbelt
 	position.y += 0.5f;  // line bottom up with the grid
 	IGameObject tool = null;
 	if(toolType == ToolType.Mirror) { 
-	    tool = new Mirror(position, new Vector3f(0, _currentRotation, 0));
+	    tool = new Mirror(position);
 	} else if(toolType == ToolType.Prism) {
 	    tool = new Prism(position, new Vector3f(0, 0, 0));
 	}
@@ -258,14 +260,7 @@ public class Toolbelt
 	logger.debug("Selected tool: " + toolType);
     }
     
-    /**
-     * Change the current rotation setting for new tools.
-     * @param amount How many steps to change by
-     */
-    public void adjustRotation(int amount)
-    {
-	_currentRotation += _rotationStep * amount;
-    }
+
     
 //    /**
 //     * Private function called by processInput to handle toolBelt input

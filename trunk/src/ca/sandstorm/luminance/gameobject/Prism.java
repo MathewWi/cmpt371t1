@@ -160,4 +160,22 @@ public class Prism extends GameObject implements IRenderableObject
 	
     }
 
+    @Override
+    public float getNextYRotation()
+    {
+	return 0;
+    }
+
+    @Override
+    public float getPrevYRotation()
+    {
+	return 0;
+    }
+
+    @Override
+    public float getCurrentYRotation()
+    {
+	return 0;
+    }
+
 }

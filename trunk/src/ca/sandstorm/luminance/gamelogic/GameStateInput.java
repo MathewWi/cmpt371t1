@@ -17,6 +17,7 @@ import ca.sandstorm.luminance.gametools.Toolbelt;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.input.InputButton;
+import ca.sandstorm.luminance.input.InputTouchScreen;
 import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Ray;
 import ca.sandstorm.luminance.resources.SoundResource;
@@ -46,13 +47,8 @@ public class GameStateInput
     private static final int ZOOM = 2;
     private static final float TOUCH_CAMERA_SPEED = 0.5f;
     private static final float TOUCH_SENSITIVITY = 3.0f;
-    private static final int NONE = -1;
-    private static final int ON_SCROLL = 0;
-    private static final int ON_FLING = 1;
-    private static final int ON_SINGLE_TAP_CONFIRMED = 2;
-    private static final int ON_DOWN = 3;
-    private static final int ON_PRESS = 4;
-    private int _touchMode = NONE;
+
+    private int _touchMode = InputTouchScreen.NONE;
 
 
     private static final float DISTANCE_TIME_FACTOR = 0.4f;
@@ -104,13 +100,7 @@ public class GameStateInput
 	if (keys[KeyEvent.KEYCODE_K].getPressed()) {
 	    _toolbelt.selectTool(ToolType.Eraser);
 	}
-	if (keys[KeyEvent.KEYCODE_Z].getPressed()) {
-	    _toolbelt.adjustRotation(-1);
-	}
-	if (keys[KeyEvent.KEYCODE_X].getPressed()) {
-	    _toolbelt.adjustRotation(1);
-	}
-	
+
 	// Testing audio
 	if (keys[KeyEvent.KEYCODE_6].getPressed()) {
 	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/sample.ogg"), 0.9f);
@@ -168,13 +158,13 @@ public class GameStateInput
 	    _initialSecondY = Engine.getInstance().getInputSystem()
 		    .getTouchScreen().getTouchEvent().getY(1);
 	} else {
-	    _touchMode = NONE;
+	    _touchMode = InputTouchScreen.NONE;
 	}
 
 	if (!Engine.getInstance().getInputSystem().getTouchScreen()
 		.getPressed(0)) {
 	    // set touchMode to NONE if screen is not pressed
-	    _touchMode = NONE;
+	    _touchMode = InputTouchScreen.NONE;
 	}
 	
 	// use touch screen to move the camera
@@ -187,18 +177,28 @@ public class GameStateInput
 		    .getTouchScreen().getTouchEvent();
 	    
 	    if (Engine.getInstance().getInputSystem()
-		.getTouchScreen().getTouchMode() == ON_SINGLE_TAP_CONFIRMED){
+		.getTouchScreen().getTouchMode() == InputTouchScreen.ON_SINGLE_TAP_CONFIRMED){
 		    mouseClick(touchEvent.getX(), 
 		               touchEvent.getY() 
 		               - Engine.getInstance().getMenuBarHeight() 
 		               - Engine.getInstance().getTitleBarHeight());
 		    
 		    Engine.getInstance().getInputSystem()
-			.getTouchScreen().setTouchMode(NONE);
+			.getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+	    }
+	    
+	    if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode() == InputTouchScreen.ON_DOUBLE_TAP_CONFIRMED)
+	    {
+		mouseDoubleClick(touchEvent.getX(), 
+			               touchEvent.getY() 
+			               - Engine.getInstance().getMenuBarHeight() 
+			               - Engine.getInstance().getTitleBarHeight());		
+		
+		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);		
 	    }
 	    
 	    if (Engine.getInstance().getInputSystem()
-			.getTouchScreen().getTouchMode() == ON_PRESS) {
+			.getTouchScreen().getTouchMode() == InputTouchScreen.ON_PRESS) {
 		Button touchButton = _guiManager.touchOccured(touchEvent.getX(), 
 		                                              touchEvent.getY() 
 		                                              - Engine.getInstance().getMenuBarHeight() 
@@ -249,13 +249,31 @@ public class GameStateInput
 	
 	_toolbelt.processClick(x, y, gridPoint);
     }
+    
+    
+    private void mouseDoubleClick(float x, float y)
+    {
+	logger.debug("mouseDoubleClick(" + x + ", " + y + ")");
+	
+	Ray r = _cam.getWorldCoord(new Vector2f(x, y));
+	if (r == null)
+	    return;
+	
+	Vector3f colPoint = Colliders.collide(r, _grid.getPlane());
+	logger.debug("CollisionPoint: " + colPoint);
+
+	Point2i gridPoint = _grid.getGridPosition(colPoint.x, colPoint.y, colPoint.z);
+	logger.debug("Grid Point: " + gridPoint);	
+	
+	_toolbelt.processDoubleClick(x, y, gridPoint);
+    }
 
     
     private void scrollGesture()
     {
 	// handle the scroll/drag gesture
 	if(Engine.getInstance().getInputSystem()
-		.getTouchScreen().getTouchMode() == ON_SCROLL &&
+		.getTouchScreen().getTouchMode() == InputTouchScreen.ON_SCROLL &&
 		_touchMode != ZOOM){
 	    
 	    _cam.moveLeft(Engine.getInstance().getInputSystem()
@@ -267,7 +285,7 @@ public class GameStateInput
 	    
 	    // set the touch mode back to none
 	    Engine.getInstance().getInputSystem()
-		.getTouchScreen().setTouchMode(NONE);
+		.getTouchScreen().setTouchMode(InputTouchScreen.NONE);
 	}
     }
     
@@ -320,7 +338,7 @@ public class GameStateInput
     {
 	// handle fling gesture
 	if(Engine.getInstance().getInputSystem()
-		.getTouchScreen().getTouchMode() == ON_FLING && 
+		.getTouchScreen().getTouchMode() == InputTouchScreen.ON_FLING && 
 		_touchMode != ZOOM){
     
             _flingDistanceX = (DISTANCE_TIME_FACTOR * Engine.getInstance()
@@ -337,7 +355,7 @@ public class GameStateInput
 
             // set touch mode to none
 	    Engine.getInstance().getInputSystem()
-		.getTouchScreen().setTouchMode(NONE);
+		.getTouchScreen().setTouchMode(InputTouchScreen.NONE);
 	}
 	
 	// method to move camera based on fling gesture

@@ -44,6 +44,9 @@ public interface IGameObject
      */
     void setPosition(Vector3f position);
     
+    
+    void setRotation(float x, float y, float z);
+    
     /**
      * Get the object's rotation.
      * @return Object rotation
@@ -56,6 +59,11 @@ public interface IGameObject
      */
     Vector3f getScale();
     
+    float getCurrentYRotation();
+    
+    float getNextYRotation();
+    
+    float getPrevYRotation();
     
     /**
      * Get the object's collision sphere

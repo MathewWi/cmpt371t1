@@ -261,4 +261,28 @@ public class Light extends GameObject implements IGameObject
 	// TODO Auto-generated method stub
 	
     }
+
+
+    @Override
+    public float getNextYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
+
+    @Override
+    public float getPrevYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
+
+    @Override
+    public float getCurrentYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 }

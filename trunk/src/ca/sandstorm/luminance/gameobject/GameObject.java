@@ -2,8 +2,11 @@ package ca.sandstorm.luminance.gameobject;
 
 import java.util.Vector;
 
+import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
+
+import ca.sandstorm.luminance.math.Colliders;
 
 /**
  * Abstract class that underlies game objects.
@@ -80,6 +83,13 @@ public abstract class GameObject implements IGameObject
         return _rotation;
     }
 
+    public void setRotation(float x, float y, float z)
+    {
+	_rotation.x = x;
+	_rotation.y = y;
+	_rotation.z = z;	
+    }    
+    
 
     /**
      * Get the object's scale.

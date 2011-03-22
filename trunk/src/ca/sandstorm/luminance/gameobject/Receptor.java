@@ -175,4 +175,27 @@ public class Receptor extends GameObject implements IRenderableObject
 	
 	l.setDistance( (float)Colliders.distance(l.getStartPoint(), this.getPosition()) );
     }
+
+
+    @Override
+    public float getNextYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
+
+    @Override
+    public float getPrevYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
+
+    @Override
+    public float getCurrentYRotation()
+    {
+	return 0;
+    }
 }

@@ -21,12 +21,13 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     private MotionEvent _touchEvent;
     
     private int _touchMode = -1;
-    private static final int NONE = -1;
-    private static final int ON_SCROLL = 0;
-    private static final int ON_FLING = 1;
-    private static final int ON_SINGLE_TAP_CONFIRMED = 2;
-    private static final int ON_DOWN = 3;
-    private static final int ON_PRESS = 4;
+    public static final int NONE = -1;
+    public static final int ON_SCROLL = 0;
+    public static final int ON_FLING = 1;
+    public static final int ON_SINGLE_TAP_CONFIRMED = 2;
+    public static final int ON_DOUBLE_TAP_CONFIRMED = 3;
+    public static final int ON_DOWN = 4;
+    public static final int ON_PRESS = 5;
     
     private float _distanceX;
     private float _distanceY;
@@ -226,7 +227,7 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     @Override
     public boolean onDoubleTapEvent(MotionEvent e)
     {
-	// TODO Auto-generated method stub
+	setTouchMode(ON_DOUBLE_TAP_CONFIRMED);
 	return false;
     }
 
