@@ -135,7 +135,7 @@
 		
 	<object>
 		<type>goal</type>
-		<colour>blue</colour>
+		<colour>green</colour>
 		<position>
 			<x>2</x>
 			<y>0</y>
@@ -149,7 +149,7 @@
 	
 	<object>
 		<type>goal</type>
-		<colour>green</colour>
+		<colour>blue</colour>
 		<position>
 			<x>3</x>
 			<y>5</y>
