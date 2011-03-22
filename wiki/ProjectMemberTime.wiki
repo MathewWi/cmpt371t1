@@ -313,6 +313,8 @@
 || Input GameState refactoring || 4 ||
 || Implement new input feature (rotating camera) || 3 ||
 || Input performance improvement || 6 ||
+|| Design and draw game title/logo || 3 ||
+|| Draw textures required by gui and game || 3.5 ||
 
 ===Milestone 3===
 || *Task* || *Hours spent so far* ||
