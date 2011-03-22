@@ -131,6 +131,10 @@ public class Skybox
 	for(int side = 0; side < 6; side++)
 	{
 	    gl.glBindTexture(GL10.GL_TEXTURE_2D, _textures[side].getTexture());
+	    gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER,
+	                       GL10.GL_LINEAR);
+	                     gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER,
+	                       GL10.GL_LINEAR);
 	    _indexBuffer.position(index);
 	    gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, _indexBuffer);
 

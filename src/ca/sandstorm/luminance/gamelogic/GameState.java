@@ -761,16 +761,21 @@ public class GameState implements IState
     public void draw(GL10 gl)
     {	
 	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-	
-	_cam.updateViewMatrix(gl);
 
+	// render skybox at 90 fov to keep the perspective realistic
+	_cam.setFov(90);
+	_cam.updateViewMatrix(gl);
 	gl.glPushMatrix();
 	gl.glTranslatef(_cam.getEye().x, _cam.getEye().y, _cam.getEye().z);
 	gl.glDisable(GL10.GL_DEPTH_TEST);
 	_sky.draw(gl);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
-	gl.glPopMatrix();
+	gl.glPopMatrix();	
 	
+	// render game at 45 fov to keep the 3D effect realistic
+	_cam.setFov(45);
+	_cam.updateViewMatrix(gl);
+
 	gl.glEnable(GL10.GL_CULL_FACE);
 	gl.glCullFace(GL10.GL_BACK);	
 
