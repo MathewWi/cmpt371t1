@@ -222,12 +222,14 @@ public class Toolbelt
 	                               _toolIconSizeWidth, 
 	                               _toolIconSizeHeight, "Mirror");
 	    button.setTextureResourceLocation("textures/mirror.png");
+	    button.setTexture(_gameState.getMirrorButtonTexture());
 	    button.setTappedTextureLocation("textures/mirrorClicked.png");
 	    _mirrorIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	    
 	    // Add the label indicating stock
 	    NumericLabel label = new NumericLabel(0, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(toolType));
+	    label.setTexture(_gameState.getNumberLabelTexture());
 	    _stockLabel.put(toolType, label);
 	    _gameState.getGui().addButton(label);
 	} else if(toolType == ToolType.Prism && !_prismIconAdded) {
@@ -236,12 +238,14 @@ public class Toolbelt
 	                               _toolIconSizeWidth, 
 	                               _toolIconSizeHeight, "Prism");
 	    button.setTextureResourceLocation("textures/prism.png");
+	    button.setTexture(_gameState.getPrismButtonTexture());
 	    button.setTappedTextureLocation("textures/prismClicked.png");
 	    _prismIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	    
 	    // Add the label indicating stock
 	    NumericLabel label = new NumericLabel(_toolIconSizeWidth, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(toolType));
+	    label.setTexture(_gameState.getNumberLabelTexture());
 	    _stockLabel.put(toolType, label);
 	    _gameState.getGui().addButton(label);
 	}

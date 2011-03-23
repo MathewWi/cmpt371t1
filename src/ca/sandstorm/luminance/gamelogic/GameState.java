@@ -90,6 +90,9 @@ public class GameState implements IState
     
     // Toolbelt
     private Toolbelt _toolbelt;
+    private TextureResource _prismButtonTexture;
+    private TextureResource _mirrorButtonTexture;
+    private TextureResource _numberLabelTexture;
 
     // Container of game objects
     private HashMap<Point2i, IGameObject> _objects;
@@ -502,6 +505,15 @@ public class GameState implements IState
 	// Create the toolbelt
 	_toolbelt = new Toolbelt(this);
 	
+	try {
+	    _prismButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/prism.png");
+	    _mirrorButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirror.png");
+	    _numberLabelTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/numbers.png");
+	} catch (IOException e1) {
+	    // TODO Auto-generated catch block
+	    e1.printStackTrace();
+	}
+	
 	// Load level
 	_parseLevel();
 	
@@ -814,6 +826,21 @@ public class GameState implements IState
     public GUIManager getGui()
     {
 	return _guiManager;
+    }
+    
+    public TextureResource getPrismButtonTexture()
+    {
+	return _prismButtonTexture;
+    }
+    
+    public TextureResource getMirrorButtonTexture()
+    {
+	return _mirrorButtonTexture;
+    }
+    
+    public TextureResource getNumberLabelTexture()
+    {
+	return _numberLabelTexture;
     }
 
     /**
