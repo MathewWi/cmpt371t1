@@ -449,13 +449,14 @@ public class GameState implements IState
     public void init(GL10 gl)
     {
 	logger.debug("init()");
+	float width = Engine.getInstance().getViewWidth();
+	float height = Engine.getInstance().getViewHeight();
 	
-	// @TODO - write a proper uninit function and call it here.
-	if (_initialized)
-	{
-	    return;
+	if (_initialized) {
+	    _guiManager = new GUIManager();
+	    _menuGuiManager = new GUIManager();
 	}
-	
+		
 	// Load textures
 	try {
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
@@ -464,6 +465,12 @@ public class GameState implements IState
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/missing.jpg");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/levelComplete.png");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/emitter.jpg");
+	    
+	    _prismButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/prism.png");
+	    _clickedPrismButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/prismClicked.png");
+	    _mirrorButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirror.png");
+	    _clickedMirrorButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirrorClicked.png");
+	    _numberLabelTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/numbers.png");
 	} catch (IOException e) {
 	    logger.error("Unable to load a required texture: " + e.getMessage());
 	    e.printStackTrace();
@@ -476,15 +483,7 @@ public class GameState implements IState
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
 	}
-	
-	// init the lightpath
-	// add a test light
-	_lightPath = new LightPath();
-	
-	
-	float width = Engine.getInstance().getViewWidth();
-	float height = Engine.getInstance().getViewHeight();	
-	
+			
 	Button pauseButton = new Button(width*0.86f,
 	                                height*0.86f,
 	                                width*0.14f,
@@ -492,43 +491,57 @@ public class GameState implements IState
 	                                "Pause");
 	pauseButton.setTextureResourceLocation("textures/pause.png");
 	pauseButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
+	
+	Button resumeButton = new Button(0.175f*width, 
+	                                 0.350f*height, 
+	                                 0.650f*width, 
+	                                 0.100f*height,
+	"Resume");
+	resumeButton.setTextureResourceLocation("textures/resume.png");
+	resumeButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
+
 
 	_guiManager.addButton(pauseButton);
+	_menuGuiManager.addButton(resumeButton);
 	
-	// Add a skybox
-	_sky = new Skybox();
-	try {
-	    _sky.init(gl);
-	} catch (IOException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	}	
-		
-	// Create the toolbelt
-	_toolbelt = new Toolbelt(this);
-	
-	try {
-	    _prismButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/prism.png");
-	    _clickedPrismButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/prismClicked.png");
-	    _mirrorButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirror.png");
-	    _clickedMirrorButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirrorClicked.png");
-	    _numberLabelTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/numbers.png");
-	} catch (IOException e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
+	if (!_initialized) {
+	    // init the lightpath
+	    // add a test light
+	    _lightPath = new LightPath();
+
+	    // Add a skybox
+	    _sky = new Skybox();
+	    try {
+		_sky.init(gl);
+	    } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	    }	
+
+	    // Create the toolbelt
+	    _toolbelt = new Toolbelt(this);
+
+	    // Load level
+	    _parseLevel();
+
+	    // get the light going
+	    resetEmitters();
 	}
-	
-	// Load level
-	_parseLevel();
 	
 	// default camera
 	resetCamera();
 	
-	// get the light going
-	resetEmitters();
-	
+	_loadGuiTextures(gl, _guiManager);
+	_loadGuiTextures(gl, _menuGuiManager);
+		
+	// SUCCESS
+	_initialized = true;
+    }
+    
+    private void _loadGuiTextures(GL10 gl, GUIManager gui)
+    {
 	try {
-	    for (IWidget widget : _guiManager.getWidgets()) {
+	    for (IWidget widget : gui.getWidgets()) {
 		if (widget != null) {
 		    String textureResourceLocation = widget.getTextureResourceLocation();
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
@@ -543,38 +556,11 @@ public class GameState implements IState
 		    }
 		}
 	    }
-	    
-	    Button resumeButton = new Button(0.175f*width, 
-	                                     0.350f*height, 
-		                             0.650f*width, 
-		                             0.100f*height,
-		                             "Resume");
-	    resumeButton.setTextureResourceLocation("textures/resume.png");
-	    resumeButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
-
-	    _menuGuiManager.addButton(resumeButton);
-	    
-	    for (IWidget widget : _menuGuiManager.getWidgets()) {
-		if (widget != null) {
-		    String texturelocation = widget.getTextureResourceLocation();
-		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, texturelocation);
-		    widget.setTexture(texture);
-		    
-		    if (widget.getClass() == Button.class &&
-			((Button)widget).getTappedTextureLocation() != null) {
-			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
-			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
-			((Button)widget).setTappedTexture(tappedTexture);
-		    }
-		}
-	    }
-	} catch (IOException e) {
+	    	    	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
 	}
-		
-	// SUCCESS
-	_initialized = true;
+
     }
 
     /**
