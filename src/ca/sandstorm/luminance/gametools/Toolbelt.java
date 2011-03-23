@@ -142,12 +142,14 @@ public class Toolbelt
 	// Check if stock is available
 	if(_stock.get(toolType) <= 0) {
 	    logger.debug("Out of stock: " + toolType);
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/noPlace.wav"), 0.9f);
 	    return null;
 	}
 	
 	// Check if an object is already at this point
 	if(_gameState.isCellOccupied(x, y)) {
 	    logger.debug("Cell is occupied: " + x + "," + y);
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/noPlace.wav"), 0.9f);
 	    return null;
 	}
 	
