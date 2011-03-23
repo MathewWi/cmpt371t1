@@ -40,9 +40,8 @@ public class ResourceManagerTest extends AndroidTestCase {
 
 		try {
 			resource = resManager.loadResource("text.txt");
-		} catch (Exception ex) {
 			assert (resource != null);
-		}
+		} catch (Exception ex) {}
 	}
 
 	/**
@@ -52,9 +51,8 @@ public class ResourceManagerTest extends AndroidTestCase {
 
 		try {
 			text = resManager.loadText("text.txt");
-		} catch (Exception ex) {
 			assert (text != null);
-		}
+		} catch (Exception ex) {}
 	}
 
 	/**
@@ -64,9 +62,8 @@ public class ResourceManagerTest extends AndroidTestCase {
 
 		try {
 			image = resManager.loadImage("skyBack.jpg");
-		} catch (Exception ex) {
 			assert (image != null);
-		}
+		} catch (Exception ex) {}
 	}
 
 	/**
@@ -79,17 +76,17 @@ public class ResourceManagerTest extends AndroidTestCase {
 		try {
 			sound = resManager.loadSound((new SoundPool(1, 1, 100)),
 					"sample.ogg");
-		} catch (Exception ex) {
 			assert (sound != null);
-		}
+		} catch (Exception ex) {}
 	}
 
 	public void testLoadTexture() throws Exception {
 
 		try {
 			texture = resManager.loadTexture(null, "skyBack.jpg");
-		} catch (Exception ex) {
 			assert (texture != null);
+		} catch (Exception ex) {
+			
 		}
 	}
 

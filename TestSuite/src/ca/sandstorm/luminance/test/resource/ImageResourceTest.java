@@ -1,6 +1,7 @@
 package ca.sandstorm.luminance.test.resource;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.resources.ImageResource;
 
@@ -19,6 +20,7 @@ public class ImageResourceTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
+		bMap = BitmapFactory.decodeFile("skyBack.jpg");
 		imResource = new ImageResource("imageRes", bMap);
 	}
 
@@ -28,7 +30,7 @@ public class ImageResourceTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetName() throws Exception {
-
+		
 		assertTrue(imResource.getName().equals("imageRes"));
 		assertFalse(imResource.getName().equals(""));
 		assertFalse(imResource.getName() == null);
@@ -42,13 +44,5 @@ public class ImageResourceTest extends AndroidTestCase {
 	public void testGetMemorySize() throws Exception {
 
 		assertTrue(imResource.getMemorySize() == 0);
-	}
-
-	/**
-	 * Dispose of the created resource
-	 */
-	protected void tearDown() throws Exception {
-		super.tearDown();
-		imResource.dispose();
 	}
 }
