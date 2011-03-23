@@ -75,12 +75,19 @@
 
 ===Milestone 3===
 || Audio and music playback completion || 2 ||
-|| Random small tasks || 1 ||
+|| Random small tasks || 2 ||
 || Helping teammates || 1 ||
 || Multilevel support, transitioning || 1 ||
 || Drawing tool stock quantity || 5 ||
-|| Fixing orientation flipping || 2 ||
+|| Fixing orientation flipping || 4.5 ||
 || Miscellaneous development || 1 ||
+|| Smoke test updates for teamcity || 1.5 ||
+|| Sound effects || 1 ||
+
+===Milestone 4 Estimations===
+|| Refactoring, polishing, optimizing code || 3 ||
+|| Level creation || 3 ||
+|| Graphical improvements || 3 ||
 
 == Stephen Damm ==
 === Milestone 0 ===
