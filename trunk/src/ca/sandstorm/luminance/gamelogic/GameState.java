@@ -260,6 +260,8 @@ public class GameState implements IState
 	button.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/levelComplete.png"));
 	button.setCalleeAndMethod(this, "nextLevel");
 	_guiManager.addButton(button);
+	
+	Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/sample.ogg"), 0.9f);
     }
     
     /**
