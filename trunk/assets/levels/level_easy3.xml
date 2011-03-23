@@ -1,0 +1,112 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+
+<!--  Level designed by halsafar -->
+
+<level>
+	<!-- Level Information -->
+	<name>Feeling confident</name>
+	<difficulty>easy</difficulty>
+	<grid_size>
+		<x>5</x>
+		<y>5</y>
+		<width>1.0</width>
+		<height>1.0</height>
+	</grid_size>
+	
+	<!-- Level Objects -->		
+	<object>
+		<type>goal</type>
+		<colour>blue</colour>
+		<position>
+			<x>0</x>
+			<y>3</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>goal</type>
+		<colour>green</colour>
+		<position>
+			<x>1</x>
+			<y>0</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>	
+	
+	<object>
+		<type>goal</type>
+		<colour>white</colour>
+		<position>
+			<x>3</x>
+			<y>2</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>goal</type>
+		<colour>red</colour>
+		<position>
+			<x>4</x>
+			<y>2</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>	
+	
+	
+	<object>
+		<type>emitter</type>
+		<colour>white</colour>
+		<position>
+			<x>0</x>
+			<y>2</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>270</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>emitter</type>
+		<colour>white</colour>
+		<position>
+			<x>2</x>
+			<y>4</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>180</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<!-- Level Tools -->
+	<tool>
+		<type>mirror</type>
+		<count>4</count>
+	</tool>
+	
+	<tool>
+		<type>prism</type>
+		<count>1</count>
+	</tool>	
+</level>
