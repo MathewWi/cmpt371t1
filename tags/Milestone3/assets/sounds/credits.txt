@@ -1,0 +1,12 @@
+startSelect.mp3
+	Author:
+		http://www.freesound.org/samplesViewSingle.php?id=27568
+	Modification:
+		- convert to mp3
+	
+place.wav
+	Author: http://www.freesound.org/samplesViewSingle.php?id=108334
+
+noPlace.wav
+	Author: http://www.freesound.org/samplesViewSingle.php?id=67454
+
