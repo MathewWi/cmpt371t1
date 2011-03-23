@@ -495,7 +495,7 @@ public class GameState implements IState
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
 	}
-			
+	
 	Button pauseButton = new Button(width*0.86f,
 	                                height*0.86f,
 	                                width*0.14f,
@@ -505,16 +505,33 @@ public class GameState implements IState
 	pauseButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
 	
 	Button resumeButton = new Button(0.175f*width, 
-	                                 0.350f*height, 
-	                                 0.650f*width, 
-	                                 0.100f*height,
-	"Resume");
+	                                 0.200f*height, 
+	                                 0.550f*width, 
+	                                 0.1250f*height,
+					 "Resume");
 	resumeButton.setTextureResourceLocation("textures/resume.png");
 	resumeButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
+	
+	Button restartLevelButton = new Button(0.175f*width, 
+	                                       0.200f*height + 0.180f*height, 
+	                                       0.550f*width, 
+	                                       0.1250f*height,
+						"Restart Level");
+	restartLevelButton.setTextureResourceLocation("textures/restart.png");
+	restartLevelButton.setCalleeAndMethod(this, "restartLevel");
 
+	Button exitButton = new Button(0.175f*width, 
+	                               0.200f*height + 2*0.180f*height, 
+	                               0.550f*width, 
+	                               0.1250f*height,
+					"Exit");
+	exitButton.setTextureResourceLocation("textures/mainMenu.png");
+	exitButton.setCalleeAndMethod(this, "exitLevel");
 
 	_guiManager.addButton(pauseButton);
 	_menuGuiManager.addButton(resumeButton);
+	_menuGuiManager.addButton(restartLevelButton);
+	_menuGuiManager.addButton(exitButton);
 	
 	// Add a skybox
 	_sky = new Skybox();
@@ -598,6 +615,24 @@ public class GameState implements IState
 	_showMenu = !_showMenu;
 	_guiManager.setIsEnabled(!_showMenu);
 	_menuGuiManager.setIsEnabled(_showMenu);
+    }
+    
+    public void exitLevel()
+    {
+	logger.debug("exitLevel()");
+	
+	Engine.getInstance().popState();
+	Engine.getInstance().pushState( new MenuState() );
+    }
+    
+    public void restartLevel()
+    {
+	logger.debug("restartLevel()");
+	
+	logger.debug(Integer.toString(_level.getCurrentLevelIndex()));
+	_level.setCurrentLevel(_level.getCurrentLevelIndex() - 1);
+	nextLevel();
+	showOrDismissPauseMenu();
     }
 
     /**
