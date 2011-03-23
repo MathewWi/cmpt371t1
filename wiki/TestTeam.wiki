@@ -47,7 +47,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
   === GUI Testing ===
 
-    For milestone 4, GUI testing was partially put into place.  Since new development and changes in the GUI prompted new GUI tests. Also the test cases had to be re-written to fit the new levels.     
+    For milestone 4, GUI testing was partially put into place.  Since new development in game structure and changes in the GUI prompted new GUI tests and also made old ones obsolete. Also all but one test case had to be re-written to fit the new levels. Due to time limitation by testers,  mistaken due date by the tester(Amara) who was writing all the test cases into GUI tests, underestimation of the complexity of GUI testing the GUI tests were only partially completed.
 
   === Smoke Test ===
 
