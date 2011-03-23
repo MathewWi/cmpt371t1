@@ -393,6 +393,12 @@
 || Implement fling/swipe gesture || 4 ||
 || Design and draw game title/logo || 3 ||
 || Draw textures required by gui and game || 3.5 ||
+|| Fix toolbelt bugs || 2 ||
+
+===Milestone 4 Estimation===
+|| add new level || 3 ||
+|| Re-polish textures || 5 ||
+
 
 == Steven Indzeoski ==
 === Milestone 0 ===
