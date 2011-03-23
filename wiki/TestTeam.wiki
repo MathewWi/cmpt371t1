@@ -5,6 +5,16 @@
 
 Will be listing our tasks and now as well as our future plans and Milestone tasks completion based on TestPlan
 
+= Milestone 5 =
+  == Estimates ==
+|| Task || Estimated Time (hours) ||
+|| User Evaluation || 15 ||
+|| Test Suite Update || 10 ||
+|| Mock Try Again || 10 ||
+|| Stress || 10 ||
+
+= End Milestone 5 =
+
 = Milestone 4 =
   == Estimates ==
 || Task || Estimated Time (hours) ||
