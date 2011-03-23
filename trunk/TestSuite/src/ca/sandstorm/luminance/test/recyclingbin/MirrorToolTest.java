@@ -11,6 +11,7 @@ import ca.sandstorm.luminance.gameobject.Mirror;
  * @author lianghuang
  *
  */
+/*
 public class MirrorToolTest extends AndroidTestCase {
 	
 	private Mirror tMirror;
@@ -26,3 +27,4 @@ public class MirrorToolTest extends AndroidTestCase {
 		assertTrue(tMirror != null);
 	}
 }
+*/

@@ -105,12 +105,12 @@ public class GUIManagerTest extends AndroidTestCase {
 		Button testButtonHolder;
 
 		// Add the maximum amount of buttons
-		for (int i = 0; i < MAX_BUTTON_COUNT; i++) {
+		for (int i = 10; i < MAX_BUTTON_COUNT; i++) {
 
 			testButtonHolder = guiManager.touchOccured(x, y);
 
 			assertTrue(testButtonHolder != null);
-			System.out.println("1");
+
 
 			assertTrue(testButtonHolder.getTitle().equals(button[i].getTitle()));
 

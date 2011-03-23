@@ -17,9 +17,9 @@ public class LuminancePcTest extends AndroidTestCase
 
     LuminancePc luminancePc;
     /**
-     * @param name
+     * Constructor
      */
-    public LuminancePcTest(String name)
+    public LuminancePcTest()
     {
 	super();
     }
