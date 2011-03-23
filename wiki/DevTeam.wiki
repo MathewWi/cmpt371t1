@@ -5,7 +5,18 @@ This is where the development team will be listing their tasks and roles.
 
 == Milestone 3 ==
  === Meeting Times ===
- - Note meetings yet
+  All meetings were commenced on Skype and occurred on the following days:
+  
+  * Friday, March 11th
+  * Monday, March 14th
+  * Wednesday, March 16th
+  * Sunday, March 20th
+  * Monday, March 21st
+  * Tuesday, March 22nd
+
+These meetings were used to communicate with the other development team members while working on the project.  This was found to be more useful than meeting just in person, as the development environment we required was not available in spinks.  This way, we all could communicate and develop at the same time, which proved to be quite successful.
+
+There was also communication between members via emails and full group meetings about what tasks needed to be done.
 
  === Tasks ===
   * Stephen
@@ -44,7 +55,8 @@ This is where the development team will be listing their tasks and roles.
 
  === Second sprint ===
   * Stephen
-   * 
+   * Continuing work with the Light
+   * Working out most bugs
   * Jonny
    * Make input perfect, and include a 'swipe' gesture
    * Graphics for Pause Menu
