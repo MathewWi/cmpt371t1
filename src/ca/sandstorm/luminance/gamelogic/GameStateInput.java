@@ -149,11 +149,13 @@ public class GameStateInput
      */
     public void processTouchInput()
     {
-	scrollGesture();
-	flingGesture();
+	if (_isGridEnabled) {
+	    scrollGesture();
+	    flingGesture();
+	}
 	
 	if (Engine.getInstance().getInputSystem().getTouchScreen()
-		.getPressed(1)) {
+		.getPressed(1) && _isGridEnabled) {
 	    // use to identify the zoom gesture
 	    _touchMode = ZOOM;
 	    _initialSecondX = Engine.getInstance().getInputSystem()
@@ -199,7 +201,7 @@ public class GameStateInput
 			.getTouchScreen().setTouchMode(InputTouchScreen.NONE);
 	    }
 	    
-	    if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode() == InputTouchScreen.ON_DOUBLE_TAP_CONFIRMED)
+	    if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode() == InputTouchScreen.ON_DOUBLE_TAP_CONFIRMED && _isGridEnabled)
 	    {
 		mouseDoubleClick(touchEvent.getX(), 
 			               touchEvent.getY() 
