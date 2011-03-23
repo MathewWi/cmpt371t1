@@ -34,7 +34,20 @@
 || Miscellaneous Bug Fixes || 3 ||
 
 ===Milestone 3 Estimations===
-|| || ||
+|| In-Game Menu || 4 ||
+|| Button Tapped Draw Code || 2 ||
+|| Phone Hardware Integration || 1 ||
+
+===Milestone 3===
+|| In-Game Menu || 5 ||
+|| Toolbelt Button Behaviour || 5 ||
+|| Button Tapped Draw Code || 4 ||
+|| Phone Hardware Integration || 2 ||
+
+=== Milestone 4 Estimations ===
+|| Polish || 5 ||
+|| Documentation || 5 ||
+|| Level Creation || 2 ||
 
 == Zenja Ivkovic ==
 ===Milestone 0===
