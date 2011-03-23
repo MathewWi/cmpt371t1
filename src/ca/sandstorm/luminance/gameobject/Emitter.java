@@ -26,7 +26,7 @@ public class Emitter extends GameObject implements IRenderableObject
     private Sphere _colSphere;
     private int _color;
     
-    private static float[] _rotationArray = new float[] { 0, 90, 180, 360 };
+    private static float[] _rotationArray = new float[] { 0, 90, 180, 270 };
     private int _currentRotation = 0;
     
     
