@@ -76,6 +76,7 @@ public class Toolbelt
 	//       that instead of checking button titles like this
 	Button touchedButton = _gameState.getGui().touchOccured(x, y);
 	if (touchedButton != null) {
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.mp3"), 0.9f);
 	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
 		logger.debug("mirror has been tapped");
 		//touchedButton.setIsTapped(true);
