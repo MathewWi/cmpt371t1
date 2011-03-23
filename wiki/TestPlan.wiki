@@ -58,7 +58,7 @@
   * Integrate black box, white box, mutation test into smoke test
 
 *Estimated: 40 hours*
-= Post Milestone Comments =
+== Post Milestone Comments ==
  Much difficulty in setting up the emulator to work on TeamCity.
  As a consequence Android Junit tests were not integrated into Smoke tests.
  JUnit tests has been postponed to next milestone.
@@ -104,17 +104,27 @@
 = Division of Labour: =
   It has been discussed that the team will divide up the major testing (unit and general testing) portion into sub categories. This is in coalition with the development group’s choice of dividing their work. This will keep each member’s knowledge of the project narrow but thoroughly understandable. Some will have more than one job depending on their ease of testing. Below is a table of division:
 
-||Name||Task||Task ||
-||Chet|| || ||
-|| || Resource Management||Game Object|| 
-|| || Math || Game Logic ||
-||Amara|| || ||
-|| || State||Input|| 
-|| || Engine || GUI || 
-|| || Automated GUI Testing || User evaluations||
-||Jeff|| || ||
-|| || Smoke Test || Level|| 
-|| || time || User evaluations || 
+||Name||Testing task||
+||Chet|| ||
+|| || ResourceManager package unit tests||
+|| || Math package unit tests|| 
+|| || GameLogic package unit tests ||
+||Amara|| ||
+|| || State package unit tests|| 
+|| || Input testing||
+|| || Engine unit tests||
+|| || GUI package unit tests||  
+|| || Automated GUI Testing with Robotium|| 
+|| || User evaluations||
+||Jeff|| ||
+|| || Smoke Test || 
+|| || Level pacakge unit tests||  
+|| || User evaluations || 
+|| Martina || ||
+|| || GameObject package unit tests||
+|| || Time package unit tests||
+
+Note: due to a time crunch, Martina helped out with testing.
 
 = Technologies Used =
   * Android JUnit
