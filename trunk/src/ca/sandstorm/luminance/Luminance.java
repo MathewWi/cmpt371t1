@@ -108,11 +108,23 @@ public class Luminance extends Activity
     
     public boolean onPrepareOptionsMenu (Menu menu)
     {
+	// showOrDismissPauseMenu() only exists in GameState, so wen need to
+	// check if currentState is an instance of GameState.
 	IState currentState = Engine.getInstance().getCurrentState();
 	if (currentState instanceof GameState) {
 	    ((GameState)currentState).showOrDismissPauseMenu();
 	}
 	return false;
+    }
+    
+    @Override
+    public void onBackPressed()
+    {
+	System.out.println("onBackPressed()");
+	IState currentState = Engine.getInstance().getCurrentState();
+	if ((currentState instanceof GameState) & ((GameState)currentState).getShowMenu()) {
+	    ((GameState)currentState).showOrDismissPauseMenu();
+	}
     }
     
     @Override
@@ -200,6 +212,12 @@ public class Luminance extends Activity
 
 	Engine.getInstance().getInputSystem().keyUp(keyCode);
 
+	IState currentState = Engine.getInstance().getCurrentState();
+	if (keyCode == 4 && currentState instanceof GameState && ((GameState)currentState).getShowMenu()) {
+	    System.out.println("Back button pressed");
+	    ((GameState)currentState).showOrDismissPauseMenu();
+	}
+	
 	return result;
     }
 
