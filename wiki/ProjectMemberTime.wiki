@@ -184,6 +184,22 @@
 || Helping group members with various tasks || 5 ||
 || Preparing Wiki for deliverable || 6 ||
 
+===Milestone 3===
+|| Code and peer reviews || 4 ||
+|| Formal Inspection || 1 ||
+|| Organizing team || 4 ||
+|| Helping group members with various tasks || 4 ||
+|| Preparing wiki for deliverable || 6 ||
+|| Helping test team with unit tests || 6 ||
+
+=== Milestone 4 Estimations ===
+|| Code and peer reviews || 2 ||
+|| Formal Inspection || 1 ||
+|| Organizing team || 4 ||
+|| Helping group members with various tasks || 5 ||
+|| Preparing Wiki for deliverable || 6 ||
+|| Post Mortem Document|| 12 ||
+
 == Chet Collins ==
 ===Milestone 0===
 || *Task* || *Hours spent so far* ||
