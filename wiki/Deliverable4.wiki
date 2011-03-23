@@ -44,7 +44,9 @@
 
  The status report can be viewed here: StatusReport
 
- The class diagram from this prototype can be viewed here: ClassDiagram
+ The class diagram from this deliverablecan be viewed here: ClassDiagram
+
+ The state diagram from this deliverable can be viewed here: StateDiagram
 
 = Defect/Bug information =
 
