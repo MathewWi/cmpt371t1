@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.Luminance;
 import ca.sandstorm.luminance.camera.Camera;
 import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.Emitter;
@@ -202,6 +203,7 @@ public class GameState implements IState
 	_objects.clear();
 	_emitterObjects.clear();
 	_goalObjects.clear();
+	_lightPath.getLightPaths().clear();
 	Engine.getInstance().getRenderer().removeAll();
 	
 	// reinit gui manager
@@ -297,6 +299,7 @@ public class GameState implements IState
 	    XmlLevelParser levelParser = new XmlLevelParser(levelFile);
 	    XmlLevel level = levelParser.parse();
 	    //level.getName();
+	    Luminance.getInstance().setSubTitle(level.getName());
 	    level.toString();
 	    
 	    // parse the grid

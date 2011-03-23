@@ -39,6 +39,9 @@ public class Luminance extends Activity
 {
     private static final Logger _logger = LoggerFactory.getLogger("Luminance");
     
+    
+    private static Luminance _instance = null;
+    
     // Used for framerate analysis while stress testing. 
     //private float _logFpsCounter = 0f;
     
@@ -46,6 +49,8 @@ public class Luminance extends Activity
     private GLSurfaceView mGLView;
     
     private GestureDetector _gesture;
+    
+    private String _subTitle = "";
 
     // a handler for updating the ui thread from the android thread
     private final Handler handler = new Handler()
@@ -53,12 +58,21 @@ public class Luminance extends Activity
 	public void handleMessage(Message msg)
 	{
 	    float fps = msg.getData().getFloat("fps");
-	    String subtitle = msg.getData().getString("subtitle");
-	    if (subtitle == null) {
-		subtitle = "";
+	    String newSubtitle = msg.getData().getString("subtitle");
+	    if (newSubtitle != null)
+	    {
+		_subTitle = newSubtitle;
 	    }
 
-	    Luminance.this.setTitle("Luminance - " + subtitle + "(" + 1f/fps + " fps)");
+	    if (Engine.DEBUG)
+	    {
+		Luminance.this.setTitle("Luminance - " + _subTitle + "(" + 1f/fps + " fps)");
+	    }
+	    else
+	    {
+		Luminance.this.setTitle("Luminance - " + _subTitle);
+	    }
+		
 	    
 	    // Uncomment below code for logging framerate while doing performance
 	    // or stress tests. Do NOT commit with this uncommented. This way
@@ -71,6 +85,11 @@ public class Luminance extends Activity
 	}
     };    
     
+    
+    public static Luminance getInstance()
+    {
+	return _instance;
+    }
 
     /**
      * Android Activity OnCreate()
@@ -79,7 +98,9 @@ public class Luminance extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {	
 	_logger.debug("onCreate()");
-			
+	
+	_instance = this;
+	
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
 	
