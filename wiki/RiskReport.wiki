@@ -159,6 +159,8 @@ Below are risks that are most important to this phase of the project:
 
  * *Status:* We have not yet encountered the issue, but are prepared to deal with slowness should it come up.
 
+  * *Update* 03/20/2011: We have encountered performance issues, but only within the Android emulator. Running the game on an actual device yields better results
+
 ==Risk 9==
  * *Description:* Repeated or defective work resulting from vague requirements.
 
@@ -173,6 +175,8 @@ Below are risks that are most important to this phase of the project:
  * *Contingency Plan:* If there is still confusion about how the new features are to be implemented, then the design lead will step in to clarify any issues that should arise, and ensure that all developers are on the correct path.
 
  * *Status:* Since we are still working on a runnable version of the game, this risk has not yet been realized. Once the existing features are implemented, we will formalize a plan for how to proceed with the new features.
+
+  * *Update* 03/20/2011: We have decided not to implement any new features and focus on improving the game from its original state. Therefore, this risk is no longer an issue.
 
 ==Risk 10==
  * *Description:* Work handed in late due to a miscommunication about due dates.
