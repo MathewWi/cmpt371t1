@@ -28,7 +28,13 @@ public class ReceptorTest extends AndroidTestCase {
 		myReceptor = new Receptor(new Vector3f(0.0f, 0.0f, 0.0f), new Vector3f(
 				0.0f, 0.0f, 0.0f));
 	}
-
+	/**
+	 * Setting activated test
+	 */
+	public void testSetGetActivated(){
+		myReceptor.setActivated(true);
+		assertTrue(myReceptor.getActivated());
+	}
 	/**
 	 * Test the setColor method.
 	 * 

@@ -1,9 +1,5 @@
 package ca.sandstorm.luminance.test.input;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
@@ -31,7 +27,7 @@ public class GUIManagerTest extends AndroidTestCase
     /**
      * @throws java.lang.Exception
      */
-    @Before
+
     public void setUp() throws Exception
     {
 	super.setUp();
@@ -53,7 +49,7 @@ public class GUIManagerTest extends AndroidTestCase
     /**
      * @throws java.lang.Exception
      */
-    @After
+
     public void tearDown() throws Exception
     {
 	super.tearDown();
@@ -63,7 +59,7 @@ public class GUIManagerTest extends AndroidTestCase
 	 * Test method for
 	 * {@link ca.sandstorm.luminance.test.input.GUIManager#GUIManager()}.
 	 */
-	@Test
+
 	public void testGUIManager() {
 		GUIManager newManager = new GUIManager();
 		assertNotNull(newManager);
@@ -74,7 +70,7 @@ public class GUIManagerTest extends AndroidTestCase
 	 * {@link ca.sandstorm.luminance.test.input.GUIManager#addButton(ca.sandstorm.luminance.input.Button)}
 	 * .
 	 */
-	@Test
+
 	public void testAddButton() {
 
 		// Add the max number of buttons to the input manager
@@ -93,7 +89,7 @@ public class GUIManagerTest extends AndroidTestCase
 	 * {@link ca.sandstorm.luminance.test.input.GUIManager#touchOccured(android.view.MotionEvent)}
 	 * .
 	 */
-	@Test
+
 	public void testTouchOccuredMotionEvent() {
 		/**
 		 * MotionEvent constructor is not public unable to construct event to
@@ -108,7 +104,7 @@ public class GUIManagerTest extends AndroidTestCase
 	 * {@link ca.sandstorm.luminance.test.input.GUIManager#touchOccured(float, float)}
 	 * .
 	 */
-	@Test
+
 	public void testTouchOccuredFloatFloat() {
 		// Touch every initialized button with buttons
 		// placed in the GUIManager

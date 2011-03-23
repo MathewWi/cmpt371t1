@@ -24,9 +24,9 @@ public class MatrixTrackingGLTest extends AndroidTestCase
     GL10 mockGl;
     
     /**
-     * @param name
+     * Constructor
      */
-    public MatrixTrackingGLTest(String name)
+    public MatrixTrackingGLTest()
     {
 	super();
 
@@ -39,9 +39,7 @@ public class MatrixTrackingGLTest extends AndroidTestCase
     protected void setUp() throws Exception
     {
 	super.setUp();
-	mockGl = mock(GL10.class);
-	matrixTrackingGL= new MatrixTrackingGL(mockGl);
-	assertNotNull(matrixTrackingGL);
+
     }
 
 

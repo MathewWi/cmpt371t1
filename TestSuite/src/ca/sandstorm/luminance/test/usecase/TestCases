@@ -93,33 +93,54 @@ Test Case (2): Object interaction/function
 
 Purpose: To test and verify that objects unique, functional, and interact with each other.
 
-Prerequisite: A game level has been started
+Prerequisite: Level 3
 
 Test Data:
 
-    (post map grid here) 
+||   || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 ||
+|| 1 ||(W)||   ||   ||   ||   ||   || B ||   ||
+|| 2 ||   || B ||   ||   ||   ||   ||   ||   ||
+|| 3 ||   ||   || B ||   ||   ||   ||   ||   ||
+|| 4 ||   ||   ||   || B ||   ||   ||   ||   ||
+|| 5 ||   ||   ||   ||(G)|| B ||   ||   ||   ||
+|| 6 ||   ||   ||   ||   ||   ||   ||   ||   ||
+|| 7 || B ||   ||   ||   ||   ||   ||   ||   ||
+|| 8 ||   ||   ||   ||   ||   ||(R)||   ||(B)||
 
 Steps:
 
-    User starts game
-    User chooses random level
-        Game view is shown 
-    prism -> mirror -> orb
-        User chooses prism
-        User places Prism
-            System refracts light into RGB
-            System deactivates prism from toolbar
-            Light collides with Wall obstacle
-                prism -> mirror -> brick 
-            Light collides with outer boundary
-                prism -> outer boundary 
-            Light collides with differing color orb
-                prism -> wrong orb 
+    User chooses mirror
+    User places mirror(1)
+    	White Light collides with mirror 
+    	White Light reflects south
+        User chooses mirror
+    User places mirror(2)
+        Light collides with mirror      
+    User chooses prism
+    User places Prism
+        System refracts light into RGB
+        System deactivates prism from toolbar
+        Light collides with outer boundary
+            prism -> outer boundary 
+        Light collides with differing color orb
+            prism -> wrong orb 
+        Light collides with mirror bounces back to prism
+        	prism -> mirror -> prism   
         User chooses mirror
         User places mirror
             Light collides with mirror 
-        User chooses eraser 
-
+            
+	||   || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 ||
+	|| 1 ||(W)||   ||   ||   ||   ||   || B ||   ||
+	|| 2 ||   || B ||   ||   ||   ||   ||   ||   ||
+	|| 3 ||   ||   || B ||   ||   ||   ||   ||   ||
+	|| 4 ||   ||   ||   || B ||   ||   ||   ||   ||
+	|| 5 ||   ||   ||   ||(G)|| B ||   ||   ||   ||
+	|| 6 ||   ||   ||   ||   ||   ||   ||   ||   ||
+	|| 7 || B ||   ||   ||   ||   ||   ||   ||   ||
+	|| 8 ||   ||   ||   ||   ||   ||(R)||   ||(B)||
+	
+    User chooses eraser 
     User erases prism
         Prism disappears
         RGB disappears
