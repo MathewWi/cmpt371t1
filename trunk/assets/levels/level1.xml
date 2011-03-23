@@ -9,8 +9,8 @@
 	<name>Level 1</name>
 	<difficulty>easy</difficulty>
 	<grid_size>
-		<x>4</x>
-		<y>10</y>
+		<x>3</x>
+		<y>9</y>
 		<width>1.0</width>
 		<height>1.0</height>
 	</grid_size>
