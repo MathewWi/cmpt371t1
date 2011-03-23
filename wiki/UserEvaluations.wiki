@@ -6,11 +6,13 @@
 
 		Luminance is geared towards everyone who is a fan of challenges in arcade, interactive puzzles, strategy based game play. Replay value will be a significant part of the game dynamic.
 
-		_*Casual busy gamers:*_ People who have no time to commit to hardcore  games can play while on public transportation, waiting for an appointment, through coffee breaks and lunch time.
+                The types of gamers this game hopes to intrigue include:
 
-		_*Students:*_ Students can refresh their minds during study breaks, long speeches/lectures, and supplement their instant gratification needs.
+		_*Casual busy gamers:*_ People who have no time to commit to hardcore games can play while on public transportation, waiting for an appointment, through coffee breaks and lunch time.
 
-		_*Arcade Gamers:*_ Old school arcade gamers who enjoy playing 1942, Angry Birds, etc..
+		_*Students:*_ Students can refresh their minds during study breaks, commutes, and instantly supplement their gaming needs.
+
+		_*Arcade Gamers:*_ Old school arcade gamers who enjoy playing 1942, Angry Birds, etc.
 
 *Evaluation Goals:*
 
@@ -22,11 +24,11 @@
 
 		   Gain instant feedback for game developers/designers on existing features.
 
-		   Gain direction for the project’s future goals expand or entrench the project.
+		   Gain direction for the project’s future goals to expand or entrench the project.
 
 		   Revise allocation of resources for the addition of new features in the project.
 
-*Evaluation Method:*
+== Evaluation Method==
 
 *Process:*
 
@@ -76,13 +78,13 @@
 
 *Implementation Plan:*
 
-			Phase 1(Milestone 3):
+			Phase 1:
 
 				Every member finds 2 experienced people to test our game
 
 				Groups a) and b) are tested
 
-			Phase 2(Milestone 4):
+			Phase 2:
 
 				Test team goes to crowded place in campus finds inexperienced persons
 
