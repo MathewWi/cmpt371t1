@@ -39,6 +39,7 @@ import ca.sandstorm.luminance.level.XmlLevelParser;
 import ca.sandstorm.luminance.level.XmlLevelTool;
 import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.resources.MusicResource;
+import ca.sandstorm.luminance.resources.SoundResource;
 import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
 
@@ -481,6 +482,7 @@ public class GameState implements IState
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/sample.ogg");
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/place.wav");
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/noPlace.wav");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/iconClick.mp3");
 	} catch (IOException e) {
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
@@ -583,6 +585,8 @@ public class GameState implements IState
     public void showOrDismissPauseMenu()
     {
 	logger.debug("showOrDismissPauseMenu()");
+	Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.mp3"), 0.9f);
+
 	_showMenu = !_showMenu;
 	_guiManager.setIsEnabled(!_showMenu);
 	_menuGuiManager.setIsEnabled(_showMenu);

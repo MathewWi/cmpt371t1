@@ -6,3 +6,12 @@ startSelect.mp3
 	
 place.wav
 	Author: http://www.freesound.org/samplesViewSingle.php?id=108334
+
+iconClick.wav
+	Author: http://www.freesound.org/samplesViewSingle.php?id=26777
+
+noPlace.wav
+	Author: http://www.freesound.org/samplesViewSingle.php?id=67454
+
+place.wav
+	Author: 
