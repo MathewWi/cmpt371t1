@@ -1,0 +1,1443 @@
+<class-diagram version="0.9.86" automaticImage="PNG" icons="true" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.MatrixTrackingGL" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/MatrixTrackingGL.java" binary="false">    
+    <position x="918" y="122" width="123" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.Luminance.ClearRenderer" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/Luminance.java" binary="false">    
+    <position x="568" y="122" width="109" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.Luminance" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/Luminance.java" binary="false">    
+    <position x="783" y="37" width="109" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.Engine" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false">    
+    <position x="759" y="207" width="109" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.audio.AndroidSoundPlayer" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/audio/AndroidSoundPlayer.java" binary="false">    
+    <position x="759" y="302" width="139" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.audio.IAudioDriver" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/audio/IAudioDriver.java" binary="false">    
+    <position x="814" y="387" width="134" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.camera.Camera" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/camera/Camera.java" binary="false">    
+    <position x="1996" y="207" width="143" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gamelogic.GameStateInput" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameStateInput.java" binary="false">    
+    <position x="1838" y="122" width="154" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gamelogic.MenuState" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gamelogic/MenuState.java" binary="false">    
+    <position x="1312" y="122" width="154" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gamelogic.GameRenderer" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false">    
+    <position x="1707" y="302" width="154" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gamelogic.GameState" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false">    
+    <position x="1798" y="37" width="154" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gamelogic.LightPath" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gamelogic/LightPath.java" binary="false">    
+    <position x="1549" y="122" width="154" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <enumeration corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.RenderType" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/gameobject/RenderType.java" binary="false">    
+    <position x="2812" y="387" width="272" height="45"/>    
+    <display autosize="false" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </enumeration>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Receptor" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Receptor.java" binary="false">    
+    <position x="2684" y="302" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.LightBeamCollection" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/gameobject/LightBeamCollection.java" binary="false">    
+    <position x="1437" y="207" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false">    
+    <position x="2269" y="302" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.GameObject" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false">    
+    <position x="2884" y="37" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Prism" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Prism.java" binary="false">    
+    <position x="2905" y="302" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Box" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Box.java" binary="false">    
+    <position x="3105" y="302" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Skybox" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Skybox.java" binary="false">    
+    <position x="1112" y="122" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Emitter" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Emitter.java" binary="false">    
+    <position x="3305" y="302" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false">    
+    <position x="2463" y="387" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Mirror" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false">    
+    <position x="2684" y="122" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Light" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false">    
+    <position x="2400" y="207" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.Grid" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/Grid.java" binary="false">    
+    <position x="2179" y="207" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gameobject.LightBeam" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gameobject/LightBeam.java" binary="false">    
+    <position x="583" y="37" width="160" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <enumeration corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gametools.ToolType" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/gametools/ToolType.java" binary="false">    
+    <position x="1901" y="302" width="155" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </enumeration>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gametools.Toolbelt" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false">    
+    <position x="1801" y="207" width="155" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gametools.ITool" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gametools/ITool.java" binary="false">    
+    <position x="215" y="37" width="155" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.graphics.PrimitivePrism" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitivePrism.java" binary="false">    
+    <position x="2008" y="387" width="147" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.graphics.PrimitiveBox" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveBox.java" binary="false">    
+    <position x="2195" y="387" width="147" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.graphics.PrimitiveSphere" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveSphere.java" binary="false">    
+    <position x="2382" y="387" width="147" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.graphics.PrimitiveQuad" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveQuad.java" binary="false">    
+    <position x="1480" y="387" width="147" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.graphics.IRenderable" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false">    
+    <position x="2684" y="472" width="147" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gui.Label" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gui/Label.java" binary="false">    
+    <position x="1173" y="302" width="124" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gui.Button" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false">    
+    <position x="1337" y="302" width="124" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gui.IWidget" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gui/IWidget.java" binary="false">    
+    <position x="1667" y="387" width="124" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gui.NumericLabel" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gui/NumericLabel.java" binary="false">    
+    <position x="1522" y="302" width="124" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gui.TextLabel" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gui/TextLabel.java" binary="false">    
+    <position x="1009" y="387" width="124" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.gui.GUIManager" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/gui/GUIManager.java" binary="false">    
+    <position x="1637" y="207" width="124" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.math.Lerp" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/math/Lerp.java" binary="false">    
+    <position x="42" y="37" width="133" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.math.MatrixStack" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/math/MatrixStack.java" binary="false">    
+    <position x="918" y="207" width="133" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.math.Ray" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/math/Ray.java" binary="false">    
+    <position x="2096" y="302" width="133" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.math.Colliders" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/math/Colliders.java" binary="false">    
+    <position x="410" y="37" width="133" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.math.Sphere" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/math/Sphere.java" binary="false">    
+    <position x="3145" y="387" width="133" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.math.Plane" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/math/Plane.java" binary="false">    
+    <position x="2469" y="302" width="133" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.ImageResource" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/resources/ImageResource.java" binary="false">    
+    <position x="235" y="387" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.MusicResource" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/resources/MusicResource.java" binary="false">    
+    <position x="621" y="387" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.TextResource" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/resources/TextResource.java" binary="false">    
+    <position x="42" y="472" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.ResourceManager" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/resources/ResourceManager.java" binary="false">    
+    <position x="938" y="302" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.SoundResource" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/resources/SoundResource.java" binary="false">    
+    <position x="428" y="387" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.IResource" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/resources/IResource.java" binary="false">    
+    <position x="621" y="472" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.Resource" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/resources/Resource.java" binary="false">    
+    <position x="42" y="387" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.resources.TextureResource" 
+    project="Luminance" file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false">    
+    <position x="1173" y="387" width="153" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <interface corner="BOTTOM_RIGHT" language="java" name="ca.sandstorm.luminance.state.IState" project="Luminance" 
+    file="/Luminance/src/ca/sandstorm/luminance/state/IState.java" binary="false">    
+    <position x="586" y="302" width="133" height="45"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </interface>  
+  <association>    
+    <bendpoint x="2611" y="207"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Mirror" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false" navigable="false">      
+      <attribute name="_colPlane"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Plane" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Plane.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false" navigable="false">      
+      <attribute name="_prism"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitivePrism" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitivePrism.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="1406" y="207"/>    
+    <bendpoint x="1491" y="302"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.MenuState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/MenuState.java" binary="false" navigable="false">      
+      <attribute name="_quad"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveQuad" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveQuad.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="2661" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false" navigable="false">      
+      <attribute name="_lightsInteracting"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.Light" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.MatrixTrackingGL" 
+      file="/Luminance/src/ca/sandstorm/luminance/MatrixTrackingGL.java" binary="false" navigable="false">      
+      <attribute name="mCurrent"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.MatrixStack" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/MatrixStack.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveSphere" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveSphere.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false"/>  
+  </realization>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Light" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.MatrixTrackingGL" 
+      file="/Luminance/src/ca/sandstorm/luminance/MatrixTrackingGL.java" binary="false" navigable="false">      
+      <attribute name="mProjection"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.MatrixStack" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/MatrixStack.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Engine" 
+      file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false" navigable="false">      
+      <attribute name="_renderer"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Grid" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Grid.java" binary="false" navigable="false">      
+      <attribute name="_plane"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Plane" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Plane.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gametools.Toolbelt" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false" navigable="false">      
+      <attribute name="_prevTouchedButton"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.Button" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <bendpoint x="2590" y="122"/>    
+    <bendpoint x="2590" y="207"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <bendpoint x="1807" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gametools.Toolbelt" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false" navigable="false">      
+      <attribute name="_gameState"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.TextLabel" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/TextLabel.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.Label" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Label.java" binary="false"/>  
+  </generalization>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.NumericLabel" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/NumericLabel.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.IWidget" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/IWidget.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <bendpoint x="2653" y="122"/>    
+    <bendpoint x="2653" y="207"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_goalObjects"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.Receptor" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Receptor.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Label" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Label.java" binary="false" navigable="false">      
+      <attribute name="_quad"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveQuad" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveQuad.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.MenuState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/MenuState.java" binary="false" navigable="false">      
+      <attribute name="_guiManager"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.GUIManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/GUIManager.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="2693" y="387"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Receptor" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Receptor.java" binary="false" navigable="false">      
+      <attribute name="_model"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Receptor" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Receptor.java" binary="false" navigable="false">      
+      <attribute name="_colSphere"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Sphere" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Sphere.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization>    
+    <bendpoint x="2640" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Light" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false"/>  
+  </generalization>  
+  <association>    
+    <bendpoint x="2043" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_grid"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.Grid" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Grid.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Button" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false" navigable="false">      
+      <attribute name="_quad"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveQuad" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveQuad.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Button" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false" navigable="false">      
+      <attribute name="_tappedTexture"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Engine" 
+      file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false" navigable="false">      
+      <attribute name="_stateStack"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.state.IState" 
+      file="/Luminance/src/ca/sandstorm/luminance/state/IState.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameStateInput" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameStateInput.java" binary="false" navigable="false">      
+      <attribute name="_grid"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.Grid" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Grid.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Engine" 
+      file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false" navigable="false">      
+      <attribute name="_stateQueue"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.state.IState" 
+      file="/Luminance/src/ca/sandstorm/luminance/state/IState.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gametools.Toolbelt" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false" navigable="false">      
+      <attribute name="_stockLabel"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.NumericLabel" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/NumericLabel.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Mirror" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false" navigable="false">      
+      <attribute name="_lightLastTouched"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.Light" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <bendpoint x="2781" y="387"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Prism" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Prism.java" binary="false" navigable="false">      
+      <attribute name="_model"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="2369" y="122"/>    
+    <bendpoint x="2369" y="207"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_objects"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Emitter" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Emitter.java" binary="false" navigable="false">      
+      <attribute name="_renderType"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.RenderType" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/RenderType.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Light" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false" navigable="false">      
+      <attribute name="_ray"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Ray" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Ray.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.NumericLabel" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/NumericLabel.java" binary="false" navigable="false">      
+      <attribute name="_texture"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="2674" y="207"/>    
+    <bendpoint x="2653" y="302"/>    
+    <bendpoint x="2653" y="387"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Mirror" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false" navigable="false">      
+      <attribute name="_model"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitivePrism" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitivePrism.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameStateInput" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameStateInput.java" binary="false" navigable="false">      
+      <attribute name="_cam"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.camera.Camera" 
+      file="/Luminance/src/ca/sandstorm/luminance/camera/Camera.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <bendpoint x="3272" y="207"/>    
+    <bendpoint x="3495" y="302"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Mirror" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false" navigable="false">      
+      <attribute name="_colSphere"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Sphere" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Sphere.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="1676" y="302"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.GUIManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/GUIManager.java" binary="false" navigable="false">      
+      <attribute name="_widgets"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.IWidget" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/IWidget.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Emitter" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Emitter.java" binary="false" navigable="false">      
+      <attribute name="_colSphere"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Sphere" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Sphere.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveQuad" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveQuad.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <bendpoint x="2872" y="207"/>    
+    <bendpoint x="2874" y="302"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Mirror" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false" navigable="false">      
+      <attribute name="_renderType"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.RenderType" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/RenderType.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_sky"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.Skybox" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Skybox.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Prism" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Prism.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Engine" 
+      file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false" navigable="false">      
+      <attribute name="_instance"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.Engine" 
+      file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false"/>  
+  </generalization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.audio.AndroidSoundPlayer" 
+      file="/Luminance/src/ca/sandstorm/luminance/audio/AndroidSoundPlayer.java" binary="false" navigable="false">      
+      <attribute name="_currentMusic"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.MusicResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/MusicResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Button" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false" navigable="false">      
+      <attribute name="_drawTexture"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="1121" y="207"/>    
+    <bendpoint x="1121" y="302"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Skybox" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Skybox.java" binary="false" navigable="false">      
+      <attribute name="_textures"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <bendpoint x="728" y="207"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.MenuState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/MenuState.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.state.IState" 
+      file="/Luminance/src/ca/sandstorm/luminance/state/IState.java" binary="false"/>  
+  </realization>  
+  <nesting>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Luminance" 
+      file="/Luminance/src/ca/sandstorm/luminance/Luminance.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.Luminance.ClearRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/Luminance.java" binary="false"/>  
+  </nesting>  
+  <association>    
+    <bendpoint x="3114" y="387"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Box" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Box.java" binary="false" navigable="false">      
+      <attribute name="_model"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <dependency>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Luminance" 
+      file="/Luminance/src/ca/sandstorm/luminance/Luminance.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.MatrixTrackingGL" 
+      file="/Luminance/src/ca/sandstorm/luminance/MatrixTrackingGL.java" binary="false"/>  
+  </dependency>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Box" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Box.java" binary="false" navigable="false">      
+      <attribute name="_renderType"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.RenderType" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/RenderType.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Button" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.IWidget" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/IWidget.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_lightPath"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gamelogic.LightPath" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/LightPath.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false" navigable="false">      
+      <attribute name="_sphere"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveSphere" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveSphere.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization>    
+    <bendpoint x="3293" y="207"/>    
+    <bendpoint x="3293" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Box" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Box.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false"/>  
+  </generalization>  
+  <association>    
+    <bendpoint x="1733" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_guiManager"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.GUIManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/GUIManager.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="978" y="387"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.resources.ResourceManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/ResourceManager.java" binary="false" navigable="false">      
+      <attribute name="_resources"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.IResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/IResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Button" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false" navigable="false">      
+      <attribute name="_texture"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization>    
+    <bendpoint x="2914" y="207"/>    
+    <bendpoint x="2914" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Prism" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Prism.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false"/>  
+  </generalization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.camera.Camera" 
+      file="/Luminance/src/ca/sandstorm/luminance/camera/Camera.java" binary="false" navigable="false">      
+      <attribute name="_tmpRay"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Ray" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Ray.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <bendpoint x="1142" y="207"/>    
+    <bendpoint x="1142" y="302"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.MenuState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/MenuState.java" binary="false" navigable="false">      
+      <attribute name="_background"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Receptor" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Receptor.java" binary="false" navigable="false">      
+      <attribute name="_renderType"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.RenderType" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/RenderType.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_input"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameStateInput" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameStateInput.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.MatrixTrackingGL" 
+      file="/Luminance/src/ca/sandstorm/luminance/MatrixTrackingGL.java" binary="false" navigable="false">      
+      <attribute name="mModelView"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.MatrixStack" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/MatrixStack.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false" navigable="false">      
+      <attribute name="_alphaObjects"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization>    
+    <bendpoint x="2632" y="207"/>    
+    <bendpoint x="2632" y="302"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Mirror" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false"/>  
+  </realization>  
+  <generalization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Mirror" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Mirror.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false"/>  
+  </generalization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gametools.Toolbelt" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false" navigable="false">      
+      <attribute name="_tools"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.LightPath" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/LightPath.java" binary="false" navigable="false">      
+      <attribute name="_lights"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.LightBeamCollection" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/LightBeamCollection.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Light" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false" navigable="false">      
+      <attribute name="_startTouchingObject"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false" navigable="false">      
+      <attribute name="_reflectionObjects"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Receptor" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Receptor.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameStateInput" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameStateInput.java" binary="false" navigable="false">      
+      <attribute name="_guiManager"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.GUIManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/GUIManager.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Light" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Light.java" binary="false" navigable="false">      
+      <attribute name="_endTouchingObject"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IGameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IGameObject.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization>    
+    <bendpoint x="707" y="122"/>    
+    <bendpoint x="707" y="207"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.state.IState" 
+      file="/Luminance/src/ca/sandstorm/luminance/state/IState.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <bendpoint x="2022" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_cam"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.camera.Camera" 
+      file="/Luminance/src/ca/sandstorm/luminance/camera/Camera.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.NumericLabel" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/NumericLabel.java" binary="false" navigable="false">      
+      <attribute name="_quad"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveQuad" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveQuad.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.resources.SoundResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/SoundResource.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.IResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/IResource.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <bendpoint x="1786" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_toolbelt"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gametools.Toolbelt" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Emitter" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Emitter.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Box" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Box.java" binary="false" navigable="false">      
+      <attribute name="_colSphere"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Sphere" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Sphere.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Label" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Label.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.IWidget" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/IWidget.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <bendpoint x="3308" y="387"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Emitter" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Emitter.java" binary="false" navigable="false">      
+      <attribute name="_model"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.resources.Resource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/Resource.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.IResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/IResource.java" binary="false"/>  
+  </realization>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveBox" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveBox.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.IRenderable" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/IRenderable.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.MatrixTrackingGL" 
+      file="/Luminance/src/ca/sandstorm/luminance/MatrixTrackingGL.java" binary="false" navigable="false">      
+      <attribute name="mTexture"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.MatrixStack" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/MatrixStack.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.IResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/IResource.java" binary="false"/>  
+  </realization>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Box" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Box.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.Label" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Label.java" binary="false" navigable="false">      
+      <attribute name="_texture"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.TextureResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextureResource.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Engine" 
+      file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false" navigable="false">      
+      <attribute name="_resourceManager"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.ResourceManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/ResourceManager.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.Engine" 
+      file="/Luminance/src/ca/sandstorm/luminance/Engine.java" binary="false" navigable="false">      
+      <attribute name="_audioSystem"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.audio.AndroidSoundPlayer" 
+      file="/Luminance/src/ca/sandstorm/luminance/audio/AndroidSoundPlayer.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Prism" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Prism.java" binary="false" navigable="false">      
+      <attribute name="_colSphere"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.math.Sphere" 
+      file="/Luminance/src/ca/sandstorm/luminance/math/Sphere.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.resources.TextResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/TextResource.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.Resource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/Resource.java" binary="false"/>  
+  </generalization>  
+  <generalization>    
+    <bendpoint x="3314" y="207"/>    
+    <bendpoint x="3314" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Emitter" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Emitter.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false"/>  
+  </generalization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false" navigable="false">      
+      <attribute name="_box"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.graphics.PrimitiveBox" 
+      file="/Luminance/src/ca/sandstorm/luminance/graphics/PrimitiveBox.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.resources.MusicResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/MusicResource.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.IResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/IResource.java" binary="false"/>  
+  </realization>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gametools.Toolbelt" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false" navigable="false">      
+      <attribute name="_selectedTool"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gametools.ToolType" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/ToolType.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameStateInput" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameStateInput.java" binary="false" navigable="false">      
+      <attribute name="_toolbelt"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gametools.Toolbelt" 
+      file="/Luminance/src/ca/sandstorm/luminance/gametools/Toolbelt.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameRenderer" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameRenderer.java" binary="false" navigable="false">      
+      <attribute name="_normalObjects"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.IRenderableObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/IRenderableObject.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Prism" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Prism.java" binary="false" navigable="false">      
+      <attribute name="_renderType"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.RenderType" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/RenderType.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization>    
+    <bendpoint x="2893" y="207"/>    
+    <bendpoint x="2893" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gameobject.Receptor" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/Receptor.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gameobject.GameObject" 
+      file="/Luminance/src/ca/sandstorm/luminance/gameobject/GameObject.java" binary="false"/>  
+  </generalization>  
+  <association>    
+    <bendpoint x="1754" y="122"/>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gamelogic.GameState" 
+      file="/Luminance/src/ca/sandstorm/luminance/gamelogic/GameState.java" binary="false" navigable="false">      
+      <attribute name="_menuGuiManager"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.GUIManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/GUIManager.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association>    
+    <source project="Luminance" name="ca.sandstorm.luminance.gui.GUIManager" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/GUIManager.java" binary="false" navigable="false">      
+      <attribute name="_tappedButton"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="Luminance" name="ca.sandstorm.luminance.gui.Button" 
+      file="/Luminance/src/ca/sandstorm/luminance/gui/Button.java" binary="false" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.audio.AndroidSoundPlayer" 
+      file="/Luminance/src/ca/sandstorm/luminance/audio/AndroidSoundPlayer.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.audio.IAudioDriver" 
+      file="/Luminance/src/ca/sandstorm/luminance/audio/IAudioDriver.java" binary="false"/>  
+  </realization>  
+  <realization>    
+    <source project="Luminance" name="ca.sandstorm.luminance.resources.ImageResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/ImageResource.java" binary="false"/>    
+    <target project="Luminance" name="ca.sandstorm.luminance.resources.IResource" 
+      file="/Luminance/src/ca/sandstorm/luminance/resources/IResource.java" binary="false"/>  
+  </realization>  
+  <classifier-display autosize="true" package="true" initial-value="false" signature="false" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false"/>    
+    <operations public="false" package="false" protected="false" private="false"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>
