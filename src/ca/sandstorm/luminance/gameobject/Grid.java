@@ -121,7 +121,7 @@ public class Grid
 	    } else {
 		index1 = (short) (i + (i * cols) - ((i - 1) * (cols - 1)));
 
-		if (i == cols) {
+		if (i == rows) {
 		    index2 = (short) ((vertices.length / 3) - 1);
 		} else {
 		    index2 = (short) (index2 + 2);
