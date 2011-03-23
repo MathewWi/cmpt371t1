@@ -17,7 +17,7 @@ import ca.sandstorm.luminance.math.Sphere;
 
 public class Light extends GameObject implements IGameObject
 {
-    public static final float LIGHT_INFINITY = 65535.0f;
+    public static final float LIGHT_INFINITY = 255.0f;
     
     private float _distance;
     
