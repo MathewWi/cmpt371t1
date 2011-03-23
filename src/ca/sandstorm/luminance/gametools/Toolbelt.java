@@ -210,38 +210,8 @@ public class Toolbelt
 
 	// Draw the widget if needed
 	if(toolType == ToolType.Mirror && !_mirrorIconAdded) {
-//	    Button button = new Button(0, 
-//	                               _toolIconYPos, 
-//	                               _toolIconSizeWidth, 
-//	                               _toolIconSizeHeight, "Mirror");
-//	    button.setTextureResourceLocation("textures/mirror.png");
-//	    button.setTexture(_gameState.getMirrorButtonTexture());
-//	    button.setTappedTextureLocation("textures/mirrorClicked.png");
-//	    _mirrorIconAdded = true;
-//	    _gameState.getGui().addButton(button);
-//	    
-//	    // Add the label indicating stock
-//	    NumericLabel label = new NumericLabel(0, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(toolType));
-//	    label.setTexture(_gameState.getNumberLabelTexture());
-//	    _stockLabel.put(toolType, label);
-//	    _gameState.getGui().addButton(label);
 	    _addMirrorIcon();
 	} else if(toolType == ToolType.Prism && !_prismIconAdded) {
-//	    Button button = new Button(_toolIconSizeWidth, 
-//	                               _toolIconYPos, 
-//	                               _toolIconSizeWidth, 
-//	                               _toolIconSizeHeight, "Prism");
-//	    button.setTextureResourceLocation("textures/prism.png");
-//	    button.setTexture(_gameState.getPrismButtonTexture());
-//	    button.setTappedTextureLocation("textures/prismClicked.png");
-//	    _prismIconAdded = true;
-//	    _gameState.getGui().addButton(button);
-//	    
-//	    // Add the label indicating stock
-//	    NumericLabel label = new NumericLabel(_toolIconSizeWidth, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(toolType));
-//	    label.setTexture(_gameState.getNumberLabelTexture());
-//	    _stockLabel.put(toolType, label);
-//	    _gameState.getGui().addButton(label);
 	    _addPrismIcon();
 	}
 	
@@ -262,6 +232,9 @@ public class Toolbelt
 	logger.debug("Selected tool: " + toolType);
     }
     
+    /**
+     * Add all the toolbelt GUI icons. Typically called after an orientation flip.
+     */
     public void addGui()
     {
 	_toolIconSizeWidth = Engine.getInstance().getViewWidth() * 0.20f;
@@ -282,6 +255,9 @@ public class Toolbelt
 	    _addPrismIcon();
     }
     
+    /**
+     * Add mirror icon and quantity label.
+     */
     private void _addMirrorIcon()
     {
 	// Add the mirror icon
@@ -302,6 +278,9 @@ public class Toolbelt
 	_gameState.getGui().addButton(label);
     }
     
+    /**
+     * Add prism icon and quantity label.
+     */
     private void _addPrismIcon()
     {
 	// Add the prism icon
