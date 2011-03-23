@@ -15,6 +15,7 @@ import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.NumericLabel;
+import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.resources.SoundResource;
 
 /**
@@ -273,8 +274,11 @@ public class Toolbelt
 	                           _toolIconSizeWidth, 
 	                           _toolIconSizeHeight, "Mirror");
 	button.setTextureResourceLocation("textures/mirror.png");
-	button.setTexture(_gameState.getMirrorButtonTexture());
 	button.setTappedTextureLocation("textures/mirrorClicked.png");
+	TextureResource mirrorTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/mirror.png");
+	button.setTexture(mirrorTexture);
+	TextureResource mirrorClickedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/mirrorClicked.png");
+	button.setTappedTexture(mirrorClickedTexture);
 	_mirrorIconAdded = true;
 	_gameState.getGui().addButton(button);
 
@@ -296,8 +300,11 @@ public class Toolbelt
 	                    _toolIconSizeWidth, 
 	                    _toolIconSizeHeight, "Prism");
 	button.setTextureResourceLocation("textures/prism.png");
-	button.setTexture(_gameState.getPrismButtonTexture());
 	button.setTappedTextureLocation("textures/prismClicked.png");
+	TextureResource prismTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/prism.png");
+	button.setTexture(prismTexture);
+	TextureResource prismClickedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/prismClicked.png");
+	button.setTappedTexture(prismClickedTexture);
 	_prismIconAdded = true;
 	_gameState.getGui().addButton(button);
 

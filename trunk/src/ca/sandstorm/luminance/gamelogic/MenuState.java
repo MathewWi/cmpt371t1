@@ -18,6 +18,7 @@ import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.gui.Label;
 import ca.sandstorm.luminance.input.InputButton;
+import ca.sandstorm.luminance.input.InputTouchScreen;
 import ca.sandstorm.luminance.resources.SoundResource;
 import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
@@ -162,7 +163,7 @@ public class MenuState implements IState
 	                                0.1250f*height, 
 	                                "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
-	startButton.setTappedTextureLocation("textures/helpImage.png");
+	startButton.setTappedTextureLocation("textures/startImageClicked.png");
 	startButton.setCalleeAndMethod(this, "test");
 	
 	Button helpButton = new Button(0.175f*width, 
@@ -171,7 +172,7 @@ public class MenuState implements IState
 	                               0.1250f*height,
 	                               "Help");
 	helpButton.setTextureResourceLocation("textures/helpImage.png");
-	helpButton.setTappedTextureLocation("textures/startImage.png");
+	helpButton.setTappedTextureLocation("textures/helpImageClicked.png");
 	helpButton.setCalleeAndMethod(this, "test");
 	
 	Button soundButton = new Button(0.86f*width,
@@ -266,6 +267,31 @@ public class MenuState implements IState
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 	    				.getTouchScreen().getTouchEvent();
 	    
+	    if (Engine.getInstance().getInputSystem().getTouchScreen()
+		    .getTouchMode() == InputTouchScreen.ON_SINGLE_TAP_CONFIRMED) {
+		Button eventWidget = _guiManager.touchOccured(touchEvent);
+		if (eventWidget != null) {
+		    logger.debug("button has been tapped");
+		    eventWidget.setIsTapped(true);
+		}
+		_guiManager.letGoOfButton();
+		
+		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+	    }
+	    
+	    if (Engine.getInstance().getInputSystem().getTouchScreen()
+		    .getTouchMode() == InputTouchScreen.ON_DOWN) {
+		Button eventWidget = _guiManager.touchOccured(touchEvent);
+		if (eventWidget != null) {
+		    logger.debug("button has been tapped");
+		    eventWidget.setIsTapped(true);
+		}
+		//_guiManager.letGoOfButton();
+		
+		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+	    }
+	    
+	    /*
 	    if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
 		_tapped = true;
 		Button eventWidget = _guiManager.touchOccured(touchEvent);
@@ -280,7 +306,7 @@ public class MenuState implements IState
 		}
 		_guiManager.letGoOfButton();
 		_tapped = false;
-	    }
+	    }*/
 	}
 	
 	InputButton[] keys = Engine.getInstance().getInputSystem().getKeyboard().getKeys();
