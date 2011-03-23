@@ -275,14 +275,11 @@ public class GameState implements IState
 	
 	//Engine.getInstance().popState();
 	//Engine.getInstance().pushState(new GameState(_level + 1));
-	
-	
     }
     
     
     /**
      * Parses the level info. 
-     * @TODO: should come from a level list
      */
     private void _parseLevel()
     {
@@ -296,15 +293,17 @@ public class GameState implements IState
 	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/" + _level.getCurrentLevel());
 	    XmlLevelParser levelParser = new XmlLevelParser(levelFile);
 	    XmlLevel level = levelParser.parse();
+	    //level.getName();
 	    level.toString();
 	    
 	    // parse the grid
 	    _grid = new Grid(level.getXSize(), level.getYSize(), 1.0f, 1.0f);
 	    
 	    // parse all the objects into game objects
-	    for (int i = 0; i < level.getObjects().size(); i++)
+	    //for (int i = 0; i < level.getObjects().size(); i++)
+	    for (XmlLevelObject obj : level.getObjects())
 	    {
-		XmlLevelObject obj = level.getObjects().get(i);
+		//XmlLevelObject obj = level.getObjects().get(i);
 		
 		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionX(), (int)obj.getPositionY());
 		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);
