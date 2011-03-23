@@ -22,7 +22,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Touch up smoke test || Done || 4 ||
 || Touch up mock test || Various Errors || 10 ||
 || User play test || Could not complete || N/A ||
-|| Trace View/Stress || Half || 8 ||
+|| Trace View/Stress || Done || 9 ||
 || Use-Case Scenario || Could not complete || N/A ||
 || State test || Done || Amara, fill in please ||
 
@@ -40,7 +40,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
   === Smoke Test ===
 
-    The smoke test script folder is now inside the LuminanceTestSuite package. It now invokes essential packages of the test suite to be run as a smoke test. This is changed because Coverage is needed to be run on the command line and so issues ensued and the best possible solution was just to modify the antscript to run the packages.
+    The smoke test script folder is now inside the LuminanceTestSuite package. It now invokes essential packages of the test suite to be run as a smoke test. This is changed because Coverage is needed to be run on the command line and so issues ensued and the best possible solution was just to modify the antscript to run the packages. This brought up the same issues as was in coverage but not new enough that it couldn't be handled within a timely manner.
 
   === Monkey Runner ===
 
@@ -48,11 +48,21 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
     This is used as a random stress test on the phone. There is an output file 'stress.log' which showed the intent injected upon the device. It is very useful as it shows what the game can currently handle. A brief overview is that out of 50000 random injections, the game has crashed at around 30000. This could simply mean that some memory clean-up isn't handled well or the hardware couldn't handle the game for a period of time.
 
+    Although this gave us some information of pseudo-random-input at the extended period, it still didn't exactly give us a definite Stress test upon the application. But still, nonetheless, provided some insight as to what other methods need to be looked at.
+
     The stress.log file is located inside the TestSuite folder in the Luminance project in the repository.
 
   === Mock Testing ===
   
-    At first, we tried to use AndroidMock.  When that didn't work, we attempted Mockito.  That was also unsuccessful.  Further attempts will be made in the last milestone.
+    At first, we tried to use AndroidMock.  When that didn't work, we attempted Mockito.  That was also unsuccessful. PowerMock was also tried and failed.  Further attempts will be made in the last milestone.
+
+  === Trace View ===
+
+    This, in some ways helped us, and others, gave headaches. It provided the profiled usage on the application under test. Which has many attributes such as usage, calls/time and whatnot. But these results were at a basic level which could not really be parsed unless you specifically knew what to look for.
+
+    After some time with the raw data and the dumped data (human readable data), it became apparent that parsing this into a graph turned out to be quite a predicament. Meaning, no graphical result.
+
+    Although there weren't any graphs to display the results, the traceview provided by Android gave us a good estimation on the usage of our Application. Given the dumped data and screen caps inside the now TestSuite/traceData folder; data shows that the main usage of memory and CPU usage were mainly used on the Initialization and Content Loading of the application. This happened on the loading of the game and smaller on the transition between levels. So those were the only noticeable slowdowns both on the data and playing of the game. In other words, the playing of the game and data shown from the trace view both show results of a very good implementation of the game.
 
 = End Milestone 4 =
 
