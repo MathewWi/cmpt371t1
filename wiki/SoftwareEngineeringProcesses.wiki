@@ -59,3 +59,10 @@ Since the past milestone, we have worked on improving the things that causes us 
    * Too much time and effort required to test this!
   * Focus on black-box testing.
   * Stubs are also tested before any code is written.
+
+ == Use of Logger for debugging ==
+  * We are heavily using slf4j.
+  * This is a lightweight generic logging library that uses other frameworks underneath in a light weight fashion.
+  * Developers add plenty to the logger as they develop.
+  * Along with the LogCat Eclipse plug-in, the team is able to read the log to see what is going on in the application.  This has been invaluable for debugging purposes.
+  * It should be noted that we have been using this all along, just failed to mention it before :)
