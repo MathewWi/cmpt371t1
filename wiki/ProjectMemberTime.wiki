@@ -231,7 +231,12 @@
 
 ===Milestone 3===
 || *Task* || *Hours spent so far* ||
-|| Risk Report || 1 ||
+|| Risk Report || 2 ||
+|| Testing || 1 ||
+
+===Milestone 4 Estimations===
+|| Instrumentation Testing || 8 ||
+|| Risk Report || 2 ||
 
 == Amara Daal ==
 === Milestone 0 ===
