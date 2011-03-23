@@ -232,7 +232,7 @@
 ===Milestone 3===
 || *Task* || *Hours spent so far* ||
 || Risk Report || 2 ||
-|| Testing || 1 ||
+|| Testing || 2 ||
 
 ===Milestone 4 Estimations===
 || Instrumentation Testing || 8 ||
