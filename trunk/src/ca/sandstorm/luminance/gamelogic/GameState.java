@@ -91,7 +91,9 @@ public class GameState implements IState
     // Toolbelt
     private Toolbelt _toolbelt;
     private TextureResource _prismButtonTexture;
+    private TextureResource _clickedPrismButtonTexture;
     private TextureResource _mirrorButtonTexture;
+    private TextureResource _clickedMirrorButtonTexture;
     private TextureResource _numberLabelTexture;
 
     // Container of game objects
@@ -507,7 +509,9 @@ public class GameState implements IState
 	
 	try {
 	    _prismButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/prism.png");
+	    _clickedPrismButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/prismClicked.png");
 	    _mirrorButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirror.png");
+	    _clickedMirrorButtonTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirrorClicked.png");
 	    _numberLabelTexture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/numbers.png");
 	} catch (IOException e1) {
 	    // TODO Auto-generated catch block
@@ -819,16 +823,51 @@ public class GameState implements IState
 	return _guiManager;
     }
     
+    /**
+     * Get the Prism Button texture;
+     * 
+     * @return the prism Button texture.
+     */
     public TextureResource getPrismButtonTexture()
     {
 	return _prismButtonTexture;
     }
     
+    /**
+     * Get the clicked Prism Button texture.
+     * 
+     * @return the clicked prism Button texture.
+     */
+    public TextureResource getClickedPrismButtonTexture()
+    {
+	return _clickedPrismButtonTexture;
+    }
+    
+    /**
+     * Get the Mirror Button texture.
+     * 
+     * @return the mirror Button texture.
+     */
     public TextureResource getMirrorButtonTexture()
     {
 	return _mirrorButtonTexture;
     }
     
+    /**
+     * Get the clicked Mirror Button texture.
+     * 
+     * @return the clicked mirror Button texture.
+     */
+    public TextureResource getClickedMirrorButtonTexture()
+    {
+	return _clickedMirrorButtonTexture;
+    }
+    
+    /**
+     * Get the number label texture.
+     * 
+     * @return the number label texture.
+     */
     public TextureResource getNumberLabelTexture()
     {
 	return _numberLabelTexture;
