@@ -489,3 +489,10 @@ Follow-up from Martina:
     * Location: GameState.java line 725-736
     * Summary: messageReceived() and isActive() are not needed and should be removed.
     * Discovered by: Stephen
+
+=== Follow-up Results ===
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I later tried out a version on the phone.  It plays fantastic!
+  * I believe it is safe to say that these changes were made successfully.
