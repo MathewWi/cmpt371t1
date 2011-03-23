@@ -74,6 +74,8 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
     Although there weren't any graphs to display the results, the traceview provided by Android gave us a good estimation on the usage of our Application. Given the dumped data and screen caps inside the now TestSuite/traceData folder; data shows that the main usage of memory and CPU usage were mainly used on the Initialization and Content Loading of the application. This happened on the loading of the game and smaller on the transition between levels. So those were the only noticeable slowdowns both on the data and playing of the game. In other words, the playing of the game and data shown from the trace view both show results of a very good implementation of the game.
 
+    Note: dmtracedump took way too long to give a proper graphical tree. Ran for 30+ min and laptop's fan was screaming all that time. CPU usage was 95%+ too. So Couldn't use that.
+
 = End Milestone 4 =
 
 = Milestone 3 =
