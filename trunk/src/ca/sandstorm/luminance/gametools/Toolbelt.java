@@ -15,6 +15,7 @@ import ca.sandstorm.luminance.gameobject.Mirror;
 import ca.sandstorm.luminance.gameobject.Prism;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.NumericLabel;
+import ca.sandstorm.luminance.resources.SoundResource;
 
 /**
  * Holds the level's tools and provides functionality for placing/removing them.
@@ -164,6 +165,10 @@ public class Toolbelt
 	_gameState.addObject(tool);
 	_tools.put(new Point2i(x, y), tool);
 	logger.debug("Placed tool: " + toolType);
+	
+	// Play sound effect
+	Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/place.wav"), 0.9f);
+	
 	return tool;
     }
     
