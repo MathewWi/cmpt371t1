@@ -315,6 +315,25 @@
 || State test || 4 ||
 || Triage || 2 ||
 
+===Milestone 3===
+|| *Task* || *Hours spent so far* ||
+| Touch up unit testing || 2 ||
+|| Touch up smoke test || 2 ||
+|| Touch up mock test || 2 ||
+|| User play test || 2 ||
+|| Use-Case Scenarios test || 0 || 
+|| State test || 0 ||
+|| Triage || 0 ||
+|| Trace View || 8 ||
+
+===Milestone 4 Estimations===
+|| Task || Estimated Time (hours) ||
+|| Test Suite Update || 5 ||
+|| Mock || 5 ||
+|| User Scenario || 7 ||
+|| State || 7 ||
+|| Triage || 2 ||
+
 == Jonny ==
 === Milestone 0 ===
 || *Task* || *Hours spent so far* ||
