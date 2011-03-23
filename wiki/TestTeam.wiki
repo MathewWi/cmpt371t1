@@ -25,8 +25,6 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Trace View/Stress || Half || 8 ||
 || Use-Case Scenario || Could not complete || N/A ||
 || State test || Done || Amara, fill in please ||
-= Milestone 4 =
-
 
 = Milestone 3 =
   == Tasks ==
@@ -45,19 +43,20 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
   === Code Coverage ===
 
-    Emma is not implemented within Android nor Eclipse IDE for Android use and many hours were wasted in trying to make it work. Chet had spent hours only to get it working inside the eclipse IDE and what resulted was that there was 0% on code coverage to the source code with a 5% coverage to the junit.jar. Which made not much sense. Later it was debated that it might've only used the junit.jar for its methods and thus tracked it. And on why it wouldn't work on the emulator was that not much documentation was found for it and very hard to implement.
+    Emma is not implemented within Android nor Eclipse IDE for Android use and many hours were wasted in trying to make it work. Chet spent a long time on this, only to get it working inside the eclipse IDE and what resulted was that there was 0% on code coverage to the source code with a 5% coverage to the junit.jar. We then realize that it might have only used the junit.jar for its methods and thus only tracked it. We never determined why it wouldn't work on the emulator because there is not much documentation on this issue, and we have no experience with using coverage testing on android applications.
 
-    Ultimately, we determined that Emma was only capable of running JUnit tests, not Android JUnit tests. It was never invoking the Android emulator and thus never ran any of the Android-specific code. At this point, using the Emma plugin for Android development is not an option because they simply do not have support for it yet.
+    Ultimately, we determined that Emma was only capable of running JUnit tests, not Android JUnit tests. It was never invoking the Android emulator and thus never ran any of the Android-specific code. At this point, using the Emma plugin for Android development is not an option because it simply does not have support for it yet.
 
-    What was later used is the Android build-in coverage. This made things much easier! Not really. What ensued were earlier errors back when implementation of the smoke test was in place. Essentially, filepaths, linking and all that fun stuff. After a many hours, a solution came about. The libs folder inside the tested project needed the necessary .jars that the test project used. Lo and behold, the coverage worked and a generated resultant was placed under the LuminanceTestSuite/coverage path.
+    We then discovered Android build-in coverage.  After implementing this, we then ran into issues with filepaths and linking, which takes a long time to debug. We then discovered the libs folder inside the tested project needed the necessary .jars that the test project used. The coverage test then worked and a generated a result file that was placed under the LuminanceTestSuite/coverage path.
 
-    Issues on that is that the Vector3f methods used inside the plane and ray test classes were needed to be commented out and is in need of refactoring to make those tests work again in coherence with the code coverage.
+  ==== Links ====
 
 Emma link http://groups.google.com/group/android-platform/browse_thread/thread/b5219988c5374369
 
 Android built-in coverage
 
 http://blog.rabidgremlin.com/2010/11/19/android-tips-generating-a-coverage-report-for-your-unit-tests/
+
   === GUI Testing ===
 
     For milestone 3 we weren't able to progress as much in test case based GUI testing as we had planned to in milestone 2. Essentially we have the same GUI test as we had for milestone 2 due to the longer than expected development cycle for the GUI. Currently the GUI state that warrants testing is handled partly by our previous GUI test. Since we have made great progress at the very end of our deliverable, we are making GUI testing top priority for milestone 4.
