@@ -52,22 +52,22 @@
 
 == Mini-Milestone 4 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Level Editor || 4 || Incomplete ||
-|| Audio playing (sfx and music) || 4 || Incomplete||
+|| Audio playing (sfx and music) || 4 || Complete||
 || Robotium test suite || 8 || Complete ||
 || Implement special effects (lighting, reflections, etc) || 6 || Incomplete ||
 
 == Milestone 4 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
-|| Add sound effects for all actions || 4 || Incomplete ||
+|| Add sound effects for all actions || 4 || Almost Complete ||
 || Add sound special effects and improve graphics || 4 || Incomplete ||
-|| 5 levels || 4 || Incomplete ||
-|| Updated smoke test based on source code changes || 8 || Incomplete ||
-|| Beta version of the game || 12 || Incomplete ||
+|| 5 levels || 4 || Complete||
+|| Updated smoke test based on source code changes || 8 || Complete ||
+|| Beta version of the game || 12 || Complete ||
 
 == Mini-Milestone 5 ==
 || *Task* || *Estimate time (hours)* || *Status* ||
 || Clear out all known bugs || _N/A_ || Incomplete ||
+|| Level Editor || 4 || Incomplete ||
 || Outline user manual || 2 || Incomplete ||
 || Play test || _N/A_ || Incomplete ||
 || Prepare for code Freeze || _N/A_ || Incomplete ||
