@@ -56,6 +56,11 @@ public class LevelList
 	return _levelList.get(_currentLevel);
     }
     
+    public int getCurrentLevelIndex()
+    {
+	return _currentLevel;
+    } 
+    
     public void setCurrentLevel(int i)
     {
 	_currentLevel = i;
