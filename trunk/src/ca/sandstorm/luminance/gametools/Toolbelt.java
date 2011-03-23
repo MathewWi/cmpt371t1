@@ -111,7 +111,6 @@ public class Toolbelt
     {
 	if (gridCoords != null)
 	{
-	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/rotate.mp3"), 0.9f);
 	    _gameState.rotateObjectAtGridCoords(gridCoords.x, gridCoords.y);
 	}
     }
@@ -201,6 +200,8 @@ public class Toolbelt
 	    // Remove the object both from gamestate and our collection of tools
 	    _tools.remove(_tempPoint);
 	    _gameState.removeObject(tool);
+	    
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/eraser.wav"), 0.9f);
 	}
     }
     

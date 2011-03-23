@@ -486,6 +486,7 @@ public class GameState implements IState
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/rotate.mp3");
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/noPlace.wav");
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/iconClick.mp3");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/eraser.wav");
 	} catch (IOException e) {
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
@@ -640,6 +641,8 @@ public class GameState implements IState
 	// if cell is occupied
 	if (isCellOccupied(x, y))
 	{
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/rotate.mp3"), 0.9f);
+	    
 	    // just hack rotation for now
 	    IGameObject obj = getObjectAtGridCoords(x, y);
 	    obj.setRotation(0, obj.getNextYRotation(), 0);
