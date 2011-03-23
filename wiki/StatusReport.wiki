@@ -1,6 +1,124 @@
 #summary The current status of the system.
 <wiki:toc max_depth="3"/>
 
+= Deliverable 4 =
+== High Level Analysis ==
+
+Currently the project builds a binary and runs the beta of our game. 
+
+The application can be loaded onto an Android phone and run the same as on the AVD.  
+
+There is also a smoke test implemented and can be run to ensure project quality before commit.
+
+=== Features Implemented ===
+
+Build completes.
+
+Program runs correctly.
+
+Loads the grid play area and simple game level.
+
+Touch features such as pinch and swipe work well.  Swipe moves the camera around the grid, while pinch zooms in and out.  The input is at a point where we believe it is satisfactory.
+
+Toolbelt is fully functional and can be interacted with.  Objects can be selected from the toolbelt and placed on the grid.  
+
+Mirrors that are placed on the grid will bound the light off at a 90 degree angle.  If double tapped, it will flip the mirror so that the light may bounce off in the opposite direction.
+
+Prisms that are placed on the grid split the light into three colours: red, blue and green.  These three separate light beam act independently and react to mirrors the same as the white light.  
+
+Light that reaches a goal that is the same colour as that goal will activate it.  if all goals in a level are activated, the level is complete.
+
+Once a level is complete, the game will move onto the next level.  There are currently 5 levels available for play.
+
+Level loader is fully functional.
+
+Fully intractable GUI is implemented.  There is currently a start menu which works fully, and a pause menu which is integrated but still need a little work.
+
+=== Features to Be Implemented === 
+
+Enhanced graphics - simple graphics currently implemented.
+
+Full audio capabilities - audio currently works, and we have both sound effects and music at our disposal.  It is just a matter of integrating them into the game.
+
+50+ levels.
+
+Level Editor.
+
+=== STI/Defect Information ===
+
+Defects and bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
+
+Common problems of the development environment can be found here: CommonIssues
+
+== Specific Status Report ==
+*Resource Manager*
+  * Capable of loading and managing all necessary resources.
+  * Creates OpenGL textures out of images.
+  * Audio resources are capable of loading, but playback (in other system) still broken.
+
+*Music*
+  * Two song composed for in-game music.
+  * Simple sound effects are ready to be integrated.
+
+*Input*
+  * Use of !ReplicaIsland open source code.
+  * Touch and drag inputs are currently stable.
+  * Pinch for zooming are now working.
+  * Tapping objects on the toolbelt will allow you to tap the grid in order to place them.
+  * A double tap on a mirror object will rotate it by 90 degrees.
+
+*GUI*
+  * Rendered using OpenGL quads.
+  * Menu primitives robust
+  * GUIManager created; responsible for managing buttons and labels
+  * Buttons created, can perform action on tap.
+  * Start menu fully functional
+  * In-game pause menu will allow you to pause the game, and resume it upon pressing a button.  We would like to incorporate functionality into the menu to allow the user to restart the level if they feel like they messed up badly.
+
+*Level Loader*
+  * Level information stored in XML files.
+  * Loader takes in an XML file and parses it to create an object containing all level information.
+  * Loader currently stable.
+  * Will load levels sequentially.  If a level is passed, the game will move onto the next one.
+
+*Graphics*
+  * Basic primitives (sphere, box, etc.).
+  * Full grid, background and general play space implemented.
+  * Basic textures load onto play tools.
+  * Would like to implemented some special effects to make it nicer to look at.
+
+*Game* 
+  * Currently draws a grid and loads the first level.
+  * User is able to interact with the game.  They are able to place tools from the toolbelt on the grid.  These tools work the way that they should.  The light interacts with the tools logically and correctly.
+  * Toolbelt is implemented and working, but may benefit from refactoring some functionality to a higher level
+
+*Smoke Test*
+  * Currently runs on the !TeamCity server.
+  * Tests all source classes using the TestSuite.
+
+*GUI Testing*
+  * Use of Robotium.
+  * Full test suite under construction.
+
+*Unit Tests*
+  * Complete with respect to the current source code completion.
+  * Will be updated as more source is changed/added.
+
+*Coverage Testing*
+  * Use of EMMA to do coverage testing.
+  * Fully functional and produces many statistics and information.
+
+*Mock Testing*
+  * Basic Mocking underway
+  * Currently incomplete.
+
+== Overall Status of Game ==
+ Currently loads the grid that will be where the levels will be created to be played.  The !SkyBox that is used to display the background works on both the emulator and the android phone now.  All textures load properly as well.  A simple level is loaded and is fully playable, though more functionality and levels are planned to be added.
+
+ The user can interact with the level as we had intended.  They can touch and swipe to move the camera around and pinch for zooming.  They can also tap the toolbelt to select a tool they wish to place on the grid, and are able to do so.
+
+ We currently have a fully playable game.  All that we really need now - aside from polishing development we would like to do - is to add enough levels to make it challenging and fun.
+
 = Deliverable 3 =
 == High Level Analysis ==
 
