@@ -18,6 +18,7 @@ import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.gui.IWidget;
 import ca.sandstorm.luminance.gui.Label;
 import ca.sandstorm.luminance.input.InputButton;
+import ca.sandstorm.luminance.resources.SoundResource;
 import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
 
@@ -36,6 +37,8 @@ public class MenuState implements IState
     
     private TextureResource _background;
     private PrimitiveQuad _quad;
+    
+    private SoundResource _startSound;
 
     public MenuState()
     {
@@ -57,7 +60,8 @@ public class MenuState implements IState
     public void test()
     {
 	logger.debug("test()");
-	logger.debug("test2()");
+	
+	Engine.getInstance().getAudio().play(_startSound, 0.9f);
 	
 	// TODO: this really isnt how we want to deal with states is it?
 	Engine.getInstance().popState();
@@ -120,6 +124,14 @@ public class MenuState implements IState
     {	
 	logger.debug("init(" + gl + ")");
 	
+	// Load sound effects and music
+	try {
+	    _startSound = Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/startSelect.mp3");
+	} catch (IOException e) {
+	    logger.error("Unable to load a required sound: " + e.getMessage());
+	    e.printStackTrace();
+	}
+	
 	float width = Engine.getInstance().getViewWidth();
 	float height = Engine.getInstance().getViewHeight();
 	_quad = new PrimitiveQuad(
@@ -127,11 +139,8 @@ public class MenuState implements IState
 		new Vector3f(width, height, 0)
 	);
 	
-	// If MenuState is already up but init() is called again due to GL context
-	// recreation, just load textures
+	// Recreate GUI on orientation flip
 	if (Engine.getInstance().isInitialized()) {
-	    //_loadTextures(gl);
-	    //return;
 	    _guiManager = new GUIManager();
 	}
 	
@@ -276,7 +285,7 @@ public class MenuState implements IState
 	
 	InputButton[] keys = Engine.getInstance().getInputSystem().getKeyboard().getKeys();
 	if (keys[KeyEvent.KEYCODE_1].getPressed()) {
-	    Engine.getInstance().popState();
+	    System.exit(0);
 	}
     }
 

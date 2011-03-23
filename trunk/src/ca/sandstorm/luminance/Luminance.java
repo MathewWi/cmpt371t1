@@ -53,8 +53,12 @@ public class Luminance extends Activity
 	public void handleMessage(Message msg)
 	{
 	    float fps = msg.getData().getFloat("fps");
+	    String subtitle = msg.getData().getString("subtitle");
+	    if (subtitle == null) {
+		subtitle = "";
+	    }
 
-	    Luminance.this.setTitle("Luminance - " + fps);
+	    Luminance.this.setTitle("Luminance - " + subtitle + "(" + 1f/fps + " fps)");
 	    
 	    // Uncomment below code for logging framerate while doing performance
 	    // or stress tests. Do NOT commit with this uncommented. This way
@@ -115,6 +119,19 @@ public class Luminance extends Activity
 	    ((GameState)currentState).showOrDismissPauseMenu();
 	}
 	return false;
+    }
+    
+    /**
+     * Set the application subtitle
+     * @param subtitle
+     */
+    public void setSubTitle(String subtitle)
+    {
+	Message msg = new Message();
+	Bundle b = new Bundle();
+	b.putString("subtitle", subtitle);
+	msg.setData(b);
+	handler.sendMessage(msg);
     }
     
     @Override
