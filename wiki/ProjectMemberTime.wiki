@@ -286,6 +286,24 @@
 || State test || 4 ||
 || Triage || 2 ||
 
+===Milestone 3===
+|| *Task* || *Hours spent so far* ||
+| Touch up unit testing || 2 ||
+|| Touch up smoke test || 2 ||
+|| Touch up mock test || 2 ||
+|| User play test || 2 ||
+|| Use-Case Scenarios test || 0 || 
+|| State test || 0 ||
+|| Triage || 0 ||
+|| Trace View || 8 ||
+
+===Milestone 4 Estimations===
+|| Task || Estimated Time (hours) ||
+|| Test Suite Update || 5 ||
+|| Mock || 5 ||
+|| User Scenario || 7 ||
+|| State || 7 ||
+|| Triage || 2 ||
 == Liang Huang ==
 === MIlestone 0 ===
 || *Tasks* || *Hours spent so far* ||
@@ -324,20 +342,21 @@
 
 ===Milestone 3===
 || *Task* || *Hours spent so far* ||
-| Touch up unit testing || 2 ||
-|| Touch up smoke test || 2 ||
-|| Touch up mock test || 2 ||
-|| User play test || 2 ||
-|| Use-Case Scenarios test || 0 || 
+| Touch up unit testing || 3 ||
+|| Touch up smoke test || 0 ||
+|| Touch up mock test || 3 ||
+|| User play test || 0 ||
+|| Use-Case Scenarios test || 7 || 
 || State test || 0 ||
 || Triage || 0 ||
-|| Trace View || 8 ||
+
 
 ===Milestone 4 Estimations===
 || Task || Estimated Time (hours) ||
 || Test Suite Update || 5 ||
 || Mock || 5 ||
-|| User Scenario || 7 ||
+|| Use-Case Scenarios test || 8 || 
+|| User evaluations || 7 ||
 || State || 7 ||
 || Triage || 2 ||
 
