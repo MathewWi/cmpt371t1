@@ -1,7 +1,5 @@
 package ca.sandstorm.luminance.test.resource;
 
-import java.nio.ByteBuffer;
-
 import javax.microedition.khronos.opengles.GL10;
 
 import android.test.AndroidTestCase;
