@@ -222,21 +222,21 @@ public class GameState implements IState
 	// init toolbelt
 	_toolbelt = new Toolbelt(this);
 	
-	    for (IWidget widget : _guiManager.getWidgets()) {
-		if (widget != null) {
-		    String textureResourceLocation = widget.getTextureResourceLocation();
-		    TextureResource texture = (TextureResource)Engine.getInstance().getResourceManager().getResource(textureResourceLocation);
+	for (IWidget widget : _guiManager.getWidgets()) {
+	    if (widget != null) {
+		String textureResourceLocation = widget.getTextureResourceLocation();
+		TextureResource texture = (TextureResource)Engine.getInstance().getResourceManager().getResource(textureResourceLocation);
 
-		    widget.setTexture(texture);
-		    
-		    if (widget.getClass() == Button.class && 
+		widget.setTexture(texture);
+
+		if (widget.getClass() == Button.class && 
 			((Button)widget).getTappedTextureLocation() != null) {
-			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
-			TextureResource tappedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource(tappedTextureLocation);
-			((Button)widget).setTappedTexture(tappedTexture);
-		    }
+		    String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
+		    TextureResource tappedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource(tappedTextureLocation);
+		    ((Button)widget).setTappedTexture(tappedTexture);
 		}
-	    }	
+	    }
+	}	
 	
 	// level is not complete
 	_complete = false;
@@ -452,6 +452,7 @@ public class GameState implements IState
 	float width = Engine.getInstance().getViewWidth();
 	float height = Engine.getInstance().getViewHeight();
 	
+	// Clear out the GUI elements and recreate them for new GL instance
 	if (_initialized) {
 	    _guiManager = new GUIManager();
 	    _menuGuiManager = new GUIManager();
@@ -504,19 +505,19 @@ public class GameState implements IState
 	_guiManager.addButton(pauseButton);
 	_menuGuiManager.addButton(resumeButton);
 	
+	// Add a skybox
+	_sky = new Skybox();
+	try {
+	    _sky.init(gl);
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	
 	if (!_initialized) {
 	    // init the lightpath
 	    // add a test light
 	    _lightPath = new LightPath();
-
-	    // Add a skybox
-	    _sky = new Skybox();
-	    try {
-		_sky.init(gl);
-	    } catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	    }	
 
 	    // Create the toolbelt
 	    _toolbelt = new Toolbelt(this);
@@ -526,6 +527,14 @@ public class GameState implements IState
 
 	    // get the light going
 	    resetEmitters();
+	} else {
+	    // Recreate toolbelt GUI
+	    _toolbelt.addGui();
+	    
+	    // Re-initialize all gameobjects so they have updated texture id
+	    for(IGameObject obj : _objects.values()) {
+		obj.initialize();
+	    }
 	}
 	
 	// default camera
@@ -538,6 +547,9 @@ public class GameState implements IState
 	_initialized = true;
     }
     
+    /**
+     * Load textures for a given GUI manager.
+     */
     private void _loadGuiTextures(GL10 gl, GUIManager gui)
     {
 	try {
@@ -547,20 +559,19 @@ public class GameState implements IState
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
 
 		    widget.setTexture(texture);
-		    
+
 		    if (widget.getClass() == Button.class && 
-			((Button)widget).getTappedTextureLocation() != null) {
+			    ((Button)widget).getTappedTextureLocation() != null) {
 			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
 			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
 			((Button)widget).setTappedTexture(tappedTexture);
 		    }
 		}
 	    }
-	    	    	} catch (IOException e) {
+	} catch (IOException e) {
 	    // TODO: improve this
 	    throw new RuntimeException("Unable to load a required texture!");
 	}
-
     }
 
     /**
