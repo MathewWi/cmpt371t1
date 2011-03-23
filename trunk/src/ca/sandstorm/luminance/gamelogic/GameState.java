@@ -547,17 +547,8 @@ public class GameState implements IState
 		                             "Resume");
 	    resumeButton.setTextureResourceLocation("textures/resume.png");
 	    resumeButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
-	    
-	    Button nextLevelButton = new Button(width*0.175f,
-	                                        0.350f*height + .150f*height,
-	                                        0.650f*width, 
-			                        0.100f*height,
-		                                "Next Level");
-	    nextLevelButton.setTextureResourceLocation("textures/next.png");
-	    nextLevelButton.setCalleeAndMethod(this, "nextLevel()");
 
 	    _menuGuiManager.addButton(resumeButton);
-	    _menuGuiManager.addButton(nextLevelButton);
 	    
 	    for (IWidget widget : _menuGuiManager.getWidgets()) {
 		if (widget != null) {
