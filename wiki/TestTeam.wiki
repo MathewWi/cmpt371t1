@@ -35,7 +35,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Trace View/Stress || Done || 9 ||
 || Use-Case Scenario || Could not complete || N/A ||
 || State test || Could not complete || N/A ||
-|| GUI test || Done || 16 ||
+|| GUI test || not completed(partial)|| 8 ||
 
   === Code Coverage ===
 
@@ -47,7 +47,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
   === GUI Testing ===
 
-    For milestone 4, GUI testing was able to be fully put into place.  This was possible because the game was finally in a playable enough state to do such testing.     
+    For milestone 4, GUI testing was partially put into place.  Since new development and changes in the GUI prompted new GUI tests. Also the test cases had to be re-written to fit the new levels.     
 
   === Smoke Test ===
 
