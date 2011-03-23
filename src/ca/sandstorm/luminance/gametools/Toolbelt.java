@@ -224,6 +224,7 @@ public class Toolbelt
 	    button.setTextureResourceLocation("textures/mirror.png");
 	    button.setTexture(_gameState.getMirrorButtonTexture());
 	    button.setTappedTextureLocation("textures/mirrorClicked.png");
+	    button.setTappedTexture(_gameState.getClickedMirrorButtonTexture());
 	    _mirrorIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	    
@@ -240,6 +241,7 @@ public class Toolbelt
 	    button.setTextureResourceLocation("textures/prism.png");
 	    button.setTexture(_gameState.getPrismButtonTexture());
 	    button.setTappedTextureLocation("textures/prismClicked.png");
+	    button.setTappedTexture(_gameState.getClickedPrismButtonTexture());
 	    _prismIconAdded = true;
 	    _gameState.getGui().addButton(button);
 	    
