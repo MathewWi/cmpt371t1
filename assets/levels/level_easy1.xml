@@ -1,12 +1,10 @@
 <?xml version = "1.0" encoding = "utf-8"?>
 
-<!-- Luminance Game Level Template -->
-<!-- Designed by Steven Indzeoski -->
-<!-- University of Saskatchewan CMPT 371 -->
+<!--  Level designed by halsafar -->
 
 <level>
 	<!-- Level Information -->
-	<name>Level 1</name>
+	<name>Double Sided</name>
 	<difficulty>easy</difficulty>
 	<grid_size>
 		<x>5</x>

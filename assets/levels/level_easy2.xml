@@ -4,34 +4,22 @@
 
 <level>
 	<!-- Level Information -->
-	<name>Mirror Basics</name>
+	<name>First Blood</name>
 	<difficulty>easy</difficulty>
 	<grid_size>
-		<x>3</x>
-		<y>9</y>
+		<x>7</x>
+		<y>7</y>
 		<width>1.0</width>
 		<height>1.0</height>
 	</grid_size>
 	
-	<!-- Level Objects -->
+	<!-- Level Objects -->		
 	<object>
-		<type>brick</type>
+		<type>goal</type>
+		<colour>green</colour>
 		<position>
 			<x>0</x>
-			<y>5</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>	
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>1</x>
-			<y>1</y>
+			<y>3</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -41,9 +29,66 @@
 	</object>
 	
 	<object>
-		<type>brick</type>
+		<type>goal</type>
+		<colour>green</colour>
 		<position>
-			<x>1</x>
+			<x>2</x>
+			<y>0</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>	
+	
+	<object>
+		<type>goal</type>
+		<colour>blue</colour>
+		<position>
+			<x>3</x>
+			<y>6</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>
+	
+	<object>
+		<type>goal</type>
+		<colour>red</colour>
+		<position>
+			<x>5</x>
+			<y>0</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>	
+	
+	<object>
+		<type>goal</type>
+		<colour>red</colour>
+		<position>
+			<x>5</x>
+			<y>6</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
+		</rotation>
+	</object>	
+	
+	<object>
+		<type>goal</type>
+		<colour>blue</colour>
+		<position>
+			<x>6</x>
 			<y>3</y>
 		</position>
 		<rotation>
@@ -52,65 +97,44 @@
 			<z>0</z>
 		</rotation>
 	</object>	
-	
-	<object>
-		<type>brick</type>
-		<position>
-			<x>1</x>
-			<y>7</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>		
-		
-	<object>
-		<type>brick</type>
-		<position>
-			<x>2</x>
-			<y>7</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>		
-		
-	<object>
-		<type>goal</type>
-		<colour>white</colour>
-		<position>
-			<x>0</x>
-			<y>8</y>
-		</position>
-		<rotation>
-			<x>0</x>
-			<y>0</y>
-			<z>0</z>
-		</rotation>
-	</object>
 			
 	
 	<object>
 		<type>emitter</type>
 		<colour>white</colour>
 		<position>
-			<x>2</x>
-			<y>0</y>
+			<x>0</x>
+			<y>2</y>
 		</position>
 		<rotation>
 			<x>0</x>
-			<y>90</y>
+			<y>270</y>
 			<z>0</z>
 		</rotation>
-	</object>	
+	</object>
+	
+	<object>
+		<type>emitter</type>
+		<colour>white</colour>
+		<position>
+			<x>0</x>
+			<y>4</y>
+		</position>
+		<rotation>
+			<x>0</x>
+			<y>270</y>
+			<z>0</z>
+		</rotation>
+	</object>
 	
 	<!-- Level Tools -->
 	<tool>
 		<type>mirror</type>
-		<count>5</count>
+		<count>4</count>
 	</tool>
+	
+	<tool>
+		<type>prism</type>
+		<count>2</count>
+	</tool>	
 </level>

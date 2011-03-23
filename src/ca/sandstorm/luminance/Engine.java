@@ -37,7 +37,7 @@ public class Engine
     private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
     // constants for debugging
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     
     // singleton instance
     private static Engine _instance = null;
@@ -363,7 +363,7 @@ public class Engine
     public IState popState()
     {
 	logger.debug("popState()");
-
+	
 	return _stateStack.pop();
     }
     
