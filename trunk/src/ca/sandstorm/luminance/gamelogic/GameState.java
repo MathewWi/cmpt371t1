@@ -112,6 +112,7 @@ public class GameState implements IState
     
     // Level pack list
     private LevelList _level;
+    private String _levelName = "";
     
     /**
      * Constructor()
@@ -298,8 +299,8 @@ public class GameState implements IState
 	    InputStream levelFile = Engine.getInstance().getContext().getAssets().open("levels/" + _level.getCurrentLevel());
 	    XmlLevelParser levelParser = new XmlLevelParser(levelFile);
 	    XmlLevel level = levelParser.parse();
-	    //level.getName();
-	    Luminance.getInstance().setSubTitle(level.getName());
+	    _levelName = level.getName();
+	    Luminance.getInstance().setSubTitle(_levelName);
 	    level.toString();
 	    
 	    // parse the grid
@@ -921,6 +922,8 @@ public class GameState implements IState
 	    _cam.setViewPort(0, 0, w, h);
 	    _cam.setPerspective(DEFAULT_CAMERA_FOV, (float) Engine.getInstance().getViewWidth() / (float) Engine.getInstance().getViewHeight(), DEFAULT_CAMERA_Z_NEAR, DEFAULT_CAMERA_Z_FAR);
 	}
+	
+	Luminance.getInstance().setSubTitle(_levelName);
     }
 
 
