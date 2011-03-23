@@ -17,3 +17,8 @@ iconSelect.mp3
 		
 	Modification:
 		- convert to mp3
+		
+		
+eraser.wav
+		Author:
+			http://www.freesound.org/samplesViewSingle.php?id=15348
