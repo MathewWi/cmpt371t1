@@ -15,6 +15,16 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Use-Case Scenarios test || 15 || 
 || State test || 12 ||
 || Triage || 5 ||
+
+ == Tasks ==
+|| Name || Status || TimeSpent ||
+|| Touch up unit testing || Done || 6 ||
+|| Touch up smoke test || Done || 4 ||
+|| Touch up mock test || Various Errors || 10 ||
+|| User play test || Could not complete || N/A ||
+|| Trace View/Stress || Half || 8 ||
+|| Use-Case Scenario || Could not complete || N/A ||
+|| State test || Done || Amara, fill in please ||
 = Milestone 4 =
 
 
