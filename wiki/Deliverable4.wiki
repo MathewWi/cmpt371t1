@@ -56,9 +56,9 @@
 
 Note: The issue tracker also tracks tasks that need to be done in general.  It should also be noted that this issue tracker has been in place since the beginning.  Not including it in the previous milestones was an oversight.
 
-= Initial Analysis for Deliverable 4 =
+= Initial Analysis for Deliverable 5 =
  == Deliverable plan ==
- Any project artifacts that were modified or created since the first three milestones will be part of Deliverable 4:
+ Any project artifacts that were modified or created since the first four milestones will be part of Deliverable 5:
 
    * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
    * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build.
@@ -66,27 +66,21 @@ Note: The issue tracker also tracks tasks that need to be done in general.  It s
    * jUnit Test Suite - Continuing work with the unit test suite.  Currently there are tests for each of the source classes.  Working will continue to ensure that they remain robust and correct.
    * jCoverage Test Suite - The code coverage test suite.  Currently working.
    * Software Quality - The latest measurements of quality using code reviews.
+   * Issue tracking - continuing to track issues, and to fix any bugs.
 
  In addition, the following implementation-specific tasks are anticipated:
   * Full User Evaluation - Since this could not be completed for the current milestone as planned, it will be pushed back into this one.
-  * Sound effects - This was another thing that was originally delegated for this milestone that had to be pushed back due to time.
   * Special and Lighting effects
-  * Multiple playable levels.
+  * Multiple playable levels - we currently have 5, but more should be added.
   * Game Level Editor - A tool to create new game levels.
-  * Random level generator - An application that works behind the scenes to produce random levels for the user to play.
-  * Prototype new tools and mechanics.
-  * Beta version of game.
+  * Release version of the game - a version of the game that is fully polished and bug-free that we feel ready to let the world play.
 
 
  == Estimate of size and time ==
 || *Task* || *Estimate time (hours)* ||
 || Run user evaluation || _N/A_ ||
-|| Robotium test suite || 8 ||
-|| Implement new tools and mechanics || 20 ||
-|| Add sound effects for all actions || 4 ||
-|| Add sound special effects and improve graphics || 12 ||
+|| Improve graphics || 5 ||
 || Each member designs 10 levels || 4 ||
 || Design user manual || 6 ||
-|| Implement random level generator || 12 ||
 || Updated smoke test based on source code changes || 8 ||
-|| Beta version of the game || 12 ||
+|| Release version of the game || 12 ||
