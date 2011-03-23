@@ -120,62 +120,69 @@ public class MenuState implements IState
     {	
 	logger.debug("init(" + gl + ")");
 	
-	// @TODO - write a proper uninit function and call it here.
-	if (_initialized)
-	{
-	    return;
-	}	
+	float width = Engine.getInstance().getViewWidth();
+	float height = Engine.getInstance().getViewHeight();
+	_quad = new PrimitiveQuad(
+	        new Vector3f(0, 0, 0),
+		new Vector3f(width, height, 0)
+	);
+	
+	// If MenuState is already up but init() is called again due to GL context
+	// recreation, just load textures
+	if (Engine.getInstance().isInitialized()) {
+	    //_loadTextures(gl);
+	    //return;
+	    _guiManager = new GUIManager();
+	}
 	
 	// Initiate the GUIManager
 	_guiManager.initialize(gl);
 	
-	// Create the Buttons
-	float screenWidth = (float)Engine.getInstance().getViewWidth();
-	float screenHeight = (float)Engine.getInstance().getViewHeight();
 	
-	Button luminanceTitle = new Button(0.0f*screenWidth,
-	                                 0.075f*screenHeight,
-	                                 1.0f*screenWidth,
-	                                 0.25f*screenHeight,
+	// Create the Buttons	
+	Button luminanceTitle = new Button(0.0f*width,
+	                                 0.075f*height,
+	                                 1.0f*width,
+	                                 0.25f*height,
 	                                 "luminanceTitle");
 	luminanceTitle.setTextureResourceLocation("textures/LuminanceLogo.png");
 	
-	Button startButton = new Button(0.175f*screenWidth, 
-	                                0.350f*screenHeight, 
-	                                0.650f*screenWidth, 
-	                                0.1250f*screenHeight, 
+	Button startButton = new Button(0.175f*width, 
+	                                0.350f*height, 
+	                                0.650f*width, 
+	                                0.1250f*height, 
 	                                "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
 	startButton.setTappedTextureLocation("textures/helpImage.png");
 	startButton.setCalleeAndMethod(this, "test");
 	
-	Button helpButton = new Button(0.175f*screenWidth, 
-	                               0.350f*screenHeight + .185f*screenHeight,
-	                               0.650f*screenWidth, 
-	                               0.1250f*screenHeight,
+	Button helpButton = new Button(0.175f*width, 
+	                               0.350f*height + .185f*height,
+	                               0.650f*width, 
+	                               0.1250f*height,
 	                               "Help");
 	helpButton.setTextureResourceLocation("textures/helpImage.png");
 	helpButton.setTappedTextureLocation("textures/startImage.png");
 	helpButton.setCalleeAndMethod(this, "test");
 	
-	Button soundButton = new Button(0.86f*screenWidth,
-	                                0.86f*screenHeight,
-	                                0.14f*screenWidth,
-	                                0.12f*screenHeight,
+	Button soundButton = new Button(0.86f*width,
+	                                0.86f*height,
+	                                0.14f*width,
+	                                0.12f*height,
 	                                "Sound");
 	soundButton.setTextureResourceLocation("textures/sound.png");
 	
-	Button scoreButton = new Button(0.010f*screenWidth,
-	                                0.740f*screenHeight,
-	                                0.140f*screenWidth,
-	                                0.120f*screenHeight,
+	Button scoreButton = new Button(0.010f*width,
+	                                0.740f*height,
+	                                0.140f*width,
+	                                0.120f*height,
 	                                "Score");
 	scoreButton.setTextureResourceLocation("textures/scoreBoard.png");
 	
-	Button infoButton = new Button(0.010f*screenWidth,
-	                               0.860f*screenHeight,
-	                               0.140f*screenWidth,
-	                               0.120f*screenHeight,
+	Button infoButton = new Button(0.010f*width,
+	                               0.860f*height,
+	                               0.140f*width,
+	                               0.120f*height,
 	                               "Info");
 	infoButton.setTextureResourceLocation("textures/info.png");
 	
@@ -186,6 +193,11 @@ public class MenuState implements IState
 	_guiManager.addButton(scoreButton);
 	_guiManager.addButton(infoButton);
 	
+	_loadTextures(gl);
+    }
+    
+    private void _loadTextures(GL10 gl)
+    {
 	try {
 	    _background = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/menuBackground.png");
 	    for (IWidget widget : _guiManager.getWidgets()) {
@@ -205,14 +217,7 @@ public class MenuState implements IState
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
-	
-	float width = Engine.getInstance().getViewWidth();
-	float height = Engine.getInstance().getViewHeight();
-	_quad = new PrimitiveQuad(
-	        new Vector3f(0, 0, 0),
-		new Vector3f(width, height, 0)
-	);
-    }    
+    }
 
 
     /**

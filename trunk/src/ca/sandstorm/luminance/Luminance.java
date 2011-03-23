@@ -216,6 +216,7 @@ public class Luminance extends Activity
 	
 	public ClearRenderer(Activity act)
 	{
+	    _logger.debug("ClearRenderer(" + act + ")");
 	    _activity = act;	    
 	}
 	
