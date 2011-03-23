@@ -151,7 +151,7 @@ public class MenuState implements IState
 	
 	
 	// Create the Buttons	
-	Button luminanceTitle = new Button(0.0f*width,
+	Label luminanceTitle = new Label(0.0f*width,
 	                                 0.075f*height,
 	                                 1.0f*width,
 	                                 0.25f*height,
@@ -183,12 +183,12 @@ public class MenuState implements IState
 	                                "Sound");
 	soundButton.setTextureResourceLocation("textures/sound.png");
 	
-	Button scoreButton = new Button(0.010f*width,
-	                                0.740f*height,
-	                                0.140f*width,
-	                                0.120f*height,
-	                                "Score");
-	scoreButton.setTextureResourceLocation("textures/scoreBoard.png");
+//	Button scoreButton = new Button(0.010f*width,
+//	                                0.740f*height,
+//	                                0.140f*width,
+//	                                0.120f*height,
+//	                                "Score");
+//	scoreButton.setTextureResourceLocation("textures/scoreBoard.png");
 	
 	Button infoButton = new Button(0.010f*width,
 	                               0.860f*height,
@@ -201,7 +201,7 @@ public class MenuState implements IState
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(helpButton);
 	_guiManager.addButton(soundButton);
-	_guiManager.addButton(scoreButton);
+//	_guiManager.addButton(scoreButton);
 	_guiManager.addButton(infoButton);
 	
 	_loadTextures(gl);
@@ -217,7 +217,7 @@ public class MenuState implements IState
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
 		    widget.setTexture(texture);
 		    
-		    if (widget.getClass() == Button.class & 
+		    if (widget.getClass() == Button.class && 
 			((Button)widget).getTappedTextureLocation() != null) {
 			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
 			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
