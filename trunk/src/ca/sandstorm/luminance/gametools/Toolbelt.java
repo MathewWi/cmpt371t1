@@ -111,6 +111,7 @@ public class Toolbelt
     {
 	if (gridCoords != null)
 	{
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/rotate.mp3"), 0.9f);
 	    _gameState.rotateObjectAtGridCoords(gridCoords.x, gridCoords.y);
 	}
     }

@@ -483,6 +483,7 @@ public class GameState implements IState
 	try {
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/sample.ogg");
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/place.wav");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/rotate.mp3");
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/noPlace.wav");
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/iconClick.mp3");
 	} catch (IOException e) {
