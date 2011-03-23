@@ -18,7 +18,7 @@ Reviews may also be done impromptu, with a member requesting a review before a m
 
 We have conducted both peer and personal code reviews.  For the personal code reviews, an individual goes through the code they have been assigned and takes down notes about the things they find.  For peer reviews, more than one of us sits down together and looks at portions of the code together.
 
-There has also been one formal inspection so far.  This was conducted on the resource package.  We plan to do at least one formal inspection per milestone from now on.
+There has also been two formal inspections so far.  These were conducted on the resource package, and the GameState.java class.  We plan to do one more formal inspection for this project.
 
 =Mechanism=
 We originally wanted to use Google Code's built-in code review functionality. We thought this allowed members to easily comment on specific code and for the owner of the code to see feedback and tie it to specific areas. However, we quickly discovered that any comments made in this way would be deleted completely if a new version of that file were committed.  
