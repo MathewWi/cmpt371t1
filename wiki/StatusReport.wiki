@@ -16,7 +16,7 @@ Build completes.
 
 Program runs correctly.
 
-Loads the grid play area and simple game level.
+Loads the grid play area and first level, which can be completed. User then progresses through the following levels.
 
 Touch features such as pinch and swipe work well.  Swipe moves the camera around the grid, while pinch zooms in and out.  The input is at a point where we believe it is satisfactory.
 
@@ -54,7 +54,6 @@ Common problems of the development environment can be found here: CommonIssues
 *Resource Manager*
   * Capable of loading and managing all necessary resources.
   * Creates OpenGL textures out of images.
-  * Audio resources are capable of loading, but playback (in other system) still broken.
 
 *Music*
   * Two song composed for in-game music.
