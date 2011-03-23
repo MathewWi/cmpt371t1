@@ -23,9 +23,10 @@ There was also communication between members via emails and full group meetings 
    * Lighting effects
    * Reflection effects
   * Zenja
-   * Playing sound effects at appropriate times
-   * Additional tools
-   * Additional game objects
+   * Playing sound effects and music
+   * Phone orientation flipping support
+   * Toolbelt improvements
+   * Build master duties (updating smoke test)
   * Kum
    * Advanced GUI effects (fading, glowing, etc)
   * Jonny
