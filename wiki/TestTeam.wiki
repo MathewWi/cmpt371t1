@@ -30,11 +30,12 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Name || Status || TimeSpent ||
 || Touch up unit testing || Done || 6 ||
 || Touch up smoke test || Done || 4 ||
-|| Touch up mock test || Various Errors || 10 ||
+|| Touch up mock test || Various Errors || 13 ||
 || User play test || Could not complete || N/A ||
 || Trace View/Stress || Done || 9 ||
 || Use-Case Scenario || Could not complete || N/A ||
-|| State test || Done || Amara, fill in please ||
+|| State test || Could not complete || N/A ||
+|| GUI test || Done || 16 ||
 
   === Code Coverage ===
 
