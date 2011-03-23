@@ -148,6 +148,7 @@
 || Setup collision detection for light against objects || 5 ||
 || Setup proper collision response and light reflecting || 3 ||
 
+
 ===Milestone 4 Estimations===
 || *Task* || *Hours spent so far* ||
 || Add real lights, particles || 5 ||
@@ -157,15 +158,17 @@
 || *Task* || *Hours spent so far* ||
 || Fixed state pushing bugs || 3 ||
 || Got prism working || 2 ||
-|| Implemented proper light reflection || 2 ||
+|| Implemented proper light reflection || 3 ||
 || Fixed up prism model || 0.5 ||
-|| Can erase objects now and light path adjusts || 2 ||
+|| Can erase objects now and light path adjusts || 3 ||
 || Traceview performance profile || 0.5 ||
 || Added double tap for rotation || 2 ||
 || Receptors are dim and light up || 1 ||
-|| Fixed rendering bugs with sky || 1 ||
+|| Fixed rendering bugs with sky || 1.5 ||
 || Corrected light path flicker bug || 2 ||
 || Fixed lag in game menu || 1 ||
+|| Added three interesting level || 1.5||
+|| Level names show in title bar || 1 ||
 
 
 == Martina Nagy ==
