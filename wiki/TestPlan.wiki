@@ -103,7 +103,9 @@
 == Post-Milestone comments ==
 User evaluations have yet again been pushed back to next milestone.  
 
-Mocking has continued to be an issue.  We have discovered that we have been attempting to use technologies that simply not possible for our project.  
+Mocking has continued to be an issue.  We have discovered that we have been attempting to use technologies that simply not possible for our project.
+
+One thing we did for this milestone was that we got the developers to email or inform in some fashion the test team members.  They emailed the test team members who were ensuring the quality of their source code tests.  They gave detailed descriptions of how their code should work. so that we may better test it.
 
 <br>
 = Milestone 5: Thorough Run-through of all tests, Flush out bugs, User Evaluations =
