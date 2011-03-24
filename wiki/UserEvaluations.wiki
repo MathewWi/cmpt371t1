@@ -102,9 +102,9 @@ We hope you will have so much fun playing our game!  If not, tell us why.  We wi
 												-Luminance team
 Circle one: 
 
-Experienced(e.g. CompSci, EE)/Inexperienced(e.g. Arts)
+[Experienced(e.g. CompSci EE)]/[Inexperienced(e.g. Arts)]
 
-Control(walkthrough) / Experiment(no help)
+[Control(walkthrough)] / [Experiment(no help)]
 
 
 *User Information* (Before Starting): If you don’t know skip the question.
