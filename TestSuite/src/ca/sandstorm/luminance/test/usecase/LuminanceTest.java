@@ -1,55 +1,68 @@
-/*package ca.sandstorm.luminance.test.usecase;
+package ca.sandstorm.luminance.test.usecase;
 
 import javax.vecmath.Vector2f;
 
 import android.test.ActivityInstrumentationTestCase2;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.Luminance;
+import android.widget.Button;
+import android.widget.TextView;
+import ca.sandstorm.luminance.R;
 
 import com.jayway.android.robotium.solo.Solo;
-
+/**
+ * Use case testing
+ * @author Amara Daal
+ * NOTE: Since Luminance doesn't use android.widget none of the buttons 
+ * will be detected by robotium
+ */
 public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	private Solo solo;
 
 	// Screen size
-	float screenWidth = 200;
-	float screenHeight = 300; // default setting
+	float screenWidth = 320;
+	float screenHeight = 430; // default setting
 
 	// Origin top left corner
 	int MATRIX_WIDTH = 8;
 	int MATRIX_HEIGHT = 8;
 
-	int xCoordView = 0;
-	int yCoordView = 0;
 
-	*//**
+
+	int timeBetweenOperations = 2000;
+	/**
 	 * [0:55:15] Jonny: use engine.getinstance().getstatusbar() +
 	 * engine.getinstance().gettitlebar() for geting the y
-	 *//*
+	 */
 	// Offset of the matrix
 	float yOffsetMatrix = 50;
-	Vector2f matrixLocation = new Vector2f(0, yOffsetMatrix);
-	float SPACE_BTWN_SQUARES = 5;
+	Vector2f matrixLocation;
+	float SPACE_BTWN_SQUARES = 29;
+	
+	float xCoordView = (SPACE_BTWN_SQUARES/2); //Start in the middle of the square
+	float yCoordView = (SPACE_BTWN_SQUARES/2);
 
-	*//**
+    private static final String TARGET_PACKAGE_ID = "ca.sandstorm.luminance";
+
+    private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME =
+"ca.sandstorm.luminance.Luminance";
+
+
+	/**
 	 * A matrix with centre positions for every square used for easily placing
 	 * objects.
-	 *//*
+	 */
 	Vector2f[][] matrix = new Vector2f[MATRIX_HEIGHT][MATRIX_WIDTH];
 
 	public LuminanceTest() {
-		super("ca.sandstorm.luminance", Luminance.class);
-	}
-
-	public void setUp() throws Exception {
-		super.setUp();
-		this.solo = new Solo(getInstrumentation(), getActivity());
-
+		super(TARGET_PACKAGE_ID, Luminance.class);
+	
 		for (int row = 0; row < MATRIX_HEIGHT; row++) {
 
 			for (int col = 0; col < MATRIX_WIDTH; col++) {
 
 				// adjust x to match next square
+				// start in the middle of the square
 				xCoordView += SPACE_BTWN_SQUARES;
 
 				matrix[row][col] = new Vector2f(xCoordView, yCoordView);
@@ -58,22 +71,21 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 			xCoordView = 0;
 			yCoordView += SPACE_BTWN_SQUARES;
 		}
+	}
+
+	public void setUp() throws Exception {
+		super.setUp();
+		this.solo = new Solo(this.getInstrumentation(), this.getActivity());
+
+
 
 	}
 
-	public void tearDown() throws Exception {
-		try {
-			this.solo.finalize();
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
-		getActivity().finish();
-		super.tearDown();
-	}
 
-	*//**
+
+	/**
 	 * Start the first level of the game
-	 *//*
+	 */
 	public void startGame() {
 		// 320x480
 		screenHeight = (float) Engine.getInstance().getViewHeight();
@@ -84,99 +96,99 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		float y = 0.350f * screenHeight;
 		float width = 0.650f * screenWidth;
 		float height = 0.100f * screenHeight;
-		solo.clickLongOnScreen(x + (width / 2), y + (width / 2));
-		solo.clickLongOnScreen(320 / 3, (480 / 2) + 30);
-		for (int i = 1; i < 320; i++) {
-			for (int y2 = 1; y2 < 480; y2++) {
-				solo.clickOnScreen(x, y2);
-			}
-		}
-		// solo.clickOnButton("Start");
-		// assertTrue(solo.searchText("Start"));
+
+		solo.clickOnScreen(226, 216);
+		solo.sleep(10000);
 	}
 
-	*//**
+	/**
 	 * Pauses level
-	 *//*
+	 */
 	public void pause() {
-		solo.clickOnButton("Pause");
+		 //solo.clickLongOnScreen(300, 395);
+		 solo.clickOnScreen(295, 447);
+			solo.sleep(5000);
 	}
 
-	*//**
+	/**
 	 * Restarts level
-	 *//*
+	 */
 	public void restart() {
-		solo.clickOnButton("restart");
+		//solo.clickOnButton("restart");
 	}
 
-	*//**
+	/**
 	 * Places prism at given coordinates
 	 * 
 	 * @param row
 	 * @param col
-	 *//*
+	 */
 	public void placePrism(int row, int col) {
-		solo.clickOnButton("prism");
-		assertTrue(solo.searchButton("prism"));
-
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		solo.clickOnScreen(94, 443);
+		solo.sleep(timeBetweenOperations);
+		solo.clickOnScreen(matrix[row][col].x +matrixLocation.x, matrix[row][col].y+matrixLocation.y);
+		solo.sleep(timeBetweenOperations);
 	}
 
-	*//**
+	/**
 	 * Places mirror at given coordinates
 	 * 
 	 * @param row
 	 * @param col
-	 *//*
+	 */
 	public void placeMirror(int row, int col) {
-		solo.clickOnButton("mirror");
-		assertTrue(solo.searchButton("mirror"));
-
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		solo.clickOnScreen(31, 431);
+		solo.sleep(timeBetweenOperations);
+		solo.clickOnScreen(matrix[row][col].x +matrixLocation.x, matrix[row][col].y+matrixLocation.y);
+		solo.sleep(timeBetweenOperations);
 	}
 
-	*//**
+	/**
 	 * Rotates mirror based on numberTaps
 	 * 
 	 * @param row
 	 * @param col
 	 * @param numberTaps
-	 *//*
+	 */
 	public void rotateMirror(int row, int col) {
 
 		// Double tap,
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-
+		solo.clickOnScreen(matrix[row][col].x +matrixLocation.x, matrix[row][col].y+matrixLocation.y);
+		solo.clickOnScreen(matrix[row][col].x +matrixLocation.x, matrix[row][col].y+matrixLocation.y);
+		solo.sleep(timeBetweenOperations);
 	}
 
 	public void testDisplayBlackBox() throws Exception {
 
 	}
 
-	*//**
+	/**
 	 * Erases Object at location
 	 * 
 	 * @param row
 	 * @param col
-	 *//*
+	 */
 	public void erase(int row, int col) {
-		solo.clickOnButton("eraser");
-		assertTrue(solo.searchButton("eraser"));
-
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		 solo.clickOnScreen(159, 434);
+		solo.sleep(timeBetweenOperations);
+		solo.clickOnScreen(matrix[row][col].x +matrixLocation.x, matrix[row][col].y+matrixLocation.y);
+		solo.sleep(timeBetweenOperations);
 	}
 
-	*//**
+	/**
 	 * Test Case (1): Light to obstacle collision
 	 * 
 	 * Purpose: To test and verify connections to objects are being handled
 	 * appropriately.
 	 * 
 	 * Prerequisite: A game level has been started
-	 *//*
+	 * 
+	 * Grid Top Left(29, 226)
+	 */
 	public void testCaseOne() {
+		matrixLocation = new Vector2f(29, 226);
 		startGame();
+		completeLevel1();
 		placeMirror(6, 0);
 		// User chooses mirror
 		// User places mirror(1)
@@ -261,23 +273,31 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// User completes level
 
 	}
-
-	
+	public void tearDown() throws Exception {
+		try {
+			this.solo.finalize();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		getActivity().finish();
+		super.tearDown();
+	}
+	/*
 	 * || || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || || 1 ||(W)|| || || || || ||
 	 * B || || || 2 || || B || || || || || || || || 3 || || || B || || || || ||
 	 * || || 4 || || || || B || || || || || || 5 || || || ||(G)|| B || || || ||
 	 * || 6 || || || || || || || || || || 7 || B || || || || || || || || || 8 ||
 	 * || || || || ||(R)|| ||(B)||
-	 
+	 */
 
-	*//**
+	/**
 	 * Test Case (2): Object interaction/function
 	 * 
 	 * Purpose: To test and verify that objects unique, functional, and interact
 	 * with each other.
 	 * 
 	 * Prerequisite: A game level has been started
-	 *//*
+	 */
 	public void testCaseTwo() {
 
 		startGame();
@@ -340,16 +360,17 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 
 	}
 
-	*//**
+	/**
 	 * Test Case (3): Object to obstacle collision
 	 * 
 	 * Purpose: To test and verify that objects unique, functional, and interact
 	 * with each other.
 	 * 
 	 * Prerequisite: level 2
-	 *//*
+	 */
 	public void testCaseThree() {
-
+		startGame();
+		completeLevel1();
 		// prism -> mirror -> orb
 		placePrism(4, 5);
 		// User chooses prism
@@ -378,15 +399,17 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		placeMirror(6, 5);
 	}
 
-	*//**
+	/**
 	 * Test Case (4): User statistics registration
 	 * 
 	 * Purpose: To test and verify that toolbar/high score is correctly updated
 	 * after each object use
 	 * 
 	 * Prerequisite: Level 2
-	 *//*
+	 */
 	public void testCaseFour() {
+		startGame();
+		completeLevel1();
 		placePrism(4, 5);
 		// User chooses prism
 		// User places prism in empty grid square
@@ -408,14 +431,14 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// User sees high score bored is updated
 	}
 
-	*//**
+	/**
 	 * Test Case (5): User transition between states, saved menu, resume
 	 * 
 	 * Purpose: To test and verify that state changes are taking place and are
 	 * handled appropriately
 	 * 
 	 * Prerequisite: Level 2
-	 *//*
+	 */
 	public void testCaseFive() {
 		startGame();
 		completeLevel1();
@@ -432,6 +455,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// User receives a call
 		// Game sound is automatically turned off
 		alterOrientation("landscape");
+		alterOrientation("portrait");
 		// User rotates phone
 		// Phones changes orientation
 		// Game is automatically paused
@@ -453,14 +477,14 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// System loads main menu
 	}
 
-	*//**
+	/**
 	 * Test Case (6): Stress test
 	 * 
 	 * Purpose: To test and verify that is able to cope under stranious
 	 * conditions
 	 * 
 	 * Prereq: level1
-	 *//*
+	 */
 	public void testCaseSix() {
 		startGame();
 		// User starts game
@@ -482,7 +506,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	}
 
 	private void reduceMemory() {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -497,7 +521,17 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	}
 
 	private void resume() {
-		// TODO Auto-generated method stub
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
+		 solo.clickLongOnScreen(162, 173);
 
 	}
 
@@ -531,8 +565,16 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	}
 
 	private void completeLevel1() {
-		// TODO Auto-generated method stub
-
+		matrixLocation = new Vector2f(29, 226);
+		placeMirror(0, 0);
+		rotateMirror(0,0);
+		placeMirror(0,5);
+		placeMirror(3, 5);
+		placeMirror(7, 3);
+		rotateMirror(7, 3);
+		placeMirror(7, 0);
+		rotateMirror(7, 0);
+		
 	}
 
 	private void completeLevel2() {
@@ -544,4 +586,3 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		assertTrue(true);
 	}
 }
-*/
