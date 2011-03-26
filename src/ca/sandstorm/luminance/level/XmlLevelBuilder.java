@@ -10,17 +10,31 @@ import org.w3c.dom.Text;
 
 import android.graphics.Color;
 
+/**
+ * Class for building an XML file from an XmlLevel.
+ * @author Steven Indzeoski
+ *
+ */
 public class XmlLevelBuilder
 {
     private DocumentBuilder _builder;
     private Document _doc;
     
+    /**
+     * Constructor method for XmlLevelBuilder.
+     * @throws ParserConfigurationException
+     */
     public XmlLevelBuilder() throws ParserConfigurationException
     {
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	_builder = factory.newDocumentBuilder();
     }
     
+    /**
+     * Creates the Document object from an XmlLevel.
+     * @param level The XmlLevel to convert.
+     * @return A DOM Document object.
+     */
     public Document build(XmlLevel level)
     {
 	_doc = _builder.newDocument();
@@ -28,11 +42,20 @@ public class XmlLevelBuilder
 	return _doc;
     } 
     
+    /**
+     * Saves the converted level to a file.
+     * @param filename The file to save to.
+     */
     public void saveToFile(String filename)
     {
 	// TODO
     }
     
+    /**
+     * Helper method for writing the level into the Document.
+     * @param level The XmlLevel to be written.
+     * @return An Element object for <level>
+     */
     private Element createLevel(XmlLevel level)
     {
 	Element e = _doc.createElement("level");
@@ -51,6 +74,14 @@ public class XmlLevelBuilder
 	return e;
     }
     
+    /**
+     * Helper method for writing the grid size into the Document.
+     * @param sizeX The size of the x dimension of the grid.
+     * @param sizeY The size of the y dimension of the grid.
+     * @param width The width of the grid.
+     * @param height The height of the grid.
+     * @return An Element object for <grid_size>.
+     */
     private Element createGridSize(int sizeX, int sizeY, float width, float height)
     {
 	Element e = _doc.createElement("grid_size");
@@ -61,6 +92,11 @@ public class XmlLevelBuilder
 	return e;
     }
     
+    /**
+     * Helper method for writing each object into the Document.
+     * @param object The XmlLevelObject to be written.
+     * @return An Element object for an <object>.
+     */
     private Element createObject(XmlLevelObject object)
     {
 	Element e = _doc.createElement("object");
@@ -110,6 +146,12 @@ public class XmlLevelBuilder
 	return e;
     }
     
+    /**
+     * Helper method for writing the object position into the Document.
+     * @param positionX The x grid position of the object.
+     * @param positionY The y grid position of the object.
+     * @return An Element object for <position> of an object.
+     */
     private Element createObjectPosition(float positionX, float positionY)
     {
 	Element e = _doc.createElement("position");
@@ -118,6 +160,13 @@ public class XmlLevelBuilder
 	return e;
     }
     
+    /**
+     * Helper method for writing the object rotation into the Document.
+     * @param rotationX The x rotation of the object.
+     * @param rotationY The y rotation of the object.
+     * @param rotationZ The z rotation of the object.
+     * @return An Element object for <rotation> of an object.
+     */
     private Element createObjectRotation(float rotationX, float rotationY, float rotationZ)
     {
 	Element e = _doc.createElement("rotation");
@@ -127,6 +176,11 @@ public class XmlLevelBuilder
 	return e;
     }
     
+    /**
+     * Helper method for writing the XmlLevelTools into the Document.
+     * @param tool The XmlLevelTool to be written.
+     * @return An Element object for the <tool>.
+     */
     private Element createTool(XmlLevelTool tool)
     {
 	Element e = _doc.createElement("tool");
@@ -135,6 +189,12 @@ public class XmlLevelBuilder
 	return e;
     }
 
+    /**
+     * Helper method for writing a just text Element.
+     * @param name The name of the element to be written.
+     * @param text The body of the element to be written.
+     * @return An Element object.
+     */
     private Element createTextElement(String name, String text)
     {
 	Text t = _doc.createTextNode(text);
