@@ -9,8 +9,6 @@ import javax.vecmath.Vector4f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.graphics.Color;
-
 import ca.sandstorm.luminance.gameobject.IRenderableObject;
 import ca.sandstorm.luminance.gameobject.Receptor;
 import ca.sandstorm.luminance.gameobject.RenderType;
@@ -18,6 +16,7 @@ import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.graphics.PrimitiveBox;
 import ca.sandstorm.luminance.graphics.PrimitivePrism;
 import ca.sandstorm.luminance.graphics.PrimitiveSphere;
+import ca.sandstorm.luminance.level.Color;
 
 
 /**
