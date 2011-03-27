@@ -10,8 +10,7 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
-import android.graphics.Color;
-
+import ca.sandstorm.luminance.level.Color;
 import ca.sandstorm.luminance.math.Ray;
 import ca.sandstorm.luminance.math.Sphere;
 
