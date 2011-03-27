@@ -1,10 +1,11 @@
 #summary Results of code reviews we've done so far.
 <wiki:toc max_depth="1" />
 
-= Personal Code Reviews =
+= Peer deskchecks =
 Personal code reviews were done on team members own time.  The process was to review code that was not written by them, and log issues they saw here.
 
 == Martina ==
+* Zenja's code *
 
   * Box.java:
     * Line 36: Why are values hard coded for rotation?
@@ -194,10 +195,12 @@ Should use a sphere generation algorithm (this is a classic 3D problem and task 
 
 
 == Jonny ==
+* On Kum's code *
   * Label.java
     * draw() function in the label should be implemented using quads like button.draw() instead of using primitive box.
 
 == Chet Collins ==
+* Zenja's and Stephen's code *
   * Sphere.java 
     * No comments
   * Ray.java
@@ -214,6 +217,7 @@ Should use a sphere generation algorithm (this is a classic 3D problem and task 
 = Peer Reviews =
 == March 14, 2011 ==
 === PrimitiveBox.java ===
+*Stephen's code*
  - Stephen explained _vertices and _indices matrices, as well as _textureCoords
 
 Line 105 and 112: Could change 4 to a const called sizeOf(int) or something
@@ -259,6 +263,7 @@ Also, when we want to start with special effects such as lighting, we're going t
 
 == March 7, 2011 ==
 === Toolbelt.java ===
+*Zenja's code *
 Line 26: _GRIDPOINT_ERROR - What is this? Needs to be made smaller.  Used as an epsilon for constraining floating point errors.
 
 Line 30: Game state should not be a storage object.  It should be a container for all the other classes; act as a controller.  This causes coupling.  We should try to get this with the toolbelt not talking to game state.
@@ -268,12 +273,20 @@ Line 34: List of tools used to loop through to see objects on the grid.  Not nec
 Line 39 and 40: These are used to indicate a load of a button texture after the parsing of a level file.  Perhaps load all at startup instead of at runtime.
 
 === Test classes ===
+_In this peer review, the whole test team sat down and looked at all of the test classes together_
+
+*Chet's code*
+
 !AndroidSoundPlayerTest.java
  * streamId: why is this 0?  If this is zero, it indicates failure, since player.play returns an int.
 
-!GameRendererRest.java
+*Jeff's code*
+
+!GameRendererTest.java
  * constructor is no longer valid, due to dev team changes.
  * Should be comments on methods
+
+*Martina's code*
 
 !BoxTest.java
  * Looks good
@@ -290,9 +303,13 @@ Line 39 and 40: These are used to indicate a load of a button texture after the 
 !EraserTest.java, LightPathTests.java, MirrorToolTest.java, PrismToolTest.java
  * Look good.  Not much there yet as source class isn't complete
 
+*Jeff's code*
+
 !ToolBeltTest.java
  * Needs to say who wrote it.
  * Otherwise looks good
+
+*Amara's code*
 
 !ButtonTest.java
  * No description of the class.
@@ -318,12 +335,17 @@ Line 39 and 40: These are used to indicate a load of a button texture after the 
  * Very robust!
 
 ALL XML TEST CLASSES NEED COMMENTS
+
+*Jeff's code*
+
 !XmlLevelGoalTest.java
  * Needs description and who wrote it
  * why are the parameters passed to the constructor all messed up? i.e. why is the string "rEd" or "WhitE" being passed?
  
 !XmlLevelTest.java
  * Looks good
+
+*Chet's code*
 
 !CollidersTest.java
  * Looks good
@@ -355,9 +377,13 @@ ALL XML TEST CLASSES NEED COMMENTS
 !TextureResourceTest.java
  * Looks good.
 
+*Martina's code*
+
 !TimeSystemTest.java
  * copied and pasted throws clause when they may not be necessary.
  * some tests are commented out, need to fix and make them work.
+
+*Amara's code*
 
 !LuminanceTest.java
  * needs comments and who wrote it.
