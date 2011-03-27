@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gamelogic.GameState;
+import ca.sandstorm.luminance.gamelogic.LevelMenuState;
 import ca.sandstorm.luminance.gamelogic.MenuState;
 import ca.sandstorm.luminance.state.IState;
 
@@ -250,10 +251,19 @@ public class Luminance extends Activity
 
 	Engine.getInstance().getInputSystem().keyUp(keyCode);
 
+	// Let's check to see if the back button has been pressed
 	IState currentState = Engine.getInstance().getCurrentState();
-	if (keyCode == 4 && currentState instanceof GameState && ((GameState)currentState).getShowMenu()) {
-	    System.out.println("Back button pressed");
-	    ((GameState)currentState).showOrDismissPauseMenu();
+	if (keyCode == 4) {
+	    if (currentState instanceof GameState && ((GameState)currentState).getShowMenu()) {
+		// We are currently in the game and the in-game menu is up
+		// So let's dismiss the in-game menu
+		((GameState)currentState).showOrDismissPauseMenu();
+	    } else if (currentState instanceof LevelMenuState) {
+		// We are currently in the level menu
+		// So let's go back to the main menu (MenuState)
+		Engine.getInstance().popState();
+		Engine.getInstance().pushState(new MenuState());
+	    }
 	}
 	
 	return result;

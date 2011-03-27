@@ -69,6 +69,16 @@ public class MenuState implements IState
 	Engine.getInstance().pushState( new GameState(0) );
     }
     
+    public void showLevelMenu()
+    {
+	logger.debug("showLevelMenu()");
+	
+	Engine.getInstance().getAudio().play(_startSound, 0.9f);
+	
+	Engine.getInstance().popState();
+	Engine.getInstance().pushState(new LevelMenuState());
+    }
+    
     /**
      * Get the GUIManager being used by this MenuState.
      * @return the GUIManager being by the MenuState.
@@ -176,6 +186,15 @@ public class MenuState implements IState
 	helpButton.setTappedTextureLocation("textures/helpImageClicked.png");
 	helpButton.setCalleeAndMethod(this, "test");
 	
+//	Button levelButton = new Button(0.175f*width, 
+//	                                0.350f*height + 2*.185f*height,
+//	                                0.650f*width, 
+//	                                0.1250f*height,
+//	                               	"levels");
+//	levelButton.setTextureResourceLocation("textures/helpImage.png");
+//	levelButton.setTappedTextureLocation("textures/helpImageClicked.png");
+//	levelButton.setCalleeAndMethod(this, "showLevelMenu");
+	
 	Button soundButton = new Button(0.86f*width,
 	                                0.86f*height,
 	                                0.14f*width,
@@ -200,6 +219,7 @@ public class MenuState implements IState
 	_guiManager.addButton(luminanceTitle);
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(helpButton);
+//	_guiManager.addButton(levelButton);
 	_guiManager.addButton(soundButton);
 //	_guiManager.addButton(scoreButton);
 	_guiManager.addButton(infoButton);
