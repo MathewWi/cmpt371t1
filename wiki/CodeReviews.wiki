@@ -522,3 +522,79 @@ Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
+
+== Milestone 5: Inspection of the Level package ==
+*Moderator:* Martina
+
+*Author:* Sten
+
+*Reader:* Sten
+
+*Inspectors:* Zenja, Jeff, Martina, Sten
+
+*Recorder:* Zenja
+
+=== Inspection Meeting ===
+The entire Level package was examined but not all of the classes were found to have defects.
+  * Defect 1:
+    * Location: XmlLevel line 22-23
+    * Summary: Are width and height necessary? They seem unused.
+    * Discovered by: Sten
+  * Defect 2:
+    * Location: XmlLevel
+    * Summary: All the getters have logger messages which results in a lot of logger spam on every load. They can probably be removed now.
+    * Discovered by: Zenja
+  * Defect 3:
+    * Location: XmlLevel and entire package
+    * Summary: All the getters have logger messages which results in a lot of logger spam on every load. They can probably be removed now.
+    * Discovered by: Zenja
+  * Defect 4:
+    * Location: XmlLevel: getObjects() and getTools()
+    * Summary: These return mutable references and the internal lists can be modified through them. Should they perhaps guard against this?
+    * Discovered by: Jeff
+  * Defect 5:
+    * Location: XmlLevelObject fields
+    * Summary: Position and rotation members should maybe be changed to vectors instead of a bunch of floats
+    * Discovered by: Martina
+  * Defect 6:
+    * Location: XmlLevelObject
+    * Summary: Constructor could perhaps take in the positions/rotations instead of or inaddition to having many setter methods
+    * Discovered by: Martina
+  * Defect 7:
+    * Location: XmlLevelBuilder
+    * Summary: Saving to file needs to be implemented.
+    * Discovered by: Sten
+  * Defect 8:
+    * Location: XmlLevelBuilder
+    * Summary: If the level editor is a standalone program, this can be removed from the project and moved into the editor
+    * Discovered by: Zenja
+  * Defect 9:
+    * Location: XmlLevelBuilder
+    * Summary: Is our style guideline to put an underscore in front of private method names, or just private fields? There is inconsistency in the project.
+    * Discovered by: Zenja
+  * Defect 10:
+    * Location: XmlLevelBuilder - createObject()
+    * Summary: The switch statements for getting a color string are repeated twice and could be extracted into a method.
+    * Discovered by: Zenja
+  * Defect 11:
+    * Location: XmlLevelEmitter, XmlLevelGoal
+    * Summary: These both have identical ways of dealing with color, so they could be moved into a superclass which these can derive from.
+    * Discovered by: Zenja
+  * Defect 12:
+    * Location: Level package
+    * Summary: Inconsistent brace style - if statements should have opening one on same line, for example
+    * Discovered by: Martina
+  * Defect 13:
+    * Location: XmlLevelParser - parse()
+    * Summary: There is a much easier way to parse using the built-in XML methods. This was discovered after this code was written though, and likely isn't worth changing.
+    * Discovered by: Sten
+  * Defect 14:
+    * Location: XmlLevelParser - parse()
+    * Summary: There are some System.out.println() calls that were used for testing but are unnecessary now.
+
+=== Follow-up Results ===
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I later tried out a version on the phone.  It plays fantastic!
+  * I believe it is safe to say that these changes were made successfully.
