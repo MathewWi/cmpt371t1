@@ -32,7 +32,7 @@ public class NumericLabel implements IWidget
 	_width = width;
 	_height = height;
 	_number = number;
-	//_texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/numbers.png");
+	_texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/numbers.png");
 	_textureResourceLocation = "textures/numbers.png";
 	
 	_quad = new PrimitiveQuad(
@@ -43,7 +43,13 @@ public class NumericLabel implements IWidget
     
     public void setNumber(int number)
     {
-	_number = number;
+	// TODO: Temporary until multidigit support is added
+	if (_number < 0)
+	    _number = 0;
+	else if (_number > 9)
+	    _number = 9;
+	else
+	    _number = number;
     }
     
     /**
@@ -117,6 +123,7 @@ public class NumericLabel implements IWidget
 
     public void draw(GL10 gl)
     {
+	// Move to the proper digit in the texture
 	_quad.setWidthOffset((float)_number * (9f/10f), 0.1f);
 	
 	gl.glPushMatrix();
