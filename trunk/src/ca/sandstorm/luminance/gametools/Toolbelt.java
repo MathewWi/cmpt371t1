@@ -287,7 +287,7 @@ public class Toolbelt
 
 	// Add the label indicating stock
 	NumericLabel label = new NumericLabel(0, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(ToolType.Mirror));
-	label.setTexture(_gameState.getNumberLabelTexture());
+//	label.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/numbers.png"));
 	_stockLabel.put(ToolType.Mirror, label);
 	_gameState.getGui().addButton(label);
     }
@@ -313,7 +313,7 @@ public class Toolbelt
 
 	// Add the label indicating stock
 	NumericLabel label = new NumericLabel(_toolIconSizeWidth, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(ToolType.Prism));
-	label.setTexture(_gameState.getNumberLabelTexture());
+//	label.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/numbers.png"));
 	_stockLabel.put(ToolType.Prism, label);
 	_gameState.getGui().addButton(label);
     }
