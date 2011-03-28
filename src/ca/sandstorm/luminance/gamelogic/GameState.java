@@ -486,11 +486,11 @@ public class GameState implements IState
 	// Load sound effects and music
 	try {
 	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/sample.ogg");
-	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/place.wav");
-	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/rotate.mp3");
-	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/noPlace.wav");
-	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/iconClick.mp3");
-	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/eraser.wav");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/place.ogg");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/rotate.ogg");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/noPlace.ogg");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/iconClick.ogg");
+	    Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(), "sounds/eraser.ogg");
 	} catch (IOException e) {
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
@@ -610,7 +610,7 @@ public class GameState implements IState
     public void showOrDismissPauseMenu()
     {
 	logger.debug("showOrDismissPauseMenu()");
-	Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.mp3"), 0.9f);
+	Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.ogg"), 0.9f);
 
 	_showMenu = !_showMenu;
 	_guiManager.setIsEnabled(!_showMenu);
@@ -680,7 +680,7 @@ public class GameState implements IState
 	// if cell is occupied
 	if (isCellOccupied(x, y))
 	{
-	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/rotate.mp3"), 0.9f);
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/rotate.ogg"), 0.9f);
 	    
 	    // just hack rotation for now
 	    IGameObject obj = getObjectAtGridCoords(x, y);
