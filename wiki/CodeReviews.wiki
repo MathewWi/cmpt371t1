@@ -598,3 +598,76 @@ Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
+
+== Milestone 5: Inspection of the GUI package ==
+*Moderator:* Martina
+
+*Author:* Kum
+
+*Reader:* Kum
+
+*Inspectors:* Zenja, Chet, Kum, Martina, Sten
+
+*Recorder:* Martina
+
+=== Inspection Meeting ===
+The entire GUI package was examined but not all of the classes were found to have defects.
+  * Defect 1:
+    * Location: IWidget line 106
+    * Summary: Why does the draw method not have a javadoc comment?
+    * Discovered by: Martina
+  * Defect 2:
+    * Location: Label line 21
+    * Summary: The _text variable is used as a label name or id, instead of the text it contains, as the variable name implies.  Should change this to be more intuitive.
+    * Discovered by: Martina 
+  * Defect 3:
+    * Location: Button
+    * Summary: _tappedTexture and _texture a little ambiguous as to the difference.  Should at least specify somewhere that _texture will always be set, and _tappedTexture may not.
+  * Defect 4:
+    * Location: Button
+    * Summary: Missing javadoc on some methods
+    * Discovered by: Zenja
+    * Discovered by: Martina
+  * Defect 5:
+    * Location: Button
+    * Summary: This class could easily be a subclass of the Label class, as label is basically a button, only you can`t click it.
+    * Discovered by: Zenja
+  * Defect 6:
+    * Location: GUIManager line 30
+    * Summary: The widgets array should really be a list or some other data structure that can grow in size.
+    * Discovered by: Zenja
+  * Defect 7:
+    * Location: GUIManager line 78
+    * Summary: Missing javadoc on initialize method
+    * Discovered by: Martina
+  * Defect 8:
+    * Location: GUIManager line 85
+    * Summary: Texture loading should be moved from GameState to GUIManager to be consistent.
+    * Discovered by: Zenja
+  * Defect 9:
+    * Location: GUIManager line 96
+    * Summary: Does not return the number of objects in the array, as it should.  Should be fixed or removed.
+    * Discovered by: Kum
+  * Defect 10:
+    * Location: GUIManager
+    * Summary: Somewhere, _compensatedY is being used too much and messing up the coordinates in the Pause menu.  Should investigate this further.
+    * Discovered by: Jonny
+  * Defect 11:
+    * Location: GUIManager line 226
+    * Summary: the method tapped() could be renamed to something more clear.
+    * Discovered by: Martina, Zenja
+  * Defect 12:
+    * Location: GUIManager line 246
+    * Summary: This ìf-statement should be removed as it's not being used anymore.
+    * Discovered by: Zenja
+  * Defect 13:
+    * Location: GUIManger line 221
+    * Summary: Method name isn't very descriptive.
+    * Discovered by: Martina
+
+=== Follow-up Results ===
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I later tried out a version on the phone.  It plays fantastic!
+  * I believe it is safe to say that these changes were made successfully.
