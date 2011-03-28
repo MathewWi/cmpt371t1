@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.audio;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -11,6 +10,7 @@ import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.resources.MusicResource;
 import ca.sandstorm.luminance.resources.SoundResource;
 
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -74,10 +74,17 @@ public class AndroidSoundPlayer implements IAudioDriver
     public int play(SoundResource sound, float volume)
     {
 	_logger.debug("Playing sound effect: " + sound);
-	
 	assert sound != null;
+	
+	// Play based on the device's current volume.
+	// There's conflicting info on whether this is necessary.
+	AudioManager mgr = (AudioManager)Engine.getInstance().getContext().getSystemService(Context.AUDIO_SERVICE);
+	float streamVolumeCurrent = mgr.getStreamVolume(AudioManager.STREAM_MUSIC);
+	float streamVolumeMax = mgr.getStreamMaxVolume(AudioManager.STREAM_MUSIC);    
+	float playVolume = volume * streamVolumeCurrent / streamVolumeMax;
+
 	int soundId = sound.getSound();
-	int streamId = _soundPool.play(soundId, volume, volume, 1, 0, 1.0f);
+	int streamId = _soundPool.play(soundId, playVolume, playVolume, 1, 0, 1.0f);
 	_streamMap.put(soundId, streamId);
 
 	return streamId;
