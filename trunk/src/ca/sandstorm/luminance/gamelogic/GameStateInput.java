@@ -50,8 +50,6 @@ public class GameStateInput
     private static final float TOUCH_SENSITIVITY = 3.0f;
 
     private int _touchMode = InputTouchScreen.NONE;
-    private boolean _tapped = false;
-
 
     private static final float DISTANCE_TIME_FACTOR = 0.4f;
     private float _acceleration = 0.0f;
@@ -190,6 +188,13 @@ public class GameStateInput
 		               - Engine.getInstance().getMenuBarHeight() 
 		               - Engine.getInstance().getTitleBarHeight());
 		}
+		
+
+		_guiManager.touchOccured(touchEvent.getX(), touchEvent.getY() 
+		                                           - Engine.getInstance().getMenuBarHeight() 
+		                                           - Engine.getInstance().getTitleBarHeight());
+		
+		_guiManager.letGoOfButton();
 		        
 		Engine.getInstance().getInputSystem()
 			.getTouchScreen().setTouchMode(InputTouchScreen.NONE);
@@ -206,7 +211,7 @@ public class GameStateInput
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);		
 	    }
 	    
-	    // handle input for pause button and inGame Menu buttons and switching the pause button texture
+	    // handle switching texture for pause button and inGame menu
 	    if (Engine.getInstance().getInputSystem().getTouchScreen()
 		    .getTouchMode() == InputTouchScreen.ON_DOWN) {
 		
@@ -216,15 +221,9 @@ public class GameStateInput
 		                                              - Engine.getInstance().getTitleBarHeight());
 		if (touchButton != null) {
 		    touchButton.setIsTapped(true);
-		    _tapped = true;
 		}
 
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
-	    }
-	    
-	    if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped == true) {
-		_guiManager.letGoOfButton();
-		_tapped = false;
 	    }
 
 	    // handle zoom input
