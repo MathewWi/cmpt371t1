@@ -214,6 +214,7 @@ public class GameState implements IState
 	                                height*0.12f,
 	                                "Pause");
 	pauseButton.setTextureResourceLocation("textures/pause.png");
+	pauseButton.setTappedTextureLocation("textures/pauseClicked.png");
 	pauseButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
 
 	_guiManager.addButton(pauseButton);	
@@ -497,6 +498,7 @@ public class GameState implements IState
 	                                height*0.12f,
 	                                "Pause");
 	pauseButton.setTextureResourceLocation("textures/pause.png");
+	pauseButton.setTappedTextureLocation("textures/pauseClicked.png");
 	pauseButton.setCalleeAndMethod(this, "showOrDismissPauseMenu");
 	
 	Button resumeButton = new Button(0.175f*width, 

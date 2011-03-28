@@ -201,6 +201,7 @@ public class MenuState implements IState
 	                                0.12f*height,
 	                                "Sound");
 	soundButton.setTextureResourceLocation("textures/sound.png");
+	soundButton.setTappedTextureLocation("textures/soundClicked.png");
 	
 //	Button scoreButton = new Button(0.010f*width,
 //	                                0.740f*height,
@@ -215,6 +216,7 @@ public class MenuState implements IState
 	                               0.120f*height,
 	                               "Info");
 	infoButton.setTextureResourceLocation("textures/info.png");
+	infoButton.setTappedTextureLocation("textures/infoClicked.png");
 	
 	_guiManager.addButton(luminanceTitle);
 	_guiManager.addButton(startButton);
