@@ -28,6 +28,7 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     public static final int ON_DOUBLE_TAP_CONFIRMED = 3;
     public static final int ON_DOWN = 4;
     public static final int ON_PRESS = 5;
+    public static final int ON_SINGLE_TAP = 6;
     
     private float _distanceX;
     private float _distanceY;
@@ -291,8 +292,8 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     @Override
     public boolean onSingleTapUp(MotionEvent e)
     {
-	// TODO Auto-generated method stub
-	return false;
+	setTouchMode(ON_SINGLE_TAP);
+	return true;
     }
     
     public void setTouchMode (int mode)

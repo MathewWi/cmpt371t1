@@ -287,47 +287,29 @@ public class MenuState implements IState
 	if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchEvent() != null) {
 	    MotionEvent touchEvent = Engine.getInstance().getInputSystem()
 	    				.getTouchScreen().getTouchEvent();
-	    
-	    if (Engine.getInstance().getInputSystem().getTouchScreen()
-		    .getTouchMode() == InputTouchScreen.ON_SINGLE_TAP_CONFIRMED) {
-		Button eventWidget = _guiManager.touchOccured(touchEvent);
-		if (eventWidget != null) {
-		    logger.debug("button has been tapped");
-		    eventWidget.setIsTapped(true);
-		}
-		_guiManager.letGoOfButton();
-		
-		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
-	    }
-	    
+
 	    if (Engine.getInstance().getInputSystem().getTouchScreen()
 		    .getTouchMode() == InputTouchScreen.ON_DOWN) {
+		
 		Button eventWidget = _guiManager.touchOccured(touchEvent);
 		if (eventWidget != null) {
 		    logger.debug("button has been tapped");
 		    eventWidget.setIsTapped(true);
+		    _tapped = true;
 		}
-		//_guiManager.letGoOfButton();
-		
+
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
 	    }
 	    
-	    /*
-	    if (touchEvent.getAction() == MotionEvent.ACTION_DOWN) {
-		_tapped = true;
-		Button eventWidget = _guiManager.touchOccured(touchEvent);
-		if (eventWidget != null) {
-		    logger.debug("button has been tapped");
-		    eventWidget.setIsTapped(true);
-		}
-	    } if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
+	    if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
 		logger.debug("Menu has been touched");
 		if (_guiManager.buttonIsTapped()) {
 		    logger.debug(_guiManager.getTappedButton().getTitle());
 		}
 		_guiManager.letGoOfButton();
 		_tapped = false;
-	    }*/
+	    }
+	    
 	}
 	
 	InputButton[] keys = Engine.getInstance().getInputSystem().getKeyboard().getKeys();
