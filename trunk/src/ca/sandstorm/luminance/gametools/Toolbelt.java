@@ -76,7 +76,7 @@ public class Toolbelt
 	//       that instead of checking button titles like this
 	Button touchedButton = _gameState.getGui().touchOccured(x, y);
 	if (touchedButton != null) {
-	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.mp3"), 0.9f);
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.ogg"), 0.9f);
 	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
 		logger.debug("mirror has been tapped");
 		//touchedButton.setIsTapped(true);
@@ -144,14 +144,14 @@ public class Toolbelt
 	// Check if stock is available
 	if(_stock.get(toolType) <= 0) {
 	    logger.debug("Out of stock: " + toolType);
-	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/noPlace.wav"), 0.9f);
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/noPlace.ogg"), 0.9f);
 	    return null;
 	}
 	
 	// Check if an object is already at this point
 	if(_gameState.isCellOccupied(x, y)) {
 	    logger.debug("Cell is occupied: " + x + "," + y);
-	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/noPlace.wav"), 0.9f);
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/noPlace.ogg"), 0.9f);
 	    return null;
 	}
 	
@@ -171,7 +171,7 @@ public class Toolbelt
 	logger.debug("Placed tool: " + toolType);
 	
 	// Play sound effect
-	Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/place.wav"), 0.9f);
+	Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/place.ogg"), 0.9f);
 	
 	return tool;
     }
@@ -201,7 +201,7 @@ public class Toolbelt
 	    _tools.remove(_tempPoint);
 	    _gameState.removeObject(tool);
 	    
-	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/eraser.wav"), 0.9f);
+	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/eraser.ogg"), 0.9f);
 	}
     }
     

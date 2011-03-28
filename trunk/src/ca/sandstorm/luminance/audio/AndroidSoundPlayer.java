@@ -24,7 +24,8 @@ import android.media.SoundPool;
 public class AndroidSoundPlayer implements IAudioDriver
 {
     // TODO: Remove sound streams from map when they're done
-    private static final int MAX_STREAMS = 8;
+    private static final int MAX_STREAMS = 16;
+    private boolean _musicPlaying = false;
 
     private MediaPlayer _mediaPlayer;
     private SoundPool _soundPool;
@@ -104,6 +105,7 @@ public class AndroidSoundPlayer implements IAudioDriver
 	_mediaPlayer.prepare();
 	_mediaPlayer.start();
 	_currentMusic = res;
+	_musicPlaying = true;
     }
 
 
@@ -135,7 +137,9 @@ public class AndroidSoundPlayer implements IAudioDriver
 	}
 	
 	// Stop music
-	_mediaPlayer.pause();
+	if (_mediaPlayer.isPlaying()) {
+	    _mediaPlayer.pause();
+	}
     }
 
 
@@ -152,7 +156,9 @@ public class AndroidSoundPlayer implements IAudioDriver
 	}
 	
 	// Resume music
-	_mediaPlayer.start();
+	if (_musicPlaying && !_mediaPlayer.isPlaying()) {
+	    _mediaPlayer.start();
+	}
     }
 
 
@@ -167,5 +173,6 @@ public class AndroidSoundPlayer implements IAudioDriver
 	_streamMap.clear();
 	_soundPool.release();
 	_soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
+	_musicPlaying = false;
     }
 }
