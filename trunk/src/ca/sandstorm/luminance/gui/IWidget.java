@@ -13,6 +13,23 @@ import ca.sandstorm.luminance.resources.TextureResource;
 public interface IWidget
 {
     /**
+     * Get the String that uniquely identifies this IWidget.
+     * 
+     * @return the String that uniquely identifies this IWidget.
+     */
+    String getIdentifier();
+    
+    /**
+     * Set the String will uniquely identify this IWidget.
+     * 
+     * @param identifier the String that will uniquely identify this IWidget.
+     * @precond identifier != null
+     * @postcond this.getIdentifier() != null &&
+     * this.getIdentifier().equals(identifier)
+     */
+    void setIdentifier(String identifier);
+    
+    /**
      * Get the X position of the button.
      * @return the X position of the button.
      */
@@ -102,6 +119,12 @@ public interface IWidget
      */
     void setTexture(TextureResource texture);
     
-    // Every widget must know how to draw itself.
+    /**
+     * The draw method to be called automatically by a GUIManager.
+     * 
+     * @param gl The GL10 that handles drawing to OpenGL.
+     * @precond this.getTexture() != null
+     * @postcond n/a
+     */
     void draw(GL10 gl);
 }

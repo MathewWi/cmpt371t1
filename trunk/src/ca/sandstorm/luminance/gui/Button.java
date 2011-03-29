@@ -32,7 +32,7 @@ public class Button implements IWidget
     // Used for drawing in the draw(GL10) method.
     private TextureResource _drawTexture;
     
-    private String _title;
+    private String _identifier;
     
     private Object _callee;
     private Method _method;
@@ -56,7 +56,7 @@ public class Button implements IWidget
 	this._y = y;
 	this._width = width;
 	this._height = height;
-	_title = title;
+	_identifier = title;
 	_isTapped = false;
 	_isSelected = false;
 	
@@ -64,6 +64,16 @@ public class Button implements IWidget
 	    new Vector3f(0, 0, 0),
 	    new Vector3f(width, height, 0)
 	);
+    }
+
+    public String getIdentifier()
+    {
+	return _identifier;
+    }
+
+    public void setIdentifier(String identifier)
+    {
+	_identifier = identifier;
     }
 
     public float getX()
@@ -181,23 +191,27 @@ public class Button implements IWidget
     }
     
     /**
-     * Get the title for the button.
+     * Get the title for the button. (<b>Deprecated:</b> Use getIdentifier() instead.)
+     * 
      * @return the title used for the button
      */
+    @Deprecated
     public String getTitle()
     {
-	return _title;
+	return _identifier;
     }
     
     /**
-     * Set the title for the button.
+     * Set the title for the button. (<b>Deprecated:</b> Use setIdentifier(String) instead.)
+     * 
      * @param title The title used for the button.
      * @precond n/a
      * @postcond this.getTitle() == title
      */
+    @Deprecated
     public void setTitle(String title)
     {
-	_title = title;
+	_identifier = title;
     }
     
     /**

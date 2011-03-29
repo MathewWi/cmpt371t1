@@ -1,15 +1,5 @@
 package ca.sandstorm.luminance.gui;
 
-import javax.microedition.khronos.opengles.GL10;
-
-import ca.sandstorm.luminance.resources.TextureResource;
-
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.opengl.GLUtils;
-
 /**
  * Creates a textual label based on the string passed in and can be rendered.
  * @author zenja
