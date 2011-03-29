@@ -154,7 +154,7 @@
 || Add real lights, particles || 5 ||
 || Add glowing effects to emmitter and receptor || 4 ||
 
-===Milestone 4 ===
+=== Milestone 4 ===
 || *Task* || *Hours spent so far* ||
 || Fixed state pushing bugs || 3 ||
 || Got prism working || 2 ||
@@ -169,6 +169,10 @@
 || Fixed lag in game menu || 1 ||
 || Added three interesting level || 1.5||
 || Level names show in title bar || 1 ||
+
+=== Milestone 5 ===
+|| *Task* || *Hours spent so far* ||
+|| Added camera movement restrictions || 2 ||
 
 
 == Martina Nagy ==
