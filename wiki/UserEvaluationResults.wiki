@@ -11,6 +11,9 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 2 || no || yes || yes || 2 min || 4 ||
 || 3 || no || yes || yes || 5 min || 3 ||
 || 4 || no || yes || yes || 10 min || 3 ||
+|| 5 || no || yes || no || 2hrs || 5 ||
+|| 6 || no || sometimes || yes || 1hr || 3 ||
+|| 7 || no || yes || yes || 1 min || 5 ||
 
 || GAME ASPECT ||
 || Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
@@ -18,6 +21,9 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 2 || 8 || 7 || 9 || 10 || 8 || 9 || 10 || 10 || 10 ||
 || 3 || 9 || 6 || 10 || 7 || 8 || 8 || 7 || 9.5 || 7 ||
 || 4 || 9 || 8 || 5 || 7 || 7 || 6 || 7 || 9 || 8 ||
+|| 5 || 6 || 8 || 6 || 9 || 8 || 6 || 7 || 6 || 7 ||
+|| 6 || 8 || 10 || 9 || 7 || 7 || 8 || 7 || 10 || 8.5 ||
+|| 7 || 9 || 8 || 10 || 5 || 7 || 10 || 9 || 9 || 9 ||
 
 || LIKE/DISLIKE ||
 || Anon || Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
@@ -25,6 +31,10 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 2 || 3 min || n/a || fun || it made me think || instructions || yes || yes || fun, think || didn't know what the hell i was doing in the beginning ||
 || 3 || 1 min || 30 min || original || mirrors are radical || bigger squares || yes || yes || Prism idea... || small squares = unresponsive ||
 || 4 || n/a || n/a || fun || it made me think without being complicated || n/a || yes || yes || the premise || difficult to drop mirrors sometimes ||
+|| 5 || 2min || n/a || mind triggering || It was a different kind of puzzle game || More work on graphics || yes || yes || Design of the game || More high end graphics ||
+|| 6 || 20 sec || n/a || Addictive! || Each level offers a new challenge || Slightly more responsive controls || yes || yes || Puzzle Fun, Interface, Simplicity || Nothing comes to mind ||
+|| 7 || 1 min || n/a || fun, I wanted to keep playing it || wanted to see the higher levels || different music for each level for more intensity || yes || yes || The concept - better than brick breaker! || nothing really, Thought it was cool ||
+
 
 || GAME IDEAS ||
 || Anon || New Features || Old Features || Comments ||
@@ -32,6 +42,9 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 2 || Points || Graphics || It was fun, good job ||
 || 3 || to be able to play ur own music || n/a || maby have a few templates to choose from in the visuals ||
 || 4 || Different colours to make easier || The white light to be a different colour or more distinct || n/a ||
+|| 5 || Little work on graphics such as more of 30 || Functionality, interface, little fealing || Good aff. for start of playing, different kind of puzzle game ||
+|| 6 || n/a || Expanded soundtrack, moveable light source for REALLY hard levels? || n/a ||
+|| 7 || Bigger grid || n/a || n/a || n/a ||
 
 || DEFECTS/ERRORS/CONFUSIONS ||
 || Anon || When/Where did the bug occur: || Effects/What happened: || Etc: || More? ||
@@ -39,6 +52,10 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 2 || Had trouble clicking || n/a || n/a || n/a ||
 || 3 || No bugs! || n/a || n/a || n/a ||
 || 4 || n/a || n/a || n/a || n/a ||
+|| 5 || n/a || Interface was slow, little faster required || need instructions || n/a ||
+|| 6 || Minor issues with touch || May have just been phone though || n/a || n/a ||
+|| 7 || n/a || n/a || n/a || n/a ||
+
 
 || Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 || Anon 6 || Anon 7 || Anon 8 || Anon 9 ||
 || USER INFO || (1: Sucks - 10: Awesome) || 
