@@ -1,0 +1,42 @@
+#summary Results of the player tests from both experienced (CS) and inexperienced (Non-CS) students.
+= Introduction =
+
+Data gathered from the play testing of students around campus. They are anonymous.
+
+= Details =
+
+|| Topic || Question || Anon 1 ||
+|| User Info || || 
+|| || Experienced Player? ||
+|| || Like puzzle games? || 
+|| || Played mobile/touch game before? ||
+|| || Time given to learn new game? ||
+|| || Boredom level before playing? (1: most bored - 10: most fun) ||
+|| Game Aspect  (1: Sucks - 10: Awesome)||
+|| || Logic (Game premise)? ||
+|| || Ease of Use (Controls)? || 
+|| || Camera?|| 
+|| || Audio (Sound/Music)? ||
+|| || Performance (Responsiveness)? ||
+|| || Interface (Looks)? ||
+|| || Thought as a real game? ||
+|| || Thought as a game in development? ||
+|| || Overall Game Rating? ||
+|| Like/Dislike ||
+|| || Length to learn the game? Keep playing? ||
+|| || The game was: ||
+|| || Because: ||
+|| || The game needed: ||
+|| || I like this game? ||
+|| || I would play this game? ||
+|| || Liked about the game || 
+|| || Disliked about the game ||
+|| Game Ideas ||
+|| || New features: ||
+|| || Old features (What could be improved): ||
+|| || Comments: ||
+|| Possible Defects/Errors/Confusions ||
+|| || When/where did the bug occurred: ||
+|| || Effects/What happened ||
+|| || Etc: ||
+|| || More? ||
