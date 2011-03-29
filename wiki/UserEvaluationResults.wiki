@@ -24,6 +24,10 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 15 || yes || yes || yes || 5 min || 4 ||
 || 16 || yes || yes || yes || n/a || 5.5 ||
 || 17 || yes || yes || yes || 1 min || 7 ||
+|| 18 || yes || yes || yes || 1 hour || 5 ||
+|| 19 || yes || yes || yes || 2 min || 5 ||
+|| 20 || yes || yes || yes || 5 min || 5 ||
+
 
 || GAME ASPECT ||
 || Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
@@ -44,6 +48,10 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 15 || 9 || 8 || 8 || 6 || 7 || 8 || 8 || 9 || 8.5 ||
 || 16 || 9 || 10 || 10 || 7 || 9 || 4 || 8.5 || 9 || 9 ||
 || 17 || 8 || 6 || 7 || 8 || 8 || 7 || 8 || 8 || 8 ||
+|| 18 || 10 || 10 || 10 || 8 || 9 || 9 || 9 || 10 || 8 ||
+|| 19 || 10 || 5 || 10 || 10 || 8 || 10 || 10 || 10 || 8 ||
+|| 20 || 8 || 7 || 10 || 9 || 8 || 8 || 8 || 9 || 8 ||
+
 
 || LIKE/DISLIKE ||
 || Anon || Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
@@ -64,6 +72,9 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 15 || 1 min || n/a || great || it was challenging, lot of fun || extremely brief tutorial option || yes || yes || premise, it is great! wanted to keep playing it haha. || block colour a little too close to background ||
 || 16 || instant || n/a || liked the gameplay & puzzles were great! || very interesting & i enjoyed the puzzles & simplicity || n/a || yes (Definitely) || yes (whenever free time) || n/a || n/a ||
 || 17 || n/a || n/a || great || logic || improve the interface, light colour, show levels || yes || yes || logic, music || interface ||
+|| 18 || 5 min || played until the end|| fun || I like puzzles || more levels || yes || yes || easy to use, fun || it was short ||
+|| 19 || 2 mins || wanted to play until the end || neat || you guys programmed it || bigger squares || yes || yes || the puzzle nature || "double tap" was too sensitive ||
+|| 20 || 10 secs || n/a || clever || it used spatial awareness to solve puzzles || A level select function || yes || yes || simple in concept, potential for many puzzles || it lost my place when the phone went to sleep! ||
 
 || GAME IDEAS ||
 || Anon || New Features || Old Features || Comments ||
@@ -84,6 +95,9 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 15 || level select after completion || level over button i had a hard time clicking on. I woud just move mirrors in background and stuff || n/a ||
 || 16 || A quick "how to" for new players || level selection maybe || n/a ||
 || 17 || n/a || change the colour of original lights || n/a ||
+|| 18 || Move levels! || Improve the number of levels || I like it! *thumbs up* ||
+|| 19 || move levels || bigger squares, less sensitive double tap || n/a ||
+|| 20 || Make stages with coloured filters, recombining light || find a more intuitive way to show the direction the light is travelling || n/a ||
 
 || DEFECTS/ERRORS/CONFUSIONS ||
 || Anon || When/Where did the bug occur: || Effects/What happened: || Etc: || More? ||
@@ -107,3 +121,6 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 15 || screen shake a bit after zoom change || n/a || n/a || Can't decide if I liked music or not. Good music and fit tone of game but after extended periods of time it may get repetitive ||
 || 16 || n/a || n/a || n/a || n/a ||
 || 17 || no bugs || n/a || n/a || n/a ||
+|| 18 || no bugs || n/a || n/a || n/a ||
+|| 19 || no bugs || n/a || n/a || n/a ||
+|| 20 || no bugs || n/a || n/a || n/a ||
