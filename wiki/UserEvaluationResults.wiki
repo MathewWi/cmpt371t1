@@ -24,9 +24,9 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 15 || yes || yes || yes || 5 min || 4 ||
 || 16 || yes || yes || yes || n/a || 5.5 ||
 || 17 || yes || yes || yes || 1 min || 7 ||
-|| 18 || yes || yes || yes || 1 hour || 5 ||
-|| 19 || yes || yes || yes || 2 min || 5 ||
-|| 20 || yes || yes || yes || 5 min || 5 ||
+|| 18 || no || yes || yes || 1 hour || 5 ||
+|| 19 || no || yes || yes || 2 min || 5 ||
+|| 20 || no || yes || yes || 5 min || 5 ||
 
 
 || GAME ASPECT ||
