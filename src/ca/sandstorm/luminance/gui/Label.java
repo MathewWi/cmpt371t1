@@ -18,7 +18,7 @@ public class Label implements IWidget
     private float _y;
     private float _width;
     private float _height;
-    private String _text;
+    private String _identifier;
     
     private PrimitiveQuad _quad;
     private String _textureResourceLocation;
@@ -36,7 +36,7 @@ public class Label implements IWidget
 	_y = y;
 	_width = width;
 	_height = height;
-	_text = text;
+	_identifier = text;
 	
 	_quad = new PrimitiveQuad(
 	                          new Vector3f(0, 0, 0),
@@ -45,12 +45,24 @@ public class Label implements IWidget
     }
     
     /**
-     * Get the String title for the label.
+     * Get the String title for the label. (<b>Deprecated:</b> Use getIdentifier() instead.)
+     * 
      * @return the String that is being used for the content of the Label.
      */
+    @Deprecated
     public String getText()
     {
-	return _text;
+	return _identifier;
+    }
+
+    public String getIdentifier()
+    {
+	return _identifier;
+    }
+
+    public void setIdentifier(String identifier)
+    {
+	_identifier = identifier;
     }
     
     public float getX()

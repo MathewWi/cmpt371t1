@@ -11,6 +11,7 @@ import ca.sandstorm.luminance.resources.TextureResource;
 
 public class NumericLabel implements IWidget
 {
+    private String _identifier;
     private float _x;
     private float _y;
     private float _width;
@@ -39,6 +40,16 @@ public class NumericLabel implements IWidget
 	// Create the digits list and add the first one
 	_digitQuads = new LinkedList<PrimitiveQuad>();
 	setNumber(number);
+    }
+
+    public String getIdentifier()
+    {
+	return _identifier;
+    }
+
+    public void setIdentifier(String identifier)
+    {
+	_identifier = identifier;
     }
     
     public void setNumber(int number)
