@@ -44,7 +44,7 @@ public class MenuState implements IState
     public MenuState()
     {
 	_tapped = false;
-	_guiManager = new GUIManager();
+	_guiManager = new GUIManager(false);
     }
     
     public MenuState(IWidget[] widgets)
@@ -153,7 +153,7 @@ public class MenuState implements IState
 	
 	// Recreate GUI on orientation flip
 	if (Engine.getInstance().isInitialized()) {
-	    _guiManager = new GUIManager();
+	    _guiManager = new GUIManager(false);
 	}
 	
 	// Initiate the GUIManager
