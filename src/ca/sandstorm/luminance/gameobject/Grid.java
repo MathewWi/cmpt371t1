@@ -36,6 +36,7 @@ public class Grid
 
     // temp vectors to avoid mallocs
     private Vector3f _position;
+    private Vector3f _gridCenter;
     private Vector3f _tmpCellCenter;
     private Point2i _tmpGridPos;
 
@@ -155,6 +156,9 @@ public class Grid
 
 	_position = new Vector3f();
 	_position.set(0, 0, 0);
+	
+	_gridCenter = new Vector3f();
+	_gridCenter.set(this.getTotalWidth() / 2.0f, 0, this.getTotalHeight() / 2.0f);
 
 	_tmpCellCenter = new Vector3f(0, 0, 0);
 	_tmpGridPos = new Point2i(0, 0);
@@ -262,6 +266,11 @@ public class Grid
 	return _tmpCellCenter;
     }
 
+    
+    public Vector3f getGridCenter()
+    {
+	return _gridCenter;
+    }
 
     /**
      * Converts a world position into a grid based cell position. This will
