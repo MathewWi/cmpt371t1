@@ -5,39 +5,39 @@ Data gathered from the play testing of students around campus. They are anonymou
 
 = Details =
 
-|| Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 ||
+|| Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 || Anon 6 ||
 || User Info || (1: Sucks - 10: Awesome) || 
-|| || Experienced Player? || No || No || No || No || No ||
-|| || Like puzzle games? || Yes || Yes || Yes || Yes || Yes ||
-|| || Played mobile/touch game before? || Never || Yes || Yes || Yes || No ||
-|| || Time given to learn new game? || 2 min || 2 min || 5 min || 10 min || 2 hr ||
-|| || Boredom level before playing? || 4 || 4 || 3 || 3 || 5 ||
+|| || Experienced Player? || No || No || No || No || No || No ||
+|| || Like puzzle games? || Yes || Yes || Yes || Yes || Yes || Sometimes ||
+|| || Played mobile/touch game before? || Never || Yes || Yes || Yes || No || Yes ||
+|| || Time given to learn new game? || 2 min || 2 min || 5 min || 10 min || 2 hr || 1 hr ||
+|| || Boredom level before playing? || 4 || 4 || 3 || 3 || 5 || 3 ||
 || Game Aspect ||
-|| || Logic (Game premise)? || 3 || 8 || 9 || 9 || 6 ||
-|| || Ease of Use (Controls)? || 5 || 7 || 6 || 8 || 8 ||
-|| || Camera?|| 5 || 9 || 10 || 5 || 6 ||
-|| || Audio (Sound/Music)? || 8 || 10 || 7 || 7 || 9 ||
-|| || Performance (Responsiveness)? || 5 || 8 || 8 || 7 || 8 ||
-|| || Interface (Looks)? || 10 || 9 || 7 || 6 || 6 ||
-|| || Thought as a real game? || 4 || 10 || 7 || 7 || 7 ||
-|| || Thought as a game in development? || 5 || 10 || 9.5 || 9 || 6 ||
-|| || Overall Game Rating? || 5 || 10 || 7 || 8 || 7 ||
+|| || Logic (Game premise)? || 3 || 8 || 9 || 9 || 6 || 8 ||
+|| || Ease of Use (Controls)? || 5 || 7 || 6 || 8 || 8 || 10 ||
+|| || Camera?|| 5 || 9 || 10 || 5 || 6 || 9 ||
+|| || Audio (Sound/Music)? || 8 || 10 || 7 || 7 || 9 || 7 ||
+|| || Performance (Responsiveness)? || 5 || 8 || 8 || 7 || 8 || 7 ||
+|| || Interface (Looks)? || 10 || 9 || 7 || 6 || 6 || 8 ||
+|| || Thought as a real game? || 4 || 10 || 7 || 7 || 7 || 7 ||
+|| || Thought as a game in development? || 5 || 10 || 9.5 || 9 || 6 || 10 ||
+|| || Overall Game Rating? || 5 || 10 || 7 || 8 || 7 || 9 ||
 || Like/Dislike ||
-|| || Length to learn the game? || 5 min || 3 min || 1 min || n/a || 2 min ||
-|| || Keep playing length? || n/a || n/a || 30 min || n/a || n/a ||
-|| || The game was: || ok || fun || original || fun || mind triggering || 
-|| || Because: || difficult to make sense || it made me think || Mirrors are radical || made me think without complication || different from other games ||
-|| || The game needed: || development, excitement || instructions || bigger squares || n/a || work on graphics ||
-|| || I like this game? || no || yes || yes || yes || yes ||
-|| || I would play this game? || no || yes || yes || yes || yes ||
-|| || Liked about the game || difficult from other games || fun, think || Prism || the premise || design ||
-|| || Disliked about the game || n/a || lack of instructions || small squares, unresponsive || difficult to drop mirrors sometimes || graphics ||
+|| || Length to learn the game? || 5 min || 3 min || 1 min || n/a || 2 min || 20 sec ||
+|| || Keep playing length? || n/a || n/a || 30 min || n/a || n/a || n/a ||
+|| || The game was: || ok || fun || original || fun || mind triggering ||  Addictive! ||
+|| || Because: || difficult to make sense || it made me think || Mirrors are radical || made me think without complication || different from other games || Each level offers a new challenge ||
+|| || The game needed: || development, excitement || instructions || bigger squares || n/a || work on graphics || Slightly more responsive controls ||
+|| || I like this game? || no || yes || yes || yes || yes || yes ||
+|| || I would play this game? || no || yes || yes || yes || yes || yes ||
+|| || Liked about the game || difficult from other games || fun, think || Prism || the premise || design || Puzzle, fun interface, simplicity ||
+|| || Disliked about the game || n/a || lack of instructions || small squares, unresponsive || difficult to drop mirrors sometimes || graphics || nothing ||
 || Game Ideas ||
-|| || New features: || n/a || Points || Play own music || Different colours to make easier || little work on graphics such as more of 30 ||
-|| || Old features (What could be improved): || n/a || graphics || n/a || distinct white beam || Functionality, Interface, little fealing ||
-|| || Comments: || n/a || It was fun, good job || Choose templates/visuals || n/a || Good Aff. for start of playing, Different kind of puzzle game ||
+|| || New features: || n/a || Points || Play own music || Different colours to make easier || little work on graphics such as more of 30 || n/a ||
+|| || Old features (What could be improved): || n/a || graphics || n/a || distinct white beam || Functionality, Interface, little fealing || moveable light source, expanded soundtrack ||
+|| || Comments: || n/a || It was fun, good job || Choose templates/visuals || n/a || Good Aff. for start of playing, Different kind of puzzle game || n/a ||
 || Possible Defects/Errors/Confusions ||
-|| || When/where did the bug occurred: || n/a || Trouble clicking || No bugs! || n/a || n/a ||
-|| || Effects/What happened || n/a || n/a || n/a || n/a || slow interface ||
-|| || Etc: || n/a || n/a || n/a || n/a || need instructions ||
-|| || More? || n/a || n/a || n/a || n/a || n/a ||
+|| || When/where did the bug occurred: || n/a || Trouble clicking || No bugs! || n/a || n/a || Touch reading ||
+|| || Effects/What happened || n/a || n/a || n/a || n/a || slow interface || May have just been phone ||
+|| || Etc: || n/a || n/a || n/a || n/a || need instructions || n/a ||
+|| || More? || n/a || n/a || n/a || n/a || n/a || n/a ||
