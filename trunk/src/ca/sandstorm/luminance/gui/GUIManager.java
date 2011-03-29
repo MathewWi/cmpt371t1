@@ -3,11 +3,13 @@ package ca.sandstorm.luminance.gui;
 import java.io.IOException;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.vecmath.Vector3f;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.Engine;
+import ca.sandstorm.luminance.graphics.PrimitiveQuad;
 
 import android.view.MotionEvent;
 
@@ -26,25 +28,30 @@ public class GUIManager
     public static int MAX_WIDGET_COUNT = 10;
     private float _compensatedY;
 
-    private int _numberOfWidgets;
+    private int _numberOfWidgets = 0;
     private IWidget _widgets[];
     
     private Button _tappedButton;
-    private boolean _isEnabled;
+    private boolean _isEnabled = true;
+    
+    private boolean _isFading = false;
+    private float _fadeFactor = 0.4f;
+    private PrimitiveQuad _fadeQuad;
 
     /**
      * Constructor. By default, the number of buttons to be managed is 0.
      * 
+     * @param isFading Set to true if the background is to be faded when the GUI is being drawn. Generally used for something like the pause menu.
      * @precond n/a
      * @postcond this.getNumberOfButtons() == 0
      */
-    public GUIManager()
+    public GUIManager(boolean isFading)
     {
 	_logger.debug("GUIManager()");
+	_isFading = isFading;
 	
 	_widgets = new IWidget[MAX_WIDGET_COUNT];
-	_numberOfWidgets = 0;
-	_isEnabled = true;
+	_fadeQuad = new PrimitiveQuad(new Vector3f(0,0,-1), new Vector3f(Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), -1));
     }
     
     /**
@@ -240,14 +247,22 @@ public class GUIManager
 	gl.glEnable(GL10.GL_BLEND);
 	gl.glEnable(GL10.GL_CULL_FACE);
 	gl.glCullFace(GL10.GL_BACK);
-	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE_MINUS_SRC_ALPHA);	
+	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE_MINUS_SRC_ALPHA);
+	
+	// Fade the background if desired
+	if (_isFading) {
+	    gl.glPushMatrix();
+	    gl.glTranslatef(0, 0, 0);
+	    gl.glDisable(GL10.GL_TEXTURE_2D);
+	    gl.glColor4f(0f, 0f, 0f, _fadeFactor);
+	    _fadeQuad.draw(gl);
+	    gl.glPopMatrix();
+	}
 	
 	for (int i = 0; i < _numberOfWidgets; i++) {
-	    if (_widgets[i] instanceof NumericLabel) {
-		
-	    }
 	    _widgets[i].draw(gl);
 	}	
+	
 	gl.glDisable(GL10.GL_BLEND);
 	gl.glDisable(GL10.GL_CULL_FACE);	
     }

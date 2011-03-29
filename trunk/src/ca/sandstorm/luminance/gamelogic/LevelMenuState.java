@@ -25,7 +25,7 @@ public class LevelMenuState implements IState
     
     public LevelMenuState()
     {
-	_guiManager = new GUIManager();
+	_guiManager = new GUIManager(false);
     }
 
     public void init(GL10 gl)

@@ -130,8 +130,8 @@ public class GameState implements IState
 	_level.setCurrentLevel(level);	
 	
 	// Create GUI manager and add initial widgets
-	_guiManager = new GUIManager();
-	_menuGuiManager = new GUIManager();
+	_guiManager = new GUIManager(false);
+	_menuGuiManager = new GUIManager(true);
 	_menuGuiManager.setIsEnabled(false);
 	_showMenu = false;
     }
@@ -203,7 +203,7 @@ public class GameState implements IState
 	Engine.getInstance().getRenderer().removeAll();
 	
 	// reinit gui manager
-	_guiManager = new GUIManager();
+	_guiManager = new GUIManager(false);
 
 	float width = Engine.getInstance().getViewWidth();
 	float height = Engine.getInstance().getViewHeight();	
@@ -456,8 +456,8 @@ public class GameState implements IState
 	
 	// Clear out the GUI elements and recreate them for new GL instance
 	if (_initialized) {
-	    _guiManager = new GUIManager();
-	    _menuGuiManager = new GUIManager();
+	    _guiManager = new GUIManager(false);
+	    _menuGuiManager = new GUIManager(true);
 	}
 		
 	// Load textures
