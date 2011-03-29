@@ -77,6 +77,26 @@ public class XmlLevelEmitter extends XmlLevelObject
     }
     
     /**
+     * Returns the emitters colour as a String.
+     * @return The emitters colour as a String.
+     */
+    public String getColourAsString()
+    {
+	switch (_colour) {
+	    case Color.WHITE:
+		return "white";
+	    case Color.RED:
+		return "red";
+	    case Color.GREEN:
+		return "green";
+	    case Color.BLUE:
+		return "blue";
+	    default:
+		return null;    
+	}
+    }
+    
+    /**
      * getId method for XmlLevelEmitter.
      * @return The object type.
      */

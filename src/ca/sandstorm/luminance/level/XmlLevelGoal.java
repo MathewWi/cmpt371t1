@@ -85,6 +85,26 @@ public class XmlLevelGoal extends XmlLevelObject
 	_logger.debug("toString()");
 	return (super.toString() + "\nColour: " + getColour());
     }
+    
+    /**
+     * Returns the goals colour as a String.
+     * @return The goals colour as a String.
+     */
+    public String getColourAsString()
+    {
+	switch (_colour) {
+	    case Color.WHITE:
+		return "white";
+	    case Color.RED:
+		return "red";
+	    case Color.GREEN:
+		return "green";
+	    case Color.BLUE:
+		return "blue";
+	    default:
+		return null;    
+	}
+    }
 
     /**
      * getId method for XmlLevelGoal
