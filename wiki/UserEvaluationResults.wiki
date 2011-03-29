@@ -5,6 +5,18 @@ Data gathered from the play testing of students around campus. They are anonymou
 
 = Details =
 
+|| USER INFORMATION ||
+|| Anon || Experienced Player? || Like puzzle games? || Played Mobile/Touch game before? || Time given to learn new game? || Boredom level before playing? ||
+
+|| GAME ASPECT ||
+|| Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
+
+|| LIKE/DISLIKE ||
+|| Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
+
+
+
+
 || Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 || Anon 6 || Anon 7 || Anon 8 || Anon 9 ||
 || USER INFO || (1: Sucks - 10: Awesome) || 
 || || Experienced Player? || No || No || No || No || No || No || No || No || No ||
