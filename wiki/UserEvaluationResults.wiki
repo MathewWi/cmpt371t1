@@ -7,6 +7,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 
 || USER INFORMATION ||
 || Anon || Experienced Player? || Like puzzle games? || Played Mobile/Touch game before? || Time given to learn new game? || Boredom level before playing? ||
+|| 1 || no || yes || never || 2 min || 4 ||
 
 || GAME ASPECT ||
 || Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
@@ -14,7 +15,11 @@ Data gathered from the play testing of students around campus. They are anonymou
 || LIKE/DISLIKE ||
 || Anon || Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
 
+|| GAME IDEAS ||
+|| Anon || New Features || Old Features || Comments ||
 
+|| DEFECTS/ERRORS/CONFUSIONS ||
+|| Anon || When/Where did the bug occur: || Effects/What happened: || Etc: || More? ||
 
 
 || Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 || Anon 6 || Anon 7 || Anon 8 || Anon 9 ||
