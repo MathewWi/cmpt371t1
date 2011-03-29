@@ -11,15 +11,20 @@ Data gathered from the play testing of students around campus. They are anonymou
 
 || GAME ASPECT ||
 || Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
+|| 1 || 3 || 5 || 5 || 8 || 5 || 10 || 4 || 5 || 5 ||
 
 || LIKE/DISLIKE ||
 || Anon || Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
+|| 1 || 5 min || n/a || ok || its difficult to make sense || development, excitement || no || no || different from other games || n/a ||
 
 || GAME IDEAS ||
 || Anon || New Features || Old Features || Comments ||
+|| 1 || n/a || n/a || n/a ||
+
 
 || DEFECTS/ERRORS/CONFUSIONS ||
 || Anon || When/Where did the bug occur: || Effects/What happened: || Etc: || More? ||
+|| 1 || n/a || n/a || n/a || n/a ||
 
 
 || Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 || Anon 6 || Anon 7 || Anon 8 || Anon 9 ||
