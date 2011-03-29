@@ -16,6 +16,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 7 || no || yes || yes || 1 min || 5 ||
 || 8 || no || yes || yes || 5 min || 2 ||
 || 9 || no || yes || no || 5 min || 5 ||
+|| 10 || yes || yes || yes || 10 min || n/a ||
 
 || GAME ASPECT ||
 || Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
@@ -28,6 +29,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 7 || 9 || 8 || 10 || 5 || 7 || 10 || 9 || 9 || 9 ||
 || 8 || 10 || 7 || 7 || 8 || 6 || 8 || 7 || 10 || 8.5 ||
 || 9 || 9 || 9 || 10 || 9 || 9 || 10 || 9 || 9 || 9 ||
+|| 10 || 8 || 10 || 5 || 5 || 5 || 8 || 7 || 8 || 7.5 ||
 
 || LIKE/DISLIKE ||
 || Anon || Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
@@ -40,6 +42,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 7 || 1 min || n/a || fun, I wanted to keep playing it || wanted to see the higher levels || different music for each level for more intensity || yes || yes || The concept - better than brick breaker! || nothing really, Thought it was cool ||
 || 8 || 3 min || n/a || Interesting, challenging, cool || It requires thinking || Just a bit more responsive to touch || yes || yes || neat idea, nice design ||
 || 9 || n/a || n/a || fun || n/a || n/a || yes || yes || the music || n/a ||
+|| 10 || 2 min || n/a || good || not too easy || n/a || yes || yes || n/a || n/a ||
 
 || GAME IDEAS ||
 || Anon || New Features || Old Features || Comments ||
@@ -49,9 +52,10 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 4 || Different colours to make easier || The white light to be a different colour or more distinct || n/a ||
 || 5 || Little work on graphics such as more of 30 || Functionality, interface, little fealing || Good aff. for start of playing, different kind of puzzle game ||
 || 6 || n/a || Expanded soundtrack, moveable light source for REALLY hard levels? || n/a ||
-|| 7 || Bigger grid || n/a || n/a || n/a ||
-|| 8 || It would be nice to know how other players did at their 1st session || n/a || n/a || n/a ||
+|| 7 || Bigger grid || n/a || n/a ||
+|| 8 || It would be nice to know how other players did at their 1st session || n/a || n/a ||
 || 9 || n/a || n/a || Good job! ||
+|| 10 || n/a || view || n/a ||
 
 || DEFECTS/ERRORS/CONFUSIONS ||
 || Anon || When/Where did the bug occur: || Effects/What happened: || Etc: || More? ||
@@ -64,6 +68,8 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 7 || n/a || n/a || n/a || n/a ||
 || 8 || n/a || n/a || n/a || n/a ||
 || 9 || n/a || n/a || n/a || n/a ||
+|| 10 || n/a || n/a || n/a || n/a ||
+
 
 
 || Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 || Anon 6 || Anon 7 || Anon 8 || Anon 9 ||
