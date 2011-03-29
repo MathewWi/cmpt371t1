@@ -32,6 +32,11 @@ public class GameStateInput
     private static final Logger logger = LoggerFactory
     					.getLogger(GameStateInput.class);
     
+    private static final float CAMERA_MIN_HEIGHT = 6.0f;
+    private static final float CAMERA_MAX_HEIGHT = 20.0f;
+    private static final float CAMERA_SCROLL_MAX_WIDTH_SCALE = 0.75f;
+    private static final float CAMERA_SCROLL_MAX_LENGTH_SCALE = 1.0f;
+    
     private Camera _cam;
     private Toolbelt _toolbelt;
     private GUIManager _guiManager;
@@ -298,9 +303,27 @@ public class GameStateInput
 	    _cam.moveLeft(Engine.getInstance().getInputSystem()
 	                  .getTouchScreen().getDistanceX()
 	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	    double distance = _cam.getEye().x - _grid.getGridCenter().x;
+	    distance = Math.sqrt(distance * distance);
+	    if (distance > _grid.getTotalWidth() * CAMERA_SCROLL_MAX_WIDTH_SCALE)
+	    {
+		    _cam.moveLeft(-Engine.getInstance().getInputSystem()
+		                  .getTouchScreen().getDistanceX()
+		                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	    }
+	    
+	    
 	    _cam.moveUp(-Engine.getInstance().getInputSystem()
 	                  .getTouchScreen().getDistanceY()
 	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	    distance = _cam.getEye().z - _grid.getGridCenter().z;
+	    distance = Math.sqrt(distance * distance);
+	    if (distance > _grid.getTotalHeight() * CAMERA_SCROLL_MAX_LENGTH_SCALE)
+	    {
+		    _cam.moveUp(Engine.getInstance().getInputSystem()
+		                  .getTouchScreen().getDistanceY()
+		                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	    }	    
 	    
 	    // set the touch mode back to none
 	    Engine.getInstance().getInputSystem()
@@ -344,12 +367,24 @@ public class GameStateInput
 			_cam.moveForward(1.0f);
 			logger.debug("pinch out: " +
 				     Float.toString(_pinchDist) + ", " +
-				     Float.toString(newPinchDist));
+				     Float.toString(newPinchDist));			
+			double distance = _cam.getEye().y - _grid.getGridCenter().y;
+			logger.debug("distance: " + distance);			
+			    if (distance < CAMERA_MIN_HEIGHT)
+			    {
+				_cam.moveForward(-1.0f);
+			    }	  			
 		    } else {
 			_cam.moveForward(-1.0f);
 			logger.debug("pinch in: " +
 				     Float.toString(_pinchDist) + ", " +
 				     Float.toString(newPinchDist));
+			double distance = _cam.getEye().y - _grid.getGridCenter().y;
+			logger.debug("distance: " + distance);
+			    if (distance > CAMERA_MAX_HEIGHT)
+			    {
+				_cam.moveForward(1.0f);
+			    }			
 		    }
 
 		}
@@ -449,7 +484,20 @@ public class GameStateInput
 	if(_flingEffect){
 	    // move the camera when fling effect is true
 	    _cam.moveLeft(-_flingMoveX);
+	    double distance = _cam.getEye().x - _grid.getGridCenter().x;
+	    distance = Math.sqrt(distance * distance);
+	    if (distance > _grid.getTotalWidth() * CAMERA_SCROLL_MAX_WIDTH_SCALE)
+	    {
+		_cam.moveLeft(_flingMoveX);
+	    }	    
+	    
 	    _cam.moveUp(_flingMoveY);
+	    distance = _cam.getEye().z - _grid.getGridCenter().z;
+	    distance = Math.sqrt(distance * distance);
+	    if (distance > _grid.getTotalHeight() * CAMERA_SCROLL_MAX_LENGTH_SCALE)
+	    {
+		_cam.moveUp(-_flingMoveY);
+	    }	    
 	}
     }
  
