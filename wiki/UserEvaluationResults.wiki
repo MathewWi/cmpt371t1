@@ -5,38 +5,39 @@ Data gathered from the play testing of students around campus. They are anonymou
 
 = Details =
 
-|| Topic || Question || Anon 1 ||
-|| User Info || || 
-|| || Experienced Player? || No ||
-|| || Like puzzle games? || Yes ||
-|| || Played mobile/touch game before? || Never || 
-|| || Time given to learn new game? || 2 min ||
-|| || Boredom level before playing? (1: most bored - 10: most fun) || 4 ||
-|| Game Aspect  (1: Sucks - 10: Awesome)||
-|| || Logic (Game premise)? || 3 ||
-|| || Ease of Use (Controls)? || 5 ||
-|| || Camera?|| 5 ||
-|| || Audio (Sound/Music)? || 8 ||
-|| || Performance (Responsiveness)? || 5 ||
-|| || Interface (Looks)? || 10 ||
-|| || Thought as a real game? || 4 ||
-|| || Thought as a game in development? || 5 ||
-|| || Overall Game Rating? || 5 ||
+|| Topic || Question || Anon 1 || Anon 2 || Anon 3 ||
+|| User Info || (1: Sucks - 10: Awesome) || 
+|| || Experienced Player? || No || No || No ||
+|| || Like puzzle games? || Yes || Yes || Yes ||
+|| || Played mobile/touch game before? || Never || Yes || Yes ||
+|| || Time given to learn new game? || 2 min || 2 min || 5 min ||
+|| || Boredom level before playing? || 4 || 4 || 3 ||
+|| Game Aspect ||
+|| || Logic (Game premise)? || 3 || 8 || 9 ||
+|| || Ease of Use (Controls)? || 5 || 7 || 6 ||
+|| || Camera?|| 5 || 9 || 10 ||
+|| || Audio (Sound/Music)? || 8 || 10 || 7 ||
+|| || Performance (Responsiveness)? || 5 || 8 || 8 ||
+|| || Interface (Looks)? || 10 || 9 || 7 || 
+|| || Thought as a real game? || 4 || 10 || 7 ||
+|| || Thought as a game in development? || 5 || 10 || 9.5 ||
+|| || Overall Game Rating? || 5 || 10 || 7 ||
 || Like/Dislike ||
-|| || Length to learn the game? Keep playing? || 5 min ||
-|| || The game was: || ok ||
-|| || Because: || difficult to make sense ||
-|| || The game needed: || development, excitement ||
-|| || I like this game? || no ||
-|| || I would play this game? || no ||
-|| || Liked about the game || difficult from other games ||
-|| || Disliked about the game || n/a ||
+|| || Length to learn the game? || 5 min || 3 min || 1 min ||
+|| || Keep playing length? || n/a || n/a || 30 min ||
+|| || The game was: || ok || fun || original ||
+|| || Because: || difficult to make sense || it made me think || Mirrors are radical ||
+|| || The game needed: || development, excitement || instructions || bigger squares ||
+|| || I like this game? || no || yes || yes ||
+|| || I would play this game? || no || yes || yes ||
+|| || Liked about the game || difficult from other games || fun, think || Prism ||
+|| || Disliked about the game || n/a || lack of instructions || small squares, unresponsive ||
 || Game Ideas ||
-|| || New features: || n/a ||
-|| || Old features (What could be improved): || n/a ||
-|| || Comments: || n/a ||
+|| || New features: || n/a || Points || Play own music ||
+|| || Old features (What could be improved): || n/a || graphics || n/a ||
+|| || Comments: || n/a || It was fun, good job || Choose templates/visuals ||
 || Possible Defects/Errors/Confusions ||
-|| || When/where did the bug occurred: || n/a ||
-|| || Effects/What happened || n/a ||
-|| || Etc: || n/a ||
-|| || More? || n/a ||
+|| || When/where did the bug occurred: || n/a || Trouble clicking || No bugs! ||
+|| || Effects/What happened || n/a || n/a || n/a ||
+|| || Etc: || n/a || n/a || n/a ||
+|| || More? || n/a || n/a || n/a ||
