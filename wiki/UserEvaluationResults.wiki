@@ -98,6 +98,21 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 18 || Move levels! || Improve the number of levels || I like it! *thumbs up* ||
 || 19 || move levels || bigger squares, less sensitive double tap || n/a ||
 || 20 || Make stages with coloured filters, recombining light || find a more intuitive way to show the direction the light is travelling || n/a ||
+|| PERSON TO PERSON IMPRESSIONS/SUGGESTIONS ||
+|| Feature || Different background for every level||
+|| Reason || Space background was nice, but other colorful/visual bgs wanted||
+|| Feature || Block different colours than background ||
+|| Reason || Blocks are not distinguishable from background||
+|| Feature || singlePress and singleLongPress should provide the same functionality||
+|| Reason ||When the single press fails users tries to push harder and longer, which makes them fail harder(since long press doesn't have any functionality)||
+|| Feature ||More than one song, or ability to play your own songs in the bg ||
+|| Reason ||generally everyone thought positively of the music, though might have a little repetitive.||
+|| Feature ||Hints ||
+|| Reason ||people may become frustrated and abandon the game||
+|| Feature || Manual ||
+|| Reason || Manual should be just a list of controls ||
+|| Feature || Discrete zoom in out buttons ||
+|| Reason || This would get rid of all zooming issues, people have gotten stuck when the zoomed in too much, no way to solve besides resetting game ||
 
 || DEFECTS/ERRORS/CONFUSIONS ||
 || Anon || When/Where did the bug occur: || Effects/What happened: || Etc: || More? ||
