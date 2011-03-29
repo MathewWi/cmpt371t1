@@ -98,6 +98,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 18 || Move levels! || Improve the number of levels || I like it! *thumbs up* ||
 || 19 || move levels || bigger squares, less sensitive double tap || n/a ||
 || 20 || Make stages with coloured filters, recombining light || find a more intuitive way to show the direction the light is travelling || n/a ||
+
 || PERSON TO PERSON IMPRESSIONS/SUGGESTIONS ||
 || Feature || Different background for every level||
 || Reason || Space background was nice, but other colorful/visual bgs wanted||
