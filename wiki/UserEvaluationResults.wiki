@@ -19,6 +19,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 10 || yes || yes || yes || 10 min || n/a ||
 || 11 || yes || yes || yes || 1 min || 5 ||
 || 12 || yes || yes || yes || after all levels are complete || 5 ||
+|| 13 || yes || yes || no || 1-2 levels || 6 ||
 
 || GAME ASPECT ||
 || Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
@@ -34,6 +35,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 10 || 8 || 10 || 5 || 5 || 5 || 8 || 7 || 8 || 7.5 ||
 || 11 || 8 || 8 || 10 || 9 || 7 || 10 || 9 || 10 || 9.5 ||
 || 12 || 6 || 8 || 7 || 9 || 8 || 8 || 7.5 || 8 || 8 ||
+|| 13 || 7 || 6 || 10 || 8 || 6 || 6 || 6 || 8 || 7 ||
 
 || LIKE/DISLIKE ||
 || Anon || Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
@@ -49,6 +51,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 10 || 2 min || n/a || good || not too easy || n/a || yes || yes || n/a || n/a ||
 || 11 || After the first two levels or so i got used to the controls and started getting invested in the puzzle || n/a || fun but maybe a little short, though i think i got lucky once or twice || n/a || more levels? maybe hints/lives || yes || yes || It was easy to understand the premise and objects, challenging but not frustrating || n/a ||
 || 12 || 1 min || n/a || interesting to play || it kept my attention || Instructions || yes || yes || very intriguing || its harder to start at first but gets easy after ||
+|| 13 || Interesting || it was reasonably challenging || more levels + tools || yes || yes || Music, Art style || touch || 
 
 || GAME IDEAS ||
 || Anon || New Features || Old Features || Comments ||
@@ -64,6 +67,7 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 10 || n/a || view || n/a ||
 || 11 || Possibly let the player rotate prisms, although i understand how this would change the puzzles || on screen instructions on how to play || n/a ||
 || 12 || Different background as you advance || Better lighting in the game || I like it!! ||
+|| 13 || Achievements: complete levels w/o using all tools, Tutorial level || Less sudden level complete prompt || n/a ||
 
 || DEFECTS/ERRORS/CONFUSIONS ||
 || Anon || When/Where did the bug occur: || Effects/What happened: || Etc: || More? ||
@@ -79,6 +83,10 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 10 || n/a || n/a || n/a || n/a ||
 || 11 || There were a couple times it didn't seem to respond when placing mirror || n/a || n/a || Trouble zooming in on the first level, the grid seemed to just shake ||
 || 12 || n/a || n/a || n/a || n/a ||
+|| 13 || Rotating the screen has a large delay; makes you think game crashed || n/a || n/a || n/a ||
+|| || Removing tools sometimes removes widget @ button || n/a || n/a || n/a ||
+|| || A larger (default) grid would be nice || n/a || n/a || n/a ||
+|| || Zoom feature is awesome; however is very picky to get it working correctly || n/a || n/a || n/a || 
 
 || Topic || Question || Anon 1 || Anon 2 || Anon 3 || Anon 4 || Anon 5 || Anon 6 || Anon 7 || Anon 8 || Anon 9 ||
 || USER INFO || (1: Sucks - 10: Awesome) || 
