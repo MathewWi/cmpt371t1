@@ -7,36 +7,36 @@ Data gathered from the play testing of students around campus. They are anonymou
 
 || Topic || Question || Anon 1 ||
 || User Info || || 
-|| || Experienced Player? ||
-|| || Like puzzle games? || 
-|| || Played mobile/touch game before? ||
-|| || Time given to learn new game? ||
-|| || Boredom level before playing? (1: most bored - 10: most fun) ||
+|| || Experienced Player? || No ||
+|| || Like puzzle games? || Yes ||
+|| || Played mobile/touch game before? || Never || 
+|| || Time given to learn new game? || 2 min ||
+|| || Boredom level before playing? (1: most bored - 10: most fun) || 4 ||
 || Game Aspect  (1: Sucks - 10: Awesome)||
-|| || Logic (Game premise)? ||
-|| || Ease of Use (Controls)? || 
-|| || Camera?|| 
-|| || Audio (Sound/Music)? ||
-|| || Performance (Responsiveness)? ||
-|| || Interface (Looks)? ||
-|| || Thought as a real game? ||
-|| || Thought as a game in development? ||
-|| || Overall Game Rating? ||
+|| || Logic (Game premise)? || 3 ||
+|| || Ease of Use (Controls)? || 5 ||
+|| || Camera?|| 5 ||
+|| || Audio (Sound/Music)? || 8 ||
+|| || Performance (Responsiveness)? || 5 ||
+|| || Interface (Looks)? || 10 ||
+|| || Thought as a real game? || 4 ||
+|| || Thought as a game in development? || 5 ||
+|| || Overall Game Rating? || 5 ||
 || Like/Dislike ||
-|| || Length to learn the game? Keep playing? ||
-|| || The game was: ||
-|| || Because: ||
-|| || The game needed: ||
-|| || I like this game? ||
-|| || I would play this game? ||
-|| || Liked about the game || 
-|| || Disliked about the game ||
+|| || Length to learn the game? Keep playing? || 5 min ||
+|| || The game was: || ok ||
+|| || Because: || difficult to make sense ||
+|| || The game needed: || development, excitement ||
+|| || I like this game? || no ||
+|| || I would play this game? || no ||
+|| || Liked about the game || difficult from other games ||
+|| || Disliked about the game || n/a ||
 || Game Ideas ||
-|| || New features: ||
-|| || Old features (What could be improved): ||
-|| || Comments: ||
+|| || New features: || n/a ||
+|| || Old features (What could be improved): || n/a ||
+|| || Comments: || n/a ||
 || Possible Defects/Errors/Confusions ||
-|| || When/where did the bug occurred: ||
-|| || Effects/What happened ||
-|| || Etc: ||
-|| || More? ||
+|| || When/where did the bug occurred: || n/a ||
+|| || Effects/What happened || n/a ||
+|| || Etc: || n/a ||
+|| || More? || n/a ||
