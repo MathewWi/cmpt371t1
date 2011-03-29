@@ -1,12 +1,12 @@
 package ca.sandstorm.luminance.level;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Text;
+import org.xmlpull.v1.XmlSerializer;
+
+import android.util.Xml;
 
 
 /**
@@ -16,189 +16,225 @@ import org.w3c.dom.Text;
  */
 public class XmlLevelBuilder
 {
-    private DocumentBuilder _builder;
-    private Document _doc;
+    private XmlSerializer _serializer;
+    private StringWriter _writer;
     
     /**
      * Constructor method for XmlLevelBuilder.
-     * @throws ParserConfigurationException
      */
-    public XmlLevelBuilder() throws ParserConfigurationException
+    public XmlLevelBuilder()
     {
-	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	_builder = factory.newDocumentBuilder();
+	_serializer = Xml.newSerializer();
+	_writer = new StringWriter();
     }
     
     /**
-     * Creates the Document object from an XmlLevel.
+     * Method for building an XmlLevel into a format suitable for outputting to a file.
      * @param level The XmlLevel to convert.
-     * @return A DOM Document object.
+     * @throws RuntimeException
+     * @throws FileNotFoundException 
      */
-    public Document build(XmlLevel level)
+    public void build(XmlLevel level, String filename) throws RuntimeException, FileNotFoundException
     {
-	_doc = _builder.newDocument();
-	_doc.appendChild(createLevel(level));
-	return _doc;
+	try {
+	    _serializer.setOutput(_writer);
+	    _serializer.startDocument("UTF-8", true);
+	    createLevel(level);
+	    _serializer.endDocument();
+	} catch (Exception e) {
+	    throw new RuntimeException(e);
+	}
+	
+	PrintWriter out = new PrintWriter(filename);
+	out.println(_writer.toString());
+	out.close();
     } 
     
     /**
-     * Saves the converted level to a file.
-     * @param filename The file to save to.
-     */
-    public void saveToFile(String filename)
-    {
-	// TODO
-    }
-    
-    /**
-     * Helper method for writing the level into the Document.
+     * Helper method for writing the level.
      * @param level The XmlLevel to be written.
-     * @return An Element object for <level>
+     * @throws Exception
      */
-    private Element createLevel(XmlLevel level)
+    private void createLevel(XmlLevel level) throws Exception
     {
-	Element e = _doc.createElement("level");
-	e.appendChild(createTextElement("name", level.getName()));
-	e.appendChild(createTextElement("difficulty", level.getDifficulty()));
-	e.appendChild(createGridSize(level.getXSize(), level.getYSize(), level.getWidth(), level.getHeight()));
-	for (XmlLevelObject levelObject : level.getObjects())
-	{
-	    e.appendChild(createObject(levelObject));
+	// Start the level tag.
+	_serializer.startTag("", "level");
+	
+	// Write the name.
+	_serializer.startTag("", "name");
+	_serializer.text(level.getName());
+	_serializer.endTag("", "name");
+	
+	// Write the difficulty.
+	_serializer.startTag("", "difficulty");
+	_serializer.text(level.getDifficulty());
+	_serializer.endTag("", "difficulty");
+	
+	// Write the grid size.
+	createGridSize(level.getXSize(), level.getYSize(), level.getWidth(), level.getHeight());
+	
+	// Write the level objects.
+	for (XmlLevelObject levelObject : level.getObjects()) {
+	    createObject(levelObject);
 	}
 	
-	for (XmlLevelTool levelTool : level.getTools())
-	{
-	    e.appendChild(createTool(levelTool));
+	// Write the level tools.
+	for (XmlLevelTool levelTool : level.getTools()) {
+	    createTool(levelTool);
 	}
-	return e;
+	
+	// End the level tag.
+	_serializer.endTag("", "level");
     }
     
     /**
-     * Helper method for writing the grid size into the Document.
-     * @param sizeX The size of the x dimension of the grid.
-     * @param sizeY The size of the y dimension of the grid.
+     * Helper method for writing the grid size.
+     * @param sizeX The x size of the grid.
+     * @param sizeY The y size of the grid.
      * @param width The width of the grid.
      * @param height The height of the grid.
-     * @return An Element object for <grid_size>.
+     * @throws Exception
      */
-    private Element createGridSize(int sizeX, int sizeY, float width, float height)
+    private void createGridSize(int sizeX, int sizeY, float width, float height) throws Exception
     {
-	Element e = _doc.createElement("grid_size");
-	e.appendChild(createTextElement("x", String.valueOf(sizeX)));
-	e.appendChild(createTextElement("y", String.valueOf(sizeY)));
-	e.appendChild(createTextElement("width", String.valueOf(width)));
-	e.appendChild(createTextElement("height", String.valueOf(height)));
-	return e;
+	// Start grid_size tag.
+	_serializer.startTag("", "grid_size");
+	
+	// Write the x.
+	_serializer.startTag("", "x");
+	_serializer.text(String.valueOf(sizeX));
+	_serializer.endTag("", "x");
+	
+	// Write the y.
+	_serializer.startTag("", "y");
+	_serializer.text(String.valueOf(sizeY));
+	_serializer.endTag("", "y");
+	
+	// Write the width.
+	_serializer.startTag("", "width");
+	_serializer.text(String.valueOf(width));
+	_serializer.endTag("", "width");
+	
+	// Write the height.
+	_serializer.startTag("", "height");
+	_serializer.text(String.valueOf(height));
+	_serializer.endTag("", "height");
+	
+	// End grid_size tag.
+	_serializer.endTag("", "grid_size");
     }
     
     /**
-     * Helper method for writing each object into the Document.
+     * Helper method for writing an object.
      * @param object The XmlLevelObject to be written.
-     * @return An Element object for an <object>.
+     * @throws Exception
      */
-    private Element createObject(XmlLevelObject object)
+    private void createObject(XmlLevelObject object) throws Exception
     {
-	Element e = _doc.createElement("object");
-	e.appendChild(createTextElement("type", object.getType()));
-	if (object.getType().equals(XmlLevelGoal.getId()))
-	{
-	    switch (((XmlLevelGoal)object).getColour())
-	    {
-		case Color.WHITE:
-		    e.appendChild(createTextElement("colour", "white"));
-		    break;
-		case Color.RED:
-		    e.appendChild(createTextElement("colour", "red"));
-		    break;
-		case Color.GREEN:
-		    e.appendChild(createTextElement("colour", "green"));
-		    break;
-		case Color.BLUE:
-		    e.appendChild(createTextElement("colour", "blue"));
-		    break;
-		default:
-		    throw new IllegalArgumentException("Goal has an invalid colour.");
-	    }
+	// Start object tag.
+	_serializer.startTag("", "object");
+	
+	// Write type tag.
+	_serializer.startTag("", "type");
+	_serializer.text(object.getType());
+	_serializer.endTag("", "type");
+	
+	if (object.isColouredObject()) {
+	    // Write colour tag.
+	    _serializer.startTag("", "colour");
+	    _serializer.text(object.getColourAsString());
+	    _serializer.endTag("", "colour");
 	}
-	else if (object.getType().equals(XmlLevelEmitter.getId()))
-	{
-	    switch (((XmlLevelEmitter)object).getColour())
-	    {
-		case Color.WHITE:
-		    e.appendChild(createTextElement("colour", "white"));
-		    break;
-		case Color.RED:
-		    e.appendChild(createTextElement("colour", "red"));
-		    break;
-		case Color.GREEN:
-		    e.appendChild(createTextElement("colour", "green"));
-		    break;
-		case Color.BLUE:
-		    e.appendChild(createTextElement("colour", "blue"));
-		    break;
-		default:
-		    throw new IllegalArgumentException("Emitter has an invalid colour.");
-	    }
-	}
-	e.appendChild(createObjectPosition(object.getPositionX(), object.getPositionY()));
-	e.appendChild(createObjectRotation(object.getRotationX(), object.getRotationY(), object.getRotationZ()));
-	return e;
+	
+	// Write object position.
+	createObjectPosition(object.getPositionX(), object.getPositionY());
+	
+	// Write object rotation.
+	createObjectRotation(object.getRotationX(), object.getRotationY(), object.getRotationZ());
+	
+	// End object tag.
+	_serializer.endTag("", "object");
+    }
+    
+    
+    
+    /**
+     * Helper method for writing object position
+     * @param positionX The x position of the object.
+     * @param positionY The y position of the object.
+     * @throws Exception
+     */
+    private void createObjectPosition(float positionX, float positionY) throws Exception
+    {
+	// Start position tag.
+	_serializer.startTag("", "position");
+	
+	// Write x tag.
+	_serializer.startTag("", "x");
+	_serializer.text(String.valueOf(positionX));
+	_serializer.endTag("", "x");
+	
+	// Write y tag.
+	_serializer.startTag("", "y");
+	_serializer.text(String.valueOf(positionY));
+	_serializer.endTag("", "y");
+	
+	// End position tag.
+	_serializer.endTag("", "position");
     }
     
     /**
-     * Helper method for writing the object position into the Document.
-     * @param positionX The x grid position of the object.
-     * @param positionY The y grid position of the object.
-     * @return An Element object for <position> of an object.
-     */
-    private Element createObjectPosition(float positionX, float positionY)
-    {
-	Element e = _doc.createElement("position");
-	e.appendChild(createTextElement("x", String.valueOf(positionX)));
-	e.appendChild(createTextElement("y", String.valueOf(positionY)));
-	return e;
-    }
-    
-    /**
-     * Helper method for writing the object rotation into the Document.
+     * Helper method for writing the object rotation.
      * @param rotationX The x rotation of the object.
      * @param rotationY The y rotation of the object.
      * @param rotationZ The z rotation of the object.
-     * @return An Element object for <rotation> of an object.
+     * @throws Exception
      */
-    private Element createObjectRotation(float rotationX, float rotationY, float rotationZ)
+    private void createObjectRotation(float rotationX, float rotationY, float rotationZ) throws Exception
     {
-	Element e = _doc.createElement("rotation");
-	e.appendChild(createTextElement("x", String.valueOf(rotationX)));
-	e.appendChild(createTextElement("y", String.valueOf(rotationY)));
-	e.appendChild(createTextElement("z", String.valueOf(rotationZ)));
-	return e;
+	// Start rotation tag.
+	_serializer.startTag("", "rotation");
+	
+	// Write x tag.
+	_serializer.startTag("", "x");
+	_serializer.text(String.valueOf(rotationX));
+	_serializer.endTag("", "x");
+	
+	// Write y tag.
+	_serializer.startTag("", "y");
+	_serializer.text(String.valueOf(rotationY));
+	_serializer.endTag("", "y");
+	
+	// Write z tag.
+	_serializer.startTag("", "z");
+	_serializer.text(String.valueOf(rotationZ));
+	_serializer.endTag("", "z");
+	
+	// End rotation tag.
+	_serializer.endTag("", "rotation");
     }
     
     /**
-     * Helper method for writing the XmlLevelTools into the Document.
+     * Helper method for writing the tools.
      * @param tool The XmlLevelTool to be written.
-     * @return An Element object for the <tool>.
+     * @throws Exception
      */
-    private Element createTool(XmlLevelTool tool)
+    private void createTool(XmlLevelTool tool) throws Exception
     {
-	Element e = _doc.createElement("tool");
-	e.appendChild(createTextElement("type", tool.getType()));
-	e.appendChild(createTextElement("count", String.valueOf(tool.getCount())));
-	return e;
-    }
-
-    /**
-     * Helper method for writing a just text Element.
-     * @param name The name of the element to be written.
-     * @param text The body of the element to be written.
-     * @return An Element object.
-     */
-    private Element createTextElement(String name, String text)
-    {
-	Text t = _doc.createTextNode(text);
-	Element e = _doc.createElement(name);
-	e.appendChild(t);
-	return e;
+	// Start tool tag.
+	_serializer.startTag("", "tool");
+	
+	// Write type element.
+	_serializer.startTag("", "type");
+	_serializer.text(tool.getType());
+	_serializer.endTag("", "type");
+	
+	// Write count element.
+	_serializer.startTag("", "count");
+	_serializer.text(String.valueOf(tool.getCount()));
+	_serializer.endTag("", "count");
+	
+	// End tool tag.
+	_serializer.endTag("", "tool");
     }
 }

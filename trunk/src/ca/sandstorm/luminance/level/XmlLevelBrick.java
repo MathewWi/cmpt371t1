@@ -34,4 +34,16 @@ public class XmlLevelBrick extends XmlLevelObject
 	return "brick";
     }
 
+    @Override
+    public int getColour()
+    {
+	return Color.WHITE;
+    }
+
+    @Override
+    public String getColourAsString()
+    {
+	return "white";
+    }
+
 }

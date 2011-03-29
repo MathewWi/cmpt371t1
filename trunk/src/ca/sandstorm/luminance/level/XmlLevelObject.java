@@ -150,6 +150,26 @@ public abstract class XmlLevelObject
 	_logger.debug("getRotationZ()");
 	return _rotationZ;
     }
+    
+    /**
+     * Checks if an object is a coloured object.
+     * @param object The XmlLevelObject to check.
+     * @return True if the object is a coloured object, false otherwise.
+     */
+    public boolean isColouredObject()
+    {
+	if (_type.equals(XmlLevelGoal.getId())) {
+	    return true;
+	}
+	if (_type.equals(XmlLevelEmitter.getId())) {
+	    return true;
+	}
+	return false;
+    }
+    
+    public abstract int getColour();
+    
+    public abstract String getColourAsString();
 
     /**
      * Returns a string representation of the XmlLevelObject.
