@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.gui;
 
+import java.util.LinkedList;
+
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 
@@ -13,9 +15,9 @@ public class NumericLabel implements IWidget
     private float _y;
     private float _width;
     private float _height;
-    private int _number;
+    private int _number = 0;
     
-    private PrimitiveQuad _quad;
+    private LinkedList<PrimitiveQuad> _digitQuads;
     private String _textureResourceLocation;
     private TextureResource _texture;
 
@@ -31,25 +33,38 @@ public class NumericLabel implements IWidget
 	_y = y;
 	_width = width;
 	_height = height;
-	_number = number;
 	_texture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/numbers.png");
 	_textureResourceLocation = "textures/numbers.png";
 	
-	_quad = new PrimitiveQuad(
-	                          new Vector3f(0, 0, 0),
-	                          new Vector3f(width, height, 0)
-	);
+	// Create the digits list and add the first one
+	_digitQuads = new LinkedList<PrimitiveQuad>();
+	setNumber(number);
     }
     
     public void setNumber(int number)
     {
-	// TODO: Temporary until multidigit support is added
-	if (_number < 0)
+	// Don't allow negative numbers
+	if (_number < 0) {
 	    _number = 0;
-	else if (_number > 9)
-	    _number = 9;
-	else
-	    _number = number;
+	}
+	
+	// Zero is a special case
+	int oldNumDigits = _digitQuads.size();
+	int numDigits = (number == 0) ? 1 : (int) Math.log10(number) + 1;
+	
+	// Add digits while necessary
+	while (numDigits > oldNumDigits) {
+	    _digitQuads.add(new PrimitiveQuad(new Vector3f(0,0,0), new Vector3f(_width,_height,0)));
+	    oldNumDigits++;
+	}
+	
+	// Remove digits while necessary
+	while (numDigits < oldNumDigits) {
+	    _digitQuads.removeLast();
+	    oldNumDigits--;
+	}
+	
+	_number = number;
     }
     
     /**
@@ -122,18 +137,25 @@ public class NumericLabel implements IWidget
     }
 
     public void draw(GL10 gl)
-    {
-	// Move to the proper digit in the texture
-	_quad.setWidthOffset((float)_number * (9f/10f), 0.1f);
-	
-	gl.glPushMatrix();
-	
+    {	
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
-	gl.glTranslatef(_x, _y, 0);
-	_quad.draw(gl);	
 	
-	gl.glPopMatrix();
+	// Go through all the digits individually
+	int digitIndex = 0;
+	for (PrimitiveQuad quad : _digitQuads) {
+	    // Calculate value of this digit and move the texture to the appropriate place
+	    float digit = (int)((_number % Math.pow(10, digitIndex+1)) / (Math.pow(10, digitIndex)));
+	    quad.setWidthOffset(digit / 10f, 0.1f);
+	    
+	    // Draw the digit
+	    gl.glPushMatrix();
+	    gl.glTranslatef(_x + ((_digitQuads.size() - digitIndex - 1) * _width), _y, 0);
+	    quad.draw(gl);
+	    gl.glPopMatrix();
+	    
+	    digitIndex++;
+	}
     }
 }

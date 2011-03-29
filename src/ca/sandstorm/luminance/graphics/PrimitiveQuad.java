@@ -60,10 +60,11 @@ public class PrimitiveQuad implements IRenderable
      */
     public void setWidthOffset(float offset, float width)
     {
-	_texCoords[0] = 1 - offset;
-	_texCoords[2] = 1 - offset + width;
-	_texCoords[4] = 1 - offset;
-	_texCoords[6] = 1 - offset + width;
+	_texCoords[0] = offset;
+	_texCoords[2] = offset + width;
+	_texCoords[4] = offset;
+	_texCoords[6] = offset + width;
+
 	
 	_texCoordBuffer.clear();
 	_texCoordBuffer.put(_texCoords);
