@@ -612,11 +612,11 @@ Follow-up from Martina:
 
 === Inspection Meeting ===
 The entire GUI package was examined but not all of the classes were found to have defects.
-  * Defect 1:
+  * Defect 1 *(Fixed)*:
     * Location: IWidget line 106
     * Summary: Why does the draw method not have a javadoc comment?
     * Discovered by: Martina
-  * Defect 2:
+  * Defect 2 *(Fixed)*:
     * Location: Label line 21
     * Summary: The _text variable is used as a label name or id, instead of the text it contains, as the variable name implies.  Should change this to be more intuitive.
     * Discovered by: Martina 
