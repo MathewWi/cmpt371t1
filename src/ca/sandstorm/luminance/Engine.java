@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Message;
 import android.os.SystemClock;
 
 import ca.sandstorm.luminance.audio.AndroidSoundPlayer;
@@ -38,7 +40,7 @@ public class Engine
 
     // constants for debugging
     public static final boolean DEBUG = false;
-    
+
     // singleton instance
     private static Engine _instance = null;
     private boolean _initialized = false;
@@ -72,7 +74,6 @@ public class Engine
     private int _titleBarHeight;
 
 
-
     /**
      * Constructor.
      * 
@@ -92,7 +93,7 @@ public class Engine
 	_touchFilter = new MultiTouchFilter();
 
 	_lastTime = SystemClock.uptimeMillis();
-	
+
 	_menuBarHeight = 0;
 	_titleBarHeight = 0;
     }
@@ -125,7 +126,7 @@ public class Engine
 	_context = context;
 	_resourceManager.setAssets(_context.getAssets());
 
-	//listDirectoryFiles("/");
+	// listDirectoryFiles("/");
     }
 
 
@@ -153,9 +154,11 @@ public class Engine
     {
 	return _renderer;
     }
-    
+
+
     /**
      * Returns the audio playback subsystem.
+     * 
      * @return Audio system
      */
     public AndroidSoundPlayer getAudio()
@@ -207,8 +210,8 @@ public class Engine
     {
 	_menuBarHeight = h;
     }
-    
-    
+
+
     /**
      * Set the title bar height the engine will use to offset input coordinates.
      * 
@@ -218,7 +221,7 @@ public class Engine
     public void setTitleBarHeight(int h)
     {
 	_titleBarHeight = h;
-    }    
+    }
 
 
     /**
@@ -230,8 +233,8 @@ public class Engine
     {
 	return _menuBarHeight;
     }
-    
-    
+
+
     /**
      * Get the title bar height.
      * 
@@ -240,11 +243,12 @@ public class Engine
     public int getTitleBarHeight()
     {
 	return _titleBarHeight;
-    }    
+    }
+
 
     /**
-     * Set the view width of the screen view, where gui will use to calculate the
-     * position.
+     * Set the view width of the screen view, where gui will use to calculate
+     * the position.
      * 
      * @param w
      *            The w value in pixels of the screen
@@ -254,9 +258,10 @@ public class Engine
 	_width = w;
     }
 
+
     /**
-     * Set the view height of the screen view, where gui will use to calculate the
-     * position.
+     * Set the view height of the screen view, where gui will use to calculate
+     * the position.
      * 
      * @param h
      *            The h value in pixels of the screen
@@ -266,7 +271,7 @@ public class Engine
 	_height = h;
     }
 
-    
+
     /**
      * Get the view port width in pixels.
      * 
@@ -347,11 +352,11 @@ public class Engine
     public void pushState(IState state)
     {
 	logger.debug("pushState(" + state + ")");
-	
+
 	// queue up state for adding on next update cycle
 	_stateQueue.add(state);
-	
-	//_stateStack.push(state);	
+
+	// _stateStack.push(state);
     }
 
 
@@ -363,10 +368,11 @@ public class Engine
     public IState popState()
     {
 	logger.debug("popState()");
-	
+
 	return _stateStack.pop();
     }
-    
+
+
     public IState getCurrentState()
     {
 	return _stateStack.peek();
@@ -387,7 +393,7 @@ public class Engine
 	}
 
 	// Resume all sounds
-	if(_audioSystem != null) {
+	if (_audioSystem != null) {
 	    _audioSystem.resumeAll();
 	}
     }
@@ -439,9 +445,8 @@ public class Engine
 	for (IState s : _stateStack) {
 	    s.deviceChanged(gl, _width, _height);
 	}
-	
-	for (IState s : _stateQueue)
-	{
+
+	for (IState s : _stateQueue) {
 	    s.deviceChanged(gl, _width, _height);
 	}
     }
@@ -457,23 +462,28 @@ public class Engine
      */
     public void init(GL10 gl)
     {
+	Luminance.getInstance().showLoadingBar();
+	
 	// Start music playback
 	try {
-	    MusicResource music = _resourceManager.loadMusic("sounds/music1.mp3");
+	    MusicResource music = _resourceManager
+		    .loadMusic("sounds/music1.mp3");
 	    _audioSystem.playMusic(music);
 	} catch (IOException e) {
 	    logger.error("Failed to load music file: " + e.getMessage());
 	}
-
-    	for (IState s : _stateStack) {
-    	    if (s.isActive()) {
-    		s.init(gl);
-    	    }
-    	}
-    	
-    	_initialized = true;
+	
+	for (IState s : _stateStack) {
+	    if (s.isActive()) {
+		s.init(gl);
+	    }
+	}
+	
+	Luminance.getInstance().dismissLoadingBar();
+	_initialized = true;
     }
-    
+
+
     /**
      * Check if the engine has been initialized.
      */
@@ -497,10 +507,16 @@ public class Engine
 	while (!_stateQueue.isEmpty()) {
 	    IState state = _stateQueue.remove();
 	    logger.debug("adding state: " + state);
+
+	    Luminance.getInstance().showLoadingBar();
+
 	    state.init(gl);
+
+	    Luminance.getInstance().dismissLoadingBar();
+	    
 	    _stateStack.add(state);
-	}	
-	
+	}
+
 	// calculate time step
 	long time = SystemClock.uptimeMillis();
 	// long timeDelta = time - _lastTime;
@@ -529,7 +545,7 @@ public class Engine
     public void draw(GL10 gl)
     {
 	// NOTE: do not flush the state queue here... only update() does that
-	
+
 	for (int i = 0; i < _stateStack.size(); i++) {
 	    IState s = _stateStack.get(i);
 	    if (s.isVisible()) {
