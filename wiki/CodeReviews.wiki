@@ -671,3 +671,199 @@ Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
+
+
+== Milestone 5: Inspection of the test classes ==
+*Moderator:* Martina
+
+*Author:* Jeff
+
+*Reader:* Jeff
+
+*Inspectors:* Kum, Martina, Amara, Jeff, Jonny, Sten, Zenja
+
+*Recorder:* Martina
+
+=== Inspection Meeting ===
+ToolBeltTest.java
+  * Defect 1:
+    * Location: line 32
+    * Summary: This test for testProcessClick doesn't do anything.  Should probably check with developer as to how to write a test for this method.
+    * Discovered by: Martina, Jeff
+  * Defect 2:
+    * Location: line 49 on
+    * Summary: The case where placing an eraser or no tool is not handled in the source code, therefore these tests don't work.  This is an issue with the source, not the test.
+    * Discovered by: Martina, Jeff
+  * Defect 3:
+    * Location: line 70
+    * Summary: Tests commented out because they don't belong in the testAddToolStock method.  Should be removed.
+    * Discovered by: Martina, Jeff
+  * Defect 4:
+    * Location: line 80
+    * Summary: testEraseTool method isn't done.  Should be fixed.
+    * Discovered by: Jeff
+
+XMLLevelBrickTest, XmlLevelPrismTest, XmlLevelMirrorTest
+  * Looks good :D
+
+XmlLevelParser
+  * Defect 5:
+    * Location: line 20
+    * Summary: This test is finished.  Remove this comment.
+    * Discovered by: Martina, Jeff
+  * Defect 6:
+    * Summary: Needs comments
+    * Discovered by: Martina, Jeff
+  * Otherwise, looks good :)
+
+XmlLevelTest
+  * Missing comments, but looks good
+
+CameraTest
+  * Defect 7:
+    * Location: line 33 on
+    * Summary: Commented out things that are unnecessary because they are pre-set things that don't change, therefore testing is moot.  Could be deleted.
+    * Discovered by: Martina, Zenja
+  * Defect 8:
+    * Location: line 136
+    * Summary: Ambiguity as to how to test this, may not be valid.
+    * Discovered by: Zenja
+
+XmlLevelGoalTest
+  * Defect 9:
+    * Location: line 51
+    * Summary: These tests will now fail since Sten changed some things in isValidColour.
+    * Discovered by: Sten
+  * Defect 10:
+    * Location: line 50
+    * Summary: This test should pass now because of previously mentioned changes Sten made.  Could be uncommented.
+    * Discovered by: Sten
+
+XmlLevelObjectTest
+  * Defect 11:
+    * Summary: Requires mock objects, which is in progress right now.  This needs to be completed.
+    * Discovered by: Martina, Jeff
+
+XmlLevelToolTest
+  * Defect 12:
+    * Location: line 35
+    * Summary: Could use equalsIgnoreCase 
+    * Discovered by: Martina, Sten
+  * Defect 13:
+    * Location: line 22
+    * Summary: Could also include tests for the first argument being invalid, while the second argument is, and vice versa.
+    * Discovered by: Martina
+
+=== Follow-up Results ===
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I later tried out a version on the phone.  It plays fantastic!
+  * I believe it is safe to say that these changes were made successfully.
+
+== Milestone 5: Inspection of the input classes and menu state class ==
+*Moderator:* Martina
+
+*Author:* Jonny
+
+*Reader:* Jonny
+
+*Inspectors:* Zenja, Kum, Martina, Sten, Amara, Jonny
+
+*Recorder:* Martina
+
+=== Inspection Meeting ===
+InputTouchScreen.java
+  * Defect 1:
+    * Location: line 24
+    * Summary: Should create an enum for all these static final integers.
+    * Discovered by: Zenja
+  * Defect 2:
+    * Location: line 33
+    * Summary: Could be Vector2f's, instead of separate variables for distancex, distancey etc.
+    * Discovered by: Zenja
+  * Defect 3:
+    * Location: line 24
+    * Summary: Should create an enum for all these static final integers.
+    * Discovered by: Zenja
+
+GameStateInput.java
+  * Defect 4:
+    * Summary: Zenja just pointed out zoom is touchy.  Jonny explained it might have to be changed.
+    * Discovered by: Zenja
+  * Defect 5:
+    * Location: line 35
+    * Summary: More static final's that could be enums
+    * Discovered by: Jonny
+  * Defect 6:
+    * Summary: Double tap input signals will be fired continuously if the user doubletaps and drags their finger around on the screen.
+    * Discovered by: Zenja
+  * Defect 7:
+    * Location: line 246
+    * Summary: Could get rid of this commented out stuff
+    * Discovered by: Jonny
+  * Defect 8:
+    * Location: line 249
+    * Summary: Should move the touchOccurred call to the previous function. 
+    * Discovered by: Zenja
+  * Defect 9:
+    * Location: line 259, 281
+    * Summary: If Ray r is null, this mouseClick method returns.  We don't know why this happens.  We should figure out this logic.
+    * Discovered by: Zenja, Jonny
+  * Defect 10:
+    * Summary: Needs comments.  Having trouble figuring out what's going on.
+    * Discovered by: Zenja, Jonny
+  * Defect 11:
+    * Location: line 303, 310 and 316, 323
+    * Summary: The exact same function call is happening twice in a row.  This is redundant, and probably isn't necessary.  One should be removed.
+    * Edit: One of the function calls are made negative.  Not sure why.  Stephen made some changes and we're not sure what its supposed to do.
+    * Discovered by: Jonny
+  * Defect 12:
+    * Location: 395
+    * Summary: Missing javadoc on flingGesture method
+    * Discovered by: Martina
+  * Defect 13:
+    * Location: calculateFlingMove method
+    * Summary: Instead of having all these if statements, could just calculate the values and set the opposite value should be handled on its own.
+    * Discovered by: Zenja
+  * Defect 14:
+    * Location: 
+    * Summary: A lot of fields could be made into Vector2f's
+    * Discovered by: Martina
+
+MenuState.java - this code was also written by Kum
+  * Defect 15:
+    * Location: line 46
+    * Summary: Bad variable name.  We don't know what _quad means!  Should be more appropriately named.
+    * Discovered by: Zenja
+  * Defect 16:
+    * Location: line 70
+    * Summary: This method test() should be renamed to start() to make more sense.
+    * Discovered by: Jonny
+  * Defect 17:
+    * Location: line 83, 104, 240
+    * Summary: javadoc missing from showLevelMenu(), addWidgets() and loadTexures()
+    * Discovered by: Jonny
+  * Defect 18:
+    * Location: line 104
+    * Summary: addWidgets() method unnecessary now.  Should be removed.
+    * Discovered by: Zenja, Kum
+  * Defect 19:
+    * Location: line 153
+    * Summary: init() method really ugly.  Needs comments!
+    * Discovered by: Zenja, Jonny
+  * Defect 20:
+    * Location: line 203
+    * Summary: This commented out code should be removed and moved to the LevelState
+    * Discovered by: Kum, Jonny
+  * Defect 21:
+    * Location: line 211
+    * Summary: Sound button currently doesn't do anything.  Also needs a new texture to indicate the sound is off.
+    * Discovered by: Martina, Jonny
+
+=== Follow-up Results ===
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I later tried out a version on the phone.  It plays fantastic!
+  * I believe it is safe to say that these changes were made successfully.
