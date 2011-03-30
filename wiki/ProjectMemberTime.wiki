@@ -175,6 +175,7 @@
 || Added camera movement restrictions || 2 ||
 || Fixed grid/level position bug || 1 ||
 || Built stand alone (for PC) level editor || 16 ||
+|| Added loading bar || 2 ||
 
 
 == Martina Nagy ==
