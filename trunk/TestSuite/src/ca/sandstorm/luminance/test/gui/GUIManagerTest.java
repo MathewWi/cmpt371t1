@@ -22,7 +22,7 @@ public class GUIManagerTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		guiManager = new GUIManager();
+		//guiManager = new GUIManager();
 		button = new Button[MAX_BUTTON_COUNT];
 	}
 
@@ -40,7 +40,7 @@ public class GUIManagerTest extends AndroidTestCase {
 	 * {@link ca.sandstorm.luminance.gui.GUIManager#GUIManager()}.
 	 */
 	public void testGUIManager() {
-		guiManager = new GUIManager();
+		//guiManager = new GUIManager();
 	}
 
 	/**
