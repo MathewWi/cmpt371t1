@@ -325,12 +325,12 @@ public class Grid
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
 	// Set color
-	gl.glColor4f(1f, 1f, 1f, 1f);
-
+	gl.glColor4f(1.0f, 1.0f, 0.0f, 0.875f);
+	
 	// Draw the vertices as triangles, based on the Index Buffer information
 	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,
 			  _indexBuffer);
-
+	
 	// Disable the client state before leaving
 	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
     }
