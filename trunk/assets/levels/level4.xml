@@ -45,8 +45,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>0</x>
-			<y>6</y>
+			<x>6</x>
+			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -58,8 +58,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>6</x>
-			<y>0</y>
+			<x>0</x>
+			<y>6</y>
 		</position>
 		<rotation>
 			<x>0</x>

@@ -17,8 +17,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>0</x>
-			<y>5</y>
+			<x>5</x>
+			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -43,8 +43,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>1</x>
-			<y>3</y>
+			<x>3</x>
+			<y>1</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -56,8 +56,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>1</x>
-			<y>7</y>
+			<x>7</x>
+			<y>1</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -69,8 +69,8 @@
 	<object>
 		<type>brick</type>
 		<position>
-			<x>2</x>
-			<y>7</y>
+			<x>7</x>
+			<y>2</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -83,8 +83,8 @@
 		<type>goal</type>
 		<colour>white</colour>
 		<position>
-			<x>0</x>
-			<y>8</y>
+			<x>8</x>
+			<y>0</y>
 		</position>
 		<rotation>
 			<x>0</x>
@@ -98,8 +98,8 @@
 		<type>emitter</type>
 		<colour>white</colour>
 		<position>
-			<x>2</x>
-			<y>0</y>
+			<x>0</x>
+			<y>2</y>
 		</position>
 		<rotation>
 			<x>0</x>
