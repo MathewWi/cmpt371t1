@@ -193,8 +193,6 @@ public class XmlLevelParser
 					}
 					xmlLevelObject.setPosition(objectXFloat, objectYFloat);
 					xmlLevelObject.setRotation(objectXRotationFloat, objectYRotationFloat, objectZRotationFloat);
-
-					System.out.println(xmlLevelObject.toString());
 					
 					// Add the object to a linked list of objects
 					objectList.add(xmlLevelObject);
