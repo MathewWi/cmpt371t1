@@ -73,7 +73,7 @@ public class Luminance extends Activity
 	    }
 
 	    if (msg.getData().getBoolean("startLoadGame")) {
-		_myDialog = ProgressDialog.show(Luminance.getInstance(), " ",
+		_myDialog = ProgressDialog.show(Luminance.getInstance(), "LUMINANCE",
 						" Loading. Please wait ... ",
 						true);
 	    } else if (msg.getData().getBoolean("finishLoadGame")) {
