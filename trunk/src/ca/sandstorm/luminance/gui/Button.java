@@ -15,24 +15,14 @@ import ca.sandstorm.luminance.resources.TextureResource;
  * @author Kumaran Vijayan.
  * Modified by Zenja to use a PrimitiveQuad for rendering.
  */
-public class Button implements IWidget
+public class Button extends Label
 {
-    private float _x;
-    private float _y;
-    private float _width;
-    private float _height;
-        
-    private PrimitiveQuad _quad;
-    private String _textureLocation;
     private String _tappedTextureLocation;
-    private TextureResource _texture;
     private TextureResource _tappedTexture;
     
     // This texture's value is swapped between _texture and _tappedTexture.
     // Used for drawing in the draw(GL10) method.
     private TextureResource _drawTexture;
-    
-    private String _identifier;
     
     private Object _callee;
     private Method _method;
@@ -52,86 +42,10 @@ public class Button implements IWidget
      */
     public Button(float x, float y, float width, float height, String title)
     {
-	this._x = x;
-	this._y = y;
-	this._width = width;
-	this._height = height;
-	_identifier = title;
+	super(x, y, width, height, title);
+	
 	_isTapped = false;
 	_isSelected = false;
-	
-	_quad = new PrimitiveQuad(
-	    new Vector3f(0, 0, 0),
-	    new Vector3f(width, height, 0)
-	);
-    }
-
-    public String getIdentifier()
-    {
-	return _identifier;
-    }
-
-    public void setIdentifier(String identifier)
-    {
-	_identifier = identifier;
-    }
-
-    public float getX()
-    {
-	return _x;
-    }
-
-
-    public void setX(float x)
-    {
-	_x = x;
-    }
-
-
-    public float getY()
-    {
-	return _y;
-    }
-
-
-    public void setY(float y)
-    {
-	_y = y;
-    }
-
-
-    public float getWidth()
-    {
-	return _width;
-    }
-
-
-    public void setWidth(float width)
-    {
-	_width = width;
-    }
-
-
-    public float getHeight()
-    {
-	return _height;
-    }
-
-
-    public void setHeight(float height)
-    {
-	_height = height;
-    }
-    
-    
-    public String getTextureResourceLocation()
-    {
-	return _textureLocation;
-    }
-    
-    public void setTextureResourceLocation(String textureResourceLocation)
-    {
-	_textureLocation = textureResourceLocation;
     }
     
     /**
@@ -154,11 +68,6 @@ public class Button implements IWidget
     public void setTappedTextureLocation(String tappedTextureLocation)
     {
 	_tappedTextureLocation = tappedTextureLocation;
-    }
-    
-    public TextureResource getTexture()
-    {
-	return _texture;
     }
     
     public void setTexture(TextureResource texture)
@@ -332,7 +241,7 @@ public class Button implements IWidget
     {
 	gl.glPushMatrix();
 	
-	gl.glTranslatef(_x, _y, 0);		
+	gl.glTranslatef(_x, _y, 0);
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glColor4f(1f, 1f, 1f, 1f);
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, _drawTexture.getTexture());
