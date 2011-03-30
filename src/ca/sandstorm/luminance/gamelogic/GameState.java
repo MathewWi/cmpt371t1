@@ -308,7 +308,7 @@ public class GameState implements IState
 	    {
 		//XmlLevelObject obj = level.getObjects().get(i);
 		
-		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionX(), (int)obj.getPositionY());
+		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionY(), (int)obj.getPositionX());
 		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);
 		vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid		
 		Vector3f vRot = new Vector3f(obj.getRotationX(), obj.getRotationY(), obj.getRotationZ());

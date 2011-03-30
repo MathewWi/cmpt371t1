@@ -288,7 +288,7 @@ public class Grid
     public Point2i getGridPosition(float x, float y, float z)
     {	
 	float gridX = x / _cellWidth;
-	float gridZ = z / _cellWidth;
+	float gridZ = z / _cellHeight;
 	
 	// Check if position is within grid -zenja
 	if (gridX < 0 || gridZ < 0 ||
