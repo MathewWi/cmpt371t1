@@ -880,13 +880,16 @@ Follow-up from Martina:
 *Recorder:* Jonny
 
 === Inspection Meeting ===
-AndroidSoundPlayerTest.java - No defect. :D
-All the primitive object test class look good.
+!AndroidSoundPlayerTest.java
+* No defect. :D
 
-ImageResourceTest.java
-MusicResourcesTest.java
+!All the primitive object test
+*  Looks good.
 
-ResourceManagerTest.java
+!ImageResourceTest.java, MusicResourcesTest.java
+* No defects.
+
+!ResourceManagerTest.java
   * Defect 1:
     * Location: General resourceManagerTest class
     * Summary: Instead of loading properly, could add test asset within manager if it is still correct.
@@ -897,26 +900,25 @@ ResourceManagerTest.java
     * Summary: Could check the ID of the textures.
     * Discovered by: Zenja
 
-ResourceTest.java - looks good
+!ResourceTest.java, SoundResourceTest.java, TextResourceTest.java
+* Good
 
-SoundResourceTest.java good
-TextResourceTest.java good
-
-TextureResourceTest.java
+!TextureResourceTest.java
   * Defect 3:
     * Location: line 45
     * Summary: testGetSound() should be renamed
     * Discovered by: Zenja
 
-CollidersTest.java
+!CollidersTest.java
   * Defect 4:
     * Location: line 103
     * Summary: testIntersionPlane() not sure why assert(true), need to look at the code.
     * Discovered by: Chet
 
-LerpTest.java, PlaneTest.java - No problem
+!LerpTest.java, PlaneTest.java
+* No problem
 
-RayTest.java
+!RayTest.java
   * Defect 5:
     * Location: RayTest
     * Summary: Not sure why some codes have been commenting out. Need to look into it.
