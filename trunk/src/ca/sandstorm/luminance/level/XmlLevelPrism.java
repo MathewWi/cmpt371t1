@@ -29,7 +29,6 @@ public class XmlLevelPrism extends XmlLevelTool
      */
     public static String getId()
     {
-	_logger.debug("getId()");
 	return "prism";
     }
 

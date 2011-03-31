@@ -30,7 +30,6 @@ public class XmlLevelMirror extends XmlLevelTool
      */
     public static String getId()
     {
-	_logger.debug("getId()");
 	return "mirror";
     }
 }

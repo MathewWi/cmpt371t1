@@ -55,7 +55,6 @@ public class XmlLevel
      */
     public String getName()
     {
-	_logger.debug("getName()");
 	return _name;
     }
 
@@ -65,7 +64,6 @@ public class XmlLevel
      */
     public String getDifficulty()
     {
-	_logger.debug("getDifficulty()");
 	return _difficulty;
     }
 
@@ -75,7 +73,6 @@ public class XmlLevel
      */
     public int getXSize()
     {
-	_logger.debug("getXSize()");
 	return _xSize;
     }
 
@@ -85,7 +82,6 @@ public class XmlLevel
      */
     public int getYSize()
     {
-	_logger.debug("getYSize()");
 	return _ySize;
     }
 
@@ -95,7 +91,6 @@ public class XmlLevel
      */
     public float getWidth()
     {
-	_logger.debug("getWidth()");
 	return _width;
     }
 
@@ -105,7 +100,6 @@ public class XmlLevel
      */
     public float getHeight()
     {
-	_logger.debug("getHeight()");
 	return _height;
     }
 
@@ -115,7 +109,6 @@ public class XmlLevel
      */
     public LinkedList<XmlLevelObject> getObjects()
     {
-	_logger.debug("getObjects()");
 	return _objects;
     }
 
@@ -125,7 +118,6 @@ public class XmlLevel
      */
     public LinkedList<XmlLevelTool> getTools()
     {
-	_logger.debug("getTools()");
 	return _tools;
     }
 
@@ -134,7 +126,6 @@ public class XmlLevel
      */
     public String toString()
     {
-	_logger.debug("toString()");
 	return("Name: " + getName() + 
 		"\nDifficulty: " + getDifficulty() + 
 		"\nGrid Size: " + getXSize() + " x " + getYSize() + 

@@ -24,12 +24,10 @@ public class XmlLevelTool
     public XmlLevelTool(String type, int count)
     {
 	_logger.debug("XmlLevelTool(" + type + ", " + count + ")");
-	if (!isValidType(type)) 
-	{
+	if (!isValidType(type)) {
 	    throw new IllegalArgumentException("Type given (\"" + type + "\") is invalid.");
 	}
-	else if (count < 0)
-	{
+	else if (count < 0) {
 	    throw new IllegalArgumentException("Number of " + type + "s given (" + count + ") is invalid.");
 	}
 	_type = type;
@@ -42,7 +40,6 @@ public class XmlLevelTool
      */
     public String getType()
     {
-	_logger.debug("getType()");
 	return _type;
     }
 
@@ -52,7 +49,6 @@ public class XmlLevelTool
      */
     public int getCount()
     {
-	_logger.debug("getCount()");
 	return _count;
     }
 
@@ -64,13 +60,10 @@ public class XmlLevelTool
      */
     public boolean isValidType(String type)
     {
-	_logger.debug("isValidType(" + type + ")");
-	if (type.equals(XmlLevelMirror.getId()))
-	{
+	if (type.equals(XmlLevelMirror.getId())) {
 	    return true;
 	}
-	else if (type.equals(XmlLevelPrism.getId()))
-	{
+	else if (type.equals(XmlLevelPrism.getId())) {
 	    return true;
 	}
 	else {
@@ -84,7 +77,6 @@ public class XmlLevelTool
      */
     public String toString()
     {
-	_logger.debug("toString()");
 	return ("\nType: " + getType() + 
 		"\nCount: " + getCount());
     }

@@ -28,12 +28,10 @@ public class XmlLevelGoal extends XmlLevelObject
 	super(XmlLevelGoal.getId());
 	_logger.debug("XmlLevelGoal(" + colour + ")");
 	
-	if (!isValidColour(colour))
-	{
+	if (!isValidColour(colour)) {
 	    throw new IllegalArgumentException("The colour " + colour + " is invalid.");
 	}
-	else
-	{
+	else {
 	    _colour = Color.parseColor(colour);
 	}
     }
@@ -46,22 +44,17 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public boolean isValidColour(String colour) 
     {
-	_logger.debug("isValidColour(" + colour + ")");
 	colour = colour.toUpperCase();
-	if (colour.equals(GoalColour.WHITE.toString()))
-	{
+	if (colour.equals(GoalColour.WHITE.toString())) {
 	    return true;
 	}
-	else if (colour.equals(GoalColour.RED.toString())) 
-	{
+	else if (colour.equals(GoalColour.RED.toString()))  {
 	    return true;
 	}
-	else if (colour.equals(GoalColour.BLUE.toString())) 
-	{
+	else if (colour.equals(GoalColour.BLUE.toString()))  {
 	    return true;
 	}
-	else if (colour.equals(GoalColour.GREEN.toString()))
-	{
+	else if (colour.equals(GoalColour.GREEN.toString())) {
 	    return true;
 	}
 	return false;
@@ -73,7 +66,6 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public int getColour()
     {
-	_logger.debug("getColour()");
 	return _colour;
     }
 
@@ -82,7 +74,6 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public String toString()
     {
-	_logger.debug("toString()");
 	return (super.toString() + "\nColour: " + getColour());
     }
     
@@ -112,7 +103,6 @@ public class XmlLevelGoal extends XmlLevelObject
      */
     public static String getId()
     {
-	_logger.debug("getId()");
 	return "goal";
     }
 }
