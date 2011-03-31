@@ -16,29 +16,41 @@ public abstract class XmlLevelObject
     
     private String _type;
     private Vector<Float> _position;
-//    private float _rotationX;
-//    private float _rotationY;
-//    private float _rotationZ;
     private Vector<Float> _rotation;
 
     /**
      * Constructor for XmlLevelObject.
      * @param type The type of the object.
+     * @param position A vector containing position of the object (x, y).
+     * @param rotation A vector containing rotation of the object (x, y, z).
      * @throws IllegalArgumentException
      * @precond type is brick or goal.
+     * @precond position has 2 elements.
+     * @precond rotation has 3 elements.
+     * @precond x and y of position are positive.
      * @postcond XmlLevelObject is created with given type.
      */
-    public XmlLevelObject(String type) throws IllegalArgumentException 
+    public XmlLevelObject(String type, Vector<Float> position, Vector<Float> rotation) throws IllegalArgumentException 
     {
-	_logger.debug("XmlLevelObject(" + type + ")");
-	if (isValidType(type)) {
-	    _type = type;
+	_logger.debug("XmlLevelObject(" + type + ", " + position.toString() + ", " + rotation.toString() + ")");
+	if (!isValidType(type)) {
+	    throw new IllegalArgumentException("The type given is invalid. Type given was " + type);
 	}
-	else {
-	    throw new IllegalArgumentException("The type given is invalid.");
+	if (position.size() != 2) {
+	    throw new IllegalArgumentException("Position must be a vector with 2 elements. Position given had size " + position.size());
 	}
-	_position = new Vector<Float>(2);
-	_rotation = new Vector<Float>(3);
+	if (rotation.size() != 3) {
+	    throw new IllegalArgumentException("Rotation must be a vector with 3 elements. Rotation given had size " + rotation.size());
+	}
+	if (position.get(0) < 0) {
+	    throw new IllegalArgumentException("X position can't be negative. It is " + position.get(0));
+	}
+	if (position.get(1) < 0) {
+	    throw new IllegalArgumentException("Y position can't be negative. It is " + position.get(1));
+	}
+	_type = type;
+	_position = position;
+	_rotation = rotation;
     }
 
     /**
@@ -73,19 +85,6 @@ public abstract class XmlLevelObject
     }
 
     /**
-     * Setter method for the object's position.
-     * @param x The x position of the object.
-     * @param y The y position of the object.
-     * @precond x > 0, y > 0
-     * @postcond _positionX == x, _positionY == y
-     */
-    public void setPosition(float x, float y)
-    {
-	_position.add(x);
-	_position.add(y);
-    }
-
-    /**
      * The getter method for the object's x position.
      * @return The object's x position.
      */
@@ -110,19 +109,6 @@ public abstract class XmlLevelObject
     public Vector<Float> getPosition()
     {
 	return _position;
-    }
-
-    /**
-     * The setter method for the object's rotation.
-     * @param rotation The rotation of the object.
-     * @precond rotation > 0
-     * @postcond _rotation == rotation
-     */
-    public void setRotation(float rotationX, float rotationY, float rotationZ)
-    {
-	_rotation.add(rotationX);
-	_rotation.add(rotationY);
-	_rotation.add(rotationZ);
     }
 
     /**

@@ -2,6 +2,7 @@ package ca.sandstorm.luminance.level;
 
 import java.io.InputStream;
 import java.util.LinkedList;
+import java.util.Vector;
 
 import javax.xml.parsers.*;
 
@@ -130,13 +131,17 @@ public class XmlLevelParser
 		    Element objectYElement = (Element)objectYNodeList.item(0);
 		    NodeList objectY = objectYElement.getChildNodes();
 		    String objectYString = ((Node)objectY.item(0)).getNodeValue();
-		    //System.out.println("Object y: " + objectYString);
 		    float objectYFloat = 0;
 		    try {
 			objectYFloat = Float.valueOf(objectYString.trim()).floatValue();
 		    } catch (NumberFormatException e) {
 			e.printStackTrace();
 		    }
+		    
+		    // Make the position vector.
+		    Vector<Float> position = new Vector<Float>(2);
+		    position.add(objectXFloat);
+		    position.add(objectYFloat);
 
 		    // Get the rotation
 		    NodeList rotationNodeList = element.getElementsByTagName("rotation");
@@ -162,20 +167,24 @@ public class XmlLevelParser
 		    NodeList objectZRotation = objectZRotationElement.getChildNodes();
 		    String objectZRotationString = ((Node)objectZRotation.item(0)).getNodeValue();
 		    float objectZRotationFloat = Float.parseFloat(objectZRotationString);
+		    
+		    // Create the rotation vector.
+		    Vector<Float> rotation = new Vector<Float>(3);
+		    rotation.add(objectXRotationFloat);
+		    rotation.add(objectYRotationFloat);
+		    rotation.add(objectZRotationFloat);
 
 		    // Create the object for the level
 		    XmlLevelObject xmlLevelObject = null;
 		    if (typeString.equals(XmlLevelBrick.getId())) {
-			xmlLevelObject = new XmlLevelBrick();
+			xmlLevelObject = new XmlLevelBrick(position, rotation);
 		    }
 		    else if (typeString.equals(XmlLevelGoal.getId())) {
-			xmlLevelObject = new XmlLevelGoal(colourString);
+			xmlLevelObject = new XmlLevelGoal(colourString, position, rotation);
 		    }
 		    else if (typeString.equals(XmlLevelEmitter.getId())) {
-			xmlLevelObject = new XmlLevelEmitter(colourString);
+			xmlLevelObject = new XmlLevelEmitter(colourString, position, rotation);
 		    }
-		    xmlLevelObject.setPosition(objectXFloat, objectYFloat);
-		    xmlLevelObject.setRotation(objectXRotationFloat, objectYRotationFloat, objectZRotationFloat);
 
 		    // Add the object to a linked list of objects
 		    objectList.add(xmlLevelObject);
