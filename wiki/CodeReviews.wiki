@@ -929,3 +929,59 @@ Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
+
+= Milestone 5: Inspection of GameObject system and TimeSystem ==
+*Moderator:* Martina
+
+*Author:* Martina
+
+*Reader:* Martina
+
+*Inspectors:* Zenja, Martina, Chet, Jonny, Jeff
+
+*Recorder:* Zenja
+
+=== Inspection Meeting ===
+!BoxTest.java: no defects. Perhaps double-check that beamInteract is tested sufficiently.
+
+  * Defect 1:
+    * Location: EmitterTest - testBeamInteract()
+    * Summary: No test written, but there should be one.
+    * Discovered by: Martina
+  * Defect 2:
+    * Location: GameObjectTest
+    * Summary: This test file should either be scrapped (since it's an abstract class) or somehow improved to test the subclassing aspect better. Currently it's the same as a Box test.
+    * Discovered by: Martina
+  * Defect 3:
+    * Location: GridTest - testGetCellHeight()
+    * Summary: Makes a call to getCellWidth instead of getCellHeight (mindless copy/paste error)
+    * Discovered by: Martina
+  * Defect 4:
+    * Location: GridTest - testGetGridPosition()
+    * Summary: Commented out. Restore it and fix it.
+    * Discovered by: Everyone
+  * Defect 5:
+    * Location: LightTest - various methods
+    * Summary: Commented out for an unknown reason.
+    * Discovered by: Everyone
+  * Defect 6:
+    * Location: MirrorTest, PrismTest - testBeamInteract()
+    * Summary: Can be more comprehensive. It could check to make sure that a new beam is created after bouncing off the mirror for example.
+    * Discovered by: Martina
+  * Defect 7:
+    * Location: PrismTest - testGetCollisionSphere()
+    * Summary: The X coordinate is checked 3 times instead of X,Y,Z.
+    * Discovered by: Martina
+  * Defect 8:
+    * Location: SkyboxTest
+    * Summary: Everything is commented out.
+    * Discovered by: Everyone
+  * Defect 9:
+    * Location: TimeSystemTest - testFreeze()
+    * Summary: Could implement a real test rather than the current ones which don't really do anything
+    * Discovered by:
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I later tried out a version on the phone.  It plays fantastic!
+  * I believe it is safe to say that these changes were made successfully.
