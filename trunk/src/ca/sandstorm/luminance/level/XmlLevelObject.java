@@ -15,12 +15,11 @@ public abstract class XmlLevelObject
     private static final Logger _logger = LoggerFactory.getLogger(XmlLevelObject.class);
     
     private String _type;
-    //private float _positionX;
-    //private float _positionY;
     private Vector<Float> _position;
-    private float _rotationX;
-    private float _rotationY;
-    private float _rotationZ;
+//    private float _rotationX;
+//    private float _rotationY;
+//    private float _rotationZ;
+    private Vector<Float> _rotation;
 
     /**
      * Constructor for XmlLevelObject.
@@ -39,6 +38,7 @@ public abstract class XmlLevelObject
 	    throw new IllegalArgumentException("The type given is invalid.");
 	}
 	_position = new Vector<Float>(2);
+	_rotation = new Vector<Float>(3);
     }
 
     /**
@@ -120,9 +120,9 @@ public abstract class XmlLevelObject
      */
     public void setRotation(float rotationX, float rotationY, float rotationZ)
     {
-	_rotationX = rotationX;
-	_rotationY = rotationY;
-	_rotationZ = rotationZ;
+	_rotation.add(rotationX);
+	_rotation.add(rotationY);
+	_rotation.add(rotationZ);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class XmlLevelObject
      */
     public float getRotationX()
     {
-	return _rotationX;
+	return _rotation.get(0);
     }
 
     /**
@@ -140,7 +140,7 @@ public abstract class XmlLevelObject
      */
     public float getRotationY()
     {
-	return _rotationY;
+	return _rotation.get(1);
     }
 
     /**
@@ -149,7 +149,16 @@ public abstract class XmlLevelObject
      */
     public float getRotationZ()
     {
-	return _rotationZ;
+	return _rotation.get(2);
+    }
+    
+    /**
+     * Getter method for the object's rotation Vector.
+     * @return The object's rotation Vector.
+     */
+    public Vector<Float> getRotation()
+    {
+	return _rotation;
     }
     
     /**
