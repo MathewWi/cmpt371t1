@@ -9,6 +9,8 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.KeyEvent;
@@ -77,6 +79,18 @@ public class MenuState implements IState
 	Engine.getInstance().popState();
 	Engine.getInstance().pushState(new GameState(0));
     }
+    
+    
+    /**
+     * This method exists solely for testing the button action features. Its
+     * existence is temporary.
+     */
+    public void toggleSound()
+    {
+	logger.debug("toggleSound()");
+
+	Engine.getInstance().setAudioEnabled(!Engine.getInstance().getAudioEnabled());
+    }    
 
 
     public void showLevelMenu()
@@ -212,7 +226,8 @@ public class MenuState implements IState
 		0.14f * width, 0.12f * height, "Sound");
 	soundButton.setTextureResourceLocation("textures/sound.png");
 	soundButton.setTappedTextureLocation("textures/soundClicked.png");
-
+	soundButton.setCalleeAndMethod(this, "toggleSound");
+	
 	// Button scoreButton = new Button(0.010f*width,
 	// 0.740f*height,
 	// 0.140f*width,

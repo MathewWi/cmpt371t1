@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Message;
 import android.os.SystemClock;
@@ -65,6 +66,9 @@ public class Engine
     private ResourceManager _resourceManager;
     private GameRenderer _renderer;
     private TouchFilter _touchFilter;
+    
+    // is audio enabled (user choice here)
+    private boolean _audioEnabled;
 
     // last update step, used to calculate frame time delta
     private long _lastTime;
@@ -96,6 +100,8 @@ public class Engine
 
 	_menuBarHeight = 0;
 	_titleBarHeight = 0;
+	
+	_audioEnabled = true;
     }
 
 
@@ -340,6 +346,27 @@ public class Engine
     public TouchFilter getTouchFilter()
     {
 	return _touchFilter;
+    }
+    
+    
+    public boolean getAudioEnabled()
+    {
+	return _audioEnabled;	
+    }
+    
+    
+    public void setAudioEnabled(boolean b)
+    {
+	_audioEnabled = b;
+	
+	if (_audioEnabled)
+	{
+
+	}
+	else
+	{
+
+	}
     }
 
 
