@@ -761,7 +761,7 @@ Follow-up from Martina:
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
 
-== Milestone 5: Inspection of the input classes and menu state class ==
+= Milestone 5: Inspection of the input classes and menu state class ==
 *Moderator:* Martina
 
 *Author:* Jonny
@@ -862,6 +862,66 @@ MenuState.java - this code was also written by Kum
     * Discovered by: Martina, Jonny
 
 === Follow-up Results ===
+
+Follow-up from Martina:
+  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
+  * I later tried out a version on the phone.  It plays fantastic!
+  * I believe it is safe to say that these changes were made successfully.
+
+= Milestone 5: Inspection of the resources test, math test package ==
+*Moderator:* Martina
+
+*Author:* Chet
+
+*Reader:* Chet
+
+*Inspectors:* Zenja, Martina, Jonny, Jeff
+
+*Recorder:* Jonny
+
+=== Inspection Meeting ===
+AndroidSoundPlayerTest.java - No defect. :D
+All the primitive object test class look good.
+
+ImageResourceTest.java
+MusicResourcesTest.java
+
+ResourceManagerTest.java
+  * Defect 1:
+    * Location: General resourceManagerTest class
+    * Summary: Instead of loading properly, could add test asset within manager if it is still correct.
+    * Discovered by: Zenja
+
+  * Defect 2:
+    * Location: General resourceManagerTest class
+    * Summary: Could check the ID of the textures.
+    * Discovered by: Zenja
+
+ResourceTest.java - looks good
+
+SoundResourceTest.java good
+TextResourceTest.java good
+
+TextureResourceTest.java
+  * Defect 3:
+    * Location: line 45
+    * Summary: testGetSound() should be renamed
+    * Discovered by: Zenja
+
+CollidersTest.java
+  * Defect 4:
+    * Location: line 103
+    * Summary: testIntersionPlane() not sure why assert(true), need to look at the code.
+    * Discovered by: Chet
+
+LerpTest.java, PlaneTest.java - No problem
+
+RayTest.java
+  * Defect 5:
+    * Location: RayTest
+    * Summary: Not sure why some codes have been commenting out. Need to look into it.
+    * Discovered by: Martina
+
 
 Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
