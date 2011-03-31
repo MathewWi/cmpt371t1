@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.level;
 
+import java.util.Vector;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,13 +21,16 @@ public class XmlLevelGoal extends XmlLevelObject
 
     /**
      * Constructor for XmlLevelGoal class.
+     * @param colour The colour of the goal.
+     * @param position A vector containing the position of the goal (x, y).
+     * @param rotation A vector containing the rotation of the goal (x, y, z).
      * @throws IllegalArgumentException
-     * @precond colour != null
+     * @precond colour is white, red, green, or blue.
      * @postcond XmlLevelGoal is created.
      */
-    public XmlLevelGoal(String colour) throws IllegalArgumentException 
+    public XmlLevelGoal(String colour, Vector<Float> position, Vector<Float> rotation) throws IllegalArgumentException 
     {
-	super(XmlLevelGoal.getId());
+	super(XmlLevelGoal.getId(), position, rotation);
 	_logger.debug("XmlLevelGoal(" + colour + ")");
 	
 	if (!isValidColour(colour)) {

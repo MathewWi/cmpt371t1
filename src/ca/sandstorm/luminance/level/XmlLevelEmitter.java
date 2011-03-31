@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.level;
 
+import java.util.Vector;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,11 +22,16 @@ public class XmlLevelEmitter extends XmlLevelObject
     
     /**
      * Constructor for XmlLevelEmitter.
+     * @param colour The colour of the emitter.
+     * @param position A vector containing the position of the emitter (x, y).
+     * @param rotation A vector containing the rotation of the emitter (x, y, z).
+     * @throws IllegalArgumentException
+     * @precond colour is white, red, green, or blue.
      * @postcond XmlLevelEmitter is created.
      */
-    public XmlLevelEmitter(String colour)
+    public XmlLevelEmitter(String colour, Vector<Float> position, Vector<Float> rotation) throws IllegalArgumentException
     {
-	super(XmlLevelEmitter.getId());
+	super(XmlLevelEmitter.getId(), position, rotation);
 	_logger.debug("XmlLevelEmitter(" + colour + ")");
 	
 	if (!isValidColour(colour)) {
