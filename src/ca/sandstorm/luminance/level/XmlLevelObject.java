@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.level;
 
+import java.util.Vector;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,8 +15,9 @@ public abstract class XmlLevelObject
     private static final Logger _logger = LoggerFactory.getLogger(XmlLevelObject.class);
     
     private String _type;
-    private float _positionX;
-    private float _positionY;
+    //private float _positionX;
+    //private float _positionY;
+    private Vector<Float> _position;
     private float _rotationX;
     private float _rotationY;
     private float _rotationZ;
@@ -29,14 +32,13 @@ public abstract class XmlLevelObject
     public XmlLevelObject(String type) throws IllegalArgumentException 
     {
 	_logger.debug("XmlLevelObject(" + type + ")");
-	if (isValidType(type))
-	{
+	if (isValidType(type)) {
 	    _type = type;
 	}
-	else
-	{
+	else {
 	    throw new IllegalArgumentException("The type given is invalid.");
 	}
+	_position = new Vector<Float>(2);
     }
 
     /**
@@ -47,20 +49,18 @@ public abstract class XmlLevelObject
      */
     public boolean isValidType(String type) 
     {
-	_logger.debug("isValidType(" + type + ")");
-	if (type.equals(XmlLevelBrick.getId())) 
-	{
+	if (type.equals(XmlLevelBrick.getId())) {
 	    return true;
 	}
-	else if (type.equals(XmlLevelGoal.getId())) 
-	{
+	else if (type.equals(XmlLevelGoal.getId())) {
 	    return true;
 	}
-	else if (type.equals(XmlLevelEmitter.getId()))
-	{
+	else if (type.equals(XmlLevelEmitter.getId())) {
 	    return true;
 	}
-	else return false;
+	else {
+	    return false;
+	}
     }
 
     /**
@@ -69,7 +69,6 @@ public abstract class XmlLevelObject
      */
     public String getType()
     {
-	_logger.debug("getType()");
 	return _type;
     }
 
@@ -82,9 +81,8 @@ public abstract class XmlLevelObject
      */
     public void setPosition(float x, float y)
     {
-	_logger.debug("setPosition(" + x + ", " + y + ")");
-	_positionX = x;
-	_positionY = y;
+	_position.add(x);
+	_position.add(y);
     }
 
     /**
@@ -93,8 +91,7 @@ public abstract class XmlLevelObject
      */
     public float getPositionX()
     {
-	_logger.debug("getPositionX()");
-	return _positionX;
+	return _position.get(0);
     }
 
     /**
@@ -103,8 +100,16 @@ public abstract class XmlLevelObject
      */
     public float getPositionY()
     {
-	_logger.debug("getPositionY()");
-	return _positionY;
+	return _position.get(1);
+    }
+    
+    /**
+     * Getter method for the object's position vector.
+     * @return The object's position vector.
+     */
+    public Vector<Float> getPosition()
+    {
+	return _position;
     }
 
     /**
@@ -115,7 +120,6 @@ public abstract class XmlLevelObject
      */
     public void setRotation(float rotationX, float rotationY, float rotationZ)
     {
-	_logger.debug("setRotation(" + rotationX + ", " + rotationY + ", " + rotationZ + ")");
 	_rotationX = rotationX;
 	_rotationY = rotationY;
 	_rotationZ = rotationZ;
@@ -127,7 +131,6 @@ public abstract class XmlLevelObject
      */
     public float getRotationX()
     {
-	_logger.debug("getRotationX()");
 	return _rotationX;
     }
 
@@ -137,7 +140,6 @@ public abstract class XmlLevelObject
      */
     public float getRotationY()
     {
-	_logger.debug("getRotationY()");
 	return _rotationY;
     }
 
@@ -147,7 +149,6 @@ public abstract class XmlLevelObject
      */
     public float getRotationZ()
     {
-	_logger.debug("getRotationZ()");
 	return _rotationZ;
     }
     
@@ -176,7 +177,6 @@ public abstract class XmlLevelObject
      */
     public String toString()
     {
-	_logger.debug("toString()");
 	return ("\nType: " + getType() + 
 		"\nPosition: " + getPositionX() + " x " + getPositionY() + 
 		"\nRotation: (" + getRotationX() + ", " + getRotationY() + ", " + getRotationZ() + ")");

@@ -1,8 +1,5 @@
 package ca.sandstorm.luminance.level;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * Class for brick objects in levels.
  * @author Steven Indzeoski
@@ -10,9 +7,6 @@ import org.slf4j.LoggerFactory;
  */
 public class XmlLevelBrick extends XmlLevelObject 
 {
-    private static final Logger _logger = LoggerFactory
-    .getLogger(XmlLevelBrick.class);
-
     /**
      * Constructor for XmlLevelBrick.
      * @throws IllegalArgumentException
@@ -21,7 +15,6 @@ public class XmlLevelBrick extends XmlLevelObject
     public XmlLevelBrick() throws IllegalArgumentException 
     {
 	super(XmlLevelBrick.getId());
-	_logger.debug("XmlLevelBrick()");
     }
 
     /**
@@ -30,17 +23,22 @@ public class XmlLevelBrick extends XmlLevelObject
      */
     public static String getId()
     {
-	_logger.debug("getId()");
 	return "brick";
     }
 
-    @Override
+    /**
+     * Getter method for the colour of the brick. Always returns white.
+     * @return Color.WHITE
+     */
     public int getColour()
     {
 	return Color.WHITE;
     }
 
-    @Override
+    /**
+     * Getter method for the colour of the brick. Always returns white.
+     * @return white
+     */
     public String getColourAsString()
     {
 	return "white";
