@@ -1,5 +1,6 @@
 package ca.sandstorm.luminance.gameobject;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -10,13 +11,20 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
+import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.level.Color;
+import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Ray;
 import ca.sandstorm.luminance.math.Sphere;
 
 public class Light extends GameObject implements IGameObject
 {
     public static final float LIGHT_INFINITY = 255.0f;
+    
+    // particle quads info, reused for all lights
+    private static int _sNumParticles;
+    private FloatBuffer _sVertexBuffer;
+    private ShortBuffer _sIndexBuffer; 
     
     private float _distance;
     
@@ -25,10 +33,6 @@ public class Light extends GameObject implements IGameObject
     private Vector3f _direction;
     private Vector3f _tmpDistance;
     
-    // vertex and index buffers
-    private FloatBuffer _vertexBuffer;
-    private ShortBuffer _indexBuffer;
-
     // total indice count for rendering
     private int _totalIndices;   
     
@@ -38,6 +42,55 @@ public class Light extends GameObject implements IGameObject
     
     private IGameObject _startTouchingObject = null;
     private IGameObject _endTouchingObject = null;
+        
+    // Indices
+    private short[] _indices = {
+		0,1,3, 0,3,2,
+    		4,5,7, 4,7,6,
+    		8,9,11, 8,11,10,
+    		12,13,15, 12,15,14, 	
+    		16,17,19, 16,19,18, 	
+    		20,21,23, 20,23,22 	
+
+    };
+    
+    // Texture coordinates
+    private float[] _textureCoords = {
+		0.0f, 0.0f,
+    		0.0f, 1.0f,
+    		1.0f, 0.0f,
+    		1.0f, 1.0f, 
+    		
+    		0.0f, 0.0f,
+    		0.0f, 1.0f,
+    		1.0f, 0.0f,
+    		1.0f, 1.0f,
+    		
+    		0.0f, 0.0f,
+    		0.0f, 1.0f,
+    		1.0f, 0.0f,
+    		1.0f, 1.0f,
+    		
+    		0.0f, 0.0f,
+    		0.0f, 1.0f,
+    		1.0f, 0.0f,
+    		1.0f, 1.0f,
+    		
+    		0.0f, 0.0f,
+    		0.0f, 1.0f,
+    		1.0f, 0.0f,
+    		1.0f, 1.0f,
+    		
+    		0.0f, 0.0f,
+    		0.0f, 1.0f,
+    		1.0f, 0.0f,
+    		1.0f, 1.0f
+
+    };
+    
+    private FloatBuffer _vertexBuffer;
+    private ShortBuffer _indexBuffer;
+    private FloatBuffer _textureBuffer;    
     
     
     public Light(float xStart, float yStart, float zStart, float xDir, float yDir, float zDir, float distance, int color)
@@ -52,16 +105,19 @@ public class Light extends GameObject implements IGameObject
 	               _direction.x, _direction.y, _direction.z);	
 	
 	// indices will never change, create once
-	_totalIndices = 2;
-	short[] indices = new short[_totalIndices];
-	indices[0] = 0;
-	indices[0] = 1;
+	_totalIndices = _indices.length;
 	
-	ByteBuffer byteBuf = ByteBuffer.allocateDirect(indices.length * 2);
+	ByteBuffer byteBuf = ByteBuffer.allocateDirect(_indices.length * 2);
 	byteBuf.order(ByteOrder.nativeOrder());
 	_indexBuffer = byteBuf.asShortBuffer();
-	_indexBuffer.put(indices);
+	_indexBuffer.put(_indices);
 	_indexBuffer.position(0);
+	
+	ByteBuffer byteTexBuf = ByteBuffer.allocateDirect(_textureCoords.length * 4);
+	byteTexBuf.order(ByteOrder.nativeOrder());
+	_textureBuffer = byteTexBuf.asFloatBuffer();
+	_textureBuffer.put(_textureCoords);
+	_textureBuffer.position(0);	
 	
 	// init the vertices (dynamic)
 	_initVertices();
@@ -76,20 +132,66 @@ public class Light extends GameObject implements IGameObject
 	                         _startPoint.y + (_direction.y * _distance), 
 	                         _startPoint.z + (_direction.z * _distance));	
 	
-	float[] vertices = new float[2 * 3];
+	Vector3f scaleDir = new Vector3f(Colliders.crossProduct(_direction, Colliders.UP));
+	scaleDir.normalize();
+	scaleDir.scale(0.15f);
+	Vector3f boxStart = new Vector3f(_startPoint);
+	boxStart.add(scaleDir);
 	
-	vertices[0] = _startPoint.x;
+	scaleDir = new Vector3f(Colliders.crossProduct(_direction, Colliders.DOWN));
+	scaleDir.normalize();
+	scaleDir.scale(0.15f);
+	Vector3f boxEnd = new Vector3f(_endPoint);
+	boxEnd.add(scaleDir);
+	
+	
+	float[] _vertices = {
+		boxStart.x, boxStart.y, boxEnd.z,
+    		boxEnd.x, boxStart.y, boxEnd.z,
+    		boxStart.x, boxEnd.y, boxEnd.z,
+    		boxEnd.x, boxEnd.y, boxEnd.z,
+    		
+    		boxEnd.x, boxStart.y, boxEnd.z,
+    		boxEnd.x, boxStart.y, boxStart.z,    		
+    		boxEnd.x, boxEnd.y, boxEnd.z,
+    		boxEnd.x, boxEnd.y, boxStart.z,
+    		
+    		boxEnd.x, boxStart.y, boxStart.z,
+    		boxStart.x, boxStart.y, boxStart.z,    		
+    		boxEnd.x, boxEnd.y, boxStart.z,
+    		boxStart.x, boxEnd.y, boxStart.z,
+    		
+    		boxStart.x, boxStart.y, boxStart.z,
+    		boxStart.x, boxStart.y, boxEnd.z,    		
+    		boxStart.x, boxEnd.y, boxStart.z,
+    		boxStart.x, boxEnd.y, boxEnd.z,
+    		
+    		boxStart.x, boxStart.y, boxStart.z,
+    		boxEnd.x, boxStart.y, boxStart.z,    		
+    		boxStart.x, boxStart.y, boxEnd.z,
+    		boxEnd.x, boxStart.y, boxEnd.z,
+    		
+    		boxStart.x, boxEnd.y, boxEnd.z,
+    		boxEnd.x, boxEnd.y, boxEnd.z,    		
+    		boxStart.x, boxEnd.y, boxStart.z,
+    		boxEnd.x, boxEnd.y, boxStart.z,
+
+	};
+	
+	//float[] vertices = new float[2 * 3];
+	
+	/*vertices[0] = _startPoint.x;
 	vertices[1] = _startPoint.y;
 	vertices[2] = _startPoint.z;
 	
 	vertices[3] = _endPoint.x;
 	vertices[4] = _endPoint.y;
-	vertices[5] = _endPoint.z;
+	vertices[5] = _endPoint.z;*/
 	
-	ByteBuffer byteBuf = ByteBuffer.allocateDirect(vertices.length * 4);
+	ByteBuffer byteBuf = ByteBuffer.allocateDirect(_vertices.length * 4);
 	byteBuf.order(ByteOrder.nativeOrder());
 	_vertexBuffer = byteBuf.asFloatBuffer();
-	_vertexBuffer.put(vertices);
+	_vertexBuffer.put(_vertices);
 	_vertexBuffer.position(0);	
     }
     
@@ -217,26 +319,48 @@ public class Light extends GameObject implements IGameObject
 	gl.glScalef(1, 1, 1);
 	
 	// Set the face rotation
-	gl.glFrontFace(GL10.GL_CCW);
+	gl.glFrontFace(GL10.GL_CW);
 
 	// Point to our buffers
 	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
 
 	// Enable the vertex and color state
 	gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-
+	gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+	
+	gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, _textureBuffer);
+	
+	//gl.glDisable(GL10.GL_DEPTH_TEST);
+	gl.glEnable(GL10.GL_TEXTURE_2D);
+	gl.glEnable(GL10.GL_BLEND);
+	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE);	
+	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_REPEAT );
+	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT );
+	
+	try {
+	    gl.glBindTexture(GL10.GL_TEXTURE_2D, Engine.getInstance().getResourceManager().loadTexture(gl, "textures/inGameMirror.png").getTexture());
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	
 	// Set color
 	gl.glColor4f(Color.red(_color) / 255.0f,
 	             Color.green(_color) / 255.0f,
 	             Color.blue(_color) / 255.0f,
-	             1.0f);
-
+	             0.85f);
+	
 	// Draw the vertices as triangles, based on the Index Buffer information
-	gl.glDrawElements(GL10.GL_LINES, _totalIndices, GL10.GL_UNSIGNED_SHORT,
+	gl.glDrawElements(GL10.GL_TRIANGLES, _totalIndices, GL10.GL_UNSIGNED_SHORT,
 			  _indexBuffer);
 
 	// Disable the client state before leaving
-	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);	
+	gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+	gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+	gl.glDisable(GL10.GL_TEXTURE_2D);
+	gl.glDisable(GL10.GL_BLEND);
+	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE_MINUS_SRC_ALPHA);
+	gl.glEnable(GL10.GL_DEPTH_TEST);	
     }
     
     
