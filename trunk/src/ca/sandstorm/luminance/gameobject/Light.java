@@ -338,7 +338,7 @@ public class Light extends GameObject implements IGameObject
 	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT );
 	
 	try {
-	    gl.glBindTexture(GL10.GL_TEXTURE_2D, Engine.getInstance().getResourceManager().loadTexture(gl, "textures/inGameMirror.png").getTexture());
+	    gl.glBindTexture(GL10.GL_TEXTURE_2D, Engine.getInstance().getResourceManager().loadTexture(gl, "textures/beam.png").getTexture());
 	} catch (IOException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
