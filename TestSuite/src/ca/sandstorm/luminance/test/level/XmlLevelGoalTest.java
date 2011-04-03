@@ -20,16 +20,16 @@ public class XmlLevelGoalTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		tGoalWhite = new XmlLevelGoal("WhitE");
-		tGoalRed = new XmlLevelGoal("rEd");
-		tGoalGreen = new XmlLevelGoal("Green");
-		tGoalBlue = new XmlLevelGoal("BLUE");
-		
-		try {
-			tGoalOut = new XmlLevelGoal("HerpaDerp");
-		} catch (Exception e) {
-			// Should still stay null
-		}
+//		tGoalWhite = new XmlLevelGoal("WhitE");
+//		tGoalRed = new XmlLevelGoal("rEd");
+//		tGoalGreen = new XmlLevelGoal("Green");
+//		tGoalBlue = new XmlLevelGoal("BLUE");
+//		
+//		try {
+//			tGoalOut = new XmlLevelGoal("HerpaDerp");
+//		} catch (Exception e) {
+//			// Should still stay null
+//		}
 
 	}
 	
