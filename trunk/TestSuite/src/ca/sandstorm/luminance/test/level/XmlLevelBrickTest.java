@@ -15,7 +15,7 @@ public class XmlLevelBrickTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		tBrick = new XmlLevelBrick();
+//		tBrick = new XmlLevelBrick();
 	}
 	
 	public void testXmlLevelBrick(){
