@@ -6,6 +6,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry exported="true" kind="lib" path="ReferencedLibrariesJar"/>
-	<classpathentry kind="lib" path="D:/Winter2011/CMPT 371/robotium/robotium-solo-2.1.jar"/>
+	<classpathentry kind="lib" path="ReferencedLibrariesJar/robotium-solo-2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
