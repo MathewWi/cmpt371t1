@@ -2,9 +2,12 @@ package ca.sandstorm.luminance.test.usecase;
 
 import javax.vecmath.Vector2f;
 
+import android.app.Instrumentation;
+import android.os.SystemClock;
 import android.test.ActivityInstrumentationTestCase2;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.Luminance;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.TextView;
 import ca.sandstorm.luminance.R;
@@ -36,6 +39,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	
 	float xCoordView = (SPACE_BTWN_SQUARES/2); //Start in the middle of the square
 	float yCoordView = (SPACE_BTWN_SQUARES/2);
+	Instrumentation _inst;
 
     private static final String TARGET_PACKAGE_ID = "ca.sandstorm.luminance";
 
@@ -99,9 +103,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Start the first level of the game
 	 */
 	public void startGame() {	
-		solo.sleep(5000);
-		int startButtonX = 153;
-		int startButtonY = 227;
+		solo.sleep(10000);
+		float startButtonX = 183;
+		float startButtonY = 232;
 		//logger.info("LuminanceTestSuite: UseCase: Starting Game");
 		
 		calculateGridPositions(new Vector2f(29, 226), 3, 9);
@@ -109,9 +113,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		screenHeight = (float) Engine.getInstance().getViewHeight();
 		screenWidth = (float) Engine.getInstance().getViewWidth();
 
-		for(int i = 0; i < 130; i++){
-			solo.clickOnScreen(startButtonX, startButtonY);
-		}
+		//for(int i = 0; i < 130; i++){
+	//		solo.clickOnScreen(startButtonX, startButtonY);
+	//	}
 
 		
 		//solo.sleep(10000);
@@ -161,7 +165,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		row-=1;
 		col-=1;
 		//logger.info("LuminanceTestSuite: UseCase: Placing Mirror at "+ "(" + row + "," + col+")");
-		solo.clickOnScreen(31, 431);
+		//solo.clickOnScreen(31, 431);
 
 		solo.sleep(timeBetweenOperations);
 		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
@@ -181,14 +185,47 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		//logger.info("LuminanceTestSuite: UseCase: Rotating mirror at "+ "(" + row + "," + col+")");
 		// Double tap,
 		solo.sleep(timeBetweenOperations);
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		
+		long downTime = SystemClock.uptimeMillis();
+		// event time MUST be retrieved only by this way!
+		long eventTime = SystemClock.uptimeMillis();
+		
+		
+		MotionEvent event = MotionEvent.obtain(downTime, eventTime,
+												MotionEvent.ACTION_DOWN,
+												matrix[row][col].x, 
+												matrix[row][col].y, 
+												0);
+		_inst.sendPointerSync(event);
+		//eventTime = SystemClock.uptimeMillis() + 10;
+		
+		event = MotionEvent.obtain(downTime, eventTime,
+									MotionEvent.ACTION_UP,
+									matrix[row][col].x, 
+									matrix[row][col].y, 
+									0);
+		_inst.sendPointerSync(event);
+		
+		event = MotionEvent.obtain(downTime, eventTime,
+									MotionEvent.ACTION_DOWN,
+									matrix[row][col].x, 
+									matrix[row][col].y, 
+									0);
+		_inst.sendPointerSync(event);
+		
+		event = MotionEvent.obtain(downTime, eventTime,
+									MotionEvent.ACTION_UP,
+									matrix[row][col].x, 
+									matrix[row][col].y, 
+									0);
+		_inst.sendPointerSync(event);
+		//solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
 		//solo.sleep(1);//500, 100,300
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		//solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
 		solo.sleep(timeBetweenOperations);
 
 		//cause exception
-		solo.clickOnScreen(matrix[row][50].x, matrix[row][col].y);
+		//solo.clickOnScreen(matrix[row][50].x, matrix[row][col].y);
 	}
 
 //	public void testDisplayBlackBox() throws Exception {
@@ -228,20 +265,24 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		//logger.info("LuminanceTestSuite: UseCase: Matrix Located at "+ "(" + 29 + "," + 226+")");
 		
 		matrixLocation = new Vector2f(29, 226);
+		_inst = getInstrumentation();
+		
 		startGame();
-		completeMirrorBasics();
-		completeDoubleSided();
-		placeMirror(6, 1);
+		placeMirror(1,1);
+		rotateMirror(1,1);
+		//completeMirrorBasics();
+		//completeDoubleSided();
+/*		placeMirror(6, 1);
 		// User chooses mirror
 		// User places mirror(1)
 		// White Light collides with mirror
 		// White Light reflects south
 		// User chooses mirror
 
-		placeMirror(6, 5);
+		//placeMirror(6, 5);
 		// User places mirror(2)
 		// Light collides with mirror
-		placePrism(8, 5);
+		//placePrism(8, 5);
 		// User chooses prism
 		// User places Prism
 		// System refracts light into RGB
@@ -313,7 +354,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// Blue light collides with mirror
 		// Blue light connects with blue orb
 		// User completes level
-
+*/
 	}
 
 	private void completeMirrorBasics() {
