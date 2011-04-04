@@ -2,6 +2,7 @@ package ca.sandstorm.luminance.gamelogic;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -53,8 +54,10 @@ import ca.sandstorm.luminance.state.IState;
  * @author halsafar
  *
  */
-public class GameState implements IState
+public class GameState implements IState, Serializable
 {
+    private static final long serialVersionUID = -665145602350596252L;
+
     private static final Logger logger = LoggerFactory
 	    .getLogger(GameState.class);
     
