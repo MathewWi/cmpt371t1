@@ -477,6 +477,8 @@ public class GameState implements IState, Serializable
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirror.png");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/mirrorClicked.png");
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/numbers.png");
+	    
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/beam.png");	    
 	} catch (IOException e) {
 	    logger.error("Unable to load a required texture: " + e.getMessage());
 	    e.printStackTrace();
@@ -844,7 +846,11 @@ public class GameState implements IState, Serializable
 
 	gl.glEnable(GL10.GL_CULL_FACE);
 	gl.glCullFace(GL10.GL_BACK);	
-
+	
+	gl.glPushMatrix();
+	_lightPath.draw(gl);
+	gl.glPopMatrix();	
+	
 	// Get renderer to draw everything on its renderable list
 	Engine.getInstance().getRenderer().draw(gl);
 
@@ -852,11 +858,7 @@ public class GameState implements IState, Serializable
 	gl.glTranslatef(0.0f, 0, 0f);
 	_grid.draw(gl);
 	gl.glPopMatrix();
-	
-	gl.glPushMatrix();
-	_lightPath.draw(gl);
-	gl.glPopMatrix();
-	
+		
 	// render 2D stuff, reset view to identity now
 	gl.glLoadIdentity();
 	gl.glMatrixMode(GL10.GL_PROJECTION);
