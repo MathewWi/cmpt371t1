@@ -228,6 +228,7 @@ public class ResourceManager
 			   GL10.GL_REPEAT);
 	gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T,
 			   GL10.GL_REPEAT);
+	//gl.glTexEnvx(GL10.GL_TEXTURE_ENV, GL10.GL_TEXTURE_ENV_MODE, GL10.GL_MODULATE);	
 
 	// Use the Android GLUtils to specify a two-dimensional texture image
 	// from our bitmap
@@ -240,6 +241,20 @@ public class ResourceManager
 	return res;
     }
 
+    
+    public int getOpenGLTexture(String filename)
+    {
+	_logger.debug("getTexture(" + filename + ")");
+	
+	// Check if the resource is already loaded for this GL context
+	if (_resources.containsKey(filename)) {
+	    TextureResource oldRes = (TextureResource) _resources.get(filename);
+	    
+	    return oldRes.getTexture();
+	}	
+	
+	return -1;
+    }
 
     /**
      * Load a sound effect resource.
