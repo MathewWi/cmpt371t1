@@ -22,7 +22,7 @@ public class InputKeyboardTest extends AndroidTestCase {
 	public void setUp() throws Exception {
 		super.setUp();
 		inputKeyboard = new InputKeyboard();
-
+		assertNotNull(inputKeyboard);
 	}
 
 	/**
