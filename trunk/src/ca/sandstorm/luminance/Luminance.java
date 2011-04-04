@@ -143,8 +143,9 @@ public class Luminance extends Activity
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
 	mGLView = new GLSurfaceView(this);
-	mGLView.setEGLConfigChooser(5, 6, 5, 0, 16, 0);
-	mGLView.getHolder().setFormat(PixelFormat.RGB_565);
+	//mGLView.setEGLConfigChooser(5, 6, 5, 0, 16, 0);
+	mGLView.setEGLConfigChooser(true);
+	//mGLView.getHolder().setFormat(PixelFormat.RGB_565);
 	mGLView.setRenderer(new ClearRenderer(this));
 	mGLView.setGLWrapper(new GLSurfaceView.GLWrapper()
 	{
