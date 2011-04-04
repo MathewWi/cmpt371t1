@@ -7,12 +7,9 @@ import java.util.Vector;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.*;
-import org.xml.sax.SAXException;
 
 
 /**
@@ -44,10 +41,9 @@ public class XmlLevelParser
 
     /**
      * Parse the level file.
-     * @precond XmlLevelParser was successfully created
-     * @postcond An XmlLevel is created from information parsed from the XML file
+     * @postcond An XmlLevel is successfully created.
      * @return An XmlLevel object that contains all information about the level.
-     * @throws IOException  
+     * @throws IOException
      */
     public XmlLevel parse() throws IOException
     {	
@@ -73,7 +69,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the level tools.
+     * @param document A Document object of the level.
+     * @return A LinkedList of the XmlLevelTools in the level.
+     */
     private LinkedList<XmlLevelTool> getLevelTools(Document document)
     {
 	LinkedList<XmlLevelTool> toolList = new LinkedList<XmlLevelTool>();
@@ -87,7 +87,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing a level tool.
+     * @param toolNode A Node object containing the XML of a tool.
+     * @return An XmlLevelTool containing the type and the count.
+     */
     private XmlLevelTool getLevelTool(Node toolNode)
     {
 	if (toolNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -114,7 +118,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the count for a tool.
+     * @param element An Element object of the tool.
+     * @return How many of the tool the user gets for the level.
+     */
     private int getToolCount(Element element)
     {
 	NodeList countNodeList = element.getElementsByTagName("count");
@@ -125,7 +133,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the type of a tool.
+     * @param element An Element object of the tool.
+     * @return The type of the tool.
+     */
     private String getToolType(Element element)
     {
 	NodeList typeNodeList = element.getElementsByTagName("type");
@@ -135,7 +147,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the objects in a level.
+     * @param document A Document object of the level.
+     * @return A LinkedList of the XmlLevelObjects for the level.
+     */
     private LinkedList<XmlLevelObject> getLevelObjects(Document document)
     {
 	LinkedList<XmlLevelObject> objectList = new LinkedList<XmlLevelObject>();
@@ -148,7 +164,11 @@ public class XmlLevelParser
 	return objectList;
     }
 
-
+    /**
+     * Helper method for parsing an object for a level.
+     * @param objectNode A Node object containing the XML for an object.
+     * @return An XmlLevelObject that was parsed from the XML.
+     */
     private XmlLevelObject getLevelObject(Node objectNode)
     {
 	if (objectNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -180,7 +200,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the rotation of an object.
+     * @param element An Element object containing the object.
+     * @return A Vector containing the rotation of the object.
+     */
     private Vector<Float> getObjectRotation(Element element)
     {
 	Element rotationElement = getRotationElement(element);
@@ -192,7 +216,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the Z rotation of an object.
+     * @param rotationElement An Element object containing the rotation of an object.
+     * @return The Z rotation of the object.
+     */
     private Float getObjectZRotation(Element rotationElement)
     {
 	NodeList objectZRotationNodeList = rotationElement.getElementsByTagName("z");
@@ -203,7 +231,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the Y rotation of an object.
+     * @param rotationElement An Element object containing the rotation of an object.
+     * @return The Y rotation of the object.
+     */
     private Float getObjectYRotation(Element rotationElement)
     {
 	NodeList objectYRotationNodeList = rotationElement.getElementsByTagName("y");
@@ -214,7 +246,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the X rotation of an object.
+     * @param rotationElement An Element object containing the rotation of an object.
+     * @return The X rotation of the object.
+     */
     private Float getObjectXRotation(Element rotationElement)
     {
 	NodeList objectXRotationNodeList = rotationElement.getElementsByTagName("x");
@@ -225,7 +261,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for getting the rotation element for the object element.
+     * @param element An Element object of the level object.
+     * @return An element object for the object's rotation.
+     */
     private Element getRotationElement(Element element)
     {
 	NodeList rotationNodeList = element.getElementsByTagName("rotation");
@@ -233,7 +273,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the position of an object.
+     * @param element An Element object of the level object.
+     * @return A Vector containing the position of the object.
+     */
     private Vector<Float> getObjectPosition(Element element)
     {
 	Element positionElement = getPositionElement(element);
@@ -244,7 +288,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the object's Y position.
+     * @param positionElement An Element object containing the object's position.
+     * @return The Y position of the object.
+     */
     private float getObjectYPosition(Element positionElement)
     {
 	NodeList objectYNodeList = positionElement.getElementsByTagName("y");
@@ -255,7 +303,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the object's X position.
+     * @param positionElement An Element object containing the object's position.
+     * @return The X position of the object.
+     */
     private float getObjectXPosition(Element positionElement)
     {
 	NodeList objectXNodeList = positionElement.getElementsByTagName("x");
@@ -266,7 +318,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for getting the position element from an object element.
+     * @param element An Element object for the object.
+     * @return An Element object for the position of an object.
+     */
     private Element getPositionElement(Element element)
     {
 	NodeList positionNodeList = element.getElementsByTagName("position");
@@ -274,7 +330,12 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the colour of an object.
+     * @param objectType The type of the object.
+     * @param element An Element object for the object.
+     * @return The colour of the object (white if it is a brick).
+     */
     private String getObjectColour(String objectType, Element element)
     {
 	if (objectType.equals(XmlLevelBrick.getId())) {
@@ -289,7 +350,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the type of the object.
+     * @param element An Element object for the object.
+     * @return The type of the object.
+     */
     private String getObjectType(Element element)
     {
 	NodeList typeNodeList = element.getElementsByTagName("type");
@@ -299,7 +364,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the height of the level.
+     * @param document A Document object of the level.
+     * @return The height of the level.
+     */
     private float getLevelHeight(Document document)
     {
 	Element gridSizeElement = getGridSizeElement(document);
