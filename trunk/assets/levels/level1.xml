@@ -7,8 +7,8 @@
 	<name>Mirror Basics</name>
 	<difficulty>easy</difficulty>
 	<grid_size>
-		<x>3</x>
-		<y>9</y>
+		<x>9</x>
+		<y>3</y>
 		<width>1.0</width>
 		<height>1.0</height>
 	</grid_size>

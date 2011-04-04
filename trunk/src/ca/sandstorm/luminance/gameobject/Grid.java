@@ -65,7 +65,7 @@ public class Grid
      * @precon (rows+1)*cols*2*2 <= 65535
      * @postcon _vertexBuffer != null, _indexBuffer != null, _totalIndices > 0
      */
-    public Grid(int rows, int cols, float cellWidth, float cellHeight)
+    public Grid(int cols, int rows, float cellWidth, float cellHeight)
     {
 	_logger.debug("Grid(" + rows + ", " + cols + ", " + cellWidth + ", " +
 		      cellHeight + ")");
