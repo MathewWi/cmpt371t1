@@ -21,6 +21,7 @@ public class InputButtonTest extends AndroidTestCase {
 	public void setUp() throws Exception {
 		super.setUp();
 		inputButton = new InputButton();
+		assertNotNull(inputButton);
 
 	}
 

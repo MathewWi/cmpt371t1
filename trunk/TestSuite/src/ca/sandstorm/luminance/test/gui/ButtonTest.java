@@ -5,6 +5,7 @@ import ca.sandstorm.luminance.gui.Button;
 
 /**
  * Testing button functionality
+ * 
  * @author Amara Daal
  * 
  */
@@ -27,7 +28,7 @@ public class ButtonTest extends AndroidTestCase {
 		title = "testButton";
 
 		button = new Button(x, y, width, height, title);
-
+		assertNotNull(button);
 	}
 
 	/*

@@ -7,6 +7,7 @@ import ca.sandstorm.luminance.input.InputSystem;
 
 /**
  * Testing InputSystem functionality
+ * 
  * @author Amara Daal
  * 
  */
@@ -21,7 +22,7 @@ public class InputSystemTest extends AndroidTestCase {
 	public void setUp() throws Exception {
 		super.setUp();
 		inputSystem = new InputSystem();
-
+		assertNotNull(inputSystem);
 	}
 
 	/**
@@ -212,7 +213,7 @@ public class InputSystemTest extends AndroidTestCase {
 
 		}
 		InputButton[] keysAr = inputSystem.getKeyboard().getKeys();
-		//TODO: clarify 10 offset
+		// TODO: clarify 10 offset
 		// Release select keys
 		for (int i = KeyEvent.getMaxKeyCode() - 10; i < KeyEvent
 				.getMaxKeyCode(); i++) {

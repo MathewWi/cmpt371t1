@@ -5,55 +5,49 @@ import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
 import ca.sandstorm.luminance.input.InputXY;
 
-
 /**
  * @author Amara Daal
  * 
  */
-public class GUIManagerTest extends AndroidTestCase
-{
-    Button[] mbAr;
-    int MAX_BUTTON_COUNT = 10;
-    InputXY[] inAr;
-    GUIManager GUIManager;
+public class GUIManagerTest extends AndroidTestCase {
+	Button[] mbAr;
+	int MAX_BUTTON_COUNT = 10;
+	InputXY[] inAr;
+	GUIManager GUIManager;
 
-    //Button attributes
-    float height = 1.0f;
-    float width = 1.0f;
-    float x = 1.0f;
-    float y = 1.0f;
+	// Button attributes
+	float height = 1.0f;
+	float width = 1.0f;
+	float x = 1.0f;
+	float y = 1.0f;
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 
-    /**
-     * @throws java.lang.Exception
-     */
+	public void setUp() throws Exception {
+		super.setUp();
+		GUIManager = new GUIManager();
+		assertNotNull(GUIManager);
+		MAX_BUTTON_COUNT = 10;
+		// inAr = new InputXY[MAX_BUTTON_COUNT];
+		mbAr = new Button[MAX_BUTTON_COUNT];
 
-    public void setUp() throws Exception
-    {
-	super.setUp();
-	GUIManager = new GUIManager();
+		// Create Buttons to test with the GUIManager
+		for (int i = 0; i < mbAr.length; i++) {
+			inAr[i] = new InputXY();
+			mbAr[i] = new Button(x + i, y + i, width, height, "test");
 
-	MAX_BUTTON_COUNT = 10;
-	//inAr = new InputXY[MAX_BUTTON_COUNT];
-	mbAr = new Button[MAX_BUTTON_COUNT];
-
-	// Create Buttons to test with the GUIManager
-	for (int i = 0; i < mbAr.length; i++) {
-	    inAr[i] = new InputXY();
-	    mbAr[i] = new Button(x + i, y + i, width, height, "test");
-
+		}
 	}
-    }
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 
-    /**
-     * @throws java.lang.Exception
-     */
-
-    public void tearDown() throws Exception
-    {
-	super.tearDown();
-    }
+	public void tearDown() throws Exception {
+		super.tearDown();
+	}
 
 	/**
 	 * Test method for

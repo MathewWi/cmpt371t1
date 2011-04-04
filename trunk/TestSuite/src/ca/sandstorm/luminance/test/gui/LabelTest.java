@@ -5,6 +5,7 @@ import ca.sandstorm.luminance.gui.Label;
 
 /**
  * Testing Label functionality
+ * 
  * @author Amara Daal
  * 
  */
@@ -29,8 +30,9 @@ public class LabelTest extends AndroidTestCase {
 		y = 1.0f;
 		width = 1.0f;
 		height = 1.0f;
-		//TODO : rewrite for new constructor
+
 		label = new Label(x, y, width, height, text);
+		assertNotNull(label);
 
 	}
 
