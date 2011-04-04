@@ -14,6 +14,8 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.os.Bundle;
+
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.Luminance;
 import ca.sandstorm.luminance.camera.Camera;
@@ -947,6 +949,12 @@ public class GameState implements IState, Serializable
     public boolean isInitialized()
     {
 	return _initialized;
+    }
+
+    @Override
+    public void saveInstance(Bundle savedInstanceState)
+    {
+	savedInstanceState.putInt("GameState.Level", _level.getCurrentLevelIndex());
     }
 
 }

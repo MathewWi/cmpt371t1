@@ -43,7 +43,7 @@ public class Engine implements Serializable
     private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
     // constants for debugging
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     // singleton instance
     private static Engine _instance = null;
@@ -471,6 +471,19 @@ public class Engine implements Serializable
 	for (IState s : _stateQueue) {
 	    s.deviceChanged(gl, _width, _height);
 	}
+    }
+    
+    
+    public void onSaveInstance(Bundle savedInstanceState)
+    {
+	// we should check both states no stack and queue
+	for (IState s : _stateStack) {
+	    s.saveInstance(savedInstanceState);
+	}
+
+	for (IState s : _stateQueue) {
+	    s.saveInstance(savedInstanceState);
+	}	
     }
 
 

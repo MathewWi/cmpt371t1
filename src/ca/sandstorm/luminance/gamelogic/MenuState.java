@@ -439,4 +439,11 @@ public class MenuState implements IState
 	return _initialized;
     }
 
+
+    @Override
+    public void saveInstance(Bundle savedInstanceState)
+    {
+
+    }
+
 }

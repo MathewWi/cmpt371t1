@@ -8,6 +8,8 @@ import javax.vecmath.Vector3f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.os.Bundle;
+
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.PrimitiveQuad;
 import ca.sandstorm.luminance.gui.GUIManager;
@@ -133,5 +135,12 @@ public class LevelMenuState implements IState
 		
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	gl.glPopMatrix();		
+    }
+
+    @Override
+    public void saveInstance(Bundle savedInstanceState)
+    {
+	// TODO Auto-generated method stub
+	
     }
 }
