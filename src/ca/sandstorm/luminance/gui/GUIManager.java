@@ -248,6 +248,7 @@ public class GUIManager
 	gl.glEnable(GL10.GL_CULL_FACE);
 	gl.glCullFace(GL10.GL_BACK);
 	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE_MINUS_SRC_ALPHA);
+	//gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE);
 	
 	// Fade the background if desired
 	if (_isFading) {
