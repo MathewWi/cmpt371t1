@@ -103,7 +103,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Start the first level of the game
 	 */
 	public void startGame() {	
-		solo.sleep(10000);
+		solo.sleep(1000);
 		float startButtonX = 183;
 		float startButtonY = 232;
 		//logger.info("LuminanceTestSuite: UseCase: Starting Game");
@@ -113,12 +113,32 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		screenHeight = (float) Engine.getInstance().getViewHeight();
 		screenWidth = (float) Engine.getInstance().getViewWidth();
 
+		long downTime = SystemClock.uptimeMillis();
+		// event time MUST be retrieved only by this way!
+		long eventTime = SystemClock.uptimeMillis();
+		
+		
+		MotionEvent event = MotionEvent.obtain(downTime, eventTime,
+												MotionEvent.ACTION_DOWN,
+												startButtonX, 
+												startButtonY, 
+												0);
+		_inst.sendPointerSync(event);
+		eventTime = SystemClock.uptimeMillis() + 300;
+		
+		event = MotionEvent.obtain(downTime, eventTime,
+									MotionEvent.ACTION_UP,
+									startButtonX, 
+									startButtonY, 
+									0);
+		_inst.sendPointerSync(event);
+		
 		//for(int i = 0; i < 130; i++){
 	//		solo.clickOnScreen(startButtonX, startButtonY);
 	//	}
 
 		
-		//solo.sleep(10000);
+		solo.sleep(5000);
 	}
 
 	/**
