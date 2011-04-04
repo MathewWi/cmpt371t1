@@ -47,8 +47,8 @@ public class Light extends GameObject implements IGameObject
     // Indices
     private short[] _indices = {
 		0,1,3, 0,3,2,
-    		/*4,5,7, 4,7,6,
-    		8,9,11, 8,11,10,
+    		4,5,7, 4,7,6,
+    		/*8,9,11, 8,11,10,
     		12,13,15, 12,15,14, 	
     		16,17,19, 16,19,18, 	
     		20,21,23, 20,23,22 */	
@@ -135,10 +135,10 @@ public class Light extends GameObject implements IGameObject
     		boxStart.x, boxStart.y, boxEnd.z,
     		boxEnd.x, boxStart.y, boxEnd.z,
     		
-    		/*boxStart.x, boxEnd.y, boxEnd.z,
+    		boxStart.x, boxEnd.y, boxEnd.z,
     		boxEnd.x, boxEnd.y, boxEnd.z,    		
     		boxStart.x, boxEnd.y, boxStart.z,
-    		boxEnd.x, boxEnd.y, boxStart.z,*/
+    		boxEnd.x, boxEnd.y, boxStart.z,
 
 	};
 	
@@ -168,14 +168,14 @@ public class Light extends GameObject implements IGameObject
 		0.0f, 0.0f,
     		0.0f,  scale.x,
     		scale.z, 0.0f,
-    		scale.z,  scale.x, 
-    		
-    		/*0.0f, 0.0f,
-    		0.0f, scale.x,
-    		scale.z, 0.0f,
-    		scale.z, scale.x,
+    		scale.z,  scale.x,
     		
     		0.0f, 0.0f,
+    		scale.x, 0,
+    		0, scale.z,
+    		scale.x, scale.z,
+    		
+    		/*0.0f, 0.0f,
     		0.0f, scale.x,
     		scale.z, 0.0f,
     		scale.z, scale.x,
@@ -329,7 +329,7 @@ public class Light extends GameObject implements IGameObject
 	gl.glScalef(1, 1, 1);
 	
 	// don't cull face here
-	gl.glDisable(GL10.GL_CULL_FACE);
+	//gl.glDisable(GL10.GL_CULL_FACE);
 
 	// Point to our buffers
 	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, _vertexBuffer);
@@ -348,7 +348,7 @@ public class Light extends GameObject implements IGameObject
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture);
 	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_REPEAT );
 	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT );	
-	
+		
 	// Set color
 	gl.glColor4f(Color.red(_color) / 255.0f,
 	             Color.green(_color) / 255.0f,
@@ -365,7 +365,7 @@ public class Light extends GameObject implements IGameObject
 	gl.glDisable(GL10.GL_TEXTURE_2D);
 	gl.glDisable(GL10.GL_BLEND);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
-	gl.glEnable(GL10.GL_CULL_FACE);
+	//gl.glEnable(GL10.GL_CULL_FACE);
     }
     
     
