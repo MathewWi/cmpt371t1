@@ -985,3 +985,63 @@ Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
+
+= Milestone 5: Inspection of Amara's Test Code ==
+*Moderator:* Martina
+
+*Author:* Amara
+
+*Reader:* Amara
+
+*Inspectors:* Zenja, Martina, Sten, Amara, Jeff, Jonny
+
+*Recorder:* Jeff
+
+=== Inspection Meeting ===
+!GUIManagerTest
+
+  * Defect 1:
+    * Location: GUIManagerTest- testTouchOccuredMotionEvent()
+    * Summary: No test written, Discuess with Jonny; A wrapper on TouchOccuredFloatFloat
+    * Discovered by: Amara
+
+  * Defect 2:
+    * Location: All TestSuite
+    * Summary: Need explicit private declaration and underscore in front so that it adheres to our naming convention
+    * Discovered by: Jonny
+
+!InputButtonTest
+
+  * Defect 3:
+    * Location: whole class
+    * Summary: Verify what 'magnitude' means, add comment. REPLICA ISLAND code. No need for change.
+    * Discovered by: Martina
+
+!LuminanceTest
+
+  * Defect 4:
+    * Location: Whole class
+    * Summary: Document that 1x1 extrapolates to 1x1 on the board and not 0->(n -1). Actual is 1 -> n
+    * Discovered by: Martina, Amara
+
+  * Defect 5:
+    * Location: testCaseSix()
+    * Summary: Not yet implemented
+    * Discovered by: Amara, Jeff
+
+!LabelTest
+
+  * Defect 6:
+    * Location: testLabel()
+    * Summary: Instantiating label should be gone. Have test of nullidity instead
+    * Discovered by: Amara, Jeff, Martina
+
+
+!ButtonTest
+
+  * Defect 7:
+    * Location: Whole class
+    * Summary: A bit redundant on getters and setters. Isolate getters and setters
+    * Discovered by: Martina
+
+Follow-up from Martina/Amara
