@@ -1,6 +1,7 @@
 package ca.sandstorm.luminance;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -35,8 +36,10 @@ import ca.sandstorm.luminance.time.TimeSystem;
  * @author halsafar - shinhalsafar@gmail.com
  * 
  */
-public class Engine
+public class Engine implements Serializable
 {
+    private static final long serialVersionUID = -1836301487677402930L;
+
     private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
     // constants for debugging

@@ -113,8 +113,9 @@ public class Luminance extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
 	_logger.debug("onCreate()");
-
 	_instance = this;
+	
+	Engine savedEngine = (Engine)savedInstanceState.getSerializable("Engine");
 
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
@@ -126,9 +127,6 @@ public class Luminance extends Activity
 	// already exists
 	if (!Engine.getInstance().isInitialized()) {
 	    // init the engine and add our states
-	    // Engine.getInstance().pushState(new GameState());
-
-	    // UNCOMMENT TO START IN MENU STATE
 	    Engine.getInstance().pushState(new MenuState());
 	}
 
@@ -215,6 +213,27 @@ public class Luminance extends Activity
     {
 	super.onStop();
     }
+    
+    /**
+     * Called when the activity needs to save its state so it can be restored later.
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState)
+    {
+	_logger.debug("onSaveInstanceState()");
+	savedInstanceState.putSerializable("Engine", Engine.getInstance());
+	super.onSaveInstanceState(savedInstanceState);
+    }
+    
+    /**
+     * Called when the activity needs to restore from a saved bundle.
+     */
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState)
+//    {
+//	_logger.debug("onRestoreInstanceState()");
+//	super.onRestoreInstanceState(savedInstanceState);
+//    }
 
 
     /**
@@ -398,11 +417,13 @@ public class Luminance extends Activity
 	public void onDrawFrame(GL10 gl)
 	{
 	    // do not log...
-	    Message msg = new Message();
-	    Bundle b = new Bundle();
-	    b.putFloat("fps", Engine.getInstance().getTimer().getFrameDelta());
-	    msg.setData(b);
-	    handler.sendMessage(msg);
+	    if (Engine.DEBUG) { 
+		Message msg = new Message();
+		Bundle b = new Bundle();
+		b.putFloat("fps", Engine.getInstance().getTimer().getFrameDelta());
+		msg.setData(b);
+		handler.sendMessage(msg);
+	    }
 
 	    // update/draw engine
 	    Engine.getInstance().update(gl);
