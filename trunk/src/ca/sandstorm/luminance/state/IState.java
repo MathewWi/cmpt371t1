@@ -1,6 +1,10 @@
 package ca.sandstorm.luminance.state;
 
+import java.io.Serializable;
+
 import javax.microedition.khronos.opengles.GL10;
+
+import android.os.Bundle;
 
 
 public interface IState
@@ -33,4 +37,6 @@ public interface IState
     
     
     public void init(GL10 gl);
+    
+    public void saveInstance(Bundle savedInstanceState);
 }

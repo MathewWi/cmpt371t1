@@ -53,6 +53,8 @@ public class Luminance extends Activity
     private String _subTitle = "";
 
     private ProgressDialog _myDialog;
+    
+    private int _startLevel;
 
     // a handler for updating the ui thread from the android thread
     private final Handler handler = new Handler()
@@ -114,8 +116,6 @@ public class Luminance extends Activity
     {
 	_logger.debug("onCreate()");
 	_instance = this;
-	
-	//Engine savedEngine = (Engine)savedInstanceState.getSerializable("Engine");
 
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
@@ -126,15 +126,25 @@ public class Luminance extends Activity
 	// Push a new menu state unless engine is initialized, meaning one
 	// already exists
 	if (!Engine.getInstance().isInitialized()) {
-	    // init the engine and add our states
-	    Engine.getInstance().pushState(new MenuState());
+	    _startLevel = 0;
+	    if (savedInstanceState != null && savedInstanceState.get("GameState.Level") != null)
+	    {
+		_startLevel = savedInstanceState.getInt("GameState.Level");
+		
+		Engine.getInstance().pushState(new GameState(_startLevel));
+	    }
+	    else
+	    {		    
+		// init the engine and add our states
+		Engine.getInstance().pushState(new MenuState());
+	    }
 	}
 
 	// init gl surface view for android
 	super.onCreate(savedInstanceState);
 	mGLView = new GLSurfaceView(this);
-	mGLView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-	mGLView.getHolder().setFormat(PixelFormat.RGBA_8888);
+	mGLView.setEGLConfigChooser(5, 6, 5, 0, 16, 0);
+	mGLView.getHolder().setFormat(PixelFormat.RGB_565);
 	mGLView.setRenderer(new ClearRenderer(this));
 	mGLView.setGLWrapper(new GLSurfaceView.GLWrapper()
 	{
@@ -217,23 +227,28 @@ public class Luminance extends Activity
     /**
      * Called when the activity needs to save its state so it can be restored later.
      */
-    //@Override
-    //protected void onSaveInstanceState(Bundle savedInstanceState)
-    //{
-	//_logger.debug("onSaveInstanceState()");
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState)
+    {
+	_logger.debug("onSaveInstanceState()");
 	//savedInstanceState.putSerializable("Engine", Engine.getInstance());
-	//super.onSaveInstanceState(savedInstanceState);
-    //}
+	
+	Engine.getInstance().onSaveInstance(savedInstanceState);
+	
+	super.onSaveInstanceState(savedInstanceState);
+    }
+
     
     /**
      * Called when the activity needs to restore from a saved bundle.
      */
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState)
-//    {
-//	_logger.debug("onRestoreInstanceState()");
-//	super.onRestoreInstanceState(savedInstanceState);
-//    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+	_logger.debug("onRestoreInstanceState()");
+	
+	super.onRestoreInstanceState(savedInstanceState);
+    }
 
 
     /**
@@ -383,6 +398,11 @@ public class Luminance extends Activity
 						       titleBarHeight);
 
 	    Engine.getInstance().init(gl);
+	    
+	    // important info
+	    int texSize[] = new int[1];
+	    gl.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE, texSize, 0);
+	    _logger.info("Hardware Texture Size: " + texSize[0] + " bytes");
 	}
 
 
