@@ -204,3 +204,18 @@ Below are risks that we faced, or the potential risks that were foreseen.
  * *Contingency Plan:* We must also ensure that developers are aware of the importance of user evaluation and play testing. 
 
  * *Status:* Levels are not yet complete, so user evaluation will not be possible for the moment. The developers should be aware of the plan to start user evaluations as soon as possible.
+
+==Risk 12=
+ * *Description:* Limited test phones available due to OpenGL issues
+
+ * *Probability:* High
+
+ * *Severity:* High
+
+ * *Rationale:* Due to a custom version of the Android OS, certain OpenGL libraries that are needed were not included. As a result, this causes the game to run at 2-4 fps, which would make a demo impossible.
+
+ * *Mitigation Plan:* Attempt to locate devices that have the required libraries to make the game runnable.
+
+ * *Contingency Plan:* If all else fails, simply install a different custom OS on the devices that allow for acceptable graphics functionality.
+
+ * *Status:* At this point, we have been given additional devices to help alleviate the issue. Ultimately, we do have a phone which we can use to demo the game, so the risk will likely be avoided.
