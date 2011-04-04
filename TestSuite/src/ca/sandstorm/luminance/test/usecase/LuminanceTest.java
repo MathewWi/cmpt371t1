@@ -15,35 +15,34 @@ import ca.sandstorm.luminance.R;
 //import org.slf4j.//logger;
 //import org.slf4j.//loggerFactory;
 import com.jayway.android.robotium.solo.Solo;
+
 /**
- * Use case testing
- * @author Amara Daal
- * NOTE: Since Luminance doesn't use android.widget none of the buttons 
- * will be detected by robotium
+ * Use case based GUI testing
+ * 
+ * @author Amara Daal NOTE: Since Luminance doesn't use android.widget none of
+ *         the buttons will be detected by robotium
  */
 public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	private Solo solo;
-    //private static final //logger //logger = //loggerFactory.get//logger(LuminanceTest.class);
-    
-	// Screen size
-	float screenWidth = 320;
-	float screenHeight = 430; // default setting
 
-
+	// Screen size 320x430
 	int timeBetweenOperations = 3000;
 
-	// Offset of the matrix
-	float screenOffsetY = 25;
+	// Offset of the matrix from top left corner of the screen
 	Vector2f matrixLocation;
+
+	// Space between grid squares
 	float SPACE_BTWN_SQUARES = 29;
-	
-	float xCoordView = (SPACE_BTWN_SQUARES/2); //Start in the middle of the square
-	float yCoordView = (SPACE_BTWN_SQUARES/2);
+
+	// Start in the middle of the square
+	float xCoordView = (SPACE_BTWN_SQUARES / 2);
+	float yCoordView = (SPACE_BTWN_SQUARES / 2);
+
+	// Instrumentation used to send touch events directly to the engine
 	Instrumentation _inst;
 
-    private static final String TARGET_PACKAGE_ID = "ca.sandstorm.luminance";
-
-
+	// Package we are testing
+	private static final String TARGET_PACKAGE_ID = "ca.sandstorm.luminance";
 
 	/**
 	 * A matrix with centre positions for every square used for easily placing
@@ -56,40 +55,45 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	public LuminanceTest() {
 		super(TARGET_PACKAGE_ID, Luminance.class);
-	
+
 	}
-	
+
 	/**
-	 * Calculate the global grid square positions callsed at the start of each level
-	 * @param newMatrixLocatin the upper left corner of the grid
-	 * @param matrixWidth cols
-	 * @param matrixHeight rows
+	 * Calculate the global grid square positions callsed at the start of each
+	 * level
+	 * 
+	 * @param newMatrixLocatin
+	 *            the upper left corner of the grid
+	 * @param matrixWidth
+	 *            cols
+	 * @param matrixHeight
+	 *            rows
 	 */
-	public void calculateGridPositions(Vector2f newMatrixLocation, int matrixHeight , int matrixWidth){
-		//logger.info("LuminanceTestSuite: UseCase: Calculating grid squarePositions");
-		
+	public void calculateGridPositions(Vector2f newMatrixLocation,
+			int matrixHeight, int matrixWidth) {
+		// logger.info("LuminanceTestSuite: UseCase: Calculating grid squarePositions");
+
 		matrix = new Vector2f[matrixHeight][matrixWidth];
-		xCoordView = (SPACE_BTWN_SQUARES/2);
-		yCoordView = (SPACE_BTWN_SQUARES/2);
+		xCoordView = (SPACE_BTWN_SQUARES / 2);
+		yCoordView = (SPACE_BTWN_SQUARES / 2);
 		for (int row = 0; row < matrixHeight; row++) {
 
 			for (int col = 0; col < matrixWidth; col++) {
-				matrix[row][col] = new Vector2f(xCoordView+newMatrixLocation.x, yCoordView+newMatrixLocation.y);
-				//*****
-				//***->
+				matrix[row][col] = new Vector2f(xCoordView
+						+ newMatrixLocation.x, yCoordView + newMatrixLocation.y);
+				// *****
+				// ***->
 				// adjust x to match next square
 				// start in the middle of the square
 				xCoordView += SPACE_BTWN_SQUARES;
 
-
 			}
 			// reset x
-			xCoordView = (SPACE_BTWN_SQUARES/2);
+			xCoordView = (SPACE_BTWN_SQUARES / 2);
 			yCoordView += SPACE_BTWN_SQUARES;
 		}
 	}
-	
-	
+
 	/**
 	 * Setup robotium to test Luminance activity
 	 */
@@ -100,44 +104,55 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	}
 
 	/**
-	 * Start the first level of the game
+	 * Start the first level of the game by pressing the start button
 	 */
-	public void startGame() {	
-		solo.sleep(1000);
+	public void startGame() {
+		solo.sleep(10000);
+
+		// Location of the start button from the top left
 		float startButtonX = 183;
 		float startButtonY = 232;
-		//logger.info("LuminanceTestSuite: UseCase: Starting Game");
-		
-		calculateGridPositions(new Vector2f(29, 226), 3, 9);
-		// 320x480
-		screenHeight = (float) Engine.getInstance().getViewHeight();
-		screenWidth = (float) Engine.getInstance().getViewWidth();
 
+		int startMatrixRows = 3;
+		int startMatrixCols = 9;
+
+		Vector2f startMatrixLocation = new Vector2f(29, 226);
+
+		// logger.info("LuminanceTestSuite: UseCase: Starting Game");
+
+		// Calculate the grid positions
+		calculateGridPositions(startMatrixLocation, startMatrixRows,
+				startMatrixCols);
+
+		/*
+		 * Simulate touch event, inform the engine that a motion event has
+		 * occured
+		 */
 		long downTime = SystemClock.uptimeMillis();
 		// event time MUST be retrieved only by this way!
 		long eventTime = SystemClock.uptimeMillis();
-		
-		
-		MotionEvent event = MotionEvent.obtain(downTime, eventTime,
-												MotionEvent.ACTION_DOWN,
-												startButtonX, 
-												startButtonY, 
-												0);
-		_inst.sendPointerSync(event);
-		eventTime = SystemClock.uptimeMillis() + 300;
-		
-		event = MotionEvent.obtain(downTime, eventTime,
-									MotionEvent.ACTION_UP,
-									startButtonX, 
-									startButtonY, 
-									0);
-		_inst.sendPointerSync(event);
-		
-		//for(int i = 0; i < 130; i++){
-	//		solo.clickOnScreen(startButtonX, startButtonY);
-	//	}
 
-		
+		// Loops and presses start button 10 times instead of just 1, behaves
+		// differently
+		// on different systems needed to ensure this registers on all systems
+		for (int i = 0; i < 10; i++) {
+
+			MotionEvent event = MotionEvent.obtain(downTime, eventTime,
+					MotionEvent.ACTION_DOWN, startButtonX, startButtonY, 0);
+			_inst.sendPointerSync(event);
+			eventTime = SystemClock.uptimeMillis() + 300;
+
+			event = MotionEvent.obtain(downTime, eventTime,
+					MotionEvent.ACTION_UP, startButtonX, startButtonY, 0);
+			_inst.sendPointerSync(event);
+			solo.sleep(500);
+		}
+
+		// Previous way of clicking the start button
+		// for(int i = 0; i < 130; i++){
+		// solo.clickOnScreen(startButtonX, startButtonY);
+		// }
+
 		solo.sleep(5000);
 	}
 
@@ -145,47 +160,51 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Pauses level
 	 */
 	public void pause() {
-		
-		//logger.info("LuminanceTestSuite: UseCase: Pausing Game");
-		 solo.clickOnScreen(295, 447);
-			solo.sleep(5000);
+
+		// logger.info("LuminanceTestSuite: UseCase: Pausing Game");
+		solo.clickOnScreen(295, 447);
+		solo.sleep(5000);
 	}
 
 	/**
 	 * Restarts level
 	 */
 	public void restart() {
-		//logger.info("LuminanceTestSuite: UseCase: Restarting Level");
+		// logger.info("LuminanceTestSuite: UseCase: Restarting Level");
 	}
 
 	/**
-	 * Places prism at given coordinates
+	 * Places prism at given coordinates Grid starts at (1,1)
 	 * 
 	 * @param row
 	 * @param col
 	 */
 	public void placePrism(int row, int col) {
-		row-=1;
-		col-=1;
-		//logger.info("LuminanceTestSuite: UseCase: Placing prism at "+ "(" + row + "," + col+")");
+		row -= 1;
+		col -= 1;
+		// logger.info("LuminanceTestSuite: UseCase: Placing prism at "+ "(" +
+		// row + "," + col+")");
+
+		// press on toolbar
 		solo.clickOnScreen(94, 443);
+		// place object
 		solo.sleep(timeBetweenOperations);
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
 		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
 		solo.sleep(timeBetweenOperations);
 	}
 
 	/**
-	 * Places mirror at given coordinates
+	 * Places mirror at given coordinates Grid starts at (1,1)
 	 * 
 	 * @param row
 	 * @param col
 	 */
 	public void placeMirror(int row, int col) {
-		row-=1;
-		col-=1;
-		//logger.info("LuminanceTestSuite: UseCase: Placing Mirror at "+ "(" + row + "," + col+")");
-		//solo.clickOnScreen(31, 431);
+		row -= 1;
+		col -= 1;
+		// logger.info("LuminanceTestSuite: UseCase: Placing Mirror at "+ "(" +
+		// row + "," + col+")");
+		// solo.clickOnScreen(31, 431);
 
 		solo.sleep(timeBetweenOperations);
 		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
@@ -193,77 +212,64 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	}
 
 	/**
-	 * Rotates mirror based on numberTaps
+	 * Rotates mirror by double tap Grid starts at (1,1)
 	 * 
 	 * @param row
 	 * @param col
-	 * @param numberTaps
 	 */
 	public void rotateMirror(int row, int col) {
-		row-=1;
-		col-=1;
-		//logger.info("LuminanceTestSuite: UseCase: Rotating mirror at "+ "(" + row + "," + col+")");
+		row -= 1;
+		col -= 1;
+		// logger.info("LuminanceTestSuite: UseCase: Rotating mirror at "+ "(" +
+		// row + "," + col+")");
+
 		// Double tap,
 		solo.sleep(timeBetweenOperations);
-		
+
 		long downTime = SystemClock.uptimeMillis();
 		// event time MUST be retrieved only by this way!
 		long eventTime = SystemClock.uptimeMillis();
-		
-		
+
 		MotionEvent event = MotionEvent.obtain(downTime, eventTime,
-												MotionEvent.ACTION_DOWN,
-												matrix[row][col].x, 
-												matrix[row][col].y, 
-												0);
+				MotionEvent.ACTION_DOWN, matrix[row][col].x,
+				matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
-		//eventTime = SystemClock.uptimeMillis() + 10;
-		
+		// eventTime = SystemClock.uptimeMillis() + 10;
+
+		event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP,
+				matrix[row][col].x, matrix[row][col].y, 0);
+		_inst.sendPointerSync(event);
+
 		event = MotionEvent.obtain(downTime, eventTime,
-									MotionEvent.ACTION_UP,
-									matrix[row][col].x, 
-									matrix[row][col].y, 
-									0);
+				MotionEvent.ACTION_DOWN, matrix[row][col].x,
+				matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
-		
-		event = MotionEvent.obtain(downTime, eventTime,
-									MotionEvent.ACTION_DOWN,
-									matrix[row][col].x, 
-									matrix[row][col].y, 
-									0);
+
+		event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP,
+				matrix[row][col].x, matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
-		
-		event = MotionEvent.obtain(downTime, eventTime,
-									MotionEvent.ACTION_UP,
-									matrix[row][col].x, 
-									matrix[row][col].y, 
-									0);
-		_inst.sendPointerSync(event);
-		//solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		//solo.sleep(1);//500, 100,300
-		//solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+
 		solo.sleep(timeBetweenOperations);
 
-		//cause exception
-		//solo.clickOnScreen(matrix[row][50].x, matrix[row][col].y);
 	}
 
-//	public void testDisplayBlackBox() throws Exception {
-//		completeMirrorBasics();
-//		completeMirrorBasics();
-//	}
+	// public void testDisplayBlackBox() throws Exception {
+	// completeMirrorBasics();
+	// completeMirrorBasics();
+	// }
 
 	/**
-	 * Erases Object at location
+	 * Erases Object at location Grid starts at (1,1)
 	 * 
 	 * @param row
 	 * @param col
 	 */
 	public void erase(int row, int col) {
-		row-=1;
-		col-=1;
-		//logger.info("LuminanceTestSuite: UseCase: Erasing object at "+ "(" + row + "," + col+")");
-		 solo.clickOnScreen(159, 434);
+		row -= 1;
+		col -= 1;
+		// logger.info("LuminanceTestSuite: UseCase: Erasing object at "+ "(" +
+		// row + "," + col+")");
+		solo.clickOnScreen(159, 434);
 		solo.sleep(timeBetweenOperations);
 		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
 		solo.sleep(timeBetweenOperations);
@@ -280,29 +286,31 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Grid Top Left(29, 226)
 	 */
 	public void testCaseOne() {
-		
-		//logger.info("LuminanceTestSuite: UseCase: Test Case One");
-		//logger.info("LuminanceTestSuite: UseCase: Matrix Located at "+ "(" + 29 + "," + 226+")");
-		
+
+		// logger.info("LuminanceTestSuite: UseCase: Test Case One");
+		// logger.info("LuminanceTestSuite: UseCase: Matrix Located at "+ "(" +
+		// 29 + "," + 226+")");
+
 		matrixLocation = new Vector2f(29, 226);
 		_inst = getInstrumentation();
-		
+
 		startGame();
-		placeMirror(1,1);
-		rotateMirror(1,1);
-		//completeMirrorBasics();
-		//completeDoubleSided();
-/*		placeMirror(6, 1);
+		completeMirrorBasics();
+		// placeMirror(1,1);
+		// rotateMirror(1,1);
+		// completeMirrorBasics();
+		// completeDoubleSided();
+		placeMirror(6, 1);
 		// User chooses mirror
 		// User places mirror(1)
 		// White Light collides with mirror
 		// White Light reflects south
 		// User chooses mirror
 
-		//placeMirror(6, 5);
+		// placeMirror(6, 5);
 		// User places mirror(2)
 		// Light collides with mirror
-		//placePrism(8, 5);
+		// placePrism(8, 5);
 		// User chooses prism
 		// User places Prism
 		// System refracts light into RGB
@@ -374,23 +382,26 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// Blue light collides with mirror
 		// Blue light connects with blue orb
 		// User completes level
-*/
+
 	}
 
+	/**
+	 * Completes "Mirror Basics"
+	 */
 	private void completeMirrorBasics() {
-		//logger.info("LuminanceTestSuite: UseCase: Completing level 1 ");
-		
+		// logger.info("LuminanceTestSuite: UseCase: Completing level 1 ");
+
 		calculateGridPositions(new Vector2f(29, 226), 3, 9);
 		placeMirror(1, 1);
-		rotateMirror(1,1);
-		placeMirror(1,5);
+		rotateMirror(1, 1);
+		placeMirror(1, 5);
 		placeMirror(3, 5);
-		
+
 		placeMirror(3, 7);
 		rotateMirror(3, 7);
 		placeMirror(1, 7);
 		rotateMirror(1, 7);
-		
+
 	}
 
 	public void tearDown() throws Exception {
@@ -402,241 +413,242 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		getActivity().finish();
 		super.tearDown();
 	}
-//	/*
-//	 * || || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || || 1 ||(W)|| || || || || ||
-//	 * B || || || 2 || || B || || || || || || || || 3 || || || B || || || || ||
-//	 * || || 4 || || || || B || || || || || || 5 || || || ||(G)|| B || || || ||
-//	 * || 6 || || || || || || || || || || 7 || B || || || || || || || || || 8 ||
-//	 * || || || || ||(R)|| ||(B)||
-//	 */
-//
-//	/**
-//	 * Test Case (2): Object interaction/function
-//	 * 
-//	 * Purpose: To test and verify that objects unique, functional, and interact
-//	 * with each other.
-//	 * 
-//	 * Tests Level: "More Prism"
-//	 */
-//	public void testCaseTwo() {
-//		//logger.info("LuminanceTestSuite: UseCase: Test Case Two");
-//		//logger.info("LuminanceTestSuite: UseCase: Matrix Located at "+ "(" + 29 + "," + 226+")");
-//		matrixLocation = new Vector2f(29, 226);
-//		
-//		startGame();
-//		completeMirrorBasics();
-//		completeDoubleSided();
-//		// User starts game
-//		// Game view is shown
-//		// prism -> mirror -> orb
-//		placeMirror(6, 0);
-//		// User chooses mirror
-//		// User places mirror(1)
-//		// White Light collides with mirror
-//		// White Light reflects south
-//		// User chooses mirror
-//
-//		placeMirror(6, 5);
-//		// User places mirror(2)
-//		// Light collides with mirror
-//		placePrism(8, 5);
-//		// User chooses prism
-//		// User places Prism
-//		// System refracts light into RGB
-//		// System deactivates prism from toolbar
-//		// Light collides with outer boundary
-//		// prism -> outer boundary
-//		// Light collides with differing color orb
-//		// prism -> wrong orb
-//		// Light collides with mirror bounces back to prism
-//		// prism -> mirror -> prism
-//		// placeMirror()
-//		// User chooses mirror
-//		// User places mirror
-//		// Light collides with mirror
-//		// User chooses eraser
-//		erase(8, 5);
-//		// User erases prism
-//		// Prism disappears
-//		// RGB disappears
-//		// System reactivates prism in toolbar
-//		// White light collides with mirror
-//		placePrism(8, 5);
-//		// User chooses prism
-//		// User places prism
-//		// System refracts light into RGB
-//		// System deactivates prism from toolbar
-//		// Lights reflects off of mirror
-//
-//		rotateMirror(6, 0);
-//		// User Rotates mirror
-//		// Light reflects to a different angle
-//		erase(6, 0);
-//		// User chooses eraser
-//		// User erases mirror
-//		// Light continues on with no obstacle in the way
-//		pause();
-//		// User presses pause
-//		// System brings up pop up menu
-//		restart();
-//		// User presses restart
-//		// System brings up the same map reset
-//
-//	}
-//
-//	/**
-//	 * Test Case (3): Object to obstacle collision
-//	 * 
-//	 * Purpose: To test and verify that objects unique, functional, and interact
-//	 * with each other.
-//	 * 
-//	 * Tests Level: "Double Sided"
-//	 */
-//	public void testCaseThree() {
-//		startGame();
-//		completeMirrorBasics();
-//		completeDoubleSided();
-//		// prism -> mirror -> orb
-//		placePrism(4, 5);
-//		// User chooses prism
-//		// User places Prism
-//		// System refracts light into RGB
-//		// System deactivates prism from toolbar
-//		placeMirror(4, 6);
-//		// User chooses mirror
-//		// User places mirror
-//		// Light collides with mirror
-//		erase(3, 4);
-//		// User chooses eraser
-//		// User tries to erase wall
-//		rotateMirror(4, 6);
-//		// User Rotates mirror
-//		// Light reflects to a different angle
-//		placeMirror(4, 6);
-//		// User chooses mirror
-//		// User tries to place a mirror on top of another mirror
-//		placeMirror(3, 4);
-//		// User tries to place a mirror on top of a Wall
-//		placeMirror(4, 5);
-//		// User tries to place a mirror on top of prism
-//		rotateMirror(4, 6);
-//		placeMirror(1, 5);
-//		placeMirror(6, 5);
-//	}
 
-//	/**
-//	 * Test Case (4): User statistics registration
-//	 * 
-//	 * Purpose: To test and verify that toolbar/high score is correctly updated
-//	 * after each object use
-//	 * 
-//	 * Tests Level: "Double Sided"
-//	 */
-//	public void testCaseFour() {
-//		startGame();
-//		completeMirrorBasics();
-//		completeDoubleSided();
-//		
-//		placePrism(4, 5);
-//		// User chooses prism
-//		// User places prism in empty grid square
-//		// Prism count is reduced in toolbar
-//		erase(4, 6);
-//		// User chooses eraser
-//		// User erases prism
-//		// System increments number of prisms
-//		placePrism(4, 5);
-//		placeMirror(4, 6);
-//		rotateMirror(4, 6);
-//		placeMirror(1, 5);
-//		placeMirror(6, 5);
-//		rotateMirror(6, 5);
-//		// User beats game
-//		// System updates high score with time
-//		// User chooses main menu
-//		// User selects high score bored
-//		// User sees high score bored is updated
-//	}
+	/*
+	 * || || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || || 1 ||(W)|| || || || || ||
+	 * B || || || 2 || || B || || || || || || || || 3 || || || B || || || || ||
+	 * || || 4 || || || || B || || || || || || 5 || || || ||(G)|| B || || || ||
+	 * || 6 || || || || || || || || || || 7 || B || || || || || || || || || 8 ||
+	 * || || || || ||(R)|| ||(B)||
+	 */
 
-//	/**
-//	 * Test Case (5): User transition between states, saved menu, resume
-//	 * 
-//	 * Purpose: To test and verify that state changes are taking place and are
-//	 * handled appropriately
-//	 * 
-//	 * Tests Level: "Double Sided"
-//	 */
-//	public void testCaseFive() {
-//		startGame();
-//		
-//		completeMirrorBasics();
-//		completeDoubleSided();
-//		
-//		placePrism(4, 5);
-//		// User chooses prism
-//		// User places Prism
-//		// System refracts light into RGB
-//		// System deactivates prism from toolbar
-//		placeMirror(1, 6);
-//		// User chooses mirror
-//		// User places mirror
-//		// Light collides with mirror
-//		stateCallRecieved();
-//		// User receives a call
-//		// Game sound is automatically turned off
-//		alterOrientation("landscape");
-//		alterOrientation("portrait");
-//		// User rotates phone
-//		// Phones changes orientation
-//		// Game is automatically paused
-//		exit();
-//		// User exits the Luminance
-//		openLuminance();
-//		// User reenters Luminance
-//		// System shows pop up menu screen
-//		turnOnSound();
-//		// User chooses sound on
-//		// User chooses resume
-//		resume();
-//		// System reloads all previously made moves
-//		pause();
-//		// User chooses pause
-//		// System loads pop up menu
-//		mainMenu();
-//		// User chooses main menu
-//		// System loads main menu
-//	}
+	/**
+	 * Test Case (2): Object interaction/function
+	 * 
+	 * Purpose: To test and verify that objects unique, functional, and interact
+	 * with each other.
+	 * 
+	 * Tests Level: "More Prism"
+	 */
+	public void testCaseTwo() {
+		// logger.info("LuminanceTestSuite: UseCase: Test Case Two");
+		// logger.info("LuminanceTestSuite: UseCase: Matrix Located at "+ "(" +
+		// 29 + "," + 226+")");
+		matrixLocation = new Vector2f(29, 226);
 
-//	/**
-//	 * Test Case (6): Stress test
-//	 * 
-//	 * Purpose: To test and verify that is able to cope under stranious
-//	 * conditions
-//	 * 
-//	 * Prereq: level1
-//	 */
-//	public void testCaseSix() {
-//		startGame();
-//		// User starts game
-//		// Android's Luminance memory is reduced
-//		tutorial();
-//		// User chooses first level play through tutorial
-//		reduceMemory();
-//		// Android slowly reduces memory for Luminance to 0
-//		// Luminance system realizes memory is too low returns error exits
-//		reduceMemory();
-//		// Android's Luminance memory is reset to normal
-//		// Android's hard drive space is set to very low
-//		startGame();
-//		// User starts game
-//		tutorial();
-//		// User chooses first level play through tutorial
-//		// Luminance gives error hard drive space is too low
-//		// Luminance exits
-//	}
+		startGame();
+		completeMirrorBasics();
+		completeDoubleSided();
+		// User starts game
+		// Game view is shown
+		// prism -> mirror -> orb
+		placeMirror(6, 0);
+		// User chooses mirror
+		// User places mirror(1)
+		// White Light collides with mirror
+		// White Light reflects south
+		// User chooses mirror
+
+		placeMirror(6, 5);
+		// User places mirror(2)
+		// Light collides with mirror
+		placePrism(8, 5);
+		// User chooses prism
+		// User places Prism
+		// System refracts light into RGB
+		// System deactivates prism from toolbar
+		// Light collides with outer boundary
+		// prism -> outer boundary
+		// Light collides with differing color orb
+		// prism -> wrong orb
+		// Light collides with mirror bounces back to prism
+		// prism -> mirror -> prism
+		// placeMirror()
+		// User chooses mirror
+		// User places mirror
+		// Light collides with mirror
+		// User chooses eraser
+		erase(8, 5);
+		// User erases prism
+		// Prism disappears
+		// RGB disappears
+		// System reactivates prism in toolbar
+		// White light collides with mirror
+		placePrism(8, 5);
+		// User chooses prism
+		// User places prism
+		// System refracts light into RGB
+		// System deactivates prism from toolbar
+		// Lights reflects off of mirror
+
+		rotateMirror(6, 0);
+		// User Rotates mirror
+		// Light reflects to a different angle
+		erase(6, 0);
+		// User chooses eraser
+		// User erases mirror
+		// Light continues on with no obstacle in the way
+		pause();
+		// User presses pause
+		// System brings up pop up menu
+		restart();
+		// User presses restart
+		// System brings up the same map reset
+
+	}
+
+	/**
+	 * Test Case (3): Object to obstacle collision
+	 * 
+	 * Purpose: To test and verify that objects unique, functional, and interact
+	 * with each other.
+	 * 
+	 * Tests Level: "Double Sided"
+	 */
+	public void testCaseThree() {
+		startGame();
+		completeMirrorBasics();
+		completeDoubleSided();
+		// prism -> mirror -> orb
+		placePrism(4, 5);
+		// User chooses prism
+		// User places Prism
+		// System refracts light into RGB
+		// System deactivates prism from toolbar
+		placeMirror(4, 6);
+		// User chooses mirror
+		// User places mirror
+		// Light collides with mirror
+		erase(3, 4);
+		// User chooses eraser
+		// User tries to erase wall
+		rotateMirror(4, 6);
+		// User Rotates mirror
+		// Light reflects to a different angle
+		placeMirror(4, 6);
+		// User chooses mirror
+		// User tries to place a mirror on top of another mirror
+		placeMirror(3, 4);
+		// User tries to place a mirror on top of a Wall
+		placeMirror(4, 5);
+		// User tries to place a mirror on top of prism
+		rotateMirror(4, 6);
+		placeMirror(1, 5);
+		placeMirror(6, 5);
+	}
+
+	/**
+	 * Test Case (4): User statistics registration
+	 * 
+	 * Purpose: To test and verify that toolbar/high score is correctly updated
+	 * after each object use
+	 * 
+	 * Tests Level: "Double Sided"
+	 */
+	public void testCaseFour() {
+		startGame();
+		completeMirrorBasics();
+		completeDoubleSided();
+
+		placePrism(4, 5);
+		// User chooses prism
+		// User places prism in empty grid square
+		// Prism count is reduced in toolbar
+		erase(4, 6);
+		// User chooses eraser
+		// User erases prism
+		// System increments number of prisms
+		placePrism(4, 5);
+		placeMirror(4, 6);
+		rotateMirror(4, 6);
+		placeMirror(1, 5);
+		placeMirror(6, 5);
+		rotateMirror(6, 5);
+		// User beats game
+		// System updates high score with time
+		// User chooses main menu
+		// User selects high score bored
+		// User sees high score bored is updated
+	}
+
+	/**
+	 * Test Case (5): User transition between states, saved menu, resume
+	 * 
+	 * Purpose: To test and verify that state changes are taking place and are
+	 * handled appropriately
+	 * 
+	 * Tests Level: "Double Sided"
+	 */
+	public void testCaseFive() {
+		startGame();
+
+		completeMirrorBasics();
+		completeDoubleSided();
+
+		placePrism(4, 5);
+		// User chooses prism
+		// User places Prism
+		// System refracts light into RGB
+		// System deactivates prism from toolbar
+		placeMirror(1, 6);
+		// User chooses mirror
+		// User places mirror
+		// Light collides with mirror
+		stateCallRecieved();
+		// User receives a call
+		// Game sound is automatically turned off
+		alterOrientation("landscape");
+		alterOrientation("portrait");
+		// User rotates phone
+		// Phones changes orientation
+		// Game is automatically paused
+		exit();
+		// User exits the Luminance
+		openLuminance();
+		// User reenters Luminance
+		// System shows pop up menu screen
+		turnOnSound();
+		// User chooses sound on
+		// User chooses resume
+		resume();
+		// System reloads all previously made moves
+		pause();
+		// User chooses pause
+		// System loads pop up menu
+		mainMenu();
+		// User chooses main menu
+		// System loads main menu
+	}
+
+	/**
+	 * Test Case (6): Stress test
+	 * 
+	 * Purpose: To test and verify that is able to cope under stranious
+	 * conditions
+	 * 
+	 * Prereq: level1
+	 */
+	public void testCaseSix() {
+		startGame();
+		// User starts game
+		// Android's Luminance memory is reduced
+		tutorial();
+		// User chooses first level play through tutorial
+		reduceMemory();
+		// Android slowly reduces memory for Luminance to 0
+		// Luminance system realizes memory is too low returns error exits
+		reduceMemory();
+		// Android's Luminance memory is reset to normal
+		// Android's hard drive space is set to very low
+		startGame();
+		// User starts game
+		tutorial();
+		// User chooses first level play through tutorial
+		// Luminance gives error hard drive space is too low
+		// Luminance exits
+	}
 
 	private void reduceMemory() {
-
 
 	}
 
@@ -651,8 +663,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	}
 
 	private void resume() {
-		 solo.clickLongOnScreen(162, 173);
-
+		solo.clickLongOnScreen(162, 173);
 
 	}
 
@@ -684,8 +695,6 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// TODO Auto-generated method stub
 
 	}
-
-
 
 	private void completeDoubleSided() {
 		calculateGridPositions(new Vector2f(29, 226), 3, 9);
