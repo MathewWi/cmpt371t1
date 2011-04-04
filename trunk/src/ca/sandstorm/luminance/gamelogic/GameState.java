@@ -279,9 +279,6 @@ public class GameState implements IState, Serializable
 	_parseLevel();
 	resetCamera();
 	resetEmitters();
-	
-	//Engine.getInstance().popState();
-	//Engine.getInstance().pushState(new GameState(_level + 1));
     }
     
     
@@ -441,7 +438,7 @@ public class GameState implements IState, Serializable
     public void resume()
     {
 	logger.debug("resume()");
-
+	
 	Engine.getInstance().getTimer().reset();
     }
 
@@ -575,6 +572,9 @@ public class GameState implements IState, Serializable
 	_loadGuiTextures(gl, _guiManager);
 	_loadGuiTextures(gl, _menuGuiManager);
 		
+	// reset emitters
+	resetEmitters();
+	
 	// SUCCESS
 	_initialized = true;
     }
