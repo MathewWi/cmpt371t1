@@ -25,6 +25,7 @@ public class Light extends GameObject implements IGameObject
     private static int _sNumParticles;
     private FloatBuffer _sVertexBuffer;
     private ShortBuffer _sIndexBuffer; 
+    private int _texture;
     
     private float _distance;
     
@@ -38,7 +39,7 @@ public class Light extends GameObject implements IGameObject
     
     private Ray _ray;
     
-    private int _color;
+    private int _color;   
     
     private IGameObject _startTouchingObject = null;
     private IGameObject _endTouchingObject = null;
@@ -54,40 +55,7 @@ public class Light extends GameObject implements IGameObject
 
     };
     
-    // Texture coordinates
-    private float[] _textureCoords = {
-		0.0f, 0.0f,
-    		0.0f, 1.0f,
-    		1.0f, 0.0f,
-    		1.0f, 1.0f, 
-    		
-    		0.0f, 0.0f,
-    		0.0f, 1.0f,
-    		1.0f, 0.0f,
-    		1.0f, 1.0f,
-    		
-    		0.0f, 0.0f,
-    		0.0f, 1.0f,
-    		1.0f, 0.0f,
-    		1.0f, 1.0f,
-    		
-    		0.0f, 0.0f,
-    		0.0f, 1.0f,
-    		1.0f, 0.0f,
-    		1.0f, 1.0f,
-    		
-    		0.0f, 0.0f,
-    		0.0f, 1.0f,
-    		1.0f, 0.0f,
-    		1.0f, 1.0f,
-    		
-    		0.0f, 0.0f,
-    		0.0f, 1.0f,
-    		1.0f, 0.0f,
-    		1.0f, 1.0f
-
-    };
-    
+    // Texture coordinates    
     private FloatBuffer _vertexBuffer;
     private ShortBuffer _indexBuffer;
     private FloatBuffer _textureBuffer;    
@@ -111,18 +79,12 @@ public class Light extends GameObject implements IGameObject
 	byteBuf.order(ByteOrder.nativeOrder());
 	_indexBuffer = byteBuf.asShortBuffer();
 	_indexBuffer.put(_indices);
-	_indexBuffer.position(0);
-	
-	ByteBuffer byteTexBuf = ByteBuffer.allocateDirect(_textureCoords.length * 4);
-	byteTexBuf.order(ByteOrder.nativeOrder());
-	_textureBuffer = byteTexBuf.asFloatBuffer();
-	_textureBuffer.put(_textureCoords);
-	_textureBuffer.position(0);	
+	_indexBuffer.position(0);	
 	
 	// init the vertices (dynamic)
 	_initVertices();
 	
-	_color = color;
+	_color = color;	
     }
     
     
@@ -193,6 +155,51 @@ public class Light extends GameObject implements IGameObject
 	_vertexBuffer = byteBuf.asFloatBuffer();
 	_vertexBuffer.put(_vertices);
 	_vertexBuffer.position(0);	
+	
+	
+	float textureScale = _distance / 2.0f;
+	Vector3f scale = new Vector3f(_direction);
+	scale.scale(textureScale);
+	scale.x = Math.max(1.0f, Math.abs(scale.x));
+	scale.z = Math.max(1.0f, Math.abs(scale.z));
+	float[] _textureCoords = {
+		0.0f, 0.0f,
+    		0.0f,  scale.x,
+    		scale.z, 0.0f,
+    		scale.z,  scale.x, 
+    		
+    		0.0f, 0.0f,
+    		0.0f, scale.x,
+    		scale.z, 0.0f,
+    		scale.z, scale.x,
+    		
+    		0.0f, 0.0f,
+    		0.0f, scale.x,
+    		scale.z, 0.0f,
+    		scale.z, scale.x,
+    		
+    		0.0f, 0.0f,
+    		0.0f,  scale.x,
+    		scale.z, 0.0f,
+    		scale.z, scale.x,
+    		
+    		0.0f, 0.0f,
+    		0.0f,  scale.x,
+    		scale.z, 0.0f,
+    		scale.z,  scale.x,
+    		
+    		0.0f, 0.0f,
+    		0.0f, scale.x,
+    		scale.z, 0.0f,
+    		scale.z, scale.x
+
+    };	
+	
+	ByteBuffer byteTexBuf = ByteBuffer.allocateDirect(_textureCoords.length * 4);
+	byteTexBuf.order(ByteOrder.nativeOrder());
+	_textureBuffer = byteTexBuf.asFloatBuffer();
+	_textureBuffer.put(_textureCoords);
+	_textureBuffer.position(0);	
     }
     
     
@@ -271,6 +278,7 @@ public class Light extends GameObject implements IGameObject
     public void initialize()
     {
 	// TODO Auto-generated method stub
+	
     }
 
 
@@ -334,15 +342,17 @@ public class Light extends GameObject implements IGameObject
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glEnable(GL10.GL_BLEND);
 	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE);	
-	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_REPEAT );
-	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT );
 	
+	int _texture = 0;
 	try {
-	    gl.glBindTexture(GL10.GL_TEXTURE_2D, Engine.getInstance().getResourceManager().loadTexture(gl, "textures/beam.png").getTexture());
+	    _texture = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/beam.png").getTexture();
 	} catch (IOException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
+	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture);
+	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_REPEAT );
+	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT );	
 	
 	// Set color
 	gl.glColor4f(Color.red(_color) / 255.0f,
