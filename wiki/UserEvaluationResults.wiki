@@ -27,7 +27,8 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 18 || no || yes || yes || 1 hour || 5 ||
 || 19 || no || yes || yes || 2 min || 5 ||
 || 20 || no || yes || yes || 5 min || 5 ||
-
+|| 21 || yes || yes || yes || 5 min || 3 ||
+|| 22 || yes || yes || yes || 2 hours || 4 ||
 
 || GAME ASPECT ||
 || Anon || Logic || Ease of Use || Camera || Audio || Performance || Interface || Real Game Rating || Dev Game Rating || Overall Rating ||
@@ -51,7 +52,8 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 18 || 10 || 10 || 10 || 8 || 9 || 9 || 9 || 10 || 8 ||
 || 19 || 10 || 5 || 10 || 10 || 8 || 10 || 10 || 10 || 8 ||
 || 20 || 8 || 7 || 10 || 9 || 8 || 8 || 8 || 9 || 8 ||
-
+|| 21 || 7 || 4 || 7 || 6.5 || 4 || 7 || 6 || 7 || 7 ||
+|| 22 || 7 || 5 || 6 || 10 || 7 || 8 || 7 || 8 || 8 ||
 
 || LIKE/DISLIKE ||
 || Anon || Length to learn the game? || Length of want to play game? || The game was: || Because: || The game needed: || I like this game? || I would play this game? || LIKED about the game: || DISLIKED about the game: ||
@@ -75,6 +77,8 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 18 || 5 min || played until the end|| fun || I like puzzles || more levels || yes || yes || easy to use, fun || it was short ||
 || 19 || 2 mins || wanted to play until the end || neat || you guys programmed it || bigger squares || yes || yes || the puzzle nature || "double tap" was too sensitive ||
 || 20 || 10 secs || n/a || clever || it used spatial awareness to solve puzzles || A level select function || yes || yes || simple in concept, potential for many puzzles || it lost my place when the phone went to sleep! ||
+|| 21 || 2 mins || n/a || fun|| challenging puzzles ||better controls || yes || yes || challenging made me think|| controls ||
+|| 22 || 30 secs || n/a || pretty fun|| it was challenging ||more refined controls || yes || yes || music, sound effects, challenging mazes, graphics|| Grid color was hard to distinguish against light beam controls were kind of glitchy||
 
 || GAME IDEAS ||
 || Anon || New Features || Old Features || Comments ||
@@ -98,6 +102,8 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 18 || Move levels! || Improve the number of levels || I like it! *thumbs up* ||
 || 19 || move levels || bigger squares, less sensitive double tap || n/a ||
 || 20 || Make stages with coloured filters, recombining light || find a more intuitive way to show the direction the light is travelling || n/a ||
+|| 21 || Rewards, achievements || more objects|| Game didn't improve the neatness of my writing ||
+|| 22 || High scoring, dragging, timer for points, different prisms, diagonal light || color grid differently|| Still pretty fun to play ||
 
 || PERSON TO PERSON IMPRESSIONS/SUGGESTIONS ||
 || Feature || Different background for every level||
@@ -140,3 +146,5 @@ Data gathered from the play testing of students around campus. They are anonymou
 || 18 || no bugs || n/a || n/a || n/a ||
 || 19 || no bugs || n/a || n/a || n/a ||
 || 20 || no bugs || n/a || n/a || n/a ||
+|| 21 || If you place a prism in front of another prism it still refracts all colors even the one non-white is input|| n/a || n/a || n/a ||
+|| 22 || Zooming and double clicking to switch mirror|| Zooming- not very responsive zoomed too little and too much. || Double clicking - didn't rotate sometimes || n/a ||
