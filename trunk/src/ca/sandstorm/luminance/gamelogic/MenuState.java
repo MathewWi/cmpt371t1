@@ -230,6 +230,7 @@ public class MenuState implements IState
 	_soundButton.setTextureResourceLocation("textures/sound.png");
 	_soundButton.setTappedTextureLocation("textures/soundClicked.png");
 	_soundButton.setCalleeAndMethod(this, "toggleSound");
+	_soundButton.setIsSelected(!Engine.getInstance().getAudioEnabled());
 	
 	// Button scoreButton = new Button(0.010f*width,
 	// 0.740f*height,
@@ -277,6 +278,12 @@ public class MenuState implements IState
 				.getResourceManager()
 				.loadTexture(gl, tappedTextureLocation);
 			((Button) widget).setTappedTexture(tappedTexture);
+			
+			// If the button is selected initially, set it to tapped texture
+			if (((Button)widget).getIsSelected()) {
+			    // This causes the right things to happen internally
+			    ((Button)widget).setIsSelected(((Button)widget).getIsSelected());
+			}
 		    }
 		}
 	    }
