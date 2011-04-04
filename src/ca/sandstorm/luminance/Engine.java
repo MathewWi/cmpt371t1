@@ -358,15 +358,7 @@ public class Engine
     public void setAudioEnabled(boolean b)
     {
 	_audioEnabled = b;
-	
-	if (_audioEnabled)
-	{
-
-	}
-	else
-	{
-
-	}
+	_audioSystem.setMute(!b);
     }
 
 

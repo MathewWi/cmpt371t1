@@ -26,6 +26,7 @@ public class AndroidSoundPlayer implements IAudioDriver
     // TODO: Remove sound streams from map when they're done
     private static final int MAX_STREAMS = 16;
     private boolean _musicPlaying = false;
+    private boolean _muted = false;
 
     private MediaPlayer _mediaPlayer;
     private SoundPool _soundPool;
@@ -63,6 +64,22 @@ public class AndroidSoundPlayer implements IAudioDriver
     {
 	return _soundPool;
     }
+    
+    /**
+     * Enable or disable audio muting. Doesn't affect currently playing sound effects,
+     * just music.
+     * @param mute True to mute, false to unmute.
+     */
+    public void setMute(boolean mute)
+    {
+	_muted = mute;
+	
+	if (_musicPlaying && mute) {
+	    _mediaPlayer.setVolume(0f, 0f);
+	} else if (_musicPlaying && !mute) {
+	    _mediaPlayer.setVolume(0.95f, 0.95f);  // near full volume, 1.0 is actually muted
+	}
+    }
 
     /**
      * Play a sound described by the sound resource.
@@ -73,6 +90,9 @@ public class AndroidSoundPlayer implements IAudioDriver
      */
     public int play(SoundResource sound, float volume)
     {
+	if (_muted)
+	    return 0;
+	
 	_logger.debug("Playing sound effect: " + sound);
 	assert sound != null;
 	
@@ -113,6 +133,10 @@ public class AndroidSoundPlayer implements IAudioDriver
 	_mediaPlayer.start();
 	_currentMusic = res;
 	_musicPlaying = true;
+	
+	if (_muted) {
+	    _mediaPlayer.setVolume(0f, 0f);
+	}
     }
 
 

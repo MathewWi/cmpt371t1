@@ -43,6 +43,7 @@ public class MenuState implements IState
     private boolean _initialized = false;
     private GUIManager _guiManager;
     private boolean _tapped;
+    private Button _soundButton;
 
     private TextureResource _background;
     private PrimitiveQuad _quad;
@@ -88,8 +89,10 @@ public class MenuState implements IState
     public void toggleSound()
     {
 	logger.debug("toggleSound()");
-
-	Engine.getInstance().setAudioEnabled(!Engine.getInstance().getAudioEnabled());
+	boolean currentState = Engine.getInstance().getAudioEnabled();
+	
+	Engine.getInstance().setAudioEnabled(!currentState);
+	_soundButton.setIsSelected(currentState);
     }    
 
 
@@ -222,11 +225,11 @@ public class MenuState implements IState
 	// levelButton.setTappedTextureLocation("textures/helpImageClicked.png");
 	// levelButton.setCalleeAndMethod(this, "showLevelMenu");
 
-	Button soundButton = new Button(0.86f * width, 0.86f * height,
+	_soundButton = new Button(0.86f * width, 0.86f * height,
 		0.14f * width, 0.12f * height, "Sound");
-	soundButton.setTextureResourceLocation("textures/sound.png");
-	soundButton.setTappedTextureLocation("textures/soundClicked.png");
-	soundButton.setCalleeAndMethod(this, "toggleSound");
+	_soundButton.setTextureResourceLocation("textures/sound.png");
+	_soundButton.setTappedTextureLocation("textures/soundClicked.png");
+	_soundButton.setCalleeAndMethod(this, "toggleSound");
 	
 	// Button scoreButton = new Button(0.010f*width,
 	// 0.740f*height,
@@ -244,7 +247,7 @@ public class MenuState implements IState
 	_guiManager.addButton(startButton);
 	_guiManager.addButton(helpButton);
 	// _guiManager.addButton(levelButton);
-	_guiManager.addButton(soundButton);
+	_guiManager.addButton(_soundButton);
 	// _guiManager.addButton(scoreButton);
 	_guiManager.addButton(infoButton);
 
