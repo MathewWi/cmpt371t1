@@ -217,13 +217,13 @@ public class Luminance extends Activity
     /**
      * Called when the activity needs to save its state so it can be restored later.
      */
-    @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState)
-    {
-	_logger.debug("onSaveInstanceState()");
-	savedInstanceState.putSerializable("Engine", Engine.getInstance());
-	super.onSaveInstanceState(savedInstanceState);
-    }
+    //@Override
+    //protected void onSaveInstanceState(Bundle savedInstanceState)
+    //{
+	//_logger.debug("onSaveInstanceState()");
+	//savedInstanceState.putSerializable("Engine", Engine.getInstance());
+	//super.onSaveInstanceState(savedInstanceState);
+    //}
     
     /**
      * Called when the activity needs to restore from a saved bundle.
