@@ -115,7 +115,7 @@ public class Luminance extends Activity
 	_logger.debug("onCreate()");
 	_instance = this;
 	
-	Engine savedEngine = (Engine)savedInstanceState.getSerializable("Engine");
+	//Engine savedEngine = (Engine)savedInstanceState.getSerializable("Engine");
 
 	// Assign the engine's application context
 	Engine.getInstance().setContext(getApplicationContext());
