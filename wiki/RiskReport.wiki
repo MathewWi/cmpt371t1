@@ -12,8 +12,8 @@
   * Update(s) - more information will be posted as risks change
 
 
-=Current Risks=
-Below are risks that are most important to this phase of the project:
+=Project Risks=
+Below are risks that we faced, or the potential risks that were foreseen.
 
 ==Risk 1==
  * *Description:* Setting up !TeamCity to run a smoke test when code is committed.
@@ -84,9 +84,6 @@ Below are risks that are most important to this phase of the project:
 
  * *Update* 03/20/2011: To ensure that developers are in constant communication with testers, we have paired up 1-2 developer(s) with the member of the test team that will be testing their code.
 
-=Potential Risks=
-
- These are risks that we may face in the future and need to be planned for:
 
 ==Risk 5==
  * *Description:* Ensuring touch support for Android will provide a positive user experience.
