@@ -286,6 +286,7 @@ public class Toolbelt
 	TextureResource mirrorClickedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/mirrorClicked.png");
 	button.setTappedTexture(mirrorClickedTexture);
 	button.setIsSelected(true);
+	_prevTouchedButton = button;
 	_mirrorIconAdded = true;
 	_gameState.getGui().addButton(button);
 

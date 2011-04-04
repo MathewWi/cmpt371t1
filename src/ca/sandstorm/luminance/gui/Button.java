@@ -137,6 +137,11 @@ public class Button extends Label
 	return _isTapped;
     }
     
+    public boolean getIsSelected()
+    {
+	return _isSelected;
+    }
+    
     /**
      * Lets you set this Button as being tapped. This boolean will cause the
      * Button to switch between drawing the tapped texture and the standard
