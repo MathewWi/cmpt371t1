@@ -270,19 +270,17 @@ public class MenuState implements IState
 			    .loadTexture(gl, textureResourceLocation);
 		    widget.setTexture(texture);
 
-		    if (widget.getClass() == Button.class &&
+		    if (widget instanceof Button &&
 			((Button) widget).getTappedTextureLocation() != null) {
-			String tappedTextureLocation = ((Button) widget)
-				.getTappedTextureLocation();
-			TextureResource tappedTexture = Engine.getInstance()
-				.getResourceManager()
-				.loadTexture(gl, tappedTextureLocation);
-			((Button) widget).setTappedTexture(tappedTexture);
+			Button button = (Button)widget;
+			String tappedTextureLocation = button.getTappedTextureLocation();
+			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
+			button.setTappedTexture(tappedTexture);
 			
 			// If the button is selected initially, set it to tapped texture
-			if (((Button)widget).getIsSelected()) {
+			if (button.getIsSelected()) {
 			    // This causes the right things to happen internally
-			    ((Button)widget).setIsSelected(((Button)widget).getIsSelected());
+			    button.setIsSelected(button.getIsSelected());
 			}
 		    }
 		}

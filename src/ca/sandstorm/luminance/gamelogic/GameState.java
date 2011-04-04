@@ -584,16 +584,17 @@ public class GameState implements IState
 		    TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, textureResourceLocation);
 		    widget.setTexture(texture);
 
-		    if (widget.getClass() == Button.class && 
-			    ((Button)widget).getTappedTextureLocation() != null) {
-			String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
+		    if (widget instanceof Button &&
+			    ((Button) widget).getTappedTextureLocation() != null) {
+			Button button = (Button)widget;
+			String tappedTextureLocation = button.getTappedTextureLocation();
 			TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl, tappedTextureLocation);
-			((Button)widget).setTappedTexture(tappedTexture);
-			
+			button.setTappedTexture(tappedTexture);
+
 			// If the button is selected initially, set it to tapped texture
-			if (((Button)widget).getIsSelected()) {
+			if (button.getIsSelected()) {
 			    // This causes the right things to happen internally
-			    ((Button)widget).setIsSelected(((Button)widget).getIsSelected());
+			    button.setIsSelected(button.getIsSelected());
 			}
 		    }
 		}
