@@ -97,11 +97,17 @@ public class Button extends Label
 	_tappedTexture = tappedTexture;
     }
     
+    /**
+     * Set whether a button is a toggle-button or not. If it is, it won't light up on touch-down.
+     */
     public void setIsToggle(boolean isToggle)
     {
 	_isToggle = isToggle;
     }
     
+    /**
+     * Get whether a button is a toggle-button or not. If it is, it won't light up on touch-down.
+     */
     public boolean isToggle()
     {
 	return _isToggle;
