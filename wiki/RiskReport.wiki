@@ -32,6 +32,7 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
  * *Update* 03/20/2011: The smoke test currently runs our suite of JUnit tests to ensure that nothing major is broken by a commit.
 
+ * *Final Update* 04/04/2011: The smoke test infrastructure was set up before committing broken code caused productivity issues.
 
 ==Risk 2==
  * *Description:* Setting up a standard development environment for all developers.
@@ -50,6 +51,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
  * *Update* 02/13/2011: At this point, all development and test team members have Eclipse setup and development has begun.
 
+ * *Final Update* 04/04/2011: The standard development environment was set up early on and since then it has been used without issue.
+
 ==Risk 3==
  * *Description:* Ensuring proper team communication.
 
@@ -67,6 +70,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
  * *Update* 02/13/2011: There have been issues with communication thus far, specifically between the development and test teams. To mitigate this risk we needed to make structural changes to increase the division of responsibilities. 
 
+ * *Final Update* 04/04/2011: At this point, team communication has greatly improved with frequent email messages and diligent use of the issue tracker.
+
 ==Risk 4==
  * *Description:* Ensuring project success after losing group members.
 
@@ -83,6 +88,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
  * *Status:* After a recent meeting on 02/11/2011 both the developers and testers are aware of what is to be implemented, and which units can be tested first.
 
  * *Update* 03/20/2011: To ensure that developers are in constant communication with testers, we have paired up 1-2 developer(s) with the member of the test team that will be testing their code.
+
+ * *Final Update* 04/04/2011: Despite having less members in our group, we were still able to produce quality work, and are very close to completion. 
 
 
 ==Risk 5==
@@ -102,6 +109,7 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
  * *Update* 02/13/2011: At this point, developers have located touch input code to use as a basis from the open source Android game Replica Island http://replicaisland.net/
 
+ * *Final Update* 04/04/2011: The Replica Island code has served us well in implementing the touch input system.
 
 
 ==Risk 6==
@@ -120,6 +128,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
  * *Status:* We currently have a stub framework on our code repository and from there we plan to divide the development task into work units for developers to take on.
 
  * *Update* 02/13/2011: The general framework of our code base has been stubbed. We have delegated the initial work units to be implemented. These units are the initial priorities as reflected in the CPM Diagram.
+
+ * *Final Update* 04/04/2011: After eliminating the new features from the game, the success of the complete rewrite is imminent.
 
 
 ==Risk 7==
@@ -141,6 +151,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
  * *Update* 03/20/2011: The source code relating to resource management has been written and tested. Further refactoring to follow.
 
+ * *Final Update* 04/04/2011: Resource management seems to have been handled correctly, as performance has not been impacted.
+
 ==Risk 8==
  * *Description:* Avoid performance problems when running on Android phone.
 
@@ -156,7 +168,10 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
  * *Status:* We have not yet encountered the issue, but are prepared to deal with slowness should it come up.
 
-  * *Update* 03/20/2011: We have encountered performance issues, but only within the Android emulator. Running the game on an actual device yields better results
+  * *Update* 03/20/2011: We have encountered performance issues, but only within the Android emulator. Running the game on an actual device yields better results.
+
+ * *Final Update* 04/04/2011: We have encountered performance issues using a custom version of the Android OS, but we later determined it was due to a lack of the required OpenGL libraries. Any phone that has the correct libraries does not have the issue.
+
 
 ==Risk 9==
  * *Description:* Repeated or defective work resulting from vague requirements.
@@ -175,6 +190,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
   * *Update* 03/20/2011: We have decided not to implement any new features and focus on improving the game from its original state. Therefore, this risk is no longer an issue.
 
+ * *Final Update* 04/04/2011: Having abandoned the new features, there is a specific idea of which tasks remain to be done.
+
 ==Risk 10==
  * *Description:* Work handed in late due to a miscommunication about due dates.
 
@@ -189,6 +206,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
  * *Contingency Plan:* If there are still individuals who are unaware of the correct due date, then the project manager will need to intervene on an individual level to ensure that proper communication takes place.
 
  * *Status:* Everyone is likely aware of the correct due date, and we have already received extra help from our project's manager. Therefore, the risk is sufficiently avoided at this point.
+
+ * *Final Update* 04/04/2011: Everyone is aware of the upcoming due date, and we plan to have everything complete 24 hours prior to the deadline.
 
 ==Risk 11=
  * *Description:* Limited user evaluation may result in game play issues.
@@ -205,6 +224,8 @@ Below are risks that we faced, or the potential risks that were foreseen:
 
  * *Status:* Levels are not yet complete, so user evaluation will not be possible for the moment. The developers should be aware of the plan to start user evaluations as soon as possible.
 
+ * *Final Update* 04/04/2011: We have extensive feedback from users of different demographics. This will hopefully provide balanced feedback about the game and what can be improved.
+
 ==Risk 12=
  * *Description:* Limited test phones available due to OpenGL issues.
 
@@ -219,3 +240,5 @@ Below are risks that we faced, or the potential risks that were foreseen:
  * *Contingency Plan:* If all else fails, simply install a different custom OS on the devices that allow for acceptable graphics functionality.
 
  * *Status:* At this point, we have been given additional devices to help alleviate the issue. Ultimately, we do have a phone which we can use to demo the game, so the risk will likely be avoided.
+
+ * *Final Update* 04/04/2011: We have a device that runs the game properly which will be used for the project demo.
