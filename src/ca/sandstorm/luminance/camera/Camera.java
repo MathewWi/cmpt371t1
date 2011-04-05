@@ -531,7 +531,7 @@ public class Camera
 	float screenH = Engine.getInstance().getViewHeight();
 
 	// touch.Print("World Coords", "Screen touch");
-	_logger.debug("World Coords Screen: " + screenW + ", " + screenH);
+	//_logger.debug("World Coords Screen: " + screenW + ", " + screenH);
 
 	// Auxiliary matrix and vectors to deal with ogl.
 	float[] invertedMatrix, transformMatrix, normalizedInPoint, outPointNear, outPointFar;
@@ -559,7 +559,7 @@ public class Camera
 
 	// Apply the inverse to the point in clip space, near plane 
 	Matrix.multiplyMV(outPointNear, 0, invertedMatrix, 0, normalizedInPoint, 0);
-	_logger.debug("WorldCoords NearPointWW: " + outPointNear[0] + ", " + outPointNear[1] + ", " + outPointNear[2] + ", " + outPointNear[3]);
+	//_logger.debug("WorldCoords NearPointWW: " + outPointNear[0] + ", " + outPointNear[1] + ", " + outPointNear[2] + ", " + outPointNear[3]);
 
 	// Avoid /0 error.
 	if (outPointNear[3] == 0.0) {
@@ -571,7 +571,7 @@ public class Camera
 	winz = 1.0f;
 	normalizedInPoint[2] = 2f * winz - 1.0f;
 	Matrix.multiplyMV(outPointFar, 0, invertedMatrix, 0, normalizedInPoint, 0);
-	_logger.debug("WorldCoords FarPointWW: " + outPointFar[0] + ", " + outPointFar[1] + ", " + outPointFar[2] + ", " + outPointFar[3]);	
+	//_logger.debug("WorldCoords FarPointWW: " + outPointFar[0] + ", " + outPointFar[1] + ", " + outPointFar[2] + ", " + outPointFar[3]);	
 
 	// Avoid /0 error.
 	if (outPointFar[3] == 0.0) {
@@ -590,9 +590,9 @@ public class Camera
 	Vector3f dir = new Vector3f(xFar - xNear, yFar - yNear, zFar - zNear);
 	dir.normalize();	
 	
-	_logger.debug("World Coords NearPoint: " + xNear + ", " + yNear + ", " + zNear + ")");
-	_logger.debug("World Coords FarPoint: " + xFar + ", " + yFar + ", " + zFar + ")");
-	_logger.debug("World Coords Dir: " + dir.x + ", " + dir.y + ", " + dir.z + ")");
+	//_logger.debug("World Coords NearPoint: " + xNear + ", " + yNear + ", " + zNear + ")");
+	//_logger.debug("World Coords FarPoint: " + xFar + ", " + yFar + ", " + zFar + ")");
+	//_logger.debug("World Coords Dir: " + dir.x + ", " + dir.y + ", " + dir.z + ")");
 	
 	_tmpRay.setPosition(xNear, yNear, zNear);
 	_tmpRay.setDirection(dir.x, dir.y, dir.z);
