@@ -177,8 +177,11 @@
 || Built stand alone (for PC) level editor || 16 ||
 || Added loading bar || 2 ||
 || Light beam improvements || 10 ||
+|| Mass removal of warnings || 1 ||
 || Implemented basic state save || 3 ||
 || Various minor bugs || 4 ||
+|| Further light beam improvements || 2 ||
+
 
 
 == Martina Nagy ==
