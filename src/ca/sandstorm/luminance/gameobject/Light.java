@@ -1,11 +1,9 @@
 package ca.sandstorm.luminance.gameobject;
 
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
-import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
@@ -19,12 +17,9 @@ import ca.sandstorm.luminance.math.Sphere;
 
 public class Light extends GameObject implements IGameObject
 {
-    public static final float LIGHT_INFINITY = 255.0f;
+    public static final float LIGHT_INFINITY = 127.5f;
     
-    // particle quads info, reused for all lights
-    private static int _sNumParticles;
-    private FloatBuffer _sVertexBuffer;
-    private ShortBuffer _sIndexBuffer; 
+    // particle quads info, reused for all lights 
     private int _texture;
     
     private float _distance;
@@ -32,7 +27,6 @@ public class Light extends GameObject implements IGameObject
     private Vector3f _startPoint;
     private Vector3f _endPoint;
     private Vector3f _direction;
-    private Vector3f _tmpDistance;
     
     // total indice count for rendering
     private int _totalIndices;   
@@ -43,6 +37,8 @@ public class Light extends GameObject implements IGameObject
     
     private IGameObject _startTouchingObject = null;
     private IGameObject _endTouchingObject = null;
+    
+    private static float _pulse = 1.0f;
         
     // Indices
     private short[] _indices = {
@@ -101,7 +97,7 @@ public class Light extends GameObject implements IGameObject
 	scaleDir.scale(0.15f);
 	Vector3f boxStart = new Vector3f(_startPoint);
 	boxStart.add(scaleDir);
-	
+		
 	scaleDir = new Vector3f(Colliders.crossProduct(_direction, Colliders.DOWN));
 	scaleDir.normalize();
 	scaleDir.scale(0.15f);
@@ -325,8 +321,12 @@ public class Light extends GameObject implements IGameObject
     
     // @HACK - not consistent at all
     public void draw(GL10 gl)
-    {
-	gl.glScalef(1, 1, 1);
+    {		
+	gl.glMatrixMode(GL10.GL_TEXTURE);
+	gl.glLoadIdentity();
+	gl.glTranslatef(-1.0f * _pulse, 0, 0);
+	_pulse += 0.01f;
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	
 	// don't cull face here
 	//gl.glDisable(GL10.GL_CULL_FACE);
@@ -366,6 +366,10 @@ public class Light extends GameObject implements IGameObject
 	gl.glDisable(GL10.GL_BLEND);
 	gl.glEnable(GL10.GL_DEPTH_TEST);
 	//gl.glEnable(GL10.GL_CULL_FACE);
+	
+	gl.glMatrixMode(GL10.GL_TEXTURE);
+	gl.glLoadIdentity();
+	gl.glMatrixMode(GL10.GL_MODELVIEW);	
     }
     
     
