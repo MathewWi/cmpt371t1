@@ -14,7 +14,6 @@ import ca.sandstorm.luminance.math.Sphere;
 
 /**
  * Light receptor game object.
- * @author zenja
  */
 public class Receptor extends GameObject implements IRenderableObject
 {
@@ -28,7 +27,6 @@ public class Receptor extends GameObject implements IRenderableObject
     
     private int _deactivatedColor;
     private int _activatedColor;
-    private int _color;
     private boolean _activated;
     
     /**
@@ -68,12 +66,11 @@ public class Receptor extends GameObject implements IRenderableObject
      */
     public void setColor(int color)
     {
-	_color = color;
 	_activatedColor = color;
 	int red = Color.red(color) / 2;
 	int green = Color.green(color) / 2;
 	int blue = Color.blue(color) / 2;
-	_deactivatedColor = Color.argb(255, red, green, blue);
+	_deactivatedColor = Color.argb(127, red, green, blue);
     }
     
     
