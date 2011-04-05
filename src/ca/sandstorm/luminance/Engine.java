@@ -12,9 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import android.content.Context;
-import android.media.AudioManager;
 import android.os.Bundle;
-import android.os.Message;
 import android.os.SystemClock;
 
 import ca.sandstorm.luminance.audio.AndroidSoundPlayer;
@@ -43,7 +41,7 @@ public class Engine implements Serializable
     private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 
     // constants for debugging
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
 
     // singleton instance
     private static Engine _instance = null;
