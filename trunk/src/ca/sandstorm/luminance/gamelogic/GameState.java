@@ -283,6 +283,7 @@ public class GameState implements IState, Serializable
 	                           height,
 	                           "LevelComplete");
 	button.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/levelComplete.png"));
+	button.setTextureResourceLocation("textures/levelComplete.png");
 	button.setCalleeAndMethod(this, "nextLevel");
 	_guiManager.addButton(button);
 	
@@ -482,7 +483,7 @@ public class GameState implements IState, Serializable
 	    _guiManager = new GUIManager(false);
 	    _menuGuiManager = new GUIManager(true);
 	}
-		
+			
 	// Load textures
 	try {
 	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/wallBrick.jpg");
@@ -517,6 +518,7 @@ public class GameState implements IState, Serializable
 	    e.printStackTrace();
 	}
 	
+
 	Button pauseButton = new Button(width*0.86f,
 	                                height*0.86f,
 	                                width*0.14f,
@@ -589,6 +591,12 @@ public class GameState implements IState, Serializable
 	
 	// default camera
 	resetCamera();
+	
+	// if the level was complete display the level complete logo
+	if (_complete)
+	{
+	    _levelComplete();
+	}	
 	
 	_loadGuiTextures(gl, _guiManager);
 	_loadGuiTextures(gl, _menuGuiManager);
