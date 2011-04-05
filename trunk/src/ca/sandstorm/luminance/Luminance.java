@@ -14,7 +14,6 @@ import ca.sandstorm.luminance.state.IState;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -296,8 +295,8 @@ public class Luminance extends Activity
 	Engine.getInstance().getTouchFilter().updateTouch(event);
 	_gesture.onTouchEvent(event);
 
-	// try {Thread.sleep(33);} catch (Exception e) {
-	// _logger.error("Could not sleep event thread"); }
+	try {Thread.sleep(4);} catch (Exception e) {
+	_logger.error("Could not sleep event thread"); }
 
 	return true;
     }
