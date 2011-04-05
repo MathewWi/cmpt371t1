@@ -13,7 +13,7 @@
 
 
 =Project Risks=
-Below are risks that we faced, or the potential risks that were foreseen.
+Below are risks that we faced, or the potential risks that were foreseen:
 
 ==Risk 1==
  * *Description:* Setting up !TeamCity to run a smoke test when code is committed.
@@ -40,7 +40,7 @@ Below are risks that we faced, or the potential risks that were foreseen.
 
  * *Severity:* High
 
- * *Rationale:* It is crucial to have a standard development environment so that all users have an identical environment to ensure that errors do not result from 
+ * *Rationale:* It is crucial to have a standard development environment so that all users have an identical environment to ensure that errors do not result from inconsistency.
 
  * *Mitigation Plan:* We plan to avoid the realization of this risk by proper use of our project wiki. We will provide detailed instructions on how to set up our chosen IDE as well as integration of all the required plugins.
 
@@ -142,7 +142,7 @@ Below are risks that we faced, or the potential risks that were foreseen.
  * *Update* 03/20/2011: The source code relating to resource management has been written and tested. Further refactoring to follow.
 
 ==Risk 8==
- * *Description:* Avoid performance problems when running on Android phone
+ * *Description:* Avoid performance problems when running on Android phone.
 
  * *Probability:* Low
 
@@ -206,7 +206,7 @@ Below are risks that we faced, or the potential risks that were foreseen.
  * *Status:* Levels are not yet complete, so user evaluation will not be possible for the moment. The developers should be aware of the plan to start user evaluations as soon as possible.
 
 ==Risk 12=
- * *Description:* Limited test phones available due to OpenGL issues
+ * *Description:* Limited test phones available due to OpenGL issues.
 
  * *Probability:* High
 
