@@ -4,9 +4,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.microedition.khronos.opengles.GL10;
-import javax.vecmath.Vector3f;
-
-import ca.sandstorm.luminance.graphics.PrimitiveQuad;
 import ca.sandstorm.luminance.resources.TextureResource;
 
 /**
