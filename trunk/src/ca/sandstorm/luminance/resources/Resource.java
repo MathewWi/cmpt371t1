@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.resources;
 
-import android.content.res.AssetFileDescriptor;
 
 /**
  * Project resource.
