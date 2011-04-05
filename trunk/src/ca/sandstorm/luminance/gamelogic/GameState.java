@@ -226,6 +226,8 @@ public class GameState implements IState, Serializable
 	_lightPath.getLightPaths().clear();
 	Engine.getInstance().getRenderer().removeAll();
 	
+	Light.resetLightScroll();
+	
 	// reinit gui manager
 	_guiManager = new GUIManager(false);
 
@@ -847,6 +849,8 @@ public class GameState implements IState, Serializable
 		_levelComplete();
 	    }
 	}
+	
+	Light.incrementLightScroll();
     }
 
 

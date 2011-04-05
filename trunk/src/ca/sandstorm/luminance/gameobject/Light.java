@@ -155,7 +155,7 @@ public class Light extends GameObject implements IGameObject
 	_vertexBuffer.position(0);	
 	
 	
-	float textureScale = _distance / 2.0f;
+	float textureScale = _distance / 1.0f;
 	Vector3f scale = new Vector3f(_direction);
 	scale.scale(textureScale);
 	scale.x = Math.max(1.0f, Math.abs(scale.x));
@@ -271,6 +271,15 @@ public class Light extends GameObject implements IGameObject
 	_endTouchingObject = o;
     }    
     
+    public static void incrementLightScroll()
+    {
+	_pulse += 0.10f;
+    }
+    
+    public static void resetLightScroll()
+    {
+	_pulse = 0;
+    }
     
     @Override
     public void initialize()
@@ -325,7 +334,6 @@ public class Light extends GameObject implements IGameObject
 	gl.glMatrixMode(GL10.GL_TEXTURE);
 	gl.glLoadIdentity();
 	gl.glTranslatef(-1.0f * _pulse, 0, 0);
-	_pulse += 0.01f;
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
 	
 	// don't cull face here
