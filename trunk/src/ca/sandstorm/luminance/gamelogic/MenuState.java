@@ -8,16 +8,11 @@ import org.slf4j.LoggerFactory;
 import javax.microedition.khronos.opengles.GL10;
 import javax.vecmath.Vector3f;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.media.AudioManager;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 import ca.sandstorm.luminance.Engine;
-import ca.sandstorm.luminance.Luminance;
 import ca.sandstorm.luminance.graphics.PrimitiveQuad;
 import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
@@ -346,7 +341,7 @@ public class MenuState implements IState
 	    if (touchEvent.getAction() == MotionEvent.ACTION_UP && _tapped) {
 		logger.debug("Menu has been touched");
 		if (_guiManager.buttonIsTapped()) {
-		    logger.debug(_guiManager.getTappedButton().getTitle());
+		    logger.debug(_guiManager.getTappedButton().getIdentifier());
 		}
 		_guiManager.letGoOfButton();
 		_tapped = false;
