@@ -64,7 +64,7 @@ public class TimeSystemTest extends AndroidTestCase {
 		myTimeSystem.freeze(5.0f);
 		assertTrue(myTimeSystem.getRealTime() == 2.0f);
 		assertTrue(myTimeSystem.getRealTimeFrameDelta() == 2.0f);
-		// assertTrue(myTimeSystem.getFrameDelta() == 0.0f);
+		//assertTrue(myTimeSystem.getFrameDelta() == 0.0f);
 	}
 
 	/**
