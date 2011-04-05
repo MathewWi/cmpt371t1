@@ -187,6 +187,7 @@ public class GameStateInput
 	    
 	    if (Engine.getInstance().getInputSystem()
 		.getTouchScreen().getTouchMode() == InputTouchScreen.ON_SINGLE_TAP_CONFIRMED){
+		logger.debug("Single click: " + touchEvent.getX() + "," + touchEvent.getY());
 		if (_isGridEnabled) {
 		    mouseClick(touchEvent.getX(), 
 		               touchEvent.getY() 
@@ -208,6 +209,7 @@ public class GameStateInput
 	    
 	    if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode() == InputTouchScreen.ON_DOUBLE_TAP_CONFIRMED 
 		    && _isGridEnabled) {
+		logger.debug("Double click: " + touchEvent.getX() + "," + touchEvent.getY());
 		mouseDoubleClick(touchEvent.getX(), 
 			               touchEvent.getY() 
 			               - Engine.getInstance().getMenuBarHeight() 
@@ -225,7 +227,9 @@ public class GameStateInput
 		                                              - Engine.getInstance().getMenuBarHeight() 
 		                                              - Engine.getInstance().getTitleBarHeight());
 		if (touchButton != null) {
-		    touchButton.setIsTapped(true);
+		    if (!touchButton.isToggle()) {
+			touchButton.setIsTapped(true);
+		    }
 		}
 
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);

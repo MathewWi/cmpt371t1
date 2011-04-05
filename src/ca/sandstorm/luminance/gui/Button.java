@@ -16,6 +16,7 @@ public class Button extends Label
 {
     private String _tappedTextureLocation;
     private TextureResource _tappedTexture;
+    private boolean _isToggle = false;
     
     // This texture's value is swapped between _texture and _tappedTexture.
     // Used for drawing in the draw(GL10) method.
@@ -94,6 +95,16 @@ public class Button extends Label
     public void setTappedTexture(TextureResource tappedTexture)
     {
 	_tappedTexture = tappedTexture;
+    }
+    
+    public void setIsToggle(boolean isToggle)
+    {
+	_isToggle = isToggle;
+    }
+    
+    public boolean isToggle()
+    {
+	return _isToggle;
     }
     
     /**

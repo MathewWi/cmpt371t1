@@ -268,6 +268,7 @@ public class Toolbelt
 	                                 _toolIconSizeHeight, "Eraser");
 	eraserButton.setTextureResourceLocation("textures/eraser.png");
 	eraserButton.setTappedTextureLocation("textures/eraserClicked.png");
+	eraserButton.setIsToggle(true);
 	_gameState.getGui().addButton(eraserButton);
 	_toolIcons.put(ToolType.Eraser, eraserButton);
 
@@ -294,6 +295,7 @@ public class Toolbelt
 	TextureResource mirrorClickedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/mirrorClicked.png");
 	button.setTappedTexture(mirrorClickedTexture);
 	button.setIsSelected(true);
+	button.setIsToggle(true);
 	_prevTouchedButton = button;
 	_mirrorIconAdded = true;
 	_gameState.getGui().addButton(button);
@@ -323,6 +325,7 @@ public class Toolbelt
 	TextureResource prismClickedTexture = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/prismClicked.png");
 	button.setTappedTexture(prismClickedTexture);
 	_prismIconAdded = true;
+	button.setIsToggle(true);
 	_gameState.getGui().addButton(button);
 	_toolIcons.put(ToolType.Prism, button);
 
