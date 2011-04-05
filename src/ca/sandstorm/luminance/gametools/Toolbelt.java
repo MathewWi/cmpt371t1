@@ -37,6 +37,7 @@ public class Toolbelt
     // Stock available of each tool type
     private HashMap<ToolType, Integer> _stock;
     private HashMap<ToolType, NumericLabel> _stockLabel;
+    private HashMap<ToolType, Button> _toolIcons;
     
     private boolean _mirrorIconAdded = false;
     private boolean _prismIconAdded = false;
@@ -59,6 +60,7 @@ public class Toolbelt
 	_stock.put(ToolType.Prism, 0);
 	
 	_stockLabel = new HashMap<ToolType, NumericLabel>();
+	_toolIcons = new HashMap<ToolType, Button>();
 	
 	addGui();
     }
@@ -76,6 +78,11 @@ public class Toolbelt
 	//       that instead of checking button titles like this
 	Button touchedButton = _gameState.getGui().touchOccured(x, y);
 	if (touchedButton != null) {
+	    // Clear selected status of all the buttons
+	    for(Button b : _toolIcons.values()) {
+		b.setIsSelected(false);
+	    }
+	    
 	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.ogg"), 0.9f);
 	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
 		logger.debug("mirror has been tapped");
@@ -262,6 +269,7 @@ public class Toolbelt
 	eraserButton.setTextureResourceLocation("textures/eraser.png");
 	eraserButton.setTappedTextureLocation("textures/eraserClicked.png");
 	_gameState.getGui().addButton(eraserButton);
+	_toolIcons.put(ToolType.Eraser, eraserButton);
 
 	if(_stock.get(ToolType.Mirror) > 0)
 	    _addMirrorIcon();
@@ -289,6 +297,7 @@ public class Toolbelt
 	_prevTouchedButton = button;
 	_mirrorIconAdded = true;
 	_gameState.getGui().addButton(button);
+	_toolIcons.put(ToolType.Mirror, button);
 
 	// Add the label indicating stock
 	NumericLabel label = new NumericLabel(0, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(ToolType.Mirror));
@@ -315,6 +324,7 @@ public class Toolbelt
 	button.setTappedTexture(prismClickedTexture);
 	_prismIconAdded = true;
 	_gameState.getGui().addButton(button);
+	_toolIcons.put(ToolType.Prism, button);
 
 	// Add the label indicating stock
 	NumericLabel label = new NumericLabel(_toolIconSizeWidth, _toolIconYPos, _toolIconSizeWidth / 2.5f, _toolIconSizeHeight / 2.5f, _stock.get(ToolType.Prism));
