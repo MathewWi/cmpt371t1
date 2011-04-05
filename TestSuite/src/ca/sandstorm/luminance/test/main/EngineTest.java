@@ -112,7 +112,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetRenderer()
     {
-	//assertNotNull(engine.getRenderer());
+    	//assertNotNull(engine.getRenderer());
     }
 
 
@@ -121,7 +121,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetTimer()
     {
-	//assertNotNull(engine.getTimer());
+    	//assertNotNull(engine.getTimer());
     }
 
 
@@ -130,7 +130,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetInputSystem()
     {
-	//assertNotNull(engine.getInputSystem());
+    	//assertNotNull(engine.getInputSystem());
     }
 
 

@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.test.level;
 
+import java.util.Vector;
+
 import ca.sandstorm.luminance.level.XmlLevelBrick;
 import android.test.AndroidTestCase;
 
@@ -14,8 +16,14 @@ public class XmlLevelBrickTest extends AndroidTestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-
-//		tBrick = new XmlLevelBrick();
+		Vector<Float> pos = new Vector<Float>();
+		pos.add(0.0f);
+		pos.add(0.0f);
+		Vector<Float> dir = new Vector<Float>();
+		dir.add(0.0f);
+		dir.add(0.0f);
+		dir.add(0.0f);
+		tBrick = new XmlLevelBrick(pos, dir);
 	}
 	
 	public void testXmlLevelBrick(){
