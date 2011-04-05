@@ -378,7 +378,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the width of the level.
+     * @param document A Document object of the level.
+     * @return The width of the level.
+     */
     private float getLevelWidth(Document document)
     {
 	Element gridSizeElement = getGridSizeElement(document);
@@ -388,7 +392,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the y size of the level.
+     * @param document A Document object of the level.
+     * @return The y size of the level.
+     */
     private int getLevelYSize(Document document)
     {
 	Element gridSizeElement = getGridSizeElement(document);
@@ -398,7 +406,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the x size of the level.
+     * @param document A Document object of the level.
+     * @return The x size of the level.
+     */
     private int getLevelXSize(Document document)
     {
 	Element gridSizeElement = getGridSizeElement(document);
@@ -408,14 +420,22 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for getting the grid_size element from the level.
+     * @param document A Document object of the level.
+     * @return An Element object of the grid_size of the level.
+     */
     private Element getGridSizeElement(Document document)
     {
 	return (Element)document.getElementsByTagName("grid_size").item(0);
     }
 
 
-
+    /**
+     * Helper method for parsing the difficulty of a level.
+     * @param document A Document object of the level.
+     * @return The difficulty of the level.
+     */
     private String getLevelDifficulty(Document document)
     {
 	Element difficultyElement = (Element)document.getElementsByTagName("difficulty").item(0);
@@ -424,7 +444,11 @@ public class XmlLevelParser
     }
 
 
-
+    /**
+     * Helper method for parsing the name of a level.
+     * @param document A Document object of the level.
+     * @return The name of the level.
+     */
     private String getLevelName(Document document)
     {
 	Element nameElement = (Element)document.getElementsByTagName("name").item(0);
