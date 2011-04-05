@@ -2,11 +2,9 @@ package ca.sandstorm.luminance.gameobject;
 
 import java.util.Vector;
 
-import javax.vecmath.Matrix3f;
 import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
-import ca.sandstorm.luminance.math.Colliders;
 
 /**
  * Abstract class that underlies game objects.
