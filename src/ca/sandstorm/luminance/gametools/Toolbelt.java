@@ -112,7 +112,7 @@ public class Toolbelt
     
     public void processDoubleClick(float x, float y, Point2i gridCoords)
     {
-	if (gridCoords != null)
+	if (gridCoords != null && !_gameState.isCurrentLevelComplete())
 	{
 	    _gameState.rotateObjectAtGridCoords(gridCoords.x, gridCoords.y);
 	}

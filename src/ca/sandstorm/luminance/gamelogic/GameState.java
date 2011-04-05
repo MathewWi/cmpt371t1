@@ -141,14 +141,35 @@ public class GameState implements IState, Serializable
 	_showMenu = false;
     }
     
+    
+    /**
+     * returns if the pause menu should be rendered
+     * @return
+     */
     public boolean getShowMenu()
     {
 	return _showMenu;
     }
     
+    
+    /**
+     * Sets if the pause menu should
+     * @param showMenu
+     */
     public void setShowMenu(boolean showMenu)
     {
 	_showMenu = showMenu;
+    }
+    
+    
+    /**
+     * Returns true if the level is currently showing the completed
+     * screen.
+     * @return
+     */
+    public boolean isCurrentLevelComplete()
+    {
+	return _complete;
     }
         
     /**
