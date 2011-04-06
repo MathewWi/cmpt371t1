@@ -31,8 +31,6 @@ public class LabelTest extends AndroidTestCase {
 		width = 1.0f;
 		height = 1.0f;
 
-		label = new Label(x, y, width, height, text);
-		assertNotNull(label);
 
 	}
 
@@ -51,6 +49,8 @@ public class LabelTest extends AndroidTestCase {
 	 */
 	public void testLabel() {
 		label = new Label(x, y, width, height, text);
+		assertNotNull(label);
+
 	}
 
 	/**

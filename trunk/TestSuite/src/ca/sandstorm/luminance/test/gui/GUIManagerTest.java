@@ -1,4 +1,4 @@
-package ca.sandstorm.luminance.test.input;
+package ca.sandstorm.luminance.test.gui;
 
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gui.Button;
@@ -14,7 +14,8 @@ public class GUIManagerTest extends AndroidTestCase {
 	int MAX_BUTTON_COUNT = 10;
 	InputXY[] inAr;
 	GUIManager GUIManager;
-
+	boolean isFading = false;
+	
 	// Button attributes
 	float height = 1.0f;
 	float width = 1.0f;
@@ -27,7 +28,7 @@ public class GUIManagerTest extends AndroidTestCase {
 
 	public void setUp() throws Exception {
 		super.setUp();
-		GUIManager = new GUIManager();
+		GUIManager = new GUIManager(isFading);
 		assertNotNull(GUIManager);
 		MAX_BUTTON_COUNT = 10;
 		// inAr = new InputXY[MAX_BUTTON_COUNT];
@@ -44,7 +45,6 @@ public class GUIManagerTest extends AndroidTestCase {
 	/**
 	 * @throws java.lang.Exception
 	 */
-
 	public void tearDown() throws Exception {
 		super.tearDown();
 	}
@@ -55,7 +55,8 @@ public class GUIManagerTest extends AndroidTestCase {
 	 */
 
 	public void testGUIManager() {
-		GUIManager newManager = new GUIManager();
+
+		GUIManager newManager = new GUIManager(isFading);
 		assertNotNull(newManager);
 	}
 
@@ -86,8 +87,9 @@ public class GUIManagerTest extends AndroidTestCase {
 
 	public void testTouchOccuredMotionEvent() {
 		/**
+		 * NOTE: this function uses touchOccured(float, float)
 		 * MotionEvent constructor is not public unable to construct event to
-		 * test function
+		 * test function. 
 		 */
 		assert (true);
 

@@ -27,8 +27,6 @@ public class ButtonTest extends AndroidTestCase {
 		height = 1000000;
 		title = "testButton";
 
-		button = new Button(x, y, width, height, title);
-		assertNotNull(button);
 	}
 
 	/*
@@ -46,28 +44,15 @@ public class ButtonTest extends AndroidTestCase {
 	 * .
 	 */
 	public void testButton() {
-		assertEquals(x, button.getX(), .001);
-		assertEquals(y, button.getY(), .001);
-		assertEquals(width, button.getWidth(), .001);
-		assertEquals(height, button.getHeight(), .001);
-		assertTrue(title.equals(button.getTitle()));
-
-		// TODO: Consider testing for null values
-		// or change preconditions for functions
-
+		button = new Button(x, y, width, height, title);
+		assertNotNull(button);
 	}
 
-	/**
-	 * Test method for {@link ca.sandstorm.luminance.gui.Button#getX()}.
-	 */
-	public void testGetX() {
-		assertEquals(x, button.getX(), .001);
-	}
 
 	/**
 	 * Test method for {@link ca.sandstorm.luminance.gui.Button#setX(float)}.
 	 */
-	public void testSetX() {
+	public void testGetSetX() {
 		x = 1;
 		button.setX(x);
 
@@ -75,37 +60,23 @@ public class ButtonTest extends AndroidTestCase {
 
 	}
 
-	/**
-	 * Test method for {@link ca.sandstorm.luminance.gui.Button#getY()}.
-	 */
-	public void testGetY() {
-
-		assertEquals(y, button.getY(), .001);
-	}
 
 	/**
 	 * Test method for {@link ca.sandstorm.luminance.gui.Button#setY(float)}.
 	 */
-	public void testSetY() {
+	public void testGetSetY() {
 		y = 1;
 		button.setY(y);
 
 		assertEquals(y, button.getY(), .001);
 	}
 
-	/**
-	 * Test method for {@link ca.sandstorm.luminance.gui.Button#getWidth()}.
-	 */
-	public void testGetWidth() {
-
-		assertEquals(width, button.getWidth(), .001);
-	}
 
 	/**
 	 * Test method for {@link ca.sandstorm.luminance.gui.Button#setWidth(float)}
 	 * .
 	 */
-	public void testSetWidth() {
+	public void testGetSetWidth() {
 		width = 1;
 		button.setWidth(width);
 
@@ -113,35 +84,22 @@ public class ButtonTest extends AndroidTestCase {
 	}
 
 	/**
-	 * Test method for {@link ca.sandstorm.luminance.gui.Button#getHeight()}.
-	 */
-	public void testGetHeight() {
-		assertEquals(height, button.getHeight(), .001);
-	}
-
-	/**
 	 * Test method for
 	 * {@link ca.sandstorm.luminance.gui.Button#setHeight(float)}.
 	 */
-	public void testSetHeight() {
+	public void testGetSetHeight() {
 		height = 1;
 		button.setHeight(height);
 
 		assertEquals(height, button.getHeight(), .001);
 	}
 
-	/**
-	 * Test method for {@link ca.sandstorm.luminance.gui.Button#getTitle()}.
-	 */
-	public void testGetTitle() {
-		assertTrue(title.equals(button.getTitle()));
-	}
 
 	/**
 	 * Test method for
 	 * {@link ca.sandstorm.luminance.gui.Button#setTitle(java.lang.String)}.
 	 */
-	public void testSetTitle() {
+	public void testGetSetTitle() {
 		title = "test2";
 		button.setTitle(title);
 
