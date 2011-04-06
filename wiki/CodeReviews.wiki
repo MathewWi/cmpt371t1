@@ -979,9 +979,15 @@ Follow-up from Martina:
   * Defect 9:
     * Location: TimeSystemTest - testFreeze()
     * Summary: Could implement a real test rather than the current ones which don't really do anything
-    * Discovered by:
+    * Discovered by: Everyone
 
 Follow-up from Martina:
+  * Defect 1: Added to this test case and ran the test class.  Test passed as expected.
+  * Defect 2: My rationale is that if I change it to incorporate all the subclasses, it's just redundant.  So I removed the class altogether.
+  * Defect 3: Changed and re-ran test.  Works fine.
+  * Defect 4: Fixed this test to actually test the getGridPosition() method.  Ran the test and it passes.
+  * Defect 5: The getRotation method for Light.java doesn't do anything significant; it just returns null.  I changed this test to ensure that.
+   Same with the getScale method.
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
