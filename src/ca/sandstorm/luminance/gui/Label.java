@@ -26,9 +26,16 @@ public class Label implements IWidget
 
     /**
      * Constructor for creating a Label.
+     * 
+     * @param x The x position for the Label.
+     * @param y The y position for the Label.
+     * @param width The width for the Label.
+     * @param height The height for the Label.
      * @param identifier String to use for the Label.
      * @precond n/a
-     * @postcond this.getIdentifier() == identifier
+     * @postcond this.getX() == x && this.getY() == y &&
+     * this.getWidth() == width && this.getHeight() == height &&
+     * this.getIdentifier() == identifier
      */
     public Label(float x, float y, float width, float height, String identifier)
     {
@@ -42,6 +49,28 @@ public class Label implements IWidget
 	                          new Vector3f(0, 0, 0),
 	                          new Vector3f(width, height, 0)
 	);
+    }
+    
+    /**
+     * Constructor for creating a Label with a texture resource location.
+     * 
+     * @param x The x position for the Label.
+     * @param y The y position for the Label.
+     * @param width The width for the Label.
+     * @param height The height for the Label.
+     * @param identifier String to use for the Label.
+     * @param textureLocation The location of the texture to be used for the Label.
+     * @precond n/a
+     * @postcond this.getX() == x && this.getY() == y &&
+     * this.getWidth() == width && this.getHeight() == height &&
+     * this.getIdentifier() == identifier &&
+     * this.getTextureResourceLocation() == textureResourceLocation
+     */
+    public Label(float x, float y, float width, float height, String identifier, String textureLocation)
+    {
+	this(x, y, width, height, identifier);
+	
+	_textureResourceLocation = textureLocation;
     }
     
     /**

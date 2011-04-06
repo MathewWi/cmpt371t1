@@ -9,10 +9,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.graphics.PrimitiveQuad;
+import ca.sandstorm.luminance.gui.Button;
 import ca.sandstorm.luminance.gui.GUIManager;
+import ca.sandstorm.luminance.gui.IWidget;
+import ca.sandstorm.luminance.gui.Label;
+import ca.sandstorm.luminance.gui.NumericLabel;
+import ca.sandstorm.luminance.input.InputTouchScreen;
 import ca.sandstorm.luminance.resources.TextureResource;
 import ca.sandstorm.luminance.state.IState;
 
@@ -21,6 +27,7 @@ public class LevelMenuState implements IState
     private static final Logger logger = LoggerFactory.getLogger(LevelMenuState.class);
     private boolean _initialized = false;
     private GUIManager _guiManager;
+    private boolean _screenIsTapped;
     
     private TextureResource _background;
     private PrimitiveQuad _quad;
@@ -28,6 +35,7 @@ public class LevelMenuState implements IState
     public LevelMenuState()
     {
 	_guiManager = new GUIManager(false);
+	_screenIsTapped = false;
     }
 
     public void init(GL10 gl)
@@ -40,7 +48,67 @@ public class LevelMenuState implements IState
 	);
 
 	try {
-	    _background = Engine.getInstance().getResourceManager().loadTexture(gl, "textures/menuBackground.png");
+	    _background = Engine.getInstance().getResourceManager().loadTexture(gl,
+	                                                                        "textures/menuBackground.png");
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+	
+	Button button = new Button(width*0.14f,
+	                           height*0.14f,
+	                           width*0.14f,
+	                           height*0.12f,
+	                           "1");
+	button.setTextureResourceLocation("textures/levelBox.png");
+	button.setTappedTextureLocation("textures/levelBoxClicked.png");
+	button.setCalleeAndMethod(this, "goToLevel");
+	NumericLabel label = new NumericLabel(width*0.14f,
+	   	                           height*0.14f,
+		                           width*0.14f,
+		                           height*0.12f,
+		                           1);
+	_guiManager.addButton(button);
+	_guiManager.addButton(label);
+	
+	_loadTextures(gl);
+    }
+    
+    /**
+     * Load the textures into the widgets in the gui manager.
+     * 
+     * @param gl The GL10 instance.
+     */
+    private void _loadTextures(GL10 gl)
+    {
+	for (IWidget widget : _guiManager.getWidgets()) {
+	    if (widget != null) {
+		_loadTexturesForWidget(gl, widget);
+	    }
+	}
+    }
+    
+    /**
+     * Load the textures for a given widget.
+     * 
+     * @param gl The GL10 instance.
+     * @param widget The widget whose textures we need to load.
+     */
+    private void _loadTexturesForWidget(GL10 gl, IWidget widget)
+    {
+	try {
+	    if (widget instanceof Label) {
+		String textureLocation = widget.getTextureResourceLocation();
+		TextureResource texture = Engine.getInstance().getResourceManager().loadTexture(gl, 
+		                                                                                textureLocation);
+		widget.setTexture(texture);
+	    }
+	    
+	    if (widget.getClass() == Button.class && ((Button)widget).getTappedTextureLocation() != null) {
+		String tappedTextureLocation = ((Button)widget).getTappedTextureLocation();
+		TextureResource tappedTexture = Engine.getInstance().getResourceManager().loadTexture(gl,
+		                                                                                      tappedTextureLocation);
+		((Button)widget).setTappedTexture(tappedTexture);
+	    }
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
@@ -93,11 +161,37 @@ public class LevelMenuState implements IState
 	// TODO Auto-generated method stub
 
     }
+    
+    public void goToLevel()
+    {
+	logger.debug("goToLevel()");
+	for (IWidget widget : _guiManager.getWidgets()) {
+	    
+	}
+    }
 
     public void update(GL10 gl)
     {
-	// TODO Auto-generated method stub
-
+	MotionEvent touchEvent = Engine.getInstance().getInputSystem().getTouchScreen().getTouchEvent();
+	if (touchEvent != null) {
+	    int touchMode = Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode();
+	    if (touchMode == InputTouchScreen.ON_DOWN) {
+		Button eventWidget = _guiManager.touchOccured(touchEvent);
+		if (eventWidget != null) {
+		    logger.debug("Button was tapped");
+		    eventWidget.setIsTapped(true);
+		    _screenIsTapped = true;
+		}
+		
+		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+	    } 
+	    
+	    if (touchEvent.getAction() == MotionEvent.ACTION_UP && _screenIsTapped) {
+		logger.debug("Button was let go");
+		_guiManager.letGoOfButton();
+		_screenIsTapped = false;
+	    }
+	}
     }
 
     public void draw(GL10 gl)
