@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.sandstorm.luminance.gamelogic.GameState;
+import ca.sandstorm.luminance.gamelogic.HelpMenuState;
 import ca.sandstorm.luminance.gamelogic.LevelMenuState;
 import ca.sandstorm.luminance.gamelogic.MenuState;
 import ca.sandstorm.luminance.state.IState;
@@ -340,6 +341,11 @@ public class Luminance extends Activity
 		((GameState) currentState).showOrDismissPauseMenu();
 	    } else if (currentState instanceof LevelMenuState) {
 		// We are currently in the level menu
+		// So let's go back to the main menu (MenuState)
+		Engine.getInstance().popState();
+		Engine.getInstance().pushState(new MenuState());
+	    } else if (currentState.getClass() == HelpMenuState.class) {
+		// We are currently in the help menu
 		// So let's go back to the main menu (MenuState)
 		Engine.getInstance().popState();
 		Engine.getInstance().pushState(new MenuState());
