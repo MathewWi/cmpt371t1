@@ -88,6 +88,17 @@ public class MenuState implements IState
     }
     
     /**
+     * This method creates and pushes a HelpMenuState
+     */
+    public void pushHelpMenuState()
+    {
+	logger.debug("pushHelpMenuState()");
+	
+	Engine.getInstance().popState();
+	Engine.getInstance().pushState(new HelpMenuState());
+    }
+    
+    /**
      * This method exists solely for testing the button action features. Its
      * existence is temporary.
      */
@@ -219,7 +230,7 @@ public class MenuState implements IState
 		0.1250f * height, "Help");
 	helpButton.setTextureResourceLocation("textures/helpImage.png");
 	helpButton.setTappedTextureLocation("textures/helpImageClicked.png");
-	helpButton.setCalleeAndMethod(this, "test");
+	helpButton.setCalleeAndMethod(this, "pushHelpMenuState");
 
 	// Button levelButton = new Button(0.175f*width,
 	// 0.350f*height + 2*.185f*height,
