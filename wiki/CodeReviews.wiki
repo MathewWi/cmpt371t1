@@ -988,9 +988,10 @@ Follow-up from Martina:
   * Defect 4: Fixed this test to actually test the getGridPosition() method.  Ran the test and it passes.
   * Defect 5: The getRotation method for Light.java doesn't do anything significant; it just returns null.  I changed this test to ensure that.
    Same with the getScale method.
-  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
-  * I later tried out a version on the phone.  It plays fantastic!
-  * I believe it is safe to say that these changes were made successfully.
+  * Defect 6: Added asserts to ensure there is more than one beam of light now in the LightBeamCollection for both test classes.
+  * Defect 7: Changed this to be the appropriate values.  Tests pass.
+  * Defect 8: Looked into the source code for Skybox.java, and there is currently no way to test it.  All its fields are private, and its methods do not provide a way to access them to see if their values are correct.  Leaving this as is for now, and will inform the developer who wrote it of this.
+  * Defect 9: Added tests for getter methods.  However, the freeze and applyScale methods modify other fields that do not have getter methods and are private.  This makes this impossible to test.  Will speak with developer on this issue.
 
 = Milestone 5: Inspection of Amara's Test Code ==
 *Moderator:* Martina
