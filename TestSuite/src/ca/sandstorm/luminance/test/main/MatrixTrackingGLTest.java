@@ -3,13 +3,10 @@
  */
 package ca.sandstorm.luminance.test.main;
 
-import static org.mockito.Mockito.mock;
-
 import javax.microedition.khronos.opengles.GL10;
 
-import ca.sandstorm.luminance.MatrixTrackingGL;
-
 import android.test.AndroidTestCase;
+import ca.sandstorm.luminance.MatrixTrackingGL;
 
 
 /**

@@ -1,6 +1,5 @@
 package ca.sandstorm.luminance.test.camera;
 
-import javax.vecmath.Quat4f;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
@@ -16,12 +15,7 @@ public class CameraTest extends AndroidTestCase {
 
 	private Camera camera;
 
-	@SuppressWarnings("unused")
-	private Vector3f up, target, eye, lookDirection, strafeDirection;
-	@SuppressWarnings("unused")
-	private float[] lastProjectionMat, lastModelViewMat;
-	@SuppressWarnings("unused")
-	private Quat4f rotation, view, newView, conjugate;
+	private Vector3f target, eye;
 
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -30,18 +24,6 @@ public class CameraTest extends AndroidTestCase {
 		
 		target = new Vector3f(0, 0, 0);
 		eye = new Vector3f(0, 0, 0);
-/*		up = new Vector3f(0, 1, 0);
-
-		lookDirection = new Vector3f();
-		strafeDirection = new Vector3f();
-
-		lastProjectionMat = new float[16];
-		lastModelViewMat = new float[16];
-
-		rotation = new Quat4f();
-		view = new Quat4f();
-		newView = new Quat4f();
-		conjugate = new Quat4f();*/
 	}
 
 	public void testGetEye() throws Exception {

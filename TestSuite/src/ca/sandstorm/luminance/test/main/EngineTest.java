@@ -3,23 +3,11 @@
  */
 package ca.sandstorm.luminance.test.main;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.stub;
-import static org.mockito.Mockito.verify;
-
-import javax.microedition.khronos.opengles.GL10;
-import javax.vecmath.Vector3f;
-
-
-
+import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gamelogic.GameState;
 import ca.sandstorm.luminance.gameobject.IGameObject;
 import ca.sandstorm.luminance.gameobject.Light;
-import ca.sandstorm.luminance.state.IState;
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.test.AndroidTestCase;
 
 
 /**
@@ -52,6 +40,9 @@ public class EngineTest extends AndroidTestCase
 		//setup
 		IGameObject light = new Light(1, 1, 1, 1, 1, 1, 1, 1);
 		GameState gameState = new GameState(1);
+		
+		assertNotNull(light);
+		assertNotNull(gameState);
 		//added light into gameState
 		//gameState.addObject(light);
 

@@ -1,13 +1,5 @@
 package ca.sandstorm.luminance.test.gamelogic;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.stub;
-import static org.mockito.Mockito.verify;
-
-import javax.vecmath.Vector3f;
-
-import ca.sandstorm.luminance.gamelogic.GameState;
-import ca.sandstorm.luminance.gameobject.IGameObject;
 import android.test.AndroidTestCase;
 
 /**

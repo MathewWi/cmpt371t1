@@ -1,7 +1,5 @@
 package ca.sandstorm.luminance.test.math;
 
-import javax.vecmath.Vector3f;
-
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.math.Ray;
 

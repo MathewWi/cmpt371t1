@@ -1,9 +1,5 @@
 package ca.sandstorm.luminance.test.recyclingbin;
 
-import javax.vecmath.Vector3f;
-
-import android.test.AndroidTestCase;
-import ca.sandstorm.luminance.gameobject.Mirror;
 
 
 /**

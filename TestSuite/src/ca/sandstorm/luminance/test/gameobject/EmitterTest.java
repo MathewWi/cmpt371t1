@@ -4,9 +4,6 @@ import javax.vecmath.Vector3f;
 import javax.vecmath.Vector4f;
 
 import android.test.AndroidTestCase;
-import ca.sandstorm.luminance.gameobject.Light;
-import ca.sandstorm.luminance.gameobject.LightBeam;
-import ca.sandstorm.luminance.gameobject.LightBeamCollection;
 import ca.sandstorm.luminance.gameobject.Emitter;
 import ca.sandstorm.luminance.gameobject.RenderType;
 
