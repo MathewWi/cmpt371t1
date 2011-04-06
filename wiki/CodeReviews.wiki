@@ -1011,11 +1011,13 @@ Follow-up from Martina:
     * Location: GUIManagerTest- testTouchOccuredMotionEvent()
     * Summary: No test written, Discuess with Jonny; A wrapper on TouchOccuredFloatFloat
     * Discovered by: Amara
+    * Decision: Added comment and redirected to internal method
 
   * Defect 2:
     * Location: All TestSuite
     * Summary: Need explicit private declaration and underscore in front so that it adheres to our naming convention
     * Discovered by: Jonny
+    * Decision: yes consistency!
 
 !InputButtonTest
 
@@ -1023,6 +1025,7 @@ Follow-up from Martina:
     * Location: whole class
     * Summary: Verify what 'magnitude' means, add comment. REPLICA ISLAND code. No need for change.
     * Discovered by: Martina
+    * Decision: Replica Island code added comment
 
 !LuminanceTest
 
@@ -1030,11 +1033,13 @@ Follow-up from Martina:
     * Location: Whole class
     * Summary: Document that 1x1 extrapolates to 1x1 on the board and not 0->(n -1). Actual is 1 -> n
     * Discovered by: Martina, Amara
+    * Decision: Comment added to clarify offset
 
   * Defect 5:
     * Location: testCaseSix()
     * Summary: Not yet implemented
     * Discovered by: Amara, Jeff
+    * Decision: Will be implemented
 
 !LabelTest
 
@@ -1042,7 +1047,7 @@ Follow-up from Martina:
     * Location: testLabel()
     * Summary: Instantiating label should be gone. Have test of nullidity instead
     * Discovered by: Amara, Jeff, Martina
-
+    * Decision: Will eliminate redundancy
 
 !ButtonTest
 
@@ -1050,5 +1055,16 @@ Follow-up from Martina:
     * Location: Whole class
     * Summary: A bit redundant on getters and setters. Isolate getters and setters
     * Discovered by: Martina
+    * Decision: Will combine getters and setters
 
 Follow-up from Martina/Amara
+=== Follow-Up Results ===
+Follow-up from Amara:
+  * Defect 1: Added comment and redirected to internal method
+  * Defect 2: Left alone; only 2-3 lines are duplicated and there would be some issues with trying to create a common method.
+  * Defect 3: Magnitude boundaries are unknown not documented anywhere, 
+the test itself does test a single case of magnitude
+  * Defect 4: added comment to notify of offset
+  * Defect 5: Implemented test case 5
+  * Defect 6: Moved construction into constructor from setup
+  * Defect 7: Moved construction into constructor from setup, deleted get tests and renamed set functions to set-get.
