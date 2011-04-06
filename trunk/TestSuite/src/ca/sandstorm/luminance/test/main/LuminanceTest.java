@@ -5,7 +5,6 @@ package ca.sandstorm.luminance.test.main;
 
 import android.test.AndroidTestCase;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import ca.sandstorm.luminance.Luminance;
 
 
@@ -72,6 +71,7 @@ public class LuminanceTest extends AndroidTestCase
     {
 	int keyCode = 4;
 	KeyEvent keyEvent = new KeyEvent(keyCode, keyCode);
+	assertNotNull(keyEvent);
 	//TODO: this function always returns false tell devs to fix, currently returning null
 	//assertNotNull(luminance.onKeyUp(KeyEvent.ACTION_DOWN, keyEvent));
 	
