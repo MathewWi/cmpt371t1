@@ -1,5 +1,6 @@
 package ca.sandstorm.luminance.gui;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -44,6 +45,50 @@ public class Button extends Label
 	
 	_isTapped = false;
 	_isSelected = false;
+    }
+    
+    /**
+     * Constructor for creating a Button with a standard texture, tapped texture, callee and method.
+     * 
+     * @param x X coordinate of the button.
+     * @param y Y coordinate of the button.
+     * @param width Width of the button.
+     * @param height Height of the button.
+     * @param title String to be used for the buton title.
+     * @param textureLocation The location of the texture to be used for the
+     * Button.
+     * @param tappedTextureLocation The location of the texture to be used for
+     * the Button when it is tapped.
+     * @param callee The object to be called with method when the Button is
+     * tapped.
+     * @param method The string representing the method that will be called on
+     * callee when the Button is tapped.
+     * @precond x >= 0 && y >= 0 && width >= 0 && height >= 0 &&
+     * textureLocation != null && callee != null && method != null
+     * @postcond this.getX() == x, this.getY() == y, this.getWidth() == width,
+     * this.getHeight() == height, this.getTitle() == title &&
+     * this.getTextureResourceLocation() == textureLocation &&
+     * this.getCallee() == callee && this.getMethod() == method
+     */
+    public Button(float x, float y, float width, float height, String title, String textureLocation, String tappedTextureLocation, Object callee, String method)
+    {
+	super(x, y, width, height, title, textureLocation);
+	
+	_isTapped = false;
+	_isSelected = false;
+	
+	this.setTextureResourceLocation(textureLocation);
+	_callee = callee;
+	
+	try {
+	    _method = _callee.getClass().getMethod(method, ((Class[])null));
+	} catch (SecurityException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	} catch (NoSuchMethodException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
     }
     
     /**
@@ -151,6 +196,13 @@ public class Button extends Label
 	return _isTapped;
     }
     
+    /**
+     * Find out whether the button is currently in a selected state.
+     * 
+     * @return the boolean indicating whether this button is in a selected
+     * state. If true, the button is selected. If false, the button is not
+     * selected.
+     */
     public boolean getIsSelected()
     {
 	return _isSelected;
@@ -234,6 +286,20 @@ public class Button extends Label
 	    e.printStackTrace();
 	}
     }
+    
+    public void setCalleeAndMethodWithParameter(Object callee, String method)
+    {
+	_callee = callee;
+	
+	Class parameterTypes[] = {this.getClass()};
+	try {
+	    _method = callee.getClass().getMethod(method, parameterTypes);
+	} catch (SecurityException e) {
+	    e.printStackTrace();
+	} catch (NoSuchMethodException e) {
+	    e.printStackTrace();
+	}
+    }
 
     /**
      * When a button is tapped, this method is called. This method should only
@@ -242,7 +308,9 @@ public class Button extends Label
      */
     protected void tapped()
     {
+//	Object buttons[] = {this};
 	try {
+//	    _method.invoke(_callee, buttons);
 	    _method.invoke(_callee, (Object[])null);
 	} catch (IllegalArgumentException e) {
 	    // TODO Auto-generated catch block

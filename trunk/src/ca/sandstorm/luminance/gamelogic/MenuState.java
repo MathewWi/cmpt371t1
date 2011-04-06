@@ -76,6 +76,16 @@ public class MenuState implements IState
 	Engine.getInstance().pushState(new GameState(0));
     }
     
+    /**
+     * This method creates and pushes a LevelMenuState.
+     */
+    public void pushLevelMenuState()
+    {
+	logger.debug("pushLevelMenuState()");
+	
+	Engine.getInstance().popState();
+	Engine.getInstance().pushState(new LevelMenuState());
+    }
     
     /**
      * This method exists solely for testing the button action features. Its
