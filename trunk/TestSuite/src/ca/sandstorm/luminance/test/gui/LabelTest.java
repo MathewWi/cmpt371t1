@@ -30,7 +30,8 @@ public class LabelTest extends AndroidTestCase {
 		y = 1.0f;
 		width = 1.0f;
 		height = 1.0f;
-
+		
+		label = new Label(x, y, width, height, text);
 
 	}
 
@@ -48,7 +49,7 @@ public class LabelTest extends AndroidTestCase {
 	 * {@link ca.sandstorm.luminance.gui.Label#Label(java.lang.String)}.
 	 */
 	public void testLabel() {
-		label = new Label(x, y, width, height, text);
+
 		assertNotNull(label);
 
 	}
