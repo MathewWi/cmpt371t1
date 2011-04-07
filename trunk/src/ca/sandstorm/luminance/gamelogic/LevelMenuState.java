@@ -46,6 +46,8 @@ public class LevelMenuState implements IState
 	        new Vector3f(0, 0, 0),
 		new Vector3f(width, height, 0)
 	);
+	
+	_guiManager.initialize(gl);
 
 	try {
 	    _background = Engine.getInstance().getResourceManager().loadTexture(gl,
@@ -61,7 +63,7 @@ public class LevelMenuState implements IState
 	                           "1");
 	button.setTextureResourceLocation("textures/levelBox.png");
 	button.setTappedTextureLocation("textures/levelBoxClicked.png");
-	button.setCalleeAndMethod(this, "goToLevel");
+	button.setCalleeAndMethodWithParameter(this, "goToLevel");
 	NumericLabel label = new NumericLabel(width*0.14f,
 	   	                           height*0.14f,
 		                           width*0.14f,
@@ -162,23 +164,20 @@ public class LevelMenuState implements IState
 
     }
     
-    public void goToLevel()
+    public void goToLevel(Button button)
     {
-	logger.debug("goToLevel()");
-	for (IWidget widget : _guiManager.getWidgets()) {
-	    
-	}
+	logger.debug("goToLevel(" + button.getIdentifier() + ")");
     }
 
     public void update(GL10 gl)
     {
 	MotionEvent touchEvent = Engine.getInstance().getInputSystem().getTouchScreen().getTouchEvent();
 	if (touchEvent != null) {
-	    int touchMode = Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode();
-	    if (touchMode == InputTouchScreen.ON_DOWN) {
+//	    int touchMode = Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode();
+	    if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode() == InputTouchScreen.ON_DOWN) {
 		Button eventWidget = _guiManager.touchOccured(touchEvent);
+		logger.debug("evengWidget: " + eventWidget);
 		if (eventWidget != null) {
-		    logger.debug("Button was tapped");
 		    eventWidget.setIsTapped(true);
 		    _screenIsTapped = true;
 		}
@@ -197,38 +196,40 @@ public class LevelMenuState implements IState
     public void draw(GL10 gl)
     {
 	// clear to back and clear the depth buffer!
-	//gl.glClearColor(0, 0, 0, 1);
-	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);	
+	// gl.glClearColor(0, 0, 0, 1);
+	gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
-	gl.glViewport(0,0,Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight());
-	
+	gl.glViewport(0, 0, Engine.getInstance().getViewWidth(), Engine
+		.getInstance().getViewHeight());
+
 	// render 3D stuff - if any
 	// ... matrix push pops etc
-	
+
 	// render 2D stuff in a complex matrix saving manner
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
-	gl.glPushMatrix();	
-        	gl.glLoadIdentity();
-        	
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glPushMatrix();
-			gl.glLoadIdentity();
-			gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
-			
-			gl.glMatrixMode(GL10.GL_MODELVIEW);
-	        	
-	        	gl.glTranslatef(0, 0, 0);
-	        	gl.glEnable(GL10.GL_TEXTURE_2D);
-	        	gl.glBindTexture(GL10.GL_TEXTURE_2D, _background.getTexture());
-	        	_quad.draw(gl);
+	gl.glPushMatrix();
+	gl.glLoadIdentity();
 
-	        	_guiManager.draw(gl);
+	gl.glMatrixMode(GL10.GL_PROJECTION);
+	gl.glPushMatrix();
+	gl.glLoadIdentity();
+	gl.glOrthof(0, Engine.getInstance().getViewWidth(), Engine
+		.getInstance().getViewHeight(), 0, -1.0f, 1.0f);
 
-	        	gl.glMatrixMode(GL10.GL_PROJECTION);
-		gl.glPopMatrix();
-		
 	gl.glMatrixMode(GL10.GL_MODELVIEW);
-	gl.glPopMatrix();		
+
+	gl.glTranslatef(0, 0, 0);
+	gl.glEnable(GL10.GL_TEXTURE_2D);
+	gl.glBindTexture(GL10.GL_TEXTURE_2D, _background.getTexture());
+	_quad.draw(gl);
+
+	_guiManager.draw(gl);
+
+	gl.glMatrixMode(GL10.GL_PROJECTION);
+	gl.glPopMatrix();
+
+	gl.glMatrixMode(GL10.GL_MODELVIEW);
+	gl.glPopMatrix();
     }
 
     @Override

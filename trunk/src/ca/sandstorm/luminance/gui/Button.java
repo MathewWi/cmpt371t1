@@ -308,10 +308,13 @@ public class Button extends Label
      */
     protected void tapped()
     {
-//	Object buttons[] = {this};
 	try {
-//	    _method.invoke(_callee, buttons);
-	    _method.invoke(_callee, (Object[])null);
+	    if (_method.getParameterTypes().length <= 0) {
+		_method.invoke(_callee, (Object[])null);
+	    } else {
+		Object[] buttons = {this};
+		_method.invoke(_callee, buttons);
+	    }
 	} catch (IllegalArgumentException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();

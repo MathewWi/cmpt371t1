@@ -209,7 +209,6 @@ public class GUIManager
 		    y > button.getY() + _compensatedY &&
 		    y < button.getY() + button.getHeight() + _compensatedY) {
 		    _tappedButton = (Button)button;
-		    _logger.debug("parameters: " + ((Button)button).getMethod().getParameterTypes().toString());
 		    return (Button)button;
 		}
 	    }
