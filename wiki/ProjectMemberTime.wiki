@@ -445,6 +445,12 @@
 || add new level || 3 ||
 || Re-polish textures || 5 ||
 
+===Milestone 5===
+|| Add new level || 5 ||
+|| textures || 3 ||
+|| help GUI testing || 2 ||
+|| fix various bugs || 2 ||
+|| ingame help menu state || 3 ||
 
 == Steven Indzeoski ==
 === Milestone 1 ===
