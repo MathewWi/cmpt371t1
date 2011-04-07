@@ -29,22 +29,28 @@ public class LevelMenuState implements IState
     private GUIManager _guiManager;
     private boolean _screenIsTapped;
     
+    private float screenWidth;
+    private float screenHeight;
+    
     private TextureResource _background;
     private PrimitiveQuad _quad;
+    
+    private LevelList _levels;
     
     public LevelMenuState()
     {
 	_guiManager = new GUIManager(false);
+	_levels = new LevelList("BasicPack.lst");
 	_screenIsTapped = false;
     }
 
     public void init(GL10 gl)
     {
-	float width = Engine.getInstance().getViewWidth();
-	float height = Engine.getInstance().getViewHeight();
+	screenWidth = Engine.getInstance().getViewWidth();
+	screenHeight = Engine.getInstance().getViewHeight();
 	_quad = new PrimitiveQuad(
 	        new Vector3f(0, 0, 0),
-		new Vector3f(width, height, 0)
+		new Vector3f(screenWidth, screenHeight, 0)
 	);
 	
 	_guiManager.initialize(gl);
@@ -56,22 +62,19 @@ public class LevelMenuState implements IState
 	    e.printStackTrace();
 	}
 	
-	Button button = new Button(width*0.14f,
-	                           height*0.14f,
-	                           width*0.14f,
-	                           height*0.12f,
-	                           "1");
-	button.setTextureResourceLocation("textures/levelBox.png");
-	button.setTappedTextureLocation("textures/levelBoxClicked.png");
-	button.setCalleeAndMethodWithParameter(this, "goToLevel");
-	NumericLabel label = new NumericLabel(width*0.14f,
-	   	                           height*0.14f,
-		                           width*0.14f,
-		                           height*0.12f,
-		                           1);
-	_guiManager.addButton(button);
-	_guiManager.addButton(label);
+	float xPosition = screenWidth/3;
+	float yPosition = 0.075f*screenHeight;
 	
+	logger.debug(String.valueOf(_levels.getNumberOfLevels()));
+	
+	for (int i = 0; i < _levels.getNumberOfLevels(); i++) {
+	    _setupLevelButton(xPosition*(i % 3), yPosition, i);
+	    
+	    if (i % 3 == 2) {
+		yPosition += screenHeight/5;
+	    }
+	}
+		
 	_loadTextures(gl);
     }
     
@@ -114,6 +117,38 @@ public class LevelMenuState implements IState
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
+    }
+    
+    /**
+     * Create and set up a label and a button for each level in the game.
+     * Position them on the screen in a grid with 3 buttons per row.
+     * 
+     * @param xPosition The x coordinate for the button.
+     * @param yPosition The y coordinate for the button.
+     * @param buttonNumber The number representing the level number that the
+     * button should display.
+     */
+    private void _setupLevelButton(float xPosition, float yPosition, int buttonNumber)
+    {
+	    String levelNumberString = String.valueOf(buttonNumber);
+	    
+	    Button button = new Button(xPosition,
+	                               yPosition,
+	                               screenWidth*0.14f,
+	                               screenHeight*0.12f,
+	                               levelNumberString);
+	    button.setTextureResourceLocation("textures/levelBox.png");
+	    button.setTappedTextureLocation("textures/levelBoxClicked.png");
+	    button.setCalleeAndMethodWithParameter(this, "goToLevel");
+		
+	    NumericLabel label = new NumericLabel(xPosition,
+	                                          yPosition,
+	                                          screenWidth*0.14f,
+		                                  screenHeight*0.12f,
+		                                  buttonNumber);
+	    
+	    _guiManager.addButton(button);
+	    _guiManager.addButton(label);
     }
     
     public boolean isInitialized()
@@ -164,9 +199,18 @@ public class LevelMenuState implements IState
 
     }
     
+    /**
+     * Go to a specific level, as specified by button's identifier attribute.
+     * 
+     * @param button The button whose identifier will determine the level we
+     * load.
+     */
     public void goToLevel(Button button)
     {
 	logger.debug("goToLevel(" + button.getIdentifier() + ")");
+	int level = new Integer(button.getIdentifier());
+	Engine.getInstance().popState();
+	Engine.getInstance().pushState(new GameState(level));
     }
 
     public void update(GL10 gl)

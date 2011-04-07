@@ -223,7 +223,7 @@ public class MenuState implements IState
 		0.650f * width, 0.1250f * height, "Start");
 	startButton.setTextureResourceLocation("textures/startImage.png");
 	startButton.setTappedTextureLocation("textures/startImageClicked.png");
-	startButton.setCalleeAndMethod(this, "test");
+	startButton.setCalleeAndMethod(this, "pushLevelMenuState");
 
 	Button helpButton = new Button(0.175f * width, 0.350f * height + .185f *
 						       height, 0.650f * width,
