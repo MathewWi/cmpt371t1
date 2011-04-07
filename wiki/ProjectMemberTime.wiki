@@ -284,6 +284,12 @@
 || Instrumentation Testing || 8 ||
 || Risk Report || 2 ||
 
+===Milestone 5===
+|| *Task* || *Hours spent so far* ||
+|| Risk Report || 2 ||
+|| Testing || 4 ||
+|| Levels || 3.5 ||
+
 == Amara Daal ==
 === Milestone 1 ===
 || *Task* || *Hours spent so far* ||
