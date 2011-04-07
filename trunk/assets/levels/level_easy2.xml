@@ -5,6 +5,7 @@
 <level>
 	<!-- Level Information -->
 	<name>First Blood</name>
+	<author>Stephen Damm</author>
 	<difficulty>easy</difficulty>
 	<grid_size>
 		<x>7</x>
