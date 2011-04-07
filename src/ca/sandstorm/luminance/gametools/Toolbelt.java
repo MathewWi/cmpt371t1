@@ -85,17 +85,17 @@ public class Toolbelt
 	    }
 	    
 	    Engine.getInstance().getAudio().play((SoundResource)Engine.getInstance().getResourceManager().getResource("sounds/iconClick.ogg"), 0.9f);
-	    if (touchedButton.getTitle().equalsIgnoreCase("mirror")) {
+	    if (touchedButton.getIdentifier().equalsIgnoreCase("mirror")) {
 		logger.debug("mirror has been tapped");
 		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Mirror);
 		touchedButton.setIsSelected(true);
-	    } else if (touchedButton.getTitle().equalsIgnoreCase("prism")) {
+	    } else if (touchedButton.getIdentifier().equalsIgnoreCase("prism")) {
 		logger.debug("prism has been tapped");
 		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Prism);
 		touchedButton.setIsSelected(true);
-	    } else if (touchedButton.getTitle().equalsIgnoreCase("eraser")) {
+	    } else if (touchedButton.getIdentifier().equalsIgnoreCase("eraser")) {
 		logger.debug("eraser has been tapped");
 		//touchedButton.setIsTapped(true);
 		selectTool(ToolType.Eraser);
