@@ -109,7 +109,7 @@
 || Muting, mute icon || 2 ||
 || Bugfixes || 3 ||
 || Random small enhancements/supportive code || 2.5 ||
-|| Formal inspections || 5 ||
+|| Formal inspections || 4 ||
 || Levels || 4 ||
 
 == Stephen Damm ==
