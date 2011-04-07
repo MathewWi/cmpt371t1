@@ -67,10 +67,10 @@ public class Receptor extends GameObject implements IRenderableObject
     public void setColor(int color)
     {
 	_activatedColor = color;
-	int red = Color.red(color) / 2;
-	int green = Color.green(color) / 2;
-	int blue = Color.blue(color) / 2;
-	_deactivatedColor = Color.argb(127, red, green, blue);
+	int red = (int)(Color.red(color) / 1.5);
+	int green = (int)(Color.green(color) / 1.5);
+	int blue = (int)(Color.blue(color) / 1.5);
+	_deactivatedColor = Color.argb(185, red, green, blue);
     }
     
     
