@@ -188,8 +188,9 @@
 || Light beam improvements || 10 ||
 || Mass removal of warnings || 1 ||
 || Implemented basic state save || 3 ||
-|| Various minor bugs || 4 ||
+|| Various minor bugs || 5 ||
 || Further light beam improvements || 2 ||
+|| Receptor sphere generation || 2 ||
 
 
 
