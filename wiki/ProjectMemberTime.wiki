@@ -413,6 +413,7 @@
 || Mock || 4 ||
 || Use-Case Scenario || 5 ||
 || Formal Inspection || 2 ||
+|| Various Tasks || 3 ||
 
 == Jonny ==
 === Milestone 1 ===
