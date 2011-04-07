@@ -350,6 +350,7 @@
 || User Scenario || 7 ||
 || State || 7 ||
 || Triage || 2 ||
+
 == Liang Huang ==
 === MIlestone 1 ===
 || *Tasks* || *Hours spent so far* ||
@@ -405,6 +406,13 @@
 || User evaluations || 7 ||
 || State || 7 ||
 || Triage || 2 ||
+
+===Milestone 5===
+|| Task || Estimated Time (hours) ||
+|| Test Suite Update || 3 ||
+|| Mock || 4 ||
+|| Use-Case Scenario || 5 ||
+|| Formal Inspection || 2 ||
 
 == Jonny ==
 === Milestone 1 ===
