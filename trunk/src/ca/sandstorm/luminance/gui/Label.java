@@ -72,17 +72,6 @@ public class Label implements IWidget
 	
 	_textureResourceLocation = textureLocation;
     }
-    
-    /**
-     * Get the String title for the label. (<b>Deprecated:</b> Use getIdentifier() instead.)
-     * 
-     * @return the String that is being used for the content of the Label.
-     */
-    @Deprecated
-    public String getText()
-    {
-	return _identifier;
-    }
 
     public String getIdentifier()
     {
