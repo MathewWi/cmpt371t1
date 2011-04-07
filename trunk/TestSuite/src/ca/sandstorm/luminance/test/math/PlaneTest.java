@@ -42,9 +42,9 @@ public class PlaneTest extends AndroidTestCase {
 	 */
 	public void testGetPosition() throws Exception {
 		Vector3f pos = tester.getPosition();
-		assert (pos.getX() == testX);
-		assert (pos.getY() == testY);
-		assert (pos.getZ() == testZ);
+		assert (pos.x == testX);
+		assert (pos.y == testY);
+		assert (pos.z == testZ);
 	}
 
 	/*
@@ -62,9 +62,9 @@ public class PlaneTest extends AndroidTestCase {
 	 */
 	public void testGetNormal() throws Exception {
 		Vector3f norm = tester.getNormal();
-		assert (norm.getX() == testXNormal);
-		assert (norm.getY() == testYNormal);
-		assert (norm.getZ() == testZNormal);
+		assert (norm.x == testXNormal);
+		assert (norm.y == testYNormal);
+		assert (norm.z == testZNormal);
 	}
 	
 	
