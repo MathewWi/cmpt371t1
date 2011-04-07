@@ -25,7 +25,7 @@ public class GUIManager
     private static final Logger _logger = LoggerFactory
     	.getLogger(GUIManager.class);
     
-    public static int MAX_WIDGET_COUNT = 10;
+    public static int MAX_WIDGET_COUNT = 50;
     private float _compensatedY;
 
     private int _numberOfWidgets = 0;

@@ -84,4 +84,9 @@ public class LevelList
     {
 	return _packFinished;
     }
+    
+    public int getNumberOfLevels()
+    {
+	return _levelList.size();
+    }
 }
