@@ -465,3 +465,14 @@
 || Composing/mixing/mastering music || 8-10 ||
 || Level editor || 5-10 ||
 || Saving levels to XML || 3-5 ||
+
+===Milestone 4===
+|| *Task* || *Hours spent* ||
+|| Mixing/mastering current music || 2 ||
+|| Refining XML Level classes || 3 ||
+|| Saving levels to XML || 8 ||
+
+===Milestone 5===
+|| *Task* || *Hours spent* ||
+|| Refactoring of Level package || 8 ||
+|| Getting started on additional music || 2 ||
