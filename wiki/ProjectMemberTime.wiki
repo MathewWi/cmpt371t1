@@ -50,6 +50,13 @@
 || Documentation || 5 ||
 || Level Creation || 2 ||
 
+===Milestone 5===
+|| Polish || 2 ||
+|| Level Menu || 5 ||
+|| Level Creation || 2 ||
+|| Bug fixes || 3 ||
+|| New Button Functionality || 2 ||
+
 == Zenja Ivkovic ==
 ===Milestone 1===
 || *Task* || *Hours spent so far* ||
