@@ -103,6 +103,13 @@
 || Level creation || 3 ||
 || Graphical improvements || 3 ||
 
+===Milestone 5===
+|| Numeric label enhancement (multidigit support) || 3.5 ||
+|| Muting, mute icon || 2 ||
+|| Bugfixes || 3 ||
+|| Random small enhancements/supportive code || 2.5 ||
+|| Levels || 4 ||
+
 == Stephen Damm ==
 === Milestone 1 ===
 || *Task* || *Hours spent so far* ||
