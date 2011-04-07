@@ -26,7 +26,7 @@ public class ButtonTest extends AndroidTestCase {
 		width = 1000000;
 		height = 1000000;
 		title = "testButton";
-
+		button = new Button(x, y, width, height, title);
 	}
 
 	/*
@@ -44,7 +44,7 @@ public class ButtonTest extends AndroidTestCase {
 	 * .
 	 */
 	public void testButton() {
-		button = new Button(x, y, width, height, title);
+
 		assertNotNull(button);
 	}
 
@@ -56,7 +56,8 @@ public class ButtonTest extends AndroidTestCase {
 		x = 1;
 		button.setX(x);
 
-		assertEquals(x, button.getX(), .001);
+		assertTrue(x == button.getX());
+		//assertEquals(x, button.getX(), .001);
 
 	}
 
@@ -68,7 +69,8 @@ public class ButtonTest extends AndroidTestCase {
 		y = 1;
 		button.setY(y);
 
-		assertEquals(y, button.getY(), .001);
+		assertTrue(y == button.getY());
+		//assertEquals(y, button.getY(), .001);
 	}
 
 
@@ -80,7 +82,8 @@ public class ButtonTest extends AndroidTestCase {
 		width = 1;
 		button.setWidth(width);
 
-		assertEquals(width, button.getWidth(), .001);
+		assertTrue(width == button.getWidth());
+		//assertEquals(width, button.getWidth(), .001);
 	}
 
 	/**
@@ -91,7 +94,8 @@ public class ButtonTest extends AndroidTestCase {
 		height = 1;
 		button.setHeight(height);
 
-		assertEquals(height, button.getHeight(), .001);
+		assertTrue(height == button.getHeight());
+		//assertEquals(height, button.getHeight(), .001);
 	}
 
 
@@ -99,6 +103,7 @@ public class ButtonTest extends AndroidTestCase {
 	 * Test method for
 	 * {@link ca.sandstorm.luminance.gui.Button#setTitle(java.lang.String)}.
 	 */
+	@SuppressWarnings("deprecation")
 	public void testGetSetTitle() {
 		title = "test2";
 		button.setTitle(title);

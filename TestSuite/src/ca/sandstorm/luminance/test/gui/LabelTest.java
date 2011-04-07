@@ -56,8 +56,9 @@ public class LabelTest extends AndroidTestCase {
 	/**
 	 * Test method for {@link ca.sandstorm.luminance.gui.Label#getText()}.
 	 */
+	@SuppressWarnings("deprecation")
 	public void testGetText() {
-		assertTrue(text.equals(label.getText()));
+		assertTrue(text.equals(label.getText().toString()));
 	}
 
 	/**
@@ -66,7 +67,8 @@ public class LabelTest extends AndroidTestCase {
 	public void testGetX() {
 
 		label.setX(x);
-		assertEquals(x, label.getX(), .001);
+		assertTrue(x == label.getX());
+		//assertEquals(x, label.getX(), .001);
 
 	}
 
@@ -76,7 +78,8 @@ public class LabelTest extends AndroidTestCase {
 	public void testSetX() {
 		x = 2.0f;
 		label.setX(x);
-		assertEquals(x, label.getX(), .001);
+		assertTrue(x == label.getX());
+		//assertEquals(x, label.getX(), .001);
 
 	}
 
@@ -86,7 +89,8 @@ public class LabelTest extends AndroidTestCase {
 	public void testGetY() {
 
 		label.setY(y);
-		assertEquals(y, label.getY(), .001);
+		assertTrue(y == label.getY());
+		//assertEquals(y, label.getY(), .001);
 
 	}
 
@@ -96,7 +100,8 @@ public class LabelTest extends AndroidTestCase {
 	public void testSetY() {
 		y = 2.0f;
 		label.setY(y);
-		assertEquals(y, label.getY(), .001);
+		assertTrue(y == label.getY());
+		//assertEquals(y, label.getY(), .001);
 
 	}
 
@@ -105,7 +110,8 @@ public class LabelTest extends AndroidTestCase {
 	 */
 	public void testGetWidth() {
 		label.setWidth(width);
-		assertEquals(width, label.getWidth(), .001);
+		assertTrue(width == label.getWidth());
+		//assertEquals(width, label.getWidth(), .001);
 
 	}
 
@@ -115,7 +121,8 @@ public class LabelTest extends AndroidTestCase {
 	public void testSetWidth() {
 		width = 2.0f;
 		label.setWidth(width);
-		assertEquals(width, label.getWidth(), .001);
+		assertTrue(width == label.getWidth());
+		//assertEquals(width, label.getWidth(), .001);
 
 	}
 
@@ -124,7 +131,9 @@ public class LabelTest extends AndroidTestCase {
 	 */
 	public void testGetHeight() {
 		label.setHeight(height);
-		assertEquals(height, label.getHeight(), .001);
+		
+		assertTrue(height == label.getHeight());
+		//assertEquals(height, label.getHeight(), .001);
 	}
 
 	/**
@@ -134,7 +143,8 @@ public class LabelTest extends AndroidTestCase {
 	public void testSetHeight() {
 		height = 2.0f;
 		label.setHeight(height);
-		assertEquals(height, label.getHeight(), .001);
+		assertTrue(height == label.getHeight());
+		//assertEquals(height, label.getHeight(), .001);
 
 	}
 

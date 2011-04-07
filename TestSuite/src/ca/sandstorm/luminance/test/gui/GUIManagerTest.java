@@ -22,6 +22,8 @@ public class GUIManagerTest extends AndroidTestCase {
 	float x = 1.0f;
 	float y = 1.0f;
 
+	GUIManager newManager;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -29,7 +31,6 @@ public class GUIManagerTest extends AndroidTestCase {
 	public void setUp() throws Exception {
 		super.setUp();
 		GUIManager = new GUIManager(isFading);
-		assertNotNull(GUIManager);
 		MAX_BUTTON_COUNT = 10;
 		// inAr = new InputXY[MAX_BUTTON_COUNT];
 		mbAr = new Button[MAX_BUTTON_COUNT];
@@ -40,6 +41,8 @@ public class GUIManagerTest extends AndroidTestCase {
 			mbAr[i] = new Button(x + i, y + i, width, height, "test");
 
 		}
+		
+		newManager = new GUIManager(isFading);
 	}
 
 	/**
@@ -56,7 +59,7 @@ public class GUIManagerTest extends AndroidTestCase {
 
 	public void testGUIManager() {
 
-		GUIManager newManager = new GUIManager(isFading);
+		assertNotNull(GUIManager);
 		assertNotNull(newManager);
 	}
 
