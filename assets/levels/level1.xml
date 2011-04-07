@@ -5,6 +5,7 @@
 <level>
 	<!-- Level Information -->
 	<name>Mirror Basics</name>
+	<author>Stephen Damm</author>
 	<difficulty>easy</difficulty>
 	<grid_size>
 		<x>9</x>
