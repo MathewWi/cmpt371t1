@@ -930,6 +930,14 @@ Follow-up from Martina:
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
 
+Follow-up from Chet:
+  * Defect 1: Checking that the contents of a Resource are correct is done in the TextResourceTest class
+  * Defect 2: Added a test that checks to ensure the id is what is expected
+  * Defect 3: Renamed method to testGetTexture()
+  * Defect 4: Code is never used, so no need to test it
+  * Defect 5: Uncommented code, tests pass
+
+
 = Milestone 5: Inspection of GameObject system and TimeSystem ==
 *Moderator:* Martina
 
