@@ -59,8 +59,8 @@ public class GUIManagerTest extends AndroidTestCase {
 
 	public void testGUIManager() {
 
-		assertNotNull(GUIManager);
-		assertNotNull(newManager);
+		assertTrue(GUIManager != null);
+		assertTrue(newManager != null);
 	}
 
 	/**
