@@ -159,30 +159,6 @@ public class Button extends Label
     }
     
     /**
-     * Get the title for the button. (<b>Deprecated:</b> Use getIdentifier() instead.)
-     * 
-     * @return the title used for the button
-     */
-    @Deprecated
-    public String getTitle()
-    {
-	return _identifier;
-    }
-    
-    /**
-     * Set the title for the button. (<b>Deprecated:</b> Use setIdentifier(String) instead.)
-     * 
-     * @param title The title used for the button.
-     * @precond n/a
-     * @postcond this.getTitle() == title
-     */
-    @Deprecated
-    public void setTitle(String title)
-    {
-	_identifier = title;
-    }
-    
-    /**
      * Tells you whether this Button is currently being tapped, indicating
      * which texture is being used to draw itself: the tapped texture
      * (returns true) or the standard texture (returns false).
