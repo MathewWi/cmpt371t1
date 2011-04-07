@@ -306,27 +306,27 @@ public class GameStateInput
 	    
 	    _cam.moveLeft(Engine.getInstance().getInputSystem()
 	                  .getTouchScreen().getDistanceX()
-	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	                  * TOUCH_CAMERA_SPEED * _cam.getEye().y);
 	    double distance = _cam.getEye().x - _grid.getGridCenter().x;
 	    distance = Math.sqrt(distance * distance);
 	    if (distance > _grid.getTotalWidth() * CAMERA_SCROLL_MAX_WIDTH_SCALE)
 	    {
 		    _cam.moveLeft(-Engine.getInstance().getInputSystem()
 		                  .getTouchScreen().getDistanceX()
-		                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+		                  * TOUCH_CAMERA_SPEED * _cam.getEye().y);
 	    }
 	    
 	    
 	    _cam.moveUp(-Engine.getInstance().getInputSystem()
 	                  .getTouchScreen().getDistanceY()
-	                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+	                  * TOUCH_CAMERA_SPEED * _cam.getEye().y);
 	    distance = _cam.getEye().z - _grid.getGridCenter().z;
 	    distance = Math.sqrt(distance * distance);
 	    if (distance > _grid.getTotalHeight() * CAMERA_SCROLL_MAX_LENGTH_SCALE)
 	    {
 		    _cam.moveUp(Engine.getInstance().getInputSystem()
 		                  .getTouchScreen().getDistanceY()
-		                  * TOUCH_CAMERA_SPEED * _cam.getEye().getY());
+		                  * TOUCH_CAMERA_SPEED * _cam.getEye().y);
 	    }	    
 	    
 	    // set the touch mode back to none
@@ -429,8 +429,8 @@ public class GameStateInput
      */
     private void calculateFlingMove()
     {
-	_flingMoveX = _cam.getEye().getY() * TOUCH_CAMERA_SPEED * _acceleration;
-	_flingMoveY = _cam.getEye().getY() * TOUCH_CAMERA_SPEED * _acceleration;
+	_flingMoveX = _cam.getEye().y * TOUCH_CAMERA_SPEED * _acceleration;
+	_flingMoveY = _cam.getEye().y * TOUCH_CAMERA_SPEED * _acceleration;
 	
 	if (_acceleration <= 0){
 	    _flingEffect = false;   
