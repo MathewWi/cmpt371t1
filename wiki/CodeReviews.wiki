@@ -867,16 +867,16 @@ Follow-up from Jonny:
   * Defect 1: Decided to leave this using static final for now.
   * Defect 2: changed to Vector2f.
   * Defect 3: this is the same with defect 1.
-  * Defect 4: Cannot do anything with this without android phone to test.
+  * Defect 4: Cannot do anything with this without android phone to test (emulator doesn't support multi touch).
   * Defect 5: Decided to leave this using static final for now.
-  * Defect 6: Once again, cannot do anything without phone to test the code.
+  * Defect 6: Once again, cannot do anything without phone to test the code / gesture.
   * Defect 7: Clean up the commented code.
   * Defect 8: Moved.
   * Defect 9: Passed it to Stephen to answer this question (his code).
   * Defect 10: More comments added.
   * Defect 11: Once again, passed to Stephen to answer this question (he added the coded in this part).
   * Defect 12: Javadoc added.
-  * Defect 13: Once again, I hesitate to change it since I don't have phone to test the result, and current code is working fine, change the logic might break the code without testing it properly.
+  * Defect 13: Once again, I hesitate to change it since I don't have phone to test the result, and current code is working fine, change the logic might break the code without testing it properly (emulator doesn't really able to produce proper fling gesture due to non multitouch supported).
   * Defect 14: Change variables to Vector2f done.
   * Defect 15: change _quad to _backgroundQuad.
   * Defect 16: Kum already put a comment on it saying this method is for testing purpose and the existance is temporary.
