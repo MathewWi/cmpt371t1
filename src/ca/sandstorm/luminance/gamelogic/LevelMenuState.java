@@ -37,6 +37,8 @@ public class LevelMenuState implements IState
     
     private LevelList _levels;
     
+    private MotionEvent _lastTouchEvent;
+    
     public LevelMenuState()
     {
 	_guiManager = new GUIManager(false);
@@ -151,6 +153,25 @@ public class LevelMenuState implements IState
 	    _guiManager.addButton(label);
     }
     
+    /**
+     * Move all the buttons and labels on the screen up or down by a given
+     * value (xDelta).
+     * 
+     * @param xPosition The change in the y axis.
+     */
+    private void _moveAllButtonsAndLabelsVertically(float yDelta)
+    {
+	int numberOfWidgets = _guiManager.getNumberOfWidgets();
+	IWidget widgets[] = _guiManager.getWidgets();
+	for (int i = 0; i < numberOfWidgets; i++) {
+	    IWidget widget = widgets[i];
+	    if (widget == null) {
+		logger.debug("THIS WIDGET IS NULL!");
+	    }
+    	    widget.setY(widget.getY() + yDelta);
+	}
+    }
+    
     public boolean isInitialized()
     {
 	return _initialized;
@@ -217,24 +238,35 @@ public class LevelMenuState implements IState
     {
 	MotionEvent touchEvent = Engine.getInstance().getInputSystem().getTouchScreen().getTouchEvent();
 	if (touchEvent != null) {
-//	    int touchMode = Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode();
-	    if (Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode() == InputTouchScreen.ON_DOWN) {
+	    int touchMode = Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode();
+	    // When the user taps on the screen
+	    if (touchMode == InputTouchScreen.ON_DOWN) {
 		Button eventWidget = _guiManager.touchOccured(touchEvent);
-		logger.debug("evengWidget: " + eventWidget);
 		if (eventWidget != null) {
 		    eventWidget.setIsTapped(true);
 		    _screenIsTapped = true;
 		}
 		
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+		_lastTouchEvent = touchEvent;
 	    } 
 	    
+//	    if (touchMode == InputTouchScreen.ON_DOWN) {
+//		logger.debug("moved");
+//		float yDelta = touchEvent.getY() - _lastTouchEvent.getY();
+//		_moveAllButtonsAndLabelsVertically(yDelta);
+//		
+//		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+//	    }
+	    
+	    // When the user lets go of the screen
 	    if (touchEvent.getAction() == MotionEvent.ACTION_UP && _screenIsTapped) {
 		logger.debug("Button was let go");
 		_guiManager.letGoOfButton();
 		_screenIsTapped = false;
 	    }
 	}
+	_lastTouchEvent = touchEvent;
     }
 
     public void draw(GL10 gl)
