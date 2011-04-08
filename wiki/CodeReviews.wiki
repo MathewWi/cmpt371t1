@@ -877,7 +877,15 @@ Follow-up from Jonny:
   * Defect 11: Once again, passed to Stephen to answer this question (he added the coded in this part).
   * Defect 12: Javadoc added.
   * Defect 13: Once again, I hesitate to change it since I don't have phone to test the result, and current code is working fine, change the logic might break the code without testing it properly.
-  * Defect 14: 
+  * Defect 14: Change variables to Vector2f done.
+  * Defect 15: change _quad to _backgroundQuad.
+  * Defect 16: Kum already put a comment on it saying this method is for testing purpose and the existance is temporary.
+  * Defect 17: Add javadoc to showLevelMenu(), addWidgets() and loadTexures().
+  * Defect 18: I left this for Kum to remove since he create this method and he might still use it.
+  * Defect 19: I clean up some unused comment.
+  * Defect 20: I believe this has already been moved by Kum.
+  * Defect 21: This issue already solved. Sounds button is working now and it new texture already there.
+
 
 Follow-up from Martina:
   * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
