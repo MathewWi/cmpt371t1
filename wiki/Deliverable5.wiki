@@ -1,0 +1,88 @@
+#summary Outline of the requirements for Deliverable 5
+<wiki:toc max_depth="2" />
+
+= Source Code Repository =
+  Source code for Luminance for this milestone can be found here:
+  [http://code.google.com/p/cmpt371t1/source/checkout]
+
+= Testing =
+  The plan for testing can be viewed here: TestPlan <br>
+  Documentation for the test team can be viewed here: TestTeam<br>
+  The user evaluation plan can be viewed here: UserEvaluations<br>
+  Use cases that have been written so far can be viewed here: UseCaseScenarios<br>
+  The Traceability matrix can be viewed here: TraceabilityMatrix
+
+= Mini-Milestone List =
+ The updated project plan we have set can be viewed here:  MilestonePlan
+
+ CPM Diagram information can be viewed here: [CPMDiagram]
+
+= Risk Analysis =
+ The updated risk report can be viewed at: RiskReport
+
+= Requirements =
+ Updated requirements can be viewed at: [Requirements]
+
+= Team Roles and Activity Log =
+ The team roles can be found at: http://code.google.com/p/cmpt371t1/people/list
+
+ The activity log can be viewed at: ProjectMemberTime
+
+= Code Reviews =
+ The code review process is documented at CodeReviewProcess.
+ 
+ Code reviews are documented at CodeReviews.
+
+ Formal Inspections can be viewed at FormalInspections.
+ 
+= Refinement of our Software Development Process =
+
+ The software engineering processes we have been using can be viewed here: SoftwareEngineeringProcesses
+
+= Current State of the System =
+
+ The status report can be viewed here: StatusReport
+
+ The class diagram from this deliverablecan be viewed here: ClassDiagram
+
+ The state diagram from this deliverable can be viewed here: StateDiagram
+
+= Defect/Bug information =
+
+ Information about all defects/bugs ever found can be viewed here: http://code.google.com/p/cmpt371t1/issues/list?can=1&q=&colspec=ID+Type+Status+Priority+Milestone+Owner+Summary+AssignedTo&cells=tiles
+
+ Information about the current defects/bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
+
+Note: The issue tracker also tracks tasks that need to be done in general.  It should also be noted that this issue tracker has been in place since the beginning.  Not including it in the previous milestones was an oversight.
+
+= Initial Analysis for Deliverable 5 =
+ == Deliverable plan ==
+ Any project artifacts that were modified or created since the first four milestones will be part of Deliverable 5:
+
+   * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
+   * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build.
+   * GUI Test Suite - Continuing work with Robotium.  Currently in a working state, however is incomplete due to the fact that the alpha version of the game was not complete until the day this was due.
+   * jUnit Test Suite - Continuing work with the unit test suite.  Currently there are tests for each of the source classes.  Working will continue to ensure that they remain robust and correct.
+   * jCoverage Test Suite - The code coverage test suite.  Currently working.
+   * Software Quality - The latest measurements of quality using code reviews.
+   * Issue tracking - continuing to track issues, and to fix any bugs.
+
+ In addition, the following implementation-specific tasks are anticipated:
+  * Full User Evaluation - Since this could not be completed for the current milestone as planned, it will be pushed back into this one.
+  * Special and Lighting effects
+  * Multiple playable levels - we currently have 5, but more should be added.
+  * Game Level Editor - A tool to create new game levels.
+  * Release version of the game - a version of the game that is fully polished and bug-free that we feel ready to let the world play.
+
+
+ == Estimate of size and time ==
+|| *Task* || *Estimate time (hours)* ||
+|| Run user evaluation || _N/A_ ||
+|| Improve graphics || 5 ||
+|| Each member designs 10 levels || 4 ||
+|| Design user manual || 6 ||
+|| Updated smoke test based on source code changes || 8 ||
+|| Release version of the game || 12 ||
+
+= Development =
+  Documentation for the development team was not kept up to date for this milestone, unfortunately.  Most development did commence while on Skype, however.  The documentation can still be viewed here: DevTeam
