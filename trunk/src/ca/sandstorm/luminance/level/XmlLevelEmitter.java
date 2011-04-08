@@ -106,6 +106,10 @@ public class XmlLevelEmitter extends XmlLevelObject
 	return "emitter";
     }
 
+    /**
+     * Method for creating a deep copy of the XmlLevelEmitter.
+     * @return A deep copy of the XmlLevelEmitter.
+     */
     @Override
     public XmlLevelEmitter deepCopy()
     {

@@ -114,6 +114,10 @@ public class XmlLevelGoal extends XmlLevelObject
 	return "goal";
     }
 
+    /**
+     * Method for creating a deep copy of the XmlLevelGoal.
+     * @return A deep copy of the XmlLevelGoal.
+     */
     @Override
     public XmlLevelGoal deepCopy()
     {

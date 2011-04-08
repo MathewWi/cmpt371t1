@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  * @author Steven Indzeoski
  *
  */
-public class XmlLevelTool 
+public abstract class XmlLevelTool 
 {
     private static final Logger _logger = LoggerFactory.getLogger(XmlLevelTool.class);
     private String _type;
@@ -75,9 +75,16 @@ public class XmlLevelTool
      * Returns a string representation of XmlLevelTool.
      * @return A string representation of XmlLevelTool.
      */
+    @Override
     public String toString()
     {
 	return ("\nType: " + getType() + 
 		"\nCount: " + getCount());
     }
+    
+    /**
+     * Method for creating a deep copy of the XmlLevelTool.
+     * @return A deep copy of the XmlLevelTool.
+     */
+    public abstract XmlLevelTool deepCopy();
 }

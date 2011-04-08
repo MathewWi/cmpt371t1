@@ -163,10 +163,22 @@ public abstract class XmlLevelObject
 	return false;
     }
         
+    /**
+     * Returns the colour of the object as an integer colour code.
+     * @return The colour of the object as an integer colour code
+     */
     public abstract int getColour();
     
+    /**
+     * Returns the colour of the object as a string.
+     * @return The colour of the object as a string.
+     */
     public abstract String getColourAsString();
     
+    /**
+     * Return a deep copy of the XmlLevelObject.
+     * @return A deep copy of the XmlLevelObject.
+     */
     public abstract XmlLevelObject deepCopy();
 
     /**

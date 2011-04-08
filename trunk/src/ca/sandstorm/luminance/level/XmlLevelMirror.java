@@ -32,4 +32,14 @@ public class XmlLevelMirror extends XmlLevelTool
     {
 	return "mirror";
     }
+
+    /**
+     * Method for creating a deep copy of the XmlLevelMirror.
+     * @return A deep copy of the XmlLevelMirror.
+     */
+    @Override
+    public XmlLevelMirror deepCopy()
+    {
+	return new XmlLevelMirror(this.getCount());
+    }
 }
