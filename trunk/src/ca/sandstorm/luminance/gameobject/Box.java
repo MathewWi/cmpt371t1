@@ -172,4 +172,11 @@ public class Box extends GameObject implements IRenderableObject
 	// TODO Auto-generated method stub
 	return 0;
     }
+
+    @Override
+    public int getYRotationCount()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 }

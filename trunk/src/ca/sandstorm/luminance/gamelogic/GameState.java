@@ -333,20 +333,21 @@ public class GameState implements IState, Serializable
 		//XmlLevelObject obj = level.getObjects().get(i);
 		
 		Vector3f gridPos = _grid.getCellCenter((int)obj.getPositionY(), (int)obj.getPositionX());
-		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);
-		vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid		
+		Vector3f vPos = new Vector3f(gridPos.x, gridPos.y, gridPos.z);		
 		Vector3f vRot = new Vector3f(obj.getRotationX(), obj.getRotationY(), obj.getRotationZ());
 		Vector3f vScale = new Vector3f(0.5f, 0.5f, 0.5f);
 				
 		// parse bricks into world
 		if (obj.getType().equals("brick"))
 		{		   
+		    vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid
 		    Box box = new Box(vPos, vScale);
 		    addObject(box);
 		}		
 		// parse goals into world
 		else if (obj.getType().equals("goal"))
 		{
+		    vPos.y += 0.25f;  // lift the box so the bottom is inline with the grid
 		    Receptor goal = new Receptor(vPos, vScale);
 		    goal.setColor(((XmlLevelGoal)obj).getColour());
 		    addObject(goal);
@@ -356,14 +357,27 @@ public class GameState implements IState, Serializable
 		{
 		    // calculate goal color
 		    int color = ((XmlLevelEmitter)obj).getColour();
-		 	    
+		 
+		    vPos.y += 0.5f;  // lift the box so the bottom is inline with the grid
+		    
 		    Emitter emitter = new Emitter(vPos, vRot, color);
 		    addObject(emitter);
-		    _emitterObjects.add(emitter);		    
+		    _emitterObjects.add(emitter);
+		    
+		    // set emitter rotation index
+		    for (int i = 0; i < emitter.getYRotationCount(); i++)
+		    {
+			if (emitter.getCurrentYRotation() == vRot.y)
+			{
+			    break;
+			}
+			
+			emitter.getNextYRotation();
+		    }
 		}
 	    }
 	    
-	    // Parse tools -zenja
+	    // Parse tools
 	    for(XmlLevelTool tool : level.getTools()) {
 		if(tool.getType().equals("mirror")) {
 		    _toolbelt.addToolStock(ToolType.Mirror, tool.getCount());

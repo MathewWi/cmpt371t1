@@ -178,4 +178,11 @@ public class Prism extends GameObject implements IRenderableObject
 	return 0;
     }
 
+    @Override
+    public int getYRotationCount()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
 }

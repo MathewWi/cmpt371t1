@@ -351,7 +351,8 @@ public class Light extends GameObject implements IGameObject
 	//gl.glDisable(GL10.GL_DEPTH_TEST);
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glEnable(GL10.GL_BLEND);
-	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE);	
+	gl.glBlendFunc(GL10.GL_ONE, GL10.GL_ONE);
+	//gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);	
 	
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture);
 	gl.glTexParameterf( GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S, GL10.GL_REPEAT );
@@ -421,6 +422,14 @@ public class Light extends GameObject implements IGameObject
 
     @Override
     public float getCurrentYRotation()
+    {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
+
+    @Override
+    public int getYRotationCount()
     {
 	// TODO Auto-generated method stub
 	return 0;

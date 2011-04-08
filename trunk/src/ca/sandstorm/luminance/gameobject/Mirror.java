@@ -221,4 +221,11 @@ public class Mirror extends GameObject implements IRenderableObject
 	return _rotationArray[_currentRotation];
     }
 
+
+    @Override
+    public int getYRotationCount()
+    {
+	return _rotationArray.length;
+    }
+
 }

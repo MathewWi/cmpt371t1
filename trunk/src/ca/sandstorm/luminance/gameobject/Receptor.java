@@ -29,6 +29,10 @@ public class Receptor extends GameObject implements IRenderableObject
     private int _activatedColor;
     private boolean _activated;
     
+    private float _scaleCounter;
+    
+    private Vector3f _originalScale;
+    
     /**
      * Constructor.
      * Sets up the receptor position and scale.
@@ -42,6 +46,8 @@ public class Receptor extends GameObject implements IRenderableObject
 	_position = new Vector3f(position);
 	_rotation = new Vector4f(1.0f, 1.0f, 1.0f, 0f);
 	_scale = new Vector3f(scale);
+	_originalScale = new Vector3f(scale);
+	
 	_model = Engine.getInstance().getRenderer().getSphere();
 	
 	_colSphere = new Sphere(_position.x, _position.y, _position.z, 0.5f);
@@ -146,8 +152,20 @@ public class Receptor extends GameObject implements IRenderableObject
     public void update()
     {
 	// For fun
-	//_scaleCounter += 0.1f;
-	//_scale.x = _scale.y = _scale.z = (float)(1.0 + (Math.sin(_scaleCounter) * 0.3));
+	/*if (_activated)
+	{
+	    _scaleCounter += 0.05f;
+	    float delim = (float)((Math.sin(_scaleCounter) * 0.10));
+	    _scale.x = _originalScale.x + delim;
+	    _scale.y = _originalScale.y + delim;
+	    _scale.z = _originalScale.z + delim;
+	}
+	else
+	{
+	    _scale.x = _originalScale.x;
+	    _scale.y = _originalScale.y;
+	    _scale.z = _originalScale.z;
+	}*/
     }
 
     /**
@@ -209,6 +227,14 @@ public class Receptor extends GameObject implements IRenderableObject
     @Override
     public float getCurrentYRotation()
     {
+	return 0;
+    }
+
+
+    @Override
+    public int getYRotationCount()
+    {
+	// TODO Auto-generated method stub
 	return 0;
     }
 }
