@@ -616,18 +616,21 @@ The entire GUI package was examined but not all of the classes were found to hav
     * Location: IWidget line 106
     * Summary: Why does the draw method not have a javadoc comment?
     * Discovered by: Martina
+    * Decision: Added JavaDoc to draw(GL10) method
   * Defect 2 *(Fixed)*:
     * Location: Label line 21
     * Summary: The _text variable is used as a label name or id, instead of the text it contains, as the variable name implies.  Should change this to be more intuitive.
-    * Discovered by: Martina 
+    * Discovered by: Martina
+    * Decision: Changed field name to _identifier and changed method names to getIdentifier() and setIdentifier(String)
   * Defect 3:
     * Location: Button
     * Summary: _tappedTexture and _texture a little ambiguous as to the difference.  Should at least specify somewhere that _texture will always be set, and _tappedTexture may not.
-  * Defect 4:
+  * Defect 4 *(Fixed)*:
     * Location: Button
     * Summary: Missing javadoc on some methods
     * Discovered by: Zenja
     * Discovered by: Martina
+    * Decision: JavaDoc added to setCalleeAndMethod(Object, String) and setCalleeAndMethodWithParameter(Object, String)
   * Defect 5:
     * Location: Button
     * Summary: This class could easily be a subclass of the Label class, as label is basically a button, only you can`t click it.
