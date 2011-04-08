@@ -32,4 +32,14 @@ public class XmlLevelPrism extends XmlLevelTool
 	return "prism";
     }
 
+    /**
+     * Method for creating a deep copy of the XmlLevelPrism.
+     * @return A deep copy of the XmlLevelPrism.
+     */
+    @Override
+    public XmlLevelPrism deepCopy()
+    {
+	return new XmlLevelPrism(this.getCount());
+    }
+
 }
