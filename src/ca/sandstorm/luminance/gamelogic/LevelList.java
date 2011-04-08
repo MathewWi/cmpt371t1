@@ -40,7 +40,10 @@ public class LevelList
 	    
 	    // Read File Line By Line
 	    while ((strLine = br.readLine()) != null) {
-		_levelList.add(strLine);
+		if (strLine.length() > 4 && !strLine.equals("//") && strLine.endsWith(".xml"))
+		{
+		    _levelList.add(strLine);
+		}
 	    }
 	    
 	    // Close the input stream
