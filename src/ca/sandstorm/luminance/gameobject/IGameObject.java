@@ -65,6 +65,8 @@ public interface IGameObject
     
     float getPrevYRotation();
     
+    int getYRotationCount();
+    
     /**
      * Get the object's collision sphere
      * @return Object sphere used for collision

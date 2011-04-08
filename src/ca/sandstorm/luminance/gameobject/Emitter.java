@@ -177,5 +177,11 @@ public class Emitter extends GameObject implements IRenderableObject
     public float getCurrentYRotation()
     {
 	return _rotationArray[_currentRotation];
+    }
+
+    @Override
+    public int getYRotationCount()
+    {
+	return _rotationArray.length;
     }    
 }
