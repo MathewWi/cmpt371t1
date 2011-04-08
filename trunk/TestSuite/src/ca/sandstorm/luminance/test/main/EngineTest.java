@@ -3,6 +3,7 @@
  */
 package ca.sandstorm.luminance.test.main;
 
+
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.Engine;
 import ca.sandstorm.luminance.gamelogic.GameState;
@@ -28,16 +29,7 @@ public class EngineTest extends AndroidTestCase
     int heightMenuBar;
     
     IGameObject light;
-    GameState gameState;
-    /**
-     * @param name
-     */
-    public EngineTest()
-    {
-    	super();
-
-    }
-	
+    GameState gameState;	
 
     /* (non-Javadoc)
      * @see junit.framework.TestCase#setUp()
@@ -47,7 +39,17 @@ public class EngineTest extends AndroidTestCase
     	engine = Engine.getInstance();
 		light = new Light(1, 1, 1, 1, 1, 1, 1, 1);
 		gameState = new GameState(1);
+		//mContext = new Context();
     	super.setUp();
+    }
+    
+    /**
+     * @param name
+     */
+    public EngineTest()
+    {
+    	super();
+
     }
 
 
@@ -56,7 +58,7 @@ public class EngineTest extends AndroidTestCase
      */
     protected void tearDown() throws Exception
     {
-	super.tearDown();
+    	super.tearDown();
     }
     
     public void testEngine(){
@@ -74,7 +76,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetInstance()
     {
-    	assertNotNull(engine);
+    	assertNotNull(getContext());
     }
 
 
@@ -83,7 +85,8 @@ public class EngineTest extends AndroidTestCase
      */
     public void testSetContext()
     {
-    	//Cant create context private
+    	assertTrue(getContext().getApplicationContext() != null);
+    	engine.setContext(getContext().getApplicationContext());
     }
 
 
@@ -92,9 +95,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetContext()
     {
-
-    	//see set context
-
+    	// Can't test it.
     }
 
 
@@ -103,7 +104,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetRenderer()
     {
-    	assertNotNull(engine.getRenderer());
+    	assertTrue(engine.getRenderer() != null);
     }
 
 
@@ -112,7 +113,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetTimer()
     {
-    	assertNotNull(engine.getTimer());
+    	assertTrue(engine.getTimer() != null);
     }
 
 
@@ -121,7 +122,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetInputSystem()
     {
-    	assertNotNull(engine.getInputSystem());
+    	assertTrue(engine.getInputSystem() != null);
     }
 
 

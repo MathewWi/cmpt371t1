@@ -1,16 +1,26 @@
 package ca.sandstorm.luminance.test.gamelogic;
 
+import ca.sandstorm.luminance.gamelogic.MenuState;
 import android.test.AndroidTestCase;
 
 /**
  * Testing of the MenuState Class
+ * Can't be testing because it uses Engine
+ * And its also a State.
  * @author lianghuang
  *
  */
 public class MenuStateTest extends AndroidTestCase {
+	MenuState ms;
+	
 	protected void setUp() throws Exception {
+		ms = new MenuState();
 		super.setUp();
 
+	}
+	
+	public void testMenuState() throws Exception {
+		assertNotNull(ms);
 	}
 
 	public void testGetGUIManager() throws Exception {

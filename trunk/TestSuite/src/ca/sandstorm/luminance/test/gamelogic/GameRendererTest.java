@@ -31,6 +31,18 @@ public class GameRendererTest extends AndroidTestCase {
 		Vector3f rotation = new Vector3f(5, 5, 5);
 		tPrism = new Prism(position, rotation);
 	}
+	
+	public void testGameRenderer() throws Exception {
+		assertTrue(gr != null);
+	}
+	
+	public void testRemoveAll() throws Exception {
+		gr.add(new Box(new Vector3f(1,2,2), new Vector3f(2,2,2)));
+		gr.add(new Mirror(new Vector3f(3,3,3)));
+		gr.add(new Prism(new Vector3f(4,4,4), new Vector3f(4, 4, 4)));
+		
+		gr.removeAll();
+	}
 
 	// Need to use coverage testing to see if it gets all cases
 	public void testAdd() throws Exception {
