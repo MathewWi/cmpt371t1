@@ -14,4 +14,5 @@ public class TextLabelTest extends AndroidTestCase{
 	public void testTextLabel() throws Exception {
 		assertNotNull(tl);
 	}
+	
 }
