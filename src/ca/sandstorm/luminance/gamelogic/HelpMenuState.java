@@ -147,6 +147,11 @@ public class HelpMenuState implements IState
 	Engine.getInstance().pushState( new MenuState() );
     }
     
+    /**
+     * Method to load all textures required by help menu state
+     * @param gl
+     * 			openGL context
+     */
     private void loadTextures(GL10 gl)
     {
 	try {
@@ -168,6 +173,13 @@ public class HelpMenuState implements IState
 	
     }
     
+    /**
+     * Method to load instructions texture
+     * @param gl
+     * 			openGL context
+     * @param texture
+     * 			String the location of texture
+     */
     private void loadInstructionTexture(GL10 gl, String texture)
     {
 	try {
@@ -177,6 +189,11 @@ public class HelpMenuState implements IState
 	}
     }
     
+    /**
+     * Method to load buttons texture
+     * @param gl
+     * 			openGL context
+     */
     private void loadButtonTexture(GL10 gl)
     {
 	try {
@@ -209,27 +226,44 @@ public class HelpMenuState implements IState
 	}
     }
 
+    @Override
     public boolean isInitialized()
     {
 	return _initialized;
     }
 
+    @Override
     public boolean isVisible()
     {
 	return true;
     }
 
+    @Override
     public boolean isActive()
     {
 	return true;
     }
 
+    @Override
     public void messageRecieved()
     {
 	// TODO Auto-generated method stub
 
     }
 
+    /**
+     * Engine has informed the state the device has changed.
+     * 
+     * @param gl
+     *            OpenGL context
+     * @param w
+     *            The new width value
+     * @param h
+     *            The new height value
+     * @precond We do not control the values here. w > 0 && h > 0 would be
+     *          optimal.
+     */
+    @Override
     public void deviceChanged(GL10 gl, int w, int h)
     {
 	_logger.debug("deviceChanged(" + gl + ", " + w + ", " + h + ")");
