@@ -68,7 +68,7 @@ public class LevelMenuState implements IState
 	float yPosition = 0.075f*screenHeight;
 	
 	logger.debug(String.valueOf(_levels.getNumberOfLevels()));
-	
+
 	for (int i = 0; i < _levels.getNumberOfLevels(); i++) {
 	    _setupLevelButton(xPosition*(i % 3), yPosition, i);
 	    
@@ -161,7 +161,14 @@ public class LevelMenuState implements IState
      */
     private void _moveAllButtonsAndLabelsVertically(float yDelta)
     {
-	int numberOfWidgets = _guiManager.getNumberOfWidgets();
+	for (IWidget widget : _guiManager.getWidgets()){
+	    if(widget != null){
+		widget.setY(widget.getY() - yDelta);
+	    }
+
+	}
+	
+/*	int numberOfWidgets = _guiManager.getNumberOfWidgets();
 	IWidget widgets[] = _guiManager.getWidgets();
 	for (int i = 0; i < numberOfWidgets; i++) {
 	    IWidget widget = widgets[i];
@@ -169,7 +176,7 @@ public class LevelMenuState implements IState
 		logger.debug("THIS WIDGET IS NULL!");
 	    }
     	    widget.setY(widget.getY() + yDelta);
-	}
+	}*/
     }
     
     public boolean isInitialized()
@@ -239,34 +246,49 @@ public class LevelMenuState implements IState
 	MotionEvent touchEvent = Engine.getInstance().getInputSystem().getTouchScreen().getTouchEvent();
 	if (touchEvent != null) {
 	    int touchMode = Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode();
-	    // When the user taps on the screen
-	    if (touchMode == InputTouchScreen.ON_DOWN) {
+	    // to select level
+	    if (touchMode == InputTouchScreen.ON_SINGLE_TAP_CONFIRMED) {
 		Button eventWidget = _guiManager.touchOccured(touchEvent);
 		if (eventWidget != null) {
 		    eventWidget.setIsTapped(true);
 		    _screenIsTapped = true;
 		}
-		
+
+		_guiManager.letGoOfButton();
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
-		_lastTouchEvent = touchEvent;
-	    } 
+		//_lastTouchEvent = touchEvent;
+	    }
 	    
-//	    if (touchMode == InputTouchScreen.ON_DOWN) {
-//		logger.debug("moved");
-//		float yDelta = touchEvent.getY() - _lastTouchEvent.getY();
-//		_moveAllButtonsAndLabelsVertically(yDelta);
-//		
-//		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
-//	    }
+	    if(Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode() ==
+		InputTouchScreen.ON_SCROLL){
+		_moveAllButtonsAndLabelsVertically(Engine.getInstance().getInputSystem().getTouchScreen().getDistanceY());
+		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+	    }
 	    
-	    // When the user lets go of the screen
+	    if (touchMode == InputTouchScreen.ON_DOWN) {
+		//logger.debug("moved");
+		//float yDelta = touchEvent.getY() - _lastTouchEvent.getY();
+		Button eventWidget = _guiManager.touchOccured(touchEvent);
+		if (eventWidget != null) {
+		    eventWidget.setIsTapped(true);
+		    _screenIsTapped = true;
+		}
+		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
+	    }
+	    
+	/*    // When the user lets go of the screen
 	    if (touchEvent.getAction() == MotionEvent.ACTION_UP && _screenIsTapped) {
 		logger.debug("Button was let go");
-		_guiManager.letGoOfButton();
+		Button eventWidget = _guiManager.touchOccured(touchEvent);
+		if (eventWidget != null) {
+		    eventWidget.setIsTapped(false);
+		    //_screenIsTapped = true;
+		}
+		//_guiManager.letGoOfButton();
 		_screenIsTapped = false;
-	    }
+	    }*/
 	}
-	_lastTouchEvent = touchEvent;
+//	_lastTouchEvent = touchEvent;
     }
 
     public void draw(GL10 gl)
