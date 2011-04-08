@@ -1,6 +1,6 @@
 #summary The formal inspections we did for this project.
-= Formal Inspections =
-== Milestone 3: Inspection of the resource package ==
+
+= Milestone 3: Inspection of the resource package =
 
 *Moderator:* Martina
 
@@ -71,7 +71,7 @@ Follow-up from Martina:
   * I then checked out and some of the tests in the tests suite, and nothing unusual occurred.  
   * I believe it is safe to say that these changes were made successfully.
 
-== Milestone 4: Inspection of the GameState class ==
+= Milestone 4: Inspection of the GameState class =
 *Moderator:* Martina
 
 *Author:* Stephen
@@ -133,7 +133,7 @@ Follow-up from Martina:
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
 
-== Milestone 5: Inspection of the Level package ==
+= Milestone 5: Inspection of the Level package =
 *Moderator:* Martina
 
 *Author:* Sten
@@ -206,7 +206,7 @@ Follow-up from Sten:
 
 Follow-up from Martina:
 
-== Milestone 5: Inspection of the GUI package ==
+= Milestone 5: Inspection of the GUI package =
 *Moderator:* Martina
 
 *Author:* Kum
@@ -292,7 +292,7 @@ Follow-up from Martina:
   * I believe it is safe to say that these changes were made successfully.
 
 
-== Milestone 5: Inspection of test classes ==
+= Milestone 5: Inspection of test classes =
 *Moderator:* Martina
 
 *Author:* Jeff
@@ -380,7 +380,7 @@ Follow-up from Martina:
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
 
-== Milestone 5: Inspection of the input classes and menu state class ==
+= Milestone 5: Inspection of the input classes and menu state class =
 *Moderator:* Martina
 
 *Author:* Jonny
@@ -511,7 +511,7 @@ Follow-up from Martina:
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
 
-== Milestone 5: Inspection of the resources test, math test package ==
+= Milestone 5: Inspection of the resources test, math test package =
 *Moderator:* Martina
 
 *Author:* Chet
@@ -579,7 +579,7 @@ Follow-up from Martina:
   * I later tried out a version on the phone.  It plays fantastic!
   * I believe it is safe to say that these changes were made successfully.
 
-== Milestone 5: Inspection of test classes for GameObject system and TimeSystem ==
+= Milestone 5: Inspection of test classes for GameObject system and TimeSystem =
 *Moderator:* Martina
 
 *Author:* Martina
@@ -642,7 +642,7 @@ Follow-up from Martina:
   * Defect 8: Looked into the source code for Skybox.java, and there is currently no way to test it.  All its fields are private, and its methods do not provide a way to access them to see if their values are correct.  Leaving this as is for now, and will inform the developer who wrote it of this.
   * Defect 9: Added tests for getter methods.  However, the freeze and applyScale methods modify other fields that do not have getter methods and are private.  This makes this impossible to test.  Will speak with developer on this issue.
 
-== Milestone 5: Inspection of Amara's Test Code ==
+= Milestone 5: Inspection of Amara's Test Code =
 *Moderator:* Martina
 
 *Author:* Amara
