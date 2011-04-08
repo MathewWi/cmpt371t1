@@ -82,6 +82,11 @@ public class GUIManager
 	_isEnabled = isEnabled;
     }
     
+    /**
+     * Initialize the GUIManager for use.
+     * 
+     * @param gl The GL10 instance used for drawing.
+     */
     public void initialize(GL10 gl)
     {
 	_compensatedY = Engine.getInstance().getMenuBarHeight() +
@@ -160,6 +165,12 @@ public class GUIManager
 	}
     }
 
+    /**
+     * Return whether the a button in this GUIManager has been tapped.
+     * 
+     * @return false if a button has not been tapped, true if a button has been
+     * tapped.
+     */
     public boolean buttonIsTapped()
     {
 	if (_tappedButton == null) {
