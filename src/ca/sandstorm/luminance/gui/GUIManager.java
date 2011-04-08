@@ -35,7 +35,7 @@ public class GUIManager
     private boolean _isEnabled = true;
     
     private boolean _isFading = false;
-    private float _fadeFactor = 0.4f;
+    private float _fadeFactor = 0.8f;
     private PrimitiveQuad _fadeQuad;
 
     /**
