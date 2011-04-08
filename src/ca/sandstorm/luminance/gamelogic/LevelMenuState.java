@@ -136,17 +136,17 @@ public class LevelMenuState implements IState
 	    
 	    Button button = new Button(xPosition,
 	                               yPosition,
-	                               screenWidth*0.14f,
-	                               screenHeight*0.12f,
+	                               screenWidth*0.26f,
+	                               screenHeight*0.18f,
 	                               levelNumberString);
 	    button.setTextureResourceLocation("textures/levelBox.png");
 	    button.setTappedTextureLocation("textures/levelBoxClicked.png");
 	    button.setCalleeAndMethodWithParameter(this, "goToLevel");
 		
-	    NumericLabel label = new NumericLabel(xPosition,
-	                                          yPosition,
-	                                          screenWidth*0.14f,
-		                                  screenHeight*0.12f,
+	    NumericLabel label = new NumericLabel(xPosition + 15,
+	                                          yPosition + 15,
+	                                          screenWidth*0.09f,
+		                                  screenHeight*0.09f,
 		                                  buttonNumber);
 	    
 	    _guiManager.addButton(button);
