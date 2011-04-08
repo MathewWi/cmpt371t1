@@ -8,16 +8,21 @@ import ca.sandstorm.luminance.gameobject.LightBeamCollection;
 import ca.sandstorm.luminance.math.Sphere;
 
 public class mockIGameObject implements IGameObject {
-	public Vector3f v;
+	public Vector3f v3;
+	public Vector4f v4;
+	public float cur, prev, next;
+	public Sphere sphere;
 	
-	public mockIGameObject() {
-		v = new Vector3f(1f,1f,1f);
+	public mockIGameObject(){
+		initialize();
 	}
 	
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
-		v = new Vector3f(1f,1f,1f);
+		v3 = new Vector3f(1f,1f,1f);
+		v4 = new Vector4f();
+		sphere = new Sphere(0,0,0,0);
 	}
 
 	@Override
@@ -42,57 +47,57 @@ public class mockIGameObject implements IGameObject {
 	@Override
 	public Vector3f getPosition() {
 		// TODO Auto-generated method stub
-		return v;
+		return v3;
 	}
 
 	@Override
 	public void setPosition(Vector3f position) {
 		// TODO Auto-generated method stub
-		v = position;
+		v3 = position;
 	}
 
 	@Override
 	public void setRotation(float x, float y, float z) {
 		// TODO Auto-generated method stub
-		v.x = x;
-		v.y = y;
-		v.z = z;
+		v3.x = x;
+		v3.y = y;
+		v3.z = z;
 	}
 
 	@Override
 	public Vector4f getRotation() {
 		// TODO Auto-generated method stub
-		return null;
+		return v4;
 	}
 
 	@Override
 	public Vector3f getScale() {
 		// TODO Auto-generated method stub
-		return null;
+		return v3;
 	}
 
 	@Override
 	public float getCurrentYRotation() {
 		// TODO Auto-generated method stub
-		return 0;
+		return cur;
 	}
 
 	@Override
 	public float getNextYRotation() {
 		// TODO Auto-generated method stub
-		return 0;
+		return next;
 	}
 
 	@Override
 	public float getPrevYRotation() {
 		// TODO Auto-generated method stub
-		return 0;
+		return prev;
 	}
 
 	@Override
 	public Sphere getCollisionSphere() {
 		// TODO Auto-generated method stub
-		return null;
+		return sphere;
 	}
 	
 }

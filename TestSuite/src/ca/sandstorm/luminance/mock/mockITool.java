@@ -6,10 +6,16 @@ import ca.sandstorm.luminance.resources.TextureResource;
 
 public class mockITool implements ITool{
 
+	public mockIGameObject migo;
+	
+	public mockITool(){
+		migo = new mockIGameObject();
+	}
+	
 	@Override
 	public IGameObject getGameObject() {
 		// TODO Auto-generated method stub
-		return null;
+		return migo;
 	}
 
 	@Override

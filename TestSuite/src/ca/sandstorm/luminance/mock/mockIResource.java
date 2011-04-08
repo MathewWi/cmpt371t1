@@ -4,16 +4,22 @@ import ca.sandstorm.luminance.resources.IResource;
 
 public class mockIResource implements IResource{
 
+	public String name;
+	public int memSize;
+	
+	public mockIResource(){
+	}
+	
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	@Override
 	public int getMemorySize() {
 		// TODO Auto-generated method stub
-		return 0;
+		return memSize;
 	}
 
 	@Override
