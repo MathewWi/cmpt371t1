@@ -30,10 +30,8 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     public static final int ON_PRESS = 5;
     public static final int ON_SINGLE_TAP = 6;
     
-    private float _distanceX;
-    private float _distanceY;
-    private float _velocityX;
-    private float _velocityY;
+    private Vector2f _distance;
+    private Vector2f _velocity;
     
     public InputTouchScreen()
     {
@@ -41,6 +39,9 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
 	for (int x = 0; x < MAX_TOUCH_POINTS; x++) {
 	    mTouchPoints[x] = new InputXY();
 	}
+	
+	_distance = new Vector2f();
+	_velocity = new Vector2f();
     }
 
 
@@ -254,8 +255,10 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
 	    float velocityY)
     {
 	setTouchMode(ON_FLING);
-	_velocityX = velocityX;
-	_velocityY = velocityY;
+	
+	_velocity.setX(velocityX);
+	_velocity.setY(velocityY);
+
 	return true;
     }
 
@@ -273,10 +276,10 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
 	    float distanceY)
     {
 	setTouchMode(ON_SCROLL);
-	_distanceX = distanceX;
-	_distanceY = distanceY;
-	
-	// TODO Auto-generated method stub
+
+	_distance.setX(distanceX);
+	_distance.setY(distanceY);
+
 	return true;
     }
 
@@ -285,7 +288,6 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     public void onShowPress(MotionEvent e)
     {
 	setTouchMode(ON_PRESS);
-	
     }
 
 
@@ -308,22 +310,22 @@ public class InputTouchScreen implements GestureDetector.OnGestureListener,
     
     public float getDistanceX()
     {
-	return _distanceX;
+	return _distance.getX();
     }
     
     public float getDistanceY()
     {
-	return _distanceY;
+	return _distance.getY();
     }
     
     public float getVelocityX()
     {
-	return _velocityX;
+	return _velocity.getX();
     }
     
     public float getVelocityY()
     {
-	return _velocityY;
+	return _velocity.getY();
     }
     
 }
