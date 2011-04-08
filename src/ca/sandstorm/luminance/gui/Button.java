@@ -249,6 +249,14 @@ public class Button extends Label
 	_method = method;
     }
     
+    /**
+     * Set the callee and method to call on the callee.
+     * 
+     * @param callee The object which we call the method represented by method.
+     * @param method The string representation of the method to call on callee.
+     * @precond callee != null && method != null && method.isEmpty() == false
+     * @postcond this.getCallee() == callee && this.getMethod() != null
+     */
     public void setCalleeAndMethod(Object callee, String method)
     {
 	_callee = callee;
@@ -263,6 +271,15 @@ public class Button extends Label
 	}
     }
     
+    /**
+     * Set the callee and method to call on the callee and pass in a reference
+     * to yourself.
+     * 
+     * @param callee The object which we call the method on.
+     * @param method The string representation of the method to call on callee.
+     * @precond callee != null && method != null && method.isEmpty() == false
+     * @postcond this.getCallee() == callee && this.getMethod() != null
+     */
     public void setCalleeAndMethodWithParameter(Object callee, String method)
     {
 	_callee = callee;
