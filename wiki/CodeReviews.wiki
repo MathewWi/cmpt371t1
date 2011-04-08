@@ -660,18 +660,22 @@ The entire GUI package was examined but not all of the classes were found to hav
     * Location: GUIManager
     * Summary: Somewhere, _compensatedY is being used too much and messing up the coordinates in the Pause menu.  Should investigate this further.
     * Discovered by: Jonny
+    * Decision: The issue was found (the GUIManager had not been initialized), but was not fixed due to insufficient time.
   * Defect 11:
     * Location: GUIManager line 226
     * Summary: the method tapped() could be renamed to something more clear.
     * Discovered by: Martina, Zenja
+    * Decision: Unfinished. Insufficient time.
   * Defect 12:
     * Location: GUIManager line 246
     * Summary: This ìf-statement should be removed as it's not being used anymore.
     * Discovered by: Zenja
+    * Decision: Unfinished. Insufficient time.
   * Defect 13:
     * Location: GUIManger line 221
     * Summary: Method name isn't very descriptive.
     * Discovered by: Martina
+    * Decision: Unfinished. Insufficient time.
 
 === Follow-up Results ===
 
