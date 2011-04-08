@@ -69,6 +69,7 @@ public class XmlLevelGoal extends XmlLevelObject
      * Getter method for colour when object is a goal.
      * @return The colour of the goal.
      */
+    @Override
     public int getColour()
     {
 	return _colour;
@@ -77,6 +78,7 @@ public class XmlLevelGoal extends XmlLevelObject
     /**
      * Returns a string representation of the XmlLevelObject.
      */
+    @Override
     public String toString()
     {
 	return (super.toString() + "\nColour: " + getColour());
@@ -86,6 +88,7 @@ public class XmlLevelGoal extends XmlLevelObject
      * Returns the goals colour as a String.
      * @return The goals colour as a String.
      */
+    @Override
     public String getColourAsString()
     {
 	switch (_colour) {
@@ -109,5 +112,20 @@ public class XmlLevelGoal extends XmlLevelObject
     public static String getId()
     {
 	return "goal";
+    }
+
+    @Override
+    public XmlLevelGoal deepCopy()
+    {
+	String colour = new String(this.getColourAsString());
+	Vector<Float> position = new Vector<Float>(2);
+	for (int i = 0; i < this.getPosition().size(); i++) {
+	    position.add(this.getPosition().get(i));
+	}
+	Vector<Float> rotation = new Vector<Float>(3);
+	for (int i = 0; i < this.getRotation().size(); i++) {
+	    rotation.add(this.getRotation().get(i));
+	}
+	return new XmlLevelGoal(colour, position, rotation);
     }
 }

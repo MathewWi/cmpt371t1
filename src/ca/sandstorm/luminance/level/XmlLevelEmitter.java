@@ -70,6 +70,7 @@ public class XmlLevelEmitter extends XmlLevelObject
      * Method for getting the colour of an XmlLevelEmitter.
      * @return The colour of the XmlLevelEmitter.
      */
+    @Override
     public int getColour()
     {
 	return _colour;
@@ -79,6 +80,7 @@ public class XmlLevelEmitter extends XmlLevelObject
      * Returns the emitters colour as a String.
      * @return The emitters colour as a String.
      */
+    @Override
     public String getColourAsString()
     {
 	switch (_colour) {
@@ -102,5 +104,20 @@ public class XmlLevelEmitter extends XmlLevelObject
     public static String getId()
     {
 	return "emitter";
-    }    
+    }
+
+    @Override
+    public XmlLevelEmitter deepCopy()
+    {
+	String colour = new String(this.getColourAsString());
+	Vector<Float> position = new Vector<Float>(2);
+	for (int i = 0; i < this.getPosition().size(); i++) {
+	    position.add(this.getPosition().get(i));
+	}
+	Vector<Float> rotation = new Vector<Float>(3);
+	for (int i = 0; i < this.getRotation().size(); i++) {
+	    rotation.add(this.getRotation().get(i));
+	}
+	return new XmlLevelEmitter(colour, position, rotation);
+    }   
 }

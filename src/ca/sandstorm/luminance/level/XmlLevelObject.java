@@ -162,10 +162,12 @@ public abstract class XmlLevelObject
 	}
 	return false;
     }
-    
+        
     public abstract int getColour();
     
     public abstract String getColourAsString();
+    
+    public abstract XmlLevelObject deepCopy();
 
     /**
      * Returns a string representation of the XmlLevelObject.

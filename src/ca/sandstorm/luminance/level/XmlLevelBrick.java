@@ -34,6 +34,7 @@ public class XmlLevelBrick extends XmlLevelObject
      * Getter method for the colour of the brick. Always returns white.
      * @return Color.WHITE
      */
+    @Override
     public int getColour()
     {
 	return Color.WHITE;
@@ -43,9 +44,26 @@ public class XmlLevelBrick extends XmlLevelObject
      * Getter method for the colour of the brick. Always returns white.
      * @return white
      */
+    @Override
     public String getColourAsString()
     {
 	return "white";
     }
-
+    
+    /**
+     * Creates a deep copy of an XmlLevelBrick.
+     * @return A deep copy of an XmlLevelBrick.
+     */
+    @Override
+    public XmlLevelBrick deepCopy() {
+	Vector<Float> position = new Vector<Float>(2);
+	for (int i = 0; i < this.getPosition().size(); i++) {
+	    position.add(this.getPosition().get(i));
+	}
+	Vector<Float> rotation = new Vector<Float>(3);
+	for (int i = 0; i < this.getRotation().size(); i++) {
+	    rotation.add(this.getRotation().get(i));
+	}
+	return new XmlLevelBrick(position, rotation);
+    }
 }
