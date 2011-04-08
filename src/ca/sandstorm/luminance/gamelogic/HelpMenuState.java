@@ -32,7 +32,7 @@ public class HelpMenuState implements IState
     private boolean _initialized = false;
 
     private TextureResource _background;
-    private PrimitiveQuad _quad;
+    private PrimitiveQuad _backgroundQuad;
     
     private ArrayList<TextureResource> _instructionTexture;
     private GUIManager _guiManager;
@@ -63,7 +63,7 @@ public class HelpMenuState implements IState
 	
 	float width = Engine.getInstance().getViewWidth();
 	float height = Engine.getInstance().getViewHeight();
-	_quad = new PrimitiveQuad(
+	_backgroundQuad = new PrimitiveQuad(
 	        new Vector3f(0, 0, 0),
 		new Vector3f(width, height, 0)
 	);
@@ -369,7 +369,7 @@ public class HelpMenuState implements IState
 	gl.glTranslatef(0, 0, 0);
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, _background.getTexture());
-	_quad.draw(gl);
+	_backgroundQuad.draw(gl);
 
 	_guiManager.draw(gl);
 

@@ -41,7 +41,7 @@ public class MenuState implements IState
     private Button _soundButton;
 
     private TextureResource _background;
-    private PrimitiveQuad _quad;
+    private PrimitiveQuad _backgroundQuad;
 
     private SoundResource _startSound;
 
@@ -112,6 +112,9 @@ public class MenuState implements IState
     }    
 
 
+    /**
+     * Method to create and push level menu state
+     */
     public void showLevelMenu()
     {
 	logger.debug("showLevelMenu()");
@@ -133,7 +136,11 @@ public class MenuState implements IState
 	return _guiManager;
     }
 
-
+    /**
+     * Method to add widget to gui manager
+     * @param widgets
+     * 			array of IWidget that store widget
+     */
     public void addWidgets(IWidget widgets[])
     {
 	_guiManager.addWidgets(widgets);
@@ -203,7 +210,7 @@ public class MenuState implements IState
 
 	float width = Engine.getInstance().getViewWidth();
 	float height = Engine.getInstance().getViewHeight();
-	_quad = new PrimitiveQuad(new Vector3f(0, 0, 0), new Vector3f(width,
+	_backgroundQuad = new PrimitiveQuad(new Vector3f(0, 0, 0), new Vector3f(width,
 		height, 0));
 
 	// Recreate GUI on orientation flip
@@ -272,6 +279,11 @@ public class MenuState implements IState
     }
 
 
+    /**
+     * Method to handle loading textures needed by menu state
+     * @param gl
+     * 			openGL context
+     */
     private void _loadTextures(GL10 gl)
     {
 	try {
@@ -413,7 +425,7 @@ public class MenuState implements IState
 	gl.glTranslatef(0, 0, 0);
 	gl.glEnable(GL10.GL_TEXTURE_2D);
 	gl.glBindTexture(GL10.GL_TEXTURE_2D, _background.getTexture());
-	_quad.draw(gl);
+	_backgroundQuad.draw(gl);
 
 	_guiManager.draw(gl);
 
