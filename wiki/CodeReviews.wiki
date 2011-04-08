@@ -631,26 +631,31 @@ The entire GUI package was examined but not all of the classes were found to hav
     * Discovered by: Zenja
     * Discovered by: Martina
     * Decision: JavaDoc added to setCalleeAndMethod(Object, String) and setCalleeAndMethodWithParameter(Object, String)
-  * Defect 5:
+  * Defect 5 *(Fixed)*:
     * Location: Button
     * Summary: This class could easily be a subclass of the Label class, as label is basically a button, only you can`t click it.
     * Discovered by: Zenja
+    * Decision: Button is now a subclass of Label.
   * Defect 6:
     * Location: GUIManager line 30
     * Summary: The widgets array should really be a list or some other data structure that can grow in size.
     * Discovered by: Zenja
-  * Defect 7:
+    * Decision: Unfinished. Insufficient time.
+  * Defect 7 *(Fixed)*:
     * Location: GUIManager line 78
     * Summary: Missing javadoc on initialize method
     * Discovered by: Martina
+    * Decision: Added JavaDoc to initialize().
   * Defect 8:
     * Location: GUIManager line 85
     * Summary: Texture loading should be moved from GameState to GUIManager to be consistent.
     * Discovered by: Zenja
+    * Decision: Unfinished. Insufficient time.
   * Defect 9:
     * Location: GUIManager line 96
     * Summary: Does not return the number of objects in the array, as it should.  Should be fixed or removed.
     * Discovered by: Kum
+    * Decision: Unfinished. Insufficient time.
   * Defect 10:
     * Location: GUIManager
     * Summary: Somewhere, _compensatedY is being used too much and messing up the coordinates in the Pause menu.  Should investigate this further.
