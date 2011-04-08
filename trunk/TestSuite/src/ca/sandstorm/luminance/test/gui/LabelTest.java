@@ -55,14 +55,6 @@ public class LabelTest extends AndroidTestCase {
 	}
 
 	/**
-	 * Test method for {@link ca.sandstorm.luminance.gui.Label#getText()}.
-	 */
-	@SuppressWarnings("deprecation")
-	public void testGetText() {
-		assertTrue(text.equals(label.getText().toString()));
-	}
-
-	/**
 	 * Test method for {@link ca.sandstorm.luminance.gui.Label#getX()}.
 	 */
 	public void testGetX() {

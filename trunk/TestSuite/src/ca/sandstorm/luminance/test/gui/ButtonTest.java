@@ -98,18 +98,4 @@ public class ButtonTest extends AndroidTestCase {
 		//assertEquals(height, button.getHeight(), .001);
 	}
 
-
-	/**
-	 * Test method for
-	 * {@link ca.sandstorm.luminance.gui.Button#setTitle(java.lang.String)}.
-	 */
-	@SuppressWarnings("deprecation")
-	public void testGetSetTitle() {
-		title = "test2";
-		button.setTitle(title);
-
-		assertTrue(title.equals(button.getTitle()));
-
-	}
-
 }
