@@ -114,6 +114,9 @@ public class HelpMenuState implements IState
 	
     }
     
+    /**
+     * Method to switch back the instruction, it is triggered by prev button
+     */
     public void goPrevInstruction()
     {
 	int index = _instructionTexture.indexOf(_instructionLabel.getTexture());
@@ -123,6 +126,9 @@ public class HelpMenuState implements IState
 	
     }
     
+    /**
+     * Method to switch forth the instruction, it is triggered by next button
+     */
     public void goNextInstruction()
     {
 	int index = _instructionTexture.indexOf(_instructionLabel.getTexture());
@@ -132,6 +138,9 @@ public class HelpMenuState implements IState
 	
     }
     
+    /**
+     * Method to return back to menu, it is triggered by main menu button
+     */
     public void goMainMenu()
     {
 	Engine.getInstance().popState();
