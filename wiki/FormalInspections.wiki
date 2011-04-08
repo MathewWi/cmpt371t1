@@ -1,4 +1,4 @@
-#summary : The formal inspections we did for this project.
+#summary The formal inspections we did for this project.
 = Formal Inspections =
 == Milestone 3: Inspection of the resource package ==
 
