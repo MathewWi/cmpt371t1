@@ -416,11 +416,12 @@
 || Triage || 2 ||
 
 ===Milestone 5===
-|| Task || Estimated Time (hours) ||
-|| Test Suite Update || 3 ||
-|| Mock || 4 ||
+|| Task || Time Spent ||
+|| Test Suite Update || 5 ||
+|| Mock || 8 ||
 || Use-Case Scenario || 5 ||
 || Formal Inspection || 2 ||
+|| Level Making || 3 ||
 || Various Tasks || 3 ||
 
 == Jonny ==
