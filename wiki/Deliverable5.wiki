@@ -53,27 +53,6 @@
 
  Information about the current defects/bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
 
-Note: The issue tracker also tracks tasks that need to be done in general.  It should also be noted that this issue tracker has been in place since the beginning.  Not including it in the previous milestones was an oversight.
-
-= Initial Analysis for Deliverable 5 =
- == Deliverable plan ==
- Any project artifacts that were modified or created since the first four milestones will be part of Deliverable 5:
-
-   * Updated Risk Report - Includes an updated analysis of previous risks, as well as new risks that have been introduced
-   * Version Control Strategy - How to ensure that developers do not commit code that will compromise the build.
-   * GUI Test Suite - Continuing work with Robotium.  Currently in a working state, however is incomplete due to the fact that the alpha version of the game was not complete until the day this was due.
-   * jUnit Test Suite - Continuing work with the unit test suite.  Currently there are tests for each of the source classes.  Working will continue to ensure that they remain robust and correct.
-   * jCoverage Test Suite - The code coverage test suite.  Currently working.
-   * Software Quality - The latest measurements of quality using code reviews.
-   * Issue tracking - continuing to track issues, and to fix any bugs.
-
- In addition, the following implementation-specific tasks are anticipated:
-  * Full User Evaluation - Since this could not be completed for the current milestone as planned, it will be pushed back into this one.
-  * Special and Lighting effects
-  * Multiple playable levels - we currently have 5, but more should be added.
-  * Game Level Editor - A tool to create new game levels.
-  * Release version of the game - a version of the game that is fully polished and bug-free that we feel ready to let the world play.
-
 
  == Estimate of size and time ==
 || *Task* || *Estimate time (hours)* ||
