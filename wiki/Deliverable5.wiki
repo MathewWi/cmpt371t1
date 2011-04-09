@@ -55,9 +55,9 @@
   Documentation for the development team was not kept up to date for this milestone, unfortunately.  Most development did commence while on Skype, however.  The documentation can still be viewed here: DevTeam
 
 = Total times =
-*Milestone 1:* 137.5
-*Milestone 2:* 180.5
-*Milestone 3:* 184
-*Milestone 4:* 133
-*Milestone 5:* 211.5
-*Total:* 846.5
+*Milestone 1:* 137.5 <br>
+*Milestone 2:* 180.5 <br>
+*Milestone 3:* 184 <br>
+*Milestone 4:* 133 <br>
+*Milestone 5:* 211.5 <br>
+*Total:* 846.5 <br>
