@@ -1,6 +1,99 @@
 #summary The current status of the system.
 <wiki:toc max_depth="3"/>
 
+=Deliverable 5=
+== High Level Analysis ==
+
+Currently the project builds a binary and runs the release of our game. 
+
+The application can be loaded onto an Android phone and run the same as on the AVD.  
+
+There is also a smoke test implemented and can be run to ensure project quality before commit.
+
+=== Features Implemented ===
+
+Build completes.
+
+Program runs correctly.
+
+The game is fully functional.  There is a large number of levels which can be played.  These can now be selected from the level menu, which is a new feature of this deliverable.
+
+There is also a level editor implemented, although it was solely for our purposes.
+
+There is also the inclusion of the in-game help menu in this deliverable.
+
+=== Features to Be Implemented in the future === 
+
+There is a handful of us that wish to work on this project further past its due date.
+
+This would include all the new game mechanics we had to drop for this project.  In addition, we would like to implement a scoreboard, a ranking system, a random level generator, and a level editor which the user could use themselves.
+
+=== STI/Defect Information ===
+
+Defects and bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
+
+Common problems of the development environment can be found here: CommonIssues
+
+== Specific Status Report ==
+*Resource Manager*
+  * Capable of loading and managing all necessary resources.
+  * Creates OpenGL textures out of images.
+
+*Music*
+  * Background music and sound effects fully functional.
+
+*Input*
+  * Use of !ReplicaIsland open source code.
+  * Touch and drag inputs are currently stable.
+  * Pinch for zooming are now working.
+  * Tapping objects on the toolbelt will allow you to tap the grid in order to place them.
+  * A double tap on a mirror object will rotate it by 90 degrees.
+  * Improved from last deliverable.
+
+*GUI*
+  * All menu states fully functional, including the newly added level menu state.
+
+*Level Loader*
+  * Level information stored in XML files.
+  * Loader takes in an XML file and parses it to create an object containing all level information.
+  * Loader currently stable.
+  * Will load levels sequentially.  If a level is passed, the game will move onto the next one.
+  * Now implemented to take a list of levels and execute them in order.
+
+*Graphics*
+  * Basic primitives (sphere, box, etc.).
+  * Full grid, background and general play space implemented.
+  * Basic textures load onto play tools.
+  * Would like to implemented some special effects to make it nicer to look at.
+
+*Game* 
+  * Improved light beam graphics from the last deliverable.
+  * As well, the grid draws nicer.
+
+*Smoke Test*
+  * Currently runs on the !TeamCity server.
+  * Tests all source classes using the TestSuite.
+
+*GUI Testing*
+  * Use of Robotium.
+  * Fully functional.
+
+*Unit Tests*
+  * Complete with respect to the current source code completion.
+
+*Coverage Testing*
+  * Use of EMMA to do coverage testing.
+  * Fully functional and produces many statistics and information.
+
+*Mock Testing*
+  * An abundant amount of time was spent on this, and it was ultimately unsuccessful.  Our testing lead, Jeff, gave up after spending 30+ hours on it.
+  * Testing stubs currently in test suite under the ca.sandstorm.luminance.mock package, but do nothing.
+
+== Overall Status of Game ==
+
+  We are happy to say we have a fully playable game that we all are proud of!
+
+
 = Deliverable 4 =
 == High Level Analysis ==
 
