@@ -109,7 +109,11 @@ public class XmlLevel
      */
     public LinkedList<XmlLevelObject> getObjects()
     {
-	return _objects;
+	LinkedList<XmlLevelObject> objects = new LinkedList<XmlLevelObject>();
+	for (XmlLevelObject object : _objects) {
+	    objects.add(object.deepCopy());
+	}
+	return objects;
     }
 
     /**
