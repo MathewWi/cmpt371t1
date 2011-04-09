@@ -11,6 +11,7 @@ import ca.sandstorm.luminance.graphics.IRenderable;
 import ca.sandstorm.luminance.level.Color;
 import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Sphere;
+import ca.sandstorm.luminance.resources.TextureResource;
 
 /**
  * Light receptor game object.
@@ -141,8 +142,11 @@ public class Receptor extends GameObject implements IRenderableObject
     @Override
     public void initialize()
     {
-	// Use a solid color for now
-	_texture = 0;
+	TextureResource tex = (TextureResource)Engine.getInstance().getResourceManager().getResource("textures/inGameMirror.png");
+	if(tex == null) {
+	    throw new RuntimeException("Unable to get receptor texture. It hasn't been loaded yet!");
+	}
+	_texture = tex.getTexture();
     }
 
     /**
