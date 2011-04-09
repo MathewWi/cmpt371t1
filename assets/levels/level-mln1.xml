@@ -35,11 +35,48 @@
         </rotation>
     </object>
     <object>
+        <type>brick</type>
+        <position>
+            <x>2.0</x>
+            <y>1.0</y>
+        </position>
+        <rotation>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </rotation>
+    </object>
+    <object>
+        <type>brick</type>
+        <position>
+            <x>3.0</x>
+            <y>1.0</y>
+        </position>
+        <rotation>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </rotation>
+    </object>
+    <object>
         <type>goal</type>
         <colour>blue</colour>
         <position>
             <x>4.0</x>
             <y>1.0</y>
+        </position>
+        <rotation>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </rotation>
+    </object>
+    <object>
+        <type>goal</type>
+        <colour>white</colour>
+        <position>
+            <x>3.0</x>
+            <y>4.0</y>
         </position>
         <rotation>
             <x>0.0</x>
