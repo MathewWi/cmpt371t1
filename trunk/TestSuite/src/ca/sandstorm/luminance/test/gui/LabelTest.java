@@ -11,12 +11,12 @@ import ca.sandstorm.luminance.gui.Label;
  */
 public class LabelTest extends AndroidTestCase {
 
-	Label label;
-	String text;
-	float x;
-	float y;
-	float width;
-	float height;
+	Label _label;
+	String _text;
+	float _x;
+	float _y;
+	float _width;
+	float _height;
 
 	/*
 	 * (non-Javadoc)
@@ -25,13 +25,13 @@ public class LabelTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		text = "test";
-		x = 1.0f;
-		y = 1.0f;
-		width = 1.0f;
-		height = 1.0f;
+		_text = "test";
+		_x = 1.0f;
+		_y = 1.0f;
+		_width = 1.0f;
+		_height = 1.0f;
 		
-		label = new Label(x, y, width, height, text);
+		_label = new Label(_x, _y, _width, _height, _text);
 
 	}
 
@@ -50,7 +50,7 @@ public class LabelTest extends AndroidTestCase {
 	 */
 	public void testLabel() {
 
-		assertNotNull(label);
+		assertNotNull(_label);
 
 	}
 
@@ -59,9 +59,9 @@ public class LabelTest extends AndroidTestCase {
 	 */
 	public void testGetX() {
 
-		label.setX(x);
-		assertTrue(x == label.getX());
-		//assertEquals(x, label.getX(), .001);
+		_label.setX(_x);
+		assertTrue(_x == _label.getX());
+		//assertEquals(x, _label.getX(), .001);
 
 	}
 
@@ -69,10 +69,10 @@ public class LabelTest extends AndroidTestCase {
 	 * Test method for {@link ca.sandstorm.luminance.gui.Label#setX(float)}.
 	 */
 	public void testSetX() {
-		x = 2.0f;
-		label.setX(x);
-		assertTrue(x == label.getX());
-		//assertEquals(x, label.getX(), .001);
+		_x = 2.0f;
+		_label.setX(_x);
+		assertTrue(_x == _label.getX());
+		//assertEquals(x, _label.getX(), .001);
 
 	}
 
@@ -81,9 +81,9 @@ public class LabelTest extends AndroidTestCase {
 	 */
 	public void testGetY() {
 
-		label.setY(y);
-		assertTrue(y == label.getY());
-		//assertEquals(y, label.getY(), .001);
+		_label.setY(_y);
+		assertTrue(_y == _label.getY());
+		//assertEquals(y, _label.getY(), .001);
 
 	}
 
@@ -91,10 +91,10 @@ public class LabelTest extends AndroidTestCase {
 	 * Test method for {@link ca.sandstorm.luminance.gui.Label#setY(float)}.
 	 */
 	public void testSetY() {
-		y = 2.0f;
-		label.setY(y);
-		assertTrue(y == label.getY());
-		//assertEquals(y, label.getY(), .001);
+		_y = 2.0f;
+		_label.setY(_y);
+		assertTrue(_y == _label.getY());
+		//assertEquals(y, _label.getY(), .001);
 
 	}
 
@@ -102,9 +102,9 @@ public class LabelTest extends AndroidTestCase {
 	 * Test method for {@link ca.sandstorm.luminance.gui.Label#getWidth()}.
 	 */
 	public void testGetWidth() {
-		label.setWidth(width);
-		assertTrue(width == label.getWidth());
-		//assertEquals(width, label.getWidth(), .001);
+		_label.setWidth(_width);
+		assertTrue(_width == _label.getWidth());
+		//assertEquals(_width, _label.getWidth(), .001);
 
 	}
 
@@ -112,10 +112,10 @@ public class LabelTest extends AndroidTestCase {
 	 * Test method for {@link ca.sandstorm.luminance.gui.Label#setWidth(float)}.
 	 */
 	public void testSetWidth() {
-		width = 2.0f;
-		label.setWidth(width);
-		assertTrue(width == label.getWidth());
-		//assertEquals(width, label.getWidth(), .001);
+		_width = 2.0f;
+		_label.setWidth(_width);
+		assertTrue(_width == _label.getWidth());
+		//assertEquals(_width, _label.getWidth(), .001);
 
 	}
 
@@ -123,10 +123,10 @@ public class LabelTest extends AndroidTestCase {
 	 * Test method for {@link ca.sandstorm.luminance.gui.Label#getHeight()}.
 	 */
 	public void testGetHeight() {
-		label.setHeight(height);
+		_label.setHeight(_height);
 		
-		assertTrue(height == label.getHeight());
-		//assertEquals(height, label.getHeight(), .001);
+		assertTrue(_height == _label.getHeight());
+		//assertEquals(_height, _label.getHeight(), .001);
 	}
 
 	/**
@@ -134,10 +134,10 @@ public class LabelTest extends AndroidTestCase {
 	 * .
 	 */
 	public void testSetHeight() {
-		height = 2.0f;
-		label.setHeight(height);
-		assertTrue(height == label.getHeight());
-		//assertEquals(height, label.getHeight(), .001);
+		_height = 2.0f;
+		_label.setHeight(_height);
+		assertTrue(_height == _label.getHeight());
+		//assertEquals(_height, _label.getHeight(), .001);
 
 	}
 

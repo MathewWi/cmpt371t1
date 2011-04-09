@@ -10,9 +10,9 @@ import ca.sandstorm.luminance.input.InputButton;
  */
 public class InputButtonTest extends AndroidTestCase {
 
-	InputButton inputButton;
-	float currentTime = 2.0f;
-	float magnitude = 1.0f;
+	InputButton _inputButton;
+	float _currentTime = 2.0f;
+	float _magnitude = 1.0f;
 
 	/**
 	 * @throws java.lang.Exception
@@ -20,8 +20,8 @@ public class InputButtonTest extends AndroidTestCase {
 
 	public void setUp() throws Exception {
 		super.setUp();
-		inputButton = new InputButton();
-		assertNotNull(inputButton);
+		_inputButton = new InputButton();
+		assertNotNull(_inputButton);
 
 	}
 
@@ -41,8 +41,8 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testPress() {
-		inputButton.press(currentTime, magnitude);
-		assertTrue(inputButton.getPressed());
+		_inputButton.press(_currentTime, _magnitude);
+		assertTrue(_inputButton.getPressed());
 	}
 
 	/**
@@ -51,8 +51,8 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testRelease() {
-		inputButton.release();
-		assertFalse(inputButton.getPressed());
+		_inputButton.release();
+		assertFalse(_inputButton.getPressed());
 	}
 
 	/**
@@ -61,10 +61,10 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testGetPressed() {
-		inputButton.press(currentTime, magnitude);
-		assertTrue(inputButton.getPressed());
-		inputButton.release();
-		assertFalse(inputButton.getPressed());
+		_inputButton.press(_currentTime, _magnitude);
+		assertTrue(_inputButton.getPressed());
+		_inputButton.release();
+		assertFalse(_inputButton.getPressed());
 
 	}
 
@@ -75,14 +75,14 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testGetPressedDuration() {
-		float newTime = currentTime;
+		float newTime = _currentTime;
 
-		inputButton.press(currentTime, magnitude);
-		assert (inputButton.getPressedDuration(currentTime) < 0.001f);
+		_inputButton.press(_currentTime, _magnitude);
+		assert (_inputButton.getPressedDuration(_currentTime) < 0.001f);
 
 		newTime += 3;
-		assertEquals(inputButton.getPressedDuration(newTime), newTime
-				- currentTime, .001f);
+		assertEquals(_inputButton.getPressedDuration(newTime), newTime
+				- _currentTime, .001f);
 
 	}
 
@@ -93,8 +93,8 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testGetLastPressedTime() {
-		inputButton.press(currentTime, magnitude);
-		assertEquals(currentTime, inputButton.getLastPressedTime(), .001f);
+		_inputButton.press(_currentTime, _magnitude);
+		assertEquals(_currentTime, _inputButton.getLastPressedTime(), .001f);
 
 	}
 
@@ -104,12 +104,12 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testGetMagnitude() {
-		inputButton.press(currentTime, magnitude);
-		float mg = inputButton.getMagnitude();
-		assertEquals(magnitude, mg, .001f);
+		_inputButton.press(_currentTime, _magnitude);
+		float mg = _inputButton.getMagnitude();
+		assertEquals(_magnitude, mg, .001f);
 
-		inputButton.release();
-		mg = inputButton.getMagnitude();
+		_inputButton.release();
+		mg = _inputButton.getMagnitude();
 		assertEquals(0.0f, mg, 0.001f);
 
 	}
@@ -121,21 +121,21 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testSetMagnitude() {
-		inputButton.reset();
+		_inputButton.reset();
 		float newMg = 0.01f;
-		inputButton.press(0, 2.0f);
-		inputButton.setMagnitude(newMg);
-		float mg = inputButton.getMagnitude();
+		_inputButton.press(0, 2.0f);
+		_inputButton.setMagnitude(newMg);
+		float mg = _inputButton.getMagnitude();
 		assertEquals(newMg, mg, 0.01f);
 
 		newMg = -0.01f;
-		inputButton.setMagnitude(newMg);
-		mg = inputButton.getMagnitude();
+		_inputButton.setMagnitude(newMg);
+		mg = _inputButton.getMagnitude();
 		assertEquals(newMg, mg, 0.001f);
 
 		newMg = 99.00f;
-		inputButton.setMagnitude(newMg);
-		mg = inputButton.getMagnitude();
+		_inputButton.setMagnitude(newMg);
+		mg = _inputButton.getMagnitude();
 		assertEquals(newMg, mg, 0.001f);
 
 	}
@@ -146,8 +146,8 @@ public class InputButtonTest extends AndroidTestCase {
 	 */
 
 	public void testReset() {
-		inputButton.reset();
-		float mg = inputButton.getMagnitude();
+		_inputButton.reset();
+		float mg = _inputButton.getMagnitude();
 		assert (mg < 0.001f);
 
 	}

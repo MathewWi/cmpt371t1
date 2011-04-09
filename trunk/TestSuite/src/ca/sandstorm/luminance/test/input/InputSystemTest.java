@@ -13,7 +13,7 @@ import ca.sandstorm.luminance.input.InputSystem;
  */
 public class InputSystemTest extends AndroidTestCase {
 
-	InputSystem inputSystem;
+	InputSystem _inputSystem;
 
 	/**
 	 * @throws java.lang.Exception
@@ -21,8 +21,8 @@ public class InputSystemTest extends AndroidTestCase {
 
 	public void setUp() throws Exception {
 		super.setUp();
-		inputSystem = new InputSystem();
-		assertNotNull(inputSystem);
+		_inputSystem = new InputSystem();
+		assertNotNull(_inputSystem);
 	}
 
 	/**
@@ -50,17 +50,17 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testReset() {
-		inputSystem.getTrackball().press(0, 2, 2);
-		inputSystem.getKeyboard().press(0, 2);
-		inputSystem.getTouchScreen().press(0, 0, 2, 2);
-		inputSystem.getOrientationSensor().press(0, 2, 2);
+		_inputSystem.getTrackball().press(0, 2, 2);
+		_inputSystem.getKeyboard().press(0, 2);
+		_inputSystem.getTouchScreen().press(0, 0, 2, 2);
+		_inputSystem.getOrientationSensor().press(0, 2, 2);
 
-		inputSystem.reset();
+		_inputSystem.reset();
 
-		assertFalse(inputSystem.getTrackball().getPressed());
-		assertFalse(inputSystem.getKeyboard().getKeys()[2].getPressed());
-		assertFalse(inputSystem.getTouchScreen().getPressed(0));
-		assertFalse(inputSystem.getOrientationSensor().getPressed());
+		assertFalse(_inputSystem.getTrackball().getPressed());
+		assertFalse(_inputSystem.getKeyboard().getKeys()[2].getPressed());
+		assertFalse(_inputSystem.getTouchScreen().getPressed(0));
+		assertFalse(_inputSystem.getOrientationSensor().getPressed());
 
 	}
 
@@ -79,13 +79,13 @@ public class InputSystemTest extends AndroidTestCase {
 
 		for (int i = 0; i < 10; i++) {
 
-			oldX = inputSystem.getTrackball().getX();
-			oldY = inputSystem.getTrackball().getY();
+			oldX = _inputSystem.getTrackball().getX();
+			oldY = _inputSystem.getTrackball().getY();
 
-			inputSystem.roll(i, i);
+			_inputSystem.roll(i, i);
 
-			newX = inputSystem.getTrackball().getX();
-			newY = inputSystem.getTrackball().getY();
+			newX = _inputSystem.getTrackball().getX();
+			newY = _inputSystem.getTrackball().getY();
 
 			// Assert we have reached where we wanted
 			assertEquals(newX, oldX + i, .001f);
@@ -93,12 +93,12 @@ public class InputSystemTest extends AndroidTestCase {
 
 			// rollback
 			if (i > 1) {
-				inputSystem.roll(-(i / 2), -(i / 3));
+				_inputSystem.roll(-(i / 2), -(i / 3));
 
 				assertEquals(newX + -(i / 2),
-						inputSystem.getTrackball().getX(), 0.001f);
+						_inputSystem.getTrackball().getX(), 0.001f);
 				assertEquals(newY + -(i / 3),
-						inputSystem.getTrackball().getY(), 0.001f);
+						_inputSystem.getTrackball().getY(), 0.001f);
 			}
 
 		}
@@ -116,14 +116,14 @@ public class InputSystemTest extends AndroidTestCase {
 	 * public void testTouchDown() {
 	 * 
 	 * //Assert indices are not touched, touch them for(int i= 0; i < 10; i++){
-	 * assertFalse(inputSystem.getTouchScreen().getPressed(i));
+	 * assertFalse(_inputSystem.getTouchScreen().getPressed(i));
 	 * 
-	 * inputSystem.touchDown(i, i, i);
-	 * assertTrue(inputSystem.getTouchScreen().getPressed(i));
+	 * _inputSystem.touchDown(i, i, i);
+	 * assertTrue(_inputSystem.getTouchScreen().getPressed(i));
 	 * 
 	 * //Assert x and y of event equals input //assertEquals(i,
-	 * inputSystem.getTouchScreen().getTouchEvent().getRawX(), 0.001f);
-	 * //assertEquals(i, inputSystem.getTouchScreen().getTouchEvent().getRawY(),
+	 * _inputSystem.getTouchScreen().getTouchEvent().getRawX(), 0.001f);
+	 * //assertEquals(i, _inputSystem.getTouchScreen().getTouchEvent().getRawY(),
 	 * 0.001f);
 	 * 
 	 * }
@@ -138,11 +138,11 @@ public class InputSystemTest extends AndroidTestCase {
 	 * 
 	 */
 	/*
-	 * public void testTouchUp() { inputSystem.reset(); //Touch down for(int i=
-	 * 0; i < 10; i++){ inputSystem.touchDown(i, i, i);
-	 * assertTrue(inputSystem.getTouchScreen().getPressed(i)); } //Release all
-	 * buttons for(int i= 0; i < 10; i++){ inputSystem.touchUp(i, i, i);
-	 * assertFalse(inputSystem.getTouchScreen().getPressed(i)); }
+	 * public void testTouchUp() { _inputSystem.reset(); //Touch down for(int i=
+	 * 0; i < 10; i++){ _inputSystem.touchDown(i, i, i);
+	 * assertTrue(_inputSystem.getTouchScreen().getPressed(i)); } //Release all
+	 * buttons for(int i= 0; i < 10; i++){ _inputSystem.touchUp(i, i, i);
+	 * assertFalse(_inputSystem.getTouchScreen().getPressed(i)); }
 	 * 
 	 * }
 	 */
@@ -158,9 +158,9 @@ public class InputSystemTest extends AndroidTestCase {
 		// Sets the orientation, the actual calculations are
 		// done by NVIDIA function TODO: (testing can be done on known values)
 		for (int i = 0; i < 10; i++) {
-			inputSystem.setOrientation(i, i, i);
+			_inputSystem.setOrientation(i, i, i);
 
-			assertTrue(inputSystem.getOrientationSensor().getPressed());
+			assertTrue(_inputSystem.getOrientationSensor().getPressed());
 
 		}
 	}
@@ -171,17 +171,17 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testKeyDown() {
-		inputSystem.getKeyboard().resetAll();
+		_inputSystem.getKeyboard().resetAll();
 
 		// Press select keys
 		for (int i = KeyEvent.getMaxKeyCode() - 10; i < KeyEvent
 				.getMaxKeyCode(); i++) {
 
-			inputSystem.keyDown(i);
+			_inputSystem.keyDown(i);
 
 		}
 
-		InputButton[] keysAr = inputSystem.getKeyboard().getKeys();
+		InputButton[] keysAr = _inputSystem.getKeyboard().getKeys();
 
 		// Assert all chosen keys were pressed
 		for (int i = KeyEvent.getMaxKeyCode() - 10; i < KeyEvent
@@ -204,21 +204,21 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testKeyUp() {
-		inputSystem.getKeyboard().resetAll();
+		_inputSystem.getKeyboard().resetAll();
 
 		// Press all keys
 		for (int i = 0; i < KeyEvent.getMaxKeyCode(); i++) {
 
-			inputSystem.keyDown(i);
+			_inputSystem.keyDown(i);
 
 		}
-		InputButton[] keysAr = inputSystem.getKeyboard().getKeys();
+		InputButton[] keysAr = _inputSystem.getKeyboard().getKeys();
 		// TODO: clarify 10 offset
 		// Release select keys
 		for (int i = KeyEvent.getMaxKeyCode() - 10; i < KeyEvent
 				.getMaxKeyCode(); i++) {
 
-			inputSystem.keyUp(i);
+			_inputSystem.keyUp(i);
 
 			assertFalse(keysAr[i].getPressed());
 
@@ -238,32 +238,32 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testReleaseAllKeys() {
-		inputSystem.reset();
+		_inputSystem.reset();
 
 		// Activate trackball
-		inputSystem.roll(1, 1);
-		assertTrue(inputSystem.getTrackball().getPressed());
+		_inputSystem.roll(1, 1);
+		assertTrue(_inputSystem.getTrackball().getPressed());
 
 		// Activate all keys
 		for (int i = 0; i < KeyEvent.getMaxKeyCode(); i++) {
-			inputSystem.keyDown(i);
+			_inputSystem.keyDown(i);
 		}
 		// Activate touch screen
 		for (int i = 0; i < 10; i++) {
-			inputSystem.touchDown(i, i, i);
+			_inputSystem.touchDown(i, i, i);
 		}
 
 		// Activate orientation
-		inputSystem.setOrientation(1f, 1f, 1f);
-		assertTrue(inputSystem.getOrientationSensor().getPressed());
+		_inputSystem.setOrientation(1f, 1f, 1f);
+		assertTrue(_inputSystem.getOrientationSensor().getPressed());
 
-		inputSystem.releaseAllKeys();
+		_inputSystem.releaseAllKeys();
 
 		// Verify trackballs
-		assertFalse(inputSystem.getTrackball().getPressed());
+		assertFalse(_inputSystem.getTrackball().getPressed());
 
 		// Verify Keyboard
-		InputButton[] keysAr = inputSystem.getKeyboard().getKeys();
+		InputButton[] keysAr = _inputSystem.getKeyboard().getKeys();
 		for (int i = 0; i < KeyEvent.getMaxKeyCode(); i++) {
 
 			assertFalse(keysAr[i].getPressed());
@@ -272,11 +272,11 @@ public class InputSystemTest extends AndroidTestCase {
 		// Verify touch screen
 		for (int i = 0; i < 10; i++) {
 
-			assertFalse(inputSystem.getTouchScreen().getPressed(i));
+			assertFalse(_inputSystem.getTouchScreen().getPressed(i));
 		}
 
 		// Verify orienation sensor
-		assertFalse(inputSystem.getOrientationSensor().getPressed());
+		assertFalse(_inputSystem.getOrientationSensor().getPressed());
 
 	}
 
@@ -286,7 +286,7 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testGetTouchScreen() {
-		assertNotNull(inputSystem.getTouchScreen());
+		assertNotNull(_inputSystem.getTouchScreen());
 
 	}
 
@@ -297,7 +297,7 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testGetOrientationSensor() {
-		assertNotNull(inputSystem.getOrientationSensor());
+		assertNotNull(_inputSystem.getOrientationSensor());
 	}
 
 	/**
@@ -306,7 +306,7 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testGetTrackball() {
-		assertNotNull(inputSystem.getTrackball());
+		assertNotNull(_inputSystem.getTrackball());
 	}
 
 	/**
@@ -315,7 +315,7 @@ public class InputSystemTest extends AndroidTestCase {
 	 */
 
 	public void testGetKeyboard() {
-		assertNotNull(inputSystem.getKeyboard());
+		assertNotNull(_inputSystem.getKeyboard());
 	}
 
 	/**

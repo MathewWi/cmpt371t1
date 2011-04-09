@@ -17,8 +17,8 @@ import ca.sandstorm.luminance.MatrixTrackingGL;
 public class MatrixTrackingGLTest extends AndroidTestCase
 {
 
-    MatrixTrackingGL matrixTrackingGL;
-    GL10 mockGl;
+    MatrixTrackingGL _matrixTrackingGL;
+    GL10 _mockGl;
     
     /**
      * Constructor

@@ -12,18 +12,18 @@ import android.test.AndroidTestCase;
  */
 public class PrimitiveQuadTest extends AndroidTestCase {
 	
-	private PrimitiveQuad quad;
+	private PrimitiveQuad _quad;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		quad = new PrimitiveQuad(new Vector3f(0.0f,0.0f,0.0f), new Vector3f(0.0f,0.0f,0.0f));
+		_quad = new PrimitiveQuad(new Vector3f(0.0f,0.0f,0.0f), new Vector3f(0.0f,0.0f,0.0f));
 	}
 	
 	/*
 	 * Testing of the constructor
 	 */
 	public void testPrimitiveBox() throws Exception {
-		assert(quad != null);
+		assert(_quad != null);
 	}
 
 	protected void tearDown() throws Exception {

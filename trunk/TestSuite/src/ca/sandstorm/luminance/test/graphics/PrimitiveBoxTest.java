@@ -10,18 +10,18 @@ import android.test.AndroidTestCase;
  */
 public class PrimitiveBoxTest extends AndroidTestCase {
 	
-	private PrimitiveBox box;
+	private PrimitiveBox _box;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		box = new PrimitiveBox();
+		_box = new PrimitiveBox();
 	}
 	
 	/*
 	 * Testing of the constructor
 	 */
 	public void testPrimitiveBox() throws Exception {
-		assert(box != null);
+		assert(_box != null);
 	}
 
 	protected void tearDown() throws Exception {

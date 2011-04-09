@@ -15,8 +15,8 @@ import ca.sandstorm.luminance.math.Ray;
  */
 public class CollidersTest extends AndroidTestCase {
 
-	private Ray rayTest;
-	private Plane planeTest;
+	private Ray _rayTest;
+	private Plane _planeTest;
 
 	/*
 	 * Setting up instances to use for testing (non-Javadoc)
@@ -25,8 +25,8 @@ public class CollidersTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		rayTest = new Ray(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f);
-		planeTest = new Plane(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f);
+		_rayTest = new Ray(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f);
+		_planeTest = new Plane(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f);
 	}
 
 	/*
@@ -64,7 +64,7 @@ public class CollidersTest extends AndroidTestCase {
 		float pxNormal = (float) 2.0;
 		float pyNormal = (float) 7.0;
 		float pzNormal = (float) 6.0;
-		planeTest = new Plane(px, py, pz, pxNormal, pyNormal, pzNormal);
+		_planeTest = new Plane(px, py, pz, pxNormal, pyNormal, pzNormal);
 
 		float rx = (float) 1.7;
 		float ry = (float) 4.5;
@@ -72,20 +72,20 @@ public class CollidersTest extends AndroidTestCase {
 		float rxDir = (float) 1.1;
 		float ryDir = (float) 5.2;
 		float rzDir = (float) 6.2;
-		rayTest = new Ray(rx, ry, rz, rxDir, ryDir, rzDir);
+		_rayTest = new Ray(rx, ry, rz, rxDir, ryDir, rzDir);
 
 		// Perform calculations in intersect()
-		double D = Colliders.dotProduct(planeTest.getPosition(),
-				planeTest.getNormal());
-		double numerator = Colliders.dotProduct(planeTest.getNormal(),
-				rayTest.getPosition())
+		double D = Colliders.dotProduct(_planeTest.getPosition(),
+				_planeTest.getNormal());
+		double numerator = Colliders.dotProduct(_planeTest.getNormal(),
+				_rayTest.getPosition())
 				+ D;
-		double denominator = Colliders.dotProduct(planeTest.getNormal(),
-				rayTest.getDirection());
+		double denominator = Colliders.dotProduct(_planeTest.getNormal(),
+				_rayTest.getDirection());
 
 		// Compare actual value to result of intersect()
 		double actual = -(numerator / denominator);
-		double result = Colliders.intersect(rayTest, planeTest);
+		double result = Colliders.intersect(_rayTest, _planeTest);
 		assert (result == actual);
 	}
 
@@ -93,7 +93,7 @@ public class CollidersTest extends AndroidTestCase {
 	 * Testing of the collide() method
 	 */
 	public void testCollide() throws Exception {
-		Vector3f collisionPoint = Colliders.collide(rayTest, planeTest);
+		Vector3f collisionPoint = Colliders.collide(_rayTest, _planeTest);
 		assertNotNull(collisionPoint);
 	}
 

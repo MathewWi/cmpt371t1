@@ -11,14 +11,14 @@ import ca.sandstorm.luminance.resources.SoundResource;
  */
 public class SoundResourceTest extends AndroidTestCase {
 
-	private SoundResource soundResource;
+	private SoundResource _soundResource;
 
 	/**
 	 * Set up an instance to test with
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		soundResource = new SoundResource("soundRes", 1);
+		_soundResource = new SoundResource("soundRes", 1);
 	}
 
 	/**
@@ -28,9 +28,9 @@ public class SoundResourceTest extends AndroidTestCase {
 	 */
 	public void testGetName() throws Exception {
 
-		assertTrue(soundResource.getName().equals("soundRes"));
-		assertFalse(soundResource.getName().equals(""));
-		assertFalse(soundResource.getName() == null);
+		assertTrue(_soundResource.getName().equals("soundRes"));
+		assertFalse(_soundResource.getName().equals(""));
+		assertFalse(_soundResource.getName() == null);
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class SoundResourceTest extends AndroidTestCase {
 	 */
 	public void testGetSound() throws Exception {
 
-		assertTrue(soundResource.getSound() == 1);
+		assertTrue(_soundResource.getSound() == 1);
 	}
 
 	/**
@@ -48,6 +48,6 @@ public class SoundResourceTest extends AndroidTestCase {
 	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
-		soundResource.dispose();
+		_soundResource.dispose();
 	}
 }

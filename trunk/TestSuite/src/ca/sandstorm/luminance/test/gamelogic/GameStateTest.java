@@ -16,29 +16,29 @@ import ca.sandstorm.luminance.gamelogic.GameState;
  */
 public class GameStateTest extends AndroidTestCase {
 		
-	GameState gs;
+	GameState _gs;
 	
 	protected void setUp() throws Exception {
-		gs = new GameState(1);
+		_gs = new GameState(1);
 		super.setUp();
 
 	}
 
 	public void testGameState() throws Exception {
-		assertNotNull(gs);
+		assertNotNull(_gs);
 	}
 	
 	public void testGetShowMenu() throws Exception {
-		assertTrue(gs.getShowMenu() == false);
+		assertTrue(_gs.getShowMenu() == false);
 	}
 	
 	public void testSetShowMenu() throws Exception {
-		gs.setShowMenu(true);
-		assertTrue(gs.getShowMenu());
+		_gs.setShowMenu(true);
+		assertTrue(_gs.getShowMenu());
 	}
 	
 	public void testIsCurrentLevelComplete() throws Exception {
-		assertTrue(gs.isCurrentLevelComplete() == false);
+		assertTrue(_gs.isCurrentLevelComplete() == false);
 	}
 	
 	/**
@@ -54,9 +54,9 @@ public class GameStateTest extends AndroidTestCase {
 		mockLight.v = new Vector3f(4f,4f,4f);
 		assertTrue(mockLight.v != null);
 		
-		gs.addObject(mockLight);
+		_gs.addObject(mockLight);
 		//execute
-		assertEquals(mockLight.getPosition().x, gs.getObjectAtGridCoords(3, 3).getPosition().x, .001);
+		assertEquals(mockLight.getPosition().x, _gs.getObjectAtGridCoords(3, 3).getPosition().x, .001);
 		*/
 		
 	}

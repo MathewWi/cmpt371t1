@@ -12,8 +12,8 @@ import ca.sandstorm.luminance.resources.Resource;
  * 
  */
 public class ResourceTest extends AndroidTestCase {
-	private Resource res;
-	private Resource res2;
+	private Resource _res;
+	private Resource _res2;
 
 	/**
 	 * Set up an instance to test with
@@ -22,8 +22,8 @@ public class ResourceTest extends AndroidTestCase {
 		super.setUp();
 		String test = "Hello, World!";
 		String blank = "";
-		res = new Resource("res1", test.getBytes());
-		res2 = new Resource("res2", blank.getBytes());
+		_res = new Resource("res1", test.getBytes());
+		_res2 = new Resource("res2", blank.getBytes());
 	}
 
 	/**
@@ -33,9 +33,9 @@ public class ResourceTest extends AndroidTestCase {
 	 */
 	public void testGetName() throws Exception {
 
-		assertTrue(res.getName().equals("res1"));
-		assertFalse(res.getName().equals(""));
-		assertFalse(res.getName() == null);
+		assertTrue(_res.getName().equals("res1"));
+		assertFalse(_res.getName().equals(""));
+		assertFalse(_res.getName() == null);
 	}
 
 	/**
@@ -45,8 +45,8 @@ public class ResourceTest extends AndroidTestCase {
 	 */
 	public void testGetMemorySize() throws Exception {
 
-		assertTrue(res.getMemorySize() != 0);
-		assertTrue(res2.getMemorySize() == 0);
+		assertTrue(_res.getMemorySize() != 0);
+		assertTrue(_res2.getMemorySize() == 0);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class ResourceTest extends AndroidTestCase {
 	 */
 	public void testGetData() throws Exception {
 		String foo = "Hello, World!";
-		assertTrue(Arrays.equals(foo.getBytes(), res.getData()));
+		assertTrue(Arrays.equals(foo.getBytes(), _res.getData()));
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class ResourceTest extends AndroidTestCase {
 	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
-		res.dispose();
-		res2.dispose();
+		_res.dispose();
+		_res2.dispose();
 	}
 }

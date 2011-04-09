@@ -18,19 +18,19 @@ import ca.sandstorm.luminance.resources.TextureResource;
  */
 public class ResourceManagerTest extends AndroidTestCase {
 
-	ResourceManager resManager;
-	TextResource text;
-	ImageResource image;
-	TextureResource texture;
-	SoundResource sound;
-	Resource resource;
+	ResourceManager _resManager;
+	TextResource _text;
+	ImageResource _image;
+	TextureResource _texture;
+	SoundResource _sound;
+	Resource _resource;
 
 	/**
 	 * Setting up an instance to be tested
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		resManager = new ResourceManager();
+		_resManager = new ResourceManager();
 	}
 
 	/**
@@ -39,8 +39,8 @@ public class ResourceManagerTest extends AndroidTestCase {
 	public void testLoadResource() throws Exception {
 
 		try {
-			resource = resManager.loadResource("text.txt");
-			assert (resource != null);
+			_resource = _resManager.loadResource("text.txt");
+			assert (_resource != null);
 		} catch (Exception ex) {}
 	}
 
@@ -50,8 +50,8 @@ public class ResourceManagerTest extends AndroidTestCase {
 	public void testLoadText() throws Exception {
 
 		try {
-			text = resManager.loadText("text.txt");
-			assert (text != null);
+			_text = _resManager.loadText("text.txt");
+			assert (_text != null);
 		} catch (Exception ex) {}
 	}
 
@@ -61,8 +61,8 @@ public class ResourceManagerTest extends AndroidTestCase {
 	public void testLoadImage() throws Exception {
 
 		try {
-			image = resManager.loadImage("skyBack.jpg");
-			assert (image != null);
+			_image = _resManager.loadImage("skyBack.jpg");
+			assert (_image != null);
 		} catch (Exception ex) {}
 	}
 
@@ -74,17 +74,17 @@ public class ResourceManagerTest extends AndroidTestCase {
 	public void testLoadSound() throws Exception {
 
 		try {
-			sound = resManager.loadSound((new SoundPool(1, 1, 100)),
+			_sound = _resManager.loadSound((new SoundPool(1, 1, 100)),
 					"sample.ogg");
-			assert (sound != null);
+			assert (_sound != null);
 		} catch (Exception ex) {}
 	}
 
 	public void testLoadTexture() throws Exception {
 
 		try {
-			texture = resManager.loadTexture(null, "skyBack.jpg");
-			assert (texture != null);
+			_texture = _resManager.loadTexture(null, "skyBack.jpg");
+			assert (_texture != null);
 		} catch (Exception ex) {
 			
 		}
@@ -97,7 +97,7 @@ public class ResourceManagerTest extends AndroidTestCase {
 	 */
 	public void testGetResource() throws Exception {
 
-		IResource res = resManager.getResource("text.txt");
+		IResource res = _resManager.getResource("text.txt");
 		assert (res.getName().equals("text.txt"));
 	}
 

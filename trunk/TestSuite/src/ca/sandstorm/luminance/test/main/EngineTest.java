@@ -19,26 +19,26 @@ import ca.sandstorm.luminance.gameobject.Light;
 public class EngineTest extends AndroidTestCase
 {
 
-    Engine engine;
+    Engine _engine;
 
-    int w = 60; //arbitrary value
-    int h = 60;
-    int viewHeight = 100;
-    int viewWidth = 100;
+    int _w = 60; //arbitrary value
+    int _h = 60;
+    int _viewHeight = 100;
+    int _viewWidth = 100;
     
-    int heightMenuBar;
+    int _heightMenuBar;
     
-    IGameObject light;
-    GameState gameState;	
+    IGameObject _light;
+    GameState _gameState;	
 
     /* (non-Javadoc)
      * @see junit.framework.TestCase#setUp()
      */
     protected void setUp() throws Exception
     {
-    	engine = Engine.getInstance();
-		light = new Light(1, 1, 1, 1, 1, 1, 1, 1);
-		gameState = new GameState(1);
+    	_engine = Engine.getInstance();
+		_light = new Light(1, 1, 1, 1, 1, 1, 1, 1);
+		_gameState = new GameState(1);
 		//mContext = new Context();
     	super.setUp();
     }
@@ -62,13 +62,13 @@ public class EngineTest extends AndroidTestCase
     }
     
     public void testEngine(){
-		assertTrue(light != null);
-		assertTrue(gameState != null);    	
+		assertTrue(_light != null);
+		assertTrue(_gameState != null);    	
     }
 
 	public void testAddObject() {
-		//added light into gameState
-		//gameState.addObject(light);
+		//added _light into _gameState
+		//_gameState.addObject(_light);
 	}
 
     /**
@@ -86,7 +86,7 @@ public class EngineTest extends AndroidTestCase
     public void testSetContext()
     {
     	assertTrue(getContext().getApplicationContext() != null);
-    	engine.setContext(getContext().getApplicationContext());
+    	_engine.setContext(getContext().getApplicationContext());
     }
 
 
@@ -104,7 +104,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetRenderer()
     {
-    	assertTrue(engine.getRenderer() != null);
+    	assertTrue(_engine.getRenderer() != null);
     }
 
 
@@ -113,7 +113,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetTimer()
     {
-    	assertTrue(engine.getTimer() != null);
+    	assertTrue(_engine.getTimer() != null);
     }
 
 
@@ -122,7 +122,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetInputSystem()
     {
-    	assertTrue(engine.getInputSystem() != null);
+    	assertTrue(_engine.getInputSystem() != null);
     }
 
 
@@ -131,7 +131,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testGetResourceManager()
     {
-    	assertNotNull(engine.getResourceManager());
+    	assertNotNull(_engine.getResourceManager());
     }
 
 
@@ -140,9 +140,9 @@ public class EngineTest extends AndroidTestCase
      */
     public void testSetGetMenuBarHeight()
     {
-		heightMenuBar = 50;
-		engine.setMenuBarHeight(50);
-		assertEquals(engine.getMenuBarHeight(), heightMenuBar);
+		_heightMenuBar = 50;
+		_engine.setMenuBarHeight(50);
+		assertEquals(_engine.getMenuBarHeight(), _heightMenuBar);
     }
 
 
@@ -152,8 +152,8 @@ public class EngineTest extends AndroidTestCase
     public void testSetGetTitleBarHeight()
     {
 		int titleBarHeight = 60;
-		engine.setTitleBarHeight(titleBarHeight);
-		assertEquals(engine.getTitleBarHeight(), titleBarHeight);
+		_engine.setTitleBarHeight(titleBarHeight);
+		assertEquals(_engine.getTitleBarHeight(), titleBarHeight);
     }
     /**
      * Test method for {@link ca.sandstorm.luminance.Engine#deviceChanged(javax.microedition.khronos.opengles.GL10, int, int, int, int)}.
@@ -171,7 +171,7 @@ public class EngineTest extends AndroidTestCase
     {
 		//Might not work since deviceChanged needs to be 
 		//called first
-		assertEquals(0, engine.getViewWidth());
+		assertEquals(0, _engine.getViewWidth());
     }
 
 
@@ -182,7 +182,7 @@ public class EngineTest extends AndroidTestCase
     {
 		//Might not work since deviceChanged needs to be 
 		//called first
-    	assertEquals(0, engine.getViewHeight());
+    	assertEquals(0, _engine.getViewHeight());
     }
 
 
@@ -193,7 +193,7 @@ public class EngineTest extends AndroidTestCase
     {
 		//Might not work since deviceChanged needs to be 
 		//called first
-		assertEquals(0, engine.getViewScaleX(), .001);
+		assertEquals(0, _engine.getViewScaleX(), .001);
     }
 
 
@@ -204,8 +204,8 @@ public class EngineTest extends AndroidTestCase
     {
 		//Might not work since deviceChanged needs to be 
 		//called first
-		//float viewScaleY = viewHeight / h;
-    	assertEquals(0, engine.getViewScaleY(), .001);
+		//float viewScaleY = _viewHeight / _h;
+    	assertEquals(0, _engine.getViewScaleY(), .001);
     }
 
 
@@ -215,12 +215,12 @@ public class EngineTest extends AndroidTestCase
     public void testSetGetMultiTouchFilter()
     {
 		//MultiTouchFilter
-		engine.setMultiTouchFilter(true);
-		assertNotNull(engine.getTouchFilter());
+		_engine.setMultiTouchFilter(true);
+		assertNotNull(_engine.getTouchFilter());
 		
 		//SingleTouchFilter
-		engine.setMultiTouchFilter(false);
-		assertNotNull(engine.getTouchFilter());
+		_engine.setMultiTouchFilter(false);
+		assertNotNull(_engine.getTouchFilter());
 	
     }
 
@@ -244,7 +244,7 @@ public class EngineTest extends AndroidTestCase
     {
 
 
-	//engine.resume();
+	//_engine.resume();
 
     }
 
@@ -254,7 +254,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testPause()
     {
-	//engine.pause();
+	//_engine.pause();
     }
 
 
@@ -266,7 +266,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testInit()
     {
-    	//engine.init(mockGl);
+    	//_engine.init(mockGl);
     }
 
 
@@ -275,7 +275,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testUpdate()
     {
-	//engine.update(mockGl);
+	//_engine.update(mockGl);
     }
 
 
@@ -284,7 +284,7 @@ public class EngineTest extends AndroidTestCase
      */
     public void testDraw()
     {
-	//engine.draw(mockGl);
+	//_engine.draw(mockGl);
     }
 
 }

@@ -18,22 +18,22 @@ import ca.sandstorm.luminance.math.Sphere;
  * 
  */
 public class ReceptorTest extends AndroidTestCase {
-	Receptor myReceptor;
+	Receptor _myReceptor;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myReceptor = new Receptor(new Vector3f(0.0f, 0.0f, 0.0f), new Vector3f(
+		_myReceptor = new Receptor(new Vector3f(0.0f, 0.0f, 0.0f), new Vector3f(
 				0.0f, 0.0f, 0.0f));
 	}
 	/**
 	 * Setting activated test
 	 */
 	public void testSetGetActivated(){
-		myReceptor.setActivated(true);
-		assertTrue(myReceptor.getActivated());
+		_myReceptor.setActivated(true);
+		assertTrue(_myReceptor.getActivated());
 	}
 	/**
 	 * Test the setColor method.
@@ -41,9 +41,9 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testSetColor() throws Exception {
-		myReceptor.setActivated(true);
-		myReceptor.setColor(5);
-		assertTrue(myReceptor.getColor() == 5);
+		_myReceptor.setActivated(true);
+		_myReceptor.setColor(5);
+		assertTrue(_myReceptor.getColor() == 5);
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 */
 	public void testGetActiviated()
 	{
-		assertFalse(myReceptor.getActivated());
+		assertFalse(_myReceptor.getActivated());
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertTrue(myReceptor.getRenderable() != null);
+		assertTrue(_myReceptor.getRenderable() != null);
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTexture() throws Exception {
-		assertNotNull(myReceptor.getTexture());
+		assertNotNull(_myReceptor.getTexture());
 	}
 	
 	/**
@@ -80,7 +80,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderType() throws Exception {
-		RenderType dummy = myReceptor.getRenderType();
+		RenderType dummy = _myReceptor.getRenderType();
 		assertTrue(dummy == RenderType.Normal);
 	}
 
@@ -90,7 +90,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetCollisionSphere() throws Exception {
-		Sphere dummy = myReceptor.getCollisionSphere();
+		Sphere dummy = _myReceptor.getCollisionSphere();
 		assertNotNull(dummy);
 	}
 	
@@ -106,12 +106,12 @@ public class ReceptorTest extends AndroidTestCase {
 		Light l = new Light(0, 0, 0, 0, 0, 0, 5, 0);
 		lb.add(0, l);
 		lbc.add(0, lb);
-		myReceptor.setColor(0);
+		_myReceptor.setColor(0);
 		
-		myReceptor.beamInteract(lbc, 0, 0);
+		_myReceptor.beamInteract(lbc, 0, 0);
 		
-		//assertTrue(l.getEndTouchedObject().equals(myReceptor));
-		assertTrue(myReceptor.getActivated());
+		//assertTrue(l.getEndTouchedObject().equals(_myReceptor));
+		assertTrue(_myReceptor.getActivated());
 	}
 	
 	/**
@@ -120,7 +120,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testUpdate() throws Exception {
-		// assertTrue(myReceptor.Update());
+		// assertTrue(_myReceptor.Update());
 		// TODO: write proper tests
 	}
 
@@ -130,7 +130,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testDestroy() throws Exception {
-		// assertTrue(myReceptor.destroy());
+		// assertTrue(_myReceptor.destroy());
 		// TODO: write proper tests
 	}
 
@@ -140,7 +140,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f dummy = myReceptor.getPosition();
+		Vector3f dummy = _myReceptor.getPosition();
 		assertTrue(dummy.x == 0);
 		assertTrue(dummy.y == 0);
 		assertTrue(dummy.z == 0);
@@ -152,7 +152,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		Vector4f dummy = myReceptor.getRotation();
+		Vector4f dummy = _myReceptor.getRotation();
 		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 1.0f);
 		assertTrue(dummy.y == 1.0f);
@@ -165,7 +165,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		Vector3f dummy = myReceptor.getScale();
+		Vector3f dummy = _myReceptor.getScale();
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 0.0f);
 		assertTrue(dummy.z == 0.0f);

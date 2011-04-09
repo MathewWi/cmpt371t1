@@ -4,14 +4,14 @@ import ca.sandstorm.luminance.level.XmlLevelBuilder;
 import android.test.AndroidTestCase;
 
 public class XmlLevelBuilderTest extends AndroidTestCase{
-	XmlLevelBuilder xlb;
+	XmlLevelBuilder _xlb;
 	
 	protected void setUp() throws Exception {
-		xlb = new XmlLevelBuilder();
+		_xlb = new XmlLevelBuilder();
 		super.setUp();
 	}
 	
 	public void testXmlLevelBuilder() throws Exception {
-		assertNotNull(xlb);
+		assertNotNull(_xlb);
 	}
 }

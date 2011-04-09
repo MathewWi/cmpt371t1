@@ -14,14 +14,14 @@ import ca.sandstorm.luminance.gameobject.RenderType;
  * 
  */
 public class EmitterTest extends AndroidTestCase {
-	Emitter myEmitter;
+	Emitter _myEmitter;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myEmitter = new Emitter(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), 0);
+		_myEmitter = new Emitter(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), 0);
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertTrue(myEmitter.getRenderable() != null);
+		assertTrue(_myEmitter.getRenderable() != null);
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTexture() throws Exception {
-		assertNotNull(myEmitter.getTexture());
+		assertNotNull(_myEmitter.getTexture());
 	}
 	
 	/**
@@ -48,7 +48,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderType() throws Exception {
-		RenderType dummy = myEmitter.getRenderType();
+		RenderType dummy = _myEmitter.getRenderType();
 		assertTrue(dummy == RenderType.Normal);
 	}
 	
@@ -59,7 +59,7 @@ public class EmitterTest extends AndroidTestCase {
 	 */
 	public void testGetCollisionSphere()
 	{
-		assertNotNull(myEmitter.getCollisionSphere());
+		assertNotNull(_myEmitter.getCollisionSphere());
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testUpdate() throws Exception {
-		// assertTrue(myEmitter.Update());
+		// assertTrue(_myEmitter.Update());
 		// TODO: write proper tests
 	}
 
@@ -88,7 +88,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testDestroy() throws Exception {
-		// assertTrue(myEmitter.destroy());
+		// assertTrue(_myEmitter.destroy());
 		// TODO: write proper tests
 	}
 
@@ -98,7 +98,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f dummy = myEmitter.getPosition();
+		Vector3f dummy = _myEmitter.getPosition();
 		assertTrue(dummy.x == 0);
 		assertTrue(dummy.y == 0);
 		assertTrue(dummy.z == 0);
@@ -110,7 +110,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		Vector4f dummy = myEmitter.getRotation();
+		Vector4f dummy = _myEmitter.getRotation();
 		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 0.0f);
@@ -123,7 +123,7 @@ public class EmitterTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		Vector3f dummy = myEmitter.getScale();
+		Vector3f dummy = _myEmitter.getScale();
 		assertTrue(dummy.x == 0.15f);
 		assertTrue(dummy.y == 0.15f);
 		assertTrue(dummy.z == 0.5f);

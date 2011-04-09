@@ -9,14 +9,14 @@ import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.GameObject;
 
 public class GameObjectTest extends AndroidTestCase{
-	GameObject myObject;
+	GameObject _myObject;
 	
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myObject = new Box(new Vector3f(0,0,0), new Vector3f(0,0,0));
+		_myObject = new Box(new Vector3f(0,0,0), new Vector3f(0,0,0));
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class GameObjectTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testUpdate() throws Exception {
-		// assertTrue(myObject.Update());
+		// assertTrue(_myObject.Update());
 		// TODO: write proper tests
 	}
 
@@ -35,7 +35,7 @@ public class GameObjectTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testDestroy() throws Exception {
-		// assertTrue(myObject.destroy());
+		// assertTrue(_myObject.destroy());
 		// TODO: write proper tests
 	}
 
@@ -45,7 +45,7 @@ public class GameObjectTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f dummy = myObject.getPosition();
+		Vector3f dummy = _myObject.getPosition();
 		assertTrue(dummy.x == 0);
 		assertTrue(dummy.y == 0);
 		assertTrue(dummy.z == 0);
@@ -57,8 +57,8 @@ public class GameObjectTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testSetPosition() throws Exception {
-		myObject.setPosition(new Vector3f(1.0f,1.0f,1.0f));
-		Vector3f dummy = myObject.getPosition();
+		_myObject.setPosition(new Vector3f(1.0f,1.0f,1.0f));
+		Vector3f dummy = _myObject.getPosition();
 		assertTrue(dummy.x == 1.0f);
 		assertTrue(dummy.y == 1.0f);
 		assertTrue(dummy.z == 1.0);
@@ -70,7 +70,7 @@ public class GameObjectTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		Vector4f dummy = myObject.getRotation();
+		Vector4f dummy = _myObject.getRotation();
 		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 0.0f);
@@ -83,7 +83,7 @@ public class GameObjectTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		Vector3f dummy = myObject.getScale();
+		Vector3f dummy = _myObject.getScale();
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 0.0f);
 		assertTrue(dummy.z == 0.0f);

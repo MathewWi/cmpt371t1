@@ -13,58 +13,58 @@ import ca.sandstorm.luminance.math.Plane;
  */
 public class PlaneTest extends AndroidTestCase {
 
-	private Plane tester;
-	private float testX = 1.0f;
-	private float testY = 1.0f;
-	private float testZ = 1.0f;
-	private float testXNormal = 1.0f;
-	private float testYNormal = 1.0f;
-	private float testZNormal = 1.0f;
+	private Plane _tester;
+	private float _testX = 1.0f;
+	private float _testY = 1.0f;
+	private float _testZ = 1.0f;
+	private float _testXNormal = 1.0f;
+	private float _testYNormal = 1.0f;
+	private float _testZNormal = 1.0f;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		tester = new Plane(testX, testY, testZ, testXNormal, testYNormal,
-				testZNormal);
+		_tester = new Plane(_testX, _testY, _testZ, _testXNormal, _testYNormal,
+				_testZNormal);
 	}
 
 	/*
 	 * Testing the setPosition() method
 	 */
 	public void testSetPosition() throws Exception {
-		testX = (float) 1.7;
-		testY = (float) 2.9;
-		testZ = (float) 5.4;
-		tester.setPosition(testX, testY, testZ);
+		_testX = (float) 1.7;
+		_testY = (float) 2.9;
+		_testZ = (float) 5.4;
+		_tester.setPosition(_testX, _testY, _testZ);
 	}
 
 	/*
 	 * Testing the getPosition() method
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f pos = tester.getPosition();
-		assert (pos.x == testX);
-		assert (pos.y == testY);
-		assert (pos.z == testZ);
+		Vector3f pos = _tester.getPosition();
+		assert (pos.x == _testX);
+		assert (pos.y == _testY);
+		assert (pos.z == _testZ);
 	}
 
 	/*
 	 * Testing the setNormal() method
 	 */
 	public void testSetNormal() throws Exception {
-		testXNormal = (float) 5.7;
-		testYNormal = (float) 7.9;
-		testZNormal = (float) 1.4;
-		tester.setNormal(testXNormal, testYNormal, testZNormal);
+		_testXNormal = (float) 5.7;
+		_testYNormal = (float) 7.9;
+		_testZNormal = (float) 1.4;
+		_tester.setNormal(_testXNormal, _testYNormal, _testZNormal);
 	}
 
 	/*
 	 * Testing the getNormal() method
 	 */
 	public void testGetNormal() throws Exception {
-		Vector3f norm = tester.getNormal();
-		assert (norm.x == testXNormal);
-		assert (norm.y == testYNormal);
-		assert (norm.z == testZNormal);
+		Vector3f norm = _tester.getNormal();
+		assert (norm.x == _testXNormal);
+		assert (norm.y == _testYNormal);
+		assert (norm.z == _testZNormal);
 	}
 	
 	

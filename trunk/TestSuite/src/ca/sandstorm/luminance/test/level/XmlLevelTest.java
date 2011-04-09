@@ -10,44 +10,44 @@ import android.test.AndroidTestCase;
  */
 public class XmlLevelTest extends AndroidTestCase {
 	
-	private XmlLevel tLevel;
+	private XmlLevel _tLevel;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		tLevel = new XmlLevel("Hello", "medium", 5, 10, 5.0f, 10.0f, null, null );
+		_tLevel = new XmlLevel("Hello", "medium", 5, 10, 5.0f, 10.0f, null, null );
 
 	}
 
 	public void testGetName() throws Exception {
-		assert(tLevel.getName().equals("Hello"));
+		assert(_tLevel.getName().equals("Hello"));
 	}
 
 	public void testGetDifficulty() throws Exception {
-		assert(tLevel.getDifficulty().equals("medium"));
+		assert(_tLevel.getDifficulty().equals("medium"));
 	}
 
 	public void testGetYSize() throws Exception {
-		assert(tLevel.getYSize() == 10);
+		assert(_tLevel.getYSize() == 10);
 	}
 
 	public void testGetXSize() throws Exception {
-		assert(tLevel.getXSize() == 5);
+		assert(_tLevel.getXSize() == 5);
 	}
 	
 	public void testGetHeight() throws Exception {
-		assert(tLevel.getHeight() == 10.0f);
+		assert(_tLevel.getHeight() == 10.0f);
 	}
 	
 	public void testGetWidth() throws Exception {
-		assert(tLevel.getWidth() == 5.0f);
+		assert(_tLevel.getWidth() == 5.0f);
 	}
 
 	public void testGetObjects() throws Exception {
-		assertNull(tLevel.getObjects());
+		assertNull(_tLevel.getObjects());
 	}
 
 	public void testGetTools() throws Exception {
-		assertNull(tLevel.getTools());
+		assertNull(_tLevel.getTools());
 	}
 }

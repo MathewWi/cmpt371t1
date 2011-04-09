@@ -11,14 +11,14 @@ import ca.sandstorm.luminance.gameobject.Skybox;
  */
 public class SkyboxTest extends AndroidTestCase {
 
-	Skybox mySkybox;
+	Skybox _mySkybox;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		mySkybox = new Skybox();
+		_mySkybox = new Skybox();
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class SkyboxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		// Vector3f dummy = mySkybox.getPosition();
+		// Vector3f dummy = _mySkybox.getPosition();
 		/*
 		 * assertTrue(dummy.x == 0); assertTrue(dummy.y == 0);
 		 * assertTrue(dummy.z == 0);
@@ -41,7 +41,7 @@ public class SkyboxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		// Vector4f dummy = mySkybox.getRotation();
+		// Vector4f dummy = _mySkybox.getRotation();
 		/*
 		 * assertTrue(dummy.w == 0.0f); assertTrue(dummy.x == 1.0f);
 		 * assertTrue(dummy.y == 0.0f); assertTrue(dummy.z == 0.5f);
@@ -55,7 +55,7 @@ public class SkyboxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		// Vector3f dummy = mySkybox.getScale();
+		// Vector3f dummy = _mySkybox.getScale();
 		/*
 		 * assertTrue(dummy.x == 0.0f); assertTrue(dummy.y == 0.0f);
 		 * assertTrue(dummy.z == 0.0f);

@@ -17,14 +17,14 @@ import ca.sandstorm.luminance.gameobject.RenderType;
  * 
  */
 public class BoxTest extends AndroidTestCase {
-	Box myBox;
+	Box _myBox;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myBox = new Box(new Vector3f(0.5f, 0.5f, 0.5f), new Vector3f(0.5f,
+		_myBox = new Box(new Vector3f(0.5f, 0.5f, 0.5f), new Vector3f(0.5f,
 				0.5f, 0.5f));
 	}
 
@@ -34,7 +34,7 @@ public class BoxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertTrue(myBox.getRenderable() != null);
+		assertTrue(_myBox.getRenderable() != null);
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class BoxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTexture() throws Exception {
-		assertNotNull(myBox.getTexture());
+		assertNotNull(_myBox.getTexture());
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class BoxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f dummy = myBox.getPosition();
+		Vector3f dummy = _myBox.getPosition();
 		assertTrue(dummy.x == 0.5f);
 		assertTrue(dummy.y == 0.5f);
 		assertTrue(dummy.z == 0.5f);
@@ -64,7 +64,7 @@ public class BoxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		Vector4f dummy = myBox.getRotation();
+		Vector4f dummy = _myBox.getRotation();
 		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 0.0f);
@@ -77,7 +77,7 @@ public class BoxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		Vector3f dummy = myBox.getScale();
+		Vector3f dummy = _myBox.getScale();
 		assertTrue(dummy.x == 0.5f);
 		assertTrue(dummy.y == 0.5f);
 		assertTrue(dummy.z == 0.5f);
@@ -89,7 +89,7 @@ public class BoxTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderType() throws Exception {
-		RenderType dummy = myBox.getRenderType();
+		RenderType dummy = _myBox.getRenderType();
 		assertTrue(dummy == RenderType.Normal);
 	}
 	
@@ -100,7 +100,7 @@ public class BoxTest extends AndroidTestCase {
 	 */
 	public void testGetCollisionSphere() throws Exception
 	{
-		assertNotNull(myBox.getCollisionSphere());	
+		assertNotNull(_myBox.getCollisionSphere());	
 	}
 	
 	/**
@@ -114,9 +114,9 @@ public class BoxTest extends AndroidTestCase {
 		lb.add(0, l);
 		lbc.add(0, lb);
 		
-		myBox.beamInteract(lbc, 0, 0);
+		_myBox.beamInteract(lbc, 0, 0);
 		
-		assertTrue(l.getEndTouchedObject().equals(myBox));
+		assertTrue(l.getEndTouchedObject().equals(_myBox));
 	}
 
 	/**

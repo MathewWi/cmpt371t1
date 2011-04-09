@@ -15,7 +15,7 @@ import android.test.AndroidTestCase;
 public class LuminancePcTest extends AndroidTestCase
 {
 
-    LuminancePc luminancePc;
+    LuminancePc _luminancePc;
     /**
      * Constructor
      */

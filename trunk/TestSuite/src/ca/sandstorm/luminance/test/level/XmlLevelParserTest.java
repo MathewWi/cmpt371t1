@@ -22,45 +22,45 @@ public class XmlLevelParserTest extends AndroidTestCase {
 	 * assets folder!!!
 	 */
 
-	private XmlLevelParser tParser;
-	private String xmlFileName = "TestLevels/TestLevel.xml";
-	private XmlLevel tLevel;
+	private XmlLevelParser _tParser;
+	private String _xmlFileName = "Tes_tLevels/Tes_tLevel.xml";
+	private XmlLevel _tLevel;
 
-	private LinkedList<XmlLevelObject> tListObject;
-	private LinkedList<XmlLevelTool> tListTool;
+	private LinkedList<XmlLevelObject> _tListObject;
+	private LinkedList<XmlLevelTool> _tListTool;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		InputStream tis = this.getContext().getAssets().open(xmlFileName);
+		InputStream tis = this.getContext().getAssets().open(_xmlFileName);
 		//FileInputStream fis;
-		tParser = new XmlLevelParser(tis);
+		_tParser = new XmlLevelParser(tis);
 	}
 
 	public void testXmlLevelParser() throws Exception {
-		assertTrue(tParser != null);
+		assertTrue(_tParser != null);
 	}
 
-	public void testParser() throws Exception {
-		assertTrue(tParser != null);
+	public void tes_tParser() throws Exception {
+		assertTrue(_tParser != null);
 
-		tLevel = tParser.parse();
+		_tLevel = _tParser.parse();
 
-		assertTrue(tLevel != null);
-		assertTrue(tLevel.getHeight() == 1.0f);
-		assertTrue(tLevel.getWidth() == 1.0f);
-		assertTrue(tLevel.getDifficulty().equals("easy"));
-		assertTrue(tLevel.getName().equals("Level 1"));
-		assertTrue(tLevel.getXSize() == 10);
-		assertTrue(tLevel.getYSize() == 10);
+		assertTrue(_tLevel != null);
+		assertTrue(_tLevel.getHeight() == 1.0f);
+		assertTrue(_tLevel.getWidth() == 1.0f);
+		assertTrue(_tLevel.getDifficulty().equals("easy"));
+		assertTrue(_tLevel.getName().equals("Level 1"));
+		assertTrue(_tLevel.getXSize() == 10);
+		assertTrue(_tLevel.getYSize() == 10);
 
-		tListObject = tLevel.getObjects();
-		tListTool = tLevel.getTools();
+		_tListObject = _tLevel.getObjects();
+		_tListTool = _tLevel.getTools();
 
-		assertNotNull(tListObject);
-		assertNotNull(tListTool);
+		assertNotNull(_tListObject);
+		assertNotNull(_tListTool);
 
-		XmlLevelObject tObject = tListObject.removeFirst();
+		XmlLevelObject tObject = _tListObject.removeFirst();
 
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("brick"));
@@ -70,7 +70,7 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 
-		tObject = tListObject.removeFirst();
+		tObject = _tListObject.removeFirst();
 		
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("brick"));
@@ -80,7 +80,7 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 
-		tObject = tListObject.removeFirst();
+		tObject = _tListObject.removeFirst();
 		
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("brick"));
@@ -90,7 +90,7 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 
-		tObject = tListObject.removeFirst();
+		tObject = _tListObject.removeFirst();
 		
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("brick"));
@@ -100,7 +100,7 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 		
-		tObject = tListObject.removeFirst();
+		tObject = _tListObject.removeFirst();
 
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("brick"));
@@ -110,7 +110,7 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 
-		tObject = tListObject.removeFirst();
+		tObject = _tListObject.removeFirst();
 		
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("brick"));
@@ -120,7 +120,7 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 
-		tObject = tListObject.removeFirst();
+		tObject = _tListObject.removeFirst();
 		
 		assertNotNull(tObject);
 		assertTrue(tObject.getType().equals("goal"));
@@ -130,13 +130,13 @@ public class XmlLevelParserTest extends AndroidTestCase {
 		assertTrue(tObject.getRotationY() == 0);
 		assertTrue(tObject.getRotationZ() == 0);
 
-		XmlLevelTool tTools = tListTool.removeFirst();
+		XmlLevelTool tTools = _tListTool.removeFirst();
 
 		assertNotNull(tTools);
 		assertTrue(tTools.getType().equals("mirror"));
 		assertTrue(tTools.getCount() == 5);
 
-		tTools = tListTool.removeFirst();
+		tTools = _tListTool.removeFirst();
 
 		assertNotNull(tTools);
 		assertTrue(tTools.getType().equals("prism"));

@@ -17,8 +17,8 @@ import android.content.res.AssetFileDescriptor;
  */
 public class MusicResourceTest {
 	
-	private AssetFileDescriptor fd;
-	MusicResource musicRes;
+	private AssetFileDescriptor _fd;
+	MusicResource _musicRes;
 
 	/**
 	 * @throws java.lang.Exception
@@ -26,8 +26,8 @@ public class MusicResourceTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		fd = new AssetFileDescriptor(null, 0, 0);
-		musicRes = new MusicResource("awesomeSong",fd);
+		_fd = new AssetFileDescriptor(null, 0, 0);
+		_musicRes = new MusicResource("awesomeSong",_fd);
 	}
 	
 	/**
@@ -35,7 +35,7 @@ public class MusicResourceTest {
 	 * @throws Exception
 	 */
 	public void testGetMusicFd() throws Exception {
-		assert(musicRes.getMusicFd() != null);
+		assert(_musicRes.getMusicFd() != null);
 	}
 	
 	/**
@@ -43,6 +43,6 @@ public class MusicResourceTest {
 	 * @throws Exception
 	 */
 	public void testGetName() throws Exception {
-		assert(musicRes.getName().equals("awesomeSong"));
+		assert(_musicRes.getName().equals("awesomeSong"));
 	}
 }

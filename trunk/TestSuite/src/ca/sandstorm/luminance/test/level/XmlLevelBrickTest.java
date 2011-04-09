@@ -12,7 +12,7 @@ import android.test.AndroidTestCase;
  */
 public class XmlLevelBrickTest extends AndroidTestCase {
 	
-	private XmlLevelBrick tBrick;
+	private XmlLevelBrick _tBrick;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -23,11 +23,11 @@ public class XmlLevelBrickTest extends AndroidTestCase {
 		dir.add(0.0f);
 		dir.add(0.0f);
 		dir.add(0.0f);
-		tBrick = new XmlLevelBrick(pos, dir);
+		_tBrick = new XmlLevelBrick(pos, dir);
 	}
 	
 	public void testXmlLevelBrick(){
-		assertNotNull(tBrick);
+		assertNotNull(_tBrick);
 	}
 	
 	public void testGetId(){

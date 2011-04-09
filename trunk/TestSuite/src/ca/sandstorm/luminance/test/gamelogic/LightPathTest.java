@@ -10,15 +10,15 @@ import android.test.AndroidTestCase;
  */
 public class LightPathTest extends AndroidTestCase {
 	
-	private LightPath path;
-	private LightBeamCollection collection;
+	private LightPath _path;
+	private LightBeamCollection _collection;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		path = new LightPath();
+		_path = new LightPath();
 	}
 	
 	/**
@@ -26,7 +26,7 @@ public class LightPathTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetLightPaths() throws Exception {
-		collection = path.getLightPaths();
-		assert(collection != null);
+		_collection = _path.getLightPaths();
+		assert(_collection != null);
 	}
 }
