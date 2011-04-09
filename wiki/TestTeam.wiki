@@ -18,6 +18,15 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 
   === TestSuite ===
     It is update as much as possible considering the time and effort.
+ === GUI testing ===
+We completed our GUI tests for the current state of Luminance in this milestone. Our GUI tests entail six different test cases though our stress testing was not finished. We had many challenges in using robotium to send click events to the emulator. 
+
+ * Since Luminance doesn't use android.widget none of the buttons will be detected by robotium 
+ * These GUI tests depend on what machine you are running, the emulator may not be responsive if the system is less than i5 M460 2.53Ghz, 3Gigs of memory. Even when running multiple times depending on system resources the emulator could be non responsive and miss one touch input, that would cause the tests to fail.
+* A usercase test may fail after running many tests the emulator 
+   	becomes unresponsive.
+
+We also have created tests to play through the first 12 levels of the game.
 
   === Mock ===
     So, the frameworks such as Mockito, jMock, and all the rest were tried and we couldn't get them working. Now, the reason is known. So first, what we did differently was making our own mock objects. These are stored in the testsuite under the mock package. Most of the objects use the interfaces within the main code so that we can use and change whatever methods necessary. That was good. It was tested and seemed to work. The downside to this is that when these objects were needed, the code written to accept these as parameters held and used many different classes within the game. So with this coupling and having then to try and mock those within those classes... It was just a nightmare. For example. If say, class A has a method called setGraph(class B instance). we would pass in a mock of B so that it would at least accept it. The problem is that setGraph itself uses instances of C which is not mockable. ie, the Engine or something to that extent. So the short of it, it has been used when its actually necessary but not as much as we had hoped. The cost of this far outweighs the benefits. 
