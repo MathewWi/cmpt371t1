@@ -155,7 +155,7 @@ The entire Level package was examined but not all of the classes were found to h
     * Location: XmlLevel
     * Summary: All the getters have logger messages which results in a lot of logger spam on every load. They can probably be removed now.
     * Discovered by: Zenja
-  * Defect 3:
+  * Defect 3: (FIXED)
     * Location: XmlLevel: getObjects() and getTools()
     * Summary: These return mutable references and the internal lists can be modified through them. Should they perhaps guard against this?
     * Discovered by: Jeff
@@ -171,7 +171,7 @@ The entire Level package was examined but not all of the classes were found to h
     * Location: XmlLevelBuilder
     * Summary: Saving to file needs to be implemented.
     * Discovered by: Sten
-  * Defect 7:
+  * Defect 7: (FIXED)
     * Location: XmlLevelBuilder
     * Summary: If the level editor is a standalone program, this can be removed from the project and moved into the editor
     * Discovered by: Zenja
@@ -183,7 +183,7 @@ The entire Level package was examined but not all of the classes were found to h
     * Location: XmlLevelBuilder - createObject()
     * Summary: The switch statements for getting a color string are repeated twice and could be extracted into a method.
     * Discovered by: Zenja
-  * Defect 10:
+  * Defect 10: (FIXED)
     * Location: XmlLevelEmitter, XmlLevelGoal
     * Summary: These both have identical ways of dealing with color, so they could be moved into a superclass which these can derive from.
     * Discovered by: Zenja
