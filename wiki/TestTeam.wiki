@@ -13,6 +13,19 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Mock Try Again || 10 ||
 || Stress || 10 ||
 
+  === User Evaluation ===
+    The user evaluations were a great success. They are posted on the Wiki by name of UserEvaluationResults. It has shown that most testers (whether experienced or not) enjoyed the game and averaged an overall rating of about 8.
+
+  === TestSuite ===
+    It is update as much as possible considering the time and effort.
+
+  === Mock ===
+    So, the frameworks such as Mockito, jMock, and all the rest were tried and we couldn't get them working. Now, the reason is known. So first, what we did differently was making our own mock objects. These are stored in the testsuite under the mock package. Most of the objects use the interfaces within the main code so that we can use and change whatever methods necessary. That was good. It was tested and seemed to work. The downside to this is that when these objects were needed, the code written to accept these as parameters held and used many different classes within the game. So with this coupling and having then to try and mock those within those classes... It was just a nightmare. For example. If say, class A has a method called setGraph(class B instance). we would pass in a mock of B so that it would at least accept it. The problem is that setGraph itself uses instances of C which is not mockable. ie, the Engine or something to that extent. So the short of it, it has been used when its actually necessary but not as much as we had hoped. The cost of this far outweighs the benefits. 
+
+  === Stress ===
+    Not much can say except for the change in phones. Which couldn't really be changed as we needed what was offered. Beggers can't be choosers.
+
+
 = End Milestone 5 =
 
 = Milestone 4 =
