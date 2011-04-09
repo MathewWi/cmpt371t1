@@ -81,6 +81,7 @@ public class MirrorTest extends AndroidTestCase {
 		_myMirror.beamInteract(lbc, 0, 0);
 		
 		assertTrue(l.getEndTouchedObject().equals(_myMirror));
+		assertTrue(lb.size() > 1);
 	}
 
 	/**

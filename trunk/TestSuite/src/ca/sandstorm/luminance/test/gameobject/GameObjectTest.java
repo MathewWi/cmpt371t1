@@ -9,7 +9,7 @@ import ca.sandstorm.luminance.gameobject.Box;
 import ca.sandstorm.luminance.gameobject.GameObject;
 
 public class GameObjectTest extends AndroidTestCase{
-	GameObject _myObject;
+	public GameObject _myObject;
 	
 	/**
 	 * Create an instance of Box to test.
