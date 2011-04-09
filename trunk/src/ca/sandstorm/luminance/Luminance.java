@@ -79,8 +79,15 @@ public class Luminance extends Activity
 						" Loading. Please wait ... ",
 						true);
 	    } else if (msg.getData().getBoolean("finishLoadGame")) {
-		_myDialog.dismiss();
-	    }
+		try
+		{
+		    _myDialog.dismiss();
+		}
+		catch (Exception e)
+		{
+		    // ignore
+		}
+	    }	    
 
 	    // Uncomment below code for logging framerate while doing
 	    // performance
