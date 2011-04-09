@@ -30,7 +30,7 @@ public class GUIManagerTest extends AndroidTestCase {
 
 	public void setUp() throws Exception {
 		super.setUp();
-		GUIManager = new GUIManager(isFading);
+		_GUIManager = new GUIManager(isFading);
 		MAX_BUTTON_COUNT = 10;
 		// _inAr = new InputXY[MAX_BUTTON_COUNT];
 		_mbAr = new Button[MAX_BUTTON_COUNT];

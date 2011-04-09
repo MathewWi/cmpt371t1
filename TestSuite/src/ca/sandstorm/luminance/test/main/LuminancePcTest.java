@@ -31,8 +31,8 @@ public class LuminancePcTest extends AndroidTestCase
     protected void setUp() throws Exception
     {
 	super.setUp();
-	luminancePc = new LuminancePc();
-	assertNotNull(luminancePc);
+	_luminancePc = new LuminancePc();
+	assertNotNull(_luminancePc);
     }
 
 

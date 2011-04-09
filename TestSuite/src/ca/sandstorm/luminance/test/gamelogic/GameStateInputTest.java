@@ -18,6 +18,6 @@ public class GameStateInputTest extends AndroidTestCase {
 	}
 	
 	public void testGameStateInput() throws Exception {
-		assertNotNull(gsi);
+		assertNotNull(_gsi);
 	}
 }
