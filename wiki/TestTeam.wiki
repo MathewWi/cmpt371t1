@@ -14,7 +14,7 @@ Will be listing our tasks and now as well as our future plans and Milestone task
 || Stress || 10 ||
 
   === User Evaluation ===
-    The user evaluations were a great success. They are posted on the Wiki by name of UserEvaluationResults. It has shown that most testers (whether experienced or not) enjoyed the game and averaged an overall rating of about 8.
+    The user evaluations were a great success. They are posted on the Wiki by name of UserEvaluationResults, as well a series of graphs showing these results in UserEvaluationGraphs. It has shown that most testers (whether experienced or not) enjoyed the game and averaged an overall rating of about 8.
 
   === TestSuite ===
     It is update as much as possible considering the time and effort.
