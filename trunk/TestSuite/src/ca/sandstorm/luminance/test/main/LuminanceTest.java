@@ -1,11 +1,11 @@
 /**
  * 
  */
-package ca.sandstorm._luminance.test.main;
+package ca.sandstorm.luminance.test.main;
 
 import android.test.AndroidTestCase;
 import android.view.KeyEvent;
-import ca.sandstorm._luminance.Luminance;
+import ca.sandstorm.luminance.Luminance;
 
 
 /**
@@ -33,7 +33,7 @@ public class LuminanceTest extends AndroidTestCase
     protected void setUp() throws Exception
     {
 	super.setUp();
-	_luminance = new Luminance();
+		_luminance = new Luminance();
     }
 
 
