@@ -270,7 +270,7 @@ public class LevelMenuState implements IState
 		//float yDelta = touchEvent.getY() - _lastTouchEvent.getY();
 		Button eventWidget = _guiManager.touchOccured(touchEvent);
 		if (eventWidget != null) {
-		    eventWidget.setIsTapped(true);
+//		    eventWidget.setIsTapped(true);
 		    _screenIsTapped = true;
 		}
 		Engine.getInstance().getInputSystem().getTouchScreen().setTouchMode(InputTouchScreen.NONE);
