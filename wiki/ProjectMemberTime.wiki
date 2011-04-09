@@ -10,6 +10,7 @@
 || Group Meetings || 5 hours a week ||
 || Emails and Communication within the group || 2 hours a week ||
 || Updating their own project member times || 0.5 hours a week ||
+|| Formal Inspections || ~1-2 hours per inspection attended ||
 
 
 = Member Responsibilities =
@@ -247,12 +248,15 @@
 || Helping test team with unit tests || 6 ||
 
 === Milestone 5 Estimations ===
-|| Code and peer reviews || 2 ||
-|| Formal Inspection || 1 ||
 || Organizing team || 4 ||
 || Helping group members with various tasks || 5 ||
 || Preparing Wiki for deliverable || 6 ||
-|| Post Mortem Document|| 12 ||
+
+=== Milestone 5 ===
+|| Organizing team || 6 ||
+|| Helping group members with various tasks || 3 ||
+|| Preparing wiki for deliverable || 6 ||
+|| Ensuring testing is up to date and working || 3 ||
 
 == Chet Collins ==
 ===Milestone 1===
