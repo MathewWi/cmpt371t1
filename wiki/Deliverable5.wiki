@@ -8,9 +8,13 @@
 = Testing =
   The plan for testing can be viewed here: TestPlan <br>
   Documentation for the test team can be viewed here: TestTeam<br>
+  The Traceability matrix can be viewed here: TraceabilityMatrix
+
+= User Evaluations =
   The user evaluation plan can be viewed here: UserEvaluations<br>
   Use cases that have been written so far can be viewed here: UseCaseScenarios<br>
-  The Traceability matrix can be viewed here: TraceabilityMatrix
+  Results of the User Evaluations can be viewed here: UserEvaluationResults<br>
+  Graphs of theses results can be viewed here: UserEvaluationGraphs
 
 = Mini-Milestone List =
  The updated project plan we have set can be viewed here:  MilestonePlan<br>
