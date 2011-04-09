@@ -297,7 +297,6 @@
 || Risk Report || 2 ||
 || Testing || 4 ||
 || Levels || 3.5 ||
-|| Formal Inspections || 2 ||
 || Fixing defects found by Inspection || 0.5 ||
 
 == Amara Daal ==
