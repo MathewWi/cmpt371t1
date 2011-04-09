@@ -32,10 +32,10 @@ public class GameStateInput
     private static final Logger logger = LoggerFactory
     					.getLogger(GameStateInput.class);
     
-    private static final float CAMERA_MIN_HEIGHT = 6.0f;
+    private static final float CAMERA_MIN_HEIGHT = 5.0f;
     private static final float CAMERA_MAX_HEIGHT = 25.0f;
     private static final float CAMERA_SCROLL_MAX_WIDTH_SCALE = 0.65f;
-    private static final float CAMERA_SCROLL_MAX_LENGTH_SCALE = 0.90f;
+    private static final float CAMERA_SCROLL_MAX_LENGTH_SCALE = 0.75f;
     
     private Camera _cam;
     private Toolbelt _toolbelt;

@@ -44,6 +44,8 @@ public class MenuState implements IState
     private PrimitiveQuad _backgroundQuad;
 
     private SoundResource _startSound;
+    
+    private Button _creditsButton;
 
 
     public MenuState()
@@ -83,6 +85,11 @@ public class MenuState implements IState
     {
 	logger.debug("pushLevelMenuState()");
 	
+	if (_creditsButton != null && _creditsButton.getVisible())
+	{
+	    return;
+	}
+	
 	Engine.getInstance().popState();
 	Engine.getInstance().pushState(new LevelMenuState());
     }
@@ -94,9 +101,15 @@ public class MenuState implements IState
     {
 	logger.debug("pushHelpMenuState()");
 	
+	if (_creditsButton != null && _creditsButton.getVisible())
+	{
+	    return;
+	}	
+	
 	Engine.getInstance().popState();
 	Engine.getInstance().pushState(new HelpMenuState());
     }
+      
     
     /**
      * This method exists solely for testing the button action features. Its
@@ -105,6 +118,12 @@ public class MenuState implements IState
     public void toggleSound()
     {
 	logger.debug("toggleSound()");
+	
+	if (_creditsButton != null && _creditsButton.getVisible())
+	{
+	    return;
+	}	
+	
 	boolean currentState = Engine.getInstance().getAudioEnabled();
 	
 	Engine.getInstance().setAudioEnabled(!currentState);
@@ -112,19 +131,40 @@ public class MenuState implements IState
     }    
 
 
+    
     /**
-     * Method to create and push level menu state
+     * Shows the credits quad
      */
-    public void showLevelMenu()
+    public void showCredits()
     {
-	logger.debug("showLevelMenu()");
-
-	Engine.getInstance().getAudio().play(_startSound, 0.9f);
-
-	Engine.getInstance().popState();
-	Engine.getInstance().pushState(new LevelMenuState());
+	float width = Engine.getInstance().getViewWidth();
+	float height = Engine.getInstance().getViewHeight();
+	
+	if (_creditsButton == null)
+	{
+    		_creditsButton = new Button(0.0f * width,
+    	                           0.0f * height,
+    	                           width,
+    	                           height,
+    	                           "Credits");
+    		_guiManager.addButton(_creditsButton);	    		
+	}
+	
+	_creditsButton.setVisible(true);
+	
+	_creditsButton.setTexture((TextureResource)Engine.getInstance().getResourceManager().getResource("textures/credits.png"));
+	_creditsButton.setTextureResourceLocation("textures/credits.png");
+	_creditsButton.setCalleeAndMethod(this, "hideCredits");
     }
-
+    
+    
+    /**
+     * Hides the credits quad
+     */
+    public void hideCredits()
+    {
+	_creditsButton.setVisible(false);
+    }
 
     /**
      * Get the GUIManager being used by this MenuState.
@@ -203,6 +243,9 @@ public class MenuState implements IState
 			       "sounds/startSelect.ogg");
 	    // Engine.getInstance().getResourceManager().loadSound(Engine.getInstance().getAudio().getPool(),
 	    // "sounds/iconClick.mp3");
+	    
+	    Engine.getInstance().getResourceManager().loadTexture(gl, "textures/credits.png");
+	    
 	} catch (IOException e) {
 	    logger.error("Unable to load a required sound: " + e.getMessage());
 	    e.printStackTrace();
@@ -266,6 +309,7 @@ public class MenuState implements IState
 		0.140f * width, 0.120f * height, "Info");
 	infoButton.setTextureResourceLocation("textures/info.png");
 	infoButton.setTappedTextureLocation("textures/infoClicked.png");
+	infoButton.setCalleeAndMethod(this, "showCredits");
 
 	_guiManager.addButton(luminanceTitle);
 	_guiManager.addButton(startButton);
