@@ -175,7 +175,7 @@ The entire Level package was examined but not all of the classes were found to h
     * Location: XmlLevelBuilder
     * Summary: If the level editor is a standalone program, this can be removed from the project and moved into the editor
     * Discovered by: Zenja
-  * Defect 8:
+  * Defect 8: (CHECKED)
     * Location: XmlLevelBuilder
     * Summary: Is our style guideline to put an underscore in front of private method names, or just private fields? There is inconsistency in the project.
     * Discovered by: Zenja
@@ -202,8 +202,9 @@ The entire Level package was examined but not all of the classes were found to h
 === Follow-up Results ===
 
 Follow-up from Sten:
-  * Most changes done successfully.
-  * Still a few that could be done.
+  * All defects corrected or investigated
+  * The method of easier parsing mentioned in defect  12 turns out to not be supported until Android 2.3
+    * Ended up just refactoring the parsing.  It is now much easier to read.
 
 Follow-up from Martina:
 
