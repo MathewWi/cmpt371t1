@@ -255,8 +255,9 @@
 === Milestone 5 ===
 || Organizing team || 6 ||
 || Helping group members with various tasks || 3 ||
-|| Preparing wiki for deliverable || 6 ||
-|| Ensuring testing is up to date and working || 3 ||
+|| Preparing wiki for deliverable || 8 ||
+|| Ensuring testing is up to date and working || 5 ||
+|| Creating levels || 3 ||
 
 == Chet Collins ==
 ===Milestone 1===
