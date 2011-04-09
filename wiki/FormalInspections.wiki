@@ -72,7 +72,7 @@ Follow-up from Martina:
   * I then checked out and some of the tests in the tests suite, and nothing unusual occurred.  
   * I believe it is safe to say that these changes were made successfully.
 
-= Milestone 4: Inspection of the GameState class =
+= Milestone 4: Inspection of the !GameState class =
 *Moderator:* Martina
 
 *Author:* Stephen
@@ -227,12 +227,12 @@ The entire GUI package was examined but not all of the classes were found to hav
     * Decision: Added JavaDoc to draw(GL10) method
   * Defect 2 *(Fixed)*:
     * Location: Label line 21
-    * Summary: The _text variable is used as a label name or id, instead of the text it contains, as the variable name implies.  Should change this to be more intuitive.
+    * Summary: The `_`text variable is used as a label name or id, instead of the text it contains, as the variable name implies.  Should change this to be more intuitive.
     * Discovered by: Martina
-    * Decision: Changed field name to _identifier and changed method names to getIdentifier() and setIdentifier(String)
+    * Decision: Changed field name to `_`identifier and changed method names to getIdentifier() and setIdentifier(String)
   * Defect 3:
     * Location: Button
-    * Summary: _tappedTexture and _texture a little ambiguous as to the difference.  Should at least specify somewhere that _texture will always be set, and _tappedTexture may not.
+    * Summary: `_`tappedTexture and `_`texture a little ambiguous as to the difference.  Should at least specify somewhere that `_`texture will always be set, and `_`tappedTexture may not.
   * Defect 4 *(Fixed)*:
     * Location: Button
     * Summary: Missing javadoc on some methods
@@ -266,7 +266,7 @@ The entire GUI package was examined but not all of the classes were found to hav
     * Decision: Unfinished. Insufficient time.
   * Defect 10:
     * Location: GUIManager
-    * Summary: Somewhere, _compensatedY is being used too much and messing up the coordinates in the Pause menu.  Should investigate this further.
+    * Summary: Somewhere, `_`compensatedY is being used too much and messing up the coordinates in the Pause menu.  Should investigate this further.
     * Discovered by: Jonny
     * Decision: The issue was found (the GUIManager had not been initialized), but was not fixed due to insufficient time.
   * Defect 11:
@@ -293,7 +293,7 @@ Follow-up from Martina:
   * I believe it is safe to say that these changes were made successfully.
 
 
-= Milestone 5: Inspection of test classes =
+= Milestone 5: Inspection of Jeff's classes =
 *Moderator:* Martina
 
 *Author:* Jeff
@@ -454,7 +454,7 @@ GameStateInput.java
 MenuState.java - this code was also written by Kum
   * Defect 15:
     * Location: line 46
-    * Summary: Bad variable name.  We don't know what _quad means!  Should be more appropriately named.
+    * Summary: Bad variable name.  We don't know what `_`quad means!  Should be more appropriately named.
     * Discovered by: Zenja
   * Defect 16:
     * Location: line 70
@@ -498,7 +498,7 @@ Follow-up from Jonny:
   * Defect 12: Javadoc added.
   * Defect 13: Once again, I hesitate to change it since I don't have phone to test the result, and current code is working fine, change the logic might break the code without testing it properly (emulator doesn't really able to produce proper fling gesture due to non multitouch supported).
   * Defect 14: Change variables to Vector2f done.
-  * Defect 15: change _quad to _backgroundQuad.
+  * Defect 15: change `_`quad to `_`backgroundQuad.
   * Defect 16: Kum already put a comment on it saying this method is for testing purpose and the existance is temporary.
   * Defect 17: Add javadoc to showLevelMenu(), addWidgets() and loadTexures().
   * Defect 18: I left this for Kum to remove since he create this method and he might still use it.
