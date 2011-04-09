@@ -193,12 +193,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testRotation() throws Exception {
-		// Vector4f dummy = _myLight.getRotation();
-		// assertTrue(dummy.w == 0);
-		// assertTrue(dummy.x == 0);
-		// assertTrue(dummy.y == 0);
-		// assertTrue(dummy.z == 0);
-		// TODO: write proper tests
+		assertNull(_myLight.getRotation());
 	}
 
 	/**
@@ -207,11 +202,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testScale() throws Exception {
-		// Vector3f dummy = _myLight.getScale();
-		// assertTrue(dummy.x == 0);
-		// assertTrue(dummy.y == 0);
-		// assertTrue(dummy.z == 0);
-		// TODO: write proper tests
+		assertNull(_myLight.getScale());
 	}
 	
 	/**

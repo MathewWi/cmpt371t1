@@ -12,13 +12,11 @@ public class mockITool implements ITool{
 		migo = new mockIGameObject();
 	}
 	
-	@Override
 	public IGameObject getGameObject() {
 		// TODO Auto-generated method stub
 		return migo;
 	}
 
-	@Override
 	public TextureResource getIcon() {
 		// TODO Auto-generated method stub
 		return null;

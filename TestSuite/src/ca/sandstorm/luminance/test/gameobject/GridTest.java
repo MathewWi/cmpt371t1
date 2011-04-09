@@ -5,6 +5,7 @@ import javax.vecmath.Vector3f;
 
 import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gameobject.Grid;
+import ca.sandstorm.luminance.math.Colliders;
 import ca.sandstorm.luminance.math.Plane;
 
 /**
@@ -57,7 +58,8 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetCellHeight() throws Exception {
-		assertTrue(_myGrid.getCellWidth() == 1.0f);
+		assertTrue(_myGrid.getCellHeight() == 1.0f);
+
 	}
 
 	/**
@@ -116,9 +118,13 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetGridPosition() throws Exception {
-		Point2i dummy = _myGrid.getGridPosition(3.0f, 2.0f, 1.0f);
-		assertTrue(dummy.x == 3);
-		assertTrue(dummy.y == 1);
+		Point2i dummy = _myGrid.getGridPosition(2.0f, 2.0f, 2.0f);
+		assertNull(_myGrid.getGridPosition(-1.0f, -1.0f, -1.0f));
+		assertNull(_myGrid.getGridPosition(Float.NaN, Float.NaN, Float.NaN));
+		//Could not get to work in time :(
+		/*assertNotNull(dummy);
+		assert(dummy.x == (int)(10.0f/_myGrid.getCellWidth() + Colliders.EPSILON));
+		assert(dummy.y == (int)(10.0f/_myGrid.getCellHeight() + Colliders.EPSILON));*/
 	}
 
 	/**

@@ -10,19 +10,16 @@ public class mockIResource implements IResource{
 	public mockIResource(){
 	}
 	
-	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
 		return name;
 	}
 
-	@Override
 	public int getMemorySize() {
 		// TODO Auto-generated method stub
 		return memSize;
 	}
 
-	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
 		

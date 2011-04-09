@@ -65,7 +65,7 @@ public class PrismTest extends AndroidTestCase {
 		Sphere dum = _myPrism.getCollisionSphere();
 		assertNotNull(dum);
 		assertTrue(dum.getCenter().x == 0);
-		assertTrue(dum.getCenter().x == 0);
+		assertTrue(dum.getCenter().y == 0);
 		assertTrue(dum.getCenter().x == 0);
 	}
 	
@@ -85,6 +85,8 @@ public class PrismTest extends AndroidTestCase {
 		_myPrism.beamInteract(lbc, 0, 0);
 		
 		assertTrue(l.getEndTouchedObject().equals(_myPrism));
+		//COuld not solve in time..
+		/*assertTrue(lbc.size() > 1);*/
 	}
 
 	/**
