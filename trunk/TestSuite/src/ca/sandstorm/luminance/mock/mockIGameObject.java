@@ -99,5 +99,11 @@ public class mockIGameObject implements IGameObject {
 		// TODO Auto-generated method stub
 		return sphere;
 	}
+
+	@Override
+	public int getYRotationCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

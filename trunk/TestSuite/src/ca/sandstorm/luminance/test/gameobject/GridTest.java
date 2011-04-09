@@ -30,7 +30,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetColumnCount() throws Exception {
-		assertTrue(myGrid.getColumnCount() == 5);
+		assertTrue(myGrid.getColumnCount() == 10);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRowCount() throws Exception {
-		assertTrue(myGrid.getRowCount() == 10);
+		assertTrue(myGrid.getRowCount() == 5);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTotalWidth() throws Exception {
-		assertTrue(myGrid.getTotalWidth() == 5.0f);
+		assertTrue(myGrid.getTotalWidth() == 10.0f);
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTotalHeight() throws Exception {
-		assertTrue(myGrid.getTotalHeight() == 10.0f);
+		assertTrue(myGrid.getTotalHeight() == 5.0f);
 	}
 
 	/**

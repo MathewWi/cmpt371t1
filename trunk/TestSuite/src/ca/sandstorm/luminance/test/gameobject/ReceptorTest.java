@@ -41,6 +41,7 @@ public class ReceptorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testSetColor() throws Exception {
+		myReceptor.setActivated(true);
 		myReceptor.setColor(5);
 		assertTrue(myReceptor.getColor() == 5);
 	}

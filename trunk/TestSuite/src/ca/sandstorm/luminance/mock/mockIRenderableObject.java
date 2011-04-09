@@ -126,4 +126,10 @@ public class mockIRenderableObject implements IRenderableObject{
 		return rt;
 	}
 
+	@Override
+	public int getYRotationCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

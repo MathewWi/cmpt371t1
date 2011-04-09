@@ -1,5 +1,7 @@
 package ca.sandstorm.luminance.test.level;
 
+import ca.sandstorm.luminance.level.XmlLevelMirror;
+import ca.sandstorm.luminance.level.XmlLevelPrism;
 import ca.sandstorm.luminance.level.XmlLevelTool;
 import android.test.AndroidTestCase;
 
@@ -15,11 +17,11 @@ public class XmlLevelToolTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		tToolMirror = new XmlLevelTool("mirror", 4);
-		tToolPrism = new XmlLevelTool("prism", 4);
+		tToolMirror = new XmlLevelMirror(4);
+		tToolPrism = new XmlLevelPrism(4);
 		
 		try {
-			tToolOut = new XmlLevelTool("Herp", -3);
+			//tToolOut = new XmlLevelTool("Herp", -3);
 		} catch (Exception e) {
 			//Should remain null;
 		}
