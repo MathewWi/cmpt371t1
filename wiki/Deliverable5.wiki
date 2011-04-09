@@ -13,9 +13,8 @@
   The Traceability matrix can be viewed here: TraceabilityMatrix
 
 = Mini-Milestone List =
- The updated project plan we have set can be viewed here:  MilestonePlan
-
- CPM Diagram information can be viewed here: [CPMDiagram]
+ The updated project plan we have set can be viewed here:  MilestonePlan<br>
+ CPM Diagram information can be viewed here: [CPMDiagram]<br>
 
 = Risk Analysis =
  The updated risk report can be viewed at: RiskReport
@@ -29,10 +28,8 @@
  The activity log can be viewed at: ProjectMemberTime
 
 = Code Reviews =
- The code review process is documented at CodeReviewProcess.
- 
- Code reviews are documented at CodeReviews.
-
+ The code review process is documented at CodeReviewProcess.<br>
+ Code reviews are documented at CodeReviews.<br>
  Formal Inspections can be viewed at FormalInspections.
  
 = Refinement of our Software Development Process =
@@ -41,10 +38,8 @@
 
 = Current State of the System =
 
- The status report can be viewed here: StatusReport
-
- The class diagram from this deliverablecan be viewed here: ClassDiagram
-
+ The status report can be viewed here: StatusReport<br>
+ The class diagram from this deliverablecan be viewed here: ClassDiagram<br>
  The state diagram from this deliverable can be viewed here: StateDiagram
 
 = Defect/Bug information =
