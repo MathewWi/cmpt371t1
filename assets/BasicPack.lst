@@ -10,6 +10,8 @@ level2.xml
 level3.xml
 level-cwc3.xml
 level-sten.xml
+level-reversefacepalm.xml
+level-robotbrains.xml
 
 // hard session
 level-hal3.xml
@@ -17,6 +19,8 @@ level-sten5.xml
 level-hal4.xml
 level-mln1.xml
 level-mln3.xml
+level-pitchfork.xml
+level-thegrid.xml
 
 // emitter rotation starters
 level-hal5.xml
@@ -25,8 +29,10 @@ level-cwc4.xml
 level-hal6.xml
 level-hal.xml
 level-mln5.xml
+level-hihowareya.xml
 
 // hard session
+level-7ballsz.xml
 level-hal7.xml
 level-mln2.xml
 level-mln4.xml
