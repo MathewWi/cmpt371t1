@@ -53,15 +53,5 @@
 
  Information about the current defects/bugs can be viewed here: http://code.google.com/p/cmpt371t1/issues/list
 
-
- == Estimate of size and time ==
-|| *Task* || *Estimate time (hours)* ||
-|| Run user evaluation || _N/A_ ||
-|| Improve graphics || 5 ||
-|| Each member designs 10 levels || 4 ||
-|| Design user manual || 6 ||
-|| Updated smoke test based on source code changes || 8 ||
-|| Release version of the game || 12 ||
-
 = Development =
   Documentation for the development team was not kept up to date for this milestone, unfortunately.  Most development did commence while on Skype, however.  The documentation can still be viewed here: DevTeam
