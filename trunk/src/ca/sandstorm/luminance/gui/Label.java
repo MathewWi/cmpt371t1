@@ -24,6 +24,8 @@ public class Label implements IWidget
     private String _textureResourceLocation;
     protected TextureResource _texture;
 
+    protected boolean _isVisible;
+    
     /**
      * Constructor for creating a Label.
      * 
@@ -44,6 +46,8 @@ public class Label implements IWidget
 	_width = width;
 	_height = height;
 	_identifier = identifier;
+	
+	_isVisible = true;
 	
 	_quad = new PrimitiveQuad(
 	                          new Vector3f(0, 0, 0),
@@ -69,6 +73,8 @@ public class Label implements IWidget
     public Label(float x, float y, float width, float height, String identifier, String textureLocation)
     {
 	this(x, y, width, height, identifier);
+	
+	_isVisible = true;
 	
 	_textureResourceLocation = textureLocation;
     }
@@ -142,17 +148,30 @@ public class Label implements IWidget
     {
 	_texture = texture;
     }
+    
+    public boolean getVisible()
+    {
+	return _isVisible;
+    }
+    
+    public void setVisible(boolean b)
+    {
+	_isVisible = b;
+    }
 
     public void draw(GL10 gl)
     {
-	gl.glPushMatrix();
+	if (_isVisible)
+	{
+	    gl.glPushMatrix();
 	
-	gl.glEnable(GL10.GL_TEXTURE_2D);
-	gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
-	gl.glTranslatef(_x, _y, 0);
-	_quad.draw(gl);	
+	    gl.glEnable(GL10.GL_TEXTURE_2D);
+	    gl.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	    gl.glBindTexture(GL10.GL_TEXTURE_2D, _texture.getTexture());
+	    gl.glTranslatef(_x, _y, 0);
+	    _quad.draw(gl);	
 	
-	gl.glPopMatrix();
+	    gl.glPopMatrix();
+	}
     }
 }

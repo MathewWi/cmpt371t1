@@ -45,6 +45,7 @@ public class Button extends Label
 	
 	_isTapped = false;
 	_isSelected = false;
+	_isVisible = true;
     }
     
     /**
@@ -322,14 +323,17 @@ public class Button extends Label
     
     public void draw(GL10 gl)
     {
-	gl.glPushMatrix();
+	if (_isVisible)
+	{
+	    gl.glPushMatrix();
 	
-	gl.glTranslatef(_x, _y, 0);
-	gl.glEnable(GL10.GL_TEXTURE_2D);
-	gl.glColor4f(1f, 1f, 1f, 1f);
-	gl.glBindTexture(GL10.GL_TEXTURE_2D, _drawTexture.getTexture());
-	_quad.draw(gl);
+	    gl.glTranslatef(_x, _y, 0);
+	    gl.glEnable(GL10.GL_TEXTURE_2D);
+	    gl.glColor4f(1f, 1f, 1f, 1f);
+	    gl.glBindTexture(GL10.GL_TEXTURE_2D, _drawTexture.getTexture());
+	    _quad.draw(gl);
 	
-	gl.glPopMatrix();
+	    gl.glPopMatrix();
+	}
     }
 }
