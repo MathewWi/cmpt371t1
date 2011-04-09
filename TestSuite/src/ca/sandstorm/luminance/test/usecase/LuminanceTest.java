@@ -19,59 +19,78 @@ import com.jayway.android.robotium.solo.Solo;
 /**
  * Use case based GUI testing
  * 
- * @author Amara Daal NOTE: Since Luminance doesn't use android.widget none of
- *         the buttons will be detected by robotium
+ * @author Amara Daal 
+ * 		NOTE: Since Luminance doesn't use android.widget none of
+ *         the buttons will be detected by robotium 
+ *      NOTE: These GUI tests depend
+ *         on what machine you are running, the emulator may not be responsive
+ *         if the system is less than i5 M460 2.53Ghz, 3Gigs of memory. Even
+ *         when running multiple times depending on system resources the
+ *         emulator could be non responsive and miss one touch input, that would
+ *         cause the tests to fail.
+ *      NOTE: A usercase test may fail after running many tests the emulator 
+ *      	becomes unresponsive
  */
 public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
-
-	// Robotium
-	private Solo _solo;
-
-	// Levels
-	Level levelArray[];
-
-	// Tested levels
-	int numberOfTestedLevels = 10;
-
-	// Level names
-	int mirrorBasics = 0;
-	int zigZag = 1;
-	int justLikeChristmas = 2;
-	int thinkAboutIt = 3;
-	int yourBrainOnRGB = 4;
-	int entryLevel = 5;
-	int doubleSided = 6;
-	int thePrism = 7;
-	int morePrism = 8;
-	int firstBlood = 9;
-
-	// Screen size 320x430
-	int timeBetweenOperations = 3000;
-
-	// Time between click commands
-	int timeBetweenClicks = 200;
-
-	// Offset of the matrix from top left corner of the screen
-	Vector2f matrixLocation;
-
-	// Space between grid squares
-	float spaceBtwnSquares = 29;
-
-	// Start in the middle of the square
-	float xCoordView = (spaceBtwnSquares / 2);
-	float yCoordView = (spaceBtwnSquares / 2);
-
-	// Instrumentation used to send touch events directly to the engine
-	Instrumentation _inst;
 
 	// Package we are testing
 	private static final String TARGET_PACKAGE_ID = "ca.sandstorm.luminance";
 
-	/**
+	/*
+	 * Touch related variables
+	 */
+	// Robotium
+	private Solo _solo;
+	// Time in between game operations
+	int _timeBetweenOperations = 2000;
+	// Time between click commands
+	int _timeBetweenClicks = 200;
+	// Instrumentation used to send touch events directly to the engine
+	Instrumentation _inst;
+	/*
 	 * A matrix with centre positions for every square used for easily placing
 	 * objects.
 	 */
-	Vector2f[][] matrix;
+	Vector2f[][] _selectLevelMatrix;
+
+	/*
+	 * Level related variables
+	 */
+	// Levels
+	Level _levelArray[];
+	// Tested levels
+	int _numberOfTestedLevels = 14;
+	// Level names
+	int _simplyMirrors = 0;
+	int _mirrorBasics = 1;
+	int _zigZag = 2;
+	int _justLikeChristmas = 3;
+	int _thinkAboutIt = 4;
+	int _yourBrainOnRGB = 5;
+	int _entryLevel = 6;
+	int _simplyPrisms = 7;
+	int _simpleCombo = 8;
+	int _allTooEasy = 9;
+	int _doubleSided = 10;
+	int _thePrism = 11;
+	int _morePrism = 12;
+	int _firstBlood = 13;
+
+	/*
+	 * In game grid variables
+	 */
+	// Offset of the matrix from top left corner of the screen
+	Vector2f _matrixLocation;
+	// Space between grid squares
+	float _spaceBtwnSquares = 29;
+	// Start in the middle of the square
+	float _xCoordView = (_spaceBtwnSquares / 2);
+	float _yCoordView = (_spaceBtwnSquares / 2);
+	/*
+	 * A matrix with centre positions for every square used for easily placing
+	 * objects.
+	 */
+	Vector2f[][] _matrix;
 
 	/**
 	 * Construct Usecase tests
@@ -95,28 +114,28 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * @param matrixHeight
 	 *            rows
 	 */
-	public void calculateGridPositions(Vector2f newMatrixLocation,
+	public void calculateInGameGridMatrix(Vector2f newMatrixLocation,
 			int gotSpaceBtwnSquares, int matrixHeight, int matrixWidth) {
 		// logger.info("LuminanceTestSuite: UseCase: Calculating grid squarePositions");
-		spaceBtwnSquares = gotSpaceBtwnSquares;
-		matrix = new Vector2f[matrixHeight][matrixWidth];
-		xCoordView = (spaceBtwnSquares / 2);
-		yCoordView = (spaceBtwnSquares / 2);
+		_spaceBtwnSquares = gotSpaceBtwnSquares;
+		_matrix = new Vector2f[matrixHeight][matrixWidth];
+		_xCoordView = (_spaceBtwnSquares / 2);
+		_yCoordView = (_spaceBtwnSquares / 2);
 		for (int row = 0; row < matrixHeight; row++) {
 
 			for (int col = 0; col < matrixWidth; col++) {
-				matrix[row][col] = new Vector2f(xCoordView
-						+ newMatrixLocation.x, yCoordView + newMatrixLocation.y);
+				_matrix[row][col] = new Vector2f(_xCoordView
+						+ newMatrixLocation.x, _yCoordView + newMatrixLocation.y);
 				// *****
 				// ***->
 				// adjust x to match next square
 				// start in the middle of the square
-				xCoordView += spaceBtwnSquares;
+				_xCoordView += _spaceBtwnSquares;
 
 			}
 			// reset x
-			xCoordView = (spaceBtwnSquares / 2);
-			yCoordView += spaceBtwnSquares;
+			_xCoordView = (_spaceBtwnSquares / 2);
+			_yCoordView += _spaceBtwnSquares;
 		}
 	}
 
@@ -133,19 +152,23 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		this._solo = new Solo(this.getInstrumentation(), this.getActivity());
 
 		// Create and order tests
-		levelArray = new Level[numberOfTestedLevels];
+		_levelArray = new Level[_numberOfTestedLevels];
 
 		// Loading Levels here
-		levelArray[mirrorBasics] = new MirrorBasics();
-		levelArray[zigZag] = new ZigZag();
-		levelArray[justLikeChristmas] = new JustLikeChristmas();
-		levelArray[thinkAboutIt] = new ThinkAboutIt();
-		levelArray[yourBrainOnRGB] = new YourBrainOnRGB();
-		levelArray[entryLevel] = new EntryLevel();
-		levelArray[doubleSided] = new DoubleSided();
-		levelArray[thePrism] = new ThePrism();
-		levelArray[morePrism] = new MorePrism();
-		levelArray[firstBlood] = new FirstBlood();
+		_levelArray[_simplyMirrors] = new SimplyMirrors();
+		_levelArray[_mirrorBasics] = new MirrorBasics();
+		_levelArray[_zigZag] = new ZigZag();
+		_levelArray[_justLikeChristmas] = new JustLikeChristmas();
+		_levelArray[_thinkAboutIt] = new ThinkAboutIt();
+		_levelArray[_yourBrainOnRGB] = new YourBrainOnRGB();
+		_levelArray[_entryLevel] = new EntryLevel();
+		_levelArray[_doubleSided] = new DoubleSided();
+		_levelArray[_thePrism] = new ThePrism();
+		_levelArray[_morePrism] = new MorePrism();
+		_levelArray[_firstBlood] = new FirstBlood();
+		_levelArray[_simplyPrisms] = new SimplyPrisms();
+		_levelArray[_simpleCombo] = new SimpleCombo();
+		_levelArray[_allTooEasy] = new AllTooEasy();
 
 	}
 
@@ -156,8 +179,8 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * @postcondition All test levels are solved,
 	 */
 	public void completeAllLevels() {
-		for (int i = 0; i < numberOfTestedLevels; i++) {
-			levelArray[i].complete();
+		for (int i = 0; i < _numberOfTestedLevels; i++) {
+			_levelArray[i].complete();
 		}
 	}
 
@@ -169,7 +192,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * @param level
 	 */
 	public void completeLevel(int level) {
-		levelArray[level].complete();
+		_levelArray[level].complete();
 	}
 
 	/**
@@ -182,18 +205,76 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	public void reachLevel(int level) {
 		for (int i = 0; i < level; i++) {
-			levelArray[i].complete();
+			_levelArray[i].complete();
 		}
+	}
+
+	/**
+	 * Selects first level from level menu
+	 * 
+	 * @precondition user is on level screen
+	 * @postcondition first level is started
+	 */
+	public void selectFirstLevel() {
+		_solo.clickOnScreen(21, 111);
+		_solo.sleep(5000);
+	}
+
+	/**
+	 * Select level NOTE: only 0-13 at the moment
+	 * 
+	 * @param level
+	 *            the number shown on choose level menu
+	 * @precondition user is on level menu screen
+	 * @postcondition the level is started
+	 */
+	public void selectLevel(int level) {
+
+		if (level == 0) {
+
+			_solo.clickOnScreen(21, 111);
+		} else if (level == 1) {
+			_solo.clickOnScreen(129, 110);
+		} else if (level == 2) {
+			_solo.clickOnScreen(236, 110);
+		} else if (level == 3) {
+			_solo.clickOnScreen(21, 195);
+		} else if (level == 4) {
+			_solo.clickOnScreen(126, 195);
+		} else if (level == 5) {
+			_solo.clickOnScreen(233, 193);
+		} else if (level == 6) {
+			_solo.clickOnScreen(24, 281);
+		} else if (level == 7) {
+			_solo.clickOnScreen(131, 281);
+		} else if (level == 8) {
+			_solo.clickOnScreen(236, 278);
+		} else if (level == 9) {
+			_solo.clickOnScreen(24, 369);
+		} else if (level == 10) {
+			_solo.clickOnScreen(135, 373);
+		} else if (level == 11) {
+			_solo.clickOnScreen(241, 371);
+		} else if (level == 12) {
+			_solo.clickOnScreen(27, 453);
+		} else if (level == 13) {
+			_solo.clickOnScreen(132, 453);
+		} else if (level == 13) {
+			_solo.clickOnScreen(132, 453);
+		} else {
+			// Other levels are not covered
+		}
+
 	}
 
 	/**
 	 * Start the first level of the game by pressing the start button
 	 * 
 	 * @precondition Luminance is on the menu screen
-	 * @postcondition First level is started for the user NOTE: Robotium fails
-	 *                at clicking the "Start" button commented out code shows
-	 *                130 clicks were sent still registration was inconsistent.
-	 *                We resorted to sending manual events to the game engine
+	 * @postcondition Reaches the level select screen NOTE: Robotium fails at
+	 *                clicking the "Start" button commented out code shows 130
+	 *                clicks were sent still registration was inconsistent. We
+	 *                resorted to sending manual events to the game engine
 	 */
 	public void startGame() {
 		_solo.sleep(10000);
@@ -210,7 +291,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// logger.info("LuminanceTestSuite: UseCase: Starting Game");
 
 		// Calculate the grid positions
-		calculateGridPositions(startMatrixLocation, 29, startMatrixRows,
+		calculateInGameGridMatrix(startMatrixLocation, 29, startMatrixRows,
 				startMatrixCols);
 
 		/*
@@ -224,18 +305,18 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// Loops and presses start button 10 times instead of just 1, behaves
 		// differently
 		// on different systems needed to ensure this registers on all systems
-		for (int i = 0; i < 10; i++) {
+		// for (int i = 0; i < 10; i++) {
 
-			MotionEvent event = MotionEvent.obtain(downTime, eventTime,
-					MotionEvent.ACTION_DOWN, startButtonX, startButtonY, 0);
-			_inst.sendPointerSync(event);
-			eventTime = SystemClock.uptimeMillis() + 200;
+		MotionEvent event = MotionEvent.obtain(downTime, eventTime,
+				MotionEvent.ACTION_DOWN, startButtonX, startButtonY, 0);
+		_inst.sendPointerSync(event);
+		eventTime = SystemClock.uptimeMillis() + 600;
 
-			event = MotionEvent.obtain(downTime, eventTime,
-					MotionEvent.ACTION_UP, startButtonX, startButtonY, 0);
-			_inst.sendPointerSync(event);
-			_solo.sleep(500);
-		}
+		event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP,
+				startButtonX, startButtonY, 0);
+		_inst.sendPointerSync(event);
+		_solo.sleep(500);
+		// }
 
 		// Previous way of clicking the start button
 		// for(int i = 0; i < 130; i++){
@@ -243,6 +324,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// }
 
 		_solo.sleep(5000);
+
 	}
 
 	/**
@@ -269,7 +351,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	public void restart(String from) {
 		if (from.equalsIgnoreCase("ingame")) {
 			_solo.clickOnScreen(296, 441);
-			_solo.sleep(timeBetweenClicks);
+			_solo.sleep(_timeBetweenClicks);
 			_solo.clickOnScreen(142, 241);
 
 		} else if (from.equalsIgnoreCase("inmenu")) {
@@ -298,9 +380,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// press on toolbar
 		_solo.clickOnScreen(94, 443);
 		// place object
-		_solo.sleep(timeBetweenOperations);
-		_solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		_solo.sleep(timeBetweenOperations);
+		_solo.sleep(_timeBetweenOperations);
+		_solo.clickOnScreen(_matrix[row][col].x, _matrix[row][col].y);
+		_solo.sleep(_timeBetweenOperations);
 	}
 
 	/**
@@ -317,13 +399,16 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// Offset user choice to vector index
 		row -= 1;
 		col -= 1;
+
 		// logger.info("LuminanceTestSuite: UseCase: Placing Mirror at "+ "(" +
 		// row + "," + col+")");
-		// solo.clickOnScreen(31, 431);
+		_solo.clickOnScreen(37, 431);
 
-		_solo.sleep(timeBetweenOperations);
-		_solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		_solo.sleep(timeBetweenOperations);
+		_solo.sleep(_timeBetweenOperations);
+		// place mirror
+		_solo.clickOnScreen(_matrix[row][col].x, _matrix[row][col].y);
+
+		_solo.sleep(_timeBetweenOperations);
 	}
 
 	/**
@@ -344,39 +429,34 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// row + "," + col+")");
 
 		// Double tap,
-		_solo.sleep(timeBetweenOperations);
+		_solo.sleep(_timeBetweenOperations);
 
 		long downTime = SystemClock.uptimeMillis();
 		// event time MUST be retrieved only by this way!
 		long eventTime = SystemClock.uptimeMillis();
 
 		MotionEvent event = MotionEvent.obtain(downTime, eventTime,
-				MotionEvent.ACTION_DOWN, matrix[row][col].x,
-				matrix[row][col].y, 0);
+				MotionEvent.ACTION_DOWN, _matrix[row][col].x,
+				_matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
 		// eventTime = SystemClock.uptimeMillis() + 10;
 
 		event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP,
-				matrix[row][col].x, matrix[row][col].y, 0);
+				_matrix[row][col].x, _matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
 
 		event = MotionEvent.obtain(downTime, eventTime,
-				MotionEvent.ACTION_DOWN, matrix[row][col].x,
-				matrix[row][col].y, 0);
+				MotionEvent.ACTION_DOWN, _matrix[row][col].x,
+				_matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
 
 		event = MotionEvent.obtain(downTime, eventTime, MotionEvent.ACTION_UP,
-				matrix[row][col].x, matrix[row][col].y, 0);
+				_matrix[row][col].x, _matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
 
-		_solo.sleep(timeBetweenOperations);
+		_solo.sleep(_timeBetweenOperations);
 
 	}
-
-	// public void testDisplayBlackBox() throws Exception {
-	// completeMirrorBasics();
-	// completeMirrorBasics();
-	// }
 
 	/**
 	 * Erases Object at location Grid starts at (1,1)
@@ -394,9 +474,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// logger.info("LuminanceTestSuite: UseCase: Erasing object at "+ "(" +
 		// row + "," + col+")");
 		_solo.clickOnScreen(159, 434);
-		_solo.sleep(timeBetweenOperations);
-		_solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		_solo.sleep(timeBetweenOperations);
+		_solo.sleep(_timeBetweenOperations);
+		_solo.clickOnScreen(_matrix[row][col].x, _matrix[row][col].y);
+		_solo.sleep(_timeBetweenOperations);
 	}
 
 	private void reduceMemory() {
@@ -422,7 +502,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void mainMenu() {
 		// TODO Auto-generated method stub
-		_solo.clickOnScreen(145, 318);
+		_solo.clickOnScreen(298, 446);
+		_solo.sleep(4000);
+		_solo.clickOnScreen(147, 317);
 
 	}
 
@@ -437,7 +519,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	private void resume(String state) {
 		if (state.equalsIgnoreCase("ingame")) {
 			_solo.clickOnScreen(299, 444);
-			_solo.sleep(timeBetweenClicks);
+			_solo.sleep(_timeBetweenClicks);
 			_solo.clickOnScreen(162, 173);
 
 		} else if (state.equalsIgnoreCase("inmenu")) {
@@ -454,13 +536,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void nextLevel() {
 		_solo.clickOnScreen(161, 266);
-	}
-
-	/**
-	 * Runs white box tests
-	 */
-	public void testDisplayWhiteBox() {
-		assertTrue(true);
+		_solo.sleep(5000);
 	}
 
 	/**
@@ -473,9 +549,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	private void toggleSound(String state) {
 		if (state.equalsIgnoreCase("ingame")) {
 			_solo.clickOnScreen(297, 443);
-			_solo.sleep(timeBetweenClicks);
+			_solo.sleep(_timeBetweenClicks);
 			_solo.clickOnScreen(143, 318);
-			_solo.sleep(timeBetweenClicks);
+			_solo.sleep(_timeBetweenClicks);
 			_solo.clickOnScreen(302, 442);
 
 		} else if (state.equalsIgnoreCase("inmenu")) {
@@ -495,11 +571,22 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	}
 
 	/**
+	 * Takes the game to the main test level
+	 * 
+	 * @precondition user is at the select level menu
+	 * @postcondition morePrism level is started
+	 */
+	private void reachMorePrism() {
+		_solo.clickOnScreen(28, 452);
+		_solo.sleep(_timeBetweenOperations);
+	}
+
+	/**
 	 * Brings user back to main menu
 	 */
 	private void exit() {
 		_solo.clickOnScreen(297, 443);
-		_solo.sleep(timeBetweenClicks);
+		_solo.sleep(_timeBetweenClicks);
 		_solo.clickOnScreen(143, 318);
 		// TODO Auto-generated method stub
 
@@ -514,9 +601,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	private void help(String from) {
 		if (from.equalsIgnoreCase("ingame")) {
 			_solo.clickOnScreen(297, 443);
-			_solo.sleep(timeBetweenClicks);
+			_solo.sleep(_timeBetweenClicks);
 			_solo.clickOnScreen(143, 318);
-			_solo.sleep(timeBetweenClicks);
+			_solo.sleep(_timeBetweenClicks);
 
 			_solo.clickOnScreen(161, 308);
 		} else if (from.equalsIgnoreCase("inmenu")) {
@@ -533,6 +620,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * @param orientation
 	 *            either landscape or portrait
 	 */
+	@SuppressWarnings("static-access")
 	private void alterOrientation(String orientation) {
 		if (orientation.equalsIgnoreCase("landscape")) {
 			_solo.setActivityOrientation(_solo.LANDSCAPE);
@@ -566,16 +654,14 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// logger.info("LuminanceTestSuite: UseCase: Matrix Located at "+ "(" +
 		// 29 + "," + 226+")");
 
-		matrixLocation = new Vector2f(29, 226);
 		_inst = getInstrumentation();
 
 		startGame();
-		reachLevel(thePrism);
+		reachMorePrism();
+		_levelArray[_morePrism].setGrid();
 
-		// placeMirror(1,1);
-		// rotateMirror(1,1);
-		// completeMirrorBasics();
-		// completeDoubleSided();
+		placeMirror(1, 1);
+		rotate(1, 1);
 		placeMirror(6, 1);
 		// User chooses mirror
 		// User places mirror(1)
@@ -583,10 +669,10 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// White Light reflects south
 		// User chooses mirror
 
-		// placeMirror(6, 5);
+		placeMirror(6, 5);
 		// User places mirror(2)
 		// Light collides with mirror
-		// placePrism(8, 5);
+		placePrism(8, 5);
 		// User chooses prism
 		// User places Prism
 		// System refracts light into RGB
@@ -658,7 +744,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// Blue light collides with mirror
 		// Blue light connects with blue orb
 		// User completes level
-
+		mainMenu();
 	}
 
 	/**
@@ -674,14 +760,6 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		super.tearDown();
 	}
 
-	/*
-	 * || || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || || 1 ||(W)|| || || || || ||
-	 * B || || || 2 || || B || || || || || || || || 3 || || || B || || || || ||
-	 * || || 4 || || || || B || || || || || || 5 || || || ||(G)|| B || || || ||
-	 * || 6 || || || || || || || || || || 7 || B || || || || || || || || || 8 ||
-	 * || || || || ||(R)|| ||(B)||
-	 */
-
 	/**
 	 * Test Case (2): Object interaction/function
 	 * 
@@ -694,11 +772,11 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// logger.info("LuminanceTestSuite: UseCase: Test Case Two");
 		// logger.info("LuminanceTestSuite: UseCase: Matrix Located at "+ "(" +
 		// 29 + "," + 226+")");
-		matrixLocation = new Vector2f(29, 226);
+		_inst = getInstrumentation();
 
 		startGame();
-		reachLevel(morePrism);
-		// completeDoubleSided();
+		reachLevel(_morePrism);
+		_levelArray[_morePrism].setGrid();
 		// User starts game
 		// Game view is shown
 		// prism -> mirror -> orb
@@ -754,6 +832,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		restart("inmenu");
 		// User presses restart
 		// System brings up the same map reset
+		mainMenu();
 
 	}
 
@@ -766,10 +845,11 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Tests Level: "More Prism"
 	 */
 	public void testCaseThree() {
+		_inst = getInstrumentation();
 		startGame();
-		reachLevel(morePrism);
+		reachMorePrism();
+		_levelArray[_morePrism].setGrid();
 
-		// completeDoubleSided();
 		// prism -> mirror -> orb
 		placePrism(4, 5);
 		// User chooses prism
@@ -796,6 +876,21 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		rotate(4, 6);
 		placeMirror(1, 5);
 		placeMirror(6, 5);
+		mainMenu();
+	}
+
+	/**
+	 * Currently plays the first 12 levels of the game
+	 * 
+	 * @precondition user is on game menu
+	 * @postcondition user has reached level first blood
+	 */
+	public void testPlayFirstLevels() {
+		_inst = getInstrumentation();
+		startGame();
+		selectFirstLevel();
+		reachLevel(12);
+		mainMenu();
 	}
 
 	/**
@@ -807,10 +902,11 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Tests Level: "More Prism"
 	 */
 	public void testCaseFour() {
+		_inst = getInstrumentation();
 		startGame();
-		reachLevel(morePrism);
 
-		// completeDoubleSided();
+		reachMorePrism();
+		_levelArray[_morePrism].setGrid();
 
 		placePrism(4, 5);
 		// User chooses prism
@@ -831,6 +927,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// User chooses main menu
 		// User selects high score bored
 		// User sees high score bored is updated
+		mainMenu();
 	}
 
 	/**
@@ -842,10 +939,11 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Tests Level: "More Prism"
 	 */
 	public void testCaseFive() {
+		_inst = getInstrumentation();
 		startGame();
 
-		reachLevel(morePrism);
-
+		reachMorePrism();
+		_levelArray[_morePrism].setGrid();
 		// completeDoubleSided();
 
 		placePrism(4, 5);
@@ -874,6 +972,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// User chooses sound on
 		// User chooses resume
 		startGame();
+		selectFirstLevel();
 		// resume();
 		// System reloads all previously made moves
 		pause();
@@ -893,7 +992,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Tests Level: "Tutorial"
 	 */
 	public void testCaseSix() {
+		_inst = getInstrumentation();
 		startGame();
+
 		// User starts game
 		// Android's Luminance memory is reduced
 		tutorial();
@@ -907,6 +1008,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		startGame();
 		// User starts game
 		tutorial();
+		mainMenu();
 		// User chooses first level play through tutorial
 		// Luminance gives error hard drive space is too low
 		// Luminance exits
@@ -925,7 +1027,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		public void complete() {
 			// logger.info("LuminanceTestSuite: UseCase: Completing level 1 ");
 
-			calculateGridPositions(new Vector2f(29, 226), 29, 3, 9);
+			calculateInGameGridMatrix(new Vector2f(29, 226), 29, 3, 9);
 			placeMirror(1, 1);
 			rotate(1, 1);
 			placeMirror(1, 5);
@@ -937,26 +1039,12 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 			rotate(1, 7);
 
 		}
-	}
 
-	/**
-	 * Level in Luminance
-	 * 
-	 * @author Amara Daal
-	 * 
-	 */
-	private class ZigZag implements Level {
 		/**
-		 * Completes this level
+		 * Set the current grid to this levels archtecture
 		 */
-		public void complete() {
-			calculateGridPositions(new Vector2f(29, 140), 52, 5, 5);
-			rotate(1, 1);
-			rotate(5, 5);
-			nextLevel();
-
-			// TODO Auto-generated method stub
-
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 226), 29, 3, 9);
 		}
 	}
 
@@ -971,7 +1059,36 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		 * Completes this level
 		 */
 		public void complete() {
-			calculateGridPositions(new Vector2f(110, 140), 29, 8, 3);
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
+			rotate(1, 1);
+			rotate(1, 1);
+			rotate(1, 1);
+			rotate(5, 5);
+			nextLevel();
+
+			// TODO Auto-generated method stub
+
+		}
+
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
+		}
+	}
+
+	/**
+	 * Level in Luminance
+	 * 
+	 * @author Amara Daal
+	 * 
+	 */
+	private class ZigZag implements Level {
+		/**
+		 * Completes this level
+		 */
+		public void complete() {
+			calculateInGameGridMatrix(new Vector2f(110, 140), 33, 8, 3);
+			_solo.sleep(1000);
+			placeMirror(1, 3);
 			placeMirror(1, 3);
 			placeMirror(3, 3);
 			rotate(3, 3);
@@ -988,6 +1105,10 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 			// TODO Auto-generated method stub
 
 		}
+
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(110, 140), 33, 8, 3);
+		}
 	}
 
 	/**
@@ -1001,13 +1122,22 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		 * Completes this level
 		 */
 		public void complete() {
-			calculateGridPositions(new Vector2f(29, 140), 52, 5, 5);
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
 			placeMirror(2, 4);
-			rotate(2, 4);
+
 			placeMirror(3, 4);
+			rotate(3, 4);
+
 			placePrism(3, 3);
 			nextLevel();
 
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
 		}
 	}
 
@@ -1022,7 +1152,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		 * Completes this level
 		 */
 		public void complete() {
-			calculateGridPositions(new Vector2f(29, 140), 52, 6, 6);
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 6, 6);
 			placePrism(5, 4);
 			placeMirror(6, 4);
 			rotate(6, 4);
@@ -1030,6 +1160,13 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 			rotate(5, 6);
 			placeMirror(5, 1);
 			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 6, 6);
 		}
 	}
 
@@ -1044,12 +1181,45 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		 * Completes this level
 		 */
 		public void complete() {
-			calculateGridPositions(new Vector2f(29, 140), 33, 8, 8);
+			calculateInGameGridMatrix(new Vector2f(29, 140), 33, 8, 8);
 			placeMirror(1, 6);
 			placePrism(7, 6);
 			placeMirror(7, 4);
 			placeMirror(7, 8);
 			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 33, 8, 8);
+		}
+	}
+
+	/**
+	 * Level in Luminance
+	 * 
+	 * @author Amara Daal
+	 * 
+	 */
+	private class SimplyMirrors implements Level {
+		/**
+		 * Completes this level
+		 */
+		public void complete() {
+			calculateInGameGridMatrix(new Vector2f(29, 215), 37, 3, 7);
+			placeMirror(1, 7);
+			placeMirror(3, 7);
+			rotate(3, 7);
+			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 215), 37, 3, 7);
 		}
 	}
 
@@ -1066,6 +1236,13 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		public void complete() {
 
 		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+
+		}
 	}
 
 	/**
@@ -1079,12 +1256,19 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		 * Completes this level
 		 */
 		public void complete() {
-			calculateGridPositions(new Vector2f(29, 140), 52, 5, 5);
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
 			placeMirror(4, 1);
 			placeMirror(4, 5);
 			rotate(4, 5);
 			placeMirror(4, 3);
 			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
 		}
 	}
 
@@ -1099,7 +1283,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		 * Completes this level
 		 */
 		public void complete() {
-			calculateGridPositions(new Vector2f(29, 140), 52, 5, 5);
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
 			rotate(3, 3);
 			rotate(3, 3);
 			placePrism(3, 2);
@@ -1107,6 +1291,13 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 			rotate(1, 2);
 			placeMirror(5, 2);
 			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
 		}
 	}
 
@@ -1117,11 +1308,12 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * 
 	 */
 	private class YourBrainOnRGB implements Level {
+
 		/**
 		 * Completes this level
 		 */
 		public void complete() {
-			calculateGridPositions(new Vector2f(29, 140), 44, 6, 6);
+			calculateInGameGridMatrix(new Vector2f(29, 140), 44, 6, 6);
 			// Rotate red emmitter
 			rotate(2, 6);
 			rotate(2, 6);
@@ -1132,8 +1324,100 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 			rotate(4, 6);
 			placeMirror(4, 1);
 			placeMirror(2, 2);
+			rotate(2, 2);
 			placeMirror(1, 5);
 			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 44, 6, 6);
+		}
+	}
+
+	/**
+	 * Level in Luminance
+	 * 
+	 * @author Amara Daal
+	 * 
+	 */
+	private class SimplyPrisms implements Level {
+		/**
+		 * Completes this level
+		 */
+		public void complete() {
+			calculateInGameGridMatrix(new Vector2f(26, 138), 52, 5, 5);
+			placePrism(3, 3);
+			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(26, 138), 52, 5, 5);
+		}
+	}
+
+	/**
+	 * Level in Luminance
+	 * 
+	 * @author Amara Daal
+	 * 
+	 */
+	private class SimpleCombo implements Level {
+		/**
+		 * Completes this level
+		 */
+		public void complete() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
+			placeMirror(5, 3);
+			rotate(5, 3);
+			placePrism(3, 3);
+			placeMirror(3, 1);
+			placeMirror(3, 5);
+			rotate(3, 5);
+			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 140), 52, 5, 5);
+		}
+	}
+
+	/**
+	 * Level in Luminance
+	 * 
+	 * @author Amara Daal
+	 * 
+	 */
+	private class AllTooEasy implements Level {
+		/**
+		 * Completes this level
+		 */
+		public void complete() {
+			calculateInGameGridMatrix(new Vector2f(29, 161), 44, 5, 6);
+			rotate(1, 4);
+			rotate(1, 4);
+			rotate(1, 4);
+			rotate(5, 4);
+			placeMirror(3, 4);
+			placePrism(3, 3);
+			placePrism(3, 5);
+
+			nextLevel();
+		}
+
+		/**
+		 * Set the current grid to this levels archtecture
+		 */
+		public void setGrid() {
+			calculateInGameGridMatrix(new Vector2f(29, 161), 44, 5, 6);
 		}
 	}
 }
