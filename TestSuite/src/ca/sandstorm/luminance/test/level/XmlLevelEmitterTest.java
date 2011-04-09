@@ -9,7 +9,14 @@ public class XmlLevelEmitterTest extends AndroidTestCase{
 	XmlLevelEmitter xle;
 	
 	protected void setUp() throws Exception {
-		xle = new XmlLevelEmitter("White", new Vector<Float>(), new Vector<Float>());
+		Vector<Float> pos = new Vector<Float>();
+		Vector<Float> rot = new Vector<Float>();
+		pos.add(0.0f);
+		pos.add(0.0f);
+		rot.add(0.0f);
+		rot.add(0.0f);
+		rot.add(0.0f);
+		xle = new XmlLevelEmitter("White", pos, rot);
 		super.setUp();
 	}
 	
