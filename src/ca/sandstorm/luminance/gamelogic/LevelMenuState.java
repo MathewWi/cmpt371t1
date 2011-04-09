@@ -247,7 +247,7 @@ public class LevelMenuState implements IState
 	if (touchEvent != null) {
 	    int touchMode = Engine.getInstance().getInputSystem().getTouchScreen().getTouchMode();
 	    // to select level
-	    if (touchMode == InputTouchScreen.ON_SINGLE_TAP_CONFIRMED) {
+	    if (touchMode == InputTouchScreen.ON_DOUBLE_TAP_CONFIRMED) {
 		Button eventWidget = _guiManager.touchOccured(touchEvent);
 		if (eventWidget != null) {
 		    eventWidget.setIsTapped(true);
