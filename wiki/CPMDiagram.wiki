@@ -24,6 +24,13 @@ It should also be noted that all the things that are pointing to the big join ha
 
 === Where we are: ===
 
+Seeing as this is the last milestone, we have been working mostly on flushing out the bugs and doing final testing.  In addition to this, that isn't noted on this diagram, is final polish of the aspects of the game.
+
+So, we have achieved our goal of a final release.
+
+
+=== Where we were: ===
+
 We are in the column of tasks after the big join.  We ran into a lot of trouble with bugs after the last milestone.  For the most part, we knew of the bugs, but did not realize they would take so long to figure out.  This milestone therefore became about polishing up and de-bugging the game entirely.  We still have a lot of new levels to add, but there are still some currently created.  The user manual has yet to be started, but it will be for the next milestone.  Special effects have been started on a basic level, and will be polished more in the next milestone.  The level editor is in place conceptually, but still needs implementation.  User evaluations are ready to go, but we simply did not have time to actually conduct.  Art and sound assets are mostly complete as well.  This leaves mostly just final testing and more polish for the last milestone.
 
 == For Previous Milestones ==
