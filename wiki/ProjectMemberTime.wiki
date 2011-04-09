@@ -295,7 +295,7 @@
 ===Milestone 5===
 || *Task* || *Hours spent so far* ||
 || Risk Report || 2 ||
-|| Testing || 4 ||
+|| Testing || 9.5 ||
 || Levels || 3.5 ||
 || Fixing defects found by Inspection || 0.5 ||
 
