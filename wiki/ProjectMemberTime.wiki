@@ -507,3 +507,4 @@
 || Refactoring of Level package || 8 ||
 || Getting started on additional music || 2 ||
 || Investigating and fixing other defects found in inspection || 4 ||
+|| Adding new levels for the game || 2 ||
