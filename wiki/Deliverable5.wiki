@@ -61,3 +61,9 @@
 *Milestone 4:* 133 <br>
 *Milestone 5:* 211.5 <br>
 *Total:* 846.5 <br>
+
+*Estimated time for Milestone 5*: 114
+
+As it can be seen, this estimation is a bit low, but two group members did not make estimations on their tasks for this milestone, so this is not an accurate number.  So, as an estimation, this number should have been about 150 hours, which is still an underestimation.
+
+This is likely because members did not realize how long specific tasks would take, which has been an issue throughout the project.  However, we still were able to come out with a quality deliverable.
