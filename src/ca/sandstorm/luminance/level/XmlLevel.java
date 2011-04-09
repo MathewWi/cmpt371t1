@@ -122,7 +122,11 @@ public class XmlLevel
      */
     public LinkedList<XmlLevelTool> getTools()
     {
-	return _tools;
+	LinkedList<XmlLevelTool> tools = new LinkedList<XmlLevelTool>();
+	for(XmlLevelTool tool : _tools) {
+	    tools.add(tool.deepCopy());
+	}
+	return tools;
     }
 
     /**
