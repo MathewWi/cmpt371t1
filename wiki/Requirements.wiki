@@ -1,6 +1,17 @@
 #summary Requirements for this project to succeed
 
 = Functional Requirements =
+  ==Gameplay==
+  The game is played level-by-level with the furthest level completed being remembered by the system, allowing every level up to that one being accessible from the main menu henceforth.
+
+  Levels are based on a 2D grid in which tools may be placed to achieve the goals. A level is completed by lighting up every receptor goal by a light beam of its respective color. Levels may be of arbitrary dimensions with any number of emitters and receptors. There may be obstacles built into the level which block light beams.
+
+  Light beams may be white, red, green, or blue. White light may be split with a prism tool into the separate colors, which always each leave at the same angles respective to the incoming white light beam. The beams are guided by placing mirror tools onto the grid which will bounce light toward a different direction.
+
+  Each tool has a limited stock quantity allowed to be placed which varies by level. Emitters and mirrors may be rotated by a double-tap input. Misplaced tools may be erased with the eraser tool.
+
+  The camera is moved by swiping the screen for translation and two-finger pinching for zooming. All controls are accessible through the touch-screen.
+
   ==Fun factor== 
   Perhaps an obvious statement but a very important part of a game none the less.  Measuring fun is not easy and is beyond the scope of this project.  However through some user evaluation and general feedback we will determine the fun factor and do what we can to increase it.
    
@@ -64,7 +75,7 @@
 
    For this application, high scores would be in regard to how fast a user completes a level.  This is not something that is currently in place, and will likely be removed from the final deliverable.
 
-  This requirement has since been depreciated.
+  This requirement has since been deprecated.
 
   == New tools and mechanics ==
   While we plan to make a complete port of the previous version, we also plan to add new tools and mechanics to make the gameplay even more intriguing.  These tools will be determined by the development team during the next milestone.
