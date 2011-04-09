@@ -207,6 +207,7 @@ Follow-up from Sten:
     * Ended up just refactoring the parsing.  It is now much easier to read.
 
 Follow-up from Martina:
+  * Ran the application on the emulator after these changes.  Nothing appears to be broken.
 
 = Milestone 5: Inspection of the GUI package =
 *Moderator:* Martina
@@ -289,10 +290,7 @@ The entire GUI package was examined but not all of the classes were found to hav
 === Follow-up Results ===
 
 Follow-up from Martina:
-  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
-  * I later tried out a version on the phone.  It plays fantastic!
-  * I believe it is safe to say that these changes were made successfully.
-
+  * I was never informed of these changes, so I was unable to do the follow-up immediately after the changes were made.  However, I have since run the application and it runs as expected.
 
 = Milestone 5: Inspection of Jeff's classes =
 *Moderator:* Martina
@@ -378,9 +376,7 @@ XmlLevelToolTest
 === Follow-up Results ===
 
 Follow-up from Martina:
-  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
-  * I later tried out a version on the phone.  It plays fantastic!
-  * I believe it is safe to say that these changes were made successfully.
+  * Again, I was not informed when the changes were made, so I was unable to do the follow up immediately after.  However, I ran his test classes and they all passed as expected.
 
 = Milestone 5: Inspection of the input classes and menu state class =
 *Moderator:* Martina
@@ -509,9 +505,7 @@ Follow-up from Jonny:
 
 
 Follow-up from Martina:
-  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
-  * I later tried out a version on the phone.  It plays fantastic!
-  * I believe it is safe to say that these changes were made successfully.
+  * I checked out the code shortly after these changes.  I ran the application on the emulator and all seems to be in order.
 
 = Milestone 5: Inspection of the resources test, math test package =
 *Moderator:* Martina
@@ -577,9 +571,7 @@ Follow-up from Chet:
   * Defect 5: Uncommented code, tests pass
 
 Follow-up from Martina:
-  * I checked out the code shortly after these changes.  After a brief visual inspection, I ran the code on the emulator to ensure it still worked as it should.  After probing the program for a bit, I determined the changes did not break anything.
-  * I later tried out a version on the phone.  It plays fantastic!
-  * I believe it is safe to say that these changes were made successfully.
+  * I ran these tests after these changes, and all seems to be well.
 
 = Milestone 5: Inspection of test classes for GameObject system and TimeSystem =
 *Moderator:* Martina
@@ -719,3 +711,4 @@ the test itself does test a single case of magnitude
   * Defect 7: Moved construction into constructor from setup, deleted get tests and renamed set functions to set-get.
 
 Follow-up from Martina:
+  * Ran his tests after he made his changes.  All seems to be well.
