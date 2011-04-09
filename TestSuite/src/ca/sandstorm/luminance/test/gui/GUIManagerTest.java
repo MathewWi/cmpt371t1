@@ -10,10 +10,10 @@ import ca.sandstorm.luminance.input.InputXY;
  * 
  */
 public class GUIManagerTest extends AndroidTestCase {
-	Button[] mbAr;
+	Button[] _mbAr;
 	int MAX_BUTTON_COUNT = 10;
-	InputXY[] inAr;
-	GUIManager GUIManager;
+	InputXY[] _inAr;
+	GUIManager _GUIManager;
 	boolean isFading = false;
 	
 	// Button attributes
@@ -22,7 +22,7 @@ public class GUIManagerTest extends AndroidTestCase {
 	float x = 1.0f;
 	float y = 1.0f;
 
-	GUIManager newManager;
+	GUIManager _newManager;
 	
 	/**
 	 * @throws java.lang.Exception
@@ -32,17 +32,17 @@ public class GUIManagerTest extends AndroidTestCase {
 		super.setUp();
 		GUIManager = new GUIManager(isFading);
 		MAX_BUTTON_COUNT = 10;
-		// inAr = new InputXY[MAX_BUTTON_COUNT];
-		mbAr = new Button[MAX_BUTTON_COUNT];
+		// _inAr = new InputXY[MAX_BUTTON_COUNT];
+		_mbAr = new Button[MAX_BUTTON_COUNT];
 
 		// Create Buttons to test with the GUIManager
-		for (int i = 0; i < mbAr.length; i++) {
-			//inAr[i] = new InputXY();
-			mbAr[i] = new Button(x + i, y + i, width, height, "test");
+		for (int i = 0; i < _mbAr.length; i++) {
+			//_inAr[i] = new InputXY();
+			_mbAr[i] = new Button(x + i, y + i, width, height, "test");
 
 		}
 		
-		newManager = new GUIManager(isFading);
+		_newManager = new GUIManager(isFading);
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class GUIManagerTest extends AndroidTestCase {
 
 	public void testGUIManager() {
 
-		assertTrue(GUIManager != null);
+		assertTrue(_GUIManager != null);
 	}
 
 	/**
@@ -72,11 +72,11 @@ public class GUIManagerTest extends AndroidTestCase {
 
 		// Add the max number of buttons to the input manager
 		for (int i = 0; i < MAX_BUTTON_COUNT; i++) {
-			assertTrue(GUIManager.addButton(mbAr[i]));
+			assertTrue(_GUIManager.addButton(_mbAr[i]));
 
 		}
 		// Try to add more than the max number of buttons
-		assertTrue(GUIManager.addButton(new Button(2.0f, 2.0f, 2.0f, 2.0f,
+		assertTrue(_GUIManager.addButton(new Button(2.0f, 2.0f, 2.0f, 2.0f,
 				"test")));// new InputXY()
 
 	}
@@ -106,9 +106,9 @@ public class GUIManagerTest extends AndroidTestCase {
 	public void testTouchOccuredFloatFloat() {
 		// Touch every initialized button with buttons
 		// placed in the GUIManager
-		for (int i = 0; i < mbAr.length; i++) {
+		for (int i = 0; i < _mbAr.length; i++) {
 
-			//assertEquals(mbAr[i], GUIManager.touchOccured(x + i, y + i));
+			//assertEquals(_mbAr[i], GUIManager.touchOccured(x + i, y + i));
 
 		}
 

@@ -10,27 +10,27 @@ import ca.sandstorm.luminance.math.Ray;
  * 
  */
 public class RayTest extends AndroidTestCase {
-	private Ray tester;
-	private float testX;
-	private float testY;
-	private float testZ;
-	private float testXDir;
-	private float testYDir;
-	private float testZDir;
+	private Ray _tester;
+	private float _testX;
+	private float _testY;
+	private float _testZ;
+	private float _testXDir;
+	private float _testYDir;
+	private float _testZDir;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		tester = new Ray(testX, testY, testZ, testXDir, testYDir, testZDir);
+		_tester = new Ray(_testX, _testY, _testZ, _testXDir, _testYDir, _testZDir);
 	}
 
 	/*
 	 * Testing the setPosition() method
 	 */
 	public void testSetPosition() throws Exception {
-		testX = (float) 1.7;
-		testY = (float) 2.9;
-		testZ = (float) 5.4;
-		tester.setPosition(testX, testY, testZ);
+		_testX = (float) 1.7;
+		_testY = (float) 2.9;
+		_testZ = (float) 5.4;
+		_tester.setPosition(_testX, _testY, _testZ);
 	}
 
 	/*

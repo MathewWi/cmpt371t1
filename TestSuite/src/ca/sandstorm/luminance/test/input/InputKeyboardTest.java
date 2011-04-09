@@ -11,9 +11,9 @@ import ca.sandstorm.luminance.input.InputKeyboard;
  */
 public class InputKeyboardTest extends AndroidTestCase {
 
-	InputKeyboard inputKeyboard;
-	float currentTime = 2.0f;
-	InputButton[] mKeys;
+	InputKeyboard _inputKeyboard;
+	float _currentTime = 2.0f;
+	InputButton[] _mKeys;
 
 	/**
 	 * @throws java.lang.Exception
@@ -21,8 +21,8 @@ public class InputKeyboardTest extends AndroidTestCase {
 
 	public void setUp() throws Exception {
 		super.setUp();
-		inputKeyboard = new InputKeyboard();
-		assertNotNull(inputKeyboard);
+		_inputKeyboard = new InputKeyboard();
+		assertNotNull(_inputKeyboard);
 	}
 
 	/**
@@ -41,48 +41,48 @@ public class InputKeyboardTest extends AndroidTestCase {
 
 	public void testPress() {
 
-		mKeys = inputKeyboard.getKeys();
+		_mKeys = _inputKeyboard.getKeys();
 
 		// Assert all keys are intialized to not pressed
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			assertFalse(mKeys[x].getPressed());
+			assertFalse(_mKeys[x].getPressed());
 		}
 		// Press all keys
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			inputKeyboard.press(currentTime + x, x);
+			_inputKeyboard.press(_currentTime + x, x);
 
 		}
 
 		// Assert all keys were pressed
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			assertTrue(mKeys[x].getPressed());
-			assertEquals(currentTime + x, mKeys[x].getLastPressedTime());
+			assertTrue(_mKeys[x].getPressed());
+			assertEquals(_currentTime + x, _mKeys[x].getLastPressedTime());
 		}
 		// Release all keys
-		inputKeyboard.releaseAll();
+		_inputKeyboard.releaseAll();
 
 		// Press individual keys, observe effect on others
-		inputKeyboard.press(currentTime, 0);
-		inputKeyboard.press(currentTime, 5);
-		inputKeyboard.press(currentTime, 4);
-		inputKeyboard.press(currentTime, 2);
-		inputKeyboard.press(currentTime, 6);
-		inputKeyboard.press(currentTime, 3);
-		inputKeyboard.press(currentTime, 1);
-		inputKeyboard.press(currentTime, KeyEvent.getMaxKeyCode() - 1);
+		_inputKeyboard.press(_currentTime, 0);
+		_inputKeyboard.press(_currentTime, 5);
+		_inputKeyboard.press(_currentTime, 4);
+		_inputKeyboard.press(_currentTime, 2);
+		_inputKeyboard.press(_currentTime, 6);
+		_inputKeyboard.press(_currentTime, 3);
+		_inputKeyboard.press(_currentTime, 1);
+		_inputKeyboard.press(_currentTime, KeyEvent.getMaxKeyCode() - 1);
 
 		// Assert all selected keys were pressed
 		for (int x = 0; x < 7; x++) {
-			assertTrue(mKeys[x].getPressed());
+			assertTrue(_mKeys[x].getPressed());
 		}
-		assertTrue(mKeys[KeyEvent.getMaxKeyCode() - 1].getPressed());
+		assertTrue(_mKeys[KeyEvent.getMaxKeyCode() - 1].getPressed());
 
 		// Assert all other keys were not pressed
 		for (int x = 7; x < KeyEvent.getMaxKeyCode() - 1; x++) {
-			assertFalse(mKeys[x].getPressed());
+			assertFalse(_mKeys[x].getPressed());
 		}
 
-		inputKeyboard.resetAll();
+		_inputKeyboard.resetAll();
 
 	}
 
@@ -93,23 +93,23 @@ public class InputKeyboardTest extends AndroidTestCase {
 
 	public void testRelease() {
 
-		inputKeyboard.resetAll();
+		_inputKeyboard.resetAll();
 
 		// Press all keys
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			inputKeyboard.press(currentTime, x);
+			_inputKeyboard.press(_currentTime, x);
 
 		}
 
 		// Release all keys
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			inputKeyboard.release(x);
+			_inputKeyboard.release(x);
 
 		}
-		mKeys = inputKeyboard.getKeys();
+		_mKeys = _inputKeyboard.getKeys();
 		// Assert all other keys are released
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			assertFalse(mKeys[x].getPressed());
+			assertFalse(_mKeys[x].getPressed());
 		}
 
 	}
@@ -123,15 +123,15 @@ public class InputKeyboardTest extends AndroidTestCase {
 
 		// Press all keys
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			inputKeyboard.press(currentTime, x);
+			_inputKeyboard.press(_currentTime, x);
 
 		}
-		inputKeyboard.releaseAll();
+		_inputKeyboard.releaseAll();
 
-		mKeys = inputKeyboard.getKeys();
+		_mKeys = _inputKeyboard.getKeys();
 		// Assert all keys were released
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			assertFalse(mKeys[x].getPressed());
+			assertFalse(_mKeys[x].getPressed());
 		}
 
 	}
@@ -142,32 +142,32 @@ public class InputKeyboardTest extends AndroidTestCase {
 	 */
 
 	public void testGetKeys() {
-		mKeys = null;
-		mKeys = inputKeyboard.getKeys();
-		assertNotNull(mKeys);
+		_mKeys = null;
+		_mKeys = _inputKeyboard.getKeys();
+		assertNotNull(_mKeys);
 
 		// Press individual keys, observe effect on others
-		inputKeyboard.press(currentTime, 0);
-		inputKeyboard.press(currentTime, 5);
-		inputKeyboard.press(currentTime, 4);
-		inputKeyboard.press(currentTime, 2);
-		inputKeyboard.press(currentTime, 6);
-		inputKeyboard.press(currentTime, 3);
-		inputKeyboard.press(currentTime, 1);
-		inputKeyboard.press(currentTime, KeyEvent.getMaxKeyCode() - 1);
+		_inputKeyboard.press(_currentTime, 0);
+		_inputKeyboard.press(_currentTime, 5);
+		_inputKeyboard.press(_currentTime, 4);
+		_inputKeyboard.press(_currentTime, 2);
+		_inputKeyboard.press(_currentTime, 6);
+		_inputKeyboard.press(_currentTime, 3);
+		_inputKeyboard.press(_currentTime, 1);
+		_inputKeyboard.press(_currentTime, KeyEvent.getMaxKeyCode() - 1);
 
 		// Assert all buttons not null
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			assertNotNull(mKeys[x]);
+			assertNotNull(_mKeys[x]);
 		}
 
 		// Assert all selected keys were pressed
 		for (int x = 0; x < 7; x++) {
-			assertTrue(mKeys[x].getPressed());
+			assertTrue(_mKeys[x].getPressed());
 		}
-		assertTrue(mKeys[KeyEvent.getMaxKeyCode() - 1].getPressed());
+		assertTrue(_mKeys[KeyEvent.getMaxKeyCode() - 1].getPressed());
 
-		inputKeyboard.resetAll();
+		_inputKeyboard.resetAll();
 
 	}
 
@@ -177,19 +177,19 @@ public class InputKeyboardTest extends AndroidTestCase {
 	 */
 
 	public void testResetAll() {
-		mKeys = inputKeyboard.getKeys();
+		_mKeys = _inputKeyboard.getKeys();
 
 		// Press all keys
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			inputKeyboard.press(currentTime + x, x);
+			_inputKeyboard.press(_currentTime + x, x);
 
 		}
 
-		inputKeyboard.releaseAll();
+		_inputKeyboard.releaseAll();
 
 		// Assert all keys are released
 		for (int x = 0; x < KeyEvent.getMaxKeyCode(); x++) {
-			assertFalse(mKeys[x].getPressed());
+			assertFalse(_mKeys[x].getPressed());
 		}
 	}
 

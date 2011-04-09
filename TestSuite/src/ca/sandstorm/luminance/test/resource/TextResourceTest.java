@@ -10,12 +10,12 @@ import ca.sandstorm.luminance.resources.TextResource;
  * 
  */
 public class TextResourceTest extends AndroidTestCase {
-	TextResource textRes;
+	TextResource _textRes;
 
 	protected void setUp() throws Exception {
 		super.setUp();
 		String test = "Hello, World!";
-		textRes = new TextResource("text1", test.getBytes());
+		_textRes = new TextResource("text1", test.getBytes());
 	}
 
 	/**
@@ -26,8 +26,8 @@ public class TextResourceTest extends AndroidTestCase {
 	public void testText() throws Exception {
 
 		String hello = "Hello, World!";
-		assertTrue(textRes.getText().equals(hello));
-		assertFalse(textRes.getText().equals(""));
+		assertTrue(_textRes.getText().equals(hello));
+		assertFalse(_textRes.getText().equals(""));
 	}
 
 	/**
@@ -35,6 +35,6 @@ public class TextResourceTest extends AndroidTestCase {
 	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
-		textRes.dispose();
+		_textRes.dispose();
 	}
 }

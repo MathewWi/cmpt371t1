@@ -18,14 +18,14 @@ import ca.sandstorm.luminance.math.Sphere;
  * 
  */
 public class PrismTest extends AndroidTestCase {
-	Prism myPrism;
+	Prism _myPrism;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myPrism = new Prism(new Vector3f(0, 0, 0), new Vector3f(0,0,0));
+		_myPrism = new Prism(new Vector3f(0, 0, 0), new Vector3f(0,0,0));
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertTrue(myPrism.getRenderable() != null);
+		assertTrue(_myPrism.getRenderable() != null);
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTexture() throws Exception {
-		assertNotNull(myPrism.getTexture());
+		assertNotNull(_myPrism.getTexture());
 	}
 	
 	/**
@@ -52,7 +52,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderType() throws Exception {
-		RenderType dummy = myPrism.getRenderType();
+		RenderType dummy = _myPrism.getRenderType();
 		assertTrue(dummy == RenderType.Normal);
 	}
 	
@@ -62,7 +62,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetCollisionSphere() throws Exception{
-		Sphere dum = myPrism.getCollisionSphere();
+		Sphere dum = _myPrism.getCollisionSphere();
 		assertNotNull(dum);
 		assertTrue(dum.getCenter().x == 0);
 		assertTrue(dum.getCenter().x == 0);
@@ -82,9 +82,9 @@ public class PrismTest extends AndroidTestCase {
 		lb.add(0, l);
 		lbc.add(0, lb);
 		
-		myPrism.beamInteract(lbc, 0, 0);
+		_myPrism.beamInteract(lbc, 0, 0);
 		
-		assertTrue(l.getEndTouchedObject().equals(myPrism));
+		assertTrue(l.getEndTouchedObject().equals(_myPrism));
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testUpdate() throws Exception {
-		// assertTrue(myPrism.Update());
+		// assertTrue(_myPrism.Update());
 		// TODO: write proper tests
 	}
 
@@ -103,7 +103,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testDestroy() throws Exception {
-		// assertTrue(myPrism.destroy());
+		// assertTrue(_myPrism.destroy());
 		// TODO: write proper tests
 	}
 
@@ -113,7 +113,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f dummy = myPrism.getPosition();
+		Vector3f dummy = _myPrism.getPosition();
 		assertTrue(dummy.x == 0);
 		assertTrue(dummy.y == 0);
 		assertTrue(dummy.z == 0);
@@ -125,7 +125,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		Vector4f dummy = myPrism.getRotation();
+		Vector4f dummy = _myPrism.getRotation();
 		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 0.0f);
@@ -138,7 +138,7 @@ public class PrismTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		Vector3f dummy = myPrism.getScale();
+		Vector3f dummy = _myPrism.getScale();
 		assertTrue(dummy.x == 0.5f);
 		assertTrue(dummy.y == 0.5f);
 		assertTrue(dummy.z == 0.5f);

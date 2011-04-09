@@ -14,14 +14,14 @@ import ca.sandstorm.luminance.math.Ray;
  * 
  */
 public class LightTest extends AndroidTestCase {
-	Light myLight;
+	Light _myLight;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myLight = new Light(0,0,0,0,0,0,5,0);
+		_myLight = new Light(0,0,0,0,0,0,5,0);
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetStartPoint() throws Exception {
-		Vector3f dum = myLight.getStartPoint();
+		Vector3f dum = _myLight.getStartPoint();
 		assertTrue(dum.x == 0);
 		assertTrue(dum.y == 0);
 		assertTrue(dum.z == 0);
@@ -42,8 +42,8 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testSetStartPoint() throws Exception {
-		myLight.setStartPoint(1,1,1);
-		Vector3f dum = myLight.getStartPoint();
+		_myLight.setStartPoint(1,1,1);
+		Vector3f dum = _myLight.getStartPoint();
 		assertTrue(dum.x == 1);
 		assertTrue(dum.y == 1);
 		assertTrue(dum.z == 1);
@@ -55,8 +55,8 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testPosition() throws Exception {
-		Vector3f dum = myLight.getPosition();
-		//Vector3f dum = myLight.getStartPoint();
+		Vector3f dum = _myLight.getPosition();
+		//Vector3f dum = _myLight.getStartPoint();
 		assertTrue(dum.x == 0);
 		assertTrue(dum.y == 0);
 		assertTrue(dum.z == 0);
@@ -68,7 +68,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetDirection() throws Exception {
-		Vector3f dum = myLight.getDirection();
+		Vector3f dum = _myLight.getDirection();
 		assertTrue(dum.x == 0);
 		assertTrue(dum.y == 0);
 		assertTrue(dum.z == 0);
@@ -80,8 +80,8 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testSetDirection() throws Exception {
-		myLight.setDirection(1,1,1);
-		Vector3f dum = myLight.getDirection();
+		_myLight.setDirection(1,1,1);
+		Vector3f dum = _myLight.getDirection();
 		assertTrue(dum.x == 1);
 		assertTrue(dum.y == 1);
 		assertTrue(dum.z == 1);
@@ -93,7 +93,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetDistance() throws Exception {
-		assertTrue(myLight.getDistance() == 5);
+		assertTrue(_myLight.getDistance() == 5);
 	}
 	
 	/**
@@ -102,8 +102,8 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testSetDistance() throws Exception {
-		myLight.setDistance(6);
-		assertTrue(myLight.getDistance() == 6);
+		_myLight.setDistance(6);
+		assertTrue(_myLight.getDistance() == 6);
 	}
 	
 	/**
@@ -112,7 +112,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetColor() throws Exception {
-		assertTrue(myLight.getColor() == 0);
+		assertTrue(_myLight.getColor() == 0);
 	}
 	
 	/**
@@ -121,7 +121,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetStartTouchedObject() throws Exception {
-		assertNull(myLight.getStartTouchedObject());
+		assertNull(_myLight.getStartTouchedObject());
 	}
 	
 	/**
@@ -132,8 +132,8 @@ public class LightTest extends AndroidTestCase {
 	public void testSetStartTouchedObject() throws Exception {
 		Box dum = new Box(new Vector3f(0.5f, 0.5f, 0.5f), new Vector3f(0.5f,
 				0.5f, 0.5f));
-		myLight.setStartTouchedObject(dum);
-		assertTrue(myLight.getStartTouchedObject() == dum);
+		_myLight.setStartTouchedObject(dum);
+		assertTrue(_myLight.getStartTouchedObject() == dum);
 	}
 	
 	/**
@@ -142,7 +142,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetEndTouchedObject() throws Exception {
-		assertNull(myLight.getEndTouchedObject());
+		assertNull(_myLight.getEndTouchedObject());
 	}
 	
 	/**
@@ -153,8 +153,8 @@ public class LightTest extends AndroidTestCase {
 	public void testSetEndTouchedObject() throws Exception {
 		Box dum = new Box(new Vector3f(0.5f, 0.5f, 0.5f), new Vector3f(0.5f,
 				0.5f, 0.5f));
-		myLight.setEndTouchedObject(dum);
-		assertTrue(myLight.getEndTouchedObject() == dum);
+		_myLight.setEndTouchedObject(dum);
+		assertTrue(_myLight.getEndTouchedObject() == dum);
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testInitialize() throws Exception {
-		// assertTrue(myLight.initialize());
+		// assertTrue(_myLight.initialize());
 		// TODO: write proper tests
 	}
 
@@ -173,7 +173,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testUpdate() throws Exception {
-		// assertTrue(myLight.Update());
+		// assertTrue(_myLight.Update());
 		// TODO: write proper tests
 	}
 
@@ -183,7 +183,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testDestroy() throws Exception {
-		// assertTrue(myLight.destroy());
+		// assertTrue(_myLight.destroy());
 		// TODO: write proper tests
 	}
 
@@ -193,7 +193,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testRotation() throws Exception {
-		// Vector4f dummy = myLight.getRotation();
+		// Vector4f dummy = _myLight.getRotation();
 		// assertTrue(dummy.w == 0);
 		// assertTrue(dummy.x == 0);
 		// assertTrue(dummy.y == 0);
@@ -207,7 +207,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testScale() throws Exception {
-		// Vector3f dummy = myLight.getScale();
+		// Vector3f dummy = _myLight.getScale();
 		// assertTrue(dummy.x == 0);
 		// assertTrue(dummy.y == 0);
 		// assertTrue(dummy.z == 0);
@@ -220,7 +220,7 @@ public class LightTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRay() throws Exception {
-		Ray dum = myLight.getRay();
+		Ray dum = _myLight.getRay();
 		assertTrue(dum.getPosition().x == 0);
 		assertTrue(dum.getPosition().y == 0);
 		assertTrue(dum.getPosition().z == 0);

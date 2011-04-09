@@ -4,14 +4,14 @@ import ca.sandstorm.luminance.input.MultiTouchFilter;
 import android.test.AndroidTestCase;
 
 public class MultiTouchFilterTest extends AndroidTestCase{
-	MultiTouchFilter mtf;
+	MultiTouchFilter _mtf;
 	
 	protected void setUp() throws Exception {
-		mtf = new MultiTouchFilter();
+		_mtf = new MultiTouchFilter();
 		super.setUp();
 	}
 	
 	public void testMultiTouchFilter() throws Exception {
-		assertNotNull(mtf);
+		assertNotNull(_mtf);
 	}
 }

@@ -8,14 +8,14 @@ import android.test.AndroidTestCase;
  * And is also an iState.
  */
 public class HelpMenuStateTest extends AndroidTestCase {
-	HelpMenuState hms;
+	HelpMenuState _hms;
 	
 	protected void setUp() throws Exception{
-		hms = new HelpMenuState();
+		_hms = new HelpMenuState();
 		super.setUp();
 	}
 	
 	public void testHelpMenuState() throws Exception{
-		assertNotNull(hms);
+		assertNotNull(_hms);
 	}
 }

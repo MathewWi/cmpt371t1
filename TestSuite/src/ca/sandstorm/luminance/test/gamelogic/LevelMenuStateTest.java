@@ -10,15 +10,15 @@ import android.test.AndroidTestCase;
  */
 public class LevelMenuStateTest extends AndroidTestCase{
 
-	LevelMenuState lms;
+	LevelMenuState _lms;
 	
 	protected void setUp() throws Exception{
-		lms = new LevelMenuState();
+		_lms = new LevelMenuState();
 		super.setUp();
 	}
 	
 	public void testLevelMenuState() throws Exception{
-		assertNotNull(lms);
+		assertNotNull(_lms);
 	}
 	
 }

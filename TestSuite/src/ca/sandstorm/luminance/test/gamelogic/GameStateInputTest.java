@@ -10,10 +10,10 @@ import android.test.AndroidTestCase;
  */
 public class GameStateInputTest extends AndroidTestCase {
 
-	GameStateInput gsi;
+	GameStateInput _gsi;
 	
 	protected void setUp() throws Exception{
-		gsi = new GameStateInput();
+		_gsi = new GameStateInput();
 		super.setUp();
 	}
 	

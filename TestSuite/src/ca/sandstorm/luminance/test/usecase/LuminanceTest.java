@@ -25,7 +25,7 @@ import com.jayway.android.robotium.solo.Solo;
 public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 
 	// Robotium
-	private Solo solo;
+	private Solo _solo;
 
 	// Levels
 	Level levelArray[];
@@ -130,7 +130,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	public void setUp() throws Exception {
 		super.setUp();
-		this.solo = new Solo(this.getInstrumentation(), this.getActivity());
+		this._solo = new Solo(this.getInstrumentation(), this.getActivity());
 
 		// Create and order tests
 		levelArray = new Level[numberOfTestedLevels];
@@ -196,7 +196,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 *                We resorted to sending manual events to the game engine
 	 */
 	public void startGame() {
-		solo.sleep(10000);
+		_solo.sleep(10000);
 
 		// Location of the start button from the top left
 		float startButtonX = 183;
@@ -234,7 +234,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 			event = MotionEvent.obtain(downTime, eventTime,
 					MotionEvent.ACTION_UP, startButtonX, startButtonY, 0);
 			_inst.sendPointerSync(event);
-			solo.sleep(500);
+			_solo.sleep(500);
 		}
 
 		// Previous way of clicking the start button
@@ -242,7 +242,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// solo.clickOnScreen(startButtonX, startButtonY);
 		// }
 
-		solo.sleep(5000);
+		_solo.sleep(5000);
 	}
 
 	/**
@@ -254,8 +254,8 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	public void pause() {
 
 		// logger.info("LuminanceTestSuite: UseCase: Pausing Game");
-		solo.clickOnScreen(295, 447);
-		solo.sleep(5000);
+		_solo.clickOnScreen(295, 447);
+		_solo.sleep(5000);
 	}
 
 	/**
@@ -268,12 +268,12 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	public void restart(String from) {
 		if (from.equalsIgnoreCase("ingame")) {
-			solo.clickOnScreen(296, 441);
-			solo.sleep(timeBetweenClicks);
-			solo.clickOnScreen(142, 241);
+			_solo.clickOnScreen(296, 441);
+			_solo.sleep(timeBetweenClicks);
+			_solo.clickOnScreen(142, 241);
 
 		} else if (from.equalsIgnoreCase("inmenu")) {
-			solo.clickOnScreen(142, 241);
+			_solo.clickOnScreen(142, 241);
 		}
 
 	}
@@ -296,11 +296,11 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// row + "," + col+")");
 
 		// press on toolbar
-		solo.clickOnScreen(94, 443);
+		_solo.clickOnScreen(94, 443);
 		// place object
-		solo.sleep(timeBetweenOperations);
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		solo.sleep(timeBetweenOperations);
+		_solo.sleep(timeBetweenOperations);
+		_solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		_solo.sleep(timeBetweenOperations);
 	}
 
 	/**
@@ -321,9 +321,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// row + "," + col+")");
 		// solo.clickOnScreen(31, 431);
 
-		solo.sleep(timeBetweenOperations);
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		solo.sleep(timeBetweenOperations);
+		_solo.sleep(timeBetweenOperations);
+		_solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		_solo.sleep(timeBetweenOperations);
 	}
 
 	/**
@@ -344,7 +344,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		// row + "," + col+")");
 
 		// Double tap,
-		solo.sleep(timeBetweenOperations);
+		_solo.sleep(timeBetweenOperations);
 
 		long downTime = SystemClock.uptimeMillis();
 		// event time MUST be retrieved only by this way!
@@ -369,7 +369,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 				matrix[row][col].x, matrix[row][col].y, 0);
 		_inst.sendPointerSync(event);
 
-		solo.sleep(timeBetweenOperations);
+		_solo.sleep(timeBetweenOperations);
 
 	}
 
@@ -393,10 +393,10 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 		col -= 1;
 		// logger.info("LuminanceTestSuite: UseCase: Erasing object at "+ "(" +
 		// row + "," + col+")");
-		solo.clickOnScreen(159, 434);
-		solo.sleep(timeBetweenOperations);
-		solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
-		solo.sleep(timeBetweenOperations);
+		_solo.clickOnScreen(159, 434);
+		_solo.sleep(timeBetweenOperations);
+		_solo.clickOnScreen(matrix[row][col].x, matrix[row][col].y);
+		_solo.sleep(timeBetweenOperations);
 	}
 
 	private void reduceMemory() {
@@ -411,7 +411,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void tutorial() {
 		// TODO Auto-generated method stub
-		solo.clickOnScreen(22, 441);
+		_solo.clickOnScreen(22, 441);
 	}
 
 	/**
@@ -422,7 +422,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void mainMenu() {
 		// TODO Auto-generated method stub
-		solo.clickOnScreen(145, 318);
+		_solo.clickOnScreen(145, 318);
 
 	}
 
@@ -436,12 +436,12 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void resume(String state) {
 		if (state.equalsIgnoreCase("ingame")) {
-			solo.clickOnScreen(299, 444);
-			solo.sleep(timeBetweenClicks);
-			solo.clickOnScreen(162, 173);
+			_solo.clickOnScreen(299, 444);
+			_solo.sleep(timeBetweenClicks);
+			_solo.clickOnScreen(162, 173);
 
 		} else if (state.equalsIgnoreCase("inmenu")) {
-			solo.clickOnScreen(162, 173);
+			_solo.clickOnScreen(162, 173);
 		}
 
 	}
@@ -453,7 +453,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * @postcondition the game moves onto the next level
 	 */
 	private void nextLevel() {
-		solo.clickOnScreen(161, 266);
+		_solo.clickOnScreen(161, 266);
 	}
 
 	/**
@@ -472,14 +472,14 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void toggleSound(String state) {
 		if (state.equalsIgnoreCase("ingame")) {
-			solo.clickOnScreen(297, 443);
-			solo.sleep(timeBetweenClicks);
-			solo.clickOnScreen(143, 318);
-			solo.sleep(timeBetweenClicks);
-			solo.clickOnScreen(302, 442);
+			_solo.clickOnScreen(297, 443);
+			_solo.sleep(timeBetweenClicks);
+			_solo.clickOnScreen(143, 318);
+			_solo.sleep(timeBetweenClicks);
+			_solo.clickOnScreen(302, 442);
 
 		} else if (state.equalsIgnoreCase("inmenu")) {
-			solo.clickOnScreen(302, 442);
+			_solo.clickOnScreen(302, 442);
 		}
 		// TODO Auto-generated method stub
 
@@ -498,9 +498,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 * Brings user back to main menu
 	 */
 	private void exit() {
-		solo.clickOnScreen(297, 443);
-		solo.sleep(timeBetweenClicks);
-		solo.clickOnScreen(143, 318);
+		_solo.clickOnScreen(297, 443);
+		_solo.sleep(timeBetweenClicks);
+		_solo.clickOnScreen(143, 318);
 		// TODO Auto-generated method stub
 
 	}
@@ -513,14 +513,14 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void help(String from) {
 		if (from.equalsIgnoreCase("ingame")) {
-			solo.clickOnScreen(297, 443);
-			solo.sleep(timeBetweenClicks);
-			solo.clickOnScreen(143, 318);
-			solo.sleep(timeBetweenClicks);
+			_solo.clickOnScreen(297, 443);
+			_solo.sleep(timeBetweenClicks);
+			_solo.clickOnScreen(143, 318);
+			_solo.sleep(timeBetweenClicks);
 
-			solo.clickOnScreen(161, 308);
+			_solo.clickOnScreen(161, 308);
 		} else if (from.equalsIgnoreCase("inmenu")) {
-			solo.clickOnScreen(161, 308);
+			_solo.clickOnScreen(161, 308);
 		}
 
 	}
@@ -535,9 +535,9 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	private void alterOrientation(String orientation) {
 		if (orientation.equalsIgnoreCase("landscape")) {
-			solo.setActivityOrientation(solo.LANDSCAPE);
+			_solo.setActivityOrientation(_solo.LANDSCAPE);
 		} else if (orientation.equalsIgnoreCase("portrait")) {
-			solo.setActivityOrientation(solo.PORTRAIT);
+			_solo.setActivityOrientation(_solo.PORTRAIT);
 		}
 
 	}
@@ -666,7 +666,7 @@ public class LuminanceTest extends ActivityInstrumentationTestCase2<Luminance> {
 	 */
 	public void tearDown() throws Exception {
 		try {
-			this.solo.finalize();
+			this._solo.finalize();
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}

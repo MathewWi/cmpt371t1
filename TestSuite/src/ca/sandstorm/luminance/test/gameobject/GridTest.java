@@ -14,14 +14,14 @@ import ca.sandstorm.luminance.math.Plane;
  * 
  */
 public class GridTest extends AndroidTestCase {
-	Grid myGrid;
+	Grid _myGrid;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myGrid = new Grid(10, 5, 1.0f, 1.0f);
+		_myGrid = new Grid(10, 5, 1.0f, 1.0f);
 	}
 
 	/**
@@ -30,7 +30,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetColumnCount() throws Exception {
-		assertTrue(myGrid.getColumnCount() == 10);
+		assertTrue(_myGrid.getColumnCount() == 10);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRowCount() throws Exception {
-		assertTrue(myGrid.getRowCount() == 5);
+		assertTrue(_myGrid.getRowCount() == 5);
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetCellWidth() throws Exception {
-		assertTrue(myGrid.getCellWidth() == 1.0f);
+		assertTrue(_myGrid.getCellWidth() == 1.0f);
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetCellHeight() throws Exception {
-		assertTrue(myGrid.getCellWidth() == 1.0f);
+		assertTrue(_myGrid.getCellWidth() == 1.0f);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTotalWidth() throws Exception {
-		assertTrue(myGrid.getTotalWidth() == 10.0f);
+		assertTrue(_myGrid.getTotalWidth() == 10.0f);
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTotalHeight() throws Exception {
-		assertTrue(myGrid.getTotalHeight() == 5.0f);
+		assertTrue(_myGrid.getTotalHeight() == 5.0f);
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPlane() throws Exception {
-		Plane myPlane = myGrid.getPlane();
+		Plane myPlane = _myGrid.getPlane();
 		assertTrue(myPlane != null);
 
 		Vector3f pos = myPlane.getPosition();
@@ -104,7 +104,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetCellCenter() throws Exception {
-		Vector3f dummy = myGrid.getCellCenter(3, 2);
+		Vector3f dummy = _myGrid.getCellCenter(3, 2);
 		assertTrue(dummy.x == 2.5);
 		assertTrue(dummy.y == 0);
 		assertTrue(dummy.z == 3.5);
@@ -116,7 +116,7 @@ public class GridTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetGridPosition() throws Exception {
-		Point2i dummy = myGrid.getGridPosition(3.0f, 2.0f, 1.0f);
+		Point2i dummy = _myGrid.getGridPosition(3.0f, 2.0f, 1.0f);
 		assertTrue(dummy.x == 3);
 		assertTrue(dummy.y == 1);
 	}

@@ -11,16 +11,16 @@ import android.test.AndroidTestCase;
  *
  */
 public class MenuStateTest extends AndroidTestCase {
-	MenuState ms;
+	MenuState _ms;
 	
 	protected void setUp() throws Exception {
-		ms = new MenuState();
+		_ms = new MenuState();
 		super.setUp();
 
 	}
 	
 	public void testMenuState() throws Exception {
-		assertNotNull(ms);
+		assertNotNull(_ms);
 	}
 
 	public void testGetGUIManager() throws Exception {

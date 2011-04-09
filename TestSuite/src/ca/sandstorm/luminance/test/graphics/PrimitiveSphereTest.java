@@ -10,18 +10,18 @@ import android.test.AndroidTestCase;
  */
 public class PrimitiveSphereTest extends AndroidTestCase {
 	
-	private PrimitiveSphere sphere;
+	private PrimitiveSphere _sphere;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		sphere = new PrimitiveSphere();
+		_sphere = new PrimitiveSphere();
 	}
 	
 	/*
 	 * Testing of the constructor
 	 */
 	public void testPrimitiveSphere() throws Exception {
-		assert(sphere != null);
+		assert(_sphere != null);
 	}
 
 	protected void tearDown() throws Exception {

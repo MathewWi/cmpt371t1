@@ -10,18 +10,18 @@ import android.test.AndroidTestCase;
  */
 public class PrimitivePrismTest extends AndroidTestCase {
 	
-	private PrimitivePrism prism;
+	private PrimitivePrism _prism;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		prism = new PrimitivePrism();
+		_prism = new PrimitivePrism();
 	}
 	
 	/*
 	 * Testing of the constructor
 	 */
 	public void testPrimitivePrism() throws Exception {
-		assert(prism != null);
+		assert(_prism != null);
 	}
 
 	protected void tearDown() throws Exception {

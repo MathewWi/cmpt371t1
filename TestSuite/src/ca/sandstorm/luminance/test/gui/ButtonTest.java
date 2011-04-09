@@ -4,14 +4,14 @@ import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.gui.Button;
 
 /**
- * Testing button functionality
+ * Testing _button functionality
  * 
  * @author Amara Daal
  * 
  */
 public class ButtonTest extends AndroidTestCase {
-	Button button;
-	float x, y, width, height;
+	Button _button;
+	float _x, _y, width, height;
 	String title;
 
 	/*
@@ -21,12 +21,12 @@ public class ButtonTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		x = 10;
-		y = 10;
+		_x = 10;
+		_y = 10;
 		width = 1000000;
 		height = 1000000;
 		title = "testButton";
-		button = new Button(x, y, width, height, title);
+		_button = new Button(_x, _y, width, height, title);
 	}
 
 	/*
@@ -45,7 +45,7 @@ public class ButtonTest extends AndroidTestCase {
 	 */
 	public void testButton() {
 
-		assertNotNull(button);
+		assertNotNull(_button);
 	}
 
 
@@ -53,11 +53,11 @@ public class ButtonTest extends AndroidTestCase {
 	 * Test method for {@link ca.sandstorm.luminance.gui.Button#setX(float)}.
 	 */
 	public void testGetSetX() {
-		x = 1;
-		button.setX(x);
+		_x = 1;
+		_button.setX(_x);
 
-		assertTrue(x == button.getX());
-		//assertEquals(x, button.getX(), .001);
+		assertTrue(_x == _button.getX());
+		//assertEquals(x, _button.getX(), .001);
 
 	}
 
@@ -66,11 +66,11 @@ public class ButtonTest extends AndroidTestCase {
 	 * Test method for {@link ca.sandstorm.luminance.gui.Button#setY(float)}.
 	 */
 	public void testGetSetY() {
-		y = 1;
-		button.setY(y);
+		_y = 1;
+		_button.setY(_y);
 
-		assertTrue(y == button.getY());
-		//assertEquals(y, button.getY(), .001);
+		assertTrue(_y == _button.getY());
+		//assertEquals(y, _button.getY(), .001);
 	}
 
 
@@ -80,10 +80,10 @@ public class ButtonTest extends AndroidTestCase {
 	 */
 	public void testGetSetWidth() {
 		width = 1;
-		button.setWidth(width);
+		_button.setWidth(width);
 
-		assertTrue(width == button.getWidth());
-		//assertEquals(width, button.getWidth(), .001);
+		assertTrue(width == _button.getWidth());
+		//assertEquals(width, _button.getWidth(), .001);
 	}
 
 	/**
@@ -92,10 +92,10 @@ public class ButtonTest extends AndroidTestCase {
 	 */
 	public void testGetSetHeight() {
 		height = 1;
-		button.setHeight(height);
+		_button.setHeight(height);
 
-		assertTrue(height == button.getHeight());
-		//assertEquals(height, button.getHeight(), .001);
+		assertTrue(height == _button.getHeight());
+		//assertEquals(height, _button.getHeight(), .001);
 	}
 
 }

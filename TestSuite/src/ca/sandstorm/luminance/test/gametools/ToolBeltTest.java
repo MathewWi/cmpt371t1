@@ -15,17 +15,17 @@ import android.test.AndroidTestCase;
  *
  */
 public class ToolBeltTest extends AndroidTestCase {
-	private Toolbelt tToolbelt;
+	private Toolbelt _tToolbelt;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		int level = 1;
-		tToolbelt = new Toolbelt(new GameState(level));
+		_tToolbelt = new Toolbelt(new GameState(level));
 
 	}
 	
-	public void testToolbelt(){
-		assertTrue(tToolbelt != null);
+	public void tes_tToolbelt(){
+		assertTrue(_tToolbelt != null);
 	}
 
 	// Don't know how to test
@@ -38,11 +38,11 @@ public class ToolBeltTest extends AndroidTestCase {
 	public void testPlaceToolBefore() throws Exception {
 		try{
 			
-			assertNull(tToolbelt.placeTool(ToolType.Mirror, 0,0));
-			assertNull(tToolbelt.placeTool(ToolType.Prism, 0,0));
+			assertNull(_tToolbelt.placeTool(ToolType.Mirror, 0,0));
+			assertNull(_tToolbelt.placeTool(ToolType.Prism, 0,0));
 	
-			assertTrue(tToolbelt.placeTool(ToolType.Mirror, 5000, 5000) == null);
-			assertTrue(tToolbelt.placeTool(ToolType.Prism, 5000, 5000) == null);
+			assertTrue(_tToolbelt.placeTool(ToolType.Mirror, 5000, 5000) == null);
+			assertTrue(_tToolbelt.placeTool(ToolType.Prism, 5000, 5000) == null);
 		} catch (Exception e){
 			assertTrue(true);
 		}
@@ -52,24 +52,24 @@ public class ToolBeltTest extends AndroidTestCase {
 	// Should be able to place all tools into toolbelt
 	public void testAddToolStock() throws Exception {
 		
-		tToolbelt.addToolStock(ToolType.Mirror, 1);
-		tToolbelt.addToolStock(ToolType.Prism, 1);
+		_tToolbelt.addToolStock(ToolType.Mirror, 1);
+		_tToolbelt.addToolStock(ToolType.Prism, 1);
 		
 		try {
-			tToolbelt.addToolStock(ToolType.None, 1);
+			_tToolbelt.addToolStock(ToolType.None, 1);
 			assertTrue(false); // Should not get here
 		} catch (Exception e) {
 			assertTrue(true);
 		}
 		try {
-			tToolbelt.addToolStock(ToolType.Eraser, 1);
+			_tToolbelt.addToolStock(ToolType.Eraser, 1);
 			assertTrue(false); // Should not get here
 		} catch (Exception e) {
 			assertTrue(true);
 		}
 		
-		//assertNull(tToolbelt.placeTool(ToolType.Mirror, 0,1));
-		//assertNull(tToolbelt.placeTool(ToolType.Prism, 0,2));
+		//assertNull(_tToolbelt.placeTool(ToolType.Mirror, 0,1));
+		//assertNull(_tToolbelt.placeTool(ToolType.Prism, 0,2));
 	}
 
 	// Know that the tool stock is empty
@@ -78,19 +78,19 @@ public class ToolBeltTest extends AndroidTestCase {
 	// placing of tool back into tool belt should work
 	public void testEraseTool() throws Exception {
 		try{
-			assertTrue(tToolbelt.placeTool(ToolType.Mirror, 0,0) != null);
-			assertTrue(tToolbelt.placeTool(ToolType.Prism, 0,1) != null);
+			assertTrue(_tToolbelt.placeTool(ToolType.Mirror, 0,0) != null);
+			assertTrue(_tToolbelt.placeTool(ToolType.Prism, 0,1) != null);
 		} catch(Exception e){
 			assertTrue(true);
 		}
 		
-		tToolbelt.eraseTool(0,0);
-		tToolbelt.eraseTool(0,1);
-		tToolbelt.eraseTool(0,2);
-		tToolbelt.eraseTool(0,3);
+		_tToolbelt.eraseTool(0,0);
+		_tToolbelt.eraseTool(0,1);
+		_tToolbelt.eraseTool(0,2);
+		_tToolbelt.eraseTool(0,3);
 		
-		//assertTrue(tToolbelt.placeTool(ToolType.Mirror, 0,1) != null);
-		//assertTrue(tToolbelt.placeTool(ToolType.Prism, 0,2) != null);
+		//assertTrue(_tToolbelt.placeTool(ToolType.Mirror, 0,1) != null);
+		//assertTrue(_tToolbelt.placeTool(ToolType.Prism, 0,2) != null);
 		
 	}
 	

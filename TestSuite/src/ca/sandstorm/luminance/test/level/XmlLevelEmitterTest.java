@@ -6,7 +6,7 @@ import ca.sandstorm.luminance.level.XmlLevelEmitter;
 import android.test.AndroidTestCase;
 
 public class XmlLevelEmitterTest extends AndroidTestCase{
-	XmlLevelEmitter xle;
+	XmlLevelEmitter _xle;
 	
 	protected void setUp() throws Exception {
 		Vector<Float> pos = new Vector<Float>();
@@ -16,11 +16,11 @@ public class XmlLevelEmitterTest extends AndroidTestCase{
 		rot.add(0.0f);
 		rot.add(0.0f);
 		rot.add(0.0f);
-		xle = new XmlLevelEmitter("White", pos, rot);
+		_xle = new XmlLevelEmitter("White", pos, rot);
 		super.setUp();
 	}
 	
 	public void testXmlLevelEmitter() throws Exception {
-		assertNotNull(xle);
+		assertNotNull(_xle);
 	}
 }

@@ -4,15 +4,15 @@ import ca.sandstorm.luminance.gui.TextLabel;
 import android.test.AndroidTestCase;
 
 public class TextLabelTest extends AndroidTestCase{
-	TextLabel tl;
+	TextLabel _tl;
 	
 	protected void setUp() throws Exception {
-		tl = new TextLabel(0,0,0,0, "Hello");
+		_tl = new TextLabel(0,0,0,0, "Hello");
 		super.setUp();
 	}
 	
 	public void testTextLabel() throws Exception {
-		assertNotNull(tl);
+		assertNotNull(_tl);
 	}
 	
 }

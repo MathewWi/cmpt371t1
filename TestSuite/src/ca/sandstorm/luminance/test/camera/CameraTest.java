@@ -13,45 +13,45 @@ import ca.sandstorm.luminance.camera.Camera;
  */
 public class CameraTest extends AndroidTestCase {
 
-	private Camera camera;
+	private Camera _camera;
 
-	private Vector3f target, eye;
+	private Vector3f _target, _eye;
 
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		camera = new Camera();
+		_camera = new Camera();
 		
-		target = new Vector3f(0, 0, 0);
-		eye = new Vector3f(0, 0, 0);
+		_target = new Vector3f(0, 0, 0);
+		_eye = new Vector3f(0, 0, 0);
 	}
 
 	public void testGetEye() throws Exception {
-		assertTrue(camera.getEye().equals(eye));
+		assertTrue(_camera.getEye().equals(_eye));
 	}
 
 	public void testGetTarget() throws Exception {
-		assertTrue(camera.getTarget().equals(target));
+		assertTrue(_camera.getTarget().equals(_target));
 	}
 
 	public void testSetEye() throws Exception {
-		Vector3f eyeTwo = new Vector3f(1, 1, 1);
+		Vector3f _eyeTwo = new Vector3f(1, 1, 1);
 
-		camera.setEye(new Vector3f(1, 1, 1));
-		assertTrue(camera.getEye().equals(eyeTwo));
+		_camera.setEye(new Vector3f(1, 1, 1));
+		assertTrue(_camera.getEye().equals(_eyeTwo));
 
-		camera.setEye(1, 0, 1);
-		assertTrue(camera.getEye().equals(new Vector3f(1, 0, 1)));
+		_camera.setEye(1, 0, 1);
+		assertTrue(_camera.getEye().equals(new Vector3f(1, 0, 1)));
 	}
 
 	public void testSetTarget() throws Exception {
-		Vector3f targetTwo = new Vector3f(1, 1, 1);
+		Vector3f _targetTwo = new Vector3f(1, 1, 1);
 
-		camera.setTaret(new Vector3f(1, 1, 1));
-		assertTrue(camera.getTarget().equals(targetTwo));
+		_camera.setTaret(new Vector3f(1, 1, 1));
+		assertTrue(_camera.getTarget().equals(_targetTwo));
 
-		camera.setTarget(1, 0, 1);
-		assertTrue(camera.getTarget().equals(new Vector3f(1, 0, 1)));
+		_camera.setTarget(1, 0, 1);
+		assertTrue(_camera.getTarget().equals(new Vector3f(1, 0, 1)));
 	}
 
 	public void testSetUp() throws Exception {
@@ -86,27 +86,27 @@ public class CameraTest extends AndroidTestCase {
 
 	public void testMove() throws Exception {
 		float dis, x, y, z;
-		Vector3f target, eye;
+		Vector3f _target, _eye;
 
 		dis = 2;
 		x = 3;
 		y = 4;
 		z = 5;
 
-		target = new Vector3f(camera.getTarget());
-		target.x += dis * x;
-		target.y += dis * y;
-		target.z += dis * z;
+		_target = new Vector3f(_camera.getTarget());
+		_target.x += dis * x;
+		_target.y += dis * y;
+		_target.z += dis * z;
 
-		eye = new Vector3f(camera.getEye());
-		eye.x += dis * x;
-		eye.y += dis * y;
-		eye.z += dis * z;
+		_eye = new Vector3f(_camera.getEye());
+		_eye.x += dis * x;
+		_eye.y += dis * y;
+		_eye.z += dis * z;
 
-		camera.move(dis, x, y, z);
+		_camera.move(dis, x, y, z);
 
-		assertTrue(target.equals(camera.getTarget()));
-		assertTrue(eye.equals(camera.getEye()));
+		assertTrue(_target.equals(_camera.getTarget()));
+		assertTrue(_eye.equals(_camera.getEye()));
 	}
 
 	public void testMoveDirection() throws Exception {
@@ -116,13 +116,13 @@ public class CameraTest extends AndroidTestCase {
 	}
 
 	public void testRotateCamera() {
-		Vector3f target = new Vector3f(camera.getTarget());
-		camera.rotateCamera(1, 2, 3, 4);
-		Vector3f targetTwo = new Vector3f(camera.getTarget());
+		Vector3f _target = new Vector3f(_camera.getTarget());
+		_camera.rotateCamera(1, 2, 3, 4);
+		Vector3f _targetTwo = new Vector3f(_camera.getTarget());
 
-		assertTrue(target.x == targetTwo.x);
-		assertTrue(target.y == targetTwo.y);
-		assertTrue(target.z == targetTwo.z);
+		assertTrue(_target.x == _targetTwo.x);
+		assertTrue(_target.y == _targetTwo.y);
+		assertTrue(_target.z == _targetTwo.z);
 	}
 
 	public void testGetCurrentModelView() throws Exception {
@@ -141,6 +141,6 @@ public class CameraTest extends AndroidTestCase {
 	}
 
 	public void testGetWorldCoords() throws Exception {
-		assertNotNull(camera.getWorldCoord(new Vector2f(5, 5)));
+		assertNotNull(_camera.getWorldCoord(new Vector2f(5, 5)));
 	}
 }

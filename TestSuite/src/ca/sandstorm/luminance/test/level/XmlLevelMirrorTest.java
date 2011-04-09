@@ -10,16 +10,16 @@ import android.test.AndroidTestCase;
  */
 public class XmlLevelMirrorTest extends AndroidTestCase {
 
-	private XmlLevelMirror tMirror;
+	private XmlLevelMirror _tMirror;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		tMirror = new XmlLevelMirror(5);
+		_tMirror = new XmlLevelMirror(5);
 	}
 	
 	public void testXmlLevelMirror(){
-		assertNotNull(tMirror);
+		assertNotNull(_tMirror);
 	}
 	
 	public void testGetId(){

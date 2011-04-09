@@ -4,15 +4,15 @@ import ca.sandstorm.luminance.math.MatrixStack;
 import android.test.AndroidTestCase;
 
 public class MatrixStackTest extends AndroidTestCase{
-	MatrixStack ms;
+	MatrixStack _ms;
 	
 	protected void setUp() throws Exception {
-		ms = new MatrixStack(1);
+		_ms = new MatrixStack(1);
 		super.setUp();
 	}
 	
 	public void testMatrixStack() throws Exception {
-		assertNotNull(ms);
+		assertNotNull(_ms);
 	}
 
 }

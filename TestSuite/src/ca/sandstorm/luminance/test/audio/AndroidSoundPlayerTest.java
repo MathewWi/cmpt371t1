@@ -14,10 +14,10 @@ import ca.sandstorm.luminance.resources.SoundResource;
  */
 public class AndroidSoundPlayerTest extends AndroidTestCase {
 
-	private AndroidSoundPlayer player;
-	private int streamId = 0;
-	private ResourceManager resManager;
-	private SoundResource sound;
+	private AndroidSoundPlayer _player;
+	private int _streamId = 0;
+	private ResourceManager _resManager;
+	private SoundResource _sound;
 
 	/*
 	 * (non-Javadoc)
@@ -26,15 +26,15 @@ public class AndroidSoundPlayerTest extends AndroidTestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		player = new AndroidSoundPlayer();
-		resManager = new ResourceManager();
+		_player = new AndroidSoundPlayer();
+		_resManager = new ResourceManager();
 	}
 
 	/*
 	 * Testing of the getPool() method
 	 */
 	public void testGetPool() throws Exception {
-		SoundPool testPool = player.getPool();
+		SoundPool testPool = _player.getPool();
 		assertTrue(testPool != null);
 	}
 
@@ -43,9 +43,9 @@ public class AndroidSoundPlayerTest extends AndroidTestCase {
 	 */
 	public void testPlay() throws Exception {
 		try {
-			sound = resManager.loadSound(player.getPool(), "sample.ogg");
-			streamId = player.play(sound, (new Float(0.5)));
-			assertTrue (streamId != 0);
+			_sound = _resManager.loadSound(_player.getPool(), "sample.ogg");
+			_streamId = _player.play(_sound, (new Float(0.5)));
+			assertTrue (_streamId != 0);
 		} catch (Exception ex) {
 		}
 	}
@@ -54,7 +54,7 @@ public class AndroidSoundPlayerTest extends AndroidTestCase {
 	 * Testing of the stop() method
 	 */
 	public void testStop() throws Exception {
-		player.stop(streamId);
+		_player.stop(_streamId);
 	}
 
 	/*

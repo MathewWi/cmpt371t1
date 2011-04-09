@@ -17,7 +17,7 @@ import android.test.AndroidTestCase;
  */
 public class XmlLevelGoalTest extends AndroidTestCase {
 	
-	private XmlLevelGoal tGoalWhite, tGoalRed, tGoalGreen, tGoalBlue, tGoalOut;
+	private XmlLevelGoal _tGoalWhite, _tGoalRed, _tGoalGreen, _tGoalBlue, _tGoalOut;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -28,40 +28,40 @@ public class XmlLevelGoalTest extends AndroidTestCase {
 		dir.add(0.0f);
 		dir.add(0.0f);
 		dir.add(0.0f);
-		tGoalWhite = new XmlLevelGoal("WhitE",pos,dir);
-		tGoalRed = new XmlLevelGoal("rEd",pos,dir);
-		tGoalGreen = new XmlLevelGoal("Green",pos,dir);
-		tGoalBlue = new XmlLevelGoal("BLUE", pos,dir);
+		_tGoalWhite = new XmlLevelGoal("WhitE",pos,dir);
+		_tGoalRed = new XmlLevelGoal("rEd",pos,dir);
+		_tGoalGreen = new XmlLevelGoal("Green",pos,dir);
+		_tGoalBlue = new XmlLevelGoal("BLUE", pos,dir);
 		
 		try {
-			tGoalOut = new XmlLevelGoal("HerpaDerp",pos,dir);
+			_tGoalOut = new XmlLevelGoal("HerpaDerp",pos,dir);
 		} catch (Exception e) {
 			// Should still stay null
 		}
 	}
 	
 	public void testXmlLevelGoal(){
-		assertNotNull(tGoalWhite);
-		assertNotNull(tGoalRed);
-		assertNotNull(tGoalGreen);
-		assertNotNull(tGoalBlue);
-		assertNull(tGoalOut);
+		assertNotNull(_tGoalWhite);
+		assertNotNull(_tGoalRed);
+		assertNotNull(_tGoalGreen);
+		assertNotNull(_tGoalBlue);
+		assertNull(_tGoalOut);
 	}
 
 	public void testIsValidColour() throws Exception {
-		assertTrue(tGoalWhite.isValidColour("WHITE"));
-		assertTrue(tGoalWhite.isValidColour("RED"));
-		assertTrue(tGoalWhite.isValidColour("GREEN"));
-		assertTrue(tGoalWhite.isValidColour("BLUE"));
-		assertTrue(tGoalWhite.isValidColour("WHITE"));
+		assertTrue(_tGoalWhite.isValidColour("WHITE"));
+		assertTrue(_tGoalWhite.isValidColour("RED"));
+		assertTrue(_tGoalWhite.isValidColour("GREEN"));
+		assertTrue(_tGoalWhite.isValidColour("BLUE"));
+		assertTrue(_tGoalWhite.isValidColour("WHITE"));
 
 	}
 
 	public void testGetColour() throws Exception {
-		assertEquals(tGoalWhite.getColour(), Color.WHITE);
-		assertEquals(tGoalRed.getColour(), Color.RED);
-		assertEquals(tGoalGreen.getColour(), Color.GREEN);
-		assertEquals(tGoalBlue.getColour(), Color.BLUE);
+		assertEquals(_tGoalWhite.getColour(), Color.WHITE);
+		assertEquals(_tGoalRed.getColour(), Color.RED);
+		assertEquals(_tGoalGreen.getColour(), Color.GREEN);
+		assertEquals(_tGoalBlue.getColour(), Color.BLUE);
 	}
 
 }

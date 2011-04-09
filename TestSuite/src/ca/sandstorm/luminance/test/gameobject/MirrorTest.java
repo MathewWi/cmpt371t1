@@ -17,14 +17,14 @@ import ca.sandstorm.luminance.gameobject.RenderType;
  * 
  */
 public class MirrorTest extends AndroidTestCase {
-	Mirror myMirror;
+	Mirror _myMirror;
 
 	/**
 	 * Create an instance of Box to test.
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		myMirror = new Mirror(new Vector3f(0, 0, 0));
+		_myMirror = new Mirror(new Vector3f(0, 0, 0));
 	}
 	
 	/**
@@ -33,7 +33,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderable() throws Exception {
-		assertTrue(myMirror.getRenderable() != null);
+		assertTrue(_myMirror.getRenderable() != null);
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetTexture() throws Exception {
-		assertNotNull(myMirror.getTexture());
+		assertNotNull(_myMirror.getTexture());
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRenderType() throws Exception {
-		RenderType dummy = myMirror.getRenderType();
+		RenderType dummy = _myMirror.getRenderType();
 		assertTrue(dummy == RenderType.Normal);
 	}
 	
@@ -62,7 +62,7 @@ public class MirrorTest extends AndroidTestCase {
 	 */
 	public void testGetCollisionSphere()
 	{
-		assertNotNull(myMirror.getCollisionSphere());
+		assertNotNull(_myMirror.getCollisionSphere());
 	}
 	
 	/**
@@ -78,9 +78,9 @@ public class MirrorTest extends AndroidTestCase {
 		lb.add(0, l);
 		lbc.add(0, lb);
 		
-		myMirror.beamInteract(lbc, 0, 0);
+		_myMirror.beamInteract(lbc, 0, 0);
 		
-		assertTrue(l.getEndTouchedObject().equals(myMirror));
+		assertTrue(l.getEndTouchedObject().equals(_myMirror));
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testUpdate() throws Exception {
-		// assertTrue(myMirror.Update());
+		// assertTrue(_myMirror.Update());
 		// TODO: write proper tests
 	}
 
@@ -99,7 +99,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testDestroy() throws Exception {
-		// assertTrue(myMirror.destroy());
+		// assertTrue(_myMirror.destroy());
 		// TODO: write proper tests
 	}
 
@@ -109,7 +109,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetPosition() throws Exception {
-		Vector3f dummy = myMirror.getPosition();
+		Vector3f dummy = _myMirror.getPosition();
 		assertTrue(dummy.x == 0);
 		assertTrue(dummy.y == 0);
 		assertTrue(dummy.z == 0);
@@ -121,7 +121,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetRotation() throws Exception {
-		Vector4f dummy = myMirror.getRotation();
+		Vector4f dummy = _myMirror.getRotation();
 		assertTrue(dummy.w == 0.0f);
 		assertTrue(dummy.x == 0.0f);
 		assertTrue(dummy.y == 45.0f);
@@ -134,7 +134,7 @@ public class MirrorTest extends AndroidTestCase {
 	 * @throws Exception
 	 */
 	public void testGetScale() throws Exception {
-		Vector3f dummy = myMirror.getScale();
+		Vector3f dummy = _myMirror.getScale();
 		assertTrue(dummy.x == 0.1f);
 		assertTrue(dummy.y == 0.5f);
 		assertTrue(dummy.z == 0.5f);

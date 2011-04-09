@@ -4,14 +4,14 @@ import ca.sandstorm.luminance.mock.mockTouchFilter;
 import android.test.AndroidTestCase;
 
 public class TouchFilterTest extends AndroidTestCase{
-	mockTouchFilter tf;
+	mockTouchFilter _tf;
 	
 	protected void setUp() throws Exception {
-		tf = new mockTouchFilter();
+		_tf = new mockTouchFilter();
 		super.setUp();
 	}
 	
 	public void testMultiTouchFilter() throws Exception {
-		assertNotNull(tf);
+		assertNotNull(_tf);
 	}
 }

@@ -10,16 +10,16 @@ import android.test.AndroidTestCase;
  */
 public class XmlLevelPrismTest extends AndroidTestCase {
 	
-	private XmlLevelPrism tPrism;
+	private XmlLevelPrism _tPrism;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		tPrism = new XmlLevelPrism(5);
+		_tPrism = new XmlLevelPrism(5);
 	}
 	
 	public void testXmlLevelPrism(){
-		assertNotNull(tPrism);
+		assertNotNull(_tPrism);
 	}
 	
 	public void testGetId(){

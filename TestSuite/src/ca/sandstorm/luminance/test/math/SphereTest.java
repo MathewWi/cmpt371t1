@@ -4,14 +4,14 @@ import android.test.AndroidTestCase;
 import ca.sandstorm.luminance.math.Sphere;
 
 public class SphereTest extends AndroidTestCase{
-	Sphere s;
+	Sphere _s;
 	
 	protected void setUp() throws Exception {
-		s = new Sphere(0,0,0,0);
+		_s = new Sphere(0,0,0,0);
 		super.setUp();
 	}
 	
 	public void testSphere() throws Exception {
-		assertNotNull(s);
+		assertNotNull(_s);
 	}
 }

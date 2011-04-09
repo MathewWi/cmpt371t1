@@ -12,7 +12,7 @@ import ca.sandstorm.luminance.resources.TextureResource;
  * 
  */
 public class TextureResourceTest extends AndroidTestCase {
-	private TextureResource texResource;
+	private TextureResource _texResource;
 
 	/**
 	 * Set up an instance to test with
@@ -22,7 +22,7 @@ public class TextureResourceTest extends AndroidTestCase {
 		
 		GL10 gl = null;
 
-		texResource = new TextureResource("texture1", 1, gl);
+		_texResource = new TextureResource("texture1", 1, gl);
 	}
 
 	/**
@@ -32,9 +32,9 @@ public class TextureResourceTest extends AndroidTestCase {
 	 */
 	public void testGetName() throws Exception {
 
-		assertTrue(texResource.getName().equals("texture1"));
-		assertFalse(texResource.getName().equals(""));
-		assertFalse(texResource.getName() == null);
+		assertTrue(_texResource.getName().equals("texture1"));
+		assertFalse(_texResource.getName().equals(""));
+		assertFalse(_texResource.getName() == null);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class TextureResourceTest extends AndroidTestCase {
 	 */
 	public void testGetSound() throws Exception {
 
-		assertTrue(texResource.getTexture() == 1);
+		assertTrue(_texResource.getTexture() == 1);
 	}
 
 	/**
@@ -52,6 +52,6 @@ public class TextureResourceTest extends AndroidTestCase {
 	 */
 	protected void tearDown() throws Exception {
 		super.tearDown();
-		texResource.dispose();
+		_texResource.dispose();
 	}
 }

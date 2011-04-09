@@ -12,16 +12,16 @@ import ca.sandstorm.luminance.resources.ImageResource;
  * 
  */
 public class ImageResourceTest extends AndroidTestCase {
-	private ImageResource imResource;
-	private Bitmap bMap;
+	private ImageResource _imResource;
+	private Bitmap _bMap;
 
 	/**
 	 * Set up an instance to test with
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		bMap = BitmapFactory.decodeFile("skyBack.jpg");
-		imResource = new ImageResource("imageRes", bMap);
+		_bMap = BitmapFactory.decodeFile("skyBack.jpg");
+		_imResource = new ImageResource("imageRes", _bMap);
 	}
 
 	/**
@@ -31,9 +31,9 @@ public class ImageResourceTest extends AndroidTestCase {
 	 */
 	public void testGetName() throws Exception {
 		
-		assertTrue(imResource.getName().equals("imageRes"));
-		assertFalse(imResource.getName().equals(""));
-		assertFalse(imResource.getName() == null);
+		assertTrue(_imResource.getName().equals("imageRes"));
+		assertFalse(_imResource.getName().equals(""));
+		assertFalse(_imResource.getName() == null);
 	}
 
 	/**
@@ -43,6 +43,6 @@ public class ImageResourceTest extends AndroidTestCase {
 	 */
 	public void testGetMemorySize() throws Exception {
 
-		assertTrue(imResource.getMemorySize() == 0);
+		assertTrue(_imResource.getMemorySize() == 0);
 	}
 }

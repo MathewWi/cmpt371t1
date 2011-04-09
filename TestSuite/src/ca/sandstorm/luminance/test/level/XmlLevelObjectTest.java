@@ -13,7 +13,7 @@ public class XmlLevelObjectTest extends AndroidTestCase {
 		
 	// USE MOCK OBJECTS
 	@SuppressWarnings("unused")
-	private XmlLevelObject tObjectBrick, tObjectGoal, tObjectOut;
+	private XmlLevelObject _tObjectBrick, _tObjectGoal, _tObjectOut;
 	
 	protected void setUp() throws Exception {
 		super.setUp();

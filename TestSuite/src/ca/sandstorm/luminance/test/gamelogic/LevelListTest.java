@@ -9,7 +9,7 @@ import android.test.AndroidTestCase;
  */
 public class LevelListTest extends AndroidTestCase{
 	
-	private LevelList list;
+	private LevelList _list;
 
 	/**
 	 * Setting up required instances
@@ -17,7 +17,7 @@ public class LevelListTest extends AndroidTestCase{
 	 */
 	@Before
 	public void setUp() throws Exception {
-		list = new LevelList("BasicPack.lst");
+		_list = new LevelList("BasicPack.lst");
 	}
 	
 	/**
@@ -25,7 +25,7 @@ public class LevelListTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testLevelList() throws Exception {
-		assert(list != null);
+		assert(_list != null);
 	}
 	
 	/**
@@ -33,7 +33,7 @@ public class LevelListTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testGetCurrentLevel() throws Exception {
-		assert(list.getCurrentLevel().equals("level1.xml"));
+		assert(_list.getCurrentLevel().equals("level1.xml"));
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class LevelListTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testGetCurrentLevelIndex() throws Exception {
-		assert(list.getCurrentLevelIndex() == 0);
+		assert(_list.getCurrentLevelIndex() == 0);
 	}
 
 	/**
@@ -49,8 +49,8 @@ public class LevelListTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testSetCurrentLevel() throws Exception {
-		list.setCurrentLevel(3);
-		assert(list.getCurrentLevelIndex() == 3);
+		_list.setCurrentLevel(3);
+		assert(_list.getCurrentLevelIndex() == 3);
 	}
 	
 	/**
@@ -58,10 +58,10 @@ public class LevelListTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testIterateNextLevel() throws Exception {
-		list.iterateNextLevel();
-		assert(list.getCurrentLevelIndex() == 4);
-		list.iterateNextLevel();
-		assert(list.getCurrentLevelIndex() == 5);
+		_list.iterateNextLevel();
+		assert(_list.getCurrentLevelIndex() == 4);
+		_list.iterateNextLevel();
+		assert(_list.getCurrentLevelIndex() == 5);
 	}
 	
 	/**
@@ -69,9 +69,9 @@ public class LevelListTest extends AndroidTestCase{
 	 * @throws Exception
 	 */
 	public void testIsPackFinished() throws Exception {
-		list.setCurrentLevel(0);
-		assert(!list.isPackFinished());
-		list.setCurrentLevel(500);
-		assert(list.isPackFinished());
+		_list.setCurrentLevel(0);
+		assert(!_list.isPackFinished());
+		_list.setCurrentLevel(500);
+		assert(_list.isPackFinished());
 	}
 }
